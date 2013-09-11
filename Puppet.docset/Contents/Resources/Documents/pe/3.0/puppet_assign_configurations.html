@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>PE 3.0 » Puppet » Assigning Configurations to Nodes — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../favicon.ico' />
+
+
+  <meta name="description" content="SummaryAs we&#8217;ve established, classes are named chunks of Puppet code that generally manage a fairly limited piece of configuration. Classes c...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/pe/latest/puppet_assign_configurations.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">PE 3.0 » Puppet » Assigning Configurations to Nodes</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>Puppet: Assigning Configurations to Nodes</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#summary">Summary</a></li>
+  <li class="toc-lv2"><a href="#basics-of-assigning-and-configuring-classes">Basics of Assigning and Configuring Classes</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#assigning-classes">Assigning Classes</a></li>
+   <li class="toc-lv3"><a href="#configuring-classes">Configuring Classes</a></li>
+   <li class="toc-lv3"><a href="#class-parameters">Class Parameters</a></li>
+   <li class="toc-lv3"><a href="#top-scope-variables">Top-Scope Variables</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#data-sources-in-puppet-enterprise">Data Sources in Puppet Enterprise</a></li>
+  <li class="toc-lv2"><a href="#assigning-configuration-data-with-the-site-manifest-sitepp">Assigning Configuration Data with the Site Manifest (site.pp)</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#characteristics">Characteristics</a></li>
+   <li class="toc-lv3"><a href="#recommendations">Recommendations</a></li>
+   <li class="toc-lv3"><a href="#node-definitions">Node Definitions</a></li>
+   <li class="toc-lv3"><a href="#assigning-classes-with-sitepp">Assigning Classes With Site.pp</a></li>
+   <li class="toc-lv3"><a href="#assigning-class-parameters-with-sitepp">Assigning Class Parameters With Site.pp</a></li>
+   <li class="toc-lv3"><a href="#assigning-variables-with-sitepp">Assigning Variables With Site.pp</a></li>
+   <li class="toc-lv3"><a href="#working-with-other-data-sources">Working With Other Data Sources</a></li>
+   <li class="toc-lv3"><a href="#lone-resources">Lone Resources</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#assigning-configuration-data-with-the-pe-console">Assigning Configuration Data with the PE Console</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#characteristics-1">Characteristics</a></li>
+   <li class="toc-lv3"><a href="#recommendations-1">Recommendations</a></li>
+   <li class="toc-lv3"><a href="#nodes-and-groups">Nodes and Groups</a></li>
+   <li class="toc-lv3"><a href="#assigning-classes-with-the-console">Assigning Classes With the Console</a></li>
+   <li class="toc-lv3"><a href="#assigning-class-parameters-with-the-console">Assigning Class Parameters With the Console</a></li>
+   <li class="toc-lv3"><a href="#assigning-variables-with-the-console">Assigning Variables With the Console</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#assigning-configuration-data-with-hiera">Assigning Configuration Data with Hiera</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#characteristics-2">Characteristics</a></li>
+   <li class="toc-lv3"><a href="#recommendations-2">Recommendations</a></li>
+   <li class="toc-lv3"><a href="#configuring-hiera">Configuring Hiera</a></li>
+   <li class="toc-lv3"><a href="#assigning-classes-with-hiera">Assigning Classes With Hiera</a></li>
+   <li class="toc-lv3"><a href="#assigning-class-parameters-with-hiera">Assigning Class Parameters With Hiera</a></li>
+   <li class="toc-lv3"><a href="#providing-arbitrary-data">Providing Arbitrary Data</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#assigning-configuration-data-with-role-and-profile-modules">Assigning Configuration Data with Role and Profile Modules</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#characteristics-3">Characteristics</a></li>
+   <li class="toc-lv3"><a href="#recommendations-3">Recommendations</a></li>
+   <li class="toc-lv3"><a href="#assigning-classes-with-role-and-profile-modules">Assigning Classes With Role and Profile Modules</a></li>
+   <li class="toc-lv3"><a href="#assigning-class-parameters-with-role-and-profile-modules">Assigning Class Parameters With Role and Profile Modules</a></li>
+   <li class="toc-lv3"><a href="#dealing-with-classes-that-require-top-scope-variables">Dealing with Classes that Require Top-Scope Variables</a></li>
+   <li class="toc-lv3"><a href="#lone-resources-1">Lone Resources</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#querying-puppetdb-for-supplementary-configuration-data">Querying PuppetDB for Supplementary Configuration Data</a></li>
+  <li class="toc-lv2"><a href="#querying-an-external-cmdb-for-supplementary-configuration-data">Querying an External CMDB for Supplementary Configuration Data</a></li>
+  <li class="toc-lv2"><a href="#using-puppet-agents-facts-as-hints-for-configuration-data">Using Puppet Agent&#8217;s Facts as Hints for Configuration Data</a></li>
+</ol></nav>
+
+<h2 id="summary">Summary</h2>
+
+<p>As we&#8217;ve established, <strong>classes</strong> are named chunks of Puppet code that generally manage a fairly limited piece of configuration. Classes can be assigned directly to nodes.  </p>
+
+<p>Each node&#8217;s complete configuration will be composed of many classes. Puppet Enterprise (PE) provides several facilities for choosing which classes will be assigned to which nodes, as well as for configuring those classes. This page describes the basic concepts of assigning and configuring classes, and details each available source of class and configuration data in Puppet Enterprise.</p>
+
+<p>You can also read more about classes in <a href="./puppet_modules_manifests.html">Puppet Modules and Manifests</a> and <a href="./puppet_overview.html">Puppet Overview</a>.</p>
+
+<h2 id="basics-of-assigning-and-configuring-classes">Basics of Assigning and Configuring Classes</h2>
+
+<h3 id="assigning-classes">Assigning Classes</h3>
+
+<p><em>Assigning</em> a class to a node (also called <em>declaring</em> a class, when it&#8217;s done in a Puppet manifest) causes Puppet to evaluate the resources in that class and add them to that node&#8217;s configuration catalog.</p>
+
+<p>Before you can assign a class, it must first be available to the puppet master. This means it must be present in an installed module.</p>
+
+<p>Puppet Enterprise has several methods for assigning classes; these are described in the section on <strong>data sources</strong> below.</p>
+
+<h3 id="configuring-classes">Configuring Classes</h3>
+
+<p>Some classes can be assigned with no configuration, but many classes can (or must) be configured to change their behavior. This gives a class the flexibility to meet different needs for different nodes and different infrastructures.</p>
+
+<p>There are two main ways to configure classes in Puppet: using <strong>class parameters</strong> and/or <strong>top-scope variables.</strong> Each module&#8217;s author dictates which method to use; see the documentation of the classes you are using for local details.</p>
+
+<p>If you are using a diverse set of modules written by many authors, you will likely need to use a mixture of these two methods.</p>
+
+<h3 id="class-parameters">Class Parameters</h3>
+
+<p>Class parameters are a way for classes to explicitly ask for configuration data; see <a href="./../../puppet/3/reference/lang_classes.html#class-parameters-and-variables">the Puppet language reference page on classes</a> for more details. Each parameter for a class can be marked as optional or mandatory by the class&#8217;s author.</p>
+
+<p>Class parameters can be set by the PE Console, Hiera, site.pp, and role/profile modules. In all of these sources except Hiera,
+you must make sure that all parameters for a given class <strong>only come from one data source.</strong>  Class parameters from Hiera can co-exist with parameters from one other data source, although in the event of a conflict the other source will override the Hiera values.</p>
+
+<p>Depending on which data sources you use, class parameters may be linked to the place where the class is assigned, or may be specified elsewhere.</p>
+
+<h3 id="top-scope-variables">Top-Scope Variables</h3>
+
+<p>Instead of defining class parameters, classes may also look up <a href="./../../puppet/3/reference/lang_scope.html#top-scope">top-scope</a> Puppet variables and use their values as configuration. In older versions of Puppet (0.25 and earlier), this was the only way to configure classes, and it remained more convenient for several more versions. You will still encounter some classes written to use top-scope variables as configuration.</p>
+
+<p>Classes written this way should clearly state which variables to set in their documentation.</p>
+
+<p>Top-scope variables can be set by the PE console, site.pp, and the puppet agent (in the form of facts). You must make sure that any given variable will <strong>only come from one data source.</strong></p>
+
+<p>The site.pp file is in a unique position, as it can convert arbitrary data from Hiera, PuppetDB, or an external CMDB into top-scope variables.</p>
+
+<p>Variables to configure a class may come from the place where the class is assigned, or may come from elsewhere.</p>
+
+<h2 id="data-sources-in-puppet-enterprise">Data Sources in Puppet Enterprise</h2>
+
+<p>In PE, Puppet will use the following <strong>data sources</strong> to configure classes and assign them to nodes:</p>
+
+<p><a href="images/puppet/pe-configuration-data.png"> <img src="images/puppet/pe-configuration-data-small.png" alt="The configuration data sources available in Puppet Enterprise" /> </a></p>
+
+<p>(Click to enlarge.)</p>
+
+<blockquote>
+  <h4 id="accessibility-note-description-of-diagram">Accessibility Note: Description of Diagram</h4>
+
+  <p>The diagram above shows seven different data sources providing varying kinds of data to the puppet master. Clockwise from the upper left:</p>
+
+  <ol>
+    <li><a href="#assigning-configuration-data-with-the-site-manifest-sitepp">site.pp (site manifest)</a>. Can assign <strong>classes, class parameters,</strong> and <strong>variables.</strong> It is unique in that it can also declare resources outside any class.</li>
+    <li><a href="#assigning-configuration-data-with-hiera">Hiera</a>, which is composed of several levels of hierarchical data sources. Can assign <strong>classes</strong> and <strong>class parameters,</strong> and provide <strong>arbitrary data.</strong></li>
+    <li><a href="#assigning-configuration-data-with-the-pe-console">The PE Console</a>, which is composed of nodes and groups. Can assign <strong>classes, class parameters</strong>, and <strong>variables.</strong></li>
+    <li><a href="#querying-puppetdb-for-supplementary-configuration-data">PuppetDB</a>. Can provide <strong>exported resources</strong> and <strong>generated data</strong> (via functions).</li>
+    <li><a href="#querying-an-external-cmdb-for-supplementary-configuration-data">External CMDB</a> (shown as a cloud to indicate that it is optional and Puppet Enterprise knows nothing about it). Can provide <strong>arbitrary data</strong> (via functions).</li>
+    <li><a href="#using-puppet-agents-facts-as-hints-for-configuration-data">Puppet agent</a>. Can provide facts, which are assigned as top-scope <strong>variables.</strong></li>
+    <li>Puppet modules, which include <a href="#assigning-configuration-data-with-role-and-profile-modules">two special sub-elements labeled &#8220;roles&#8221; and &#8220;profiles.&#8221;</a> The set of modules as a whole provides the set of <strong>available classes</strong> which can be assigned by other data sources. The role and profile modules can assign <strong>classes</strong> and <strong>class parameters</strong>.</li>
+  </ol>
+</blockquote>
+
+<p>In this diagram, we can distinguish between two kinds of data sources:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Primary Data Sources</th>
+      <th>Assisting Data Sources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PE console, site.pp, Hiera, role/profile modules</td>
+      <td>Puppet agent (facts), PuppetDB, external CMDBs</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>The <strong>primary data sources</strong> can directly assign classes and configuration data to a node; you will use some combination of them to control what configurations your nodes will receive.</li>
+  <li>The <strong>assisting data sources</strong> provide other kinds of data. This data can be used directly by modules, or used by a primary data source to help assign configuration data to nodes.</li>
+</ul>
+
+<p>The remainder of  this page describes in detail each of the data sources available to Puppet Enterprise. Most users should choose a few primary data sources based on their deployment&#8217;s needs; read the &#8220;characteristics&#8221; and &#8220;recommendations&#8221; sections for each data source to understand their benefits and drawbacks.</p>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<h2 id="assigning-configuration-data-with-the-site-manifest-sitepp">Assigning Configuration Data with the Site Manifest (site.pp)</h2>
+
+<h3 id="characteristics">Characteristics</h3>
+
+<p>The site manifest (<code>/etc/puppetlabs/puppet/manifests/site.pp</code> on the puppet master server) is a primary data source. It can:</p>
+
+<ul>
+  <li>Assign classes</li>
+  <li>Configure classes with parameters</li>
+  <li>Configure classes with top-scope (and node-scope) variables</li>
+  <li>Convert arbitrary data from other sources into class parameters or variables</li>
+  <li>Declare lone resources, outside any class</li>
+</ul>
+
+<p>Site.pp is a normal manifest written in the Puppet language, and is the entry point for the puppet master server &#8212; catalog compilation always starts with this file. It&#8217;s the original Puppet data source, predating nearly everything else about Puppet, and it remains very useful for certain use cases.</p>
+
+<p>Site.pp should be managed with version control and deployed to the puppet master server using a controlled release process. Access to configuration data in site.pp is managed by your organization&#8217;s specific version control and code deployment procedures.</p>
+
+<blockquote>
+  <h3 id="recommendations">Recommendations</h3>
+
+  <p>In general, using site.pp as your only data source is not recommended. Node definitions lack flexibility and can have hidden pitfalls, so users with a reasonably complex deployment should put most of their effort into Hiera or role/profile modules.</p>
+</blockquote>
+
+<h3 id="node-definitions">Node Definitions</h3>
+
+<p>Site.pp can use <a href="./../../puppet/3/reference/lang_node_definitions.html">node definitions</a> (also called node statements) to restrict blocks of Puppet code to a specific node or set of nodes.</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">node</span> <span class="s1">&#39;web01.example.com&#39;</span> <span class="p">{</span>
+      <span class="c1"># ...arbitrary puppet code</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>Puppet code <strong>outside</strong> any node definition will be applied to <strong>every</strong> node.</li>
+  <li>Puppet code <strong>inside</strong> a node definition will only be applied to nodes that <strong>match</strong> that definition.</li>
+</ul>
+
+<p>Node definitions were Puppet&#8217;s original way to assign classes to specific nodes, and they remain useful for deployments that are small or have mostly homogeneous groups of systems. See <a href="./../../puppet/3/reference/lang_node_definitions.html">the node definitions page in the Puppet 3 language reference</a> for complete details about their syntax and behavior.</p>
+
+<p>In particular, note that if you have <strong>any</strong> node definitions in site.pp, you must also have a node definition named <code>default</code>, even if it has nothing in it.</p>
+
+<p>Site.pp can also <a href="./../../puppet/3/reference/lang_import.html">import other files</a>, as in the common <code>import nodes/*.pp</code> pattern &#8212; this will behave as though the code in the imported files was in site.pp.</p>
+
+<blockquote>
+  <p><strong>Warning:</strong> Don&#8217;t attempt to use <a href="./../../puppet/3/reference/lang_node_definitions.html#inheritance">node inheritance</a> to create hierarchical overrides of class configuration. Derived node definitions can <em>add classes</em> to their parent node, but cannot <em>reconfigure classes</em> (by changing variables or class parameters) that were declared in their parent node.</p>
+
+  <p>To set up hierarchical overrides of class configuration, use some combination of Hiera, role/profile modules, and the PE console.</p>
+</blockquote>
+
+<h3 id="assigning-classes-with-sitepp">Assigning Classes With Site.pp</h3>
+
+<p>To assign classes in site.pp, use Puppet&#8217;s standard methods for declaring classes:</p>
+
+<ul>
+  <li>The <a href="./../../puppet/3/reference/lang_classes.html#using-include"><code>include</code></a> function</li>
+  <li><a href="./../../puppet/3/reference/lang_classes.html#using-resource-like-declarations">Resource-like class declarations</a></li>
+</ul>
+
+<p>Declaring a class <strong>outside</strong> any node definition will assign it to every node; declaring it <strong>inside</strong> a node definition will assign it to nodes that match that definition.</p>
+
+<p>Note that in PE 3, you can declare any class with <code>include</code> as long as you <a href="#assigning-class-parameters-with-hiera">use Hiera to assign any mandatory class parameters</a>.</p>
+
+<h3 id="assigning-class-parameters-with-sitepp">Assigning Class Parameters With Site.pp</h3>
+
+<p>To assign class parameters in site.pp, you <strong>must</strong> use a <a href="./../../puppet/3/reference/lang_classes.html#using-resource-like-declarations">resource-like class declaration</a> (either inside or outside a node definition) to assign the class. You <strong>cannot</strong> use site.pp to assign class parameters to classes assigned by another data source.</p>
+
+<p>You <strong>must</strong> make sure that the class is not declared or assigned anywhere else &#8212; with the <code>include</code> function, another resource-like declaration, or via Hiera or the PE console. If you get &#8220;duplicate declaration&#8221; errors, this can mean a class was declared with a resource-like declaration and also assigned by some other data source.</p>
+
+<p>If you declare a class in site.pp <em>without</em> setting its parameters, you can <a href="#assigning-class-parameters-with-hiera">assign its parameters via Hiera</a>.</p>
+
+<h3 id="assigning-variables-with-sitepp">Assigning Variables With Site.pp</h3>
+
+<p>Use normal <a href="./../../puppet/3/reference/lang_variables.html">variable assignment statements</a> to set variables in site.pp. You can set variables to literal values, or use <a href="/puppet/3/reference/lang_functions.html">functions</a> or <a href="/puppet/3/reference/lang_conditional.html#selectors">selectors</a> to make their values dynamic per node. By using functions that query another data source like Hiera, PuppetDB, or an external CMDB, you can convert arbitrary data into top-scope variables.</p>
+
+<h4 id="at-top-scope">At Top Scope</h4>
+
+<p>Variables assigned outside any node definition will exist at true top scope for all nodes.</p>
+
+<h4 id="at-node-scope">At Node Scope</h4>
+
+<p>Variables assigned inside a node definition will exist at <a href="./../../puppet/3/reference/lang_scope.html#node-scope">node scope</a>, and only for the node(s) that match that definition. Node scope is similar to top scope but has some limitations:</p>
+
+<ul>
+  <li>You cannot use the fully qualified <code>$::variable</code> notation to ensure you get the top-scope value; instead, you must always refer to such variables with the local <code>$variable</code> notation.</li>
+  <li>Node scope variables will be accessible to the following classes:
+    <ul>
+      <li>Classes assigned <strong>within that node scope</strong> (Note that if you are using <a href="./../../puppet/3/reference/lang_node_definitions.html#inheritance">node inheritance</a>, classes assigned in the parent node cannot receive variables set by the child node.)</li>
+      <li>Classes assigned <strong>by the PE console</strong></li>
+      <li>Classes assigned via Hiera, <strong>as long as the <code>hiera_include</code> function is used within that node definition</strong> instead of outside any node definition</li>
+      <li>Classes assigned in role/profile modules, as long as the outermost class is declared <strong>within that node scope,</strong> <strong>by the PE console,</strong> or <strong>via <code>hiera_include</code> within that node scope</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p>These node scope complexities are why we do not recommend using node definitions as your primary source of configuration data.</p>
+
+<h3 id="working-with-other-data-sources">Working With Other Data Sources</h3>
+
+<p>The Puppet code in site.pp can access data from several other data sources and turn it into class parameters, variables, or a list of classes to declare.</p>
+
+<ul>
+  <li>If you are using Hiera to assign classes, you should put a <code>hiera_include('classes')</code> statement in site.pp outside any node definition.</li>
+  <li>The <code>hiera</code>, <code>hiera_array</code>, and <code>hiera_hash</code> functions can retrieve arbitrary data from Hiera. You can use these function calls directly as class parameters, or assign their values to variables.</li>
+  <li>The <a href="https://forge.puppetlabs.com/dalen/puppetdbquery">PuppetDB query functions</a> can search for data generated by other nodes in your infrastructure &#8212; retrieving, for example, the IP addresses of every server that has the <code>profile::db_master</code> class. You can use these function calls directly as class parameters, or assign their values to variables.</li>
+  <li>
+    <p>If you use an external CMDB of some kind, you can <a href="./../../guides/custom_functions.html">write custom functions</a> to access its data.</p>
+
+    <p>For systems where lookups are fast and cheap, you can call your function directly in class parameters, or assign the value of a function call to a variable. For systems where lookups are slow and resource-intensive, you may wish to only call a lookup once, store a large <a href="./../../puppet/3/reference/lang_datatypes.html#hashes">hash</a> of data in a variable, and access members of that stored hash to assign class parameters and other variables.</p>
+  </li>
+</ul>
+
+<h3 id="lone-resources">Lone Resources</h3>
+
+<p>Unlike most other data sources, site.pp allows you to declare individual resources outside any class. Simply <a href="./../../puppet/3/reference/lang_resources.html">use normal resource declarations</a> outside any node definition, and those resources will be managed on every node in the deployment. Resources inside a node definition will only be managed on the node(s) that match it.</p>
+
+<p>This is mostly useful for resources used to manage Puppet itself, such as a main filebucket or a <a href="./puppet_overview.html#run-from-cron">puppet agent cron job</a>. Other resources should generally go in <a href="./../../puppet/3/reference/lang_classes.html">classes</a>.</p>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h2 id="assigning-configuration-data-with-the-pe-console">Assigning Configuration Data with the PE Console</h2>
+
+<h3 id="characteristics-1">Characteristics</h3>
+
+<p>The PE console is a primary data source. It can:</p>
+
+<ul>
+  <li>Assign classes</li>
+  <li>Configure classes with parameters</li>
+  <li>Configure classes with top-scope (and node-scope) variables</li>
+</ul>
+
+<p>The console uses the <a href="./../../guides/external_nodes.html">external node classifier (ENC) interface</a> to pass configuration data to Puppet. You can set the console&#8217;s data by using its graphical interface or by using <a href="./console_rake_api.html">a Rake-based command-line interface</a>.</p>
+
+<p>Access to configuration data in the console is managed by <a href="./console_auth.html">the console&#8217;s access roles</a> &#8212; read-only console users can view it, but only read/write or admin users can edit it.</p>
+
+<blockquote>
+  <ul>
+    <li>For details on navigating the console&#8217;s interface, see the <a href="./console_navigating.html">Navigating the PE Console</a> page.</li>
+    <li>For details on assigning classes, parameters, and variables to nodes and groups, see the <a href="./console_classes_groups.html">Grouping and Classifying Nodes</a> page.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <h3 id="recommendations-1">Recommendations</h3>
+
+  <p>The console can work well as the main data source for a small and relatively uncomplicated site. If you are getting started with Puppet Enterprise for the first time, it is a useful way to start using modules from the <a href="https://forge.puppetlabs.com">Puppet Forge</a>.</p>
+
+  <p>However, it should not be used as the <em>main</em> data source for larger Puppet Enterprise deployments. You should instead maintain most of your configuration data in either role/profile modules or Hiera.</p>
+
+  <p>Large sites with well-constructed role/profile modules can use the console to assign role classes to nodes. This allows you to use richer tools to build abstract machine descriptions, and more visible tools to assign those descriptions to real machines.</p>
+</blockquote>
+
+<h3 id="nodes-and-groups">Nodes and Groups</h3>
+
+<p>The console uses &#8220;groups&#8221; as its main construct for hierarchical configuration. Nodes can be members of any number of groups; they inherit the classes and variables from all of their groups, and can override or add to them. Groups can also be members of groups, creating chains of hierarchy.</p>
+
+<p>If two (non-chained) groups have conflicting data, the console has no method for resolving the conflict; the conflict will be shown in red on the node&#8217;s detail page. The user must ensure that the console has clean classification data with no conflicts.</p>
+
+<h3 id="assigning-classes-with-the-console">Assigning Classes With the Console</h3>
+
+<p>Classes can be assigned directly to nodes or to groups of nodes. You must add a class to the console&#8217;s list of known classes before you can assign it to nodes or groups.</p>
+
+<p>See the following sections of the Grouping and Classifying Nodes page for details on assigning classes with the console:</p>
+
+<ul>
+  <li><a href="./console_classes_groups.html#classes">The Classes section</a> describes how to view and add to the list of available classes.</li>
+  <li><a href="./console_classes_groups.html#assigning-classes-and-groups-to-nodes">The Assigning Classes and Groups section</a> describes how to assign classes to nodes; assigning classes to groups works the same way.</li>
+</ul>
+
+<p>Classes assigned by the console are able to access all top-scope and node-scope variables from site.pp, as well as top-scope variables from the console.</p>
+
+<h3 id="assigning-class-parameters-with-the-console">Assigning Class Parameters With the Console</h3>
+
+<p>You can assign class parameters for a class by clicking the parameters link on the detail page where that class was assigned.</p>
+
+<ul>
+  <li>See <a href="./console_classes_groups.html#setting-class-parameters-on-nodes">the Setting Class Parameters section</a> of the Grouping and Classifying Nodes page for details.</li>
+</ul>
+
+<p>If you assign a class in the console <em>without</em> setting its parameters, you can <a href="#assigning-class-parameters-with-hiera">assign its parameters via Hiera</a>.</p>
+
+<h3 id="assigning-variables-with-the-console">Assigning Variables With the Console</h3>
+
+<p>You can assign top-scope variables to a node or group by editing that node or group&#8217;s detail page. These variables will be available to all classes, whether assigned by the console or by any other data source.</p>
+
+<ul>
+  <li>See <a href="./console_classes_groups.html#setting-variables-on-nodes">the Setting Variables section</a> of the Grouping and Classifying Nodes page for details.</li>
+</ul>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h2 id="assigning-configuration-data-with-hiera">Assigning Configuration Data with Hiera</h2>
+
+<h3 id="characteristics-2">Characteristics</h3>
+
+<p>Hiera is a primary data source. It can:</p>
+
+<ul>
+  <li>Assign classes (with use of <code>hiera_include</code> in site.pp)</li>
+  <li>Configure classes with parameters</li>
+  <li>Provide arbitrary data (accessible from modules or site.pp via lookup functions)</li>
+</ul>
+
+<p>Unlike the PE console, Hiera isn&#8217;t immediately usable upon install; you must first configure Hiera and its internal data sources (<a href="#configuring-hiera">see below</a>).</p>
+
+<p>Hiera lets you construct a dynamic hierarchy, which gets resolved for each agent node based on the facts it submits. This allows you to specify configuration data at several levels of the hierarchy, making it easy to maintain default configurations with multiple overrides where necessary.</p>
+
+<p>Hiera&#8217;s data should be managed with version control and deployed to the puppet master server using a controlled release process. Access to configuration data in Hiera is managed by your organization’s specific version control and code deployment procedures.</p>
+
+<blockquote>
+  <h3 id="recommendations-2">Recommendations</h3>
+
+  <p>Hiera is one of the most flexible data sources available to PE, and can be very helpful when managing large and complex infrastructures. Puppet Labs recommends that anyone planning a serious PE deployment use Hiera, role/profile modules, or some combination of the two as their main data source. The ability to define a site-appropriate hierarchy lets you set configuration data in a highly automated way with less repetition than some of the other options, and the fact that the data can be managed in version control fits current best practices for critical infrastructure.</p>
+
+  <p>The primary drawbacks with the current version of Hiera are:</p>
+
+  <ul>
+    <li>The data can be somewhat distant from the places where it takes effect, which can make it more difficult to track the configurations any given node will receive.</li>
+    <li>It&#8217;s easy to create unwieldy and hard-to-maintain hierarchies if you aren&#8217;t careful about your architecture.</li>
+    <li><a href="./../../hiera/1/command_line.html">Checking Hiera data for a node from the command line</a> isn&#8217;t as easy as it could be, since you must manually pass facts to the <code>hiera</code> utility to accurately check what data a node will receive.</li>
+  </ul>
+
+  <p>Please be aware of these pitfalls when organizing your PE data &#8212; keep your hierarchies as simple as you can, and think hard before adding new levels to the hierarchy.</p>
+</blockquote>
+
+<h3 id="configuring-hiera">Configuring Hiera</h3>
+
+<p>In order to use Hiera, you must do the following:</p>
+
+<h4 id="edit-hierayaml">Edit Hiera.yaml</h4>
+
+<p>Edit the <code>/etc/puppetlabs/puppet/hiera.yaml</code> file on your puppet master server, and make the following changes. For complete documentation about this file, see <a href="./../../hiera/1/configuring.html">the Configuring Hiera page</a> and <a href="/hiera/1/hierarchy.html">the Hierarchies page</a> in the Hiera documentation.</p>
+
+<ol>
+  <li>Choose a main data backend &#8212; YAML or JSON &#8212; and configure it in <a href="./../../hiera/1/configuring.html#backends">the <code>:backends</code> setting</a>.</li>
+  <li>
+    <p>Choose a data directory for your Hiera data source files, and configure it in <a href="./../../hiera/1/configuring.html#yaml-and-json">the <code>:datadir</code> sub-setting</a> under the <code>yaml</code> or <code>json</code> settings:</p>
+
+    <pre><code> :yaml:
+   :datadir: /etc/puppetlabs/puppet/hieradata
+</code></pre>
+
+    <p>The datadir will default to <code>/var/lib/hiera</code>; the PE installer doesn&#8217;t create this directory automatically. Ensure that the datadir exists.</p>
+  </li>
+  <li>Create a hierarchy that will work for your site, and configure it in <a href="./../../hiera/1/configuring.html#hierarchy">the <code>:hierarchy</code> setting</a>. See <a href="/hiera/1/hierarchy.html">the Hierarchies page</a> in the Hiera documentation for details on effective hierarchies, and <a href="/facter/1.7/core_facts.html">the Core Facts reference</a> and <a href="/puppet/3/reference/lang_variables.html#facts-and-built-in-variables">list of special variables</a> for a list of common facts and variables that may be useful in your hierarchy. If you need some form of classification that isn&#8217;t included there, you can <a href="/guides/custom_facts.html">write custom facts</a>.</li>
+</ol>
+
+<h4 id="create-hiera-data-sources-as-needed">Create Hiera Data Sources as Needed</h4>
+
+<p>In the datadir you configured in step 2 above, create yaml or json files to contain the data you&#8217;ll be assigning. See <a href="./../../hiera/1/data_sources.html">the Data Sources page</a> of the Hiera documentation for details on creating these files.</p>
+
+<p>Each file will correspond to a <em>possible value</em> for <em>one level</em> of the dynamic hierarchy you created. You do not need to create a data source for every possible value of every level; Hiera will skip missing data sources and jump to the next level of the hierarchy. You only need to create the data sources that you care about most.</p>
+
+<h3 id="assigning-classes-with-hiera">Assigning Classes With Hiera</h3>
+
+<ul>
+  <li>For complete details about assigning classes with Hiera, see <a href="./../../hiera/1/puppet.html#assigning-classes-to-nodes-with-hiera-hierainclude">the Assigning Classes section</a> of the &#8220;Using Hiera with Puppet page.&#8221;</li>
+</ul>
+
+<p>To assign classes with Hiera, you must add a <code>hiera_include('classes')</code> statement to your site.pp file, preferably outside any node definition. (The <code>'classes'</code> portion is an arbitrary string, but we recommend <code>'classes'</code> for clarity.)</p>
+
+<p>Next, in any of your Hiera data sources, create <code>classes</code> keys. The value of each of these keys should be an array of class names. Puppet will use <a href="./../../hiera/1/lookup_types.html#array-merge">an array merge lookup</a> to assign the classes from every level of the hierarchy to each node.</p>
+
+<p>See the example in <a href="./../../hiera/1/puppet.html#assigning-classes-to-nodes-with-hiera-hierainclude">the above-linked documentation</a> for details of how this works in practice.</p>
+
+<p>Any classes assigned with Hiera will be evaluated with <a href="./../../puppet/3/reference/lang_classes.html#include-like-vs-resource-like">include-like</a> behavior. This means that you should be careful to avoid using <a href="/puppet/3/reference/lang_classes.html#using-resource-like-declarations">resource-like</a> declarations on the same classes elsewhere, but any additional include-like declarations or assignments are safe.</p>
+
+<h3 id="assigning-class-parameters-with-hiera">Assigning Class Parameters With Hiera</h3>
+
+<ul>
+  <li>For complete details about assigning class parameters with Hiera, see <a href="./../../hiera/1/puppet.html#automatic-parameter-lookup">the Automatic Parameter Lookup section</a> on &#8220;Using Hiera with Puppet.&#8221;</li>
+</ul>
+
+<p>Hiera is capable of assigning values for any class parameter. This works for all parameters of classes assigned by any data source.</p>
+
+<p>Class parameters from Hiera always have <strong>second priority:</strong> if a value for a given parameter was specified by another data source (e.g. with a <a href="./../../puppet/3/reference/lang_classes.html#using-resource-like-declarations">resource-like declaration</a> or parameters in the PE console), the other data source&#8217;s value will be used.</p>
+
+<p>To assign class parameters with Hiera, create keys of the format <code>&lt;CLASS NAME&gt;::&lt;PARAMETER NAME&gt;</code> in any Hiera data source. The value of the key will be the value assigned to the parameter.</p>
+
+<p>Puppet uses a <a href="./../../hiera/1/lookup_types.html#priority-default">priority lookup</a> to get class parameter values from Hiera; this means it will only get the value from the most specific Hiera data source, and cannot merge values from all levels of the hierarchy. The value can be of any <a href="/puppet/3/reference/lang_datatypes.html">data type</a>. If you need to do an array merge or hash merge lookup for a certain parameter, you should declare the class in a role or profile class and explicitly set the parameter to a <code>hiera_array</code> or <code>hiera_hash</code> function call.</p>
+
+<h3 id="providing-arbitrary-data">Providing Arbitrary Data</h3>
+
+<ul>
+  <li>For complete details about retrieving arbitrary data from Hiera, see <a href="./../../hiera/1/puppet.html#hiera-lookup-functions">the Hiera Lookup Functions section</a> of the &#8220;Using Hiera with Puppet.&#8221;</li>
+</ul>
+
+<p>Any Puppet manifest &#8212; including site.pp and classes in modules &#8212; can use the following functions to retrieve arbitrary data from Hiera:</p>
+
+<ul>
+  <li><code>hiera</code></li>
+  <li><code>hiera_array</code></li>
+  <li><code>hiera_hash</code></li>
+</ul>
+
+<p>The data retrieved by these functions can be assigned to variables or used directly anywhere a function call is permitted. (Resource attributes, class parameters, etc.)</p>
+
+<p>It is possible for normal classes to use these functions, but this is not recommended &#8212; it ties the class&#8217;s implementation too firmly to the current tools, which is a bad idea when writing modules that will see public release and can add to your code revision burden when next-generation data tools are introduced.</p>
+
+<p>However, using these functions in site.pp or in role/profile modules is often a very good idea, especially when you need to use array merge or hash merge lookups to get a combined value for a class parameter.</p>
+
+<p>Additionally, some users prefer to use resource-like declarations with an explicit Hiera function call rather than rely on Puppet&#8217;s automatic Hiera parameter lookup; for pre-built Forge modules with many optional parameters, this can function as site-specific documentation of which parameters are being used and what data must be entered into your Hiera data sources.</p>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h2 id="assigning-configuration-data-with-role-and-profile-modules">Assigning Configuration Data with Role and Profile Modules</h2>
+
+<h3 id="characteristics-3">Characteristics</h3>
+
+<p>Role and profile modules are a primary data source. They can:</p>
+
+<ul>
+  <li>Assign classes</li>
+  <li>Configure classes with parameters</li>
+  <li>Convert arbitrary data from other sources into class parameters</li>
+  <li>Declare lone resources, outside any class</li>
+</ul>
+
+<p>Role and profile modules are simply normal Puppet modules with no special features. What sets them apart is their <em>intent.</em> Normal modules are (or at least can be) publicly releasable bundles of code that configure a single technology and can work in a variety of infrastructures. Role and profile modules are private, <em>site-specific</em> code that configure <strong>technology stacks</strong> (profiles) and <strong>complete configurations for categories of nodes</strong> (roles).</p>
+
+<p>For example:</p>
+
+<ul>
+  <li>A normal Apache module would configure the Apache web server and offer many configuration options, not all of which would be used at any given site.</li>
+  <li>A <strong>profile</strong> class for a web development stack (let&#8217;s call it <code>profile::web_dev</code>) would declare the <code>apache</code> class with verbose debugging turned on and very little performance tuning, as well as the <code>mysql</code> and <code>php</code> classes.</li>
+  <li>A <strong>role</strong> class for a dev server being used to develop someone&#8217;s storefront application (let&#8217;s call it <code>role::mystorefront_dev</code>) would declare the <code>profile::web_dev</code> class, as well as an <code>apache::vhost</code> resource to create the appropriate virtual host, a <code>mysql::db</code> resource to create a database for the application, a <code>profile::dev_access</code> class that configured SSH keys for all of the site&#8217;s developers, a <code>profile::firewall::dev</code> class, and a <code>profile::base</code> class that managed basic permissions, NTP, etc. If a server was brought online to serve as a mystorefront dev server, you would assign it only <strong>one</strong> class: the <code>role::mystorefront_dev</code> class, which would contain a complete description of that node&#8217;s configuration.</li>
+</ul>
+
+<p>Since role and profile modules are just normal modules, they must be used in conjunction with some other data source, which will be in charge of assigning the role classes to your actual machines.</p>
+
+<blockquote>
+  <h3 id="recommendations-3">Recommendations</h3>
+
+  <p>Role and profile modules are among the most flexible data sources available to PE. They reflect much of what we currently know about best configuration management practices. Although they&#8217;re an incomplete solution, they offer a lot of control and can sometimes provide a more <em>knowable</em> source of configuration data than simply keeping everything in Hiera.</p>
+
+  <p>Since they support managing lone resources as part of a technology stack or node description, role/profile modules work especially well when using complex modules that rely heavily on defined types, such as the OpenStack modules.</p>
+
+  <p>If you are going to use site-specific composition modules, we recommend dividing them into the role/profile pattern as follows:</p>
+
+  <ul>
+    <li><strong>Profiles</strong> configure <em>technology stacks</em> in a site-appropriate way. A given node may have many profile classes included in its role.</li>
+    <li><strong>Role</strong> classes combine multiple profiles and occasional lone resources to create <em>complete node descriptions.</em> A given node will only have one role class assigned to it.</li>
+  </ul>
+
+  <p>For more details on this pattern, we suggest reading <a href="http://www.craigdunn.org/2012/05/239/">Craig Dunn&#8217;s roles and profiles post</a>.</p>
+</blockquote>
+
+<h3 id="assigning-classes-with-role-and-profile-modules">Assigning Classes With Role and Profile Modules</h3>
+
+<p>To assign classes in a role or profile class, use Puppet&#8217;s standard methods for declaring classes:</p>
+
+<ul>
+  <li>The <a href="./../../puppet/3/reference/lang_classes.html#using-include"><code>include</code></a> function</li>
+  <li><a href="./../../puppet/3/reference/lang_classes.html#using-resource-like-declarations">Resource-like class declarations</a></li>
+</ul>
+
+<p>Note that in PE 3, you can declare any class with <code>include</code> as long as you <a href="#assigning-class-parameters-with-hiera">use Hiera to assign any mandatory class parameters</a>.</p>
+
+<h3 id="assigning-class-parameters-with-role-and-profile-modules">Assigning Class Parameters With Role and Profile Modules</h3>
+
+<p>To assign class parameters in a role or profile class, you <strong>must</strong> use a <a href="./../../puppet/3/reference/lang_classes.html#using-resource-like-declarations">resource-like class declaration</a> to assign the class. You <strong>cannot</strong> use role or profile classes to assign class parameters to classes that were already assigned by another data source.</p>
+
+<p>You <strong>must</strong> make sure that the class is not declared or assigned anywhere else &#8212; with the <code>include</code> function, another resource-like declaration, or via Hiera or the PE console. If you get &#8220;duplicate declaration&#8221; errors, this can mean a class was declared with a resource-like declaration and also assigned by some other data source.</p>
+
+<p>If you declare a class in a role or profile class <em>without</em> setting its parameters, you can <a href="#assigning-class-parameters-with-hiera">assign its parameters via Hiera</a>.</p>
+
+<p>Role and profile modules are an ideal place to convert data from an assisting data source (such as PuppetDB, an external CMDB, or Hiera when retrieving arbitrary data) into class parameters. You can use function calls that get data from an external source as the value of any class parameter in a role or profile class &#8212; this allows you to compose multiple data sources into a complete configuration in a knowable and centrally documented way.</p>
+
+<h3 id="dealing-with-classes-that-require-top-scope-variables">Dealing with Classes that Require Top-Scope Variables</h3>
+
+<p>Role and profile modules work best with modern Puppet classes that use class parameters for configuration. However, you may find yourself using classes that require top-scope variables for configuration. Since role and profile modules cannot set top-scope variables, you will need to set them in either <a href="./console_classes_groups.html#setting-variables-on-nodes">the PE console</a> or <a href="#assigning-variables-with-sitepp">site.pp</a>.</p>
+
+<p>If the variables you need don&#8217;t vary much per node, you can probably manage them in the console. If they will vary widely across your deployment, you should store the data in Hiera and <a href="#providing-arbitrary-data">use Hiera function calls</a> to assign variables in site.pp outside any node definition. This will allow you to use detailed hierarchies to determine which values should go to which nodes, without having to wrestle with node scope.</p>
+
+<h3 id="lone-resources-1">Lone Resources</h3>
+
+<p>Unlike most other data sources, role and profile modules allow you to declare individual resources outside any class. Simply <a href="./../../puppet/3/reference/lang_resources.html">use normal resource declarations</a>.</p>
+
+<p>This is particularly useful for complex defined resource types as used in places like the OpenStack modules. It is also useful for simpler defined resource types that are meant to manage <em>site-specific</em> configuration (such as virtual hosts, firewall rules, etc.).</p>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h2 id="querying-puppetdb-for-supplementary-configuration-data">Querying PuppetDB for Supplementary Configuration Data</h2>
+
+<p>Classes in modules can use <a href="./../../puppet/3/reference/lang_exported.html">exported resources</a> to collect information from other nodes; this can work well for things like monitoring, where a service&#8217;s class can export a resource describing how to monitor the service. However, there are other forms of cross-node data that aren&#8217;t a great match for exported resources, such as collecting IP addresses of systems running a service and adding them to a whitelist for a second service.</p>
+
+<p>For cases like these, you can use <a href="https://forge.puppetlabs.com/dalen/puppetdbquery">Eric Dalén&#8217;s puppetdbquery module</a>, which has custom functions for searching PuppetDB. See the module&#8217;s documentation for details about these functions.</p>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h2 id="querying-an-external-cmdb-for-supplementary-configuration-data">Querying an External CMDB for Supplementary Configuration Data</h2>
+
+<p>If you use some form of CMDB at your site, you can use its data with Puppet.</p>
+
+<p>To do this, you will need a <a href="./../../puppet/3/reference/lang_functions.html">Puppet function</a> that can query your CMDB. It&#8217;s worth <a href="https://forge.puppetlabs.com">checking the Puppet Forge</a> to see if anyone has written a module to interface with your particular CMDB, but most likely you will have to <a href="/guides/custom_functions.html">write a custom function</a>. This is relatively easy and requires only a small amount of Ruby.</p>
+
+<p>Once you have a function that can query your CMDB, you can <a href="#working-with-other-data-sources">use it in site.pp</a> or <a href="#assigning-class-parameters-with-role-and-profile-modules">in role or profile modules</a>. For systems where lookups are fast and cheap, you can call your function directly in class parameters, or assign the value of a function call to a variable. For systems where lookups are slow and resource-intensive, you may wish to only call a lookup once, store a large <a href="./../../puppet/3/reference/lang_datatypes.html#hashes">hash</a> of data in a variable, and access members of that stored hash to assign class parameters and other variables.</p>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h2 id="using-puppet-agents-facts-as-hints-for-configuration-data">Using Puppet Agent&#8217;s Facts as Hints for Configuration Data</h2>
+
+<p>When requesting catalogs, agent nodes submit a collection of <a href="./../../puppet/3/reference/lang_variables.html#facts-and-built-in-variables">facts</a>, which the puppet master can use as top-scope variables when compiling the catalog.</p>
+
+<p>One strategy for classifying nodes is to use facts to determine what configuration data should be assigned to the node. This is most often seen with Hiera, which can use facts in its dynamic hierarchy, but you can also use conditional statements in site.pp or role/profile modules to determine which classes to declare and which parameters to assign.</p>
+
+<p>If the <a href="./../../facter/1.7/core_facts.html">built-in core facts</a> aren&#8217;t sufficient for classifying your nodes, you can:</p>
+
+<ul>
+  <li>Create <a href="./../../guides/custom_facts.html">custom facts</a> and <a href="/guides/plugins_in_modules.html">put them in modules</a>. Custom facts are small, easy pieces of Ruby code, and are distributed to all nodes.</li>
+  <li>Distribute <a href="./../../guides/custom_facts.html#external-facts">external facts</a> to your nodes. External facts are either static text files or small scripts.</li>
+</ul>
+
+<p>By pre-seeding new nodes with external facts when you deploy them, it&#8217;s possible to invert control of node classification &#8212; a node can use a special &#8220;role fact&#8221; to tell the puppet master what kind of server it was meant to be, and if the Hiera hierarchy or conditional statements in site.pp support it, the node will receive that configuration.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Facts are not trusted data, and can be spoofed by a rogue agent node. Inverting control can be useful for some deployment processes, but it&#8217;s generally best to not allow nodes to choose what pieces of sensitive information they will receive. If you&#8217;re inverting control with role facts, be careful with the types of configuration you allow nodes to request.</p>
+</blockquote>
+
+<hr />
+
+<ul>
+  <li><a href="./puppet_tools.html">Next: Puppet Tools</a></li>
+</ul>
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+
+<h3><a href="./index.html">Puppet Enterprise 3.0</a></h3>
+
+<ul>
+  <li><strong>Overview</strong>
+    <ul>
+      <li><a href="./overview_about_pe.html">About Puppet Enterprise</a></li>
+      <li><a href="./overview_whats_new.html">New Features</a></li>
+      <li><a href="./overview_getting_support.html">Getting Support</a></li>
+    </ul>
+  </li>
+  <li><strong>Quick Start</strong>
+    <ul>
+        <li><a href="./quick_start.html">Quick Start: Using PE</a></li>
+        <li><a href="./quick_writing.html">Quick Start: Writing Modules</a></li>
+    </ul>
+  </li>
+  <li><strong>Installing Puppet Enterprise</strong>
+    <ul>
+      <li><a href="./install_system_requirements.html">System Requirements</a></li>
+      <li><a href="./install_basic.html">Installing PE</a></li>
+      <li><a href="./install_windows.html">Installing Windows Agents</a></li>
+      <li><a href="./install_upgrading.html">Upgrading</a></li>
+      <li><a href="./install_uninstalling.html">Uninstalling</a></li>
+      <li><a href="./install_automated.html">Automated Installation</a></li>
+      <li><a href="./install_answer_file_reference.html">Answer File Reference</a></li>
+      <li><a href="./install_what_and_where.html">What gets installed where?</a></li>
+    </ul>
+  </li>
+  <li><strong>The PE Console</strong>
+    <ul>
+      <li><a href="./console_accessing.html">Accessing the Console</a></li>
+      <li><a href="./console_navigating.html">Navigating the Console</a></li>
+      <li><a href="./console_navigating_live_mgmt.html">Navigating the Live Management Page</a></li>
+      <li><a href="./console_cert_mgmt.html">Managing Node Requests</a></li>
+      <li><a href="./console_classes_groups.html">Grouping & Classifying Nodes</a></li>
+      <li><a href="./console_reports.html">Viewing Reports & Inventory Data</a></li>
+      <li><a href="./console_auth.html">Managing Users</a></li>
+      <li><a href="./console_inventory_search.html">Inventory Search</a></li>
+      <li><a href="./console_rake_api.html">Rake API and List of Tasks</a></li>
+      <li><a href="./console_rake_api_old.html">Rake API: List of Tasks (Old Argument Style)</a></li>
+      <li><a href="./console_config.html">Configuring the Console</a></li>
+    </ul>
+  </li>
+  <li><strong>Puppet Core</strong>
+    <ul>
+      <li><a href="./puppet_overview.html">Overview</a></li>
+      <li><a href="./puppet_modules_manifests.html">Modules & Manifests</a></li>
+      <li><span class="currentpage">Assigning Configurations to Nodes</span></li>
+      <li><a href="./puppet_tools.html">Tools</a></li>
+      <li><a href="./puppet_data_library.html">Puppet Data Library</a></li>
+      <li><a href="./puppet_references.html">References</a></li>
+      <li><a href="./puppet_config.html">Configuring Puppet Core</a></li>
+    </ul>
+  </li>
+  <li><strong>Orchestration</strong>
+    <ul>
+      <li><a href="./orchestration_overview.html">Overview</a></li>
+      <li><a href="./orchestration_invoke_cli.html">Invoking Actions</a></li>
+      <li><a href="./orchestration_puppet.html">Controlling Puppet</a></li>
+      <li><a href="./orchestration_resources.html">Browsing Resources</a></li>
+      <li><a href="./orchestration_actions.html">List of Built-In Actions</a></li>
+      <li><a href="./orchestration_adding_actions.html">Adding New Actions</a></li>
+      <!-- <li><a href="./orchestration_integrating.html">Integrating Applications</a></li> -->
+      <li><a href="./orchestration_config.html">Configuring Orchestration</a></li>
+    </ul>
+  </li>
+  <li><strong>Cloud Provisioning</strong>
+    <ul>
+      <li><a href="./cloudprovisioner_overview.html">Overview</a></li>
+      <li><a href="./cloudprovisioner_configuring.html">Installing & Configuring Cloud Provisioner</a></li>
+      <li><a href="./cloudprovisioner_classifying_installing.html">Classifying Nodes & Remotely Installing Puppet</a></li>
+      <li><a href="./cloudprovisioner_vmware.html">Provisioning with VMware</a></li>
+      <li><a href="./cloudprovisioner_aws.html">Provisioning with AWS</a></li>
+      <li><a href="./cloudprovisioner_workflow.html">Sample Workflow</a></li>
+    </ul>
+  </li>
+  <li><strong>The PE Accounts Module</strong>
+    <ul>
+      <li><a href="./accounts_user_type.html">The pe_accounts::user Type</a></li>
+      <li><a href="./accounts_class.html">The pe_accounts Class</a></li>
+    </ul>
+  </li>
+   <li><strong>Maintenance</strong>
+    <ul>
+      <li> <a href="./maintain_console-db.html">Console & Database Maintenance</a></li>
+      <!--
+<li> <a href="./maintain_puppet.html">Puppet Core Maintenance</a></li>
+      <li> <a href="./maintain_orchestration.html">Orchestration Maintenance</a></li>
+ -->
+    </ul>
+  </li>
+  <li><strong>Troubleshooting</strong>
+    <ul>
+     <li> <a href="./trouble_install.html">Troubleshooting the Installer</a></li>
+     <li> <a href="./trouble_comms.html">Troubleshooting Connections & Communications</a></li>
+     <li> <a href="./trouble_console-db.html">Troubleshooting the Console & Database</a></li>
+     <li> <a href="./trouble_puppet.html">Troubleshooting the Puppet Core</a></li>
+     <li> <a href="./trouble_orchestration.html">Troubleshooting Orchestration</a></li>
+     <li> <a href="./trouble_cloudprovisioner.html">Troubleshooting Cloud Provisioner</a></li>
+     <li> <a href="./trouble_windows.html">Troubleshooting Windows</a></li>
+    </ul>
+  </li>
+  <li><strong>Appendix</strong>
+    <ul>
+      <li><a href="./appendix.html#release-notes">Release Notes</a></li>
+      <li><a href="./appendix.html#known-issues">Known Issues</a></li>
+       <li><a href="./compliance_alt.html">Compliance Alternate Workflow</a></li>
+    <!--    <li><a href="./cloning_alt.html">Cloning Alternate Workflow</a></li> -->
+    </ul>
+  </li>
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

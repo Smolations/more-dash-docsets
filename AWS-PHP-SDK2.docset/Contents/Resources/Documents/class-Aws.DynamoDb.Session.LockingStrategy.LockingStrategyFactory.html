@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 3.0dev">
+
+	<title>PHP 2: Class Aws\DynamoDb\Session\LockingStrategy\LockingStrategyFactory | AWS SDK for PHP 2</title>
+
+	<script type="text/javascript" src="resources/combined.js?215010371"></script>
+	<script type="text/javascript" src="elementlist.js?840307205"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?1683603398">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3334156134">
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AWS SDK for PHP 2</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Aws.DynamoDb.Session.LockingStrategy.html" title="Summary of Aws\DynamoDb\Session\LockingStrategy"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical">
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+						<li class="divider-vertical">
+
+						<li>
+							<a href="aws-sdk-for-php-2-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active main">
+<a href="namespace-Aws.html">Aws<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.html">AutoScaling<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.html">CloudFormation<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.html">CloudFront<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.html">CloudFront_2012_05_05<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.html">CloudSearch<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.html">CloudWatch<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.html">Common<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Client.html">Client</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Command.html">Command</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Credentials.html">Credentials</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Exception.html">Exception<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Exception.Parser.html">Parser</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Facade.html">Facade</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Hash.html">Hash</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.InstanceMetadata.html">InstanceMetadata<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.InstanceMetadata.Waiter.html">Waiter</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Signature.html">Signature</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Waiter.html">Waiter</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.html">DataPipeline<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.html">DirectConnect<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="active main">
+<a href="namespace-Aws.DynamoDb.html">DynamoDb<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Model.BatchRequest.html">BatchRequest</a>
+						</li>
+							</ul>
+</li>
+				<li class="active main">
+<a href="namespace-Aws.DynamoDb.Session.html">Session<span></span></a>
+						<ul>
+				<li class="active main">
+<a href="namespace-Aws.DynamoDb.Session.LockingStrategy.html">LockingStrategy</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.html">DynamoDb_2011_12_05<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.html">Ec2<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Iterator.html">Iterator</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.html">ElastiCache<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.html">ElasticBeanstalk<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticLoadBalancing.html">ElasticLoadBalancing<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticLoadBalancing.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticTranscoder.html">ElasticTranscoder<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticTranscoder.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Emr.html">Emr<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Emr.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Emr.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.html">Glacier<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Iam.html">Iam<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Iam.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Iam.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.html">ImportExport<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Iterator.html">Iterator</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.html">OpsWorks<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Rds.html">Rds<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Rds.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Rds.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Redshift.html">Redshift<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Redshift.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Redshift.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Route53.html">Route53<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Route53.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Route53.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.html">S3<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Command.html">Command</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Exception.html">Exception<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Exception.Parser.html">Parser</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Sync.html">Sync</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Ses.html">Ses<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Ses.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ses.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.SimpleDb.html">SimpleDb<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.SimpleDb.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sns.html">Sns<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sns.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Sns.MessageValidator.html">MessageValidator<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sns.MessageValidator.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sqs.html">Sqs<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sqs.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Sqs.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.html">StorageGateway<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sts.html">Sts<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sts.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Support.html">Support<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Support.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Swf.html">Swf<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Swf.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Swf.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.html">Guzzle<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Batch.html">Batch<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Batch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Cache.html">Cache</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Common.html">Common<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Common.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Http.html">Http<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Http.Curl.html">Curl</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Http.Exception.html">Exception</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Http.Message.html">Message<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Http.Message.Header.html">Header</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Http.QueryAggregator.html">QueryAggregator</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Inflection.html">Inflection</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Iterator.html">Iterator</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Log.html">Log</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.html">Parser<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Parser.Cookie.html">Cookie</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.Message.html">Message</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.UriTemplate.html">UriTemplate</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.Url.html">Url</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.html">Plugin<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.Async.html">Async</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Backoff.html">Backoff</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cache.html">Cache</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.html">Cookie<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.CookieJar.html">CookieJar</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.ErrorResponse.html">ErrorResponse<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.ErrorResponse.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.History.html">History</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Log.html">Log</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Md5.html">Md5</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Mock.html">Mock</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Oauth.html">Oauth</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Service.html">Service<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Builder.html">Builder</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.html">Command<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Command.Factory.html">Factory</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.html">LocationVisitor<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.Request.html">Request</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.Response.html">Response</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Service.Description.html">Description</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Exception.html">Exception</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Resource.html">Resource</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Stream.html">Stream</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Aws.DynamoDb.Session.LockingStrategy.AbstractLockingStrategy.html">AbstractLockingStrategy</a></li>
+				<li class="active"><a href="class-Aws.DynamoDb.Session.LockingStrategy.LockingStrategyFactory.html">LockingStrategyFactory</a></li>
+				<li><a href="class-Aws.DynamoDb.Session.LockingStrategy.NullLockingStrategy.html">NullLockingStrategy</a></li>
+				<li><a href="class-Aws.DynamoDb.Session.LockingStrategy.PessimisticLockingStrategy.html">PessimisticLockingStrategy</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aws.DynamoDb.Session.LockingStrategy.LockingStrategyFactoryInterface.html">LockingStrategyFactoryInterface</a></li>
+				<li><a href="class-Aws.DynamoDb.Session.LockingStrategy.LockingStrategyInterface.html">LockingStrategyInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class LockingStrategyFactory</h1>
+
+
+	<div class="description">
+	
+<p>Factory for instantiating locking strategies</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aws.html">Aws</a>\<a href="namespace-Aws.DynamoDb.html">DynamoDb</a>\<a href="namespace-Aws.DynamoDb.Session.html">Session</a>\<a href="namespace-Aws.DynamoDb.Session.LockingStrategy.html">LockingStrategy</a><br>
+		
+
+		<b>Located at</b> Aws/DynamoDb/Session/LockingStrategy/LockingStrategyFactory.php<br>
+	</div>
+
+
+
+
+        <h2>Methods summary</h2>
+        <ul class="method-summary">
+        <li>
+            <a class="method-summary-link" href="#___construct">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">__construct</span> ( <span>string $baseNamespace = <span class="php-keyword1">null</span></span>, <span>Guzzle\Inflection\InflectorInterface $inflector = <span class="php-keyword1">null</span></span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_factory">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">factory</span> ( <span>string $lockingStrategy = <span class="php-keyword1">null</span></span>, <span>Aws\DynamoDb\Session\SessionHandlerConfig $config = <span class="php-keyword1">null</span></span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Creates a session handler locking strategy</p>
+</div>
+        </li>
+        </ul>
+
+		<h2>Methods detail</h2>
+		<div id="methods">
+		<a name="//apple_ref/cpp/Method/___construct" class="dashAnchor"></a><div id="___construct" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#___construct">#</a>
+                <code class="attributes ">
+                     public 
+                    
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">__construct</span>( <span>string <var>$baseNamespace</var> = <span class="php-keyword1">null</span></span>, <span><code><a href="class-Guzzle.Inflection.InflectorInterface.html">Guzzle\Inflection\InflectorInterface</a></code> <var>$inflector</var> = <span class="php-keyword1">null</span></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$baseNamespace</var></dt>
+                            <dd>
+<code>string</code><br>$baseNamespace Base namespace of all locking strategies</dd>
+                            <dt><var>$inflector</var></dt>
+                            <dd>
+<code><code><a href="class-Guzzle.Inflection.InflectorInterface.html">Guzzle\Inflection\InflectorInterface</a></code></code><br>$inflector Inflector used to resolve class names</dd>
+                        </dl></div>
+
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_factory" class="dashAnchor"></a><div id="_factory" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_factory">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Aws.DynamoDb.Session.LockingStrategy.LockingStrategyInterface.html">Aws\DynamoDb\Session\LockingStrategy\LockingStrategyInterface</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">factory</span>( <span>string <var>$lockingStrategy</var> = <span class="php-keyword1">null</span></span>, <span><code><a href="class-Aws.DynamoDb.Session.SessionHandlerConfig.html">Aws\DynamoDb\Session\SessionHandlerConfig</a></code> <var>$config</var> = <span class="php-keyword1">null</span></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Creates a session handler locking strategy</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$lockingStrategy</var></dt>
+                            <dd>
+<code>string</code><br>$lockingStrategy The name if the locking strategy</dd>
+                            <dt><var>$config</var></dt>
+                            <dd>
+<code><code><a href="class-Aws.DynamoDb.Session.SessionHandlerConfig.html">Aws\DynamoDb\Session\SessionHandlerConfig</a></code></code><br>$config The session handler config data</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.DynamoDb.Session.LockingStrategy.LockingStrategyInterface.html">Aws\DynamoDb\Session\LockingStrategy\LockingStrategyInterface</a></code></code><br>
+                        </div>
+
+                        <h4>Throws</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Exception.InvalidArgumentException.html">Aws\Common\Exception\InvalidArgumentException</a></code></code><br>If the locking strategy doesn't exist<br>
+                        </div>
+
+
+
+                </div>
+            </div>
+
+		</div>
+		</div>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="baseNamespace" id="$baseNamespace">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+<a name="//apple_ref/cpp/Property/$baseNamespace" class="dashAnchor"></a><var>$baseNamespace</var>			</td>
+			<td class="description"><div>
+				<a href="#$baseNamespace" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+<p>Base namespace used to look for classes</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="inflector" id="$inflector">
+			<td class="attributes"><code>
+				protected  
+				<code><a href="class-Guzzle.Inflection.InflectorInterface.html">Guzzle\Inflection\InflectorInterface</a></code>
+			</code></td>
+
+			<td class="name">
+<a name="//apple_ref/cpp/Property/$inflector" class="dashAnchor"></a><var>$inflector</var>			</td>
+			<td class="description"><div>
+				<a href="#$inflector" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+<p>Inflector used to inflect class names</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AWS SDK for PHP 2 API documentation generated by <a href="http://apigen.org">ApiGen 3.0dev</a>
+	</div>
+</div>
+
+<script type="text/javascript">
+    // Toggle example display
+    $('.example a').click(function(ele) {
+        $(this).parent('li').children('pre').toggle();
+        return false;
+    });
+</script>
+
+</body>
+</html>

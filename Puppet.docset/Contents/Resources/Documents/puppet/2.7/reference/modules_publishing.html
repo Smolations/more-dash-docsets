@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Publishing Modules on the Puppet Forge — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../../favicon.ico' />
+
+
+  <meta name="description" content="Publishing Modules on the Puppet ForgeThe Puppet Forge is a repository of modules, written and contributed by users. This document describes how to...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/puppet/2.7/reference/modules_publishing.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Publishing Modules on the Puppet Forge</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>Publishing Modules on the Puppet Forge</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#overview">Overview</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#a-note-on-module-names">A Note on Module Names</a></li>
+   <li class="toc-lv3"><a href="#another-note-on-module-names">Another Note on Module Names</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#create-a-puppet-forge-account">Create a Puppet Forge Account</a></li>
+  <li class="toc-lv2"><a href="#prepare-the-module">Prepare the Module</a></li>
+  <li class="toc-lv2"><a href="#write-a-modulefile">Write a Modulefile</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#dependencies-in-the-modulefile">Dependencies in the Modulefile</a></li>
+   <li class="toc-lv3"><a href="#a-note-on-semantic-versioning">A Note on Semantic Versioning</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#build-your-module">Build Your Module</a></li>
+  <li class="toc-lv2"><a href="#upload-to-the-puppet-forge">Upload to the Puppet Forge</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#create-a-module-page">Create a Module Page</a></li>
+   <li class="toc-lv3"><a href="#create-a-release">Create a Release</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#release-a-new-version">Release a New Version</a></li>
+</ol></nav>
+
+<h1 id="publishing-modules-on-the-puppet-forge">Publishing Modules on the Puppet Forge</h1>
+
+<p>The Puppet Forge is a repository of modules, written and contributed by users. This document describes how to publish your own modules to the Puppet Forge so that other users can <a href="./modules_installing.html">install</a> them.</p>
+
+<ul>
+  <li>Continue reading to learn how to publish your modules to the Puppet Forge.</li>
+  <li><a href="./modules_fundamentals.html">See &#8220;Module Fundamentals&#8221;</a> for how to write and use your own Puppet modules.</li>
+  <li><a href="./modules_installing.html">See &#8220;Installing Modules&#8221;</a> for how to install pre-built modules from the Puppet Forge.</li>
+  <li><a href="./../../../guides/plugins_in_modules.html">See &#8220;Using Plugins&#8221;</a> for how to arrange plugins (like custom facts and custom resource types) in modules and sync them to agent nodes.</li>
+  <li><a href="./modules_documentation.html">See &#8220;Documenting Modules&#8221;</a> for a README template and information on providing directions for your module.</li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>This guide assumes that you have already <a href="./modules_fundamentals.html">written a useful Puppet module</a>. To publish your module, you will need to:</p>
+
+<ol>
+  <li>Create a Puppet Forge account, if you don&#8217;t already have one</li>
+  <li>Prepare your module</li>
+  <li>Write a Modulefile with the required metadata</li>
+  <li>Build an uploadable tarball of your module</li>
+  <li>Upload your module using the Puppet Forge&#8217;s web interface.</li>
+</ol>
+
+<blockquote>
+  <h3 id="a-note-on-module-names">A Note on Module Names</h3>
+
+  <p>Because many users have published their own versions of modules with common names (&#8220;mysql,&#8221; &#8220;bacula,&#8221; etc.), the Puppet Forge requires module names to have a username prefix. That is, if a user named &#8220;puppetlabs&#8221; maintained a &#8220;mysql&#8221; module, it would be known to the Puppet Forge as <code>puppetlabs-mysql</code>.</p>
+
+  <p><strong>Be sure to use this long name in your module&#8217;s <a href="#write-a-modulefile">Modulefile</a>.</strong> However, you do not have to rename the module&#8217;s directory, and can leave the module in your active modulepath &#8212; the build action will do the right thing as long as the Modulefile is correct.</p>
+</blockquote>
+
+<blockquote>
+  <h3 id="another-note-on-module-names">Another Note on Module Names</h3>
+
+  <p>Although the Puppet Forge expects to receive modules named <code>username-module</code>, its web interface presents them as <code>username/module</code>. There isn&#8217;t a good reason for this, and we are working on reconciling the two; in the meantime, be sure to always use the <code>username-module</code> style in your metadata files and when issuing commands.</p>
+</blockquote>
+
+<h2 id="create-a-puppet-forge-account">Create a Puppet Forge Account</h2>
+
+<p>Before you begin, you should create a user account on the Puppet Forge. You will need to know your username when preparing to publish any of your modules.</p>
+
+<p>Start by navigating to the <a href="https://forge.puppetlabs.com/">Puppet Forge website</a> and clicking the &#8220;Sign Up&#8221; link in the sidebar:</p>
+
+<p><img src="./images/forge_signup.png" alt="The &quot;sing up&quot; link in the Puppet Forge sidebar" /></p>
+
+<p>Fill in your details. After you finish, you will be asked to verify your email address via a verification email. Once you have done so, you can publish modules to the Puppet Forge.</p>
+
+<h2 id="prepare-the-module">Prepare the Module</h2>
+
+<p>If you already have a Puppet module with the <a href="./modules_fundamentals.html">correct directory layout</a>, you may continue to the next step.</p>
+
+<p>Alternately, you can use the <code>puppet module generate</code> action to generate a template layout. This is mostly useful if you need an example Modulefile and README, and also includes a copy of the <code>spec_helper</code> tool for writing <a href="http://rspec-puppet.com/">rspec-puppet</a> tests. If you choose to do this, you will need to manually copy your module&#8217;s files into the template.</p>
+
+<p>To generate a template, run <code>puppet module generate &lt;USERNAME&gt;-&lt;MODULE NAME&gt;</code>. For example:</p>
+
+<pre><code># puppet module generate examplecorp-mymodule
+Generating module at /Users/fred/Development/examplecorp-mymodule
+examplecorp-mymodule
+examplecorp-mymodule/tests
+examplecorp-mymodule/tests/init.pp
+examplecorp-mymodule/spec
+examplecorp-mymodule/spec/spec_helper.rb
+examplecorp-mymodule/README
+examplecorp-mymodule/Modulefile
+examplecorp-mymodule/manifests
+examplecorp-mymodule/manifests/init.pp
+</code></pre>
+
+<blockquote>
+  <p>Note: This action is of limited use when developing a module from scratch, as the module must be renamed to remove the username prefix before it can be used with Puppet.</p>
+</blockquote>
+
+<h2 id="write-a-modulefile">Write a Modulefile</h2>
+
+<p>In your module&#8217;s main directory, create a text file named <code>Modulefile</code>. If you generated a template, you&#8217;ll already have an example Modulefile.</p>
+
+<p>The Modulefile resembles a configuration or data file, but is actually a simple Ruby domain-specific language (DSL), which is executed when you build a tarball of the module. This means Ruby&#8217;s normal rules of string quoting apply:</p>
+
+<pre><code>name 'examplecorp-mymodule'
+version '0.0.1'
+dependency 'puppetlabs/mysql', '1.2.3'
+description "This is a full description
+    of the module, and is being written as a multi-line string."
+</code></pre>
+
+<p>Modulefiles support the following pieces of metadata:</p>
+
+<ul>
+  <li><code>name</code> &#8212; REQUIRED. The <strong>full name</strong> of the module, including the username (e.g. &#8220;username-module&#8221; &#8212; <a href="#a-note-on-module-names">see note above</a>).</li>
+  <li><code>version</code> &#8212; REQUIRED. The current version of the module. This should be a <a href="http://semver.org/">semantic version</a>.</li>
+  <li><code>summary</code> &#8212; REQUIRED. A one-line description of the module.</li>
+  <li><code>description</code> &#8212; REQUIRED. A more complete description of the module.</li>
+  <li><code>dependency</code> &#8212; A module that this module depends on. Unlike the other fields, the <code>dependency</code> method accepts up to three comma-separated arguments: a <strong>module name</strong> (with a <strong>slash</strong> between the user and name, not a hyphen), a <strong>version requirement,</strong> and a <strong>repository.</strong> A Modulefile may include multiple <code>dependency</code> lines. See &#8220;Dependencies in the Modulefile&#8221; below for more details.</li>
+  <li><code>project_page</code> &#8212; The module&#8217;s website.</li>
+  <li><code>license</code> &#8212; The license under which the module is made available.</li>
+  <li><code>author</code> &#8212; The module&#8217;s author. If not provided, this field will default to the username portion of the module&#8217;s <code>name</code> field.</li>
+  <li><code>source</code> &#8212; The module&#8217;s source. This field&#8217;s purpose is not specified.</li>
+</ul>
+
+<h3 id="dependencies-in-the-modulefile">Dependencies in the Modulefile</h3>
+
+<p>If you choose to rely on another Forge module, you can express this in the &#8220;dependency&#8221; field of your Modulefile:</p>
+
+<pre><code>dependency 'puppetlabs/stdlib', '&gt;= 2.2.1'
+</code></pre>
+
+<blockquote>
+  <p><strong>Warning:</strong> The full name in a dependency <strong>must</strong> use a slash between the username and module name. <strong>This is different from the name format used elsewhere in the Modulefile.</strong> This is a legacy architecture problem with the Puppet Forge, and we apologize for the inconvenience. Our eventual plan is to allow full names with hyphens everywhere while continuing to allow names with slashes, then (eventually, much later) phase out names with slashes.</p>
+</blockquote>
+
+<p>A Modulefile may have several dependency fields.</p>
+
+<p>The version requirement in a dependency isn&#8217;t limited to a single version; you can use several operators for version comparisons. The following operators are available:</p>
+
+<ul>
+  <li><code>1.2.3</code> &#8212; A specific version.</li>
+  <li><code>&gt;1.2.3</code> &#8212; Greater than a specific version.</li>
+  <li><code>&lt;1.2.3</code> &#8212; Less than a specific version.</li>
+  <li><code>&gt;=1.2.3</code> &#8212; Greater than or equal to a specific version.</li>
+  <li><code>&lt;=1.2.3</code> &#8212; Less than or equal to a specific version.</li>
+  <li><code>&gt;=1.0.0 &lt;2.0.0</code> &#8212; Range of versions; both conditions must be satisfied. (This example would match 1.0.1 but not 2.0.1)</li>
+  <li><code>1.x</code> &#8212; A semantic major version. (This example would match 1.0.1 but not 2.0.1, and is shorthand for <code>&gt;=1.0.0 &lt;2.0.0</code>.)</li>
+  <li><code>1.2.x</code> &#8212; A semantic major &amp; minor version. (This example would match 1.2.3 but not 1.3.0, and is shorthand for <code>&gt;=1.2.0 &lt;1.3.0</code>.)</li>
+</ul>
+
+<blockquote>
+  <h3 id="a-note-on-semantic-versioning">A Note on Semantic Versioning</h3>
+
+  <p>When writing your Modulefile, you&#8217;re setting a version for your own module and optionally expressing dependancies on others&#8217; module versions. We strongly recommend following the <a href="http://semver.org/spec/v1.0.0.html">Semantic Versioning</a> specification. Doing so allows others to rely on your modules without unexpected change.</p>
+
+  <p>Many other users already use semantic versioning, and you can take advantage of this in your modules&#8217; dependencies. For example, if you depend on puppetlabs/stdlib and want to allow updates while avoiding breaking changes, you could write the following line in your Modulefile (assuming a current stdlib version of 2.2.1):</p>
+
+  <pre><code>dependency 'puppetlabs/stdlib', '2.x'
+</code></pre>
+</blockquote>
+
+<h2 id="build-your-module">Build Your Module</h2>
+
+<p>Now that the content and Modulefile are ready, you can build a package of your module by running the following command:</p>
+
+<pre><code>puppet module build &lt;MODULE DIRECTORY&gt;
+</code></pre>
+
+<p>This will generate a <code>.tar.gz</code> package, which will be saved in the module&#8217;s <code>pkg/</code> subdirectory.</p>
+
+<p>For example:</p>
+
+<pre><code># puppet module build /etc/puppetlabs/puppet/modules/mymodule
+Building /etc/puppetlabs/puppet/modules/mymodule for release
+/etc/puppetlabs/puppet/modules/mymodule/pkg/examplecorp-mymodule-0.0.1.tar.gz
+</code></pre>
+
+<h2 id="upload-to-the-puppet-forge">Upload to the Puppet Forge</h2>
+
+<p>Now that you have a compiled <code>tar.gz</code> package, you can upload it to the Puppet Forge. There is currently no command line tool for publishing; you must use the Puppet Forge&#8217;s web interface.</p>
+
+<p>In your web browser, navigate <a href="https://forge.puppetlabs.com/">to the Puppet Forge</a>; log in if necessary.</p>
+
+<h3 id="create-a-module-page">Create a Module Page</h3>
+
+<p>If you have never published this module before, you must create a new page for it. Click on the &#8220;Publish a Module&#8221; link in the sidebar:</p>
+
+<p><img src="./images/forge_publish_module.png" alt="the &quot;publish a module&quot;&quot; link in the Forge's sidebar" /></p>
+
+<p>This will bring up a form for info about the new module. Only the &#8220;Module Name&#8221; field is required. <strong>Use the module&#8217;s short name, not the long <code>username-module</code> name.</strong></p>
+
+<p>Clicking the &#8220;Publish Module&#8221; button at the bottom of the form will automatically navigate to the new module page.</p>
+
+<h3 id="create-a-release">Create a Release</h3>
+
+<p>Navigate to the module&#8217;s page if you are not already there, and click the &#8220;Click here to upload your tarball&#8221; link:</p>
+
+<p><img src="./images/forge_upload_tarball.png" alt="the &quot;upload a tarball&quot; link on a module's page" /></p>
+
+<p>This will bring you to the upload form:</p>
+
+<p><img src="./images/forge_upload_tarball2.png" alt="the upload form for a new release of a module" /></p>
+
+<p>Click &#8220;Choose File&#8221; and use the file browser to locate and select the release tarball you created with the <code>puppet module build</code> action. Then click the &#8220;Upload Release&#8221; link.</p>
+
+<p>Your module has now been published to the Puppet Forge. The Forge will pull your README, Changelog, and License files from your tarball to display on your module&#8217;s page. To confirm that it was published correctly, you can <a href="./modules_installing.html">install it</a> on a new system using the <code>puppet module install</code> action.</p>
+
+<h2 id="release-a-new-version">Release a New Version</h2>
+
+<p>To release a new version of an already published module, you will need to make any necessary edits to your module, and then increment the <code>version</code> field in the Modulefile (ensuring you use a valid <a href="http://semver.org/">semantic version</a>).</p>
+
+<p>When you are ready to publish your new version, navigate <a href="https://forge.puppetlabs.com/">to the Puppet Forge</a> and log in if necessary. Click the &#8220;Upload a New Release&#8221; link:</p>
+
+<p><img src="./images/forge_new_release.png" alt="the " /></p>
+
+<p>This will bring you to the upload form as mentioned in <a href="#create-a-release">Create a Release</a> above, where you can select the new release tarball and upload the release.</p>
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+
+
+<h3 id="puppet-27-reference-manual">Puppet 2.7 Reference Manual</h3>
+
+<p><a href="./index.html">Main Index</a></p>
+
+<ul>
+  <li><strong>The Puppet Language</strong>
+    <ul>
+      <li><a href="./lang_visual_index.html">Visual Index</a></li>
+      <li><a href="./lang_summary.html">Summary</a></li>
+      <li><a href="./lang_reserved.html">Reserved Words and Acceptable Names</a></li>
+      <li><a href="./lang_resources.html">Resources</a></li>
+      <li><a href="./lang_relationships.html">Relationships and Ordering</a></li>
+      <li><a href="./lang_defaults.html">Resource Defaults</a></li>
+      <li><a href="./lang_variables.html">Variables</a></li>
+      <li><a href="./lang_scope.html">Scope</a></li>
+      <li><a href="./lang_conditional.html">Conditional Statements</a></li>
+      <li><a href="./lang_expressions.html">Expressions</a></li>
+      <li><a href="./lang_functions.html">Functions</a></li>
+      <li><a href="./lang_classes.html">Classes</a></li>
+      <li><a href="./lang_defined_types.html">Defined Types</a></li>
+      <li><a href="./lang_containment.html">Containment</a></li>
+      <li><a href="./lang_namespaces.html">Namespaces and Autoloading</a></li>
+      <li><a href="./lang_collectors.html">Resource Collectors</a></li>
+      <li><a href="./lang_node_definitions.html">Node definitions</a></li>
+      <li><a href="./lang_datatypes.html">Data Types</a></li>
+      <li><a href="./lang_comments.html">Comments</a></li>
+      <li><a href="./lang_virtual.html">Virtual Resources</a></li>
+      <li><a href="./lang_exported.html">Exported Resources</a></li>
+      <li><a href="./lang_tags.html">Tags</a></li>
+      <li><a href="./lang_run_stages.html">Run Stages</a></li>
+      <li><a href="./lang_import.html">Importing Manifest Files</a></li>
+    </ul>
+  </li>
+  <li><strong>Modules</strong>
+    <ul>
+      <li><a href="./modules_fundamentals.html">Fundamentals</a></li>
+      <li><a href="./../../../guides/plugins_in_modules.html">Plugins in Modules</a></li>
+      <li><a href="./modules_installing.html">Installing Modules</a></li>
+      <li><span class="currentpage">Publishing Modules on the Puppet Forge</span></li>
+      <li><a href="./modules_documentation.html">Module Documentation</a></li>
+    </ul>
+  </li>
+  <li><strong>Data Formats</strong>
+    <ul>
+      <li><a href="./format_report.html">Report Formats</a></li>
+    </ul>
+  </li>
+  <li><strong>Generated References</strong>
+    <ul>
+      <li><a href="./../../../references/2.7.latest/type.html">Resource Types</a></li>
+      <li><a href="./../../../references/2.7.latest/configuration.html">Configuration Settings</a></li>
+      <li><a href="./../../../references/2.7.latest/function.html">Functions</a></li>
+      <li><a href="./../../../references/2.7.latest/metaparameter.html">Metaparameters</a></li>
+      <li><a href="./../../../references/2.7.latest/report.html">Report Handlers</a></li>
+    </ul>
+  </li>
+  <li><strong>More Sections Coming Later</strong>
+    <ul>
+      <li><strong>Puppet 2.7 Overview</strong></li>
+      <li><strong>Standard Puppet Operation</strong></li>
+      <li><strong>Command Line Interface</strong></li>
+      <li><strong>The Puppet Services</strong></li>
+      <li><strong>The Ruby DSL</strong></li>
+      <li><strong>Node Classification</strong></li>
+      <li><strong>File Serving</strong></li>
+      <li><strong>Resource Types and Providers</strong></li>
+      <li><strong>SSL and Certificates</strong></li>
+      <li><strong>Puppet Data Library</strong></li>
+      <li><strong>Environments</strong></li>
+      <li><strong>Configuring Puppet</strong></li>
+      <li><strong>Internals</strong></li>
+    </ul>
+  </li>
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

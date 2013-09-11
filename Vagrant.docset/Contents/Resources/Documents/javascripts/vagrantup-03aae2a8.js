@@ -1,0 +1,2 @@
+// add dropshadow to nav on scroll
+$(document).ready(function(){$(document).scroll(function(){var e=$(document).scrollTop();e>0&&$("nav").addClass("drop-shadow"),e===0&&$("nav").removeClass("drop-shadow")})}),$(document).ready(function(){$(".toggle").click(function(){$(".sidebar-nav ul").slideToggle("slow")})});

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>PE 3.0 » Puppet » Modules and Manifests — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../favicon.ico' />
+
+
+  <meta name="description" content="SummaryPuppet uses its own domain-specific language (DSL) to describe machine configurations. Code in this language is saved in files called manife...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/pe/latest/puppet_modules_manifests.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">PE 3.0 » Puppet » Modules and Manifests</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>Puppet Modules and Manifests</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#summary">Summary</a></li>
+  <li class="toc-lv2"><a href="#other-references">Other References</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#learning-the-puppet-language">Learning the Puppet Language</a></li>
+   <li class="toc-lv3"><a href="#quick-start">Quick Start</a></li>
+   <li class="toc-lv3"><a href="#modules-in-context">Modules in Context</a></li>
+   <li class="toc-lv3"><a href="#printable-references">Printable References</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#the-puppet-language">The Puppet Language</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#manifests">Manifests</a></li>
+   <li class="toc-lv3"><a href="#resources">Resources</a></li>
+   <li class="toc-lv3"><a href="#conditional-logic-variables-and-facts">Conditional Logic, Variables, and Facts</a></li>
+   <li class="toc-lv3"><a href="#classes-and-defined-types">Classes and Defined Types</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#puppet-modules">Puppet Modules</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#module-structure">Module Structure</a></li>
+   <li class="toc-lv3"><a href="#downloading-modules">Downloading Modules</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#catalogs-and-compilation">Catalogs and Compilation</a></li>
+</ol></nav>
+
+<h2 id="summary">Summary</h2>
+
+<p>Puppet uses its own domain-specific language (DSL) to describe machine configurations. Code in this language is saved in files called <em>manifests.</em></p>
+
+<p>Puppet works best when you isolate re-usable chunks of code into their own modules, then compose those chunks into more complete configurations.</p>
+
+<p>This page covers the first part of that process: writing manifests and modules. For information on composing modules into complete configurations, see <a href="./puppet_assign_configurations.html">the Assigning Configurations to Nodes page</a> of this manual.</p>
+
+<blockquote>
+  <h2 id="other-references">Other References</h2>
+
+  <p>This page consists mostly of small examples and links to detailed information. If you want more complete context, you should read some of the following documents instead:</p>
+
+  <h3 id="learning-the-puppet-language">Learning the Puppet Language</h3>
+
+  <p><strong>If you are new to Puppet, start here.</strong> For a complete introduction to the Puppet language, read and follow along with the Learning Puppet series, which will introduce you to the basic concepts and then teach advanced class writing and module construction.</p>
+
+  <ul>
+    <li><a href="./../../learning/index.html">Learning Puppet</a></li>
+  </ul>
+
+  <h3 id="quick-start">Quick Start</h3>
+
+  <p>For those who learn by doing, the PE user&#8217;s guide includes a pair of interactive quick start guides, which walk you through installing, using, hacking, and creating Puppet modules.</p>
+
+  <ul>
+    <li><a href="./quick_start.html">Quick Start: Using PE</a></li>
+    <li><a href="./quick_writing.html">Quick Start: Writing Modules</a></li>
+  </ul>
+
+  <h3 id="modules-in-context">Modules in Context</h3>
+
+  <p>The Puppet Enterprise Deployment Guide includes detailed walkthroughs of how to choose modules and compose them into complete configurations.</p>
+
+  <ul>
+    <li><a href="./../../guides/deployment_guide/dg_define_infrastructure.html">Deployment Guide ch. 3: Automating Your Infrastructure</a></li>
+  </ul>
+
+  <h3 id="printable-references">Printable References</h3>
+
+  <p>These two cheat sheets are useful when writing your own modules or hacking existing modules.</p>
+
+  <ul>
+    <li><a href="./../../module_cheat_sheet.pdf">Module Layout Cheat Sheet</a></li>
+    <li><a href="./../../puppet_core_types_cheatsheet.pdf">Core Resource Type Cheat Sheet</a></li>
+  </ul>
+</blockquote>
+
+<h2 id="the-puppet-language">The Puppet Language</h2>
+
+<p>Puppet configurations are written in the Puppet language, a DSL built to declaratively model resources.</p>
+
+<blockquote>
+  <ul>
+    <li>For complete information about the Puppet language, <a href="./../../puppet/3/reference/lang_summary.html">see the Puppet 3 Language Reference</a>.</li>
+    <li>To identify unfamiliar syntax, <a href="./../../puppet/3/reference/lang_visual_index.html">see the visual index to the Puppet language</a>.</li>
+  </ul>
+</blockquote>
+
+<h3 id="manifests">Manifests</h3>
+
+<p>Manifests are files containing Puppet code. They are standard text files saved with the <code>.pp</code> extension. Most manifests should be arranged into <a href="#puppet-modules">modules</a>.</p>
+
+<h3 id="resources">Resources</h3>
+
+<p>The core of the Puppet language is declaring <strong>resources.</strong> A resource declaration looks like this:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="c1"># A resource declaration:</span>
+    <span class="n">file</span> <span class="p">{</span> <span class="s1">&#39;/etc/passwd&#39;</span><span class="p">:</span>
+      <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
+      <span class="n">owner</span>  <span class="o">=&gt;</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+      <span class="n">group</span>  <span class="o">=&gt;</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+      <span class="n">mode</span>   <span class="o">=&gt;</span> <span class="s1">&#39;0600&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>When a resource depends on another resource, you should explicitly state the relationship to make sure they happen in the right order.</p>
+
+<ul>
+  <li>See <a href="./../../puppet/3/reference/lang_resources.html">the Resources page of the Puppet language reference</a> for details about resource declarations.</li>
+  <li>See <a href="./../../puppet/3/reference/lang_relationships.html">the Relationships and Ordering page</a> for details about relationships.</li>
+</ul>
+
+<h3 id="conditional-logic-variables-and-facts">Conditional Logic, Variables, and Facts</h3>
+
+<p>Puppet manifests can dynamically adjust their behavior based on variables. Puppet includes a set of useful pre-set variables called <strong>facts</strong> that contain system profiling data.</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="c1"># Set the name of the Apache package based on OS</span>
+    <span class="k">case</span> <span class="vg">$operatingsystem</span> <span class="p">{</span>
+      <span class="n">centos</span><span class="p">,</span> <span class="n">redhat</span><span class="p">:</span> <span class="p">{</span> <span class="vg">$apache</span> <span class="o">=</span> <span class="s2">&quot;httpd&quot;</span> <span class="p">}</span>
+      <span class="n">debian</span><span class="p">,</span> <span class="n">ubuntu</span><span class="p">:</span> <span class="p">{</span> <span class="vg">$apache</span> <span class="o">=</span> <span class="s2">&quot;apache2&quot;</span> <span class="p">}</span>
+      <span class="n">default</span><span class="p">:</span> <span class="p">{</span> <span class="nb">fail</span><span class="p">(</span><span class="s2">&quot;Unrecognized operating system for webserver&quot;</span><span class="p">)</span> <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">package</span> <span class="p">{</span><span class="vg">$apache</span><span class="p">:</span>
+      <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">installed</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>See the <a href="./../../puppet/3/reference/lang_variables.html">Variables</a> page (and the <a href="/puppet/3/reference/lang_variables.html#facts-and-built-in-variables">Facts</a> subsection) of the Puppet language reference for information on variables.</li>
+  <li>See the <a href="./../../puppet/3/reference/lang_conditional.html">Conditional Statements</a> page for information on if, case, and selector statements.</li>
+</ul>
+
+<h3 id="classes-and-defined-types">Classes and Defined Types</h3>
+
+<p>Groups of resource declarations and conditional statements can be wrapped up into a <strong>class:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="n">ntp</span> <span class="p">{</span>
+      <span class="n">package</span> <span class="p">{</span> <span class="s1">&#39;ntp&#39;</span><span class="p">:</span>
+        <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">installed</span><span class="p">,</span>
+      <span class="p">}</span>
+      <span class="n">file</span> <span class="p">{</span> <span class="s1">&#39;ntp.conf&#39;</span><span class="p">:</span>
+        <span class="n">path</span>    <span class="o">=&gt;</span> <span class="s1">&#39;/etc/ntp.conf&#39;</span><span class="p">,</span>
+        <span class="k">ensure</span>  <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
+        <span class="nb">require</span> <span class="o">=&gt;</span> <span class="no">Package</span><span class="o">[</span><span class="s1">&#39;ntp&#39;</span><span class="o">]</span><span class="p">,</span>
+        <span class="n">source</span>  <span class="o">=&gt;</span> <span class="s2">&quot;puppet:///modules/ntp/ntp.conf&quot;</span>
+      <span class="p">}</span>
+      <span class="n">service</span> <span class="p">{</span> <span class="s1">&#39;ntp&#39;</span><span class="p">:</span>
+        <span class="nb">name</span>      <span class="o">=&gt;</span> <span class="n">ntpd</span>
+        <span class="k">ensure</span>    <span class="o">=&gt;</span> <span class="n">running</span><span class="p">,</span>
+        <span class="n">enable</span>    <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+        <span class="n">subscribe</span> <span class="o">=&gt;</span> <span class="no">File</span><span class="o">[</span><span class="s1">&#39;ntp.conf&#39;</span><span class="o">]</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Classes are named blocks of Puppet code that can be assigned to nodes. They should be stored in modules so that the puppet master can locate them by name.</p>
+
+<p><strong>Defined types</strong> are similar to classes, and should also be stored in modules. They cannot be assigned directly to nodes, but can enable you to build much more sophisticated classes.</p>
+
+<ul>
+  <li>See <a href="./../../puppet/3/reference/lang_classes.html">the Classes page of the Puppet language reference</a> for details about defining and declaring classes.</li>
+  <li>See <a href="./../../puppet/3/reference/lang_defined_types.html">the Defined Types page</a> for details about defined resource types.</li>
+</ul>
+
+<h2 id="puppet-modules">Puppet Modules</h2>
+
+<p><strong>Modules</strong> are a convention for arranging Puppet manifests so that they can be automatically located and loaded by the puppet master. They can also contain plugins, static files for nodes to download, and templates.</p>
+
+<p>Modules can contain many Puppet classes. Generally, the classes in a given module are all somewhat related. (For example, an <code>apache</code> module might have a class that installs and enables Apache, a class that enables PHP with Apache, a class that turns on <code>mod_rewrite</code>, etc.)</p>
+
+<p>A module is:</p>
+
+<ul>
+  <li>A directory&#8230;</li>
+  <li>&#8230;with a specific internal layout&#8230;</li>
+  <li>&#8230;which is located in one of the puppet master&#8217;s <strong>modulepath</strong> directories.</li>
+</ul>
+
+<p>In Puppet Enterprise, the main modulepath directory for users is located at <code>/etc/puppetlabs/puppet/modules</code> on the puppet master server.</p>
+
+<h3 id="module-structure">Module Structure</h3>
+
+<p>This example module, named &#8220;<code>my_module</code>,&#8221; shows the standard module layout:</p>
+
+<ul>
+  <li><code>my_module/</code> &#8212; This outermost directory&#8217;s name matches the name of the module.
+    <ul>
+      <li><code>manifests/</code> &#8212; Contains all of the manifests in the module.
+        <ul>
+          <li><code>init.pp</code> &#8212; Contains one class named <strong><code>my_module</code>.</strong> <strong>This class&#8217;s name must match the module&#8217;s name.</strong></li>
+          <li><code>other_class.pp</code> &#8212; Contains one class named <strong><code>my_module::other_class</code>.</strong></li>
+          <li><code>my_defined_type.pp</code> &#8212; Contains one defined type named <strong><code>my_module::my_defined_type</code>.</strong></li>
+          <li><code>implementation/</code> &#8212; This directory&#8217;s name affects the class names beneath it.
+            <ul>
+              <li><code>foo.pp</code> &#8212; Contains a class named <strong><code>my_module::implementation::foo</code>.</strong></li>
+              <li><code>bar.pp</code> &#8212; Contains a class named <strong><code>my_module::implementation::bar</code>.</strong></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><code>files/</code> &#8212; Contains static files, which managed nodes can download.
+        <ul>
+          <li><code>service.conf</code> &#8212; This file&#8217;s URL would be <strong><code>puppet:///modules/my_module/service.conf</code>.</strong></li>
+        </ul>
+      </li>
+      <li><code>lib/</code> &#8212; Contains plugins, like custom facts and custom resource types.</li>
+      <li><code>templates/</code> &#8212; Contains templates, which the module&#8217;s manifests can use.
+        <ul>
+          <li><code>component.erb</code> &#8212; A manifest can render this template with <code>template('my_module/component.erb')</code>.</li>
+        </ul>
+      </li>
+      <li><code>tests/</code> &#8212; Contains examples showing how to declare the module&#8217;s classes and defined types.
+        <ul>
+          <li><code>init.pp</code></li>
+          <li><code>other_class.pp</code> &#8212; Each class or type should have an example in the tests directory.</li>
+        </ul>
+      </li>
+      <li><code>spec/</code> &#8212; Contains spec tests for any plugins in the lib directory.</li>
+    </ul>
+  </li>
+  <li>See <a href="./../../puppet/3/reference/modules_fundamentals.html">the Module Fundamentals page of the Puppet 3 reference manual</a> for details about module layout and location.</li>
+</ul>
+
+<h3 id="downloading-modules">Downloading Modules</h3>
+
+<p>You can search for pre-built modules on <a href="http://forge.puppetlabs.com">the Puppet Forge</a> and use them in your own infrastructure.</p>
+
+<ul>
+  <li>Use the <code>puppet module search</code> command to locate modules, or <a href="http://forge.puppetlabs.com">browse the Puppet Forge&#8217;s web interface</a>.</li>
+  <li>On your puppet master server, use the <code>puppet module install</code> command to install modules from the Forge.</li>
+  <li>See <a href="./../../puppet/3/reference/modules_installing.html">the Installing Modules page</a> for details about installing pre-built modules.</li>
+</ul>
+
+<h2 id="catalogs-and-compilation">Catalogs and Compilation</h2>
+
+<p>In standard master/agent Puppet, agents never see the manifests and modules that comprise their configuration. Instead, the puppet master <strong>compiles</strong> the manifests down into a document called a <strong>catalog,</strong> and serves the catalog to the agent node.</p>
+
+<p>As mentioned above, manifests can contain conditional logic, as well as things like templates and functions, all of which can use variables to change what the manifest manages on a system. A catalog has none of these things; it contains only resources and relationships.</p>
+
+<p>Only sending the catalog to agents allows Puppet to do several things:</p>
+
+<ul>
+  <li><strong>Separate privileges:</strong> Each individual node has little to no knowledge about other nodes. It only receives its own resources.</li>
+  <li><strong>Simulate changes:</strong> Since the agent has a declarative document describing its configuration, with no contingent logic, it has the option of simulating the changes necessary to apply the configuration. If you <a href="./orchestration_puppet.html#arguments">do a Puppet run in <em>noop</em> mode</a>, the agent will check against its current state and report on what <em>would</em> have changed without actually making any changes.</li>
+  <li><strong>Record and query configurations:</strong> Each node&#8217;s most recent catalog is stored in PuppetDB, and you can <a href="./../../puppetdb/1.3/api/index.html">query the database service for information about managed resources</a>.</li>
+</ul>
+
+<hr />
+
+<ul>
+  <li><a href="./puppet_assign_configurations.html">Next: Assigning Configurations to Nodes</a></li>
+</ul>
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+
+<h3><a href="./index.html">Puppet Enterprise 3.0</a></h3>
+
+<ul>
+  <li><strong>Overview</strong>
+    <ul>
+      <li><a href="./overview_about_pe.html">About Puppet Enterprise</a></li>
+      <li><a href="./overview_whats_new.html">New Features</a></li>
+      <li><a href="./overview_getting_support.html">Getting Support</a></li>
+    </ul>
+  </li>
+  <li><strong>Quick Start</strong>
+    <ul>
+        <li><a href="./quick_start.html">Quick Start: Using PE</a></li>
+        <li><a href="./quick_writing.html">Quick Start: Writing Modules</a></li>
+    </ul>
+  </li>
+  <li><strong>Installing Puppet Enterprise</strong>
+    <ul>
+      <li><a href="./install_system_requirements.html">System Requirements</a></li>
+      <li><a href="./install_basic.html">Installing PE</a></li>
+      <li><a href="./install_windows.html">Installing Windows Agents</a></li>
+      <li><a href="./install_upgrading.html">Upgrading</a></li>
+      <li><a href="./install_uninstalling.html">Uninstalling</a></li>
+      <li><a href="./install_automated.html">Automated Installation</a></li>
+      <li><a href="./install_answer_file_reference.html">Answer File Reference</a></li>
+      <li><a href="./install_what_and_where.html">What gets installed where?</a></li>
+    </ul>
+  </li>
+  <li><strong>The PE Console</strong>
+    <ul>
+      <li><a href="./console_accessing.html">Accessing the Console</a></li>
+      <li><a href="./console_navigating.html">Navigating the Console</a></li>
+      <li><a href="./console_navigating_live_mgmt.html">Navigating the Live Management Page</a></li>
+      <li><a href="./console_cert_mgmt.html">Managing Node Requests</a></li>
+      <li><a href="./console_classes_groups.html">Grouping & Classifying Nodes</a></li>
+      <li><a href="./console_reports.html">Viewing Reports & Inventory Data</a></li>
+      <li><a href="./console_auth.html">Managing Users</a></li>
+      <li><a href="./console_inventory_search.html">Inventory Search</a></li>
+      <li><a href="./console_rake_api.html">Rake API and List of Tasks</a></li>
+      <li><a href="./console_rake_api_old.html">Rake API: List of Tasks (Old Argument Style)</a></li>
+      <li><a href="./console_config.html">Configuring the Console</a></li>
+    </ul>
+  </li>
+  <li><strong>Puppet Core</strong>
+    <ul>
+      <li><a href="./puppet_overview.html">Overview</a></li>
+      <li><span class="currentpage">Modules & Manifests</span></li>
+      <li><a href="./puppet_assign_configurations.html">Assigning Configurations to Nodes</a></li>
+      <li><a href="./puppet_tools.html">Tools</a></li>
+      <li><a href="./puppet_data_library.html">Puppet Data Library</a></li>
+      <li><a href="./puppet_references.html">References</a></li>
+      <li><a href="./puppet_config.html">Configuring Puppet Core</a></li>
+    </ul>
+  </li>
+  <li><strong>Orchestration</strong>
+    <ul>
+      <li><a href="./orchestration_overview.html">Overview</a></li>
+      <li><a href="./orchestration_invoke_cli.html">Invoking Actions</a></li>
+      <li><a href="./orchestration_puppet.html">Controlling Puppet</a></li>
+      <li><a href="./orchestration_resources.html">Browsing Resources</a></li>
+      <li><a href="./orchestration_actions.html">List of Built-In Actions</a></li>
+      <li><a href="./orchestration_adding_actions.html">Adding New Actions</a></li>
+      <!-- <li><a href="./orchestration_integrating.html">Integrating Applications</a></li> -->
+      <li><a href="./orchestration_config.html">Configuring Orchestration</a></li>
+    </ul>
+  </li>
+  <li><strong>Cloud Provisioning</strong>
+    <ul>
+      <li><a href="./cloudprovisioner_overview.html">Overview</a></li>
+      <li><a href="./cloudprovisioner_configuring.html">Installing & Configuring Cloud Provisioner</a></li>
+      <li><a href="./cloudprovisioner_classifying_installing.html">Classifying Nodes & Remotely Installing Puppet</a></li>
+      <li><a href="./cloudprovisioner_vmware.html">Provisioning with VMware</a></li>
+      <li><a href="./cloudprovisioner_aws.html">Provisioning with AWS</a></li>
+      <li><a href="./cloudprovisioner_workflow.html">Sample Workflow</a></li>
+    </ul>
+  </li>
+  <li><strong>The PE Accounts Module</strong>
+    <ul>
+      <li><a href="./accounts_user_type.html">The pe_accounts::user Type</a></li>
+      <li><a href="./accounts_class.html">The pe_accounts Class</a></li>
+    </ul>
+  </li>
+   <li><strong>Maintenance</strong>
+    <ul>
+      <li> <a href="./maintain_console-db.html">Console & Database Maintenance</a></li>
+      <!--
+<li> <a href="./maintain_puppet.html">Puppet Core Maintenance</a></li>
+      <li> <a href="./maintain_orchestration.html">Orchestration Maintenance</a></li>
+ -->
+    </ul>
+  </li>
+  <li><strong>Troubleshooting</strong>
+    <ul>
+     <li> <a href="./trouble_install.html">Troubleshooting the Installer</a></li>
+     <li> <a href="./trouble_comms.html">Troubleshooting Connections & Communications</a></li>
+     <li> <a href="./trouble_console-db.html">Troubleshooting the Console & Database</a></li>
+     <li> <a href="./trouble_puppet.html">Troubleshooting the Puppet Core</a></li>
+     <li> <a href="./trouble_orchestration.html">Troubleshooting Orchestration</a></li>
+     <li> <a href="./trouble_cloudprovisioner.html">Troubleshooting Cloud Provisioner</a></li>
+     <li> <a href="./trouble_windows.html">Troubleshooting Windows</a></li>
+    </ul>
+  </li>
+  <li><strong>Appendix</strong>
+    <ul>
+      <li><a href="./appendix.html#release-notes">Release Notes</a></li>
+      <li><a href="./appendix.html#known-issues">Known Issues</a></li>
+       <li><a href="./compliance_alt.html">Compliance Alternate Workflow</a></li>
+    <!--    <li><a href="./cloning_alt.html">Cloning Alternate Workflow</a></li> -->
+    </ul>
+  </li>
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

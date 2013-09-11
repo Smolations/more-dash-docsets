@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>PE 3.0 » Appendix — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../favicon.ico' />
+
+
+  <meta name="description" content="This page contains additional miscellaneous information about Puppet Enterprise (PE) 3.0.Puppet TerminologyFor help with Puppet-specific terms and ...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/pe/latest/appendix.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">PE 3.0 » Appendix</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>User's Guide Appendix</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#puppet-terminology">Puppet Terminology</a></li>
+  <li class="toc-lv2"><a href="#release-notes">Release Notes</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#pe-301-8152013">PE 3.0.1 (8/15/2013)</a></li>
+   <li class="toc-lv3"><a href="#pe-300">PE 3.0.0</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#known-issues">Known Issues</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#beast-attack-mitigation">BEAST Attack Mitigation</a></li>
+   <li class="toc-lv3"><a href="#pe-install-fails-if-port-8080-or-8081-is-in-use">PE Install Fails if Port 8080 or 8081 is in Use</a></li>
+   <li class="toc-lv3"><a href="#puppet-code-issues-with-utf-8-encoding">Puppet Code Issues with UTF-8 Encoding</a></li>
+   <li class="toc-lv3"><a href="#readline-version-issues-on-aix-agents">Readline Version Issues on AIX Agents</a></li>
+   <li class="toc-lv3"><a href="#debianubuntu-local-hostname-issue">Debian/Ubuntu Local Hostname Issue</a></li>
+   <li class="toc-lv3"><a href="#consoleauth-fails-after-postgresql-restart">Console_auth Fails After PostgreSQL Restart</a></li>
+   <li class="toc-lv3"><a href="#inconsistent-counts-when-comparing-service-resources-in-live-management">Inconsistent Counts When Comparing Service Resources in Live Management</a></li>
+   <li class="toc-lv3"><a href="#bad-data-in-facters-architecture-fact">Bad Data in Facter&#8217;s architecture Fact</a></li>
+   <li class="toc-lv3"><a href="#augeas-file-access-issue">Augeas File Access Issue</a></li>
+   <li class="toc-lv3"><a href="#after-upgrading-nodes-report-a-not-a-pe-agent-error">After Upgrading, Nodes Report a &#8220;Not a PE Agent&#8221; Error</a></li>
+   <li class="toc-lv3"><a href="#ec2dual-homed-systems-report-incorrect-uris-for-the-console">EC2/Dual-homed Systems Report Incorrect URIs for the Console.</a></li>
+   <li class="toc-lv3"><a href="#answer-file-required-for-some-smtp-serversd">Answer file required for some SMTP servers.d</a></li>
+   <li class="toc-lv3"><a href="#pe-httpd-must-be-restarted-after-revoking-certificates">pe-httpd Must Be Restarted After Revoking Certificates</a></li>
+   <li class="toc-lv3"><a href="#dynamic-man-pages-are-incorrectly-formatted">Dynamic Man Pages are Incorrectly Formatted</a></li>
+</ol></li>
+</ol></nav>
+              <p>This page contains additional miscellaneous information about Puppet Enterprise (PE) 3.0.</p>
+
+<h2 id="puppet-terminology">Puppet Terminology</h2>
+
+<p>For help with Puppet-specific terms and language, visit <a href="./../../references/glossary.html">the glossary</a></p>
+
+<p>For a complete guide to the Puppet language, visit <a href="./../../puppet/3/reference/index.html">the reference manual</a></p>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<h3 id="pe-301-8152013">PE 3.0.1 (8/15/2013)</h3>
+
+<h4 id="complete-upgrade-support">Complete Upgrade Support</h4>
+
+<p>The PE Installer/Upgrader script is now fully functional and can upgrade all PE roles: agent, master, console, cloud provisioner, and database support.</p>
+
+<h4 id="sles-support">SLES Support</h4>
+
+<p>PE 3.0.1 now fully supports all PE roles on nodes running SLES 11 SP1 or higher.</p>
+
+<h4 id="improvements-to-cloud-provisioner">Improvements to Cloud Provisioner</h4>
+
+<p>Integration with PE has been improved and installation of the cloud provisioner role now properly includes all dependencies. In addition, issues with <code>puppet node_vmware list</code> have been addressed and the command should now correctly list directory structures.</p>
+
+<h4 id="security-fixes">Security Fixes</h4>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4761/">CVE-2013-4761 <code>resource_type</code> Remote Code Execution Vulnerability</a>.</em></p>
+
+<p>The <code>resource_type</code> service could be used to load arbitrary Ruby files if auth_conf was edited to allow the behavior.</p>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4073/">CVE-2013-4073 Ruby SSL Vulnerability</a>.</em></p>
+
+<p>A vulnerability in Ruby&#8217;s SSL client could allow an attacker to spoof SSL servers via a valid, trusted certificate.</p>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4762/">CVE-2013-4762 Logout Link Did Not Destroy Server Session</a>.</em></p>
+
+<p>The &#8220;logout&#8221; link in Puppet Enterprise did not invalidate the old session, potentially allowing an attacker to hijack a user&#8217;s session and gain access to sensitive data.</p>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4955/">CVE-2013-4955 Phishing Through URL Redirection Vulnerability</a>.</em></p>
+
+<p>The PE login page could be manipulated into redirecting to a third-party website, allowing an attacker to redirect to a phishing site under their control.</p>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4956/">CVE-2013-4956 Puppet Module Permissions Vulnerability</a>.</em></p>
+
+<p>The Puppet Module Tool (PMT) incorrectly transferred a module&#8217;s original permissions.</p>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4958/">CVE-2013-4958 Lack of Session Timeout</a>.</em></p>
+
+<p>A lack of session timeout in Puppet Enterprise meant that an attacker could seize a machine and perform any actions the user was authorized to perform.</p>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4959/">CVE-2013-4959 Sensitive Data Browser Caching</a>.</em></p>
+
+<p>Pages in PE&#8217;s console that display sensitive data were caching that data incorrectly. This meant an attacker with access to the user&#8217;s machine could access the data in Temporary Internet Files.</p>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4961/">CVE-2013-4961 Software Version Numbers Were Revealed</a>.</em></p>
+
+<p>HTTP response headers generated by the web server revealed software version numbers for Apache and Phusion Passenger. These could be used to craft attacks based on published vulnerabilities. </p>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4962/">CVE-2013-4962 Lack of Re-authentication for Sensitive Transactions</a>.</em></p>
+
+<p>PE&#8217;s password reset page did not require the user to re-authenticate, allowing an attacker to potentially gain access to sensitive transactions.</p>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4963/">CVE-2013-4963 Cross-Site Request Forgery Vulnerability</a>.</em></p>
+
+<p>Several pages in the PE console were vulnerable to CSRF, which could allow an attacker to manipulate a user&#8217;s browser in a malicious manner.</p>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4964/">CVE-2013-4964 Session Cookies Not Set With Secure Flag</a>.</em></p>
+
+<p>The PE console uses a cookie to control access to the application. An incorrectly set security flag could allow an attacker to hijack a user&#8217;s session and access any functions or services available to the user.</p>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4967/">CVE-2013-4967 External Node Classifiers Allowed Clear Text Database Password Query</a>.</em></p>
+
+<p>A vulnerability in the PE console&#8217;s handling of database password could allow an attacker to access the password in clear text.</p>
+
+<p><em><a href="http://puppetlabs.com/security/cve/cve-2013-4968/">CVE-2013-4968 Site Lacked Clickjacking Defense</a>.</em></p>
+
+<p>The PE console was vulnerable to UI redress attack (aka, &#8220;clickjacking&#8221;), which could allow an attacker to redirect the user to another page or application and possibly trick them into entering sensitive data. Further, live management was vulnerable to cross-site scripting (XSS), allowing an attacker to potentially inject malicious scripts that could be used to access sensitive data.</p>
+
+<h3 id="pe-300">PE 3.0.0</h3>
+
+<h4 id="delayed-support-for-complete-upgrades-and-sles">Delayed Support for Complete Upgrades and SLES</h4>
+
+<ul>
+  <li>Full functionality for upgrades is not yet complete in 3.0. Upgrading is not yet supported for master, console and database roles, but is fully supported for agents. Visit the <a href="./install_upgrading">upgrading page</a> for complete instructions on how to migrate a 2.8 deployment to PE 3.0 now. Full upgrade support will be included in the next release of PE 3.0, no later than August 15, 2013.</li>
+  <li>Support for nodes running the SLES operating system is not yet completed. It will be included in the next release of PE 3.0, no later than August 15, 2013.</li>
+</ul>
+
+<h4 id="package-and-component-upgrades">Package and Component Upgrades</h4>
+
+<p>Many of the constituent components of Puppet Enterprise have been upgraded. Namely:</p>
+
+<ul>
+  <li>Ruby 1.9.3</li>
+  <li>Augeas 1.0.0</li>
+  <li>Puppet 3.2.2</li>
+  <li>Facter 1.7.1</li>
+  <li>Hiera 1.2.1</li>
+  <li>MCollective 2.2.4</li>
+  <li>Passenger 4.0</li>
+  <li>Dashboard 2.0</li>
+  <li>Java 1.7</li>
+  <li>PostgreSQL 9.2.4</li>
+</ul>
+
+<h4 id="removal-of-cloning">Removal of Cloning</h4>
+
+<p>The live management cloning tool is deprecated and has been removed in PE 3.0. We are continuing to improve resource inspection and interactive orchestration commands in the console. In general, we recommend managing resources with Puppet manifests instead of one-off commands.</p>
+
+<p>If you are using cloning, you can achieve a similar workflow by using <code>puppet resource</code> or <a href="./orchestration_actions.html#find">the puppetral plugin&#8217;s <code>find</code> action</a> to learn the details of resources on individual host. Then, you can use that info to write or append to a manifest. <!-- We've created an example page that shows this [alternate workflow in greater detail](./cloning_alt.html). --></p>
+
+<h4 id="removal-of-compliance">Removal of Compliance</h4>
+
+<p>The compliance workflow tools, including File Search, are deprecated, and have been removed in Puppet Enterprise 3.0. We are continuing to invest in flexible ways to help you predict, detect, and control change, and our next-generation tools will not use manually maintained baselines as a foundation.</p>
+
+<p>If you are using the compliance workflow tools today, you can achieve a similar workflow by using Puppet&#8217;s <strong>noop</strong> features to detect changes. We&#8217;ve created an example page that shows this <a href="./compliance_alt.html">alternate workflow in greater detail</a>.</p>
+
+<p>While the compliance app has been removed,  none of the associated data will be removed when upgrading the console and master. To remove all database tables used by the compliance app, run the following rake task on the master node: <code>/opt/puppet/bin/rake -s -f /opt/puppet/share/puppet-dashboard/Rakefile db:drop_compliance_tables RAILS_ENV=production</code>.</p>
+
+<h4 id="removal-of-file-search">Removal of &#8220;File Search&#8221;</h4>
+
+<p>Related to the removal of compliance, the File Search section of the console has been removed. This section was able to display file contents when given an MD5 checksum, but was no longer relevant once compliance was removed.</p>
+
+<h4 id="puppet-agent-service-rename">Puppet Agent Service Rename</h4>
+<p>Previously, the puppet agent service was known by several names, depending on platform (e.g. <code>puppetagent</code> on Solaris, <code>pe-puppet-agent</code> on Debian/Ubuntu, etc.). As of PE 3, it is called <code>'pe-puppet</code> on all platforms.</p>
+
+<h4 id="change-to-orchestration-engines-authentication-backend">Change to Orchestration Engine&#8217;s Authentication Backend</h4>
+
+<p>In previous versions, the orchestration engine (MCollective) used either the <code>psk</code> or <code>aespe</code> security plugin. As of PE 3, it uses the more secure and reliable <code>ssl</code> security plugin. <strong>If you have integrated external applications with the orchestration engine,</strong> you will need to <a href="./orchestration_config.html#adding-new-orchestration-users-and-integrating-applications">re-configure their security credentials</a>.</p>
+
+<h4 id="change-to-built-in-orchestration-actions">Change to Built-in Orchestration Actions</h4>
+
+<p>The output format and available actions of the <code>puppetral</code> orchestration plugin have changed &#8212; the <code>create</code> action has been removed, and the output format is now an array of hashes. If you have built applications that integrate with the <code>puppetral</code> plugin, you&#8217;ll need to update them.</p>
+
+<h2 id="known-issues">Known Issues</h2>
+
+<p>As we discover them, this page will be updated with known issues in Puppet Enterprise 3.0 and earlier. Fixed issues will be removed from this list and noted above in the release notes. If you find new problems yourself, please file bugs in Puppet <a href="http://projects.puppetlabs.com/projects/puppet/issues">here</a> and bugs specific to Puppet Enterprise <a href="http://projects.puppetlabs.com/projects/puppet-enterprise/issues">here</a>.</p>
+
+<p>To find out which of these issues may affect you, run <code>/opt/puppet/bin/puppet --version</code>, the output of which will look something like <code>3.2.2 (Puppet Enterprise 3.0)</code>. To upgrade to a newer version of Puppet Enterprise, see the <a href="./install_upgrading.html">chapter on upgrading</a>.</p>
+
+<p>The following issues affect the currently shipped version of PE and all prior releases in the 2.x.x series, unless otherwise stated.</p>
+
+<h3 id="beast-attack-mitigation">BEAST Attack Mitigation</h3>
+
+<p>A known weakness in Apache HTTPD leaves it vulnerable to a man-in-the-middle attack known as the BEAST (Browser Exploit Against SSL/TLS) attack. The vulnerability exists because Apache HTTPD uses a FIPS compliant cipher suite that can be cracked via a brute force attack that can discover the decryption key. If FIPS compliance is not required for your infrastructure, we recommend you mitigate vulnerability to the BEAST attack by using a cipher suite that includes stronger ciphers. This can be done as follows:</p>
+
+<p>In <code>/etc/puppetlabs/httpd/conf.d/puppetdashboard.conf</code>, edit the <code>SSLCipherSuite</code> and <code>SSLProtocol</code> options to:</p>
+
+<pre><code>SSLCipherSuite ALL:!ADH:+RC4+RSA:+HIGH:+AES+256:+CBC3:-LOW:-SSLv2:-EXP
+SSLProtocol ALL -SSLv2
+</code></pre>
+
+<p>This will set the order of ciphers to:</p>
+
+<pre><code>KRB5-RC4-MD5            SSLv3 Kx=KRB5     Au=KRB5 Enc=RC4(128)  Mac=MD5
+KRB5-RC4-SHA            SSLv3 Kx=KRB5     Au=KRB5 Enc=RC4(128)  Mac=SHA1
+RC4-SHA                 SSLv3 Kx=RSA      Au=RSA  Enc=RC4(128)  Mac=SHA1
+RC4-MD5                 SSLv3 Kx=RSA      Au=RSA  Enc=RC4(128)  Mac=MD5
+DHE-RSA-AES256-SHA      SSLv3 Kx=DH       Au=RSA  Enc=AES(256)  Mac=SHA1
+DHE-DSS-AES256-SHA      SSLv3 Kx=DH       Au=DSS  Enc=AES(256)  Mac=SHA1
+AES256-SHA              SSLv3 Kx=RSA      Au=RSA  Enc=AES(256)  Mac=SHA1
+DHE-RSA-AES128-SHA      SSLv3 Kx=DH       Au=RSA  Enc=AES(128)  Mac=SHA1
+DHE-DSS-AES128-SHA      SSLv3 Kx=DH       Au=DSS  Enc=AES(128)  Mac=SHA1
+AES128-SHA              SSLv3 Kx=RSA      Au=RSA  Enc=AES(128)  Mac=SHA1
+KRB5-DES-CBC3-MD5       SSLv3 Kx=KRB5     Au=KRB5 Enc=3DES(168) Mac=MD5
+KRB5-DES-CBC3-SHA       SSLv3 Kx=KRB5     Au=KRB5 Enc=3DES(168) Mac=SHA1
+EDH-RSA-DES-CBC3-SHA    SSLv3 Kx=DH       Au=RSA  Enc=3DES(168) Mac=SHA1
+EDH-DSS-DES-CBC3-SHA    SSLv3 Kx=DH       Au=DSS  Enc=3DES(168) Mac=SHA1
+DES-CBC3-SHA            SSLv3 Kx=RSA      Au=RSA  Enc=3DES(168) Mac=SHA1
+</code></pre>
+
+<p>Note that unless your system contains OpenSSL v1.0.1d (the version that correctly supports TLS1.1 1and 1.2), prioritizing RC4 may leave you vulnerable to other types of attacks.</p>
+
+<h3 id="pe-install-fails-if-port-8080-or-8081-is-in-use">PE Install Fails if Port 8080 or 8081 is in Use</h3>
+<p>PuppetDB requires access to port 8080 and 8081. The installer will check to make sure these ports are available and if they are not, the install will fail with an error message. To fix this, either disable the service currently using 8080/8081 or install the database role on a different node that has port 8080 available. A slightly more complicated workaround is to temporaily disable the service running on 8080/8081, complete the PE installation and then add a class parameter for puppetDB that makes it use a different, available port. Note that you will still need to temporarily disable the service using the ports even if you implement this class parameter workaround.</p>
+
+<h3 id="puppet-code-issues-with-utf-8-encoding">Puppet Code Issues with UTF-8 Encoding</h3>
+<p>PE 3 uses an updated version of Ruby, 1.9 that is much stricter about character encodings than the version of Ruby used in PE 2.8. As a result, puppet code that contains UTF-8 characters such as accents or other non-ASCII characters can fail or act unpredictably. There are a number of ways UTF-8 characters can make it into puppet code, including, but not limited to, downloading a Forge module where some piece of metadata (e.g., author&#8217;s name) contains UTF-8 characters. With apologies to our international customers, the current solution is to strictly limit puppet code to the ASCII character set only, including any code comments or metadata. Puppet Labs is working on cleaning up character encoding issues in Puppet and the various libraries it interfaces with.</p>
+
+<h3 id="readline-version-issues-on-aix-agents">Readline Version Issues on AIX Agents</h3>
+<ul>
+  <li>
+    <p>As with PE 2.8.2,  on AIX 5.3, puppet agents depend on readline-4-3.2 being installed. You can check the installed version of readline by running <code>rpm -q readline</code>. If you need to install it, you can <a href="ftp://ftp.software.ibm.com/aix/freeSoftware/aixtoolbox/RPMS/ppc/readline/readline-4.3-2.aix5.1.ppc.rpm">download it from IBM</a>. Install it <em>before</em> installing the puppet agent.</p>
+  </li>
+  <li>
+    <p>On AIX 6.1 and 7.1, the default version of readline, 4-3.2, is insufficient. You need to replace it <em>before</em> upgrading or installing by running</p>
+
+    <pre><code>   rpm -e --nodeps readline
+  rpm -Uvh readline-6.1-1.aix6.1.ppc.rpm
+</code></pre>
+  </li>
+</ul>
+
+<p>If you see an error message after running this, you can disregard it. Readline-6 should be successfully installed and you can proceed with the installation or upgrade (you can verify the installation with  <code>rpm -q readline</code>).</p>
+
+<h3 id="debianubuntu-local-hostname-issue">Debian/Ubuntu Local Hostname Issue</h3>
+<p>On some versions of Debian/Ubuntu, the default <code>/etc/hosts</code> file contains an entry for the machine&#8217;s hostname with a local IP address of 127.0.1.1. This can cause issues for PuppetDB and PostgreSQL, because binding a service to the hostname will cause it to resolve to the local-only IP address rather than its public IP. As a result, nodes (including the console) will fail to connect to PuppetDB and PostgreSQL.</p>
+
+<p>To fix this, add an entry to <code>/etc/hosts</code> that resolves the machine&#8217;s FQDN to its <em>public</em> IP address. This should be done prior to installing PE. However, if PE has already been installed, restarting the <code>pe-puppetdb</code> and <code>pe-postgresql</code> services after adding the entry to the hosts file should fix things.</p>
+
+<h3 id="consoleauth-fails-after-postgresql-restart">Console_auth Fails After PostgreSQL Restart</h3>
+<p>RubyCAS server, the component which provides console log-in services will not automatically reconnect if it loses connection to its database, which can result in a <code>500 Internal Server Error</code> when attempting to log in or out. The issue can be resolved by restarting Apache on the console&#8217;s node with <code>service pe-httpd restart</code>.</p>
+
+<h3 id="inconsistent-counts-when-comparing-service-resources-in-live-management">Inconsistent Counts When Comparing Service Resources in Live Management</h3>
+
+<p>In the Browse Resources tab, comparing a service across a mixture of RedHat-based and Debian-based nodes will give different numbers in the list view and the detail view.</p>
+
+<h3 id="bad-data-in-facters-architecture-fact">Bad Data in Facter&#8217;s <code>architecture</code> Fact</h3>
+
+<p>On AIX agents, a bug causes facter to return the system&#8217;s model number (e.g., IBM 3271) instead of the processor&#8217;s architecture (e.g. Power6). There is no known workaround.</p>
+
+<h3 id="augeas-file-access-issue">Augeas File Access Issue</h3>
+
+<p>On AIX agents, the Augeas lens is unable to access or modify <code>etc/services</code>. There is no known workaround.</p>
+
+<h3 id="after-upgrading-nodes-report-a-not-a-pe-agent-error">After Upgrading, Nodes Report a &#8220;Not a PE Agent&#8221; Error</h3>
+
+<p>When doing the first puppet run after upgrading using the &#8220;upgrader&#8221; script included in PE tarballs, agents are reporting an error: &#8220;&lt;node.name&gt; is not a Puppet Enterprise agent.&#8221; This was caused by a bug in the upgrader that has since been fixed. If you downloaded a tarball prior to November 28, 2012, simply download the tarball again to get the fixed upgrader. If you prefer, you can download the <a href="http://forge.puppetlabs.com/adrien/pe_upgrade/0.4.0-rc1">latest upgrader module</a> from the Forge. Alternatively, you can fix it by changing <code>/etc/puppetlabs/facter/facts.d/is_pe.txt</code>  to contain: <code>is_pe=true</code>.</p>
+
+<h3 id="ec2dual-homed-systems-report-incorrect-uris-for-the-console">EC2/Dual-homed Systems Report Incorrect URIs for the Console.</h3>
+
+<p>During installation, the PE installer attempts to automatically determine the URI where the console can be reached. On EC2 (and likely all other dual-homed systems), the installer incorrectly selects the internal, non-routable URI. Instead, you should manually enter the correct, external facing URI of the system hosting the console.</p>
+
+<h3 id="answer-file-required-for-some-smtp-serversd">Answer file required for some SMTP servers.d</h3>
+
+<p>Any SMTP server that requires authentication, TLS, or runs over any port other than 25 needs to be explicitly added to an answers file. See the <a href="./console_config.html#allowing-anonymous-console-access">advanced configuration page</a> for details.</p>
+
+<h3 id="pe-httpd-must-be-restarted-after-revoking-certificates"><code>pe-httpd</code> Must Be Restarted After Revoking Certificates</h3>
+
+<p>(<a href="http://projects.puppetlabs.com/issues/8421">Issue #8421</a>)</p>
+
+<p>Due to <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=14104">an upstream bug in Apache</a>, the <code>pe-httpd</code> service on the puppet master must be restarted after revoking any node&#8217;s certificate.</p>
+
+<p>After using <code>puppet cert revoke</code> or <code>puppet cert clean</code> to revoke a certificate, restart the service by running:</p>
+
+<pre><code>$ sudo /etc/init.d/pe-httpd restart
+</code></pre>
+
+<h3 id="dynamic-man-pages-are-incorrectly-formatted">Dynamic Man Pages are Incorrectly Formatted</h3>
+
+<p>Man pages generated with the <code>puppet man</code> subcommand are not formatted as proper man pages, and are instead displayed as Markdown source text. This is a purely cosmetic issue, and the pages are still fully readable.</p>
+
+<p>To improve the display of Puppet man pages, you can use your system <code>gem</code> command to install the <code>ronn</code> gem:</p>
+
+<pre><code>$ sudo gem install ronn
+</code></pre>
+
+<hr />
+
+<ul>
+  <li><a href="./compliance_alt.html">Next: Compliance: Alternate Workflow</a></li>
+</ul>
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+
+<h3><a href="./index.html">Puppet Enterprise 3.0</a></h3>
+
+<ul>
+  <li><strong>Overview</strong>
+    <ul>
+      <li><a href="./overview_about_pe.html">About Puppet Enterprise</a></li>
+      <li><a href="./overview_whats_new.html">New Features</a></li>
+      <li><a href="./overview_getting_support.html">Getting Support</a></li>
+    </ul>
+  </li>
+  <li><strong>Quick Start</strong>
+    <ul>
+        <li><a href="./quick_start.html">Quick Start: Using PE</a></li>
+        <li><a href="./quick_writing.html">Quick Start: Writing Modules</a></li>
+    </ul>
+  </li>
+  <li><strong>Installing Puppet Enterprise</strong>
+    <ul>
+      <li><a href="./install_system_requirements.html">System Requirements</a></li>
+      <li><a href="./install_basic.html">Installing PE</a></li>
+      <li><a href="./install_windows.html">Installing Windows Agents</a></li>
+      <li><a href="./install_upgrading.html">Upgrading</a></li>
+      <li><a href="./install_uninstalling.html">Uninstalling</a></li>
+      <li><a href="./install_automated.html">Automated Installation</a></li>
+      <li><a href="./install_answer_file_reference.html">Answer File Reference</a></li>
+      <li><a href="./install_what_and_where.html">What gets installed where?</a></li>
+    </ul>
+  </li>
+  <li><strong>The PE Console</strong>
+    <ul>
+      <li><a href="./console_accessing.html">Accessing the Console</a></li>
+      <li><a href="./console_navigating.html">Navigating the Console</a></li>
+      <li><a href="./console_navigating_live_mgmt.html">Navigating the Live Management Page</a></li>
+      <li><a href="./console_cert_mgmt.html">Managing Node Requests</a></li>
+      <li><a href="./console_classes_groups.html">Grouping & Classifying Nodes</a></li>
+      <li><a href="./console_reports.html">Viewing Reports & Inventory Data</a></li>
+      <li><a href="./console_auth.html">Managing Users</a></li>
+      <li><a href="./console_inventory_search.html">Inventory Search</a></li>
+      <li><a href="./console_rake_api.html">Rake API and List of Tasks</a></li>
+      <li><a href="./console_rake_api_old.html">Rake API: List of Tasks (Old Argument Style)</a></li>
+      <li><a href="./console_config.html">Configuring the Console</a></li>
+    </ul>
+  </li>
+  <li><strong>Puppet Core</strong>
+    <ul>
+      <li><a href="./puppet_overview.html">Overview</a></li>
+      <li><a href="./puppet_modules_manifests.html">Modules & Manifests</a></li>
+      <li><a href="./puppet_assign_configurations.html">Assigning Configurations to Nodes</a></li>
+      <li><a href="./puppet_tools.html">Tools</a></li>
+      <li><a href="./puppet_data_library.html">Puppet Data Library</a></li>
+      <li><a href="./puppet_references.html">References</a></li>
+      <li><a href="./puppet_config.html">Configuring Puppet Core</a></li>
+    </ul>
+  </li>
+  <li><strong>Orchestration</strong>
+    <ul>
+      <li><a href="./orchestration_overview.html">Overview</a></li>
+      <li><a href="./orchestration_invoke_cli.html">Invoking Actions</a></li>
+      <li><a href="./orchestration_puppet.html">Controlling Puppet</a></li>
+      <li><a href="./orchestration_resources.html">Browsing Resources</a></li>
+      <li><a href="./orchestration_actions.html">List of Built-In Actions</a></li>
+      <li><a href="./orchestration_adding_actions.html">Adding New Actions</a></li>
+      <!-- <li><a href="./orchestration_integrating.html">Integrating Applications</a></li> -->
+      <li><a href="./orchestration_config.html">Configuring Orchestration</a></li>
+    </ul>
+  </li>
+  <li><strong>Cloud Provisioning</strong>
+    <ul>
+      <li><a href="./cloudprovisioner_overview.html">Overview</a></li>
+      <li><a href="./cloudprovisioner_configuring.html">Installing & Configuring Cloud Provisioner</a></li>
+      <li><a href="./cloudprovisioner_classifying_installing.html">Classifying Nodes & Remotely Installing Puppet</a></li>
+      <li><a href="./cloudprovisioner_vmware.html">Provisioning with VMware</a></li>
+      <li><a href="./cloudprovisioner_aws.html">Provisioning with AWS</a></li>
+      <li><a href="./cloudprovisioner_workflow.html">Sample Workflow</a></li>
+    </ul>
+  </li>
+  <li><strong>The PE Accounts Module</strong>
+    <ul>
+      <li><a href="./accounts_user_type.html">The pe_accounts::user Type</a></li>
+      <li><a href="./accounts_class.html">The pe_accounts Class</a></li>
+    </ul>
+  </li>
+   <li><strong>Maintenance</strong>
+    <ul>
+      <li> <a href="./maintain_console-db.html">Console & Database Maintenance</a></li>
+      <!--
+<li> <a href="./maintain_puppet.html">Puppet Core Maintenance</a></li>
+      <li> <a href="./maintain_orchestration.html">Orchestration Maintenance</a></li>
+ -->
+    </ul>
+  </li>
+  <li><strong>Troubleshooting</strong>
+    <ul>
+     <li> <a href="./trouble_install.html">Troubleshooting the Installer</a></li>
+     <li> <a href="./trouble_comms.html">Troubleshooting Connections & Communications</a></li>
+     <li> <a href="./trouble_console-db.html">Troubleshooting the Console & Database</a></li>
+     <li> <a href="./trouble_puppet.html">Troubleshooting the Puppet Core</a></li>
+     <li> <a href="./trouble_orchestration.html">Troubleshooting Orchestration</a></li>
+     <li> <a href="./trouble_cloudprovisioner.html">Troubleshooting Cloud Provisioner</a></li>
+     <li> <a href="./trouble_windows.html">Troubleshooting Windows</a></li>
+    </ul>
+  </li>
+  <li><strong>Appendix</strong>
+    <ul>
+      <li><span class="currentpage">Release Notes</span></li>
+      <li><span class="currentpage">Known Issues</span></li>
+       <li><a href="./compliance_alt.html">Compliance Alternate Workflow</a></li>
+    <!--    <li><a href="./cloning_alt.html">Cloning Alternate Workflow</a></li> -->
+    </ul>
+  </li>
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

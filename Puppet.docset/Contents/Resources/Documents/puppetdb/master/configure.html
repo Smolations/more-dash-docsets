@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>PuppetDB 1.4 » Configuration — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../favicon.ico' />
+
+
+  <meta name="description" content="SummaryPuppetDB has three main groups of settings:  The init script&#8217;s configuration file, which sets the Java heap size and the location of P...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/puppetdb/latest/configure.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">PuppetDB 1.4 » Configuration</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>PuppetDB 1.4 » Configuration</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#summary">Summary</a></li>
+  <li class="toc-lv2"><a href="#init-script-config-file">Init Script Config File</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#configuring-the-java-heap-size">Configuring the Java Heap Size</a></li>
+   <li class="toc-lv3"><a href="#configuring-jmx-access">Configuring JMX Access</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#the-log4j-logging-config-file">The log4j Logging Config File</a></li>
+  <li class="toc-lv2"><a href="#the-puppetdb-configuration-files">The PuppetDB Configuration File(s)</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#playing-nice-with-the-puppetdb-module">Playing Nice With the PuppetDB Module</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#global-settings">[global] Settings</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#vardir">vardir</a></li>
+   <li class="toc-lv3"><a href="#logging-config">logging-config</a></li>
+   <li class="toc-lv3"><a href="#event-query-limit">event-query-limit</a></li>
+   <li class="toc-lv3"><a href="#update-server">update-server</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#database-settings">[database] Settings</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#using-built-in-hsqldb">Using Built-in HSQLDB</a></li>
+   <li class="toc-lv3"><a href="#using-postgresql">Using PostgreSQL</a></li>
+   <li class="toc-lv3"><a href="#gc-interval">gc-interval</a></li>
+   <li class="toc-lv3"><a href="#node-ttl">node-ttl</a></li>
+   <li class="toc-lv3"><a href="#node-purge-ttl">node-purge-ttl</a></li>
+   <li class="toc-lv3"><a href="#report-ttl">report-ttl</a></li>
+   <li class="toc-lv3"><a href="#classname">classname</a></li>
+   <li class="toc-lv3"><a href="#subprotocol">subprotocol</a></li>
+   <li class="toc-lv3"><a href="#subname">subname</a></li>
+   <li class="toc-lv3"><a href="#username">username</a></li>
+   <li class="toc-lv3"><a href="#password">password</a></li>
+   <li class="toc-lv3"><a href="#log-slow-statements">log-slow-statements</a></li>
+   <li class="toc-lv3"><a href="#conn-max-age">conn-max-age</a></li>
+   <li class="toc-lv3"><a href="#conn-keep-alive">conn-keep-alive</a></li>
+   <li class="toc-lv3"><a href="#conn-lifetime">conn-lifetime</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#command-processing-settings">[command-processing] Settings</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#threads">threads</a></li>
+   <li class="toc-lv3"><a href="#dlo-compression-threshold">dlo-compression-threshold</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#jetty-http-settings">[jetty] (HTTP) Settings</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#host">host</a></li>
+   <li class="toc-lv3"><a href="#port">port</a></li>
+   <li class="toc-lv3"><a href="#max-threads">max-threads</a></li>
+   <li class="toc-lv3"><a href="#ssl-host">ssl-host</a></li>
+   <li class="toc-lv3"><a href="#ssl-port">ssl-port</a></li>
+   <li class="toc-lv3"><a href="#ssl-cert">ssl-cert</a></li>
+   <li class="toc-lv3"><a href="#ssl-key">ssl-key</a></li>
+   <li class="toc-lv3"><a href="#ssl-ca-cert">ssl-ca-cert</a></li>
+   <li class="toc-lv3"><a href="#keystore">keystore</a></li>
+   <li class="toc-lv3"><a href="#key-password">key-password</a></li>
+   <li class="toc-lv3"><a href="#truststore">truststore</a></li>
+   <li class="toc-lv3"><a href="#trust-password">trust-password</a></li>
+   <li class="toc-lv3"><a href="#certificate-whitelist">certificate-whitelist</a></li>
+   <li class="toc-lv3"><a href="#cipher-suites">cipher-suites</a></li>
+   <li class="toc-lv3"><a href="#ssl-protocols">ssl-protocols</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#repl-settings">[repl] Settings</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#enabled">enabled</a></li>
+   <li class="toc-lv3"><a href="#type">type</a></li>
+   <li class="toc-lv3"><a href="#port-1">port</a></li>
+</ol></li>
+</ol></nav>
+
+<h2 id="summary">Summary</h2>
+
+<p>PuppetDB has three main groups of settings:</p>
+
+<ul>
+  <li>The init script&#8217;s configuration file, which sets the Java heap size and the location of PuppetDB&#8217;s main config file</li>
+  <li>Logging settings, which go in the <a href="#logging-config">log4j.properties</a> file and can be changed without restarting PuppetDB</li>
+  <li>All other settings, which go in PuppetDB&#8217;s configuration file(s) and take effect after the service is restarted</li>
+</ul>
+
+<h2 id="init-script-config-file">Init Script Config File</h2>
+
+<p>If you installed PuppetDB from packages or used the <code>rake install</code> installation method, an init script was created for PuppetDB. This script has its own configuration file, whose location varies by platform and by package:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>OS and Package</th>
+      <th>File</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Redhat-like (open source)</td>
+      <td><code>/etc/sysconfig/puppetdb</code></td>
+    </tr>
+    <tr>
+      <td>Redhat-like (PE)</td>
+      <td><code>/etc/sysconfig/pe-puppetdb</code></td>
+    </tr>
+    <tr>
+      <td>Debian/Ubuntu (open source)</td>
+      <td><code>/etc/default/puppetdb</code></td>
+    </tr>
+    <tr>
+      <td>Debian/Ubuntu (PE)</td>
+      <td><code>/etc/default/pe-puppetdb</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In this file, you can change the following settings:</p>
+
+<dl>
+  <dt><code>JAVA_BIN</code></dt>
+  <dd>
+    <p>The location of the Java binary.</p>
+  </dd>
+  <dt><code>JAVA_ARGS</code></dt>
+  <dd>
+    <p>Command line options for the Java binary, most notably the <code>-Xmx</code> (max heap size) flag.</p>
+  </dd>
+  <dt><code>USER</code></dt>
+  <dd>
+    <p>The user PuppetDB should be running as.</p>
+  </dd>
+  <dt><code>INSTALL_DIR</code></dt>
+  <dd>
+    <p>The directory into which PuppetDB is installed.</p>
+  </dd>
+  <dt><code>CONFIG</code></dt>
+  <dd>
+    <p>The location of the PuppetDB config file, which may be a single file or a directory of .ini files.</p>
+  </dd>
+</dl>
+
+<h3 id="configuring-the-java-heap-size">Configuring the Java Heap Size</h3>
+
+<p>To change the JVM heap size for PuppetDB, edit the <a href="#init-script-config-file">init script config file</a> by setting a new value for the <code>-Xmx</code> flag in the <code>JAVA_ARGS</code> variable.</p>
+
+<p>For example, to cap PuppetDB at 192MB of memory:</p>
+
+<pre><code>JAVA_ARGS="-Xmx192m"
+</code></pre>
+
+<p>To use 1GB of memory:</p>
+
+<pre><code>JAVA_ARGS="-Xmx1g"
+</code></pre>
+
+<h3 id="configuring-jmx-access">Configuring JMX Access</h3>
+
+<p>While all JMX metrics are exposed using the <code>/metrics</code> namespace, you can also
+expose direct JMX access using standard JVM means as documented
+<a href="http://docs.oracle.com/javase/6/docs/technotes/guides/management/agent.html">here</a>.
+This can be done using the <code>JAVA_ARGS</code> init script setting, similar to configuring the heap size.</p>
+
+<p>For example, adding the following JVM options will open
+up a JMX socket on port 1099:</p>
+
+<pre><code>JAVA_ARGS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=1099"
+</code></pre>
+
+<h2 id="the-log4j-logging-config-file">The log4j Logging Config File</h2>
+
+<p>Logging is configured with a log4j.properties file, whose location is defined with the <a href="#logging-config"><code>logging-config</code></a> setting. If you change the log settings while PuppetDB is running, it will apply the new settings without requiring a restart. </p>
+
+<p><a href="http://logging.apache.org/log4j/1.2/manual.html">See the log4j documentation</a> for more information about logging options.</p>
+
+<h2 id="the-puppetdb-configuration-files">The PuppetDB Configuration File(s)</h2>
+
+<p>PuppetDB is configured using an INI-style config format with several <code>[sections]</code>. This is very similar to the format used by Puppet. All of the sections and settings described below belong in the PuppetDB config file(s).</p>
+
+<p><strong>Whenever you change PuppetDB&#8217;s configuration settings, you must restart the service for the changes to take effect.</strong></p>
+
+<p>You can change the location of the main config file in <a href="#init-script-config-file">the init script config file</a>. This location can point to a single configuration file or a directory of .ini files. If you specify a directory (<em>conf.d</em> style), PuppetDB will merge the .ini files in alphabetical order.</p>
+
+<p>If you&#8217;ve installed PuppetDB from a package, by default it will use the <em>conf.d</em> config style. The default config directory is <code>/etc/puppetdb/conf.d</code> (or <code>/etc/puppetlabs/puppetdb/conf.d</code> for Puppet Enterprise).  If you&#8217;re running from source, you may use the <code>-c</code> command-line argument to specify your config file or directory.</p>
+
+<p>An example configuration file:</p>
+
+<pre><code>[global]
+vardir = /var/lib/puppetdb
+logging-config = /var/lib/puppetdb/log4j.properties
+
+[database]
+classname = org.postgresql.Driver
+subprotocol = postgresql
+subname = //localhost:5432/puppetdb
+
+[jetty]
+port = 8080
+</code></pre>
+
+<h3 id="playing-nice-with-the-puppetdb-module">Playing Nice With the PuppetDB Module</h3>
+
+<p>If you <a href="./install_via_module.html">installed PuppetDB with the puppetlabs-puppetdb module</a>, the config file(s) will be managed by Puppet. However, since the module manages these files on a per-setting basis, you can still configure additional settings that the module doesn&#8217;t set. </p>
+
+<p>To do this, you should create a new class (something like <code>site::puppetdb::server::extra</code>), declare any number of <code>ini_setting</code> resources as shown below, set the class to refresh the <code>puppetdb::server</code> class, and assign it to your PuppetDB server. </p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="c1"># Site-specific PuppetDB settings. Declare this class on any node that gets the puppetdb::server class.</span>
+    <span class="k">class</span> <span class="n">site</span><span class="o">::</span><span class="n">puppetdb</span><span class="o">::</span><span class="n">server</span><span class="o">::</span><span class="n">extra</span> <span class="p">{</span>
+
+      <span class="c1"># Restart the PuppetDB service if settings change</span>
+      <span class="no">Class</span><span class="o">[</span><span class="n">site</span><span class="o">::</span><span class="n">puppetdb</span><span class="o">::</span><span class="n">server</span><span class="o">::</span><span class="n">extra</span><span class="o">]</span> <span class="o">~&gt;</span> <span class="no">Class</span><span class="o">[</span><span class="n">puppetdb</span><span class="o">::</span><span class="n">server</span><span class="o">]</span>
+
+      <span class="c1"># Get PuppetDB confdir</span>
+      <span class="kp">include</span> <span class="n">puppetdb</span><span class="o">::</span><span class="n">params</span>
+      <span class="vg">$confdir</span> <span class="o">=</span> <span class="vg">$puppetdb</span><span class="o">::</span><span class="n">params</span><span class="o">::</span><span class="n">confdir</span>
+
+      <span class="c1"># Set resource defaults assuming we&#39;re only doing [database] settings</span>
+      <span class="no">Ini_setting</span> <span class="p">{</span>
+        <span class="n">path</span> <span class="o">=&gt;</span> <span class="s2">&quot;${confdir}/database.ini&quot;</span><span class="p">,</span>
+        <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">present</span><span class="p">,</span>
+        <span class="n">section</span> <span class="o">=&gt;</span> <span class="s1">&#39;database&#39;</span><span class="p">,</span>
+        <span class="nb">require</span> <span class="o">=&gt;</span> <span class="no">Class</span><span class="o">[</span><span class="s1">&#39;puppetdb::server::validate_db&#39;</span><span class="o">]</span><span class="p">,</span>
+      <span class="p">}</span>
+
+      <span class="n">ini_setting</span> <span class="p">{</span><span class="s1">&#39;puppetdb_node_ttl&#39;</span><span class="p">:</span>
+        <span class="n">setting</span> <span class="o">=&gt;</span> <span class="s1">&#39;node_ttl&#39;</span><span class="p">,</span>
+        <span class="n">value</span> <span class="o">=&gt;</span> <span class="s1">&#39;5d&#39;</span><span class="p">,</span>
+      <span class="p">}</span>
+
+      <span class="n">ini_setting</span> <span class="p">{</span><span class="s1">&#39;puppetdb_report_ttl&#39;</span><span class="p">:</span>
+        <span class="n">setting</span> <span class="o">=&gt;</span> <span class="s1">&#39;report_ttl&#39;</span><span class="p">,</span>
+        <span class="n">value</span> <span class="o">=&gt;</span> <span class="s1">&#39;30d&#39;</span><span class="p">,</span>
+      <span class="p">}</span>
+
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="global-settings"><code>[global]</code> Settings</h2>
+
+<p>The <code>[global]</code> section is used to configure application-wide behavior.</p>
+
+<h3 id="vardir"><code>vardir</code></h3>
+
+<p>This defines the parent directory for the MQ&#8217;s data directory. Also, if a database isn&#8217;t specified, the default database&#8217;s files will be stored in <code>&lt;vardir&gt;/db</code>. The directory must exist and be writable by the PuppetDB user in order for the application to run.</p>
+
+<h3 id="logging-config"><code>logging-config</code></h3>
+
+<p>This describes the full path to a <a href="http://logging.apache.org/log4j/1.2/manual.html">log4j.properties</a> file. Covering all the options available for configuring log4j is outside the scope of this document; see the aforementioned link for exhaustive information.</p>
+
+<p>If this setting isn&#8217;t provided, PuppetDB defaults to logging at INFO level to standard out.</p>
+
+<p>If you installed from packages, PuppetDB will use the log4j.properties file in the <code>/etc/puppetdb/</code> or <code>/etc/puppetlabs/puppetdb</code> directory. Otherwise, you can find an example file in the <code>ext</code> directory of the source.</p>
+
+<p>You can edit the logging configuration file while PuppetDB is running, and it will automatically react to changes after a few seconds.</p>
+
+<h3 id="event-query-limit"><code>event-query-limit</code></h3>
+
+<p>The maximum number of legal results that a resource event query can return.  If you issue a query that would result in more results than this value, the query will simply return an error.  (This can be used to prevent accidental queries that would yield huge numbers of results from consuming undesirable amounts of resources on the server.)</p>
+
+<p>The default value is 20000.</p>
+
+<h3 id="update-server"><code>update-server</code></h3>
+
+<p>The URL to query when checking for newer versions; defaults to <code>http://updates.puppetlabs.com/check-for-updates</code>.
+Overriding this setting may be useful if your PuppetDB server is firewalled and can&#8217;t make external HTTP requests, in which case you could
+configure a proxy server to send requests to the <code>updates.puppetlabs.com</code> URL
+and override this setting to point to your proxy server.</p>
+
+<h2 id="database-settings"><code>[database]</code> Settings</h2>
+
+<p>The <code>[database]</code> section configures PuppetDB&#8217;s database settings.</p>
+
+<p>PuppetDB can use either <strong>a built-in HSQLDB database</strong> or <strong>a PostgreSQL database.</strong> If no database information is supplied, an HSQLDB database at <code>&lt;vardir&gt;/db</code> will be used.</p>
+
+<blockquote>
+  <p><strong>FAQ: Why no MySQL or Oracle support?</strong> </p>
+
+  <p>MySQL lacks several features that PuppetDB relies on; the most notable is recursive queries. We have no plans to ever support MySQL.</p>
+
+  <p>Depending on demand, Oracle support may be forthcoming in a future version of PuppetDB. This hasn&#8217;t been decided yet.</p>
+</blockquote>
+
+<h3 id="using-built-in-hsqldb">Using Built-in HSQLDB</h3>
+
+<p>To use an HSQLDB database at the default <code>&lt;vardir&gt;/db</code>, you can simply remove all database settings. To configure the DB for a different location, put the following in the <code>[database]</code> section:</p>
+
+<pre><code>classname = org.hsqldb.jdbcDriver
+subprotocol = hsqldb
+subname = file:&lt;/PATH/TO/DB&gt;;hsqldb.tx=mvcc;sql.syntax_pgs=true
+</code></pre>
+
+<p>Replace <code>&lt;/PATH/TO/DB&gt;</code> with the filesystem location in which you&#8217;d like to persist the database.</p>
+
+<p>Do not use the <code>username</code> or <code>password</code> settings.</p>
+
+<h3 id="using-postgresql">Using PostgreSQL</h3>
+
+<p>Before using the PostgreSQL backend, you must set up a PostgreSQL server, ensure that it will accept incoming connections, create a user for PuppetDB to use when connecting, and create a database for PuppetDB. Completely configuring PostgreSQL is beyond the scope of this manual, but if you are logged in as root on a running Postgres server, you can create a user and database as follows:</p>
+
+<pre><code>$ sudo -u postgres sh
+$ createuser -DRSP puppetdb
+$ createdb -E UTF8 -O puppetdb puppetdb
+$ exit
+</code></pre>
+
+<p>Ensure you can log in by running:</p>
+
+<pre><code>$ psql -h localhost puppetdb puppetdb
+</code></pre>
+
+<p>To configure PuppetDB to use this database, put the following in the <code>[database]</code> section:</p>
+
+<pre><code>classname = org.postgresql.Driver
+subprotocol = postgresql
+subname = //&lt;HOST&gt;:&lt;PORT&gt;/&lt;DATABASE&gt;
+username = &lt;USERNAME&gt;
+password = &lt;PASSWORD&gt;
+</code></pre>
+
+<p>Replace <code>&lt;HOST&gt;</code> with the DB server&#8217;s hostname. Replace <code>&lt;PORT&gt;</code> with the port on which PostgreSQL is listening. Replace <code>&lt;DATABASE&gt;</code> with the name of the database you&#8217;ve created for use with PuppetDB.</p>
+
+<h4 id="using-ssl-with-postgresql">Using SSL With PostgreSQL</h4>
+
+<p>It&#8217;s possible to use SSL to protect connections to the database. There are several extra steps and considerations when doing so; see the
+<a href="./postgres_ssl.html">PostgreSQL SSL setup page</a> for complete details.</p>
+
+<p>The main difference in the config file is that you must be sure to add <code>?ssl=true</code> to the <code>subname</code> setting:</p>
+
+<pre><code>subname = //&lt;HOST&gt;:&lt;PORT&gt;/&lt;DATABASE&gt;?ssl=true
+</code></pre>
+
+<h3 id="gc-interval"><code>gc-interval</code></h3>
+
+<p>This controls how often, in minutes, to compact the database. The compaction process reclaims space and deletes unnecessary rows. If not supplied, the default is every 60 minutes.</p>
+
+<h3 id="node-ttl"><code>node-ttl</code></h3>
+
+<p>Auto-deactivate nodes that haven&#8217;t seen any activity (no new catalogs,
+facts, etc) in the specified amount of time. You may specify the time
+as a string using any of the following suffixes:</p>
+
+<pre><code>`d`  - days
+`h`  - hours
+`m`  - minutes
+`s`  - seconds
+`ms` - milliseconds
+</code></pre>
+
+<p>So, e.g., a value of <code>30d</code> would set the time-to-live to 30 days, and a value of
+<code>48h</code> would set the time-to-live to 48 hours.</p>
+
+<p>Nodes will be checked for staleness every <code>gc-interval</code> minutes. Manual
+deactivation will continue to work as always.</p>
+
+<p>If unset, auto-deactivation of nodes is disabled.</p>
+
+<h3 id="node-purge-ttl"><code>node-purge-ttl</code></h3>
+
+<p>Automatically delete nodes that have been <em>deactivated</em> for the specified
+amount of time. This will also delete all facts, catalogs and reports for the
+node. This ttl may be specified the same way as <code>node-ttl</code> above.</p>
+
+<p>If unset, auto-deletion of nodes is disabled.</p>
+
+<h3 id="report-ttl"><code>report-ttl</code></h3>
+
+<p>Automatically delete reports that are older than the specified amount of time.
+You may specify the time as a string using any of the suffixes described in the
+<code>node-ttl</code> section above.</p>
+
+<p>Outdated reports will be deleted during the database garbage collection, which
+runs every <code>gc-interval</code> minutes.</p>
+
+<p>If unset, the default value is 14 days.</p>
+
+<h3 id="classname"><code>classname</code></h3>
+
+<p>This sets the JDBC class to use. Set this to:</p>
+
+<ul>
+  <li><code>org.hsqldb.jdbcDriver</code> when using the embedded database</li>
+  <li><code>org.postgresql.Driver</code> when using PostgreSQL</li>
+</ul>
+
+<h3 id="subprotocol"><code>subprotocol</code></h3>
+
+<p>Set this to:</p>
+
+<ul>
+  <li><code>hsqldb</code> when using the embedded database</li>
+  <li><code>postgresql</code> when using PostgreSQL</li>
+</ul>
+
+<h3 id="subname"><code>subname</code></h3>
+
+<p>This describes where to find the database. Set this to:</p>
+
+<ul>
+  <li><code>file:&lt;/PATH/TO/DB&gt;;hsqldb.tx=mvcc;sql.syntax_pgs=true</code> when using the embedded database, replacing <code>&lt;/PATH/TO/DB&gt;</code> with a local filesystem path</li>
+  <li><code>//&lt;HOST&gt;:&lt;PORT&gt;/&lt;DATABASE&gt;</code> when using PostgreSQL, replacing <code>&lt;HOST&gt;</code> with the DB server&#8217;s hostname, <code>&lt;PORT&gt;</code> with the port on which PostgreSQL is listening, and <code>&lt;DATABASE&gt;</code> with the name of the database
+    <ul>
+      <li>Append <code>?ssl=true</code> to this if your PostgreSQL server is using SSL.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="username"><code>username</code></h3>
+
+<p>This is the username to use when connecting. Only used with PostgreSQL.</p>
+
+<h3 id="password"><code>password</code></h3>
+
+<p>This is the password to use when connecting. Only used with PostgreSQL.</p>
+
+<h3 id="log-slow-statements"><code>log-slow-statements</code></h3>
+
+<p>This sets the number of seconds before an SQL query is considered &#8220;slow.&#8221; Slow SQL queries are logged as warnings, to assist in debugging and tuning. Note PuppetDB does not interrupt slow queries; it simply reports them after they complete.</p>
+
+<p>The default value is 10 seconds. A value of 0 will disable logging of slow queries.</p>
+
+<h3 id="conn-max-age"><code>conn-max-age</code></h3>
+
+<p>The maximum time (in minutes), for a pooled connection to remain unused before it is closed off.</p>
+
+<p>If not supplied, we default to 60 minutes.</p>
+
+<h3 id="conn-keep-alive"><code>conn-keep-alive</code></h3>
+
+<p>This sets the time (in minutes), for a connection to remain idle before sending a test query to the DB. This is useful to prevent a DB from timing out connections on its end.</p>
+
+<p>If not supplied, we default to 45 minutes.</p>
+
+<h3 id="conn-lifetime"><code>conn-lifetime</code></h3>
+
+<p>The maximum time (in minutes) a pooled connection should remain open. Any connections older than this setting will be closed off. Connections currently in use will not be affected until they are returned to the pool.</p>
+
+<p>If not supplied, we won&#8217;t terminate connections based on their age alone.</p>
+
+<h2 id="command-processing-settings"><code>[command-processing]</code> Settings</h2>
+
+<p>The <code>[command-processing]</code> section configures the command-processing subsystem.</p>
+
+<p>Every change to PuppetDB&#8217;s data stores arrives via <strong>commands</strong> that are inserted into a message queue (MQ). Command processor threads pull items off of that queue, persisting those changes.</p>
+
+<h3 id="threads"><code>threads</code></h3>
+
+<p>This defines how many command processing threads to use. Each thread can process a single command at a time. <a href="./maintain_and_tune.html#monitor-the-performance-dashboard">The number of threads can be tuned based on what you see in the performance dashboard.</a></p>
+
+<p>This setting defaults to half the number of cores in your system.</p>
+
+<h3 id="dlo-compression-threshold"><code>dlo-compression-threshold</code></h3>
+
+<p>This setting specifies the maximum duration to keep messages in the dead-letter office before archiving them. This process will check for compressible messages on startup and after every <code>gc-interval</code>, but will only perform the archive once per <code>dlo-compression-threshold</code>. The same format can be used as for the <code>node-ttl</code> setting above. If set to 0 seconds, this behavior will be disabled. The default value is 1 day.</p>
+
+<h2 id="jetty-http-settings"><code>[jetty]</code> (HTTP) Settings</h2>
+
+<p>The <code>[jetty]</code> section configures HTTP for PuppetDB.</p>
+
+<h3 id="host"><code>host</code></h3>
+
+<p>This sets the hostname to listen on for <em>unencrypted</em> HTTP traffic. If not supplied, we bind to <code>localhost</code>, which will reject connections from anywhere but the PuppetDB server itself. To listen on all available interfaces, use <code>0.0.0.0</code>.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Unencrypted HTTP is the only way to view the <a href="./maintain_and_tune.html#monitor-the-performance-dashboard">performance dashboard</a>, since PuppetDB uses host verification for SSL. However, it can also be used to make any call to PuppetDB&#8217;s API, including inserting exported resources and retrieving arbitrary data about your Puppet-managed nodes. <strong>If you enable cleartext HTTP, you MUST configure your firewall to protect unverified access to PuppetDB.</strong></p>
+</blockquote>
+
+<h3 id="port"><code>port</code></h3>
+
+<p>This sets what port to use for <em>unencrypted</em> HTTP traffic. If not supplied, we won&#8217;t listen for unencrypted traffic at all.</p>
+
+<h3 id="max-threads"><code>max-threads</code></h3>
+
+<p>This sets the maximum number of threads assigned to responding to HTTP and HTTPS requests, effectively changing how many concurrent requests can be made at one time. Defaults to 50.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Due to how our web-server (Jetty 7) behaves, this setting must be higher then the number of CPU&#8217;s on your system or it will stop processing any HTTP requests.</p>
+</blockquote>
+
+<h3 id="ssl-host"><code>ssl-host</code></h3>
+
+<p>This sets the hostname to listen on for <em>encrypted</em> HTTPS traffic. If not supplied, we bind to <code>localhost</code>. To listen on all available interfaces, use <code>0.0.0.0</code>.</p>
+
+<h3 id="ssl-port"><code>ssl-port</code></h3>
+
+<p>This sets the port to use for <em>encrypted</em> HTTPS traffic. If not supplied, we won&#8217;t listen for encrypted traffic at all.</p>
+
+<h3 id="ssl-cert"><code>ssl-cert</code></h3>
+
+<p>This sets the path to the server certificate PEM file used by the PuppetDB web service for HTTPS.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> This setting overrides the alternate configuration settings <code>keystore</code> and <code>key-password</code>.</p>
+</blockquote>
+
+<h3 id="ssl-key"><code>ssl-key</code></h3>
+
+<p>This sets the path to the private key PEM file that corresponds with the <code>ssl-cert</code>, it used by the PuppetDB web service for HTTPS.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> This setting overrides the alternate configuration settings <code>keystore</code> and <code>key-password</code>.</p>
+</blockquote>
+
+<h3 id="ssl-ca-cert"><code>ssl-ca-cert</code></h3>
+
+<p>This sets the path to the CA certificate PEM file used for client authentication. Authorized clients must be signed by the CA that that corresponds to this certificate.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> This setting overrides the alternate configuration settings <code>truststore</code> and <code>trust-password</code>.</p>
+</blockquote>
+
+<h3 id="keystore"><code>keystore</code></h3>
+
+<p>This sets the path to a Java keystore file containing the key and certificate to be used for HTTPS.</p>
+
+<h3 id="key-password"><code>key-password</code></h3>
+
+<p>This sets the passphrase to use for unlocking the keystore file.</p>
+
+<h3 id="truststore"><code>truststore</code></h3>
+
+<p>This describes the path to a Java keystore file containing the CA certificate(s) for your puppet infrastructure.</p>
+
+<h3 id="trust-password"><code>trust-password</code></h3>
+
+<p>This sets the passphrase to use for unlocking the truststore file.</p>
+
+<h3 id="certificate-whitelist"><code>certificate-whitelist</code></h3>
+
+<p>Optional. This describes the path to a file that contains a list of certificate names, one per line.  Incoming HTTPS requests will have their certificates validated against this list of names and only those with an <em>exact</em> matching entry will be allowed through. (For a puppet master, this compares against the value of the <code>certname</code> setting, rather than the <code>dns_alt_names</code> setting.)</p>
+
+<p>If not supplied, PuppetDB uses standard HTTPS without any additional authorization. All HTTPS clients must still supply valid, verifiable SSL client certificates.</p>
+
+<h3 id="cipher-suites"><code>cipher-suites</code></h3>
+
+<p>Optional. A comma-separated list of cryptographic ciphers to allow for incoming SSL connections. Valid names are listed in the <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/security/SunProviders.html#SupportedCipherSuites">official JDK cryptographic providers documentation</a>; you&#8217;ll need to use the all-caps cipher suite name.</p>
+
+<p>If not supplied, PuppetDB uses the default cipher suites for your local system on JDK versions older than 1.7.0u6. On newer JDK versions, PuppetDB will use only non-DHE cipher suites.</p>
+
+<h3 id="ssl-protocols"><code>ssl-protocols</code></h3>
+
+<p>Optional. A comma-separated list of protocols to allow for incoming SSL connections. Valid names are listed in the <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/security/SunProviders.html#SunJSSEProvider">official JDK cryptographic protocol documentation</a>; you&#8217;ll need to use the names with verbatim capitalization. For example: <code>SSLv3, TLSv1, TLSv1.1, TLSv1.2</code>.</p>
+
+<p>If not supplied, PuppetDB uses the default SSL protocols for your local system.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> This setting is only effective when PuppetDB is running with Java version 1.7 or better.</p>
+</blockquote>
+
+<h2 id="repl-settings"><code>[repl]</code> Settings</h2>
+
+<p>The <code>[repl]</code> section configures remote runtime modification.  For more detailed info, see <a href="./repl.html">Debugging with the Remote REPL</a>.</p>
+
+<p>Enabling a remote <a href="http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a> allows you to manipulate the behavior of PuppetDB at runtime. This should only be done for debugging purposes, and is thus disabled by default. An example configuration stanza:</p>
+
+<pre><code>[repl]
+enabled = true
+type = nrepl
+port = 8081
+</code></pre>
+
+<h3 id="enabled"><code>enabled</code></h3>
+
+<p>Set to <code>true</code> to enable the REPL. Defaults to false.</p>
+
+<h3 id="type"><code>type</code></h3>
+
+<p>Either <code>nrepl</code> or <code>swank</code> or <code>telnet</code>.</p>
+
+<p>The <em>telnet</em> repl type opens up a socket you can connect to via telnet. The interface is pretty low-level and raw (no completion or command history), but it is nonetheless usable on just about any system without the need of any external tools other than telnet itself.</p>
+
+<p>The <em>nrepl</em> repl type opens up a socket you can connect to via any nrepl-protocol client, such as via <a href="https://github.com/technomancy/leiningen">Leiningen</a> using <code>lein repl :connect localhost:8082</code> or via Emacs (via <code>M-x nrepl</code>), Vim, or integration with other editors like Netbeans or Eclipse. This is much more user-friendly than telnet.</p>
+
+<p>The <em>swank</em> type allows emacs&#8217; clojure-mode to connect directly to a running PuppetDB instance by using <code>M-x slime-connect</code>. This is not recommended, as the upstream Swank project has been deprecated in favor of nrepl.</p>
+
+<h3 id="port-1"><code>port</code></h3>
+
+<p>The port to use for the REPL.</p>
+
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+                      <h2 id="puppetdb">PuppetDB NEXT</h2>
+
+<p class="versionnote">This documentation is for an unreleased version of PuppetDB! If you are running PuppetDB from source on the master branch, this is the documentation for you; otherwise, please see the documentation for the <a href="./../../puppetdb/latest/index.html">latest official release</a>.</p>
+
+<ul>
+  <li><strong>General Information</strong>
+    <ul>
+      <li><a href="./../../puppetdb/master/index.html">Overview & Requirements</a></li>
+      <li><a href="./../../puppetdb/master/puppetdb-faq.html">Frequently Asked Questions</a></li>
+      <li><a href="./../../puppetdb/master/release_notes.html">Release Notes</a></li>
+      <li><a href="./../../puppetdb/master/known_issues.html">Known Issues</a></li>
+      <li><a href="./../../puppetdb/master/community_add_ons.html">Community Add-ons</a></li>
+    </ul>
+  </li>
+  <li><strong>Installation</strong>
+    <ul>
+      <li><a href="./../../puppetdb/master/migrate.html">Migrating Existing Data</a></li>
+      <li><a href="./../../puppetdb/master/install_via_module.html">Installing via Puppet Module</a></li>
+      <li><a href="./../../puppetdb/master/install_from_packages.html">Installing From Packages</a></li>
+      <li><a href="./../../puppetdb/master/install_from_source.html">Installing from Source</a></li>
+      <li><a href="./../../puppetdb/master/upgrade.html">Upgrading PuppetDB</a></li>
+      <li><a href="./../../puppetdb/master/connect_puppet_master.html">Connecting Puppet Masters</a></li>
+      <li><a href="./../../puppetdb/master/connect_puppet_apply.html">Connecting Standalone Puppet</a></li>
+    </ul>
+  </li>
+  <li><strong>Configuration</strong>
+    <ul>
+      <li><span class="currentpage">Configuring PuppetDB</span></li>
+      <li><a href="./../../puppetdb/master/postgres_ssl.html">Setting Up SSL for PostgreSQL</a></li>
+    </ul>
+  <li><strong>Usage/Admin</strong>
+    <ul>
+      <li><a href="./../../puppetdb/master/using.html">Using PuppetDB</a></li>
+      <li><a href="./../../puppetdb/master/maintain_and_tune.html">Maintaining and Tuning</a></li>
+      <li><a href="./../../puppetdb/master/migrate.html">Migrating Data</a></li>
+      <li><a href="./../../puppetdb/master/scaling_recommendations.html">Scaling Recommendations</a></li>
+      <li><a href="./../../puppetdb/master/repl.html">Debugging with Remote REPL</a></li>
+    </ul>
+  </li>
+  <li><strong>Troubleshooting</strong>
+    <ul>
+      <li><a href="./../../puppetdb/master/trouble_kahadb_corruption.html">KahaDB Corruption</a></li>
+    </ul>
+  </li>
+  <li><strong>API</strong>
+    <ul>
+      <li><a href="./../../puppetdb/master/api/index.html">Overview</a></li>
+      <li><a href="./../../puppetdb/master/api/query/tutorial.html">Query Tutorial</a></li>
+      <li><a href="./../../puppetdb/master/api/query/curl.html">Curl Tips</a></li>
+      <li><a href="./../../puppetdb/master/api/commands.html">Command API</a></li>
+    </ul>
+  </li>
+  <li><strong>Query API Version 2</strong>
+    <ul>
+      <li><a href="./../../puppetdb/master/api/query/v2/query.html">Query Structure</a></li>
+      <li><a href="./../../puppetdb/master/api/query/v2/operators.html">Available Operators</a></li>
+      <li><a href="./../../puppetdb/master/api/query/v2/facts.html">Facts Endpoint</a></li>
+      <li><a href="./../../puppetdb/master/api/query/v2/resources.html">Resources Endpoint</a></li>
+      <li><a href="./../../puppetdb/master/api/query/v2/nodes.html">Nodes Endpoint</a></li>
+      <li><a href="./../../puppetdb/master/api/query/v2/fact-names.html">Fact-Names Endpoint</a></li>
+      <li><a href="./../../puppetdb/master/api/query/v2/metrics.html">Metrics Endpoint</a></li>
+    </ul>
+  </li>
+  <li><strong>Query API Version 1</strong>
+    <ul>
+      <li><a href="./../../puppetdb/master/api/query/v1/facts.html">Facts Endpoint</a></li>
+      <li><a href="./../../puppetdb/master/api/query/v1/resources.html">Resources Endpoint</a></li>
+      <li><a href="./../../puppetdb/master/api/query/v1/nodes.html">Nodes Endpoint</a></li>
+      <li><a href="./../../puppetdb/master/api/query/v1/status.html">Status Endpoint</a></li>
+      <li><a href="./../../puppetdb/master/api/query/v1/metrics.html">Metrics Endpoint</a></li>
+    </ul>
+  </li>
+  <li><strong>Query API Experimental</strong>
+    <ul>
+      <li><a href="./../../puppetdb/master/api/query/experimental/report.html">Report Endpoint</a></li>
+      <li><a href="./../../puppetdb/master/api/query/experimental/event.html">Event Endpoint</a></li>
+    </ul>
+  </li>
+  <li><strong>Wire Formats</strong>
+    <ul>
+      <li><a href="./../../puppetdb/master/api/wire_format/catalog_format.html">Catalog Wire Format</a></li>
+      <li><a href="./../../puppetdb/master/api/wire_format/facts_format.html">Facts Wire Format</a></li>
+      <li><a href="./../../puppetdb/master/api/wire_format/report_format.html">Report Wire Format</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

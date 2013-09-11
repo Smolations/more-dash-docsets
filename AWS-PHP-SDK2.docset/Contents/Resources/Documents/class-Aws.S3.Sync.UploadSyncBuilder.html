@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 3.0dev">
+
+	<title>PHP 2: Class Aws\S3\Sync\UploadSyncBuilder | AWS SDK for PHP 2</title>
+
+	<script type="text/javascript" src="resources/combined.js?215010371"></script>
+	<script type="text/javascript" src="elementlist.js?840307205"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?1683603398">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3334156134">
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AWS SDK for PHP 2</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Aws.S3.Sync.html" title="Summary of Aws\S3\Sync"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical">
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+						<li class="divider-vertical">
+
+						<li>
+							<a href="aws-sdk-for-php-2-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active main">
+<a href="namespace-Aws.html">Aws<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.html">AutoScaling<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.html">CloudFormation<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.html">CloudFront<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.html">CloudFront_2012_05_05<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.html">CloudSearch<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.html">CloudWatch<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.html">Common<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Client.html">Client</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Command.html">Command</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Credentials.html">Credentials</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Exception.html">Exception<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Exception.Parser.html">Parser</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Facade.html">Facade</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Hash.html">Hash</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.InstanceMetadata.html">InstanceMetadata<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.InstanceMetadata.Waiter.html">Waiter</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Signature.html">Signature</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Waiter.html">Waiter</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.html">DataPipeline<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.html">DirectConnect<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.html">DynamoDb<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Model.BatchRequest.html">BatchRequest</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Session.html">Session<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Session.LockingStrategy.html">LockingStrategy</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.html">DynamoDb_2011_12_05<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.html">Ec2<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Iterator.html">Iterator</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.html">ElastiCache<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.html">ElasticBeanstalk<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticLoadBalancing.html">ElasticLoadBalancing<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticLoadBalancing.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticTranscoder.html">ElasticTranscoder<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticTranscoder.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Emr.html">Emr<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Emr.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Emr.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.html">Glacier<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Iam.html">Iam<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Iam.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Iam.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.html">ImportExport<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Iterator.html">Iterator</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.html">OpsWorks<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Rds.html">Rds<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Rds.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Rds.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Redshift.html">Redshift<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Redshift.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Redshift.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Route53.html">Route53<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Route53.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Route53.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="active main">
+<a href="namespace-Aws.S3.html">S3<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Command.html">Command</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Exception.html">Exception<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Exception.Parser.html">Parser</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+				<li class="active main">
+<a href="namespace-Aws.S3.Sync.html">Sync</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Ses.html">Ses<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Ses.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ses.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.SimpleDb.html">SimpleDb<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.SimpleDb.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sns.html">Sns<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sns.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Sns.MessageValidator.html">MessageValidator<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sns.MessageValidator.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sqs.html">Sqs<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sqs.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Sqs.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.html">StorageGateway<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sts.html">Sts<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sts.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Support.html">Support<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Support.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Swf.html">Swf<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Swf.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Swf.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.html">Guzzle<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Batch.html">Batch<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Batch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Cache.html">Cache</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Common.html">Common<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Common.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Http.html">Http<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Http.Curl.html">Curl</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Http.Exception.html">Exception</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Http.Message.html">Message<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Http.Message.Header.html">Header</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Http.QueryAggregator.html">QueryAggregator</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Inflection.html">Inflection</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Iterator.html">Iterator</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Log.html">Log</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.html">Parser<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Parser.Cookie.html">Cookie</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.Message.html">Message</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.UriTemplate.html">UriTemplate</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.Url.html">Url</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.html">Plugin<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.Async.html">Async</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Backoff.html">Backoff</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cache.html">Cache</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.html">Cookie<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.CookieJar.html">CookieJar</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.ErrorResponse.html">ErrorResponse<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.ErrorResponse.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.History.html">History</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Log.html">Log</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Md5.html">Md5</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Mock.html">Mock</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Oauth.html">Oauth</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Service.html">Service<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Builder.html">Builder</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.html">Command<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Command.Factory.html">Factory</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.html">LocationVisitor<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.Request.html">Request</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.Response.html">Response</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Service.Description.html">Description</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Exception.html">Exception</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Resource.html">Resource</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Stream.html">Stream</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Aws.S3.Sync.AbstractSync.html">AbstractSync</a></li>
+				<li><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html">AbstractSyncBuilder</a></li>
+				<li><a href="class-Aws.S3.Sync.ChangedFilesIterator.html">ChangedFilesIterator</a></li>
+				<li><a href="class-Aws.S3.Sync.DownloadSync.html">DownloadSync</a></li>
+				<li><a href="class-Aws.S3.Sync.DownloadSyncBuilder.html">DownloadSyncBuilder</a></li>
+				<li><a href="class-Aws.S3.Sync.KeyConverter.html">KeyConverter</a></li>
+				<li><a href="class-Aws.S3.Sync.UploadSync.html">UploadSync</a></li>
+				<li class="active"><a href="class-Aws.S3.Sync.UploadSyncBuilder.html">UploadSyncBuilder</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aws.S3.Sync.FilenameConverterInterface.html">FilenameConverterInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class UploadSyncBuilder</h1>
+
+
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-Aws.S3.Sync.AbstractSyncBuilder.html"><span>Aws\S3\Sync\AbstractSyncBuilder</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Aws\S3\Sync\UploadSyncBuilder</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aws.html">Aws</a>\<a href="namespace-Aws.S3.html">S3</a>\<a href="namespace-Aws.S3.Sync.html">Sync</a><br>
+		
+
+		<b>Located at</b> Aws/S3/Sync/UploadSyncBuilder.php<br>
+	</div>
+
+
+
+
+        <h2>Methods summary</h2>
+        <ul class="method-summary">
+        <li>
+            <a class="method-summary-link" href="#_uploadFromDirectory">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">uploadFromDirectory</span> ( <span>string $path</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Set the path that contains files to recursively upload to Amazon S3</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_uploadFromGlob">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">uploadFromGlob</span> ( <span>string $glob</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Set a glob expression that will match files to upload to Amazon S3</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_setAcl">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">setAcl</span> ( <span>string $acl</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Set a canned ACL to apply to each uploaded object</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_setAcp">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">setAcp</span> ( <span>Aws\S3\Model\Acp $acp</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Set an Access Control Policy to apply to each uploaded object</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_setMultipartUploadSize">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">setMultipartUploadSize</span> ( <span>int $size</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Set the multipart upload size threshold. When the size of a file exceeds this
+value, the file will be uploaded using a multipart upload.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_specificBuild">
+                <span class="attributes">
+                    <code>
+                     protected 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">specificBuild</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Hook to implement in subclasses</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getTargetIterator">
+                <span class="attributes">
+                    <code>
+                     protected 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getTargetIterator</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getDefaultSourceConverter">
+                <span class="attributes">
+                    <code>
+                     protected 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getDefaultSourceConverter</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getDefaultTargetConverter">
+                <span class="attributes">
+                    <code>
+                     protected 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getDefaultTargetConverter</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_addDebugListener">
+                <span class="attributes">
+                    <code>
+                     protected 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">addDebugListener</span> ( <span>Aws\S3\Sync\AbstractSync $sync</span>, <span>resource $resource</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Add a listener to the sync object to output debug information while
+transferring</p>
+</div>
+        </li>
+        </ul>
+
+		<h2>Methods detail</h2>
+		<div id="methods">
+		<a name="//apple_ref/cpp/Method/_uploadFromDirectory" class="dashAnchor"></a><div id="_uploadFromDirectory" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_uploadFromDirectory">#</a>
+                <code class="attributes ">
+                     public 
+                    self
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">uploadFromDirectory</span>( <span>string <var>$path</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Set the path that contains files to recursively upload to Amazon S3</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$path</var></dt>
+                            <dd>
+<code>string</code><br>$path Path that contains files to upload</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>self</code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_uploadFromGlob" class="dashAnchor"></a><div id="_uploadFromGlob" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_uploadFromGlob">#</a>
+                <code class="attributes ">
+                     public 
+                    self
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">uploadFromGlob</span>( <span>string <var>$glob</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Set a glob expression that will match files to upload to Amazon S3</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$glob</var></dt>
+                            <dd>
+<code>string</code><br>$glob Glob expression</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>self</code><br>
+                        </div>
+
+
+                        <h4>Link</h4>
+                        <div class="list">
+                                <a href="http://www.php.net/manual/en/function.glob.php">http://www.php.net/manual/en/function.glob.php</a><br>
+                        </div>
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_setAcl" class="dashAnchor"></a><div id="_setAcl" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_setAcl">#</a>
+                <code class="attributes ">
+                     public 
+                    self
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">setAcl</span>( <span>string <var>$acl</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Set a canned ACL to apply to each uploaded object</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$acl</var></dt>
+                            <dd>
+<code>string</code><br>$acl Canned ACL for each upload</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>self</code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_setAcp" class="dashAnchor"></a><div id="_setAcp" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_setAcp">#</a>
+                <code class="attributes ">
+                     public 
+                    self
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">setAcp</span>( <span><code><a href="class-Aws.S3.Model.Acp.html">Aws\S3\Model\Acp</a></code> <var>$acp</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Set an Access Control Policy to apply to each uploaded object</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$acp</var></dt>
+                            <dd>
+<code><code><a href="class-Aws.S3.Model.Acp.html">Aws\S3\Model\Acp</a></code></code><br>$acp Access control policy</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>self</code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_setMultipartUploadSize" class="dashAnchor"></a><div id="_setMultipartUploadSize" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_setMultipartUploadSize">#</a>
+                <code class="attributes ">
+                     public 
+                    self
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">setMultipartUploadSize</span>( <span>integer <var>$size</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Set the multipart upload size threshold. When the size of a file exceeds this
+value, the file will be uploaded using a multipart upload.</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$size</var></dt>
+                            <dd>
+<code>integer</code><br>$size Size threshold</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>self</code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_specificBuild" class="dashAnchor"></a><div id="_specificBuild" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_specificBuild">#</a>
+                <code class="attributes ">
+                     protected 
+                    self
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">specificBuild</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Hook to implement in subclasses</p>
+
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>self</code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getTargetIterator" class="dashAnchor"></a><div id="_getTargetIterator" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getTargetIterator">#</a>
+                <code class="attributes ">
+                     protected 
+                    <code><a href="class-Iterator.html">Iterator</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getTargetIterator</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Iterator.html">Iterator</a></code></code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getDefaultSourceConverter" class="dashAnchor"></a><div id="_getDefaultSourceConverter" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getDefaultSourceConverter">#</a>
+                <code class="attributes ">
+                     protected 
+                    <code><a href="class-Aws.S3.Sync.FilenameConverterInterface.html">Aws\S3\Sync\FilenameConverterInterface</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getDefaultSourceConverter</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.S3.Sync.FilenameConverterInterface.html">Aws\S3\Sync\FilenameConverterInterface</a></code></code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getDefaultTargetConverter" class="dashAnchor"></a><div id="_getDefaultTargetConverter" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getDefaultTargetConverter">#</a>
+                <code class="attributes ">
+                     protected 
+                    <code><a href="class-Aws.S3.Sync.FilenameConverterInterface.html">Aws\S3\Sync\FilenameConverterInterface</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getDefaultTargetConverter</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.S3.Sync.FilenameConverterInterface.html">Aws\S3\Sync\FilenameConverterInterface</a></code></code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_addDebugListener" class="dashAnchor"></a><div id="_addDebugListener" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_addDebugListener">#</a>
+                <code class="attributes ">
+                     protected 
+                    
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">addDebugListener</span>( <span><code><a href="class-Aws.S3.Sync.AbstractSync.html">Aws\S3\Sync\AbstractSync</a></code> <var>$sync</var></span>, <span>resource <var>$resource</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Add a listener to the sync object to output debug information while
+transferring</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$sync</var></dt>
+                            <dd>
+<code><code><a href="class-Aws.S3.Sync.AbstractSync.html">Aws\S3\Sync\AbstractSync</a></code></code><br>$sync Sync object to listen to</dd>
+                            <dt><var>$resource</var></dt>
+                            <dd>
+<code>resource</code><br>$resource Where to write debug messages</dd>
+                        </dl></div>
+
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		</div>
+
+		<h3>Methods inherited from <a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#methods">Aws\S3\Sync\AbstractSyncBuilder</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_addCustomParamListener">addCustomParamListener()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_addRegexFilter">addRegexFilter()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_assertFileIteratorSet">assertFileIteratorSet()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_build">build()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_createS3Iterator">createS3Iterator()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_enableDebugOutput">enableDebugOutput()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_filterIterator">filterIterator()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_force">force()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_getInstance">getInstance()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_setBaseDir">setBaseDir()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_setBucket">setBucket()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_setClient">setClient()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_setConcurrency">setConcurrency()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_setDelimiter">setDelimiter()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_setKeyPrefix">setKeyPrefix()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_setOperationParams">setOperationParams()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_setSourceFilenameConverter">setSourceFilenameConverter()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_setSourceIterator">setSourceIterator()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_setTargetFilenameConverter">setTargetFilenameConverter()</a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#_validateRequirements">validateRequirements()</a></code>
+		</p>
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="acp" id="$acp">
+			<td class="attributes"><code>
+				protected  
+				string|<code><a href="class-Aws.S3.Model.Acp.html">Aws\S3\Model\Acp</a></code>
+			</code></td>
+
+			<td class="name">
+<a name="//apple_ref/cpp/Property/$acp" class="dashAnchor"></a><var>$acp</var>			</td>
+			<td class="description"><div>
+				<a href="#$acp" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+<p>Access control policy to set on each object</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="multipartUploadSize" id="$multipartUploadSize">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+<a name="//apple_ref/cpp/Property/$multipartUploadSize" class="dashAnchor"></a><var>$multipartUploadSize</var>			</td>
+			<td class="description"><div>
+				<a href="#$multipartUploadSize" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Properties inherited from <a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#properties">Aws\S3\Sync\AbstractSyncBuilder</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#$baseDir"><var>$baseDir</var></a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#$bucket"><var>$bucket</var></a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#$client"><var>$client</var></a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#$concurrency"><var>$concurrency</var></a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#$debug"><var>$debug</var></a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#$delimiter"><var>$delimiter</var></a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#$forcing"><var>$forcing</var></a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#$keyPrefix"><var>$keyPrefix</var></a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#$params"><var>$params</var></a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#$sourceConverter"><var>$sourceConverter</var></a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#$sourceIterator"><var>$sourceIterator</var></a></code>, 
+			<code><a href="class-Aws.S3.Sync.AbstractSyncBuilder.html#$targetConverter"><var>$targetConverter</var></a></code>
+		</p>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AWS SDK for PHP 2 API documentation generated by <a href="http://apigen.org">ApiGen 3.0dev</a>
+	</div>
+</div>
+
+<script type="text/javascript">
+    // Toggle example display
+    $('.example a').click(function(ele) {
+        $(this).parent('li').children('pre').toggle();
+        return false;
+    });
+</script>
+
+</body>
+</html>

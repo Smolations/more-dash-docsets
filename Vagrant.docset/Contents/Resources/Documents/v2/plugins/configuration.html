@@ -1,0 +1,58 @@
+<!DOCTYPE html><html><head><title> Custom Configuration - Plugin Development - Vagrant Documentation</title><meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link href="./../../stylesheets/bootstrap-2bdef9a2.css" media=screen rel=stylesheet /><link href="./../../stylesheets/vagrantup-d5d54c59.css" media=screen rel=stylesheet /><script src="./../../javascripts/jquery-08c11650.js"></script><script src="./../../javascripts/modernizr-84c0465a.js"></script><script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script><script src="./../../javascripts/backstretch-3d1212ad.js"></script><script src="./../../javascripts/vagrantup-03aae2a8.js"></script><link href='//fonts.googleapis.com/css?family=Inconsolata' rel=stylesheet><script src="//use.typekit.net/xfs6zus.js"></script><script>try{Typekit.load();}catch(e){}</script></head><body><div class=wrapper><nav class=docs><a class=vagrant-docs-logo href="/">Vagrant Documentation</a><ul class="pull-right unstyled"><li><a href="//www.vagrantup.com/">Home</a></li></ul></nav><div class="page docs docs-home"><div class=container><div class=row><div class="sidebar span3"><aside class=sidebar-nav><div class="toggle hidden-desktop"><div class="open-close open"></div><a href="#">Contents</a></div><ul class=unstyled><li><a href="./../../v2/">Overview</a></li><li><a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a></li><li><a href="./../../v2/installation/index.html">Installation</a></li><li><a href="./../../v2/getting-started/index.html">Getting Started</a></li><li><a href="./../../v2/cli/index.html">Command-Line Interface</a></li><li><a href="./../../v2/vagrantfile/index.html">Vagrantfile</a></li><li><a href="./../../v2/boxes.html">Boxes</a></li><li><a href="./../../v2/provisioning/index.html">Provisioning</a></li><li><a href="./../../v2/networking/index.html">Networking</a></li><li><a href="./../../v2/synced-folders/index.html">Synced Folders</a></li><li><a href="./../../v2/multi-machine/index.html">Multi-Machine</a></li><li><a href="./../../v2/providers/index.html">Providers</a></li><li><a href="./../../v2/virtualbox/index.html">VirtualBox</a></li><li><a href="./../../v2/vmware/index.html">VMware</a></li><li class=current><a href="./../../v2/plugins/index.html">Plugins</a></li><ul class="sub unstyled"><li><a href="./../../v2/plugins/usage.html">Usage</a></li><li><a href="./../../v2/plugins/development-basics.html">Plugin Development Basics</a></li><li><a href="./../../v2/plugins/commands.html">Commands</a></li><li class=current><a href="./../../v2/plugins/configuration.html">Configuration</a></li><li><a href="./../../v2/plugins/guests.html">Guests</a></li><li><a href="./../../v2/plugins/guest-capabilities.html">Guest Capabilities</a></li><li><a href="./../../v2/plugins/hosts.html">Hosts</a></li><li><a href="./../../v2/plugins/providers.html">Providers</a></li><li><a href="./../../v2/plugins/provisioners.html">Provisioners</a></li><li><a href="./../../v2/plugins/packaging.html">Packaging & Distribution</a></li></ul><li><a href="./../../v2/debugging.html">Debugging</a></li></ul></aside></div><div class="page-contents span9"><div class=page-background></div><div class=row><div class="span8 offset1"><h1>Plugin Development: Configuration</h1><p>This page documents how to add new configuration options to Vagrant, settable with <code>config.YOURKEY</code> in Vagrantfiles. Prior to reading this, you should be familiar with the <a href="./../../v2/plugins/development-basics.html">plugin development basics</a>.</p><div class="alert alert-warn"><p><strong>Warning: Advanced Topic!</strong> Developing plugins is an advanced topic that only experienced Vagrant users who are reasonably comfortable with Ruby should approach. </p></div><h2>Definition Component</h2><p>Within the context of a plugin definition, new configuration keys can be defined like so:</p><pre><code class="ruby">config &quot;foo&quot; do
+  require_relative &quot;config&quot;
+  Config
+end
+</code></pre><p>Configuration keys are defined with the <code>config</code> method, which takes as an argument the name of the configuration variable as the argument. This means that the configuration object will be accessible via <code>config.foo</code> in Vagrantfiles. Then, the block argument returns a class that implements the <code>Vagrant.plugin(2, :config)</code> interface.</p><h2>Implementation</h2><p>Implementations of configuration keys should subclass <code>Vagrant.plugin(2, :config)</code>, which is a Vagrant method that will return the proper subclass for a version 2 configuration section. The implementation is very simple, and acts mostly as a plain Ruby object. Here is an example:</p><pre><code class="ruby">class Config &lt; Vagrant.plugin(2, :config)
+  attr_accessor :widgets
+
+  def initialize
+    @widgets = UNSET_VALUE
+  end
+
+  def finalize!
+    @widgets = 0 if @widgets == UNSET_VALUE
+  end
+end
+</code></pre><p>When using this configuration class, it looks like the following:</p><pre><code class="ruby">Vagrant.configure(&quot;2&quot;) do |config|
+  # ...
+
+  config.foo.widgets = 12
+end
+</code></pre><p>Easy. The only odd thing is the <code>UNSET_VALUE</code> bits above. This is actually so that Vagrant can properly automatically merge multiple configurations. Merging is covered in the next section, and <code>UNSET_VALUE</code> will be explained there.</p><h2>Merging</h2><p>Vagrant works by loading <a href="./../../v2/vagrantfile/index.html#load-order">multiple Vagrantfiles and merging them</a>. This merge logic is built-in to configuration classes. When merging two configuration objects, we&#39;ll call them &quot;old&quot; and &quot;new&quot;, it&#39;ll by default take all the instance variables defined on &quot;new&quot; that aren&#39;t <code>UNSET_VALUE</code> and set them onto the merged result.</p><p>The reason <code>UNSET_VALUE</code> is used instead of Ruby&#39;s <code>nil</code> is because it is possible that you want the default to be some value, and the user actually wants to set the value to <code>nil</code>, and it is impossible for Vagrant to automatically determine whether the user set the instance variable, or if it was defaulted as nil.</p><p>This merge logic is what you want almost every time. Hence, in the example above, <code>@widgets</code> is set to <code>UNSET_VALUE</code>. If we had two Vagrant configuration objects in the same file, then Vagrant would properly merge the follows. The example below shows this:</p><pre><code class="ruby">Vagrant.configure(&quot;2&quot;) do |config|
+  config.widgets = 1
+end
+
+Vagrant.configure(&quot;2&quot;) do |config|
+  # ... other stuff
+end
+
+Vagrant.configure(&quot;2&quot;) do |config|
+  config.widgets = 2
+end
+</code></pre><p>If this were placed in a Vagrantfile, after merging, the value of widgets would be &quot;2&quot;.</p><p>The <code>finalize!</code> method is called only once ever on the final configuration object in order to set defaults. If <code>finalize!</code> is called, that configuration will never be merged again, it is final. This lets you detect any <code>UNSET_VALUE</code> and set the proper default, as we do in the above example.</p><p>Of course, sometimes you want custom merge logic. Let&#39;s say we wanted our widgets to be additive. We can override the <code>merge</code> method to do this:</p><pre><code class="ruby">class Config &lt; Vagrant.config(&quot;2&quot;, :config)
+  attr_accessor :widgets
+
+  def initialize
+    @widgets = 0
+  end
+
+  def merge(other)
+    super.tap do |result|
+      result.widgets = @widgets + other.widgets
+    end
+  end
+end
+</code></pre><p>In this case, we didn&#39;t use <code>UNSET_VALUE</code> for widgets because we didn&#39;t need that behavior. We default to 0 and always merge by summing the two widgets. Now, if we ran the example above that had the 3 configuration blocks, the final value of widgets would be &quot;3&quot;.</p><h2>Validation</h2><p>Configuration classes are also responsible for validating their own values. Vagrant will call the <code>validate</code> method to do this. An example validation method is shown below:</p><pre><code class="ruby">class Config &lt; Vagrant.plugin(&quot;2&quot;, :config)
+  # ...
+
+  def validate(machine)
+    if @widgets &lt;= 5
+      return { &quot;foo&quot; =&gt; [&quot;widgets must be greater than 5&quot;] }
+    end
+
+    {}
+  end
+end
+</code></pre><p>The validation method is given a <code>machine</code> object, since validation is done for each machine that Vagrant is managing. This allows you to conditionally validate some keys based on the state of the machine and so on.</p><p>The return value is a Ruby Hash object, where the key is a section name, and the value is a list of error messages. These will be displayed by Vagrant. If there are no errors, an empty hash must be returned.</p></div></div></div></div></div></div><footer><div class=container><div class=row><div class=span12><ul class="unstyled footer-nav"><li><a href="//docs.vagrantup.com/">Documentation</a></li><li><a href="//www.vagrantup.com/about">About</a></li><li><a href="//www.vagrantup.com/support">Support</a></li><a href="//downloads.vagrantup.com/"><li class="button inline-button">Download</li></a></ul><ul class="unstyled logos"><a href="//www.vagrantup.com"><li class=vagrant-logo-monochrome></li></a><li><span>by</span></li><a href="//www.hashicorp.com"><li class="hashi-logo-monochrome "></li></a></ul></div></div><div class=row><h6 class=legal> &#169; 2013 HashiCorp </h6></div></div></footer></div><script>
+			$(".big-background").backstretch("assets/photos/full_width.jpg");
+		</script></body></html>

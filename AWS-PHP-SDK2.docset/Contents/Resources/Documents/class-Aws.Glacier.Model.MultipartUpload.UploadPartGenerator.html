@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 3.0dev">
+
+	<title>PHP 2: Class Aws\Glacier\Model\MultipartUpload\UploadPartGenerator | AWS SDK for PHP 2</title>
+
+	<script type="text/javascript" src="resources/combined.js?215010371"></script>
+	<script type="text/javascript" src="elementlist.js?840307205"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?1683603398">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3334156134">
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AWS SDK for PHP 2</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Aws.Glacier.Model.MultipartUpload.html" title="Summary of Aws\Glacier\Model\MultipartUpload"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical">
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+						<li class="divider-vertical">
+
+						<li>
+							<a href="aws-sdk-for-php-2-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active main">
+<a href="namespace-Aws.html">Aws<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.html">AutoScaling<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.html">CloudFormation<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.html">CloudFront<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.html">CloudFront_2012_05_05<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.html">CloudSearch<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.html">CloudWatch<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.html">Common<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Client.html">Client</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Command.html">Command</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Credentials.html">Credentials</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Exception.html">Exception<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Exception.Parser.html">Parser</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Facade.html">Facade</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Hash.html">Hash</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.InstanceMetadata.html">InstanceMetadata<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.InstanceMetadata.Waiter.html">Waiter</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Signature.html">Signature</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Waiter.html">Waiter</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.html">DataPipeline<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.html">DirectConnect<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.html">DynamoDb<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Model.BatchRequest.html">BatchRequest</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Session.html">Session<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Session.LockingStrategy.html">LockingStrategy</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.html">DynamoDb_2011_12_05<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.html">Ec2<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Iterator.html">Iterator</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.html">ElastiCache<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.html">ElasticBeanstalk<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticLoadBalancing.html">ElasticLoadBalancing<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticLoadBalancing.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticTranscoder.html">ElasticTranscoder<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticTranscoder.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Emr.html">Emr<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Emr.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Emr.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="active main">
+<a href="namespace-Aws.Glacier.html">Glacier<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Exception.html">Exception</a>
+						</li>
+				<li class="active main">
+<a href="namespace-Aws.Glacier.Model.html">Model<span></span></a>
+						<ul>
+				<li class="active main">
+<a href="namespace-Aws.Glacier.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Iam.html">Iam<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Iam.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Iam.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.html">ImportExport<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Iterator.html">Iterator</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.html">OpsWorks<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Rds.html">Rds<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Rds.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Rds.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Redshift.html">Redshift<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Redshift.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Redshift.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Route53.html">Route53<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Route53.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Route53.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.html">S3<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Command.html">Command</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Exception.html">Exception<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Exception.Parser.html">Parser</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Sync.html">Sync</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Ses.html">Ses<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Ses.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ses.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.SimpleDb.html">SimpleDb<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.SimpleDb.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sns.html">Sns<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sns.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Sns.MessageValidator.html">MessageValidator<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sns.MessageValidator.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sqs.html">Sqs<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sqs.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Sqs.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.html">StorageGateway<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sts.html">Sts<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sts.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Support.html">Support<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Support.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Swf.html">Swf<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Swf.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Swf.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.html">Guzzle<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Batch.html">Batch<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Batch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Cache.html">Cache</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Common.html">Common<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Common.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Http.html">Http<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Http.Curl.html">Curl</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Http.Exception.html">Exception</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Http.Message.html">Message<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Http.Message.Header.html">Header</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Http.QueryAggregator.html">QueryAggregator</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Inflection.html">Inflection</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Iterator.html">Iterator</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Log.html">Log</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.html">Parser<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Parser.Cookie.html">Cookie</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.Message.html">Message</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.UriTemplate.html">UriTemplate</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.Url.html">Url</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.html">Plugin<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.Async.html">Async</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Backoff.html">Backoff</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cache.html">Cache</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.html">Cookie<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.CookieJar.html">CookieJar</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.ErrorResponse.html">ErrorResponse<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.ErrorResponse.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.History.html">History</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Log.html">Log</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Md5.html">Md5</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Mock.html">Mock</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Oauth.html">Oauth</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Service.html">Service<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Builder.html">Builder</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.html">Command<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Command.Factory.html">Factory</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.html">LocationVisitor<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.Request.html">Request</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.Response.html">Response</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Service.Description.html">Description</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Exception.html">Exception</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Resource.html">Resource</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Stream.html">Stream</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Aws.Glacier.Model.MultipartUpload.AbstractTransfer.html">AbstractTransfer</a></li>
+				<li><a href="class-Aws.Glacier.Model.MultipartUpload.ParallelTransfer.html">ParallelTransfer</a></li>
+				<li><a href="class-Aws.Glacier.Model.MultipartUpload.SerialTransfer.html">SerialTransfer</a></li>
+				<li><a href="class-Aws.Glacier.Model.MultipartUpload.TransferState.html">TransferState</a></li>
+				<li><a href="class-Aws.Glacier.Model.MultipartUpload.UploadBuilder.html">UploadBuilder</a></li>
+				<li><a href="class-Aws.Glacier.Model.MultipartUpload.UploadId.html">UploadId</a></li>
+				<li><a href="class-Aws.Glacier.Model.MultipartUpload.UploadPart.html">UploadPart</a></li>
+				<li><a href="class-Aws.Glacier.Model.MultipartUpload.UploadPartContext.html">UploadPartContext</a></li>
+				<li class="active"><a href="class-Aws.Glacier.Model.MultipartUpload.UploadPartGenerator.html">UploadPartGenerator</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class UploadPartGenerator</h1>
+
+
+	<div class="description">
+	
+<p>Generates UploadPart objects from a string/stream that encapsulate the data
+needed for upload requests</p>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+<b><span>Aws\Glacier\Model\MultipartUpload\UploadPartGenerator</span></b>			
+			 implements 
+				<a href="class-Serializable.html"><span>Serializable</span></a>, 
+			
+				<a href="class-IteratorAggregate.html"><span>IteratorAggregate</span></a>, 
+			
+				<a href="class-Countable.html"><span>Countable</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aws.html">Aws</a>\<a href="namespace-Aws.Glacier.html">Glacier</a>\<a href="namespace-Aws.Glacier.Model.html">Model</a>\<a href="namespace-Aws.Glacier.Model.MultipartUpload.html">MultipartUpload</a><br>
+		
+
+		<b>Located at</b> Aws/Glacier/Model/MultipartUpload/UploadPartGenerator.php<br>
+	</div>
+
+
+
+
+        <h2>Methods summary</h2>
+        <ul class="method-summary">
+        <li>
+            <a class="method-summary-link" href="#_factory">
+                <span class="attributes">
+                    <code>
+                     public static
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">factory</span> ( <span>string|resource|EntityBodyInterface $body</span>, <span>int $partSize</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Creates a UploadPartGenerator and wraps the upload body in a Guzzle
+EntityBody object</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_createSingleUploadPart">
+                <span class="attributes">
+                    <code>
+                     public static
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">createSingleUploadPart</span> ( <span>string|resource|EntityBodyInterface $body</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Creates a single upload part (up to 4GB) useful for the UploadArchive
+operation</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#___construct">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">__construct</span> ( <span>Guzzle\Http\EntityBodyInterface $body</span>, <span>int $partSize</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getUploadPart">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getUploadPart</span> ( <span>int $partNumber</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Returns a single upload part from the calculated uploads by part number. By
+default it returns the first, which is useful behavior if there is only one
+upload.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getAllParts">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getAllParts</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getArchiveSize">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getArchiveSize</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getRootChecksum">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getRootChecksum</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getPartSize">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getPartSize</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_serialize">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">serialize</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_unserialize">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">unserialize</span> ( <span>mixed $serialized</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getIterator">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getIterator</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_count">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">count</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_generateUploadParts">
+                <span class="attributes">
+                    <code>
+                     protected 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">generateUploadParts</span> ( <span>Guzzle\Http\EntityBodyInterface $body</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Performs the work of reading the body stream, creating tree hashes, and
+creating UploadPartContext objects</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_updateTotals">
+                <span class="attributes">
+                    <code>
+                     protected 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">updateTotals</span> ( <span>Aws\Glacier\Model\MultipartUpload\UploadPart $part</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Updated the upload helper running totals and tree hash with the data from a
+complete upload part</p>
+</div>
+        </li>
+        </ul>
+
+		<h2>Methods detail</h2>
+		<div id="methods">
+		<a name="//apple_ref/cpp/Method/_factory" class="dashAnchor"></a><div id="_factory" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_factory">#</a>
+                <code class="attributes ">
+                     public static
+                    <code><a href="class-Aws.Glacier.Model.MultipartUpload.UploadPartGenerator.html">Aws\Glacier\Model\MultipartUpload\UploadPartGenerator</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">factory</span>( <span>string|resource|<code><a href="class-Guzzle.Http.EntityBodyInterface.html">Guzzle\Http\EntityBodyInterface</a></code> <var>$body</var></span>, <span>integer <var>$partSize</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Creates a UploadPartGenerator and wraps the upload body in a Guzzle
+EntityBody object</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$body</var></dt>
+                            <dd>
+<code>string|resource|<code><a href="class-Guzzle.Http.EntityBodyInterface.html">Guzzle\Http\EntityBodyInterface</a></code></code><br>$body The upload body</dd>
+                            <dt><var>$partSize</var></dt>
+                            <dd>
+<code>integer</code><br>$partSize The size of parts to split the upload into</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Glacier.Model.MultipartUpload.UploadPartGenerator.html">Aws\Glacier\Model\MultipartUpload\UploadPartGenerator</a></code></code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_createSingleUploadPart" class="dashAnchor"></a><div id="_createSingleUploadPart" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_createSingleUploadPart">#</a>
+                <code class="attributes ">
+                     public static
+                    <code><a href="class-Aws.Glacier.Model.MultipartUpload.UploadPart.html">Aws\Glacier\Model\MultipartUpload\UploadPart</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">createSingleUploadPart</span>( <span>string|resource|<code><a href="class-Guzzle.Http.EntityBodyInterface.html">Guzzle\Http\EntityBodyInterface</a></code> <var>$body</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Creates a single upload part (up to 4GB) useful for the UploadArchive
+operation</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$body</var></dt>
+                            <dd>
+<code>string|resource|<code><a href="class-Guzzle.Http.EntityBodyInterface.html">Guzzle\Http\EntityBodyInterface</a></code></code><br>$body The upload body</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Glacier.Model.MultipartUpload.UploadPart.html">Aws\Glacier\Model\MultipartUpload\UploadPart</a></code></code><br>
+                        </div>
+
+                        <h4>Throws</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Exception.RuntimeException.html">Aws\Common\Exception\RuntimeException</a></code></code><br>if the body ends up being larger than 4GB<br>
+                        </div>
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/___construct" class="dashAnchor"></a><div id="___construct" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#___construct">#</a>
+                <code class="attributes ">
+                     public 
+                    
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">__construct</span>( <span><code><a href="class-Guzzle.Http.EntityBodyInterface.html">Guzzle\Http\EntityBodyInterface</a></code> <var>$body</var></span>, <span>integer <var>$partSize</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$body</var></dt>
+                            <dd>
+<code><code><a href="class-Guzzle.Http.EntityBodyInterface.html">Guzzle\Http\EntityBodyInterface</a></code></code><br>$body The upload body</dd>
+                            <dt><var>$partSize</var></dt>
+                            <dd>
+<code>integer</code><br>$partSize The size of parts to split the upload into. Default is the 4GB max</dd>
+                        </dl></div>
+
+
+                        <h4>Throws</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Exception.InvalidArgumentException.html">Aws\Common\Exception\InvalidArgumentException</a></code></code><br>when the part size is invalid (i.e. not a power of 2 of 1MB)<br>
+                            <code><code><a href="class-Aws.Common.Exception.InvalidArgumentException.html">Aws\Common\Exception\InvalidArgumentException</a></code></code><br>when the body is not seekable (must be able to rewind after calculating hashes)<br>
+                            <code><code><a href="class-Aws.Common.Exception.InvalidArgumentException.html">Aws\Common\Exception\InvalidArgumentException</a></code></code><br>when the archive size is less than one byte<br>
+                        </div>
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getUploadPart" class="dashAnchor"></a><div id="_getUploadPart" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getUploadPart">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Aws.Glacier.Model.MultipartUpload.UploadPart.html">Aws\Glacier\Model\MultipartUpload\UploadPart</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getUploadPart</span>( <span>integer <var>$partNumber</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Returns a single upload part from the calculated uploads by part number. By
+default it returns the first, which is useful behavior if there is only one
+upload.</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$partNumber</var></dt>
+                            <dd>
+<code>integer</code><br>$partNumber The numerical index of the upload</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Glacier.Model.MultipartUpload.UploadPart.html">Aws\Glacier\Model\MultipartUpload\UploadPart</a></code></code><br>
+                        </div>
+
+                        <h4>Throws</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Exception.OutOfBoundsException.html">Aws\Common\Exception\OutOfBoundsException</a></code></code><br>if the index of the upload doesn't exist<br>
+                        </div>
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getAllParts" class="dashAnchor"></a><div id="_getAllParts" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getAllParts">#</a>
+                <code class="attributes ">
+                     public 
+                    array
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getAllParts</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>array</code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getArchiveSize" class="dashAnchor"></a><div id="_getArchiveSize" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getArchiveSize">#</a>
+                <code class="attributes ">
+                     public 
+                    array
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getArchiveSize</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>array</code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getRootChecksum" class="dashAnchor"></a><div id="_getRootChecksum" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getRootChecksum">#</a>
+                <code class="attributes ">
+                     public 
+                    string
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getRootChecksum</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>string</code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getPartSize" class="dashAnchor"></a><div id="_getPartSize" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getPartSize">#</a>
+                <code class="attributes ">
+                     public 
+                    string
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getPartSize</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>string</code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_serialize" class="dashAnchor"></a><div id="_serialize" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_serialize">#</a>
+                <code class="attributes ">
+                     public 
+                    
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">serialize</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Serializable.html#_serialize">Serializable::serialize()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_unserialize" class="dashAnchor"></a><div id="_unserialize" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_unserialize">#</a>
+                <code class="attributes ">
+                     public 
+                    
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">unserialize</span>( <span>mixed <var>$serialized</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Serializable.html#_unserialize">Serializable::unserialize()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getIterator" class="dashAnchor"></a><div id="_getIterator" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getIterator">#</a>
+                <code class="attributes ">
+                     public 
+                    
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getIterator</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-IteratorAggregate.html#_getIterator">IteratorAggregate::getIterator()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_count" class="dashAnchor"></a><div id="_count" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_count">#</a>
+                <code class="attributes ">
+                     public 
+                    
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">count</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Countable.html#_count">Countable::count()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_generateUploadParts" class="dashAnchor"></a><div id="_generateUploadParts" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_generateUploadParts">#</a>
+                <code class="attributes ">
+                     protected 
+                    
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">generateUploadParts</span>( <span><code><a href="class-Guzzle.Http.EntityBodyInterface.html">Guzzle\Http\EntityBodyInterface</a></code> <var>$body</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Performs the work of reading the body stream, creating tree hashes, and
+creating UploadPartContext objects</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$body</var></dt>
+                            <dd>
+<code><code><a href="class-Guzzle.Http.EntityBodyInterface.html">Guzzle\Http\EntityBodyInterface</a></code></code><br>$body The body to create parts from</dd>
+                        </dl></div>
+
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_updateTotals" class="dashAnchor"></a><div id="_updateTotals" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_updateTotals">#</a>
+                <code class="attributes ">
+                     protected 
+                    
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">updateTotals</span>( <span><code><a href="class-Aws.Glacier.Model.MultipartUpload.UploadPart.html">Aws\Glacier\Model\MultipartUpload\UploadPart</a></code> <var>$part</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Updated the upload helper running totals and tree hash with the data from a
+complete upload part</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$part</var></dt>
+                            <dd>
+<code><code><a href="class-Aws.Glacier.Model.MultipartUpload.UploadPart.html">Aws\Glacier\Model\MultipartUpload\UploadPart</a></code></code><br>$part The newly completed upload part</dd>
+                        </dl></div>
+
+
+                        <h4>Throws</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Exception.OverflowException.html">Aws\Common\Exception\OverflowException</a></code></code><br>if the maximum number of allowed upload parts is exceeded<br>
+                        </div>
+
+
+
+                </div>
+            </div>
+
+		</div>
+		</div>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+		<h2>Constants summary</h2>
+		<table class="summary table table-bordered table-striped" id="constants">
+		<tr data-order="MAX_NUM_PARTS" id="MAX_NUM_PARTS">
+
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+<b>MAX_NUM_PARTS</b>			</code></td>
+			<td class="value"><code><span class="php-num">10000</span></code></td>
+			<td class="description"><div>
+				<a href="#MAX_NUM_PARTS" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="rootChecksum" id="$rootChecksum">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+<a name="//apple_ref/cpp/Property/$rootChecksum" class="dashAnchor"></a><var>$rootChecksum</var>			</td>
+			<td class="description"><div>
+				<a href="#$rootChecksum" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+<p>The root checksum (tree hash) of the entire entity body</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="uploadParts" id="$uploadParts">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+<a name="//apple_ref/cpp/Property/$uploadParts" class="dashAnchor"></a><var>$uploadParts</var>			</td>
+			<td class="description"><div>
+				<a href="#$uploadParts" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+<p>List of upload parts generated by this helper</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="archiveSize" id="$archiveSize">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+<a name="//apple_ref/cpp/Property/$archiveSize" class="dashAnchor"></a><var>$archiveSize</var>			</td>
+			<td class="description"><div>
+				<a href="#$archiveSize" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+<p>The total size of the entire upload body</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="partSize" id="$partSize">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+<a name="//apple_ref/cpp/Property/$partSize" class="dashAnchor"></a><var>$partSize</var>			</td>
+			<td class="description"><div>
+				<a href="#$partSize" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+<p>Size of upload parts</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AWS SDK for PHP 2 API documentation generated by <a href="http://apigen.org">ApiGen 3.0dev</a>
+	</div>
+</div>
+
+<script type="text/javascript">
+    // Toggle example display
+    $('.example a').click(function(ele) {
+        $(this).parent('li').children('pre').toggle();
+        return false;
+    });
+</script>
+
+</body>
+</html>

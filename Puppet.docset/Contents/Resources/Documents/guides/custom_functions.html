@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Custom Functions — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../favicon.ico' />
+
+  <meta name="description" content="Custom FunctionsExtend the Puppet interpreter by writing your own custom functions.Writing your own functionsThe Puppet language and interpreter is...">
+
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/ampersands.js'></script>
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/guides/custom_functions.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/style_legacy.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Custom Functions</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1 id="custom-functions">Custom Functions</h1>
+
+<p>Extend the Puppet interpreter by writing your own custom functions.</p>
+
+<hr />
+
+<h2 id="writing-your-own-functions">Writing your own functions</h2>
+
+<p>The Puppet language and interpreter is very extensible. One of the
+places you can extend Puppet is in creating new functions to be
+executed on the puppet master at the time
+that the manifest is compiled. To give you an idea of what you can
+do with these functions, the built-in template and include
+functions are implemented in exactly the same way as the functions
+you&#8217;re learning to write here.</p>
+
+<p>Custom functions are written in Ruby, so you&#8217;ll need a working
+understanding of the language before you begin.</p>
+
+<h3 id="gotchas">Gotchas</h3>
+
+<p>There are a few things that can trip you up when you&#8217;re writing
+your functions:</p>
+
+<ul>
+  <li>Your function will be executed on the server. This means that
+any files or other resources you reference must be available on the
+server, and you can&#8217;t do anything that requires direct access to
+the client machine.</li>
+  <li>There are actually two completely different types of functions
+available &#8212; <em>rvalues</em> (which return a value) and <em>statements</em>
+(which do not). If you are writing an rvalue function, you must pass
+<code>:type =&gt; :rvalue</code> when creating the function; see the examples below.</li>
+  <li>The name of the file containing your function must be the
+same as the name of function; otherwise it won&#8217;t get automatically
+loaded.</li>
+  <li>To use a <em>fact</em> about a client, use <code>lookupvar('{fact name}')</code>
+instead of <code>Facter['{fact name}'].value</code>.  If the <em>fact</em> does not
+exist, <code>lookupvar</code> returns <code>:undefined</code>. See examples below.</li>
+</ul>
+
+<h3 id="where-to-put-your-functions">Where to put your functions</h3>
+
+<p>Functions are implemented in individual .rb files (whose filenames must match the names of their respective functions), and should be distributed in modules. Put custom functions in the lib/puppet/parser/functions subdirectory of your module; see <a href="./plugins_in_modules.html">Plugins in Modules</a> for additional details (including compatibility with versions of Puppet prior to 0.25.0).</p>
+
+<p>If you are using a version of Puppet prior to 0.24.0, or have some other compelling reason to not use <a href="./plugins_in_modules.html">plugins in modules</a>, functions can also be loaded from .rb files in the following locations:</p>
+
+<ul>
+  <li><code>$libdir/puppet/parser/functions</code></li>
+  <li><code>puppet/parser/functions</code> sub-directories in your Ruby <code>$LOAD_PATH</code></li>
+</ul>
+
+<h2 id="first-function-----small-steps">First Function &#8212; small steps</h2>
+
+<p>New functions are defined by executing the <code>newfunction</code> method
+inside the <code>Puppet::Parser::Functions</code> module. You pass the name of
+the function as a symbol to <code>newfunction</code>, and the code to be run as
+a block. So a trivial function to write a string to a file in /tmp
+might look like this:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">module</span> <span class="nn">Puppet::Parser::Functions</span>
+      <span class="n">newfunction</span><span class="p">(</span><span class="ss">:write_line_to_file</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">args</span><span class="o">|</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+        <span class="n">str</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+        <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">fd</span><span class="o">|</span> <span class="n">fd</span><span class="o">.</span><span class="n">puts</span> <span class="n">str</span> <span class="p">}</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<p>To use this function, it&#8217;s as simple as using it in your manifest:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">write_line_to_file</span><span class="p">(</span><span class="s1">&#39;/tmp/some_file&#39;</span><span class="p">,</span> <span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>(Note that this is not a useful function by any stretch of the imagination.)</p>
+
+<p>The arguments to the function are passed into the block via the
+<code>args</code> argument to the block. This is simply an array of all of the
+arguments given in the manifest when the function is called.
+There&#8217;s no real parameter validation, so you&#8217;ll need to do that
+yourself.</p>
+
+<p>This simple <code>write_line_to_file</code> function is an example of a
+<em>statement</em> function. It performs an action, and does not return a
+value. The other type of function
+is an <em>rvalue</em> function, which you must use in a context which
+requires a value, such as an <code>if</code> statement, a <code>case</code> statement, or a
+variable or attribute assignment. You could implement a <code>rand</code>
+function like this:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">module</span> <span class="nn">Puppet::Parser::Functions</span>
+      <span class="n">newfunction</span><span class="p">(</span><span class="ss">:rand</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="ss">:rvalue</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">args</span><span class="o">|</span>
+        <span class="nb">rand</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">empty?</span> <span class="p">?</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<p>This function works identically to the Ruby built-in rand function.
+Randomising things isn&#8217;t quite as useful as you might think,
+though. The first use for a <code>rand</code> function that springs to mind is
+probably to vary the minute of a cron job. For instance, to stop
+all your machines from running a job at the same time, you might do
+something like:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">cron</span> <span class="p">{</span> <span class="n">run_some_job_at_a_random_time</span><span class="p">:</span>
+      <span class="n">command</span> <span class="o">=&gt;</span> <span class="s2">&quot;/usr/local/sbin/some_job&quot;</span><span class="p">,</span>
+      <span class="n">minute</span> <span class="o">=&gt;</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>But the problem here is quite simple: every time the Puppet client
+runs, the rand function gets re-evaluated, and your cron job moves
+around. The moral: just because a function <em>seems</em> like a good
+idea, don&#8217;t be so quick to assume that it&#8217;ll be the answer to all
+your problems.</p>
+
+<h2 id="using-facts-and-variables">Using Facts and Variables</h2>
+
+<p>Which raises the question: what <em>should</em> you do if you want to splay
+your cron jobs on different machines?
+The trick is to tie the minute value to something that&#8217;s invariant
+in time, but different across machines. Perhaps the MD5
+hash of the hostname, modulo 60, or maybe the IP address of the
+host converted to an integer, modulo 60. Neither
+guarantees uniqueness, but you can&#8217;t really expect that with a range
+of no more than 60 anyway.</p>
+
+<p>But given that functions are run on the puppet master, how do you get at
+the hostname or IP address of the agent node?
+The answer is that facts returned by facter can be used in our
+functions.</p>
+
+<h3 id="example-1">Example 1</h3>
+
+<div class="highlight"><pre><code class="ruby">    <span class="nb">require</span> <span class="s1">&#39;ipaddr&#39;</span>
+
+    <span class="k">module</span> <span class="nn">Puppet::Parser::Functions</span>
+      <span class="n">newfunction</span><span class="p">(</span><span class="ss">:minute_from_address</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="ss">:rvalue</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">args</span><span class="o">|</span>
+        <span class="no">IPAddr</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">lookupvar</span><span class="p">(</span><span class="s1">&#39;ipaddress&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">to_i</span> <span class="o">%</span> <span class="mi">60</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<h3 id="example-2">Example 2</h3>
+
+<div class="highlight"><pre><code class="ruby">    <span class="nb">require</span> <span class="s1">&#39;md5&#39;</span>
+
+    <span class="k">module</span> <span class="nn">Puppet::Parser::Functions</span>
+      <span class="n">newfunction</span><span class="p">(</span><span class="ss">:hour_from_fqdn</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="ss">:rvalue</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">args</span><span class="o">|</span>
+        <span class="no">MD5</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">lookupvar</span><span class="p">(</span><span class="s1">&#39;fqdn&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">hex</span> <span class="o">%</span> <span class="mi">24</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<h3 id="example-3">Example 3</h3>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">module</span> <span class="nn">Puppet::Parser::Functions</span>
+      <span class="n">newfunction</span><span class="p">(</span><span class="ss">:has_fact</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="ss">:rvalue</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">arg</span><span class="o">|</span>
+        <span class="n">lookupvar</span><span class="p">(</span><span class="n">arg</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span> <span class="o">!=</span> <span class="ss">:undefined</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<p>Basically, to get a fact&#8217;s or variable&#8217;s value, you just call
+<code>lookupvar('{fact name}')</code>.</p>
+
+<h2 id="calling-functions-from-functions">Calling Functions from Functions</h2>
+
+<p>Functions can be accessed from other functions by
+calling <code>Puppet::Parser::Functions.autoloader.loadall</code> at the beginning of your new function, then prepending <code>function_</code> to the name of the function you are trying to call.  Alternatively, you can load a specific function by calling <code>Puppet::Parser::Functions.function('myfunc1')</code></p>
+
+<p>Also keep in mind that when calling a puppet function from the puppet DSL, arguments are all passed in as an anonymous array.  This is not the case when calling the function from within Ruby.  To work around this, you must create the anonymous array yourself by putting the arguments (even if there is only one argument) inside square brackets like this:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="o">[</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg3</span> <span class="o">]</span>
+</code></pre>
+</div>
+
+<h3 id="example">Example</h3>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">module</span> <span class="nn">Puppet::Parser::Functions</span>
+      <span class="n">newfunction</span><span class="p">(</span><span class="ss">:myfunc2</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="ss">:rvalue</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">args</span><span class="o">|</span>
+        <span class="no">Puppet</span><span class="o">::</span><span class="no">Parser</span><span class="o">::</span><span class="no">Functions</span><span class="o">.</span><span class="n">autoloader</span><span class="o">.</span><span class="n">loadall</span>
+        <span class="n">function_myfunc1</span><span class="p">(</span> <span class="o">[</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="o">]</span> <span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<h2 id="handling-errors">Handling Errors</h2>
+
+<p>To throw a parse/compile error in your function, in a similar
+manner to the <code>fail()</code> function:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">raise</span> <span class="no">Puppet</span><span class="o">::</span><span class="no">ParseError</span><span class="p">,</span> <span class="s2">&quot;my error&quot;</span>
+</code></pre>
+</div>
+
+<h2 id="troubleshooting-functions">Troubleshooting Functions</h2>
+
+<p>If you&#8217;re experiencing problems with your functions loading,
+there&#8217;s a couple of things you can do to see what might be causing
+the issue:</p>
+
+<p>1 - Make sure your function is parsing correctly, by running:</p>
+
+<pre><code>ruby -rpuppet my_funct.rb
+</code></pre>
+
+<p>This should return nothing if the function is parsing correctly,
+otherwise you&#8217;ll get an exception which should help troubleshoot
+the problem.</p>
+
+<p>2 - Check that the function is available to Puppet:</p>
+
+<pre><code>irb
+&gt; require 'puppet'
+&gt; require '/path/to/puppet/functions/my_funct.rb'
+&gt; Puppet::Parser::Functions.function(:my_funct)
+=&gt; "function_my_funct"
+</code></pre>
+
+<p>Substitute <code>:my_funct</code> with the name of your function, and it should
+return something similar to &#8220;<code>function_my_funct</code>&#8221; if the function
+is seen by Puppet. Otherwise it will just return false, indicating
+that you still have a problem (and you&#8217;ll more than likely get a
+&#8220;Unknown Function&#8221; error on your clients).</p>
+
+<h2 id="referencing-custom-functions-in-templates">Referencing Custom Functions In Templates</h2>
+
+<p>To call a custom function within a <a href="./templating.html">Puppet Template</a>, you can do:</p>
+
+<pre><code>&lt;%= scope.function_namegoeshere(["one","two"]) %&gt;
+</code></pre>
+
+<p>Replace &#8220;namegoeshere&#8221; with the function name, and even if there is only one argument, still
+include the array brackets.</p>
+
+<h2 id="notes-on-backward-compatibility">Notes on Backward Compatibility</h2>
+
+<h3 id="accessing-files-with-older-versions-of-puppet">Accessing Files With Older Versions of Puppet</h3>
+
+<p>In Puppet 2.6.0 and later, functions can access files with the expectation that
+it will just work. In versions prior to 2.6.0, functions that accessed files
+had to explicitly warn the parser to recompile the configuration if the files
+they relied on changed.</p>
+
+<p>If you find yourself needing to write custom functions for older versions of Puppet, the relevant instructions are preserved below.</p>
+
+<h4 id="accessing-files-in-puppet-0232-through-0249">Accessing Files in Puppet 0.23.2 through 0.24.9</h4>
+
+<p>Until Puppet 0.25.0, safe file access was achieved by adding <code>self.interp.newfile($filename)</code> to the function. E.g., to accept a file name and return the last line of that file:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">module</span> <span class="nn">Puppet::Parser::Functions</span>
+      <span class="n">newfunction</span><span class="p">(</span><span class="ss">:file_last_line</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="ss">:rvalue</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">args</span><span class="o">|</span>
+        <span class="nb">self</span><span class="o">.</span><span class="n">interp</span><span class="o">.</span><span class="n">newfile</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="no">IO</span><span class="o">.</span><span class="n">readlines</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">[</span><span class="n">lines</span><span class="o">.</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<h4 id="accessing-files-in-puppet-025x">Accessing Files in Puppet 0.25.x</h4>
+
+<p>In release 0.25.0, the necessary code changed to:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">parser</span> <span class="o">=</span> <span class="no">Puppet</span><span class="o">::</span><span class="no">Parser</span><span class="o">::</span><span class="no">Parser</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">environment</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">watch_file</span><span class="p">(</span><span class="vg">$filename</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>This new code was used identically to the older code:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">module</span> <span class="nn">Puppet::Parser::Functions</span>
+      <span class="n">newfunction</span><span class="p">(</span><span class="ss">:file_last_line</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="ss">:rvalue</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">args</span><span class="o">|</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="no">Puppet</span><span class="o">::</span><span class="no">Parser</span><span class="o">::</span><span class="no">Parser</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">environment</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">watch_file</span><span class="p">(</span><span class="vg">$filename</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="no">IO</span><span class="o">.</span><span class="n">readlines</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">[</span><span class="n">lines</span><span class="o">.</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <div class="secondary-content">
+                  <div id="subCol">
+                      <h3 class="chapter">Contents</h3>
+
+<ol class="toc">
+  <li class="toc-lv2"><a href="#writing-your-own-functions">Writing your own functions</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#gotchas">Gotchas</a></li>
+   <li class="toc-lv3"><a href="#where-to-put-your-functions">Where to put your functions</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#first-function-----small-steps">First Function &#8212; small steps</a></li>
+  <li class="toc-lv2"><a href="#using-facts-and-variables">Using Facts and Variables</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#example-1">Example 1</a></li>
+   <li class="toc-lv3"><a href="#example-2">Example 2</a></li>
+   <li class="toc-lv3"><a href="#example-3">Example 3</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#calling-functions-from-functions">Calling Functions from Functions</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#example">Example</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#handling-errors">Handling Errors</a></li>
+  <li class="toc-lv2"><a href="#troubleshooting-functions">Troubleshooting Functions</a></li>
+  <li class="toc-lv2"><a href="#referencing-custom-functions-in-templates">Referencing Custom Functions In Templates</a></li>
+  <li class="toc-lv2"><a href="#notes-on-backward-compatibility">Notes on Backward Compatibility</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#accessing-files-with-older-versions-of-puppet">Accessing Files With Older Versions of Puppet</a></li>
+</ol></li>
+</ol>
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+	</body>
+</html>

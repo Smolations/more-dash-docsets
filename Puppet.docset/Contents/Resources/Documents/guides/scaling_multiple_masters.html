@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Using Multiple Puppet Masters — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../favicon.ico' />
+
+  <meta name="description" content="Using Multiple Puppet MastersTo scale beyond a certain size, or for geographic distribution or disaster recovery, a deployment may warrant having m...">
+
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/ampersands.js'></script>
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/guides/scaling_multiple_masters.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/style_legacy.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Using Multiple Puppet Masters</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1 id="using-multiple-puppet-masters">Using Multiple Puppet Masters</h1>
+
+<p>To scale beyond a certain size, or for geographic distribution or disaster recovery, a deployment may warrant having more than one puppet master server. This document outlines options for deployments with multiple masters.</p>
+
+<blockquote>
+  <p>Note: As of this writing, this document does not cover:</p>
+
+  <ul>
+    <li>How to expand Puppet Enterprise&#8217;s orchestration or live management features</li>
+    <li>How to use multiple PE console or Puppet Dashboard servers</li>
+  </ul>
+</blockquote>
+
+<p>In brief:</p>
+
+<ol>
+  <li><a href="#distributing-agent-load">Determine the method you will use to distribute the agent load among the available masters</a></li>
+  <li><a href="#centralize-the-certificate-authority">Centralize all certificate authority functions</a></li>
+  <li><a href="#create-new-puppet-master-servers">Bring up additional puppet master servers</a></li>
+  <li><a href="#centralize-reports-inventory-service-and-catalog-searching-storeconfigs">Centralize reporting, inventory service, and storeconfigs (if necessary)</a></li>
+  <li><a href="#keep-manifests-and-modules-in-sync-across-your-puppet-masters">Keep manifests and modules in sync across your puppet masters</a></li>
+  <li><a href="#implement-load-distribution">Implement agent load distribution</a></li>
+</ol>
+
+<h2 id="distributing-agent-load">Distributing Agent Load</h2>
+
+<p>First things first; the rest of your configuration will depend on how you&#8217;re planning on distributing the agent load.  You have several options available.  Determine what your deployment will look like now, but <strong>implement this as the last step</strong>, only after you have the infrastructure in place to support it.</p>
+
+<h3 id="option-1-statically-designate-servers-on-agent-nodes">Option 1: Statically Designate Servers on Agent Nodes</h3>
+
+<p>Manually or with Puppet, change the <code>server</code> setting in each agent node&#8217;s <code>puppet.conf</code> file such that the nodes are divided more or less evenly among the available masters.</p>
+
+<p>This option is labor-intensive and will gradually fall out of balance, but it will work without additional infrastructure.</p>
+
+<h3 id="option-2-use-round-robin-dns">Option 2: Use Round-Robin DNS</h3>
+
+<p>Leave all of your agent nodes pointed at the same puppet master hostname, then configure your site&#8217;s DNS to arbitrarily route all requests directed at that hostname to the pool of available masters.</p>
+
+<p>For instance, if all of your agent nodes are configured with <code>server = puppet.example.com</code>, you&#8217;ll configure a DNS name such as:</p>
+
+<pre><code># IP address of master 1:
+puppet.example.com. IN A 192.0.2.50
+# IP address of master 2:
+puppet.example.com. IN A 198.51.100.215
+</code></pre>
+
+<p>For this option, you&#8217;ll need to configure your masters with <code>dns_alt_names</code> before their certificate request is made &#8212; <a href="#before-running-puppet-agent-or-puppet-master">see below.</a></p>
+
+<h3 id="option-3-use-a-load-balancer">Option 3: Use a Load Balancer</h3>
+
+<p>You can also use a hardware load balancer or a load balancing proxy webserver to redirect requests more intelligently. Depending on how it&#8217;s configured for SSL (either raw TCP proxying, or acting as its own SSL endpoint), you&#8217;ll need to use a combination of the other procedures in this document.</p>
+
+<p>Configuring a load balancer is beyond the scope of this document.</p>
+
+<h3 id="option-4-dns-srv-records">Option 4: DNS <code>SRV</code> Records</h3>
+
+<p>This option is new in Puppet 3.0, and will only work if your entire Puppet infrastructure is on 3.0 or newer.</p>
+
+<blockquote>
+  <p>Note: Designating Puppet services with SRV records is an <strong>experimental feature.</strong> It is currently being used in production at several large sites, but there are still some issues with the implementation to be wary of. Specifically: it makes a large number of DNS requests, request timeouts are completely under the DNS server&#8217;s control and agents cannot bail early, the way it divides services does not map perfectly to the pre-existing <code>server</code>/<code>ca_server</code>/etc. settings, and SRV records don&#8217;t interact well with static servers set in the config file (i.e. static settings can&#8217;t be used for failover, it&#8217;s one or the other). Please keep these potential pitfalls in mind when configuring your DNS!</p>
+</blockquote>
+
+<p>You can use DNS <code>SRV</code> records to assign a pool of puppet masters for agents to communicate with.  This requires a DNS service capable of <code>SRV</code> records &#8212; all major DNS software including Windows Server&#8217;s DNS and BIND are compatible.</p>
+
+<p>Each of your puppet nodes will be configured with a <code>srv_domain</code> instead of a <code>server</code> in their <code>puppet.conf</code>:</p>
+
+<pre><code>[main]
+  use_srv_records = true
+  srv_domain = example.com
+</code></pre>
+
+<p>..then they will look up a <code>SRV</code> record at <code>_x-puppet._tcp.example.com</code> when they need to talk to a puppet master.</p>
+
+<pre><code># Equal-weight load balancing between master-a and master-b:
+_x-puppet._tcp.example.com. IN SRV 0 5 8140 master-a.example.com.
+_x-puppet._tcp.example.com. IN SRV 0 5 8140 master-b.example.com.
+</code></pre>
+
+<p>Advanced configurations are also possible.  For instance, if all devices in site A are configured with a <code>srv_domain</code> of <code>site-a.example.com</code> and all nodes in site B are configured to <code>site-b.example.com</code>, you can configure them to prefer a master in the local site, but fail over to the remote site:</p>
+
+<pre><code># Site A has two masters - master-1 is beefier, give it 75% of the load:
+_x-puppet._tcp.site-a.example.com. IN SRV 0 75 8140 master-1.site-a.example.com.
+_x-puppet._tcp.site-a.example.com. IN SRV 0 25 8140 master-2.site-a.example.com.
+_x-puppet._tcp.site-a.example.com. IN SRV 1 5 8140 master.site-b.example.com.
+
+# For site B, prefer the local master unless it's down, then fail back to site A
+_x-puppet._tcp.site-b.example.com. IN SRV 0 5 8140 master.site-b.example.com.
+_x-puppet._tcp.site-b.example.com. IN SRV 1 75 8140 master-1.site-a.example.com.
+_x-puppet._tcp.site-b.example.com. IN SRV 1 25 8140 master-2.site-a.example.com.
+</code></pre>
+
+<hr />
+
+<h2 id="centralize-the-certificate-authority">Centralize the Certificate Authority</h2>
+
+<p>The additional puppet masters at a site should only share the burden of compiling and serving catalogs; any certificate authority functions should be delegated to a single server. <strong>Choose one server</strong> to act as the CA, and ensure that it is reachable at a <strong>unique hostname other than (or in addition to) <code>puppet</code>.</strong></p>
+
+<p>There are two main options for centralizing the CA:</p>
+
+<h3 id="option-1-direct-agent-nodes-to-the-ca-master">Option 1: Direct agent nodes to the CA Master</h3>
+
+<h4 id="method-a-individual-agent-configuration">Method A: Individual Agent Configuration</h4>
+
+<p>On <strong>every agent node,</strong> you must set the <a href="./../references/latest/configuration.html#caserver"><code>ca_server</code></a> setting in <a href="/guides/configuring.html"><code>puppet.conf</code></a> (in the <code>[main]</code> configuration block) to the hostname of the server acting as the certificate authority.</p>
+
+<ul>
+  <li>If you have a large number of existing nodes, it is easiest to do this by managing <code>puppet.conf</code> with a Puppet module and a template.</li>
+  <li>Be sure to pre-set this setting when provisioning new nodes &#8212; they will be unable to successfully complete their initial agent run if they&#8217;re not communicating with the correct <code>ca_server</code>.</li>
+</ul>
+
+<h4 id="method-b-dns-srv-records">Method B: DNS <code>SRV</code> Records</h4>
+
+<p>If you are <a href="#option-4-dns-srv-records">utilizing <code>SRV</code> records for agents</a>, then you can use the <code>_x-puppet-ca._tcp.$srv_domain</code> DNS name to configure clients to point to a single specific CA server, while the <code>_x-puppet._tcp.$srv_domain</code> DNS name will be handling the majority of their requests to masters and can be a set of puppet masters without CA capabilities.</p>
+
+<h3 id="option-2-proxy-certificate-traffic">Option 2: Proxy Certificate Traffic</h3>
+
+<p>Alternately, if your nodes don&#8217;t have direct connectivity to your CA master, you aren&#8217;t using <code>SRV</code> records, or you do not wish to change every node&#8217;s <code>puppet.conf</code>, you can configure the web server on the puppet masters other than your CA master to proxy all certificate-related traffic to the designated CA master.</p>
+
+<blockquote>
+  <p>This method only works if your puppet master servers are using a web server that provides a method for proxying requests, like <a href="./../guides/passenger.html">Apache with Passenger</a>.</p>
+</blockquote>
+
+<p>All certificate related URLs begin with <code>/&lt;NAME OF PUPPET ENVIRONMENT&gt;/certificate</code>; simply catch and proxy these requests using whatever capabilities your web server offers.</p>
+
+<blockquote>
+  <h4 id="example-apache-configuration-with-modproxyhttphttpdapacheorgdocscurrentmodmodproxyhtml">Example: Apache configuration with <a href="http://httpd.apache.org/docs/current/mod/mod_proxy.html"><code>mod_proxy</code></a></h4>
+
+  <p>In the scope of your puppet master vhost, add the following configuration:</p>
+
+  <pre><code>SSLProxyEngine On
+# Proxy all requests that start with things like /production/certificate to the CA
+ProxyPassMatch ^/([^/]+/certificate.*)$ https://puppetca.example.com:8140/$1
+</code></pre>
+
+  <p>This change must be made to the Apache configuration on every puppet master server other than the one serving as the CA. No changes need to be made to agent nodes&#8217; configurations.</p>
+
+  <p>Additionally, the CA master must allow the nodes to download the certificate revocation list via the proxy, without authentication &#8212; certificate requests and retrieval of signed certificates are allowed by default, but not CRLs.  Add the following to the CA master&#8217;s <code>auth.conf</code>:</p>
+
+  <pre><code>path /certificate_revocation_list
+auth any
+method find
+allow *
+</code></pre>
+</blockquote>
+
+<hr />
+
+<h2 id="create-new-puppet-master-servers">Create New Puppet Master Servers</h2>
+
+<h3 id="install-puppet">Install Puppet</h3>
+
+<p>To add a new puppet master server to your deployment, begin by installing and configuring Puppet as per normal.</p>
+
+<ul>
+  <li><a href="./../guides/installation.html">Installing Puppet (open source versions)</a></li>
+  <li><a href="./../pe/latest/install_basic.html">Installing Puppet Enterprise</a></li>
+</ul>
+
+<p>Like with any puppet master, you&#8217;ll need to use a production-grade web server rather than the default WEBrick server. We generally assume that you know how to do this if you&#8217;re already at the point where you need multiple masters, but see <a href="./../guides/passenger.html">Scaling with Passenger</a> for one way to do it.</p>
+
+<h3 id="before-running-puppet-agent-or-puppet-master">Before Running <code>puppet agent</code> or <code>puppet master</code></h3>
+
+<ul>
+  <li>In <code>puppet.conf</code>, do the following:
+    <ul>
+      <li>Set <code>ca</code> to <code>false</code> in the <code>[master]</code> config block.</li>
+      <li>
+        <p><em>If you&#8217;re using the <a href="#option-1-direct-agent-nodes-to-the-ca-master">individual agent configuration method of CA centralization</a>:</em></p>
+
+        <p>Set <code>ca_server</code> to the hostname of your CA server in the <code>[main]</code> config block.</p>
+      </li>
+      <li>If an <code>ssldir</code> is configured, make sure it&#8217;s configured in the <code>[main]</code> block only.</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>If you&#8217;re using the <a href="#option-2-use-round-robin-dns">DNS round robin method</a> of agent load balancing, or a <a href="#option-3-use-a-load-balancer">load balancer</a> in TCP proxying mode, your non-CA masters will need certificates with DNS Subject Alternative Names:</p>
+
+  <ul>
+    <li>
+      <p>Configure <code>dns_alt_names</code> in the <code>[main]</code> block of <code>puppet.conf</code>.</p>
+
+      <p>It should be configured to cover every DNS name that might be used by a node to access this master.</p>
+
+      <pre><code>dns_alt_names = puppet,puppet.example.com,puppet.site-a.example.com
+</code></pre>
+    </li>
+    <li>
+      <p>If the agent or master has been run and already created a certificate, blow it away by running <code>sudo rm -rf $(puppet master --configprint ssldir)</code>.  If a cert has been requested from the master, you&#8217;ll also need to delete it there to re-issue a new one with the alt names: <code>puppet cert clean master-2.example.com</code>.</p>
+    </li>
+  </ul>
+</blockquote>
+
+<ul>
+  <li>Request a new certificate by running <code>puppet agent --test --waitforcert 10</code>.</li>
+  <li>
+    <p>Log into the CA server and run <code>puppet cert sign master-2.example.com</code>.</p>
+
+    <p>(You&#8217;ll need to add <code>--allow-dns-alt-names</code> to the command if <code>dns_alt_names</code> were in the certificate request.)</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="centralize-reports-inventory-service-and-catalog-searching-storeconfigs">Centralize Reports, Inventory Service, and Catalog Searching (storeconfigs)</h2>
+
+<p>If you are using Puppet Dashboard or another HTTP report processor, you should point all of your puppet masters at the same shared Dashboard server; otherwise, you won&#8217;t be able to see all of your nodes&#8217; reports.</p>
+
+<p>If you are using the inventory service or exported resources, it&#8217;s complex and impractical to use any of the older (activerecord) backends in a multi-master environment. <strong>You should definitely switch to <a href="./../puppetdb/index.html">PuppetDB</a>,</strong> and point all of your puppet masters at a shared PuppetDB instance. A reasonably robust PuppetDB server can handle many puppet masters and many thousands of agent nodes.</p>
+
+<p>See <a href="./../puppetdb/latest/index.html">the PuppetDB manual</a> for instructions on setting up PuppetDB. You will need to deploy a PuppetDB server, then configure each puppet master to use it.</p>
+
+<hr />
+
+<h2 id="keep-manifests-and-modules-in-sync-across-your-puppet-masters">Keep Manifests and Modules in Sync Across Your Puppet Masters</h2>
+
+<p>You will need to find some way to ensure that all of your puppet masters have identical copies of your manifests, Puppet modules, and <a href="./../guides/external_nodes.html">external node classifier</a> data. Some options are:</p>
+
+<ul>
+  <li>Use a version control system such as Git, Mercurial, or Subversion to manage and sync your manifests, modules, and other data.</li>
+  <li>Run an out-of-band rsync task via cron.</li>
+  <li>Configure puppet agent on each master node to point to a designated model puppet master, then use Puppet itself to distribute the modules.</li>
+</ul>
+
+<hr />
+
+<h2 id="implement-load-distribution">Implement Load Distribution</h2>
+
+<p>Now that your other masters are ready, you can implement the agent load balancing mechanism that you selected <a href="#distributing-agent-load">above</a>.</p>
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <div class="secondary-content">
+                  <div id="subCol">
+                      <h3 class="chapter">Contents</h3>
+
+<ol class="toc">
+  <li class="toc-lv2"><a href="#distributing-agent-load">Distributing Agent Load</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#option-1-statically-designate-servers-on-agent-nodes">Option 1: Statically Designate Servers on Agent Nodes</a></li>
+   <li class="toc-lv3"><a href="#option-2-use-round-robin-dns">Option 2: Use Round-Robin DNS</a></li>
+   <li class="toc-lv3"><a href="#option-3-use-a-load-balancer">Option 3: Use a Load Balancer</a></li>
+   <li class="toc-lv3"><a href="#option-4-dns-srv-records">Option 4: DNS SRV Records</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#centralize-the-certificate-authority">Centralize the Certificate Authority</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#option-1-direct-agent-nodes-to-the-ca-master">Option 1: Direct agent nodes to the CA Master</a></li>
+   <li class="toc-lv3"><a href="#option-2-proxy-certificate-traffic">Option 2: Proxy Certificate Traffic</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#create-new-puppet-master-servers">Create New Puppet Master Servers</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#install-puppet">Install Puppet</a></li>
+   <li class="toc-lv3"><a href="#before-running-puppet-agent-or-puppet-master">Before Running puppet agent or puppet master</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#centralize-reports-inventory-service-and-catalog-searching-storeconfigs">Centralize Reports, Inventory Service, and Catalog Searching (storeconfigs)</a></li>
+  <li class="toc-lv2"><a href="#keep-manifests-and-modules-in-sync-across-your-puppet-masters">Keep Manifests and Modules in Sync Across Your Puppet Masters</a></li>
+  <li class="toc-lv2"><a href="#implement-load-distribution">Implement Load Distribution</a></li>
+</ol>
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+	</body>
+</html>

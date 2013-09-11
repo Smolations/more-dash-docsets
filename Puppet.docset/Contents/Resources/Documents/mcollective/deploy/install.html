@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>MCollective » Deploy » Install MCollective — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../favicon.ico' />
+
+
+  <meta name="description" content="Summary  Note: This page is about installing MCollective. Installation is only one step of a many-step deployment process. See the MCollective depl...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/mcollective/deploy/install.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">MCollective » Deploy » Install MCollective</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>MCollective » Deploy » Install MCollective</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#summary">Summary</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#best-practices">Best Practices</a></li>
+   <li class="toc-lv3"><a href="#version-notes">Version Notes</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#pre-install">Pre-Install</a></li>
+  <li class="toc-lv2"><a href="#system-requirements">System Requirements</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#official-packages">Official Packages</a></li>
+   <li class="toc-lv3"><a href="#puppet-enterprise">Puppet Enterprise</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#installing-with-the-official-packages">Installing With the Official Packages</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#install-stomp-gem-debianubuntu">Install Stomp Gem (Debian/Ubuntu)</a></li>
+   <li class="toc-lv3"><a href="#enable-repos-or-add-packages">Enable Repos or Add Packages</a></li>
+   <li class="toc-lv3"><a href="#install-mcollective">Install MCollective</a></li>
+   <li class="toc-lv3"><a href="#enable-the-mcollective-service">Enable the MCollective Service</a></li>
+   <li class="toc-lv3"><a href="#done">Done</a></li>
+   <li class="toc-lv3"><a href="#example">Example</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#rolling-custom-rpm-and-deb-packages">Rolling Custom RPM and Deb Packages</a></li>
+  <li class="toc-lv2"><a href="#running-from-source">Running From Source</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#obtain-source">Obtain Source</a></li>
+   <li class="toc-lv3"><a href="#install-ruby-and-the-stomp-gem">Install Ruby and the Stomp Gem</a></li>
+   <li class="toc-lv3"><a href="#add-mcollectivelib-to-rubys-load-path">Add mcollective/lib to Ruby&#8217;s Load Path</a></li>
+   <li class="toc-lv3"><a href="#put-mcollectiveplugins-somewhere-sensible">Put mcollective/plugins Somewhere Sensible</a></li>
+   <li class="toc-lv3"><a href="#add-mcollectivebin-to-the-path">Add mcollective/bin to the Path</a></li>
+   <li class="toc-lv3"><a href="#roll-your-own-init-script">Roll Your Own Init Script</a></li>
+   <li class="toc-lv3"><a href="#done-1">Done</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#installing-on-windows">Installing on Windows</a></li>
+</ol></nav>
+
+<h2 id="summary">Summary</h2>
+
+<blockquote>
+  <p><strong>Note:</strong> This page is about installing MCollective. Installation is only one step of a many-step deployment process. See the <a href="./index.html">MCollective deployment index</a> for the complete picture.</p>
+</blockquote>
+
+<ul>
+  <li><a href="#pre-install">Make sure your middleware is up and running and your firewalls are in order.</a></li>
+  <li>Install the <code>mcollective</code> package on servers, then make sure the <code>mcollective</code> service is running.</li>
+  <li>Install the <code>mcollective-client</code> package on admin workstations.</li>
+  <li>Most Debian-like and Red Hat-like systems can <a href="#installing-with-the-official-packages">use the official Puppet Labs packages</a>. Enable the Puppet Labs repos, or import the packages into your own repos.
+    <ul>
+      <li>If you&#8217;re on Debian/Ubuntu, <a href="#install-stomp-gem-debianubuntu">mind the missing package dependency.</a></li>
+    </ul>
+  </li>
+  <li>If your systems can&#8217;t use the official packages, <a href="#system-requirements">check the system requirements</a> and either <a href="#rolling-custom-rpm-and-deb-packages">build your own</a> or <a href="#running-from-source">run from source</a>.</li>
+</ul>
+
+<h3 id="best-practices">Best Practices</h3>
+
+<p>Use site-wide configuration management software to install and configure MCollective. Since you&#8217;ll need to install the server daemon on every node in your deployment, and since you&#8217;ll want each node to be running the same version, you should generally use Puppet or something like it to install MCollective.</p>
+
+<h3 id="version-notes">Version Notes</h3>
+
+<p>MCollective uses a three-part &#8220;x.y.z&#8221; version number.</p>
+
+<ul>
+  <li>The first digit doesn&#8217;t have a particularly strict definition, but generally increments for major architectural breaks and incompatibilities.</li>
+  <li>The second digit indicates whether this is a stable release: <strong>even</strong> numbers are stable and production-ready, and <strong>odd</strong> numbers are unstable development branches in which breaking changes may happen in minor point releases.</li>
+  <li>The third digit reperesents the minor point release; in a stable version series, these should only contain bugfixes, and in an unstable series they may contain anything.</li>
+</ul>
+
+<hr />
+
+<h2 id="pre-install">Pre-Install</h2>
+
+<ul>
+  <li>Your <a href="./middleware/">middleware system should be deployed</a> before installing MCollective.</li>
+  <li>Make sure each server&#8217;s firewall will allow MCollective to initiate connections with the middleware server. The port depends on your deployment plan; with the recommended <a href="./../../mcollective/reference/plugins/connector_activemq.html">ActiveMQ connector</a>, this will usually be either 61614 for Stomp/TLS (recommended) or 61613 for unencrypted Stomp, depending on <a href="/mcollective/deploy/middleware/activemq.html#transport-connectors">how you configured ActiveMQ&#8217;s transport connectors</a>.</li>
+</ul>
+
+<p>(<a href="#content">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="system-requirements">System Requirements</h2>
+
+<p>MCollective can run on almost any *nix operating system, as well as Microsoft Windows. It requires one of the following Ruby versions:</p>
+
+<ul>
+  <li>1.9.3</li>
+  <li>1.8.7</li>
+</ul>
+
+<p>Ruby 2 is not officially supported yet, but may work fine. Ruby 1.8.5 can&#8217;t use TLS when connecting to the middleware, but works fine over unencrypted connections. Ruby 1.8.6 has the same problem as 1.8.5, and somewhat less automated test coverage. Ruby 1.9.0 through 1.9.2 are NOT supported, and are expected to fail.</p>
+
+<p>MCollective also requires the Stomp rubygem, version <strong>1.2.2 or higher.</strong> The instructions below will note when this has to be handled manually.</p>
+
+<h3 id="official-packages">Official Packages</h3>
+
+<p>Puppet Labs provides official pre-built packages for the most common Linux-based operating systems. If you are running any of these systems, you can use the &#8220;<a href="#installing-with-the-official-packages">Official Packages</a>&#8221; install instructions.</p>
+
+<h4 id="red-hat-like">Red Hat-Like</h4>
+
+<ul>
+  <li>Enterprise Linux 5 (including RHEL, CentOS, etc.) (also supported by <a href="./../../pe/latest/install_basic.html">Puppet Enterprise</a>)</li>
+  <li>Enterprise Linux 6 (also supported by <a href="./../../pe/latest/install_basic.html">Puppet Enterprise</a>)</li>
+  <li>Fedora 16</li>
+  <li>Fedora 17</li>
+</ul>
+
+<h4 id="debian-like">Debian-Like</h4>
+
+<ul>
+  <li>Debian 6 &#8220;Squeeze&#8221; (current stable release) (also supported by <a href="./../../pe/latest/install_basic.html">Puppet Enterprise</a>)</li>
+  <li>Debian &#8220;Wheezy&#8221; (current testing distribution)</li>
+  <li>Debian &#8220;Sid&#8221; (current unstable distribution)</li>
+  <li>Ubuntu 12.04 LTS &#8220;Precise Pangolin&#8221; (also supported by <a href="./../../pe/latest/install_basic.html">Puppet Enterprise</a>)</li>
+  <li>Ubuntu 10.04 LTS &#8220;Lucid Lynx&#8221; (also supported by <a href="./../../pe/latest/install_basic.html">Puppet Enterprise</a>)</li>
+  <li>Ubuntu 8.04 LTS &#8220;Hardy Heron&#8221;</li>
+  <li>Ubuntu 12.10 &#8220;Quantal Quetzal&#8221;</li>
+  <li>Ubuntu 11.10 &#8220;Oneiric Ocelot&#8221;</li>
+</ul>
+
+<h3 id="puppet-enterprise">Puppet Enterprise</h3>
+
+<p>Puppet Enterprise includes MCollective, and automates the entire deployment process. See <a href="./../../pe/latest/orchestration_overview.html">the PE orchestration documentation</a> for more details; see <a href="/pe/latest/install_basic.html">the PE installation instructions</a> to install PE.</p>
+
+<p>Puppet Enterprise 2.8 ships with MCollective 1.2.1.</p>
+
+<p>(<a href="#content">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="installing-with-the-official-packages">Installing With the Official Packages</h2>
+
+<h3 id="install-stomp-gem-debianubuntu">Install Stomp Gem (Debian/Ubuntu)</h3>
+
+<p>The current MCollective packages for Debian and Ubuntu have a missing dependency on the Stomp gem (<a href="http://projects.puppetlabs.com/issues/17804">issue 17804</a>). Before installing MCollective, you must install version <strong>1.2.2 or higher</strong> of the Stomp rubygem. Use one of the following, making sure to check the version:</p>
+
+<ul>
+  <li>The distro&#8217;s <code>libstomp-ruby</code> package (older releases)</li>
+  <li>The distro&#8217;s <code>ruby-stomp</code> package (newer releases)</li>
+  <li>The <code>stomp</code> gem</li>
+</ul>
+
+<h3 id="enable-repos-or-add-packages">Enable Repos or Add Packages</h3>
+
+<p>To use the official packages, you must first either <a href="./../../guides/puppetlabs_package_repositories.html">enable the Puppet Labs package repositories</a> on all systems, or import the following packages from our repo into your local repo:</p>
+
+<ul>
+  <li><code>mcollective</code></li>
+  <li><code>mcollective-client</code></li>
+  <li><code>mcollective-common</code></li>
+  <li><code>rubygem-stomp</code> (on Enterprise Linux variants)</li>
+</ul>
+
+<h3 id="install-mcollective">Install MCollective</h3>
+
+<ul>
+  <li>On server nodes, install the <code>mcollective</code> package.</li>
+  <li>On admin workstations, install the <code>mcollective-client</code> package.</li>
+</ul>
+
+<p>Both of these packages install <code>mcollective-common</code> as a dependency.</p>
+
+<h3 id="enable-the-mcollective-service">Enable the MCollective Service</h3>
+
+<p>Ensure that the <code>mcollective</code> service is running and is enabled to start at boot. The <code>mcollective</code> package installs an init script that works with your system&#8217;s normal service tools.</p>
+
+<h3 id="done">Done</h3>
+
+<p>At this point, MCollective is installed and running, but cannot connect to the middleware, accept commands, or execute any actions. You should now <a href="./../../mcollective/configure/server.html">configure the server daemon</a>, <a href="/mcollective/configure/client.html">configure admin workstations</a>, and <a href="./plugins.html">deploy plugins</a>. See the <a href="./standard.html">standard deployment getting started guide</a> for details.</p>
+
+<h3 id="example">Example</h3>
+
+<p>As mentioned <a href="#best-practices">above</a> and <a href="./../../mcollective/configure/server.html#best-practices">in the server config reference</a>, you should use Puppet or some other configuration management software to deploy MCollective on your server nodes. This can be done with a simple or modified package/file/service pattern.</p>
+
+<p>The example below uses a modified pattern. It assumes:</p>
+
+<ul>
+  <li>You are <a href="./../../mcollective/configure/server.html#best-practices">managing settings as resources</a> in a different class.</li>
+  <li>You are maintaining your own package repository with pre-tested versions of the MCollective packages, allowing <code>ensure =&gt; latest</code> to be used safely. All servers were deployed with this local repository enabled.</li>
+  <li>You are managing client workstations separately, and only automating deployment on your server nodes.</li>
+</ul>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="n">mcollective</span> <span class="p">{</span>
+      <span class="c1"># Manage Stomp gem dependency on Debian/Ubuntu</span>
+      <span class="n">package</span> <span class="p">{</span><span class="s1">&#39;stomp&#39;</span><span class="p">:</span>
+        <span class="k">ensure</span>   <span class="o">=&gt;</span> <span class="s1">&#39;1.2.2&#39;</span><span class="p">,</span>
+        <span class="n">provider</span> <span class="o">=&gt;</span> <span class="n">gem</span><span class="p">,</span>
+        <span class="n">before</span>   <span class="o">=&gt;</span> <span class="no">Package</span><span class="o">[</span><span class="s1">&#39;mcollective&#39;</span><span class="o">]</span><span class="p">,</span>
+      <span class="p">}</span>
+
+      <span class="c1"># Install</span>
+      <span class="n">package</span> <span class="p">{</span><span class="s1">&#39;mcollective&#39;</span><span class="p">:</span>
+        <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">latest</span><span class="p">,</span>
+      <span class="p">}</span>
+      <span class="c1"># Run</span>
+      <span class="n">service</span> <span class="p">{</span><span class="s1">&#39;mcollective&#39;</span><span class="p">:</span>
+        <span class="k">ensure</span>  <span class="o">=&gt;</span> <span class="n">running</span><span class="p">,</span>
+        <span class="n">enable</span>  <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+        <span class="nb">require</span> <span class="o">=&gt;</span> <span class="no">Package</span><span class="o">[</span><span class="s1">&#39;mcollective&#39;</span><span class="o">]</span><span class="p">,</span>
+      <span class="p">}</span>
+
+      <span class="c1"># Restart the service when any settings change</span>
+      <span class="c1"># (see http://docs.puppetlabs.com/puppet/latest/reference/lang_collectors.html and</span>
+      <span class="c1"># http://docs.puppetlabs.com/puppet/latest/reference/lang_relationships.html#chaining-arrows</span>
+      <span class="c1"># for syntax details)</span>
+      <span class="no">Package</span><span class="o">[</span><span class="s1">&#39;mcollective&#39;</span><span class="o">]</span> <span class="o">-&gt;</span> <span class="no">Mcollective</span><span class="o">::</span><span class="no">Setting</span> <span class="o">&lt;|</span> <span class="o">|&gt;</span> <span class="o">~&gt;</span> <span class="no">Service</span><span class="o">[</span><span class="s1">&#39;mcollective&#39;</span><span class="o">]</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>(<a href="#content">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="rolling-custom-rpm-and-deb-packages">Rolling Custom RPM and Deb Packages</h2>
+
+<p>If you use an RPM-based or deb-based Linux distribution not supported by the official Puppet Labs packages, you can build your own packages with the same automated tooling Puppet Labs uses.</p>
+
+<p>More detailed instructions on this are forthcoming; for the time being, <a href="https://github.com/puppetlabs/marionette-collective/tags">obtain a copy of the source</a> and do a quick read-through of the <a href="https://github.com/puppetlabs/marionette-collective/blob/master/Rakefile">Rakefile</a>. The relevant tasks are named <code>deb</code> and <code>rpm</code>.</p>
+
+<p>Once you have packages, they will behave much like the official ones; follow the <a href="#installing-with-the-official-packages">same instructions above.</a></p>
+
+<p>(<a href="#content">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="running-from-source">Running From Source</h2>
+
+<p>On platforms not supported by the official packages or the underlying RPM and deb tooling, you can run MCollective directly from source.</p>
+
+<h3 id="obtain-source">Obtain Source</h3>
+
+<p>Get a copy of the MCollective source, either by cloning <a href="https://github.com/puppetlabs/marionette-collective">the GitHub repo</a> or <a href="https://github.com/puppetlabs/marionette-collective/tags">downloading a tarball</a>.</p>
+
+<h3 id="install-ruby-and-the-stomp-gem">Install Ruby and the Stomp Gem</h3>
+
+<p>Make sure Ruby is installed and that your system&#8217;s Ruby version meets <a href="#system-requirements">MCollective&#8217;s system requirements</a>.</p>
+
+<p>Install <strong>version 1.2.2 or higher</strong> of the <code>stomp</code> rubygem.</p>
+
+<h3 id="add-mcollectivelib-to-rubys-load-path">Add <code>mcollective/lib</code> to Ruby&#8217;s Load Path</h3>
+
+<p>Ruby must be able to load the contents of the <code>lib</code> directory in the MCollective source. There are two main ways to do this:</p>
+
+<ul>
+  <li>Recursively copy the contents of <code>lib</code> into the <code>site_ruby</code> directory</li>
+  <li>Put the MCollective source somewhere like <code>/opt</code> and use the <code>RUBYLIB</code> environment variable to add it to Ruby&#8217;s load path.</li>
+</ul>
+
+<h3 id="put-mcollectiveplugins-somewhere-sensible">Put <code>mcollective/plugins</code> Somewhere Sensible</h3>
+
+<p>MCollective ships with a set of plugins it requires for basic functionality; these do not live in its normal lib path, but in an external directory specified by the <code>libdir</code> setting in MCollective&#8217;s <a href="./../../mcollective/configure/server.html#platform-defaults">server</a> and <a href="/mcollective/configure/client.html#platform-defaults">client</a> config files.</p>
+
+<p>You should copy the contents of this <code>plugins</code> directory to some platform-appropriate place; <strong>remember the location</strong> for your post-install configuration, since you need to specify it in the <code>libdir</code> setting. Red Hat-like platforms put plugins in <code>/usr/libexec/mcollective</code>. Debian-like platforms put it in <code>/usr/share/mcollective/plugins</code>. Your platform may have its own conventions.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> MCollective expects its <code>libdir</code> to contain a single directory named <code>mcollective</code>, which then contains the rest of the plugin directories. Be sure to not accidentally put your plugins in the directory <em>above</em> the one MCollective will look in.</p>
+
+  <p><strong>Example:</strong></p>
+
+  <pre><code># /etc/mcollective/server.cfg
+# ...
+libdir = /usr/libexec/mcollective
+</code></pre>
+
+  <ul>
+    <li>Good: <code>/usr/libexec/mcollective/mcollective/agent/discovery.rb</code></li>
+    <li>Bad: <code>/usr/libexec/mcollective/agent/discovery.rb</code> (This would only work if you had set a <code>libdir</code> of <code>/usr/libexec</code>.)</li>
+  </ul>
+</blockquote>
+
+<h3 id="add-mcollectivebin-to-the-path">Add <code>mcollective/bin</code> to the Path</h3>
+
+<p>The root user on each server node must be able to execute the <code>mcollectived</code> binary. Admin users must be able to execute the <code>mco</code> binary. You should either copy these to someplace like <code>/usr/local/bin</code> and <code>/usr/local/sbin</code>, or add the directory they live in to the appropriate users&#8217; <code>PATH</code> environment variable.</p>
+
+<h3 id="roll-your-own-init-script">Roll Your Own Init Script</h3>
+
+<p>There are several example init scripts in the MCollective source:</p>
+
+<ul>
+  <li><a href="https://github.com/puppetlabs/marionette-collective/blob/master/mcollective.init">A basic LSB-compliant init script</a></li>
+  <li><a href="https://github.com/puppetlabs/marionette-collective/blob/master/ext/redhat/mcollective.init">A Red Hat-like init script</a></li>
+  <li><a href="https://github.com/puppetlabs/marionette-collective/blob/master/ext/debian/mcollective.init">A Debian-like init script</a></li>
+</ul>
+
+<p>There may be other helpful files for your platform in the <code>mcollective/ext</code> directory. Use some combination of these to make a platform-appropriate init script for the MCollective server daemon.</p>
+
+<h3 id="done-1">Done</h3>
+
+<p>At this point, MCollective is installed and running, but cannot connect to the middleware, accept commands, or execute any actions. You should now <a href="./../../mcollective/configure/server.html">configure the server daemon</a>, <a href="/mcollective/configure/client.html">configure admin workstations</a>, and <a href="./plugins.html">deploy plugins</a>. See the <a href="./standard.html">standard deployment getting started guide</a> for details.</p>
+
+<p>Unlike with the official packages, you won&#8217;t be able to count on sensible defaults for the config files, so take special note of the logging settings and <code>libdir</code> setting.</p>
+
+<p>(<a href="#content">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="installing-on-windows">Installing on Windows</h2>
+
+<p>We currently have no instructions for installing MCollective on Windows. You should investigate the <code>ext/windows</code> directory in the MCollective source. If you&#8217;ve used MCollective on Windows, we&#8217;d love to hear about your experience, especially any unexpected pitfalls you ran into. Email <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#102;&#097;&#113;&#064;&#112;&#117;&#112;&#112;&#101;&#116;&#108;&#097;&#098;&#115;&#046;&#099;&#111;&#109;">&#102;&#097;&#113;&#064;&#112;&#117;&#112;&#112;&#101;&#116;&#108;&#097;&#098;&#115;&#046;&#099;&#111;&#109;</a>.</p>
+
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+
+<ul>
+  <li><strong>Overview</strong>
+    <ul>
+      <li><a href="./../../mcollective/index.html">Introduction</a></li>
+      <li><a href="./../../mcollective/overview_components.html">Overview of Components</a></li>
+      <li><a href="./../../mcollective/terminology.html">Terminology</a></li>
+      <li><a href="./../../mcollective/screencasts.html">Screencasts</a></li>
+      <li><a href="./../../mcollective/releasenotes.html">Release Notes</a></li>
+      <li><a href="./../../mcollective/changelog.html">Changelog</a></li>
+    </ul>
+  </li>
+  <li><strong>Deploying MCollective</strong>
+    <ul>
+      <li><a href="./../../mcollective/deploy/index.html">Index</a></li>
+      <li><a href="./../../mcollective/deploy/demo.html">Demo</a></li>
+      <li><a href="./../../mcollective/deploy/standard.html">Getting Started (Standard Deployment)</a></li>
+    </ul>
+  </li>
+  <li><strong>Configuration / Deployment Topics</strong>
+    <ul>
+      <li><strong>Installation:</strong></li>
+      <li><span class="currentpage">Installing MCollective</span></li>
+      <li><a href="./../../mcollective/deploy/plugins.html">Installing Plugins</a></li>
+      <li><strong>Configuration:</strong></li>
+      <li><a href="./../../mcollective/configure/server.html">Server Config Reference</a></li>
+      <li><a href="./../../mcollective/configure/client.html">Client Config Reference</a></li>
+      <li><a href="./../../mcollective/reference/integration/puppet.html">Puppet Integration</a></li>
+      <li><a href="./../../mcollective/reference/integration/chef.html">Chef Integration</a></li>
+      <li><strong>Middleware:</strong></li>
+      <li><a href="./../../mcollective/deploy/middleware/index.html">Middleware Types</a></li>
+      <li><a href="./../../mcollective/deploy/middleware/activemq.html">ActiveMQ Configs for MCollective</a></li>
+      <li><a href="./../../mcollective/deploy/middleware/activemq_keystores.html">ActiveMQ TLS Keystore Setup</a></li>
+      <li><a href="./../../mcollective/reference/integration/activemq_clusters.html">ActiveMQ Clustering</a></li>
+      <li><a href="./../../mcollective/reference/integration/activemq_ssl.html">ActiveMQ TLS</a></li>
+      <li><a href="./../../mcollective/reference/integration/activemq_security.html">ActiveMQ Security</a></li>
+      <li><strong>Connector Plugins:</strong></li>
+      <li><a href="./../../mcollective/reference/plugins/connector_activemq.html">The ActiveMQ Connector</a></li>
+      <li><a href="./../../mcollective/reference/plugins/connector_rabbitmq.html">The RabbitMQ Connector</a></li>
+      <li><strong>Security Plugins:</strong></li>
+      <li><a href="./../../mcollective/reference/plugins/security_ssl.html">Configuring SSL Validation Security</a></li>
+      <li><strong>Advanced Features:</strong></li>
+      <li><a href="./../../mcollective/reference/basic/subcollectives.html">Subcollectives and Partitioning</a></li>
+      <li><a href="./../../mcollective/simplerpc/auditing.html">Auditing</a> <!-- contains plugin-writing info --></li>
+    </ul>
+  </li>
+  <li><strong>Use and Administer MCollective</strong>
+    <ul>
+      <li><a href="./../../mcollective/reference/basic/basic_cli_usage.html">Command Line Usage Instructions</a></li>
+      <li><a href="./../../mcollective/reference/ui/filters.html">Command Filtering and Discovery</a></li>
+      <li><a href="./../../mcollective/reference/basic/daemon.html">Controlling the MCollective Daemon</a></li>
+      <li><a href="./../../mcollective/reference/plugins/rpcutil.html">Controlling the MCollective Daemon with the rpcutil Agent</a></li>
+      <li><a href="./../../mcollective/reference/ui/nodereports.html">On-Demand Node Reports</a></li>
+    </ul>
+  </li>
+  <li><strong>Write Agent Plugins</strong>
+    <ul>
+      <li><a href="./../../mcollective/simplerpc/agents.html">Writing Agent Plugins</a></li>
+      <li><a href="./../../mcollective/reference/plugins/ddl.html">Writing DDL Files</a></li>
+      <li><a href="./../../mcollective/reference/plugins/aggregate.html">Aggregating Results</a> <!-- mixes DDL info with info about writing aggregate plugins --></li>
+    </ul>
+  </li>
+  <li><strong>Write Clients and Applications</strong>
+    <ul>
+      <li><a href="./../../mcollective/simplerpc/clients.html">Writing Clients</a></li>
+      <li><a href="./../../mcollective/reference/plugins/application.html">Writing New mco Subcommands</a></li>
+    </ul>
+  </li>
+  <li><strong>Write Other Plugins</strong>
+    <ul>
+      <li><a href="./../../mcollective/simplerpc/authorization.html">Writing Authorization Plugins and Enabling Authorization</a> <!-- contains deploy/config info --></li>
+      <li><a href="./../../mcollective/reference/plugins/data.html">Writing Data Plugins</a></li>
+      <li><a href="./../../mcollective/reference/plugins/discovery.html">Writing and Using Discovery Plugins</a> <!-- contains usage info --></li>
+      <li><a href="./../../mcollective/reference/plugins/facts.html">Writing Facts Plugins</a></li>
+      <li><a href="./../../mcollective/reference/plugins/registration.html">Writing Registration Plugins</a></li>
+      <li><a href="./../../mcollective/reference/plugins/validator.html">Writing Validator Plugins</a></li>
+    </ul>
+  </li>
+  <li><a href="http://projects.puppetlabs.com/projects/mcollective-plugins/wiki">Plugin Directory</a></li>
+  <li><strong>Internals</strong>
+    <ul>
+      <li><a href="./../../mcollective/reference/basic/messageflow.html">Message Flow</a> <!-- needs more/needs update --></li>
+      <li><a href="./../../mcollective/simplerpc/index.html">SimpleRPC Overview</a></li>
+      <li><a href="./../../mcollective/simplerpc/messageformat.html">SimpleRPC Message Format</a></li>
+      <li><a href="./../../mcollective/reference/basic/messageformat.html">Core Message Format</a></li>
+      <li><a href="./../../mcollective/security.html">Security Overview</a></li>
+    </ul>
+  </li>
+  <li><strong>Older and Non-Recommended Information</strong>
+    <ul>
+      <li><a href="./../../mcollective/reference/plugins/security_aes.html">Configuring AES Security</a></li>
+      <li><a href="./../../mcollective/reference/plugins/connector_stomp.html">Configuring the Generic Stomp Connector</a></li>
+      <li><a href="./../../mcollective/reference/basic/basic_agent_and_client.html">Writing Old-Style Agent Plugins</a></li>
+      <li><a href="./../../mcollective/reference/index.html">Alternate Index</a></li>
+    </ul>
+  </li>
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

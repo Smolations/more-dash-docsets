@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>PE 3.0 » Orchestration » List of Built-In Actions — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../favicon.ico' />
+
+
+  <meta name="description" content="About This PageThis page is a comprehensive list of Puppet Enterprise (PE)&#8217;s built-in orchestration actions. These actions can be invoked on ...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/pe/latest/orchestration_actions.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">PE 3.0 » Orchestration » List of Built-In Actions</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>List of Built-In Orchestration Actions</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#about-this-page">About This Page</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#related-topics">Related Topics</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#actions-and-plugins">Actions and Plugins</a></li>
+  <li class="toc-lv2"><a href="#the-package-plugin">The package Plugin</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#aptcheckupdates">apt_checkupdates</a></li>
+   <li class="toc-lv3"><a href="#aptupdate">apt_update</a></li>
+   <li class="toc-lv3"><a href="#checkupdates">checkupdates</a></li>
+   <li class="toc-lv3"><a href="#install">install</a></li>
+   <li class="toc-lv3"><a href="#purge">purge</a></li>
+   <li class="toc-lv3"><a href="#status">status</a></li>
+   <li class="toc-lv3"><a href="#uninstall">uninstall</a></li>
+   <li class="toc-lv3"><a href="#update">update</a></li>
+   <li class="toc-lv3"><a href="#yumcheckupdates">yum_checkupdates</a></li>
+   <li class="toc-lv3"><a href="#yumclean">yum_clean</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#the-puppet-plugin">The puppet Plugin</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#disable">disable</a></li>
+   <li class="toc-lv3"><a href="#enable">enable</a></li>
+   <li class="toc-lv3"><a href="#lastrunsummary">last_run_summary</a></li>
+   <li class="toc-lv3"><a href="#resource">resource</a></li>
+   <li class="toc-lv3"><a href="#runonce">runonce</a></li>
+   <li class="toc-lv3"><a href="#status-1">status</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#the-puppetral-plugin">The puppetral Plugin</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#find">find</a></li>
+   <li class="toc-lv3"><a href="#search">search</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#the-rpcutil-plugin">The rpcutil Plugin</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#agentinventory">agent_inventory</a></li>
+   <li class="toc-lv3"><a href="#collectiveinfo">collective_info</a></li>
+   <li class="toc-lv3"><a href="#daemonstats">daemon_stats</a></li>
+   <li class="toc-lv3"><a href="#getconfigitem">get_config_item</a></li>
+   <li class="toc-lv3"><a href="#getdata">get_data</a></li>
+   <li class="toc-lv3"><a href="#getfact">get_fact</a></li>
+   <li class="toc-lv3"><a href="#inventory">inventory</a></li>
+   <li class="toc-lv3"><a href="#ping">ping</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#the-service-plugin">The service Plugin</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#restart">restart</a></li>
+   <li class="toc-lv3"><a href="#start">start</a></li>
+   <li class="toc-lv3"><a href="#status-2">status</a></li>
+   <li class="toc-lv3"><a href="#stop">stop</a></li>
+</ol></li>
+</ol></nav>
+
+<h2 id="about-this-page">About This Page</h2>
+
+<p>This page is a comprehensive list of Puppet Enterprise (PE)&#8217;s built-in orchestration actions. These actions can be invoked on the command line or in the PE console.</p>
+
+<blockquote>
+  <h3 id="related-topics">Related Topics</h3>
+
+  <ul>
+    <li>For an overview of orchestration topics, see <a href="./orchestration_overview.html#orchestration-fundamentals">the Orchestration Overview page</a>.</li>
+    <li>To invoke actions in the PE console, see <a href="./console_navigating_live_mgmt.html">Navigating Live Management</a>.</li>
+    <li>To invoke actions on the command line, see <a href="./orchestration_invoke_cli.html">Invoking Actions</a>.</li>
+    <li>To add your own actions, see <a href="./orchestration_adding_actions.html">Adding Orchestration Actions</a>.</li>
+  </ul>
+</blockquote>
+
+<h2 id="actions-and-plugins">Actions and Plugins</h2>
+
+<p>Sets of related actions are bundled together as <strong>MCollective agent plugins.</strong> Every action is part of a plugin.</p>
+
+<p>A default Puppet Enterprise install includes the <a href="#the-package-plugin">package</a>, <a href="#the-puppet-plugin">puppet</a>, <a href="#the-puppetral-plugin">puppetral</a>, <a href="#the-rpcutil-plugin">rpcutil</a>, and <a href="#the-service-plugin">service</a> plugins. See <a href="#content">the table of contents above</a> for an outline of each plugin&#8217;s actions; click an action for details about its inputs, effects, and outputs.</p>
+
+<p>You can easily add new orchestration actions by distributing custom MCollective agent plugins to your nodes. See <a href="./orchestration_adding_actions.html">Adding Orchestration Actions</a> for details.</p>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<h2 id="the-package-plugin">The <code>package</code> Plugin</h2>
+
+<p>Install and uninstall software packages</p>
+
+<p>Actions: <code>apt_checkupdates</code>, <code>apt_update</code>, <code>checkupdates</code>, <code>install</code>, <code>purge</code>, <code>status</code>, <code>uninstall</code>, <code>update</code>, <code>yum_checkupdates</code>, <code>yum_clean</code></p>
+
+<h3 id="aptcheckupdates">apt_checkupdates</h3>
+
+<p>Check for APT updates</p>
+
+<p>(no inputs)</p>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>exitcode</code></dt>
+  <dd>(Appears as &#8220;Exit Code&#8221; on CLI)
+
+    <p>The exitcode from the apt command</p>
+  </dd>
+  <dt><code>oudated_packages</code></dt>
+  <dd>(Appears as &#8220;Outdated Packages&#8221; on CLI)
+
+    <p>Outdated packages</p>
+  </dd>
+  <dt><code>output</code></dt>
+  <dd>(Appears as &#8220;Output&#8221; on CLI)
+
+    <p>Output from APT</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="aptupdate">apt_update</h3>
+
+<p>Update the apt cache</p>
+
+<p>(no inputs)</p>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>exitcode</code></dt>
+  <dd>(Appears as &#8220;Exit Code&#8221; on CLI)
+
+    <p>The exitcode from the apt-get command</p>
+  </dd>
+  <dt><code>output</code></dt>
+  <dd>(Appears as &#8220;Output&#8221; on CLI)
+
+    <p>Output from apt-get</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="checkupdates">checkupdates</h3>
+
+<p>Check for updates</p>
+
+<p>(no inputs)</p>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>exitcode</code></dt>
+  <dd>(Appears as &#8220;Exit Code&#8221; on CLI)
+
+    <p>The exitcode from the package manager command</p>
+  </dd>
+  <dt><code>outdated_packages</code></dt>
+  <dd>(Appears as &#8220;Outdated Packages&#8221; on CLI)
+
+    <p>Outdated packages</p>
+  </dd>
+  <dt><code>output</code></dt>
+  <dd>(Appears as &#8220;Output&#8221; on CLI)
+
+    <p>Output from Package Manager</p>
+  </dd>
+  <dt><code>package_manager</code></dt>
+  <dd>(Appears as &#8220;Package Manager&#8221; on CLI)
+
+    <p>The detected package manager</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="install">install</h3>
+
+<p>Install a package</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>package</code> <strong>(required)</strong></dt>
+  <dd>Package to install
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>shellsafe</code></li>
+      <li><strong>Length:</strong> 90</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>arch</code></dt>
+  <dd>(Appears as &#8220;Arch&#8221; on CLI)
+
+    <p>Package architecture</p>
+  </dd>
+  <dt><code>ensure</code></dt>
+  <dd>(Appears as &#8220;Ensure&#8221; on CLI)
+
+    <p>Full package version</p>
+  </dd>
+  <dt><code>epoch</code></dt>
+  <dd>(Appears as &#8220;Epoch&#8221; on CLI)
+
+    <p>Package epoch number</p>
+  </dd>
+  <dt><code>name</code></dt>
+  <dd>(Appears as &#8220;Name&#8221; on CLI)
+
+    <p>Package name</p>
+  </dd>
+  <dt><code>output</code></dt>
+  <dd>(Appears as &#8220;Output&#8221; on CLI)
+
+    <p>Output from the package manager</p>
+  </dd>
+  <dt><code>provider</code></dt>
+  <dd>(Appears as &#8220;Provider&#8221; on CLI)
+
+    <p>Provider used to retrieve information</p>
+  </dd>
+  <dt><code>release</code></dt>
+  <dd>(Appears as &#8220;Release&#8221; on CLI)
+
+    <p>Package release number</p>
+  </dd>
+  <dt><code>version</code></dt>
+  <dd>(Appears as &#8220;Version&#8221; on CLI)
+
+    <p>Version number</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="purge">purge</h3>
+
+<p>Purge a package</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>package</code> <strong>(required)</strong></dt>
+  <dd>Package to purge
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>shellsafe</code></li>
+      <li><strong>Length:</strong> 90</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>arch</code></dt>
+  <dd>(Appears as &#8220;Arch&#8221; on CLI)
+
+    <p>Package architecture</p>
+  </dd>
+  <dt><code>ensure</code></dt>
+  <dd>(Appears as &#8220;Ensure&#8221; on CLI)
+
+    <p>Full package version</p>
+  </dd>
+  <dt><code>epoch</code></dt>
+  <dd>(Appears as &#8220;Epoch&#8221; on CLI)
+
+    <p>Package epoch number</p>
+  </dd>
+  <dt><code>name</code></dt>
+  <dd>(Appears as &#8220;Name&#8221; on CLI)
+
+    <p>Package name</p>
+  </dd>
+  <dt><code>output</code></dt>
+  <dd>(Appears as &#8220;Output&#8221; on CLI)
+
+    <p>Output from the package manager</p>
+  </dd>
+  <dt><code>provider</code></dt>
+  <dd>(Appears as &#8220;Provider&#8221; on CLI)
+
+    <p>Provider used to retrieve information</p>
+  </dd>
+  <dt><code>release</code></dt>
+  <dd>(Appears as &#8220;Release&#8221; on CLI)
+
+    <p>Package release number</p>
+  </dd>
+  <dt><code>version</code></dt>
+  <dd>(Appears as &#8220;Version&#8221; on CLI)
+
+    <p>Version number</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="status">status</h3>
+
+<p>Get the status of a package</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>package</code> <strong>(required)</strong></dt>
+  <dd>Package to retrieve the status of
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>shellsafe</code></li>
+      <li><strong>Length:</strong> 90</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>arch</code></dt>
+  <dd>(Appears as &#8220;Arch&#8221; on CLI)
+
+    <p>Package architecture</p>
+  </dd>
+  <dt><code>ensure</code></dt>
+  <dd>(Appears as &#8220;Ensure&#8221; on CLI)
+
+    <p>Full package version</p>
+  </dd>
+  <dt><code>epoch</code></dt>
+  <dd>(Appears as &#8220;Epoch&#8221; on CLI)
+
+    <p>Package epoch number</p>
+  </dd>
+  <dt><code>name</code></dt>
+  <dd>(Appears as &#8220;Name&#8221; on CLI)
+
+    <p>Package name</p>
+  </dd>
+  <dt><code>output</code></dt>
+  <dd>(Appears as &#8220;Output&#8221; on CLI)
+
+    <p>Output from the package manager</p>
+  </dd>
+  <dt><code>provider</code></dt>
+  <dd>(Appears as &#8220;Provider&#8221; on CLI)
+
+    <p>Provider used to retrieve information</p>
+  </dd>
+  <dt><code>release</code></dt>
+  <dd>(Appears as &#8220;Release&#8221; on CLI)
+
+    <p>Package release number</p>
+  </dd>
+  <dt><code>version</code></dt>
+  <dd>(Appears as &#8220;Version&#8221; on CLI)
+
+    <p>Version number</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="uninstall">uninstall</h3>
+
+<p>Uninstall a package</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>package</code> <strong>(required)</strong></dt>
+  <dd>Package to uninstall
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>shellsafe</code></li>
+      <li><strong>Length:</strong> 90</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>arch</code></dt>
+  <dd>(Appears as &#8220;Arch&#8221; on CLI)
+
+    <p>Package architecture</p>
+  </dd>
+  <dt><code>ensure</code></dt>
+  <dd>(Appears as &#8220;Ensure&#8221; on CLI)
+
+    <p>Full package version</p>
+  </dd>
+  <dt><code>epoch</code></dt>
+  <dd>(Appears as &#8220;Epoch&#8221; on CLI)
+
+    <p>Package epoch number</p>
+  </dd>
+  <dt><code>name</code></dt>
+  <dd>(Appears as &#8220;Name&#8221; on CLI)
+
+    <p>Package name</p>
+  </dd>
+  <dt><code>output</code></dt>
+  <dd>(Appears as &#8220;Output&#8221; on CLI)
+
+    <p>Output from the package manager</p>
+  </dd>
+  <dt><code>provider</code></dt>
+  <dd>(Appears as &#8220;Provider&#8221; on CLI)
+
+    <p>Provider used to retrieve information</p>
+  </dd>
+  <dt><code>release</code></dt>
+  <dd>(Appears as &#8220;Release&#8221; on CLI)
+
+    <p>Package release number</p>
+  </dd>
+  <dt><code>version</code></dt>
+  <dd>(Appears as &#8220;Version&#8221; on CLI)
+
+    <p>Version number</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="update">update</h3>
+
+<p>Update a package</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>package</code> <strong>(required)</strong></dt>
+  <dd>Package to update
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>shellsafe</code></li>
+      <li><strong>Length:</strong> 90</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>arch</code></dt>
+  <dd>(Appears as &#8220;Arch&#8221; on CLI)
+
+    <p>Package architecture</p>
+  </dd>
+  <dt><code>ensure</code></dt>
+  <dd>(Appears as &#8220;Ensure&#8221; on CLI)
+
+    <p>Full package version</p>
+  </dd>
+  <dt><code>epoch</code></dt>
+  <dd>(Appears as &#8220;Epoch&#8221; on CLI)
+
+    <p>Package epoch number</p>
+  </dd>
+  <dt><code>name</code></dt>
+  <dd>(Appears as &#8220;Name&#8221; on CLI)
+
+    <p>Package name</p>
+  </dd>
+  <dt><code>output</code></dt>
+  <dd>(Appears as &#8220;Output&#8221; on CLI)
+
+    <p>Output from the package manager</p>
+  </dd>
+  <dt><code>provider</code></dt>
+  <dd>(Appears as &#8220;Provider&#8221; on CLI)
+
+    <p>Provider used to retrieve information</p>
+  </dd>
+  <dt><code>release</code></dt>
+  <dd>(Appears as &#8220;Release&#8221; on CLI)
+
+    <p>Package release number</p>
+  </dd>
+  <dt><code>version</code></dt>
+  <dd>(Appears as &#8220;Version&#8221; on CLI)
+
+    <p>Version number</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="yumcheckupdates">yum_checkupdates</h3>
+
+<p>Check for YUM updates</p>
+
+<p>(no inputs)</p>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>exitcode</code></dt>
+  <dd>(Appears as &#8220;Exit Code&#8221; on CLI)
+
+    <p>The exitcode from the yum command</p>
+  </dd>
+  <dt><code>outdated_packages</code></dt>
+  <dd>(Appears as &#8220;Outdated Packages&#8221; on CLI)
+
+    <p>Outdated packages</p>
+  </dd>
+  <dt><code>output</code></dt>
+  <dd>(Appears as &#8220;Output&#8221; on CLI)
+
+    <p>Output from YUM</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="yumclean">yum_clean</h3>
+
+<p>Clean the YUM cache</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>mode</code></dt>
+  <dd>One of the various supported clean modes
+
+    <ul>
+      <li><strong>Type:</strong> list</li>
+      <li><strong>Valid Values:</strong> <code>all</code>, <code>headers</code>, <code>packages</code>, <code>metadata</code>, <code>dbcache</code>, <code>plugins</code>, <code>expire-cache</code></li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>exitcode</code></dt>
+  <dd>(Appears as &#8220;Exit Code&#8221; on CLI)
+
+    <p>The exitcode from the yum command</p>
+  </dd>
+  <dt><code>output</code></dt>
+  <dd>(Appears as &#8220;Output&#8221; on CLI)
+
+    <p>Output from YUM</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h2 id="the-puppet-plugin">The <code>puppet</code> Plugin</h2>
+
+<p>Run Puppet agent, get its status, and enable/disable it</p>
+
+<p>Actions: <code>disable</code>, <code>enable</code>, <code>last_run_summary</code>, <code>resource</code>, <code>runonce</code>, <code>status</code></p>
+
+<h3 id="disable">disable</h3>
+
+<p>Disable the Puppet agent</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>message</code></dt>
+  <dd>Supply a reason for disabling the Puppet agent
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>shellsafe</code></li>
+      <li><strong>Length:</strong> 120</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>enabled</code></dt>
+  <dd>(Appears as &#8220;Enabled&#8221; on CLI)
+
+    <p>Is the agent currently locked</p>
+  </dd>
+  <dt><code>status</code></dt>
+  <dd>(Appears as &#8220;Status&#8221; on CLI)
+
+    <p>Status</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="enable">enable</h3>
+
+<p>Enable the Puppet agent</p>
+
+<p>(no inputs)</p>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>enabled</code></dt>
+  <dd>(Appears as &#8220;Enabled&#8221; on CLI)
+
+    <p>Is the agent currently locked</p>
+  </dd>
+  <dt><code>status</code></dt>
+  <dd>(Appears as &#8220;Status&#8221; on CLI)
+
+    <p>Status</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="lastrunsummary">last_run_summary</h3>
+
+<p>Get the summary of the last Puppet run</p>
+
+<p>(no inputs)</p>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>changed_resources</code></dt>
+  <dd>(Appears as &#8220;Changed Resources&#8221; on CLI)
+
+    <p>Resources that were changed</p>
+  </dd>
+  <dt><code>config_retrieval_time</code></dt>
+  <dd>(Appears as &#8220;Config Retrieval Time&#8221; on CLI)
+
+    <p>Time taken to retrieve the catalog from the master</p>
+  </dd>
+  <dt><code>config_version</code></dt>
+  <dd>(Appears as &#8220;Config Version&#8221; on CLI)
+
+    <p>Puppet config version for the previously applied catalog</p>
+  </dd>
+  <dt><code>failed_resources</code></dt>
+  <dd>(Appears as &#8220;Failed Resources&#8221; on CLI)
+
+    <p>Resources that failed to apply</p>
+  </dd>
+  <dt><code>lastrun</code></dt>
+  <dd>(Appears as &#8220;Last Run&#8221; on CLI)
+
+    <p>When the Agent last applied a catalog in local time</p>
+  </dd>
+  <dt><code>out_of_sync_resources</code></dt>
+  <dd>(Appears as &#8220;Out of Sync Resources&#8221; on CLI)
+
+    <p>Resources that were not in desired state</p>
+  </dd>
+  <dt><code>since_lastrun</code></dt>
+  <dd>(Appears as &#8220;Since Last Run&#8221; on CLI)
+
+    <p>How long ago did the Agent last apply a catalog in local time</p>
+  </dd>
+  <dt><code>summary</code></dt>
+  <dd>(Appears as &#8220;Summary&#8221; on CLI)
+
+    <p>Summary data as provided by Puppet</p>
+  </dd>
+  <dt><code>total_resources</code></dt>
+  <dd>(Appears as &#8220;Total Resources&#8221; on CLI)
+
+    <p>Total resources managed on a node</p>
+  </dd>
+  <dt><code>total_time</code></dt>
+  <dd>(Appears as &#8220;Total Time&#8221; on CLI)
+
+    <p>Total time taken to retrieve and process the catalog</p>
+  </dd>
+  <dt><code>type_distribution</code></dt>
+  <dd>(Appears as &#8220;Type Distribution&#8221; on CLI)
+
+    <p>Resource counts per type managed by Puppet</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="resource">resource</h3>
+
+<p>Evaluate Puppet RAL resources</p>
+
+<p><strong>Inputs:</strong></p>
+
+<dl>
+  <dt><code>name</code> <strong>(required)</strong></dt>
+  <dd>Resource Name
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>^.+$</code></li>
+      <li><strong>Length:</strong> 150</li>
+    </ul>
+  </dd>
+  <dt><code>type</code> <strong>(required)</strong></dt>
+  <dd>Resource Type
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>^.+$</code></li>
+      <li><strong>Length:</strong> 50</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>changed</code></dt>
+  <dd>(Appears as &#8220;Changed&#8221; on CLI)
+
+    <p>Was a change applied based on the resource</p>
+  </dd>
+  <dt><code>result</code></dt>
+  <dd>(Appears as &#8220;Result&#8221; on CLI)
+
+    <p>The result from the Puppet resource</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="runonce">runonce</h3>
+
+<p>Invoke a single Puppet run</p>
+
+<p><strong>Inputs:</strong></p>
+
+<dl>
+  <dt><code>environment</code></dt>
+  <dd>Which Puppet environment to run
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>puppet_variable</code></li>
+      <li><strong>Length:</strong> 50</li>
+    </ul>
+  </dd>
+  <dt><code>force</code></dt>
+  <dd>Will force a run immediately else subject to default splay time
+
+    <ul>
+      <li><strong>Type:</strong> boolean</li>
+    </ul>
+  </dd>
+  <dt><code>noop</code></dt>
+  <dd>Do a Puppet dry run
+
+    <ul>
+      <li><strong>Type:</strong> boolean</li>
+    </ul>
+  </dd>
+  <dt><code>server</code></dt>
+  <dd>Address and port of the Puppet Master in server:port format
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>puppet_server_address</code></li>
+      <li><strong>Length:</strong> 50</li>
+    </ul>
+  </dd>
+  <dt><code>splay</code></dt>
+  <dd>Sleep for a period before initiating the run
+
+    <ul>
+      <li><strong>Type:</strong> boolean</li>
+    </ul>
+  </dd>
+  <dt><code>splaylimit</code></dt>
+  <dd>Maximum amount of time to sleep before run
+
+    <ul>
+      <li><strong>Type:</strong> number</li>
+    </ul>
+  </dd>
+  <dt><code>tags</code></dt>
+  <dd>Restrict the Puppet run to a comma list of tags
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>puppet_tags</code></li>
+      <li><strong>Length:</strong> 120</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Output:</strong></p>
+
+<dl>
+  <dt><code>summary</code></dt>
+  <dd>(Appears as &#8220;Summary&#8221; on CLI)
+
+    <p>Summary of command run</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="status-1">status</h3>
+
+<p>Get the current status of the Puppet agent</p>
+
+<p>(no inputs)</p>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>applying</code></dt>
+  <dd>(Appears as &#8220;Applying&#8221; on CLI)
+
+    <p>Is a catalog being applied</p>
+  </dd>
+  <dt><code>daemon_present</code></dt>
+  <dd>(Appears as &#8220;Daemon Running&#8221; on CLI)
+
+    <p>Is the Puppet agent daemon running on this system</p>
+  </dd>
+  <dt><code>disable_message</code></dt>
+  <dd>(Appears as &#8220;Lock Message&#8221; on CLI)
+
+    <p>Message supplied when agent was disabled</p>
+  </dd>
+  <dt><code>enabled</code></dt>
+  <dd>(Appears as &#8220;Enabled&#8221; on CLI)
+
+    <p>Is the agent currently locked</p>
+  </dd>
+  <dt><code>idling</code></dt>
+  <dd>(Appears as &#8220;Idling&#8221; on CLI)
+
+    <p>Is the Puppet agent daemon running but not doing any work</p>
+  </dd>
+  <dt><code>lastrun</code></dt>
+  <dd>(Appears as &#8220;Last Run&#8221; on CLI)
+
+    <p>When the Agent last applied a catalog in local time</p>
+  </dd>
+  <dt><code>since_lastrun</code></dt>
+  <dd>(Appears as &#8220;Since Last Run&#8221; on CLI)
+
+    <p>How long ago did the Agent last apply a catalog in local time</p>
+  </dd>
+  <dt><code>status</code></dt>
+  <dd>(Appears as &#8220;Status&#8221; on CLI)
+
+    <p>Current status of the Puppet agent</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h2 id="the-puppetral-plugin">The <code>puppetral</code> Plugin</h2>
+
+<p>View resources with Puppet&#8217;s resource abstraction layer</p>
+
+<p>Actions: <code>find</code>, <code>search</code></p>
+
+<h3 id="find">find</h3>
+
+<p>Get the attributes and status of a resource</p>
+
+<p><strong>Inputs:</strong></p>
+
+<dl>
+  <dt><code>title</code> <strong>(required)</strong></dt>
+  <dd>Name of resource to check
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>.</code></li>
+      <li><strong>Length:</strong> 90</li>
+    </ul>
+  </dd>
+  <dt><code>type</code> <strong>(required)</strong></dt>
+  <dd>Type of resource to check
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>.</code></li>
+      <li><strong>Length:</strong> 90</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>exported</code></dt>
+  <dd>(Appears as &#8220;Exported&#8221; on CLI)
+
+    <p>Boolean flag indicating export status</p>
+  </dd>
+  <dt><code>managed</code></dt>
+  <dd>(Appears as &#8220;Managed&#8221; on CLI)
+
+    <p>Flag indicating managed status</p>
+  </dd>
+  <dt><code>parameters</code></dt>
+  <dd>(Appears as &#8220;Parameters&#8221; on CLI)
+
+    <p>Parameters of the inspected resource</p>
+  </dd>
+  <dt><code>tags</code></dt>
+  <dd>(Appears as &#8220;Tags&#8221; on CLI)
+
+    <p>Tags of the inspected resource</p>
+  </dd>
+  <dt><code>title</code></dt>
+  <dd>(Appears as &#8220;Title&#8221; on CLI)
+
+    <p>Title of the inspected resource</p>
+  </dd>
+  <dt><code>type</code></dt>
+  <dd>(Appears as &#8220;Type&#8221; on CLI)
+
+    <p>Type of the inspected resource</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="search">search</h3>
+
+<p>Get detailed info for all resources of a given type</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>type</code> <strong>(required)</strong></dt>
+  <dd>Type of resource to check
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>.</code></li>
+      <li><strong>Length:</strong> 90</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Output:</strong></p>
+
+<dl>
+  <dt><code>result</code></dt>
+  <dd>(Appears as &#8220;Result&#8221; on CLI)
+
+    <p>The values of the inspected resources</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h2 id="the-rpcutil-plugin">The <code>rpcutil</code> Plugin</h2>
+
+<p>General helpful actions that expose stats and internals to SimpleRPC clients</p>
+
+<p>Actions: <code>agent_inventory</code>, <code>collective_info</code>, <code>daemon_stats</code>, <code>get_config_item</code>, <code>get_data</code>, <code>get_fact</code>, <code>inventory</code>, <code>ping</code></p>
+
+<h3 id="agentinventory">agent_inventory</h3>
+
+<p>Inventory of all agents on the server</p>
+
+<p>(no inputs)</p>
+
+<p><strong>Output:</strong></p>
+
+<dl>
+  <dt><code>agents</code></dt>
+  <dd>(Appears as &#8220;Agents&#8221; on CLI)
+
+    <p>List of agents on the server</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="collectiveinfo">collective_info</h3>
+
+<p>Info about the main and sub collectives</p>
+
+<p>(no inputs)</p>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>collectives</code></dt>
+  <dd>(Appears as &#8220;All Collectives&#8221; on CLI)
+
+    <p>All Collectives</p>
+  </dd>
+  <dt><code>main_collective</code></dt>
+  <dd>(Appears as &#8220;Main Collective&#8221; on CLI)
+
+    <p>The main Collective</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="daemonstats">daemon_stats</h3>
+
+<p>Get statistics from the running daemon</p>
+
+<p>(no inputs)</p>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>agents</code></dt>
+  <dd>(Appears as &#8220;Agents&#8221; on CLI)
+
+    <p>List of agents loaded</p>
+  </dd>
+  <dt><code>configfile</code></dt>
+  <dd>(Appears as &#8220;Config File&#8221; on CLI)
+
+    <p>Config file used to start the daemon</p>
+  </dd>
+  <dt><code>filtered</code></dt>
+  <dd>(Appears as &#8220;Failed Filter&#8221; on CLI)
+
+    <p>Didn&#8217;t pass filter checks</p>
+  </dd>
+  <dt><code>passed</code></dt>
+  <dd>(Appears as &#8220;Passed Filter&#8221; on CLI)
+
+    <p>Passed filter checks</p>
+  </dd>
+  <dt><code>pid</code></dt>
+  <dd>(Appears as &#8220;PID&#8221; on CLI)
+
+    <p>Process ID of the daemon</p>
+  </dd>
+  <dt><code>replies</code></dt>
+  <dd>(Appears as &#8220;Replies&#8221; on CLI)
+
+    <p>Replies sent back to clients</p>
+  </dd>
+  <dt><code>starttime</code></dt>
+  <dd>(Appears as &#8220;Start Time&#8221; on CLI)
+
+    <p>Time the server started</p>
+  </dd>
+  <dt><code>threads</code></dt>
+  <dd>(Appears as &#8220;Threads&#8221; on CLI)
+
+    <p>List of threads active in the daemon</p>
+  </dd>
+  <dt><code>times</code></dt>
+  <dd>(Appears as &#8220;Times&#8221; on CLI)
+
+    <p>Processor time consumed by the daemon</p>
+  </dd>
+  <dt><code>total</code></dt>
+  <dd>(Appears as &#8220;Total Messages&#8221; on CLI)
+
+    <p>Total messages received</p>
+  </dd>
+  <dt><code>ttlexpired</code></dt>
+  <dd>(Appears as &#8220;TTL Expired&#8221; on CLI)
+
+    <p>Messages that did pass TTL checks</p>
+  </dd>
+  <dt><code>unvalidated</code></dt>
+  <dd>(Appears as &#8220;Failed Security&#8221; on CLI)
+
+    <p>Messages that failed security validation</p>
+  </dd>
+  <dt><code>validated</code></dt>
+  <dd>(Appears as &#8220;Security Validated&#8221; on CLI)
+
+    <p>Messages that passed security validation</p>
+  </dd>
+  <dt><code>version</code></dt>
+  <dd>(Appears as &#8220;Version&#8221; on CLI)
+
+    <p>MCollective Version</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="getconfigitem">get_config_item</h3>
+
+<p>Get the active value of a specific config property</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>item</code> <strong>(required)</strong></dt>
+  <dd>The item to retrieve from the server
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>^.+$</code></li>
+      <li><strong>Length:</strong> 50</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>item</code></dt>
+  <dd>(Appears as &#8220;Property&#8221; on CLI)
+
+    <p>The config property being retrieved</p>
+  </dd>
+  <dt><code>value</code></dt>
+  <dd>(Appears as &#8220;Value&#8221; on CLI)
+
+    <p>The value that is in use</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="getdata">get_data</h3>
+
+<p>Get data from a data plugin</p>
+
+<p><strong>Inputs:</strong></p>
+
+<dl>
+  <dt><code>query</code></dt>
+  <dd>The query argument to supply to the data plugin
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>^.+$</code></li>
+      <li><strong>Length:</strong> 50</li>
+    </ul>
+  </dd>
+  <dt><code>source</code> <strong>(required)</strong></dt>
+  <dd>The data plugin to retrieve information from
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>^\w+$</code></li>
+      <li><strong>Length:</strong> 50</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Outputs:</strong></p>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="getfact">get_fact</h3>
+
+<p>Retrieve a single fact from the fact store</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>fact</code> <strong>(required)</strong></dt>
+  <dd>The fact to retrieve
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>^[\w\-\.]+$</code></li>
+      <li><strong>Length:</strong> 40</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>fact</code></dt>
+  <dd>(Appears as &#8220;Fact&#8221; on CLI)
+
+    <p>The name of the fact being returned</p>
+  </dd>
+  <dt><code>value</code></dt>
+  <dd>(Appears as &#8220;Value&#8221; on CLI)
+
+    <p>The value of the fact</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="inventory">inventory</h3>
+
+<p>System Inventory</p>
+
+<p>(no inputs)</p>
+
+<p><strong>Outputs:</strong></p>
+
+<dl>
+  <dt><code>agents</code></dt>
+  <dd>(Appears as &#8220;Agents&#8221; on CLI)
+
+    <p>List of agent names</p>
+  </dd>
+  <dt><code>classes</code></dt>
+  <dd>(Appears as &#8220;Classes&#8221; on CLI)
+
+    <p>List of classes on the system</p>
+  </dd>
+  <dt><code>collectives</code></dt>
+  <dd>(Appears as &#8220;All Collectives&#8221; on CLI)
+
+    <p>All Collectives</p>
+  </dd>
+  <dt><code>data_plugins</code></dt>
+  <dd>(Appears as &#8220;Data Plugins&#8221; on CLI)
+
+    <p>List of data plugin names</p>
+  </dd>
+  <dt><code>facts</code></dt>
+  <dd>(Appears as &#8220;Facts&#8221; on CLI)
+
+    <p>List of facts and values</p>
+  </dd>
+  <dt><code>main_collective</code></dt>
+  <dd>(Appears as &#8220;Main Collective&#8221; on CLI)
+
+    <p>The main Collective</p>
+  </dd>
+  <dt><code>version</code></dt>
+  <dd>(Appears as &#8220;Version&#8221; on CLI)
+
+    <p>MCollective Version</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="ping">ping</h3>
+
+<p>Responds to requests for PING with PONG</p>
+
+<p>(no inputs)</p>
+
+<p><strong>Output:</strong></p>
+
+<dl>
+  <dt><code>pong</code></dt>
+  <dd>(Appears as &#8220;Timestamp&#8221; on CLI)
+
+    <p>The local timestamp</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h2 id="the-service-plugin">The <code>service</code> Plugin</h2>
+
+<p>Start and stop system services</p>
+
+<p>Actions: <code>restart</code>, <code>start</code>, <code>status</code>, <code>stop</code></p>
+
+<h3 id="restart">restart</h3>
+
+<p>Restart a service</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>service</code> <strong>(required)</strong></dt>
+  <dd>The service to restart
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>service_name</code></li>
+      <li><strong>Length:</strong> 90</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Output:</strong></p>
+
+<dl>
+  <dt><code>status</code></dt>
+  <dd>(Appears as &#8220;Service Status&#8221; on CLI)
+
+    <p>The status of the service after restarting</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="start">start</h3>
+
+<p>Start a service</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>service</code> <strong>(required)</strong></dt>
+  <dd>The service to start
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>service_name</code></li>
+      <li><strong>Length:</strong> 90</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Output:</strong></p>
+
+<dl>
+  <dt><code>status</code></dt>
+  <dd>(Appears as &#8220;Service Status&#8221; on CLI)
+
+    <p>The status of the service after starting</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="status-2">status</h3>
+
+<p>Gets the status of a service</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>service</code> <strong>(required)</strong></dt>
+  <dd>The service to get the status for
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>service_name</code></li>
+      <li><strong>Length:</strong> 90</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Output:</strong></p>
+
+<dl>
+  <dt><code>status</code></dt>
+  <dd>(Appears as &#8220;Service Status&#8221; on CLI)
+
+    <p>The status of the service</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<h3 id="stop">stop</h3>
+
+<p>Stop a service</p>
+
+<p><strong>Input:</strong></p>
+
+<dl>
+  <dt><code>service</code> <strong>(required)</strong></dt>
+  <dd>The service to stop
+
+    <ul>
+      <li><strong>Type:</strong> string</li>
+      <li><strong>Format/Validation:</strong> <code>service_name</code></li>
+      <li><strong>Length:</strong> 90</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>Output:</strong></p>
+
+<dl>
+  <dt><code>status</code></dt>
+  <dd>(Appears as &#8220;Service Status&#8221; on CLI)
+
+    <p>The status of the service after stopping</p>
+  </dd>
+</dl>
+
+<p><a href="#content">↑ Back to top</a></p>
+
+<hr />
+
+<ul>
+  <li><a href="./orchestration_adding_actions.html">Next: Adding New Orchestration Actions</a></li>
+</ul>
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+
+<h3><a href="./index.html">Puppet Enterprise 3.0</a></h3>
+
+<ul>
+  <li><strong>Overview</strong>
+    <ul>
+      <li><a href="./overview_about_pe.html">About Puppet Enterprise</a></li>
+      <li><a href="./overview_whats_new.html">New Features</a></li>
+      <li><a href="./overview_getting_support.html">Getting Support</a></li>
+    </ul>
+  </li>
+  <li><strong>Quick Start</strong>
+    <ul>
+        <li><a href="./quick_start.html">Quick Start: Using PE</a></li>
+        <li><a href="./quick_writing.html">Quick Start: Writing Modules</a></li>
+    </ul>
+  </li>
+  <li><strong>Installing Puppet Enterprise</strong>
+    <ul>
+      <li><a href="./install_system_requirements.html">System Requirements</a></li>
+      <li><a href="./install_basic.html">Installing PE</a></li>
+      <li><a href="./install_windows.html">Installing Windows Agents</a></li>
+      <li><a href="./install_upgrading.html">Upgrading</a></li>
+      <li><a href="./install_uninstalling.html">Uninstalling</a></li>
+      <li><a href="./install_automated.html">Automated Installation</a></li>
+      <li><a href="./install_answer_file_reference.html">Answer File Reference</a></li>
+      <li><a href="./install_what_and_where.html">What gets installed where?</a></li>
+    </ul>
+  </li>
+  <li><strong>The PE Console</strong>
+    <ul>
+      <li><a href="./console_accessing.html">Accessing the Console</a></li>
+      <li><a href="./console_navigating.html">Navigating the Console</a></li>
+      <li><a href="./console_navigating_live_mgmt.html">Navigating the Live Management Page</a></li>
+      <li><a href="./console_cert_mgmt.html">Managing Node Requests</a></li>
+      <li><a href="./console_classes_groups.html">Grouping & Classifying Nodes</a></li>
+      <li><a href="./console_reports.html">Viewing Reports & Inventory Data</a></li>
+      <li><a href="./console_auth.html">Managing Users</a></li>
+      <li><a href="./console_inventory_search.html">Inventory Search</a></li>
+      <li><a href="./console_rake_api.html">Rake API and List of Tasks</a></li>
+      <li><a href="./console_rake_api_old.html">Rake API: List of Tasks (Old Argument Style)</a></li>
+      <li><a href="./console_config.html">Configuring the Console</a></li>
+    </ul>
+  </li>
+  <li><strong>Puppet Core</strong>
+    <ul>
+      <li><a href="./puppet_overview.html">Overview</a></li>
+      <li><a href="./puppet_modules_manifests.html">Modules & Manifests</a></li>
+      <li><a href="./puppet_assign_configurations.html">Assigning Configurations to Nodes</a></li>
+      <li><a href="./puppet_tools.html">Tools</a></li>
+      <li><a href="./puppet_data_library.html">Puppet Data Library</a></li>
+      <li><a href="./puppet_references.html">References</a></li>
+      <li><a href="./puppet_config.html">Configuring Puppet Core</a></li>
+    </ul>
+  </li>
+  <li><strong>Orchestration</strong>
+    <ul>
+      <li><a href="./orchestration_overview.html">Overview</a></li>
+      <li><a href="./orchestration_invoke_cli.html">Invoking Actions</a></li>
+      <li><a href="./orchestration_puppet.html">Controlling Puppet</a></li>
+      <li><a href="./orchestration_resources.html">Browsing Resources</a></li>
+      <li><span class="currentpage">List of Built-In Actions</span></li>
+      <li><a href="./orchestration_adding_actions.html">Adding New Actions</a></li>
+      <!-- <li><a href="./orchestration_integrating.html">Integrating Applications</a></li> -->
+      <li><a href="./orchestration_config.html">Configuring Orchestration</a></li>
+    </ul>
+  </li>
+  <li><strong>Cloud Provisioning</strong>
+    <ul>
+      <li><a href="./cloudprovisioner_overview.html">Overview</a></li>
+      <li><a href="./cloudprovisioner_configuring.html">Installing & Configuring Cloud Provisioner</a></li>
+      <li><a href="./cloudprovisioner_classifying_installing.html">Classifying Nodes & Remotely Installing Puppet</a></li>
+      <li><a href="./cloudprovisioner_vmware.html">Provisioning with VMware</a></li>
+      <li><a href="./cloudprovisioner_aws.html">Provisioning with AWS</a></li>
+      <li><a href="./cloudprovisioner_workflow.html">Sample Workflow</a></li>
+    </ul>
+  </li>
+  <li><strong>The PE Accounts Module</strong>
+    <ul>
+      <li><a href="./accounts_user_type.html">The pe_accounts::user Type</a></li>
+      <li><a href="./accounts_class.html">The pe_accounts Class</a></li>
+    </ul>
+  </li>
+   <li><strong>Maintenance</strong>
+    <ul>
+      <li> <a href="./maintain_console-db.html">Console & Database Maintenance</a></li>
+      <!--
+<li> <a href="./maintain_puppet.html">Puppet Core Maintenance</a></li>
+      <li> <a href="./maintain_orchestration.html">Orchestration Maintenance</a></li>
+ -->
+    </ul>
+  </li>
+  <li><strong>Troubleshooting</strong>
+    <ul>
+     <li> <a href="./trouble_install.html">Troubleshooting the Installer</a></li>
+     <li> <a href="./trouble_comms.html">Troubleshooting Connections & Communications</a></li>
+     <li> <a href="./trouble_console-db.html">Troubleshooting the Console & Database</a></li>
+     <li> <a href="./trouble_puppet.html">Troubleshooting the Puppet Core</a></li>
+     <li> <a href="./trouble_orchestration.html">Troubleshooting Orchestration</a></li>
+     <li> <a href="./trouble_cloudprovisioner.html">Troubleshooting Cloud Provisioner</a></li>
+     <li> <a href="./trouble_windows.html">Troubleshooting Windows</a></li>
+    </ul>
+  </li>
+  <li><strong>Appendix</strong>
+    <ul>
+      <li><a href="./appendix.html#release-notes">Release Notes</a></li>
+      <li><a href="./appendix.html#known-issues">Known Issues</a></li>
+       <li><a href="./compliance_alt.html">Compliance Alternate Workflow</a></li>
+    <!--    <li><a href="./cloning_alt.html">Cloning Alternate Workflow</a></li> -->
+    </ul>
+  </li>
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

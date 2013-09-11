@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Style Guide — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../favicon.ico' />
+
+  <meta name="description" content="Style GuideStyle Guide MetadataVersion 1.1.21. TerminologyThe key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;...">
+
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/ampersands.js'></script>
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/guides/style_guide.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/style_legacy.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Style Guide</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1 id="style-guide">Style Guide</h1>
+
+<hr />
+
+<p><strong>Style Guide Metadata</strong></p>
+
+<p>Version 1.1.2</p>
+
+<h2 id="terminology">1. Terminology</h2>
+
+<p>The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;,
+&#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;,  &#8221;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be
+interpreted as described in <a href="http://www.faqs.org/rfcs/rfc2119.html">RFC 2119</a>.</p>
+
+<h2 id="puppet-version">2. Puppet Version</h2>
+
+<p>This style guide is largely specific to Puppet versions 2.6.x; some of its
+recommendations are based on some language features that became
+available in version 2.6.0 and later.</p>
+
+<h2 id="why-a-style-guide">3. Why a Style Guide?</h2>
+
+<p>Puppet Labs develops modules for customers and the community, and these modules
+should represent the best known practice for module design and style. Since
+these modules are developed by many people across the organisation, a central
+reference was needed to ensure a consistent pattern, design, and style.</p>
+
+<h2 id="general-philosophies">4. General Philosophies</h2>
+
+<p>No style manual can cover every possible circumstance. When a judgement call
+becomes necessary, keep in mind the following general ideas:</p>
+
+<ol>
+  <li><strong>Readability matters.</strong>
+If you have to choose between two equally effective alternatives, pick the
+more readable one. This is, of course, subjective, but if you can read your
+own code three months from now, that&#8217;s a great start.</li>
+  <li><strong>Inheritance should be avoided.</strong>
+In general, inheritance leads to code that is harder to read.
+Most use cases for inheritance can be replaced by exposing class
+parameters that can be used to configure resource attributes. See
+the <a href="#class-inheritance">Class Inheritance</a> section for more details.</li>
+  <li><strong>Modules must work with an ENC without requiring one.</strong>
+An internal survey yielded near consensus that an ENC should not be
+required.  At the same time, every module we write should work well
+with an ENC.</li>
+  <li><strong>Classes should generally not declare other classes.</strong>
+Declare classes as close to node scope as possible. Classes which require
+other classes should not directly declare them and should instead allow the
+system to fail if they are not declared by some other means. (Although the
+include function allows multiple declarations of classes, it can result in
+non-deterministic scoping issues due to the way parent scopes are assigned.
+We might revisit this philosophy in the future if class multi-declarations
+can be made deterministic, but for now, be conservative with declarations.)</li>
+</ol>
+
+<h2 id="module-metadata">5. Module Metadata</h2>
+
+<p>Every module must have Metadata defined in the Modulefile data file
+and outputted as the metadata.json file.  The following Metadata
+should be provided for all modules:</p>
+
+<pre><code>name 'myuser-mymodule'
+version '0.0.1'
+author 'Author of the module - for shared modules this is Puppet Labs'
+summary 'One line description of the module'
+description 'Longer description of the module including an example'
+license 'The license the module is release under - generally GPLv2 or Apache'
+project_page 'The URL where the module source is located'
+dependency 'otheruser/othermodule', '&gt;= 1.2.3'
+</code></pre>
+
+<p>A more complete guide to the Modulefile format can be found in the <a href="https://github.com/puppetlabs/puppet-module-tool/blob/master/README.markdown">puppet-module-tool README</a>.</p>
+
+<h3 id="style-versioning">5.1. Style Versioning</h3>
+
+<p>This style guide will be versioned, which will allow modules to comply
+with a specific version of the style guide.</p>
+
+<p>A future version of the puppet-module tool may permit the relevant style guide version to be embedded as metadata in the Modulefile, and the metadata in turn may be used for automated linting.</p>
+
+<h2 id="spacing-indentation--whitespace">6. Spacing, Indentation, &amp; Whitespace</h2>
+
+<p>Module manifests complying with this style guide:</p>
+
+<ul>
+  <li>Must use two-space soft tabs</li>
+  <li>Must not use literal tab characters</li>
+  <li>Must not contain trailing white space</li>
+  <li>Should not exceed an 80 character line width</li>
+  <li>Should align fat comma arrows (<code>=&gt;</code>) within blocks of attributes</li>
+</ul>
+
+<h2 id="comments">7. Comments</h2>
+
+<p>Although the Puppet language allows multiple comment types, we prefer
+hash/octothorpe comments (<code># This is a comment</code>) because they&#8217;re generally the
+most visible to text editors and other code lexers.</p>
+
+<ol>
+  <li>Should use <code># ...</code> for comments</li>
+  <li>Should not use <code>// ...</code> or <code>/* ... */</code> for comments</li>
+</ol>
+
+<h2 id="quoting">8. Quoting</h2>
+
+<p>All strings that do not contain variables should be enclosed in
+single quotes.  Double quotes should be used when variable interpolation is
+required.  Double quotes may also be used to make a string more readable when
+it contains single quotes.  Quoting is optional when the string is an
+alphanumeric bare word and is not a resource title.</p>
+
+<p>All variables should be enclosed in braces when interpolated in a
+string.  For example:</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="s2">&quot;/etc/${file}.conf&quot;</span>
+    <span class="s2">&quot;${::operatingsystem} is not supported by ${module_name}&quot;</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="s2">&quot;/etc/$file.conf&quot;</span>
+    <span class="s2">&quot;$::operatingsystem is not supported by $module_name&quot;</span>
+</code></pre>
+</div>
+
+<p>Variables standing by themselves should not be quoted.  For example:</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">mode</span> <span class="o">=&gt;</span> <span class="vg">$my_mode</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">mode</span> <span class="o">=&gt;</span> <span class="s2">&quot;$my_mode&quot;</span>
+    <span class="n">mode</span> <span class="o">=&gt;</span> <span class="s2">&quot;${my_mode}&quot;</span>
+</code></pre>
+</div>
+
+<h2 id="resources">9. Resources</h2>
+
+<h3 id="resource-names">9.1. Resource Names</h3>
+
+<p>All resource titles should be quoted. (Puppet
+supports unquoted resource titles if they do not contain spaces or
+hyphens, but you should avoid them in the interest of consistent look-and-feel.)</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">package</span> <span class="p">{</span> <span class="s1">&#39;openssh&#39;</span><span class="p">:</span> <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">present</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">package</span> <span class="p">{</span> <span class="n">openssh</span><span class="p">:</span> <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">present</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="arrow-alignment">9.2. Arrow Alignment</h3>
+
+<p>All of the fat comma arrows (<code>=&gt;</code>) in a resource&#8217;s attribute/value list should
+be aligned. The arrows should be placed one space ahead of the longest
+attribute name.</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="nb">exec</span> <span class="p">{</span> <span class="s1">&#39;blah&#39;</span><span class="p">:</span>
+      <span class="n">path</span> <span class="o">=&gt;</span> <span class="s1">&#39;/usr/bin&#39;</span><span class="p">,</span>
+      <span class="n">cwd</span>  <span class="o">=&gt;</span> <span class="s1">&#39;/tmp&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="nb">exec</span> <span class="p">{</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span>
+      <span class="n">subscribe</span>   <span class="o">=&gt;</span> <span class="no">File</span><span class="o">[</span><span class="s1">&#39;/etc/test&#39;</span><span class="o">]</span><span class="p">,</span>
+      <span class="n">refreshonly</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="nb">exec</span> <span class="p">{</span> <span class="s1">&#39;blah&#39;</span><span class="p">:</span>
+      <span class="n">path</span>  <span class="o">=&gt;</span> <span class="s1">&#39;/usr/bin&#39;</span><span class="p">,</span>
+      <span class="n">cwd</span>   <span class="o">=&gt;</span> <span class="s1">&#39;/tmp&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="nb">exec</span> <span class="p">{</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span>
+      <span class="n">subscribe</span> <span class="o">=&gt;</span> <span class="no">File</span><span class="o">[</span><span class="s1">&#39;/etc/test&#39;</span><span class="o">]</span><span class="p">,</span>
+      <span class="n">refreshonly</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="attribute-ordering">9.3. Attribute Ordering</h3>
+
+<p>If a resource declaration includes an <code>ensure</code> attribute, it should be the
+first attribute specified.</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span> <span class="s1">&#39;/tmp/readme.txt&#39;</span><span class="p">:</span>
+      <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
+      <span class="n">owner</span>  <span class="o">=&gt;</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+      <span class="n">group</span>  <span class="o">=&gt;</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+      <span class="n">mode</span>   <span class="o">=&gt;</span> <span class="s1">&#39;0644&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>(This recommendation is solely in the interest of readability, as Puppet
+ignores attribute order when syncing resources.)</p>
+
+<h3 id="compression">9.4. Compression</h3>
+
+<p>Within a given manifest, resources should be grouped by logical relationship to
+each other, rather than by resource type. Use of the semicolon syntax to
+declare multiple resources within a set of curly braces is not recommended,
+except in the rare cases where it would improve readability.</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span> <span class="s1">&#39;/tmp/a&#39;</span><span class="p">:</span>
+      <span class="n">content</span> <span class="o">=&gt;</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="nb">exec</span> <span class="p">{</span> <span class="s1">&#39;change contents of a&#39;</span><span class="p">:</span>
+      <span class="n">command</span> <span class="o">=&gt;</span> <span class="s1">&#39;sed -i.bak s/a/A/g /tmp/a&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">file</span> <span class="p">{</span> <span class="s1">&#39;/tmp/b&#39;</span><span class="p">:</span>
+      <span class="n">content</span> <span class="o">=&gt;</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="nb">exec</span> <span class="p">{</span> <span class="s1">&#39;change contents of b&#39;</span><span class="p">:</span>
+      <span class="n">command</span> <span class="o">=&gt;</span> <span class="s1">&#39;sed -i.bak s/b/B/g /tmp/b&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span>
+      <span class="s2">&quot;/tmp/a&quot;</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=&gt;</span> <span class="s2">&quot;a&quot;</span><span class="p">;</span>
+      <span class="s2">&quot;/tmp/b&quot;</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=&gt;</span> <span class="s2">&quot;b&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nb">exec</span> <span class="p">{</span>
+      <span class="s2">&quot;change contents of a&quot;</span><span class="p">:</span>
+        <span class="n">command</span> <span class="o">=&gt;</span> <span class="s2">&quot;sed -i.bak s/b/B/g /tmp/a&quot;</span><span class="p">;</span>
+      <span class="s2">&quot;change contents of b&quot;</span><span class="p">:</span>
+        <span class="n">command</span> <span class="o">=&gt;</span> <span class="s2">&quot;sed -i.bak s/b/B/g /tmp/b&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="symbolic-links">9.5. Symbolic Links</h3>
+
+<p>In the interest of clarity, symbolic links should be declared by using an
+ensure value of <code>ensure =&gt; link</code> and explicitly specifying a value for the
+<code>target</code> attribute. Using a path to the target as the ensure value is not
+recommended.</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span> <span class="s1">&#39;/var/log/syslog&#39;</span><span class="p">:</span>
+      <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">link</span><span class="p">,</span>
+      <span class="n">target</span> <span class="o">=&gt;</span> <span class="s1">&#39;/var/log/messages&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span> <span class="s1">&#39;/var/log/syslog&#39;</span><span class="p">:</span>
+      <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="s1">&#39;/var/log/messages&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="file-modes">9.6. File Modes</h3>
+
+<p>File modes should be represented as 4 digits rather than 3.</p>
+
+<p>In addition, file modes should be specified as single-quoted strings instead of bare word
+numbers.</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span> <span class="s1">&#39;/var/log/syslog&#39;</span><span class="p">:</span>
+      <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">present</span><span class="p">,</span>
+      <span class="n">mode</span>   <span class="o">=&gt;</span> <span class="s1">&#39;0644&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span> <span class="s1">&#39;/var/log/syslog&#39;</span><span class="p">:</span>
+      <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">present</span><span class="p">,</span>
+      <span class="n">mode</span>   <span class="o">=&gt;</span> <span class="mi">644</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="resource-defaults">9.7. Resource Defaults</h3>
+
+<p>Resource defaults should be used in a very controlled manner, and should only
+be declared at the edges of your manifest ecosystem. Specifically, they may be declared:</p>
+
+<ul>
+  <li>At top scope in site.pp</li>
+  <li>In a class which is guaranteed to never declare another class and never be inherited by
+another class.</li>
+</ul>
+
+<p>This is due to the way resource defaults propagate through dynamic scope, which can have
+unpredictable effects far away from where the default was declared.</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="c1"># /etc/puppetlabs/puppet/manifests/site.pp:</span>
+    <span class="no">File</span> <span class="p">{</span>
+      <span class="n">mode</span>  <span class="o">=&gt;</span> <span class="s1">&#39;0644&#39;</span><span class="p">,</span>
+      <span class="n">owner</span> <span class="o">=&gt;</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+      <span class="n">group</span> <span class="o">=&gt;</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="c1"># /etc/puppetlabs/puppet/modules/ssh/manifests/init.pp</span>
+    <span class="no">File</span> <span class="p">{</span>
+      <span class="n">mode</span>  <span class="o">=&gt;</span> <span class="s1">&#39;0600&#39;</span><span class="p">,</span>
+      <span class="n">owner</span> <span class="o">=&gt;</span> <span class="s1">&#39;nobody&#39;</span><span class="p">,</span>
+      <span class="n">group</span> <span class="o">=&gt;</span> <span class="s1">&#39;nogroup&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">class</span> <span class="p">{</span><span class="s1">&#39;ssh::client&#39;</span><span class="p">:</span>
+      <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">present</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="conditionals">10. Conditionals</h2>
+
+<h3 id="keep-resource-declarations-simple">10.1. Keep Resource Declarations Simple</h3>
+
+<p>You should not intermingle conditionals with resource declarations. When using
+conditionals for data assignment, you should separate conditional code from the
+resource declarations.</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="vg">$file_mode</span> <span class="o">=</span> <span class="vg">$:</span><span class="ss">:operatingsystem</span> <span class="p">?</span> <span class="p">{</span>
+      <span class="n">debian</span> <span class="o">=&gt;</span> <span class="s1">&#39;0007&#39;</span><span class="p">,</span>
+      <span class="n">redhat</span> <span class="o">=&gt;</span> <span class="s1">&#39;0776&#39;</span><span class="p">,</span>
+      <span class="n">fedora</span> <span class="o">=&gt;</span> <span class="s1">&#39;0007&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">file</span> <span class="p">{</span> <span class="s1">&#39;/tmp/readme.txt&#39;</span><span class="p">:</span>
+       <span class="n">content</span> <span class="o">=&gt;</span> <span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+       <span class="n">mode</span>    <span class="o">=&gt;</span> <span class="vg">$file_mode</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span> <span class="s1">&#39;/tmp/readme.txt&#39;</span><span class="p">:</span>
+      <span class="n">mode</span> <span class="o">=&gt;</span> <span class="vg">$:</span><span class="ss">:operatingsystem</span> <span class="p">?</span> <span class="p">{</span>
+        <span class="n">debian</span> <span class="o">=&gt;</span> <span class="s1">&#39;0777&#39;</span><span class="p">,</span>
+        <span class="n">redhat</span> <span class="o">=&gt;</span> <span class="s1">&#39;0776&#39;</span><span class="p">,</span>
+        <span class="n">fedora</span> <span class="o">=&gt;</span> <span class="s1">&#39;0007&#39;</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="defaults-for-case-statements-and-selectors">10.2. Defaults for Case Statements and Selectors</h3>
+
+<p>Case statements should have default cases. Additionally, the default case should fail the
+catalog compilation when the resulting behavior cannot be predicted on the
+majority of platforms the module will be used on. If you want the default case to be &#8220;do nothing,&#8221; include it as an explicit <code>default: {}</code> for clarity&#8217;s sake.</p>
+
+<p>For selectors, default selections should only be omitted if you explicitly want
+catalog compilation to fail when no value matches.</p>
+
+<p>The following example follows the recommended style:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">case</span> <span class="vg">$:</span><span class="ss">:operatingsystem</span> <span class="p">{</span>
+      <span class="n">centos</span><span class="p">:</span> <span class="p">{</span>
+        <span class="vg">$version</span> <span class="o">=</span> <span class="s1">&#39;1.2.3&#39;</span>
+      <span class="p">}</span>
+      <span class="n">solaris</span><span class="p">:</span> <span class="p">{</span>
+        <span class="vg">$version</span> <span class="o">=</span> <span class="s1">&#39;3.2.1&#39;</span>
+      <span class="p">}</span>
+      <span class="n">default</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nb">fail</span><span class="p">(</span><span class="s2">&quot;Module ${module_name} is not supported on ${::operatingsystem}&quot;</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="classes">11. Classes</h2>
+
+<h3 id="separate-files">11.1. Separate Files</h3>
+
+<p>All classes and resource type definitions must be in separate files in the
+<code>manifests</code> directory of their module. For example:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="c1"># /etc/puppetlabs/puppet/modules/apache/manifests</span>
+
+    <span class="c1"># init.pp</span>
+      <span class="k">class</span> <span class="n">apache</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="c1"># ssl.pp</span>
+      <span class="k">class</span> <span class="n">apache</span><span class="o">::</span><span class="n">ssl</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="c1"># virtual_host.pp</span>
+      <span class="n">define</span> <span class="n">apache</span><span class="o">::</span><span class="n">virtual_host</span> <span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>This is functionally identical to declaring all classes and defines in init.pp,
+but highlights the structure of the module and makes everything more legible.</p>
+
+<h3 id="internal-organization-of-a-class">11.2. Internal Organization of a Class</h3>
+
+<p>Classes should be organised with a consistent structure and style.  In the
+below list there is an implicit statement of &#8220;should be at this relative
+location&#8221; for each of these items.  The word &#8220;may&#8221; should be interpreted as &#8220;If
+there are any X&#8217;s they should be here&#8221;.</p>
+
+<ol>
+  <li>Should define the class and parameters</li>
+  <li>Should validate any class parameters and fail catalog compilation if any
+ parameters are invalid</li>
+  <li>Should default any validated parameters to the most general case</li>
+  <li>May declare local variables</li>
+  <li>May declare relationships to other classes <code>Class['apache'] -&gt; Class['local_yum']</code></li>
+  <li>May override resources</li>
+  <li>May declare resource defaults</li>
+  <li>May declare resources; resources of defined and custom types should go before those of core types</li>
+  <li>May declare resource relationships inside of conditionals</li>
+</ol>
+
+<p>The following example follows the recommended style:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="n">myservice</span><span class="p">(</span><span class="vg">$ensure</span><span class="o">=</span><span class="s1">&#39;running&#39;</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="k">if</span> <span class="vg">$ensure</span> <span class="k">in</span> <span class="o">[</span> <span class="n">running</span><span class="p">,</span> <span class="n">stopped</span> <span class="o">]</span> <span class="p">{</span>
+        <span class="vg">$ensure_real</span> <span class="o">=</span> <span class="vg">$ensure</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nb">fail</span><span class="p">(</span><span class="s1">&#39;ensure parameter must be running or stopped&#39;</span><span class="p">)</span>
+      <span class="p">}</span>
+
+      <span class="k">case</span> <span class="vg">$:</span><span class="ss">:operatingsystem</span> <span class="p">{</span>
+        <span class="n">centos</span><span class="p">:</span> <span class="p">{</span>
+          <span class="vg">$package_list</span> <span class="o">=</span> <span class="s1">&#39;openssh-server&#39;</span>
+        <span class="p">}</span>
+        <span class="n">solaris</span><span class="p">:</span> <span class="p">{</span>
+          <span class="vg">$package_list</span> <span class="o">=</span> <span class="o">[</span> <span class="no">SUNWsshr</span><span class="p">,</span> <span class="no">SUNWsshu</span> <span class="o">]</span>
+        <span class="p">}</span>
+        <span class="n">default</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nb">fail</span><span class="p">(</span><span class="s2">&quot;Module ${module_name} does not support ${::operatingsystem}&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+
+      <span class="vg">$variable</span> <span class="o">=</span> <span class="s1">&#39;something&#39;</span>
+
+      <span class="no">Package</span> <span class="p">{</span> <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">present</span><span class="p">,</span> <span class="p">}</span>
+
+      <span class="no">File</span> <span class="p">{</span> <span class="n">owner</span> <span class="o">=&gt;</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="n">group</span> <span class="o">=&gt;</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=&gt;</span> <span class="s1">&#39;0644&#39;</span> <span class="p">}</span>
+
+      <span class="n">package</span> <span class="p">{</span> <span class="vg">$package_list</span><span class="p">:</span> <span class="p">}</span>
+
+      <span class="n">file</span> <span class="p">{</span> <span class="s2">&quot;/tmp/${variable}&quot;</span><span class="p">:</span>
+        <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">present</span><span class="p">,</span>
+      <span class="p">}</span>
+
+      <span class="n">service</span> <span class="p">{</span> <span class="s1">&#39;myservice&#39;</span><span class="p">:</span>
+        <span class="k">ensure</span>    <span class="o">=&gt;</span> <span class="vg">$ensure_real</span><span class="p">,</span>
+        <span class="n">hasstatus</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="relationship-declarations">11.3. Relationship Declarations</h3>
+
+<p>Relationship declarations with the chaining syntax should only be used in the
+&#8220;left to right&#8221; direction.</p>
+
+<p><strong>Good:</strong> </p>
+
+<pre><code>Package['httpd'] -&gt; Service['httpd']
+</code></pre>
+
+<p><strong>Bad:</strong></p>
+
+<pre><code>Service['httpd'] &lt;- Package['httpd']
+</code></pre>
+
+<p>When possible, you should prefer metaparameters to relationship declarations.
+One example where metaparameters aren&#8217;t desirable is when subclassing would be
+necessary to override behavior; in this situation, relationship declarations
+inside of conditionals should be used.</p>
+
+<h3 id="classes-and-defined-resource-types-within-classes">11.4. Classes and Defined Resource Types Within Classes</h3>
+
+<p>Classes and defined resource types must not be defined within other classes.</p>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="n">apache</span> <span class="p">{</span>
+      <span class="k">class</span> <span class="n">ssl</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Also bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="n">apache</span> <span class="p">{</span>
+      <span class="n">define</span> <span class="n">config</span><span class="p">()</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="class-inheritance">11.5. Class Inheritance</h3>
+
+<p>Inheritance may be used within a module, but must not be used across module
+namespaces. Cross-module dependencies should be satisfied in a more portable
+way that doesn&#8217;t violate the concept of modularity, such as with include
+statements or relationship declarations.</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="n">ssh</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+
+    <span class="k">class</span> <span class="n">ssh</span><span class="o">::</span><span class="n">client</span> <span class="n">inherits</span> <span class="n">ssh</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+
+    <span class="k">class</span> <span class="n">ssh</span><span class="o">::</span><span class="n">server</span> <span class="n">inherits</span> <span class="n">ssh</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+
+    <span class="k">class</span> <span class="n">ssh</span><span class="o">::</span><span class="n">server</span><span class="o">::</span><span class="n">solaris</span> <span class="n">inherits</span> <span class="n">ssh</span><span class="o">::</span><span class="n">server</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="n">ssh</span> <span class="n">inherits</span> <span class="n">server</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+
+    <span class="k">class</span> <span class="n">ssh</span><span class="o">::</span><span class="n">client</span> <span class="n">inherits</span> <span class="n">workstation</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+
+    <span class="k">class</span> <span class="n">wordpress</span> <span class="n">inherits</span> <span class="n">apache</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Inheritance in general should be avoided when alternatives are viable.  For
+example, instead of using inheritance to override relationships in an existing
+class when stopping a service, consider using a single class with an ensure
+parameter and conditional relationship declarations:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="n">bluetooth</span><span class="p">(</span><span class="vg">$ensure</span><span class="o">=</span><span class="n">present</span><span class="p">,</span> <span class="vg">$autoupgrade</span><span class="o">=</span><span class="kp">false</span><span class="p">)</span> <span class="p">{</span>
+       <span class="c1"># Validate class parameter inputs. (Fail early and fail hard)</span>
+
+       <span class="k">if</span> <span class="o">!</span> <span class="p">(</span><span class="vg">$ensure</span> <span class="k">in</span> <span class="o">[</span> <span class="s2">&quot;present&quot;</span><span class="p">,</span> <span class="s2">&quot;absent&quot;</span> <span class="o">]</span><span class="p">)</span> <span class="p">{</span>
+         <span class="nb">fail</span><span class="p">(</span><span class="s2">&quot;bluetooth ensure parameter must be absent or present&quot;</span><span class="p">)</span>
+       <span class="p">}</span>
+
+       <span class="k">if</span> <span class="o">!</span> <span class="p">(</span><span class="vg">$autoupgrade</span> <span class="k">in</span> <span class="o">[</span> <span class="kp">true</span><span class="p">,</span> <span class="kp">false</span> <span class="o">]</span><span class="p">)</span> <span class="p">{</span>
+         <span class="nb">fail</span><span class="p">(</span><span class="s2">&quot;bluetooth autoupgrade parameter must be true or false&quot;</span><span class="p">)</span>
+       <span class="p">}</span>
+
+       <span class="c1"># Set local variables based on the desired state</span>
+
+       <span class="k">if</span> <span class="vg">$ensure</span> <span class="o">==</span> <span class="s2">&quot;present&quot;</span> <span class="p">{</span>
+         <span class="vg">$service_enable</span> <span class="o">=</span> <span class="kp">true</span>
+         <span class="vg">$service_ensure</span> <span class="o">=</span> <span class="n">running</span>
+         <span class="k">if</span> <span class="vg">$autoupgrade</span> <span class="o">==</span> <span class="kp">true</span> <span class="p">{</span>
+           <span class="vg">$package_ensure</span> <span class="o">=</span> <span class="n">latest</span>
+         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+           <span class="vg">$package_ensure</span> <span class="o">=</span> <span class="n">present</span>
+         <span class="p">}</span>
+       <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+         <span class="vg">$service_enable</span> <span class="o">=</span> <span class="kp">false</span>
+         <span class="vg">$service_ensure</span> <span class="o">=</span> <span class="n">stopped</span>
+         <span class="vg">$package_ensure</span> <span class="o">=</span> <span class="n">absent</span>
+       <span class="p">}</span>
+
+       <span class="c1"># Declare resources without any relationships in this section</span>
+
+       <span class="n">package</span> <span class="p">{</span> <span class="o">[</span> <span class="s2">&quot;bluez-libs&quot;</span><span class="p">,</span> <span class="s2">&quot;bluez-utils&quot;</span><span class="o">]</span><span class="p">:</span>
+         <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="vg">$package_ensure</span><span class="p">,</span>
+       <span class="p">}</span>
+
+       <span class="n">service</span> <span class="p">{</span> <span class="n">hidd</span><span class="p">:</span>
+         <span class="n">enable</span>         <span class="o">=&gt;</span> <span class="vg">$service_enable</span><span class="p">,</span>
+         <span class="k">ensure</span>         <span class="o">=&gt;</span> <span class="vg">$service_ensure</span><span class="p">,</span>
+         <span class="n">status</span>         <span class="o">=&gt;</span> <span class="s2">&quot;source /etc/init.d/functions; status hidd&quot;</span><span class="p">,</span>
+         <span class="n">hasstatus</span>      <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+         <span class="n">hasrestart</span>     <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+      <span class="p">}</span>
+
+      <span class="c1"># Finally, declare relations based on desired behavior</span>
+
+      <span class="k">if</span> <span class="vg">$ensure</span> <span class="o">==</span> <span class="s2">&quot;present&quot;</span> <span class="p">{</span>
+        <span class="no">Package</span><span class="o">[</span><span class="s2">&quot;bluez-libs&quot;</span><span class="o">]</span>  <span class="o">-&gt;</span> <span class="no">Package</span><span class="o">[</span><span class="s2">&quot;bluez-utils&quot;</span><span class="o">]</span>
+        <span class="no">Package</span><span class="o">[</span><span class="s2">&quot;bluez-libs&quot;</span><span class="o">]</span>  <span class="o">~&gt;</span> <span class="no">Service</span><span class="o">[</span><span class="n">hidd</span><span class="o">]</span>
+        <span class="no">Package</span><span class="o">[</span><span class="s2">&quot;bluez-utils&quot;</span><span class="o">]</span> <span class="o">~&gt;</span> <span class="no">Service</span><span class="o">[</span><span class="n">hidd</span><span class="o">]</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="no">Service</span><span class="o">[</span><span class="s2">&quot;hidd&quot;</span><span class="o">]</span>        <span class="o">-&gt;</span> <span class="no">Package</span><span class="o">[</span><span class="s2">&quot;bluez-utils&quot;</span><span class="o">]</span>
+        <span class="no">Package</span><span class="o">[</span><span class="s2">&quot;bluez-utils&quot;</span><span class="o">]</span> <span class="o">-&gt;</span> <span class="no">Package</span><span class="o">[</span><span class="s2">&quot;bluez-libs&quot;</span><span class="o">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>(This example makes several assumptions and is based on an example provided in
+the Puppet Master training for managing bluetooth.)</p>
+
+<p>In summary:</p>
+
+<ul>
+  <li>Class inheritance is only useful for overriding resource attributes; any
+other use case is better accomplished with other methods.</li>
+  <li>If you just need to override relationship metaparameters, you should use a single class with conditional relationship declarations instead of inheritance.</li>
+  <li>In many cases, even other attributes (e.g. ensure and enable) may have their behavior changed with variables and conditional logic instead of inheritance.</li>
+</ul>
+
+<h3 id="namespacing-variables">11.6. Namespacing Variables</h3>
+
+<p>When using top-scope variables, including facts, Puppet modules should
+explicitly specify the empty namespace to prevent accidental scoping issues.</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="vg">$:</span><span class="ss">:operatingsystem</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="vg">$operatingsystem</span>
+</code></pre>
+</div>
+
+<h3 id="variable-format">11.7. Variable format</h3>
+
+<p>When defining variables you should only use letters, numbers and
+underscores. You should specifically not make use of dashes.</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="vg">$foo_bar123</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="vg">$foo</span><span class="o">-</span><span class="n">bar123</span>
+</code></pre>
+</div>
+
+<h3 id="display-order-of-class-parameters">11.8. Display Order of Class Parameters</h3>
+
+<p>In parameterized class and defined resource type declarations, parameters that
+are required should be listed before optional parameters (i.e. parameters with
+defaults).</p>
+
+<p><strong>Good:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="n">ntp</span> <span class="p">(</span>
+      <span class="vg">$servers</span><span class="p">,</span>
+      <span class="vg">$options</span>   <span class="o">=</span> <span class="s2">&quot;iburst&quot;</span><span class="p">,</span>
+      <span class="vg">$multicast</span> <span class="o">=</span> <span class="kp">false</span>
+    <span class="p">)</span> <span class="p">{}</span>
+</code></pre>
+</div>
+
+<p><strong>Bad:</strong></p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="n">ntp</span> <span class="p">(</span>
+      <span class="vg">$options</span>   <span class="o">=</span> <span class="s2">&quot;iburst&quot;</span><span class="p">,</span>
+      <span class="vg">$servers</span><span class="p">,</span>
+      <span class="vg">$multicast</span> <span class="o">=</span> <span class="kp">false</span>
+    <span class="p">)</span> <span class="p">{}</span>
+</code></pre>
+</div>
+
+<h3 id="class-parameter-defaults">11.9 Class parameter defaults</h3>
+
+<p>When writing a module that accepts class parameters sane defaults SHOULD be
+provided for optional parameters to allow the end user the option of not
+explicitly specifying the parameter when declaring the class.</p>
+
+<p>For example:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="n">ntp</span><span class="p">(</span>
+      <span class="vg">$server</span> <span class="o">=</span> <span class="s1">&#39;UNSET&#39;</span>
+    <span class="p">)</span> <span class="p">{</span>
+
+      <span class="kp">include</span> <span class="n">ntp</span><span class="o">::</span><span class="n">params</span>
+
+      <span class="vg">$server_real</span> <span class="o">=</span> <span class="vg">$server</span> <span class="p">?</span> <span class="p">{</span>
+        <span class="s1">&#39;UNSET&#39;</span> <span class="o">=&gt;</span> <span class="vg">$:</span><span class="ss">:ntp</span><span class="o">::</span><span class="n">params</span><span class="o">::</span><span class="n">server</span><span class="p">,</span>
+        <span class="n">default</span> <span class="o">=&gt;</span> <span class="vg">$server</span><span class="p">,</span>
+      <span class="p">}</span>
+
+      <span class="n">notify</span> <span class="p">{</span> <span class="s1">&#39;ntp&#39;</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=&gt;</span> <span class="s2">&quot;server=[$server_real]&quot;</span><span class="p">,</span>
+      <span class="p">}</span>
+
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>The reason this class is declared in this manner is to be fully compatible with
+all Puppet 2.6.x versions.  The following alternative method SHOULD NOT be used
+because it is not compatible with Puppet 2.6.2 and earlier.</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="n">ntp</span><span class="p">(</span>
+  <span class="vg">$server</span> <span class="o">=</span> <span class="vg">$ntp</span><span class="o">::</span><span class="n">params</span><span class="o">::</span><span class="n">server</span>
+<span class="p">)</span> <span class="n">inherits</span> <span class="n">ntp</span><span class="o">::</span><span class="n">params</span> <span class="p">{</span>
+
+    <span class="n">notify</span> <span class="p">{</span> <span class="s1">&#39;ntp&#39;</span><span class="p">:</span>
+      <span class="n">message</span> <span class="o">=&gt;</span> <span class="s2">&quot;server=[$server]&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Other SHOULD recommendations:</p>
+
+<ul>
+  <li>SHOULD use the _real suffix to indicate a scope local variable for
+maintainability over time.</li>
+  <li>SHOULD use fully qualified namespace variables when pulling the value
+from the module params class to avoid namespace collisions.</li>
+  <li>SHOULD declare the params class so the end user does not have to for the
+module to function properly.</li>
+</ul>
+
+<p>This recommended pattern may be relaxed when Puppet 2.7 is more widely adopted
+and module compatibility with as many versions of 2.6.x is no longer a primary
+concern.</p>
+
+<p>This diff illustrates the changes between these two commonly used patterns and
+how to switch from one to the other.</p>
+
+<div class="highlight"><pre><code class="diff">    diff --git a/manifests/init.pp b/manifests/init.pp
+    index c16c3a0..7923ccb 100644
+    --- a/manifests/init.pp
+    +++ b/manifests/init.pp
+    @@ -12,9 +12,14 @@
+     #
+     class paramstest (
+       $mandatory,
+    -  $param = $paramstest::params::param
+    -) inherits paramstest::params {
+    +  $param = &#39;UNSET&#39;
+    +) {
+    +  include paramstest::params
+    +  $param\_real = $param ? {
+    +    &#39;UNSET&#39; =&gt; $::paramstest::params::param,
+    +    default =&gt; $param,
+    +  }
+       notify { &#39;TEST&#39;:
+    -    message =&gt; &quot; param=[$param] mandatory=[$mandatory]&quot;,
+    +    message =&gt; &quot; param=[$param\_real] mandatory=[$mandatory]&quot;,
+       }
+     }
+</code></pre>
+</div>
+
+<h2 id="tests">12. Tests</h2>
+
+<p>All manifests should have a corresponding test manifest in the module&#8217;s <code>tests</code>
+directory.</p>
+
+<pre><code>modulepath/apache/manifests/{init,ssl}.pp
+modulepath/apache/tests/{init,ssl}.pp
+</code></pre>
+
+<p>The test manifest should provide a clear example of how to declare the class or
+defined resource type.  In addition, the test manifest should also declare any
+classes required by the corresponding class to ensure <code>puppet apply</code> works in a
+limited, stand alone manner.</p>
+
+<h2 id="puppet-doc">13. Puppet Doc</h2>
+
+<p>Classes and defined resource types should be documented inline using
+<a href="http://links.puppetlabs.com/rdoc_markup">RDoc markup</a>.  These inline
+documentation comments are important because online documentation can then be
+easily generated using the
+<a href="http://links.puppetlabs.com/puppet_manifest_documentation">puppet doc</a>
+command.</p>
+
+<p>For classes:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="c1"># == Class: example_class</span>
+    <span class="c1">#</span>
+    <span class="c1"># Full description of class example_class here.</span>
+    <span class="c1">#</span>
+    <span class="c1"># === Parameters</span>
+    <span class="c1">#</span>
+    <span class="c1"># Document parameters here.</span>
+    <span class="c1">#</span>
+    <span class="c1"># [*ntp_servers*]</span>
+    <span class="c1">#   Explanation of what this parameter affects and what it defaults to.</span>
+    <span class="c1">#   e.g. &quot;Specify one or more upstream ntp servers as an array.&quot;</span>
+    <span class="c1">#</span>
+    <span class="c1"># === Variables</span>
+    <span class="c1">#</span>
+    <span class="c1"># Here you should define a list of variables that this module would require.</span>
+    <span class="c1">#</span>
+    <span class="c1"># [*enc_ntp_servers*]</span>
+    <span class="c1">#   Explanation of how this variable affects the funtion of this class and if it</span>
+    <span class="c1">#   has a default. e.g. &quot;The parameter enc_ntp_servers must be set by the</span>
+    <span class="c1">#   External Node Classifier as a comma separated list of hostnames.&quot; (Note,</span>
+    <span class="c1">#   global variables should not be used in preference to class parameters  as of</span>
+    <span class="c1">#   Puppet 2.6.)</span>
+    <span class="c1">#</span>
+    <span class="c1"># === Examples</span>
+    <span class="c1">#</span>
+    <span class="c1">#  class { &#39;example_class&#39;:</span>
+    <span class="c1">#    ntp_servers =&gt; [ &#39;pool.ntp.org&#39;, &#39;ntp.local.company.com&#39; ]</span>
+    <span class="c1">#  }</span>
+    <span class="c1">#</span>
+    <span class="c1"># === Authors</span>
+    <span class="c1">#</span>
+    <span class="c1"># Author Name &lt;author@example.com&gt;</span>
+    <span class="c1">#</span>
+    <span class="c1"># === Copyright</span>
+    <span class="c1">#</span>
+    <span class="c1"># Copyright 2011 Your name here, unless otherwise noted.</span>
+    <span class="c1">#</span>
+    <span class="k">class</span> <span class="n">example_class</span> <span class="p">{</span>
+
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>For defined resources:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="c1"># == Define: example_resource</span>
+    <span class="c1">#</span>
+    <span class="c1"># Full description of defined resource type example_resource here.</span>
+    <span class="c1">#</span>
+    <span class="c1"># === Parameters</span>
+    <span class="c1">#</span>
+    <span class="c1"># Document parameters here</span>
+    <span class="c1">#</span>
+    <span class="c1"># [*namevar*]</span>
+    <span class="c1">#   If there is a parameter that defaults to the value of the title string</span>
+    <span class="c1">#   when not explicitly set, you must always say so.  This parameter can be</span>
+    <span class="c1">#   referred to as a &quot;namevar,&quot; since it&#39;s functionally equivalent to the</span>
+    <span class="c1">#   namevar of a core resource type.</span>
+    <span class="c1">#</span>
+    <span class="c1"># [*basedir*]</span>
+    <span class="c1">#   Description of this variable.  For example, &quot;This parameter sets the</span>
+    <span class="c1">#   base directory for this resource type.  It should not contain a trailing</span>
+    <span class="c1">#   slash.&quot;</span>
+    <span class="c1">#</span>
+    <span class="c1"># === Examples</span>
+    <span class="c1">#</span>
+    <span class="c1"># Provide some examples on how to use this type:</span>
+    <span class="c1">#</span>
+    <span class="c1">#   example_class::example_resource { &#39;namevar&#39;:</span>
+    <span class="c1">#     basedir =&gt; &#39;/tmp/src&#39;,</span>
+    <span class="c1">#   }</span>
+    <span class="c1">#</span>
+    <span class="c1"># === Authors</span>
+    <span class="c1">#</span>
+    <span class="c1"># Author Name &lt;author@example.com&gt;</span>
+    <span class="c1">#</span>
+    <span class="c1"># === Copyright</span>
+    <span class="c1">#</span>
+    <span class="c1"># Copyright 2011 Your name here, unless otherwise noted.</span>
+    <span class="c1">#</span>
+    <span class="n">define</span> <span class="n">example_class</span><span class="o">::</span><span class="n">example_resource</span><span class="p">(</span><span class="vg">$basedir</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>This will allow documentation to be automatically extracted with the puppet doc
+tool.</p>
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <div class="secondary-content">
+                  <div id="subCol">
+                      <h3 class="chapter">Contents</h3>
+
+<ol class="toc">
+  <li class="toc-lv2"><a href="#terminology">1. Terminology</a></li>
+  <li class="toc-lv2"><a href="#puppet-version">2. Puppet Version</a></li>
+  <li class="toc-lv2"><a href="#why-a-style-guide">3. Why a Style Guide?</a></li>
+  <li class="toc-lv2"><a href="#general-philosophies">4. General Philosophies</a></li>
+  <li class="toc-lv2"><a href="#module-metadata">5. Module Metadata</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#style-versioning">5.1. Style Versioning</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#spacing-indentation--whitespace">6. Spacing, Indentation, &amp; Whitespace</a></li>
+  <li class="toc-lv2"><a href="#comments">7. Comments</a></li>
+  <li class="toc-lv2"><a href="#quoting">8. Quoting</a></li>
+  <li class="toc-lv2"><a href="#resources">9. Resources</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#resource-names">9.1. Resource Names</a></li>
+   <li class="toc-lv3"><a href="#arrow-alignment">9.2. Arrow Alignment</a></li>
+   <li class="toc-lv3"><a href="#attribute-ordering">9.3. Attribute Ordering</a></li>
+   <li class="toc-lv3"><a href="#compression">9.4. Compression</a></li>
+   <li class="toc-lv3"><a href="#symbolic-links">9.5. Symbolic Links</a></li>
+   <li class="toc-lv3"><a href="#file-modes">9.6. File Modes</a></li>
+   <li class="toc-lv3"><a href="#resource-defaults">9.7. Resource Defaults</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#conditionals">10. Conditionals</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#keep-resource-declarations-simple">10.1. Keep Resource Declarations Simple</a></li>
+   <li class="toc-lv3"><a href="#defaults-for-case-statements-and-selectors">10.2. Defaults for Case Statements and Selectors</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#classes">11. Classes</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#separate-files">11.1. Separate Files</a></li>
+   <li class="toc-lv3"><a href="#internal-organization-of-a-class">11.2. Internal Organization of a Class</a></li>
+   <li class="toc-lv3"><a href="#relationship-declarations">11.3. Relationship Declarations</a></li>
+   <li class="toc-lv3"><a href="#classes-and-defined-resource-types-within-classes">11.4. Classes and Defined Resource Types Within Classes</a></li>
+   <li class="toc-lv3"><a href="#class-inheritance">11.5. Class Inheritance</a></li>
+   <li class="toc-lv3"><a href="#namespacing-variables">11.6. Namespacing Variables</a></li>
+   <li class="toc-lv3"><a href="#variable-format">11.7. Variable format</a></li>
+   <li class="toc-lv3"><a href="#display-order-of-class-parameters">11.8. Display Order of Class Parameters</a></li>
+   <li class="toc-lv3"><a href="#class-parameter-defaults">11.9 Class parameter defaults</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#tests">12. Tests</a></li>
+  <li class="toc-lv2"><a href="#puppet-doc">13. Puppet Doc</a></li>
+</ol>
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+	</body>
+</html>

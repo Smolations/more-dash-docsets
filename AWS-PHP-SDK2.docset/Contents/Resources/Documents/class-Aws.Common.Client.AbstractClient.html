@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 3.0dev">
+
+	<title>PHP 2: Class Aws\Common\Client\AbstractClient | AWS SDK for PHP 2</title>
+
+	<script type="text/javascript" src="resources/combined.js?215010371"></script>
+	<script type="text/javascript" src="elementlist.js?840307205"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?1683603398">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3334156134">
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AWS SDK for PHP 2</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Aws.Common.Client.html" title="Summary of Aws\Common\Client"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical">
+
+						</li>
+<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+						<li class="divider-vertical">
+
+						</li>
+<li>
+							<a href="aws-sdk-for-php-2-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active main">
+<a href="namespace-Aws.html">Aws<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.html">AutoScaling<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.html">CloudFormation<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.html">CloudFront<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.html">CloudFront_2012_05_05<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.html">CloudSearch<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.html">CloudWatch<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="active main">
+<a href="namespace-Aws.Common.html">Common<span></span></a>
+						<ul>
+				<li class="active main">
+<a href="namespace-Aws.Common.Client.html">Client</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Command.html">Command</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Credentials.html">Credentials</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Exception.html">Exception<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Exception.Parser.html">Parser</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Facade.html">Facade</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Hash.html">Hash</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.InstanceMetadata.html">InstanceMetadata<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.InstanceMetadata.Waiter.html">Waiter</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Signature.html">Signature</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Waiter.html">Waiter</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.html">DataPipeline<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.html">DirectConnect<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.html">DynamoDb<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Model.BatchRequest.html">BatchRequest</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Session.html">Session<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Session.LockingStrategy.html">LockingStrategy</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.html">DynamoDb_2011_12_05<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.html">Ec2<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Iterator.html">Iterator</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.html">ElastiCache<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.html">ElasticBeanstalk<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticLoadBalancing.html">ElasticLoadBalancing<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticLoadBalancing.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticTranscoder.html">ElasticTranscoder<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticTranscoder.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Emr.html">Emr<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Emr.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Emr.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.html">Glacier<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Iam.html">Iam<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Iam.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Iam.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.html">ImportExport<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Iterator.html">Iterator</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.html">OpsWorks<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Rds.html">Rds<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Rds.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Rds.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Redshift.html">Redshift<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Redshift.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Redshift.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Route53.html">Route53<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Route53.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Route53.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.html">S3<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Command.html">Command</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Exception.html">Exception<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Exception.Parser.html">Parser</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Sync.html">Sync</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Ses.html">Ses<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Ses.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ses.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.SimpleDb.html">SimpleDb<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.SimpleDb.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sns.html">Sns<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sns.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Sns.MessageValidator.html">MessageValidator<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sns.MessageValidator.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sqs.html">Sqs<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sqs.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Sqs.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.html">StorageGateway<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sts.html">Sts<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sts.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Support.html">Support<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Support.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Swf.html">Swf<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Swf.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Swf.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.html">Guzzle<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Batch.html">Batch<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Batch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Cache.html">Cache</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Common.html">Common<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Common.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Http.html">Http<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Http.Curl.html">Curl</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Http.Exception.html">Exception</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Http.Message.html">Message<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Http.Message.Header.html">Header</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Http.QueryAggregator.html">QueryAggregator</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Inflection.html">Inflection</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Iterator.html">Iterator</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Log.html">Log</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.html">Parser<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Parser.Cookie.html">Cookie</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.Message.html">Message</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.UriTemplate.html">UriTemplate</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.Url.html">Url</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.html">Plugin<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.Async.html">Async</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Backoff.html">Backoff</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cache.html">Cache</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.html">Cookie<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.CookieJar.html">CookieJar</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.ErrorResponse.html">ErrorResponse<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.ErrorResponse.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.History.html">History</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Log.html">Log</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Md5.html">Md5</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Mock.html">Mock</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Oauth.html">Oauth</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Service.html">Service<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Builder.html">Builder</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.html">Command<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Command.Factory.html">Factory</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.html">LocationVisitor<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.Request.html">Request</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.Response.html">Response</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Service.Description.html">Description</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Exception.html">Exception</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Resource.html">Resource</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Stream.html">Stream</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Aws.Common.Client.AbstractClient.html">AbstractClient</a></li>
+				<li><a href="class-Aws.Common.Client.ClientBuilder.html">ClientBuilder</a></li>
+				<li><a href="class-Aws.Common.Client.DefaultClient.html">DefaultClient</a></li>
+				<li><a href="class-Aws.Common.Client.ExpiredCredentialsChecker.html">ExpiredCredentialsChecker</a></li>
+				<li><a href="class-Aws.Common.Client.ThrottlingErrorChecker.html">ThrottlingErrorChecker</a></li>
+				<li><a href="class-Aws.Common.Client.UploadBodyListener.html">UploadBodyListener</a></li>
+				<li><a href="class-Aws.Common.Client.UserAgentListener.html">UserAgentListener</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Aws.Common.Client.AwsClientInterface.html">AwsClientInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class AbstractClient</h1>
+
+
+	<div class="description">
+	
+<p>Abstract AWS client</p>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-Guzzle.Common.AbstractHasDispatcher.html"><span>Guzzle\Common\AbstractHasDispatcher</span></a>
+			
+			 implements 
+				<a href="class-Guzzle.Common.HasDispatcherInterface.html"><span>Guzzle\Common\HasDispatcherInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-Guzzle.Http.Client.html"><span>Guzzle\Http\Client</span></a>
+			
+			 implements 
+				<a href="class-Guzzle.Http.ClientInterface.html"><span>Guzzle\Http\ClientInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-Guzzle.Service.Client.html"><span>Guzzle\Service\Client</span></a>
+			
+			 implements 
+				<a href="class-Guzzle.Service.ClientInterface.html"><span>Guzzle\Service\ClientInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:90px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Aws\Common\Client\AbstractClient</span></b>			
+			 implements 
+				<a href="class-Aws.Common.Client.AwsClientInterface.html"><span>Aws\Common\Client\AwsClientInterface</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-Aws.AutoScaling.AutoScalingClient.html">Aws\AutoScaling\AutoScalingClient</a></code>, 
+			<code><a href="class-Aws.CloudFormation.CloudFormationClient.html">Aws\CloudFormation\CloudFormationClient</a></code>, 
+			<code><a href="class-Aws.DynamoDb.DynamoDbClient.html">Aws\DynamoDb\DynamoDbClient</a></code>, 
+			<code><a href="class-Aws.DynamoDb_2011_12_05.DynamoDbClient.html">Aws\DynamoDb_2011_12_05\DynamoDbClient</a></code>, 
+			<code><a href="class-Aws.Ec2.Ec2Client.html">Aws\Ec2\Ec2Client</a></code>, 
+			<code><a href="class-Aws.ElastiCache.ElastiCacheClient.html">Aws\ElastiCache\ElastiCacheClient</a></code>, 
+			<code><a href="class-Aws.ElasticBeanstalk.ElasticBeanstalkClient.html">Aws\ElasticBeanstalk\ElasticBeanstalkClient</a></code>, 
+			<code><a href="class-Aws.ElasticLoadBalancing.ElasticLoadBalancingClient.html">Aws\ElasticLoadBalancing\ElasticLoadBalancingClient</a></code>, 
+			<code><a href="class-Aws.ElasticTranscoder.ElasticTranscoderClient.html">Aws\ElasticTranscoder\ElasticTranscoderClient</a></code>, 
+			<code><a href="class-Aws.Emr.EmrClient.html">Aws\Emr\EmrClient</a></code>, 
+			<code><a href="class-Aws.Glacier.GlacierClient.html">Aws\Glacier\GlacierClient</a></code>, 
+			<code><a href="class-Aws.Iam.IamClient.html">Aws\Iam\IamClient</a></code>, 
+			<code><a href="class-Aws.CloudFront.CloudFrontClient.html">Aws\CloudFront\CloudFrontClient</a></code>, 
+			<code><a href="class-Aws.ImportExport.ImportExportClient.html">Aws\ImportExport\ImportExportClient</a></code>, 
+			<code><a href="class-Aws.OpsWorks.OpsWorksClient.html">Aws\OpsWorks\OpsWorksClient</a></code>, 
+			<code><a href="class-Aws.Rds.RdsClient.html">Aws\Rds\RdsClient</a></code>, 
+			<code><a href="class-Aws.Redshift.RedshiftClient.html">Aws\Redshift\RedshiftClient</a></code>, 
+			<code><a href="class-Aws.Route53.Route53Client.html">Aws\Route53\Route53Client</a></code>, 
+			<code><a href="class-Aws.S3.S3Client.html">Aws\S3\S3Client</a></code>, 
+			<code><a href="class-Aws.Ses.SesClient.html">Aws\Ses\SesClient</a></code>, 
+			<code><a href="class-Aws.SimpleDb.SimpleDbClient.html">Aws\SimpleDb\SimpleDbClient</a></code>, 
+			<code><a href="class-Aws.Sns.SnsClient.html">Aws\Sns\SnsClient</a></code>, 
+			<code><a href="class-Aws.Sqs.SqsClient.html">Aws\Sqs\SqsClient</a></code>, 
+			<code><a href="class-Aws.CloudFront_2012_05_05.CloudFrontClient.html">Aws\CloudFront_2012_05_05\CloudFrontClient</a></code>, 
+			<code><a href="class-Aws.StorageGateway.StorageGatewayClient.html">Aws\StorageGateway\StorageGatewayClient</a></code>, 
+			<code><a href="class-Aws.Sts.StsClient.html">Aws\Sts\StsClient</a></code>, 
+			<code><a href="class-Aws.Support.SupportClient.html">Aws\Support\SupportClient</a></code>, 
+			<code><a href="class-Aws.Swf.SwfClient.html">Aws\Swf\SwfClient</a></code>, 
+			<code><a href="class-Aws.CloudSearch.CloudSearchClient.html">Aws\CloudSearch\CloudSearchClient</a></code>, 
+			<code><a href="class-Aws.CloudWatch.CloudWatchClient.html">Aws\CloudWatch\CloudWatchClient</a></code>, 
+			<code><a href="class-Aws.Common.Client.DefaultClient.html">Aws\Common\Client\DefaultClient</a></code>, 
+			<code><a href="class-Aws.Common.InstanceMetadata.InstanceMetadataClient.html">Aws\Common\InstanceMetadata\InstanceMetadataClient</a></code>, 
+			<code><a href="class-Aws.DataPipeline.DataPipelineClient.html">Aws\DataPipeline\DataPipelineClient</a></code>, 
+			<code><a href="class-Aws.DirectConnect.DirectConnectClient.html">Aws\DirectConnect\DirectConnectClient</a></code>
+		</p>
+	</div>
+
+
+
+
+
+
+	<div class="alert alert-info">
+		<b>Abstract</b><br>
+		
+		<b>Namespace:</b> <a href="namespace-Aws.html">Aws</a>\<a href="namespace-Aws.Common.html">Common</a>\<a href="namespace-Aws.Common.Client.html">Client</a><br>
+		
+
+		<b>Located at</b> Aws/Common/Client/AbstractClient.php<br>
+	</div>
+
+
+
+
+        <h2>Methods summary</h2>
+        <ul class="method-summary">
+        <li>
+            <a class="method-summary-link" href="#_getAllEvents">
+                <span class="attributes">
+                    <code>
+                     public static
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getAllEvents</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Get a list of all of the events emitted from the class</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#___construct">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">__construct</span> ( <span>Aws\Common\Credentials\CredentialsInterface $credentials</span>, <span>Aws\Common\Signature\SignatureInterface $signature</span>, <span>Guzzle\Common\Collection $config</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info"></div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#___call">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">__call</span> ( <span>string $method</span>, <span>array $args</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Magic method used to retrieve a command</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getEndpoint">
+                <span class="attributes">
+                    <code>
+                     public static
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getEndpoint</span> ( <span>Guzzle\Service\Description\ServiceDescriptionInterface $description</span>, <span>string $region</span>, <span>string $scheme</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Get an endpoint for a specific region from a service description</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getCredentials">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getCredentials</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Returns the AWS credentials associated with the client</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_setCredentials">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">setCredentials</span> ( <span>Aws\Common\Credentials\CredentialsInterface $credentials</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Sets the credentials object associated with the client</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getSignature">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getSignature</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Returns the signature implementation used with the client</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getRegions">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getRegions</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Get a list of available regions and region data</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getRegion">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getRegion</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Get the name of the region to which the client is configured to send
+requests</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_setRegion">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">setRegion</span> ( <span>string $region</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Change the region to which the client is configured to send requests</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_waitUntil">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">waitUntil</span> ( <span>string $waiter</span>, <span>array $input = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Wait until a resource is available or an associated waiter returns true</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getWaiter">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getWaiter</span> ( <span>string $waiter</span>, <span>array $input = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Get a named waiter object</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_setWaiterFactory">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">setWaiterFactory</span> ( <span>Aws\Common\Waiter\WaiterFactoryInterface $waiterFactory</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Set the waiter factory to use with the client</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getWaiterFactory">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getWaiterFactory</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Get the waiter factory being used by the client</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getApiVersion">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getApiVersion</span> ( )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Get the API version of the client (e.g. 2006-03-01)</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_send">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">send</span> ( <span>array|RequestInterface $requests</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Sends a single request or an array of requests in parallel</p>
+</div>
+        </li>
+        </ul>
+
+		<h2>Methods detail</h2>
+		<div id="methods">
+		<a name="//apple_ref/cpp/Method/_getAllEvents" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_getAllEvents" class="dashAnchor"></a><div id="_getAllEvents" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getAllEvents">#</a>
+                <code class="attributes ">
+                     public static
+                    array
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getAllEvents</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Get a list of all of the events emitted from the class</p>
+
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>array</code><br>
+                        </div>
+
+
+
+                        <h4>Overrides</h4>
+                        <div class="list"><code><a href="class-Guzzle.Service.Client.html#_getAllEvents">Guzzle\Service\Client::getAllEvents</a></code></div>
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Guzzle.Common.HasDispatcherInterface.html#_getAllEvents">Guzzle\Common\HasDispatcherInterface::getAllEvents()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/___construct" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/___construct" class="dashAnchor"></a><div id="___construct" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#___construct">#</a>
+                <code class="attributes ">
+                     public 
+                    
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">__construct</span>( <span>Aws\Common\Aws\Common\Credentials\CredentialsInterface <var>$credentials</var></span>, <span>Aws\Common\Aws\Common\Signature\SignatureInterface <var>$signature</var></span>, <span><code><a href="class-Guzzle.Common.Collection.html">Guzzle\Common\Collection</a></code> <var>$config</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$credentials</var></dt>
+                            <dd>
+<code><code><a href="class-Aws.Common.Credentials.CredentialsInterface.html">Aws\Common\Credentials\CredentialsInterface</a></code></code><br>$credentials AWS credentials</dd>
+                            <dt><var>$signature</var></dt>
+                            <dd>
+<code><code><a href="class-Aws.Common.Signature.SignatureInterface.html">Aws\Common\Signature\SignatureInterface</a></code></code><br>$signature Signature implementation</dd>
+                            <dt><var>$config</var></dt>
+                            <dd>
+<code><code><a href="class-Guzzle.Common.Collection.html">Guzzle\Common\Collection</a></code></code><br>$config Configuration options</dd>
+                        </dl></div>
+
+
+                        <h4>Throws</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Exception.InvalidArgumentException.html">Aws\Common\Exception\InvalidArgumentException</a></code></code><br>if an endpoint provider isn't provided<br>
+                        </div>
+
+
+                        <h4>Overrides</h4>
+                        <div class="list"><code><a href="class-Guzzle.Http.Client.html#___construct">Guzzle\Http\Client::__construct</a></code></div>
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/___call" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/___call" class="dashAnchor"></a><div id="___call" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#___call">#</a>
+                <code class="attributes ">
+                     public 
+                    mixed
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">__call</span>( <span>string <var>$method</var></span>, <span>array <var>$args</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Magic method used to retrieve a command</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$method</var></dt>
+                            <dd>
+<code>string</code><br>$method Name of the command object to instantiate</dd>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$args Arguments to pass to the command</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>mixed</code><br>Returns the result of the command<br>
+                        </div>
+
+                        <h4>Throws</h4>
+                        <div class="list">
+                            <code><code><a href="class-BadMethodCallException.html">BadMethodCallException</a></code></code><br>when a command is not found<br>
+                        </div>
+
+
+                        <h4>Overrides</h4>
+                        <div class="list"><code><a href="class-Guzzle.Service.Client.html#___call">Guzzle\Service\Client::__call</a></code></div>
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getEndpoint" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_getEndpoint" class="dashAnchor"></a><div id="_getEndpoint" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getEndpoint">#</a>
+                <code class="attributes ">
+                     public static
+                    string
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getEndpoint</span>( <span><code><a href="class-Guzzle.Service.Description.ServiceDescriptionInterface.html">Guzzle\Service\Description\ServiceDescriptionInterface</a></code> <var>$description</var></span>, <span>string <var>$region</var></span>, <span>string <var>$scheme</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Get an endpoint for a specific region from a service description</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$description</var></dt>
+                            <dd>
+<code><code><a href="class-Guzzle.Service.Description.ServiceDescriptionInterface.html">Guzzle\Service\Description\ServiceDescriptionInterface</a></code></code><br>$description Service description</dd>
+                            <dt><var>$region</var></dt>
+                            <dd>
+<code>string</code><br>$region Region of the endpoint</dd>
+                            <dt><var>$scheme</var></dt>
+                            <dd>
+<code>string</code><br>$scheme URL scheme</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>string</code><br>
+                        </div>
+
+                        <h4>Throws</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Exception.InvalidArgumentException.html">Aws\Common\Exception\InvalidArgumentException</a></code></code><br>
+                        </div>
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getCredentials" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_getCredentials" class="dashAnchor"></a><div id="_getCredentials" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getCredentials">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Aws.Common.Credentials.CredentialsInterface.html">Aws\Common\Credentials\CredentialsInterface</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getCredentials</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Returns the AWS credentials associated with the client</p>
+
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Credentials.CredentialsInterface.html">Aws\Common\Credentials\CredentialsInterface</a></code></code><br>
+                        </div>
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Aws.Common.Client.AwsClientInterface.html#_getCredentials">Aws\Common\Client\AwsClientInterface::getCredentials()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_setCredentials" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_setCredentials" class="dashAnchor"></a><div id="_setCredentials" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_setCredentials">#</a>
+                <code class="attributes ">
+                     public 
+                    self
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">setCredentials</span>( <span>Aws\Common\Aws\Common\Credentials\CredentialsInterface <var>$credentials</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Sets the credentials object associated with the client</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$credentials</var></dt>
+                            <dd>
+<code><code><a href="class-Aws.Common.Credentials.CredentialsInterface.html">Aws\Common\Credentials\CredentialsInterface</a></code></code><br>$credentials Credentials object to use</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>self</code><br>
+                        </div>
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Aws.Common.Client.AwsClientInterface.html#_setCredentials">Aws\Common\Client\AwsClientInterface::setCredentials()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getSignature" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_getSignature" class="dashAnchor"></a><div id="_getSignature" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getSignature">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Aws.Common.Signature.SignatureInterface.html">Aws\Common\Signature\SignatureInterface</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getSignature</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Returns the signature implementation used with the client</p>
+
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Signature.SignatureInterface.html">Aws\Common\Signature\SignatureInterface</a></code></code><br>
+                        </div>
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Aws.Common.Client.AwsClientInterface.html#_getSignature">Aws\Common\Client\AwsClientInterface::getSignature()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getRegions" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_getRegions" class="dashAnchor"></a><div id="_getRegions" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getRegions">#</a>
+                <code class="attributes ">
+                     public 
+                    array
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getRegions</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Get a list of available regions and region data</p>
+
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>array</code><br>
+                        </div>
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Aws.Common.Client.AwsClientInterface.html#_getRegions">Aws\Common\Client\AwsClientInterface::getRegions()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getRegion" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_getRegion" class="dashAnchor"></a><div id="_getRegion" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getRegion">#</a>
+                <code class="attributes ">
+                     public 
+                    string
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getRegion</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Get the name of the region to which the client is configured to send
+requests</p>
+
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>string</code><br>
+                        </div>
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Aws.Common.Client.AwsClientInterface.html#_getRegion">Aws\Common\Client\AwsClientInterface::getRegion()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_setRegion" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_setRegion" class="dashAnchor"></a><div id="_setRegion" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_setRegion">#</a>
+                <code class="attributes ">
+                     public 
+                    self
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">setRegion</span>( <span>string <var>$region</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Change the region to which the client is configured to send requests</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$region</var></dt>
+                            <dd>
+<code>string</code><br>$region Name of the region</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>self</code><br>
+                        </div>
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Aws.Common.Client.AwsClientInterface.html#_setRegion">Aws\Common\Client\AwsClientInterface::setRegion()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_waitUntil" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_waitUntil" class="dashAnchor"></a><div id="_waitUntil" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_waitUntil">#</a>
+                <code class="attributes ">
+                     public 
+                    self
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">waitUntil</span>( <span>string <var>$waiter</var></span>, <span>array <var>$input</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Wait until a resource is available or an associated waiter returns true</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$waiter</var></dt>
+                            <dd>
+<code>string</code><br>$waiter Name of the waiter</dd>
+                            <dt><var>$input</var></dt>
+                            <dd>
+<code>array</code><br>$input Values used as input for the underlying operation and to control the
+waiter</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>self</code><br>
+                        </div>
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Aws.Common.Client.AwsClientInterface.html#_waitUntil">Aws\Common\Client\AwsClientInterface::waitUntil()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getWaiter" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_getWaiter" class="dashAnchor"></a><div id="_getWaiter" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getWaiter">#</a>
+                <code class="attributes ">
+                     public 
+                    WaiterInterface
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getWaiter</span>( <span>string <var>$waiter</var></span>, <span>array <var>$input</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Get a named waiter object</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$waiter</var></dt>
+                            <dd>
+<code>string</code><br>$waiter Name of the waiter</dd>
+                            <dt><var>$input</var></dt>
+                            <dd>
+<code>array</code><br>$input Values used as input for the underlying operation and to control the
+waiter</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>WaiterInterface</code><br>
+                        </div>
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Aws.Common.Client.AwsClientInterface.html#_getWaiter">Aws\Common\Client\AwsClientInterface::getWaiter()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_setWaiterFactory" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_setWaiterFactory" class="dashAnchor"></a><div id="_setWaiterFactory" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_setWaiterFactory">#</a>
+                <code class="attributes ">
+                     public 
+                    self
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">setWaiterFactory</span>( <span>Aws\Common\Aws\Common\Waiter\WaiterFactoryInterface <var>$waiterFactory</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Set the waiter factory to use with the client</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$waiterFactory</var></dt>
+                            <dd>
+<code><code><a href="class-Aws.Common.Waiter.WaiterFactoryInterface.html">Aws\Common\Waiter\WaiterFactoryInterface</a></code></code><br>$waiterFactory Factory used to create waiters</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>self</code><br>
+                        </div>
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Aws.Common.Client.AwsClientInterface.html#_setWaiterFactory">Aws\Common\Client\AwsClientInterface::setWaiterFactory()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getWaiterFactory" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_getWaiterFactory" class="dashAnchor"></a><div id="_getWaiterFactory" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getWaiterFactory">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Aws.Common.Waiter.WaiterFactoryInterface.html">Aws\Common\Waiter\WaiterFactoryInterface</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getWaiterFactory</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Get the waiter factory being used by the client</p>
+
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Waiter.WaiterFactoryInterface.html">Aws\Common\Waiter\WaiterFactoryInterface</a></code></code><br>
+                        </div>
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Aws.Common.Client.AwsClientInterface.html#_getWaiterFactory">Aws\Common\Client\AwsClientInterface::getWaiterFactory()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getApiVersion" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_getApiVersion" class="dashAnchor"></a><div id="_getApiVersion" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getApiVersion">#</a>
+                <code class="attributes ">
+                     public 
+                    string
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getApiVersion</span>( )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Get the API version of the client (e.g. 2006-03-01)</p>
+
+
+
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>string</code><br>
+                        </div>
+
+
+
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Aws.Common.Client.AwsClientInterface.html#_getApiVersion">Aws\Common\Client\AwsClientInterface::getApiVersion()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_send" class="dashAnchor"></a><a name="//apple_ref/cpp/Method/_send" class="dashAnchor"></a><div id="_send" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_send">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Http.Message.Response.html">Guzzle\Http\Message\Response</a></code>|array
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">send</span>( <span>array|RequestInterface <var>$requests</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Sends a single request or an array of requests in parallel</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$requests</var></dt>
+                            <dd>
+<code>array|RequestInterface</code><br>$requests One or more RequestInterface objects to send</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Http.Message.Response.html">Guzzle\Http\Message\Response</a></code>|array</code><br>Returns a single Response or an array of Response objects<br>
+                        </div>
+
+                        <h4>Throws</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Exception.TransferException.html">Aws\Common\Exception\TransferException</a></code></code><br>
+                        </div>
+
+
+                        <h4>Overrides</h4>
+                        <div class="list"><code><a href="class-Guzzle.Http.Client.html#_send">Guzzle\Http\Client::send</a></code></div>
+
+                        <h4>Implementation of</h4>
+                        <div class="list"><code><a href="class-Guzzle.Http.ClientInterface.html#_send">Guzzle\Http\ClientInterface::send()</a></code></div>
+                </div>
+            </div>
+
+		</div>
+		</div>
+
+		<h3>Methods inherited from <a href="class-Guzzle.Service.Client.html#methods">Guzzle\Service\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Service.Client.html#_execute">execute()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_executeMultiple">executeMultiple()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_factory">factory()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getCommand">getCommand()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getCommandFactory">getCommandFactory()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getDescription">getDescription()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getInflector">getInflector()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getIterator">getIterator()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getResourceIteratorFactory">getResourceIteratorFactory()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_prepareCommand">prepareCommand()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_setCommandFactory">setCommandFactory()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_setDescription">setDescription()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_setInflector">setInflector()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_setResourceIteratorFactory">setResourceIteratorFactory()</a></code>
+		</p>
+		<h3>Methods inherited from <a href="class-Guzzle.Http.Client.html#methods">Guzzle\Http\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Http.Client.html#_createRequest">createRequest()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_delete">delete()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_expandTemplate">expandTemplate()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_get">get()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getBaseUrl">getBaseUrl()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getConfig">getConfig()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getCurlMulti">getCurlMulti()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getDefaultOption">getDefaultOption()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getDefaultUserAgent">getDefaultUserAgent()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getUriTemplate">getUriTemplate()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_head">head()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_initSsl">initSsl()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_options">options()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_patch">patch()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_post">post()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_preparePharCacert">preparePharCacert()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_prepareRequest">prepareRequest()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_put">put()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_sendMultiple">sendMultiple()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setBaseUrl">setBaseUrl()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setConfig">setConfig()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setCurlMulti">setCurlMulti()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setDefaultOption">setDefaultOption()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setRequestFactory">setRequestFactory()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setSslVerification">setSslVerification()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setUriTemplate">setUriTemplate()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setUserAgent">setUserAgent()</a></code>
+		</p>
+		<h3>Methods inherited from <a href="class-Guzzle.Common.AbstractHasDispatcher.html#methods">Guzzle\Common\AbstractHasDispatcher</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#_addSubscriber">addSubscriber()</a></code>, 
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#_dispatch">dispatch()</a></code>, 
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#_getEventDispatcher">getEventDispatcher()</a></code>, 
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#_setEventDispatcher">setEventDispatcher()</a></code>
+		</p>
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+		<h2>Constants summary</h2>
+
+		<h3>Constants inherited from <a href="class-Guzzle.Service.Client.html#constants">Guzzle\Service\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Service.Client.html#COMMAND_PARAMS"><b>COMMAND_PARAMS</b></a></code>
+		</p>
+		<h3>Constants inherited from <a href="class-Guzzle.Http.Client.html#constants">Guzzle\Http\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Http.Client.html#CURL_OPTIONS"><b>CURL_OPTIONS</b></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#DISABLE_REDIRECTS"><b>DISABLE_REDIRECTS</b></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#REQUEST_OPTIONS"><b>REQUEST_OPTIONS</b></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#SSL_CERT_AUTHORITY"><b>SSL_CERT_AUTHORITY</b></a></code>
+		</p>
+		<h3>Constants inherited from <a href="class-Guzzle.Http.ClientInterface.html#constants">Guzzle\Http\ClientInterface</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Http.ClientInterface.html#CREATE_REQUEST"><b>CREATE_REQUEST</b></a></code>, 
+			<code><a href="class-Guzzle.Http.ClientInterface.html#HTTP_DATE"><b>HTTP_DATE</b></a></code>
+		</p>
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="credentials" id="$credentials">
+			<td class="attributes"><code>
+				protected  
+				<code><a href="class-Aws.Common.Credentials.CredentialsInterface.html">Aws\Common\Credentials\CredentialsInterface</a></code>
+			</code></td>
+
+			<td class="name">
+<a name="//apple_ref/cpp/Property/$credentials" class="dashAnchor"></a><a name="//apple_ref/cpp/Property/$credentials" class="dashAnchor"></a><var>$credentials</var>			</td>
+			<td class="description"><div>
+				<a href="#$credentials" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+<p>AWS credentials</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="signature" id="$signature">
+			<td class="attributes"><code>
+				protected  
+				<code><a href="class-Aws.Common.Signature.SignatureInterface.html">Aws\Common\Signature\SignatureInterface</a></code>
+			</code></td>
+
+			<td class="name">
+<a name="//apple_ref/cpp/Property/$signature" class="dashAnchor"></a><a name="//apple_ref/cpp/Property/$signature" class="dashAnchor"></a><var>$signature</var>			</td>
+			<td class="description"><div>
+				<a href="#$signature" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+<p>Signature implementation of the service</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="waiterFactory" id="$waiterFactory">
+			<td class="attributes"><code>
+				protected  
+				<code><a href="class-Aws.Common.Waiter.WaiterFactoryInterface.html">Aws\Common\Waiter\WaiterFactoryInterface</a></code>
+			</code></td>
+
+			<td class="name">
+<a name="//apple_ref/cpp/Property/$waiterFactory" class="dashAnchor"></a><a name="//apple_ref/cpp/Property/$waiterFactory" class="dashAnchor"></a><var>$waiterFactory</var>			</td>
+			<td class="description"><div>
+				<a href="#$waiterFactory" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+<p>Factory used to create waiter classes</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Properties inherited from <a href="class-Guzzle.Service.Client.html#properties">Guzzle\Service\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Service.Client.html#$commandFactory"><var>$commandFactory</var></a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#$inflector"><var>$inflector</var></a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#$resourceIteratorFactory"><var>$resourceIteratorFactory</var></a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#$serviceDescription"><var>$serviceDescription</var></a></code>
+		</p>
+		<h3>Properties inherited from <a href="class-Guzzle.Http.Client.html#properties">Guzzle\Http\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Http.Client.html#$defaultHeaders"><var>$defaultHeaders</var></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#$requestFactory"><var>$requestFactory</var></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#$userAgent"><var>$userAgent</var></a></code>
+		</p>
+		<h3>Properties inherited from <a href="class-Guzzle.Common.AbstractHasDispatcher.html#properties">Guzzle\Common\AbstractHasDispatcher</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#$eventDispatcher"><var>$eventDispatcher</var></a></code>
+		</p>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AWS SDK for PHP 2 API documentation generated by <a href="http://apigen.org">ApiGen 3.0dev</a>
+	</div>
+</div>
+
+<script type="text/javascript">
+    // Toggle example display
+    $('.example a').click(function(ele) {
+        $(this).parent('li').children('pre').toggle();
+        return false;
+    });
+</script>
+
+</body>
+</html>

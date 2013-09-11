@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>PE 3.0 » Troubleshooting » Windows — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../favicon.ico' />
+
+
+  <meta name="description" content="Puppet Enterprise supports Windows agents, for both the core Puppet configuration management features and the orchestration features.Windows agents...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/pe/latest/trouble_windows.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">PE 3.0 » Troubleshooting » Windows</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>Troubleshooting Puppet on Windows</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#tips">Tips</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#process-explorer">Process Explorer</a></li>
+   <li class="toc-lv3"><a href="#logging">Logging</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#common-issues">Common Issues</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#installation">Installation</a></li>
+   <li class="toc-lv3"><a href="#unattended-installation">Unattended installation</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#file-paths">File Paths</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#path-separator">Path Separator</a></li>
+   <li class="toc-lv3"><a href="#file-separator">File Separator</a></li>
+   <li class="toc-lv3"><a href="#backslashes">Backslashes</a></li>
+   <li class="toc-lv3"><a href="#unc-paths">UNC Paths</a></li>
+   <li class="toc-lv3"><a href="#case-insensitivity">Case-insensitivity</a></li>
+   <li class="toc-lv3"><a href="#diffs">Diffs</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#resource-errors-and-quirks">Resource Errors and Quirks</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#file">File</a></li>
+   <li class="toc-lv3"><a href="#exec">Exec</a></li>
+   <li class="toc-lv3"><a href="#shell-builtins">Shell Builtins</a></li>
+   <li class="toc-lv3"><a href="#powershell">Powershell</a></li>
+   <li class="toc-lv3"><a href="#package">Package</a></li>
+   <li class="toc-lv3"><a href="#service">Service</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#error-messages">Error Messages</a></li>
+</ol></nav>
+
+<p>Puppet Enterprise supports Windows agents, for both the core Puppet configuration management features and the orchestration features.</p>
+
+<p>Windows agents can have different problems and symptoms than *nix agents. This page outlines some of the more common issues and their solutions.</p>
+
+<h2 id="tips">Tips</h2>
+
+<h3 id="process-explorer">Process Explorer</h3>
+
+<p>We recommend installing <a href="http://en.wikipedia.org/wiki/Process_Explorer">Process Explorer</a> and configuring it to replace Task Manager. This will make debugging significantly easier.</p>
+
+<h3 id="logging">Logging</h3>
+
+<p>As of Puppet 2.7.x, messages from the <code>puppetd</code> log file are available via the Windows Event Viewer (choose &#8220;Windows Logs&#8221; &gt; &#8220;Application&#8221;). To enable debugging, stop the puppet service and restart it as:</p>
+
+<pre><code>c:\&gt;sc stop puppet &amp;&amp; sc start puppet --debug --trace
+</code></pre>
+
+<p>Puppet&#8217;s windows service component also writes to the <code>windows.log</code> within the same <code>log</code> directory and can be used to debug issues with the service.</p>
+
+<h2 id="common-issues">Common Issues</h2>
+
+<h3 id="installation">Installation</h3>
+
+<p>The Puppet MSI package will not overwrite an existing entry in the puppet.conf file.  As a result, if you uninstall the package, then reinstall the package using a different puppet master hostname, Puppet won&#8217;t actually apply the new value if the previous value still exists in <a href="./install_windows.html#data-directory"><code>&lt;data directory&gt;</code></a><code>\etc\puppet.conf</code>.</p>
+
+<p>In general, we&#8217;ve taken the approach of preserving configuration data on the system when doing an upgrade, uninstall or reinstall.</p>
+
+<p>To fully clean out a system make sure to delete the <a href="./install_windows.html#data-directory"><code>&lt;data directory&gt;</code></a>.</p>
+
+<p>Similarly, the MSI will not overwrite the custom facts written to the <code>PuppetLabs\facter\facts.d</code> directory.</p>
+
+<h3 id="unattended-installation">Unattended installation</h3>
+
+<p>Puppet may fail to install when trying to perform an unattended install from the command line, e.g.</p>
+
+<pre><code>msiexec /qn /i puppet.msi
+</code></pre>
+
+<p>To get troubleshooting data, specify an installation log, e.g. /l*v install.txt. Look in the log for entries like the following:</p>
+
+<pre><code>MSI (s) (7C:D0) [17:24:15:870]: Rejecting product '{D07C45E2-A53E-4D7B-844F-F8F608AFF7C8}': Non-assigned apps are disabled for non-admin users.
+MSI (s) (7C:D0) [17:24:15:870]: Note: 1: 1708
+MSI (s) (7C:D0) [17:24:15:870]: Product: Puppet -- Installation failed.
+MSI (s) (7C:D0) [17:24:15:870]: Windows Installer installed the product. Product Name: Puppet. Product Version: 2.7.12. Product Language: 1033. Manufacturer: Puppet Labs. Installation success or error status: 1625.
+MSI (s) (7C:D0) [17:24:15:870]: MainEngineThread is returning 1625
+MSI (s) (7C:08) [17:24:15:870]: No System Restore sequence number for this installation.
+Info 1625.This installation is forbidden by system policy. Contact your system administrator.
+</code></pre>
+
+<p>If you see entries like this you know you don&#8217;t have sufficient privileges to install puppet. Make sure to launch <code>cmd.exe</code> with the <code>Run as Administrator</code> option selected, and try again.</p>
+
+<h2 id="file-paths">File Paths</h2>
+
+<h3 id="path-separator">Path Separator</h3>
+
+<p>Make sure to use a semi-colon (;) as the path separator on Windows, e.g., <code>modulepath=path1;path2</code></p>
+
+<h3 id="file-separator">File Separator</h3>
+
+<p>In most resource attributes, the Puppet language accepts either forward- or backslashes as the file separator. However, some attributes absolutely require forward slashes, and some attributes absolutely require backslashes. <a href="./../../windows/writing.html#file-paths-on-windows">See the relevant section of Writing Manifests for Windows</a> for more information.</p>
+
+<h3 id="backslashes">Backslashes</h3>
+
+<p>When backslashes are double-quoted(&#8220;), they <strong>must</strong> be escaped. When single-quoted (&#8216;), they <strong>may</strong> be escaped. For example, these are valid file resources:</p>
+
+<pre><code>file { 'c:\path\to\file.txt': }
+file { 'c:\\path\\to\\file.txt': }
+file { "c:\\path\\to\\file.txt": }
+</code></pre>
+
+<p>But this is an invalid path, because \p, \t, \f will be interpreted as escape sequences:</p>
+
+<pre><code>file { "c:\path\to\file.txt": }
+</code></pre>
+
+<h3 id="unc-paths">UNC Paths</h3>
+
+<p>UNC paths are not currently supported. However, the path can be mapped as a network drive and accessed that way.</p>
+
+<h3 id="case-insensitivity">Case-insensitivity</h3>
+
+<p>Several resources are case-insensitive on Windows (file, user, group). When establishing dependencies among resources, make sure to specify the case consistently. Otherwise, puppet may not be able to resolve dependencies correctly. For example, applying the following manifest will fail, because puppet does not recognize that FOOBAR and foobar are the same user:</p>
+
+<pre><code>file { 'c:\foo\bar':
+  ensure =&gt; directory,
+  owner =&gt; 'FOOBAR'
+}
+user { 'foobar':
+  ensure =&gt; present
+}
+...
+err: /Stage[main]//File[c:\foo\bar]: Could not evaluate: Could not find user FOOBAR
+</code></pre>
+
+<h3 id="diffs">Diffs</h3>
+
+<p>Puppet does not show diffs on Windows (e.g., <code>puppet agent --show_diff</code>) unless a third-party diff utility has been installed (e.g., msys, gnudiff, cygwin, etc) and the <code>diff</code> property has been set appropriately.</p>
+
+<h2 id="resource-errors-and-quirks">Resource Errors and Quirks</h2>
+
+<h3 id="file">File</h3>
+
+<p>If the owner and/or group are specified in a file resource on Windows, the mode must also be specified. So this is okay:</p>
+
+<pre><code>file { 'c:/path/to/file.bat':
+  ensure =&gt; present,
+  owner =&gt; 'Administrator',
+  group =&gt; 'Administrators',
+  mode =&gt; 0770
+}
+</code></pre>
+
+<p>But this is not:</p>
+
+<pre><code>file { 'c:/path/to/file.bat':
+  ensure =&gt; present,
+  owner =&gt; 'Administrator',
+  group =&gt; 'Adminstrators',
+}
+</code></pre>
+
+<p>The latter case will remove any permissions the Administrators group previously had to the file, resulting in the effective permissions of 0700. And since puppet runs as a service under the &#8220;SYSTEM&#8221; account, not &#8220;Administrator,&#8221; Puppet itself will not be able to manage the file the next time it runs!</p>
+
+<p>To get out of this state, have Puppet execute the following (with an exec resource) to reset the file permissions:</p>
+
+<pre><code>takeown /f c:/path/to/file.bat &amp;&amp; icacls c:/path/to/file.bat /reset
+</code></pre>
+
+<h3 id="exec">Exec</h3>
+
+<p>When declaring a Windows exec resource, the path to the resource typically depends on the %WINDIR% environment variable. Since this may vary from system to system, you can use the <code>path</code> fact in the exec resource:</p>
+
+<pre><code>exec { 'cmd.exe /c echo hello world':
+  path =&gt; $::path
+}
+</code></pre>
+
+<h3 id="shell-builtins">Shell Builtins</h3>
+
+<p>Puppet does not currently support a shell provider on Windows, so executing shell builtins directly will fail:</p>
+
+<pre><code>exec { 'echo foo':
+  path =&gt; 'c:\windows\system32;c:\windows'
+}
+...
+err: /Stage[main]//Exec[echo foo]/returns: change from notrun to 0 failed: Could not find command 'echo'
+</code></pre>
+
+<p>Instead, wrap the builtin in <code>cmd.exe</code>:</p>
+
+<pre><code>exec { 'cmd.exe /c echo foo':
+  path =&gt; 'c:\windows\system32;c:\windows'
+}
+</code></pre>
+
+<p>Or, better still, use the tip from above:</p>
+
+<pre><code>exec { 'cmd.exe /c echo foo':
+  path =&gt; $::path
+}
+</code></pre>
+
+<h3 id="powershell">Powershell</h3>
+
+<p>By default, powershell enforces a restricted execution policy which prevents the execution of scripts. Consequently, make sure to specify the appropriate execution policy in the powershell command:</p>
+
+<pre><code>exec { 'test':
+  command =&gt; 'powershell.exe -executionpolicy remotesigned -file C:\test.ps1',
+  path =&gt; $::path
+}
+</code></pre>
+
+<h3 id="package">Package</h3>
+
+<p>The source of an MSI package must be a file on either a local filesystem or on a network mapped drive. It does not support URI-based sources, though you can achieve a similar result by defining a file whose source is the puppet master and then defining a package whose source is the local file.</p>
+
+<h3 id="service">Service</h3>
+
+<p>Windows services support a short name and a display name. Make sure to use the short name in puppet manifests. For example use <code>wuauserv</code>, not <code>Automatic Updates</code>. You can use <code>sc query</code> to get a list of services and their various names.</p>
+
+<h2 id="error-messages">Error Messages</h2>
+
+<ul>
+  <li>
+    <p>&#8220;<code>Service 'Puppet Agent' (puppet) failed to start. Verify that you have sufficient privileges to start system services.</code>&#8221;</p>
+
+    <p>This can occur when installing puppet on a UAC system from a non-elevated account. Although the installer displays the UAC prompt to install puppet, it does not elevate when trying to start the service. Make sure to run from an elevated <code>cmd.exe</code> process when installing the MSI.</p>
+  </li>
+  <li>
+    <p>&#8220;<code>Cannot run on Microsoft Windows without the sys-admin, win32-process, win32-dir, win32-service and win32-taskscheduler gems.</code>&#8221;</p>
+
+    <p>Puppet requires the indicated Windows-specific gems, which can be installed using <code>gem install &lt;gem&gt;</code></p>
+  </li>
+  <li>
+    <p>&#8220;<code>err: /Stage[main]//Scheduled_task[task_system]: Could not evaluate: The operation completed successfully.</code>&#8221;</p>
+
+    <p>This error can occur when using version &lt; 0.2.1 of the win32-taskscheduler gem. Run <code>gem update win32-taskscheduler</code></p>
+  </li>
+  <li>
+    <p>&#8220;<code>err: /Stage[main]//Exec[C:/tmp/foo.exe]/returns: change from notrun to 0 failed: CreateProcess() failed: Access is denied.</code>&#8221;</p>
+
+    <p>This error can occur when requesting an executable from a remote puppet master that cannot be executed. For a file to be executable on Windows, set the user/group executable bits accordingly on the puppet master (or alternatively, specify the mode of the file as it should exist on the Windows host):</p>
+
+    <pre><code>  file { "C:/tmp/foo.exe":
+    source =&gt; "puppet:///modules/foo/foo.exe",
+  }
+
+  exec { 'C:/tmp/foo.exe':
+    logoutput =&gt; true
+  }
+</code></pre>
+  </li>
+  <li>
+    <p>&#8220;<code>err: getaddrinfo: The storage control blocks were destroyed.</code>&#8221;</p>
+
+    <p>This error can occur when the agent cannot resolve a DNS name into an IP address (for example the <code>server</code>, <code>ca_server</code>, etc properties). To verify that there is a DNS issue, check that you can run <code>nslookup &lt;dns&gt;</code>. If this fails, there is a problem with the DNS settings on the Windows agent (for example, the primary dns suffix is not set). See <a href="http://technet.microsoft.com/en-us/library/cc959322.aspx">http://technet.microsoft.com/en-us/library/cc959322.aspx</a></p>
+  </li>
+  <li>
+    <p>&#8220;<code>err: /Stage[main]//Group[mygroup]/members: change from     to Administrators failed: Add OLE error code:8007056B in &lt;Unknown&gt; &lt;No Description&gt; HRESULT error code:0x80020009 Exception occurred.</code>&#8221;</p>
+
+    <p>This error will occur when attempting to add a group as a member of another local group, i.e. nesting groups. Although Active Directory supports <a href="http://msdn.microsoft.com/en-us/library/cc246068(v=prot.13).aspx">nested groups</a> for certain types of domain group accounts, Windows does not support nesting of local group accounts. As a result, you must only specify user accounts as members of a group.</p>
+  </li>
+  <li>
+    <p>&#8220;<code>err: /Stage[main]//Package[7zip]/ensure: change from absent to present failed: Execution of 'msiexec.exe /qn /norestart /i "c:\\7z920.exe"' returned 1620: T h i s   i n s t a l l a t i o n   p a c k a g e   c o u l d   n o t   b e   o p e n e d .  C o n t a c t   t h e   a p p l i c a t i o n   v e n d o r   t o   v e r i f y   t h a t   t h i s   i s  a   v a l i d   W i n d o w s   I n s t a l l e r   p a c k a g e .</code>&#8221;</p>
+
+    <p>This error can occur when attempting to install a non-MSI package. Puppet only supports MSI packages. To install non-MSI packages, use an exec resource with an <code>onlyif</code> parameter.</p>
+  </li>
+  <li>
+    <p>&#8220;<code>err: Could not request certificate: The certificate retrieved from the master does not match the agent's private key.</code>&#8221;</p>
+
+    <p>This error is usually a sign that the master has already issued a certificate to the agent. This can occur if the agent&#8217;s SSL directory is deleted after it has retrieved a certificate from the master, or when running the agent in two different security contexts. For example, running puppet agent as a service and then trying to run <code>puppet agent</code> from the command line with non-elevated security. Specifically, this would happen if you&#8217;ve selected <code>Start Command Prompt with Puppet</code> but did not elevate privileges using <code>Run as Administrator</code>.</p>
+  </li>
+  <li>
+    <p>&#8220;<code>err: Could not evaluate: Could not retrieve information from environment production source(s) puppet://puppet.domain.com/plugins.</code>&#8221;</p>
+
+    <p>This error will be generated when a Windows agent does a pluginsync from the Puppet master server, when the latter does not contain any plugins. Note that pluginsync is enabled by default on Windows. This is a known bug in 2.7.x, see <a href="https://projects.puppetlabs.com/issues/2244">https://projects.puppetlabs.com/issues/2244</a>.</p>
+  </li>
+  <li>
+    <p>&#8220;<code>err: Could not send report: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed. This is often because the time is out of sync on the server or client.</code>&#8221;</p>
+
+    <p>Windows agents that are part of an Active Directory domain should automatically have their time synchronized with AD. For agents that are not part of an AD domain, you may need to enable and add the Windows time service manually:</p>
+
+    <pre><code>  w32tm /register
+  net start w32time
+  w32tm /config /manualpeerlist:&lt;ntpserver&gt; /syncfromflags:manual /update
+  w32tm /resync
+</code></pre>
+  </li>
+  <li>
+    <p>&#8220;<code>err: You cannot service a running 64-bit operating system with a 32-bit version of DISM. Please use the version of DISM that corresponds to your computer's architecture.</code>&#8221;</p>
+
+    <p>As described in the Installation Guide, 64-bit versions of windows will redirect all file system access from <code>%windir%\system32</code> to <code>%windir%\SysWOW64</code> instead. When attempting to configure Windows roles and features using <code>dism.exe</code>, make sure to use the 64-bit version. This can be done by executing <code>c:\windows\sysnative\dism.exe</code>, which will prevent file system redirection. See <a href="https://projects.puppetlabs.com/issues/12980">https://projects.puppetlabs.com/issues/12980</a></p>
+  </li>
+  <li>
+    <p>&#8220;Error: Could not parse for environment production: Syntax error at &#8216;=&#8217;; expected &#8216;}&#8217;&#8221;</p>
+
+    <p>This error will usually occur if <code>puppet apply -e</code> is used from the command line and the supplied command is surrounded with single quotes (&#8216;), which will cause <code>cmd.exe</code> to interpret any <code>=&gt;</code> in the command as a redirect. To solve this surround the command with double quotes (&#8220;) instead. See <a href="https://projects.puppetlabs.com/issues/20528">https://projects.puppetlabs.com/issues/20528</a>.</p>
+  </li>
+</ul>
+
+<hr />
+
+<ul>
+  <li><a href="./appendix.html#release-notes">Next: Appendix: Release Notes</a></li>
+</ul>
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+
+<h3><a href="./index.html">Puppet Enterprise 3.0</a></h3>
+
+<ul>
+  <li><strong>Overview</strong>
+    <ul>
+      <li><a href="./overview_about_pe.html">About Puppet Enterprise</a></li>
+      <li><a href="./overview_whats_new.html">New Features</a></li>
+      <li><a href="./overview_getting_support.html">Getting Support</a></li>
+    </ul>
+  </li>
+  <li><strong>Quick Start</strong>
+    <ul>
+        <li><a href="./quick_start.html">Quick Start: Using PE</a></li>
+        <li><a href="./quick_writing.html">Quick Start: Writing Modules</a></li>
+    </ul>
+  </li>
+  <li><strong>Installing Puppet Enterprise</strong>
+    <ul>
+      <li><a href="./install_system_requirements.html">System Requirements</a></li>
+      <li><a href="./install_basic.html">Installing PE</a></li>
+      <li><a href="./install_windows.html">Installing Windows Agents</a></li>
+      <li><a href="./install_upgrading.html">Upgrading</a></li>
+      <li><a href="./install_uninstalling.html">Uninstalling</a></li>
+      <li><a href="./install_automated.html">Automated Installation</a></li>
+      <li><a href="./install_answer_file_reference.html">Answer File Reference</a></li>
+      <li><a href="./install_what_and_where.html">What gets installed where?</a></li>
+    </ul>
+  </li>
+  <li><strong>The PE Console</strong>
+    <ul>
+      <li><a href="./console_accessing.html">Accessing the Console</a></li>
+      <li><a href="./console_navigating.html">Navigating the Console</a></li>
+      <li><a href="./console_navigating_live_mgmt.html">Navigating the Live Management Page</a></li>
+      <li><a href="./console_cert_mgmt.html">Managing Node Requests</a></li>
+      <li><a href="./console_classes_groups.html">Grouping & Classifying Nodes</a></li>
+      <li><a href="./console_reports.html">Viewing Reports & Inventory Data</a></li>
+      <li><a href="./console_auth.html">Managing Users</a></li>
+      <li><a href="./console_inventory_search.html">Inventory Search</a></li>
+      <li><a href="./console_rake_api.html">Rake API and List of Tasks</a></li>
+      <li><a href="./console_rake_api_old.html">Rake API: List of Tasks (Old Argument Style)</a></li>
+      <li><a href="./console_config.html">Configuring the Console</a></li>
+    </ul>
+  </li>
+  <li><strong>Puppet Core</strong>
+    <ul>
+      <li><a href="./puppet_overview.html">Overview</a></li>
+      <li><a href="./puppet_modules_manifests.html">Modules & Manifests</a></li>
+      <li><a href="./puppet_assign_configurations.html">Assigning Configurations to Nodes</a></li>
+      <li><a href="./puppet_tools.html">Tools</a></li>
+      <li><a href="./puppet_data_library.html">Puppet Data Library</a></li>
+      <li><a href="./puppet_references.html">References</a></li>
+      <li><a href="./puppet_config.html">Configuring Puppet Core</a></li>
+    </ul>
+  </li>
+  <li><strong>Orchestration</strong>
+    <ul>
+      <li><a href="./orchestration_overview.html">Overview</a></li>
+      <li><a href="./orchestration_invoke_cli.html">Invoking Actions</a></li>
+      <li><a href="./orchestration_puppet.html">Controlling Puppet</a></li>
+      <li><a href="./orchestration_resources.html">Browsing Resources</a></li>
+      <li><a href="./orchestration_actions.html">List of Built-In Actions</a></li>
+      <li><a href="./orchestration_adding_actions.html">Adding New Actions</a></li>
+      <!-- <li><a href="./orchestration_integrating.html">Integrating Applications</a></li> -->
+      <li><a href="./orchestration_config.html">Configuring Orchestration</a></li>
+    </ul>
+  </li>
+  <li><strong>Cloud Provisioning</strong>
+    <ul>
+      <li><a href="./cloudprovisioner_overview.html">Overview</a></li>
+      <li><a href="./cloudprovisioner_configuring.html">Installing & Configuring Cloud Provisioner</a></li>
+      <li><a href="./cloudprovisioner_classifying_installing.html">Classifying Nodes & Remotely Installing Puppet</a></li>
+      <li><a href="./cloudprovisioner_vmware.html">Provisioning with VMware</a></li>
+      <li><a href="./cloudprovisioner_aws.html">Provisioning with AWS</a></li>
+      <li><a href="./cloudprovisioner_workflow.html">Sample Workflow</a></li>
+    </ul>
+  </li>
+  <li><strong>The PE Accounts Module</strong>
+    <ul>
+      <li><a href="./accounts_user_type.html">The pe_accounts::user Type</a></li>
+      <li><a href="./accounts_class.html">The pe_accounts Class</a></li>
+    </ul>
+  </li>
+   <li><strong>Maintenance</strong>
+    <ul>
+      <li> <a href="./maintain_console-db.html">Console & Database Maintenance</a></li>
+      <!--
+<li> <a href="./maintain_puppet.html">Puppet Core Maintenance</a></li>
+      <li> <a href="./maintain_orchestration.html">Orchestration Maintenance</a></li>
+ -->
+    </ul>
+  </li>
+  <li><strong>Troubleshooting</strong>
+    <ul>
+     <li> <a href="./trouble_install.html">Troubleshooting the Installer</a></li>
+     <li> <a href="./trouble_comms.html">Troubleshooting Connections & Communications</a></li>
+     <li> <a href="./trouble_console-db.html">Troubleshooting the Console & Database</a></li>
+     <li> <a href="./trouble_puppet.html">Troubleshooting the Puppet Core</a></li>
+     <li> <a href="./trouble_orchestration.html">Troubleshooting Orchestration</a></li>
+     <li> <a href="./trouble_cloudprovisioner.html">Troubleshooting Cloud Provisioner</a></li>
+     <li> <span class="currentpage">Troubleshooting Windows</span></li>
+    </ul>
+  </li>
+  <li><strong>Appendix</strong>
+    <ul>
+      <li><a href="./appendix.html#release-notes">Release Notes</a></li>
+      <li><a href="./appendix.html#known-issues">Known Issues</a></li>
+       <li><a href="./compliance_alt.html">Compliance Alternate Workflow</a></li>
+    <!--    <li><a href="./cloning_alt.html">Cloning Alternate Workflow</a></li> -->
+    </ul>
+  </li>
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

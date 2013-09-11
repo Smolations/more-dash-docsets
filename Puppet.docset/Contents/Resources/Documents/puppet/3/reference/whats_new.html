@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Puppet 3: What's New — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../../favicon.ico' />
+
+
+  <meta name="description" content="New features, improvements, changes, and incompatibilities in the Puppet 3.x releases.">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/puppet/3/reference/whats_new.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Puppet 3: What's New</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>Puppet 3: What's New</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#flagship-features-in-puppet-3x">Flagship Features in Puppet 3.x</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#improved-version-numbering">Improved Version Numbering</a></li>
+   <li class="toc-lv3"><a href="#major-speed-increase">Major Speed Increase</a></li>
+   <li class="toc-lv3"><a href="#automatic-data-bindings-for-class-parameters">Automatic Data Bindings for Class Parameters</a></li>
+   <li class="toc-lv3"><a href="#hiera-functions-in-core">Hiera Functions in Core</a></li>
+   <li class="toc-lv3"><a href="#solaris-improvements">Solaris Improvements</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#new-features-in-puppet-310">New Features in Puppet 3.1.0</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#yaml-node-cache-restored-on-master">YAML Node Cache Restored on Master</a></li>
+   <li class="toc-lv3"><a href="#improvements-when-loading-ruby-code">Improvements When Loading Ruby Code</a></li>
+   <li class="toc-lv3"><a href="#yard-api-documentation">YARD API Documentation</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#all-bugs-fixed-in-31">All Bugs Fixed in 3.1</a></li>
+  <li class="toc-lv2"><a href="#backwards-incompatible-changes-in-3x">Backwards-Incompatible Changes in 3.x</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#dependencies-and-supported-systems">Dependencies and Supported Systems</a></li>
+   <li class="toc-lv3"><a href="#puppet-language-changes">Puppet Language Changes</a></li>
+   <li class="toc-lv3"><a href="#ruby-dsl-is-deprecated">Ruby DSL is Deprecated</a></li>
+   <li class="toc-lv3"><a href="#deprecated-commands-are-removed">Deprecated Commands Are Removed</a></li>
+   <li class="toc-lv3"><a href="#changed-application-behavior">Changed Application Behavior</a></li>
+   <li class="toc-lv3"><a href="#removed-and-modified-settings">Removed and Modified Settings</a></li>
+   <li class="toc-lv3"><a href="#puppet-master-web-server-changes">Puppet Master Web Server Changes</a></li>
+   <li class="toc-lv3"><a href="#changes-to-core-resource-types">Changes to Core Resource Types</a></li>
+   <li class="toc-lv3"><a href="#changes-to-authconf">Changes to Auth.conf</a></li>
+   <li class="toc-lv3"><a href="#changes-to-http-api">Changes to HTTP API</a></li>
+   <li class="toc-lv3"><a href="#changes-to-ruby-api-including-type-and-provider-interface">Changes to Ruby API, Including Type and Provider Interface</a></li>
+   <li class="toc-lv3"><a href="#changes-to-agent-lockfile-behavior">Changes to Agent Lockfile Behavior</a></li>
+   <li class="toc-lv3"><a href="#non-administrator-windows-data-directory-is-changed">Non-Administrator Windows Data Directory Is Changed</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#new-backwards-compatible-features-in-30">New Backwards-Compatible Features in 3.0</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#automatic-data-bindings-for-class-parameters-1">Automatic Data Bindings for Class Parameters</a></li>
+   <li class="toc-lv3"><a href="#solaris-improvements-1">Solaris Improvements</a></li>
+   <li class="toc-lv3"><a href="#rubygem-extension-support">Rubygem Extension Support</a></li>
+   <li class="toc-lv3"><a href="#puppet-agent-is-more-efficient-in-daemon-mode">Puppet Agent Is More Efficient in Daemon Mode</a></li>
+   <li class="toc-lv3"><a href="#puppet-parser-validate-will-read-from-stdin">puppet parser validate Will Read From STDIN</a></li>
+   <li class="toc-lv3"><a href="#the-http-report-processor-now-supports-https">The HTTP Report Processor Now Supports HTTPS</a></li>
+   <li class="toc-lv3"><a href="#the-include-function-now-accepts-arrays">The include Function Now Accepts Arrays</a></li>
+   <li class="toc-lv3"><a href="#new-unless-statement">New unless Statement</a></li>
+   <li class="toc-lv3"><a href="#puppet-agent-can-use-dns-srv-records-to-find-puppet-master">Puppet Agent Can Use DNS SRV Records to Find Puppet Master</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#all-bugs-fixed-in-30">All Bugs Fixed in 3.0</a></li>
+</ol></nav>
+              <!-- TODO better hiera url -->
+
+<p>Puppet 3 introduces several new features and some backwards-incompatible changes. <strong>Before upgrading from Puppet 2.x, you should:</strong></p>
+
+<ul>
+  <li>Read our <a href="./../../../guides/upgrading.html">general recommendations for upgrading between two major versions of Puppet</a>, which include suggested roll-out plans and package management practices.</li>
+  <li>Read the <a href="#backwards-incompatible-changes-in-3x">Backwards-Incompatible Changes</a> section below and watch for &#8220;upgrade notes&#8221; &#8212; you may need to make changes to your configuration and manifests.</li>
+  <li>Check the <a href="http://projects.puppetlabs.com/projects/puppet/wiki/Telly_Upgrade_Issues">Telly upgrade issues</a> wiki page, and make sure none of the bugs found immediately after the current release are dealbreakers for your site.</li>
+</ul>
+
+<p>This document provides a more narrative guide to the Puppet 3 release. For information on changes to subsequent point and patch releases (e.g. 3.1.0 and 3.1.1), please see the <a href="./release_notes.html">Puppet 3 release notes page</a></p>
+
+<h2 id="flagship-features-in-puppet-3x">Flagship Features in Puppet 3.x</h2>
+
+<h3 id="improved-version-numbering">Improved Version Numbering</h3>
+
+<p>Puppet 3 marks the beginning of a new version scheme for Puppet releases. Beginning with 3.0.0, Puppet uses a strict three-field version number:</p>
+
+<ul>
+  <li>The leftmost segment of the version number must increase for major backwards-incompatible changes.</li>
+  <li>The middle segment may increase for backwards-compatible new functionality.</li>
+  <li>The rightmost segment may increase for bug fixes.</li>
+</ul>
+
+<h3 id="major-speed-increase">Major Speed Increase</h3>
+
+<p>Puppet 3 is faster than Puppet 2.6 and <em>significantly</em> faster than Puppet 2.7. The exact change will depend on your site&#8217;s configuration and Puppet code, but many 2.7 users have seen up to a 50% improvement.</p>
+
+<h3 id="automatic-data-bindings-for-class-parameters">Automatic Data Bindings for Class Parameters</h3>
+
+<p>When you declare or assign classes, Puppet now automatically looks up parameter values in Hiera. See <a href="./lang_classes.html">Classes</a> for more details.</p>
+
+<h3 id="hiera-functions-in-core">Hiera Functions in Core</h3>
+
+<p>The <code>hiera</code>, <code>hiera_array</code>, <code>hiera_hash</code>, and <code>hiera_include</code> functions are now included in Puppet core. If you previously installed these functions with the <code>hiera-puppet</code> package, you may need to uninstall it before upgrading.</p>
+
+<h3 id="solaris-improvements">Solaris Improvements</h3>
+
+<ul>
+  <li>Puppet now supports the ipkg format, and is able to &#8220;hold&#8221; packages (install without activating) on Solaris.</li>
+  <li>Zones support is fixed.</li>
+  <li>Zpool support is significantly improved.</li>
+</ul>
+
+<h2 id="new-features-in-puppet-310">New Features in Puppet 3.1.0</h2>
+
+<h3 id="yaml-node-cache-restored-on-master">YAML Node Cache Restored on Master</h3>
+
+<p>In 3.0.0, we inadvertently removed functionality that people relied upon to get a list of all the nodes checking into a particular puppet master. This is now enabled for good, added to the test harness, and available for use as:</p>
+
+<pre><code># shell snippet
+export CLIENTYAML=`puppet master --configprint yamldir`
+puppet node search "*" --node_terminus yaml --clientyamldir $CLIENTYAML
+</code></pre>
+
+<h3 id="improvements-when-loading-ruby-code">Improvements When Loading Ruby Code</h3>
+
+<p>A major area of focus for this release was loading extension code. As people wrote and distributed Faces (new puppet subcommands that extend Puppet&#8217;s capabilities), bugs like <a href="https://projects.puppetlabs.com/issues/7316">#7316</a> started biting them. Additionally, seemingly simple things like retrieving configuration file settings quickly got complicated, causing problems both for Puppet Labs&#8217; code like Cloud Provisioner as well as third-party integrations like Foreman. The upshot is that it&#8217;s now possible to fully initialize puppet when using it as a library, loading Ruby code from Forge modules works correctly, and tools like puppetlabs_spec_helper now work correctly.</p>
+
+<h3 id="yard-api-documentation">YARD API Documentation</h3>
+
+<p>To go along with the improved usability of Puppet as a library, we&#8217;ve added <a href="http://yardoc.org">YARD documentation</a> throughout the codebase. YARD generates browsable code documentation based on in-line comments. This is a first pass through the codebase but about half of it&#8217;s covered now. To use the YARD docs, simply run <code>gem install yard</code> then <code>yard server --nocache</code> from inside a puppet source code checkout (the directory containing <code>lib/puppet</code>). YARD documentation is also available in the <a href="./../../../references/3.1.latest/index.html">generated references section</a> under <a href="/references/3.1.latest/developer/">Developer Documentation</a>.</p>
+
+<h2 id="all-bugs-fixed-in-31">All Bugs Fixed in 3.1</h2>
+
+<p>Use the Puppet issue tracker to find every bug fixed in a given version of Puppet.</p>
+
+<ul>
+  <li><a href="http://projects.puppetlabs.com/projects/puppet/issues?set_filter=1&amp;f%5B%5D=fixed_version_id&amp;op%5Bfixed_version_id%5D=%3D&amp;v%5Bfixed_version_id%5D%5B%5D=288&amp;f%5B%5D=&amp;c%5B%5D=project&amp;c%5B%5D=tracker&amp;c%5B%5D=status&amp;c%5B%5D=priority&amp;c%5B%5D=subject&amp;c%5B%5D=assigned_to&amp;c%5B%5D=fixed_version&amp;group_by=">All bugs fixed in 3.1.0</a> (approx. 53)</li>
+</ul>
+
+<h2 id="backwards-incompatible-changes-in-3x">Backwards-Incompatible Changes in 3.x</h2>
+
+<p>In addition to this section, you may also wish to check the <a href="http://projects.puppetlabs.com/projects/puppet/wiki/Telly_Upgrade_Issues">Telly upgrade issues</a> wiki page, which tracks any major bugs found immediately after the current release.</p>
+
+<h3 id="dependencies-and-supported-systems">Dependencies and Supported Systems</h3>
+
+<ul>
+  <li>Puppet 3 adds support for Ruby 1.9.3, and drops support for Ruby 1.8.5. (Puppet Labs is publishing Ruby 1.8.7 packages in its repositories to help users who are still on RHEL and CentOS 5.)
+    <ul>
+      <li>Note that <code>puppet doc</code> is only supported on Ruby 1.8.7, due to 1.9&#8217;s changes to the underlying RDoc library. See <a href="http://projects.puppetlabs.com/issues/11786">ticket # 11786</a> for more information.</li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/puppetlabs/hiera">Hiera</a> is now a dependency of Puppet.</li>
+  <li>Puppet now requires Facter 1.6.2 or later.</li>
+  <li>Support for Mac OS X 10.4 has been dropped.</li>
+</ul>
+
+<h3 id="puppet-language-changes">Puppet Language Changes</h3>
+
+<h4 id="dynamic-scope-for-variables-is-removed">Dynamic Scope for Variables is Removed</h4>
+
+<p>Dynamic scoping of variables, which was deprecated in Puppet 2.7, has been removed. See <a href="./lang_scope.html">Language: Scope</a> for more details. The most recent 2.7 release logs warnings about any variables in your code that are still being looked up dynamically.</p>
+
+<blockquote>
+  <p><strong>Upgrade note:</strong> Before upgrading from Puppet 2.x, you should do the following:</p>
+
+  <ul>
+    <li>Restart your puppet master &#8212; this is necessary because deprecation warnings are only produced once per run, and warnings that were already logged may not appear again in your logs until a restart.</li>
+    <li>Allow all of your nodes to check in and retrieve a catalog.</li>
+    <li>Examine your puppet master&#8217;s logs for dynamic scope warnings.</li>
+    <li>Edit any manifests referenced in the warnings to remove the dynamic lookup behavior. Use <a href="./lang_variables.html#accessing-out-of-scope-variables">fully qualified variable names</a> where necessary, and move makeshift data hierarchies out of your manifests and into <a href="https://github.com/puppetlabs/hiera">Hiera</a>.</li>
+  </ul>
+</blockquote>
+
+<h4 id="parameters-in-definitions-must-be-variables">Parameters In Definitions Must Be Variables</h4>
+
+<p>Parameter lists in class and defined type <strong>definitions</strong> must include a dollar sign (<code>$</code>) prefix for each parameter. In other words, parameters must be styled like variables. Non-variable-like parameter lists have been deprecated since at least Puppet 0.23.0.</p>
+
+<p>The syntax for class and defined resource <strong>declarations</strong> is unchanged.</p>
+
+<p>Right:</p>
+
+<pre><code>define vhost ($port = 80, $vhostdir) { ... }
+</code></pre>
+
+<p>Wrong:</p>
+
+<pre><code>define vhost (port = 80, vhostdir) { ... }
+</code></pre>
+
+<p>Unchanged:</p>
+
+<pre><code>vhost {'web01.example.com':
+  port     =&gt; 8080,
+  vhostdir =&gt; '/etc/apache2/conf.d',
+}
+</code></pre>
+
+<h3 id="ruby-dsl-is-deprecated">Ruby DSL is Deprecated</h3>
+
+<p>The <a href="http://projects.puppetlabs.com/projects/puppet/wiki/Ruby_Dsl">Ruby DSL that was added in Puppet 2.6</a> (and then largely ignored) is deprecated. Deprecation warnings have been added to Puppet 3.1.</p>
+
+<h3 id="deprecated-commands-are-removed">Deprecated Commands Are Removed</h3>
+
+<p>The legacy standalone executables, which were replaced by subcommands in Puppet 2.6, have been removed. Additionally, running <code>puppet</code> without a subcommand no longer defaults to <code>puppet apply</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pre-2.6</th>
+      <th>Post-2.6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>puppetmasterd</td>
+      <td>puppet master</td>
+    </tr>
+    <tr>
+      <td>puppetd</td>
+      <td>puppet agent</td>
+    </tr>
+    <tr>
+      <td>puppet</td>
+      <td>puppet apply</td>
+    </tr>
+    <tr>
+      <td>puppetca</td>
+      <td>puppet cert</td>
+    </tr>
+    <tr>
+      <td>ralsh</td>
+      <td>puppet resource</td>
+    </tr>
+    <tr>
+      <td>puppetrun</td>
+      <td>puppet kick</td>
+    </tr>
+    <tr>
+      <td>puppetqd</td>
+      <td>puppet queue</td>
+    </tr>
+    <tr>
+      <td>filebucket</td>
+      <td>puppet filebucket</td>
+    </tr>
+    <tr>
+      <td>puppetdoc</td>
+      <td>puppet doc</td>
+    </tr>
+    <tr>
+      <td>pi</td>
+      <td>puppet describe</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Upgrade note:</strong> Examine your Puppet init scripts, the configuration of the puppet master&#8217;s web server, and any wrapper scripts you may be using, and ensure that they are using the new subcommands instead of the legacy standalone commands.</p>
+</blockquote>
+
+<h3 id="changed-application-behavior">Changed Application Behavior</h3>
+
+<h4 id="puppet-applys---apply-option-is-removed">Puppet Apply&#8217;s <code>--apply</code> Option Is Removed</h4>
+
+<p>The <code>--apply</code> option has been removed. It was replaced by <code>--catalog</code>.</p>
+
+<h4 id="console-output-formatting-changes">Console Output Formatting Changes</h4>
+
+<p>The format of messages displayed to the console has changed slightly, potentially leading to scripts that watch these messages breaking. Additionally, we now use STDERR appropriately on *nix platforms.</p>
+
+<blockquote>
+  <p><strong>Upgrade Note:</strong> If you scrape Puppet&#8217;s console output, revise the relevant scripts.</p>
+</blockquote>
+
+<p>This does not change the formatting of messages logged through other channels (eg: syslog, files), which remain as they were before. <a href="https://projects.puppetlabs.com/issues/13559">See bug #13559 for details</a></p>
+
+<h3 id="removed-and-modified-settings">Removed and Modified Settings</h3>
+
+<p>The following settings have been removed:</p>
+
+<ul>
+  <li><code>factsync</code> (Deprecated since Puppet 0.25 and replaced with <code>pluginsync</code>; see <a href="http://projects.puppetlabs.com/issues/2277">ticket #2277</a>)</li>
+  <li><code>ca_days</code> (Replaced with <code>ca_ttl</code>)</li>
+  <li><code>servertype</code> (No longer needed, due to <a href="#special-case-mongrel-support-is-removed">removal of built-in Mongrel support</a>)</li>
+  <li><code>downcasefact</code> (Long-since deprecated)</li>
+  <li><code>reportserver</code> (Long-since deprecated; replaced with <code>report_server</code>)</li>
+</ul>
+
+<p>The following settings now behave differently:</p>
+
+<ul>
+  <li><code>pluginsync</code> is now enabled by default</li>
+  <li><code>cacrl</code> can no longer be set to <code>false</code>. Instead, Puppet will now ignore the CRL if the file in this setting is not present on disk.</li>
+</ul>
+
+<h3 id="puppet-master-web-server-changes">Puppet Master Web Server Changes</h3>
+
+<h4 id="rack-configuration-is-changed">Rack Configuration Is Changed</h4>
+
+<p>Puppet master&#8217;s <code>config.ru</code> file has changed slightly; see <code>ext/rack/files/config.ru</code> in the Puppet source code for an updated example. The new configuration:</p>
+
+<ul>
+  <li>Should now require <code>'puppet/util/command_line'</code> instead of <code>'puppet/application/master'</code>.</li>
+  <li>Should now run <code>Puppet::Util::CommandLine.new.execute</code> instead of <code>Puppet::Application[:master].run</code>.</li>
+  <li>Should explicitly set the <code>--confdir</code> option (to avoid reading from <code>~/.puppet/puppet.conf</code>).</li>
+</ul>
+
+<div class="highlight"><pre><code class="diff">    diff --git a/ext/rack/files/config.ru b/ext/rack/files/config.ru
+    index f9c492d..c825d22 100644
+    --- a/ext/rack/files/config.ru
+    +++ b/ext/rack/files/config.ru
+    @@ -10,7 +10,25 @@ $0 = &quot;master&quot;
+     # ARGV &lt;&lt; &quot;--debug&quot;
+
+     ARGV &lt;&lt; &quot;--rack&quot;
+    +ARGV &lt;&lt; &quot;--confdir&quot; &lt;&lt; &quot;/etc/puppet&quot;
+    +
+    -require &#39;puppet/application/master&#39;
+    +require &#39;puppet/util/command_line&#39;
+
+    -run Puppet::Application[:master].run
+    +run Puppet::Util::CommandLine.new.execute
+    +
+</code></pre>
+</div>
+
+<blockquote>
+  <p><strong>Upgrade note:</strong> If you run puppet master via a Rack server like Passenger, you <strong>must</strong> change the <code>config.ru</code> file as described above.</p>
+</blockquote>
+
+<h4 id="special-case-mongrel-support-is-removed">Special-Case Mongrel Support Is Removed</h4>
+
+<p>Previously, the puppet master had special-case support for running under Mongrel. Since Puppet&#8217;s standard Rack support can also be used with Mongrel, this redundant code has been removed.</p>
+
+<blockquote>
+  <p><strong>Upgrade note:</strong> If you are using Mongrel to run your puppet master, re-configure it to run Puppet as a standard Rack application.</p>
+</blockquote>
+
+<h3 id="changes-to-core-resource-types">Changes to Core Resource Types</h3>
+
+<h4 id="file">File</h4>
+
+<ul>
+  <li>The <code>recurse</code> parameter can no longer set recursion depth, and must be set to <code>true</code>, <code>false</code>, or <code>remote</code>. Use the <code>recurselimit</code> parameter to set recursion depth. (Setting depth with the <code>recurse</code> parameter has been deprecated since at least Puppet 2.6.8.)</li>
+</ul>
+
+<h4 id="mount">Mount</h4>
+
+<ul>
+  <li>The <code>path</code> parameter has been removed. It was deprecated and replaced by <code>name</code> sometime before Puppet 0.25.0.</li>
+</ul>
+
+<h4 id="package">Package</h4>
+
+<ul>
+  <li>The <code>type</code> parameter has been removed. It was deprecated and replaced by <code>provider</code> some time before Puppet 0.25.0.</li>
+  <li>The <code>msi</code> provider has been deprecated in favor of the more versatile <code>windows</code> provider.</li>
+  <li>The <code>install_options</code> parameter for Windows packages now accepts an array of mixed strings and hashes; however, it remains backwards-compatible with the 2.7 single hash format.</li>
+  <li>A new <code>uninstall_options</code> parameter was added for Windows packages. It uses the same semantics as <code>install_options</code>.</li>
+</ul>
+
+<h4 id="exec">Exec</h4>
+
+<ul>
+  <li>The <code>logoutput</code> parameter now defaults to <code>on_failure</code>.</li>
+  <li>Due to misleading values, the <code>HOME</code> and <code>USER</code> environment variables are now unset when running commands.</li>
+</ul>
+
+<h4 id="metaparameters">Metaparameters</h4>
+
+<ul>
+  <li>The <code>check</code> metaparameter has been removed. It was deprecated and replaced by <code>audit</code> in Puppet 2.6.0.</li>
+</ul>
+
+<h3 id="changes-to-authconf">Changes to Auth.conf</h3>
+
+<h4 id="puppet-agent-now-requires-node-access">Puppet Agent Now Requires Node Access</h4>
+
+<p>Puppet agent nodes now requires access to their own <code>node</code> object on the puppet master; this is used for making ENC-set environments authoritative over agent-set environments. Your puppet master&#8217;s auth.conf file must contain the following stanza, or else agent nodes will not be able to retrieve catalogs:</p>
+
+<pre><code># allow nodes to retrieve their own node object
+path ~ ^/node/([^/]+)$
+method find
+allow $1
+</code></pre>
+
+<p>Auth.conf has allowed this by default since 2.7.0, but puppet masters which have been upgraded from previous versions may still be disallowing it.</p>
+
+<blockquote>
+  <p><strong>Upgrade note:</strong> Check your auth.conf file and make sure it includes the above stanza <strong>before</strong> the final stanza. Add it if necessary.</p>
+</blockquote>
+
+<h4 id="auth-no-in-authconf-is-now-the-same-as-auth-any"><code>auth no</code> in <code>auth.conf</code> Is Now the Same as `auth any&#8217;</h4>
+
+<p>Previously, <code>auth no</code> in <a href="./../../../guides/rest_auth_conf.html">auth.conf</a> would reject connections with valid certificates. This was confusing, and the behavior has been removed; <code>auth no</code> now allows any kind of connection, same as <code>auth any</code>.</p>
+
+<h4 id="new-allowip-directive-in-authconf-ip-addresses-disallowed-in-allow-directive">New <code>allow_ip</code> Directive in <code>auth.conf</code>; IP Addresses Disallowed in <code>allow</code> Directive</h4>
+
+<p>To allow hosts based on IP address, use <code>allow_ip</code>. It functions exactly like <code>allow</code> in all respects except that it does not support backreferences. The <code>allow</code> directive now assumes that the string is not an IP address.</p>
+
+<blockquote>
+  <p><strong>Upgrade Note:</strong> If your <code>auth.conf</code> or <code>fileserver.conf</code> files allowed any specific nodes by IP address, you must replace those <code>allow</code> directives with <code>allow_ip</code>.</p>
+</blockquote>
+
+<h3 id="changes-to-http-api">Changes to HTTP API</h3>
+
+<h4 id="resource-type-api-has-changed">&#8220;Resource Type&#8221; API Has Changed</h4>
+
+<p>The API for querying resource types has changed to more closely match standard Puppet terminology.  This is most likely to be visible to any external tools that were using the HTTP API to query for information about resource types.</p>
+
+<ul>
+  <li>You can now add a <code>kind</code> option to your request, which will allow you to filter results by one of the following kinds of resource types: <code>class</code>, <code>node</code>, <code>defined_type</code>.</li>
+  <li>The API would previously return a field called <code>type</code> for each result; this has been changed to <code>kind</code>.</li>
+  <li>The API would previously return the value <code>hostclass</code> for the <code>type</code> field for classes; this has been changed to <code>class</code>.</li>
+  <li>The API would previously return the value <code>definition</code> for the <code>type</code> field for classes; this has been changed to <code>defined_type</code>.</li>
+  <li>The API would previously return a field called <code>arguments</code> for any result that contained a parameter list; this has been changed to <code>parameters</code>.</li>
+</ul>
+
+<p>An example of the new output:</p>
+
+<pre><code>[
+  {
+    "line": 1,
+    "file": "/home/cprice/work/puppet/test/master/conf/modules/resource_type_foo/manifests/init.pp",
+    "name": "resource_type_foo",
+    "kind": "class"
+  },
+  {
+    "line": 1,
+    "file": "/home/cprice/work/puppet/test/master/conf/modules/resource_type_foo/manifests/my_parameterized_class.pp",
+    "parameters": {
+      "param1": null,
+      "param2": "\"default2\""
+    },
+    "name": "resource_type_foo::my_parameterized_class",
+    "kind": "class"
+  },
+  {
+    "line": 1,
+    "file": "/home/cprice/work/puppet/test/master/conf/modules/resource_type_foo/manifests/my_defined_type.pp",
+    "parameters": {
+      "param1": null,
+      "param2": "\"default2\""
+    },
+    "name": "resource_type_foo::my_defined_type",
+    "kind": "defined_type"
+  },
+  {
+    "line": 1,
+    "file": "/home/cprice/work/puppet/test/master/conf/modules/resource_type_foo/manifests/my_node.pp",
+    "name": "my_node",
+    "kind": "node"
+  }
+]
+</code></pre>
+
+<h4 id="xml-rpc-support-is-entirely-removed">XML-RPC support is entirely removed</h4>
+
+<p>XML-RPC support has been removed entirely, in favor of the HTTP API introduced in 2.6. XML-RPC support has been deprecated since 2.6.0.</p>
+
+<h3 id="changes-to-ruby-api-including-type-and-provider-interface">Changes to Ruby API, Including Type and Provider Interface</h3>
+
+<p>The following hard changes have been made to Puppet&#8217;s internal Ruby API:</p>
+
+<ul>
+  <li><strong>Helper code:</strong> <code>String#lines</code> and <code>IO#lines</code> revert to standard Ruby semantics. Puppet used to emulate these methods to accomodate ancient Ruby versions, and its emulation was slightly inaccurate. We&#8217;ve stopped emulating them, so they now include the separator character (<code>$/</code>, default value <code>\n</code>) in the output and include content where they previously wouldn&#8217;t.</li>
+  <li><strong>Functions:</strong> Puppet functions called from Ruby code (templates, other functions, etc.) must be called with an <strong>array of arguments.</strong> Puppet has always expected this, but was not enforcing it. See <a href="https://projects.puppetlabs.com/issues/15756">ticket #15756</a> for more information.</li>
+  <li><strong>Faces:</strong> The <code>set_default_format</code> method has been removed. It had been deprecated and replaced by <code>render_as</code>.</li>
+  <li><strong>Resource types:</strong> The following methods for type objects have been removed: <code>states</code>, <code>newstate</code>, <code>[ ]</code>, <code>[ ]=</code>, <code>alias</code>, <code>clear</code>, <code>create</code>, <code>delete</code>, <code>each</code>, and <code>has_key?</code>.</li>
+  <li><strong>Providers:</strong> The <code>mkmodelmethods</code> method for provider objects has been removed. It was replaced with <code>mk_resource_methods</code>.</li>
+  <li><strong>Providers:</strong> The <code>LANG</code>, <code>LC_*</code>, and <code>HOME</code> environment variables are now unset when providers and other code execute external commands.</li>
+</ul>
+
+<p>The following Ruby methods are now deprecated:</p>
+
+<ul>
+  <li><strong>Applications:</strong> The <code>Puppet::Application</code> class&#8217;s <code>#should_parse_config</code>, <code>#should_not_parse_config</code>, and <code>#should_parse_config?</code> methods are now deprecated, and will be removed in a future release. They are no longer necessary for individual applications and faces, since Puppet now automatically determines when the config file should be re-parsed.</li>
+</ul>
+
+<h3 id="changes-to-agent-lockfile-behavior">Changes to Agent Lockfile Behavior</h3>
+
+<p>Puppet agent now uses two lockfiles instead of one:</p>
+
+<ul>
+  <li>The run-in-progress lockfile (configured with the <code>agent_catalog_run_lockfile</code> setting) is present if an agent catalog run is in progress. It contains the PID of the currently running process.</li>
+  <li>The disabled lockfile (configured with the <code>agent_disabled_lockfile</code> setting) is present if the agent was disabled by an administrator. The file is a JSON hash which <strong>may</strong> contain a <code>disabled_message</code> key, whose value should be a string with an explanatory message from the administrator.</li>
+</ul>
+
+<h3 id="non-administrator-windows-data-directory-is-changed">Non-Administrator Windows Data Directory Is Changed</h3>
+
+<p>When running as a non-privileged user (i.e. not an Administrator), the location of Puppet&#8217;s data directory has changed. Previously, it was in <code>~/.puppet</code>, but it is now located in the Local Application Data directory following Microsoft best-practices for per-user, non-roaming data. The location of the directory is contained in the <code>%LOCALAPPDATA%</code> environment variable, which on Windows 2003 and earlier is: <code>%USERPROFILE%\Local Settings\Application Data</code> On Windows Vista and later: <code>%USERPROFILE%\AppData\Local</code></p>
+
+<h2 id="new-backwards-compatible-features-in-30">New Backwards-Compatible Features in 3.0</h2>
+
+<h3 id="automatic-data-bindings-for-class-parameters-1">Automatic Data Bindings for Class Parameters</h3>
+
+<p>When you declare or assign classes, Puppet now automatically looks up parameter values in Hiera. See <a href="./lang_classes.html">Classes</a> for more details.</p>
+
+<h3 id="solaris-improvements-1">Solaris Improvements</h3>
+
+<ul>
+  <li>Puppet now supports the ipkg format, and is able to &#8220;hold&#8221; packages (install without activating) on Solaris.</li>
+  <li>Zones support is fixed.</li>
+  <li>Zpool support is significantly improved.</li>
+</ul>
+
+<h3 id="rubygem-extension-support">Rubygem Extension Support</h3>
+
+<p>Puppet can now load extensions (including subcommands) and plugins (custom types/providers/functions) from gems. See <a href="https://projects.puppetlabs.com/issues/7788">ticket #7788</a> for more information.</p>
+
+<h3 id="puppet-agent-is-more-efficient-in-daemon-mode">Puppet Agent Is More Efficient in Daemon Mode</h3>
+
+<p>Puppet agent now forks a child process to run each catalog. This allows it to return memory to system more efficiently when running in daemon mode, and should reduce resource consumption for users who don&#8217;t run puppet agent from cron.</p>
+
+<h3 id="puppet-parser-validate-will-read-from-stdin"><code>puppet parser validate</code> Will Read From STDIN</h3>
+
+<p>Piped content to <code>puppet parser validate</code> will now be read and validated, rather than ignoring it and requiring a file on disk.</p>
+
+<h3 id="the-http-report-processor-now-supports-https">The HTTP Report Processor Now Supports HTTPS</h3>
+
+<p>Use an <code>https://</code> URL in the <code>report_server</code> setting to submit reports to an HTTPS server.</p>
+
+<h3 id="the-include-function-now-accepts-arrays">The <code>include</code> Function Now Accepts Arrays</h3>
+
+<h3 id="new-unless-statement">New <code>unless</code> Statement</h3>
+
+<p>Puppet now has <a href="./lang_conditional.html#unless-statements">an <code>unless</code> statement</a>.</p>
+
+<h3 id="puppet-agent-can-use-dns-srv-records-to-find-puppet-master">Puppet Agent Can Use DNS SRV Records to Find Puppet Master</h3>
+
+<blockquote>
+  <p><strong>Note:</strong> This feature is meant for certain unusual use cases; if you are wondering whether it will be useful to you, the answer is probably &#8220;No, use <a href="./../../../guides/scaling_multiple_masters.html">round-robin DNS or a load balancer</a> instead.&#8221;</p>
+</blockquote>
+
+<p>Usually, agent nodes use the <code>server</code> setting from puppet.conf to locate their puppet master, with optional <code>ca_server</code> and <code>report_server</code> settings for centralizing some kinds of puppet master traffic.</p>
+
+<p>If you set <a href="./../../../references/latest/configuration.html#usesrvrecords"><code>use_srv_records</code></a> to <code>true</code>, agent nodes will instead use DNS SRV records to attempt to locate the puppet master. These records must be configured as follows:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Server</th>
+      <th>SRV record</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Puppet master</td>
+      <td><code>_x-puppet._tcp.$srv_domain</code></td>
+    </tr>
+    <tr>
+      <td>CA server (if different)</td>
+      <td><code>_x-puppet-ca._tcp.$srv_domain</code></td>
+    </tr>
+    <tr>
+      <td>Report server (if different)</td>
+      <td><code>_x-puppet-report._tcp.$srv_domain</code></td>
+    </tr>
+    <tr>
+      <td>File server* (if different)</td>
+      <td><code>_x-puppet-fileserver._tcp.$srv_domain</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The <a href="./../../../references/latest/configuration.html#srvdomain"><code>srv_domain</code></a> setting can be used to set the domain the agent will query; it defaults to the value of the <a href="/facter/latest/core_facts.html#domain">domain fact</a>. If the agent doesn&#8217;t find an SRV record or can&#8217;t contact the servers named in the SRV record, it will fall back to the <code>server</code>/<code>ca_server</code>/<code>report_server</code> settings from puppet.conf.</p>
+
+<p>* (Note that the file server record is somewhat dangerous, as it overrides the server specified in <strong>any</strong> <code>puppet://</code> URL, not just URLs that use the default server.)</p>
+
+<h2 id="all-bugs-fixed-in-30">All Bugs Fixed in 3.0</h2>
+
+<p>Use the Puppet issue tracker to find every bug fixed in a given version of Puppet.</p>
+
+<ul>
+  <li><a href="http://projects.puppetlabs.com/projects/puppet/issues?set_filter=1&amp;f[]=fixed_version_id&amp;op[fixed_version_id]=%3D&amp;v[fixed_version_id][]=271&amp;f[]=&amp;c[]=project&amp;c[]=tracker&amp;c[]=status&amp;c[]=priority&amp;c[]=subject&amp;c[]=assigned_to&amp;c[]=fixed_version&amp;group_by=">All bugs fixed in 3.0.0</a> (approx. 220)</li>
+</ul>
+
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+
+
+<h3 id="puppet-3-reference-manual">Puppet 3 Reference Manual</h3>
+
+<p><a href="./index.html">Main Index</a></p>
+
+
+<ul>
+  <li><strong>Puppet 3 Overview</strong>
+    <ul>
+      <li><a href="./index.html">Introduction</a></li>
+      <li><span class="currentpage">What's New in Puppet 3</span></li>
+      <li><a href="./release_notes.html">Puppet 3.x.x Release Notes</a></li>
+      <li><a href="./system_requirements.html">System Requirements</a></li>
+    </ul>
+  </li>
+  <li><strong>The Puppet Language</strong>
+    <ul>
+      <li><a href="./lang_visual_index.html">Visual Index</a></li>
+      <li><a href="./lang_summary.html">Summary</a></li>
+      <li><a href="./lang_reserved.html">Reserved Words and Allowed Names</a></li>
+      <li><a href="./lang_resources.html">Resources</a></li>
+      <li><a href="./lang_relationships.html">Relationships and Ordering</a></li>
+      <li><a href="./lang_defaults.html">Resource Defaults</a></li>
+      <li><a href="./lang_variables.html">Variables</a></li>
+      <li><a href="./lang_scope.html">Scope</a></li>
+      <li><a href="./lang_conditional.html">Conditional Statements</a></li>
+      <li><a href="./lang_expressions.html">Expressions</a></li>
+      <li><a href="./lang_functions.html">Functions</a></li>
+      <li><a href="./lang_classes.html">Classes</a></li>
+      <li><a href="./lang_defined_types.html">Defined Types</a></li>
+      <li><a href="./lang_containment.html">Containment</a></li>
+      <li><a href="./lang_namespaces.html">Namespaces and Autoloading</a></li>
+      <li><a href="./lang_collectors.html">Resource Collectors</a></li>
+      <li><a href="./lang_node_definitions.html">Node definitions</a></li>
+      <li><a href="./lang_datatypes.html">Data Types</a></li>
+      <li><a href="./lang_comments.html">Comments</a></li>
+      <li><a href="./lang_virtual.html">Virtual Resources</a></li>
+      <li><a href="./lang_exported.html">Exported Resources</a></li>
+      <li><a href="./lang_tags.html">Tags</a></li>
+      <li><a href="./lang_run_stages.html">Run Stages</a></li>
+      <li><a href="./lang_import.html">Importing Manifest Files</a></li>
+      <li><a href="./lang_experimental_3_2.html">Experimental Features: Puppet 3.2</a></li>
+    </ul>
+  </li>
+
+
+  <li><strong>Modules</strong>
+    <ul>
+      <li><a href="./modules_fundamentals.html">Fundamentals</a></li>
+      <li><a href="./../../../guides/plugins_in_modules.html">Plugins in Modules</a></li>
+      <li><a href="./modules_installing.html">Installing Modules</a></li>
+      <li><a href="./modules_publishing.html">Publishing Modules on the Puppet Forge</a></li>
+      <li><a href="./modules_documentation.html">Module Documentation</a></li>
+    </ul>
+  </li>
+
+  <li><strong>Configuration</strong>
+    <ul>
+      <li><a href="./config_ssl_external_ca.html">SSL: Using an External CA</a></li>
+    </ul>
+  </li>
+
+  <li><strong>Data Formats</strong>
+    <ul>
+      <li><a href="./format_report.html">Report Format</a></li>
+    </ul>
+  </li>
+
+  <li><strong>Puppet Subsystems</strong>
+    <ul>
+      <li><a href="./subsystem_agent_master_comm.html">Agent/Master HTTPS Communications</a></li>
+    </ul>
+  </li>
+  <li><strong>Generated References</strong>
+    <ul>
+      <li><a href="./../../../references/3.2.latest/type.html">Resource Types</a></li>
+      <li><a href="./../../../references/3.2.latest/configuration.html">Configuration Settings</a></li>
+      <li><a href="./../../../references/3.2.latest/function.html">Functions</a></li>
+      <li><a href="./../../../references/3.2.latest/metaparameter.html">Metaparameters</a></li>
+      <li><a href="./../../../references/3.2.latest/report.html">Report Handlers</a></li>
+      <li><a href="./../../../references/3.2.latest/indirection.html">Indirections and Termini</a></li>
+      <li><a href="./../../../references/3.2.latest/developer/index.html">Developer Documentation</a></li>
+    </ul>
+  </li>
+  <li><strong>More Sections Coming Later</strong>
+    <ul>
+      <li><strong>Standard Puppet Operation</strong></li>
+      <li><strong>Command Line Interface</strong></li>
+      <li><strong>The Puppet Services</strong></li>
+      <li><strong>Node Classification</strong></li>
+      <li><strong>File Serving</strong></li>
+      <li><strong>Resource Types and Providers</strong></li>
+      <li><strong>SSL and Certificates</strong></li>
+      <li><strong>Puppet Data Library</strong></li>
+      <li><strong>Environments</strong></li>
+      <li><strong>Configuring Puppet</strong></li>
+      <li><strong>Internals</strong></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

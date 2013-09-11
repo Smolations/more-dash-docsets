@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Community Guidelines and Code of Conduct for Puppet Communities — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../favicon.ico' />
+
+  <meta name="description" content="We want to keep the Puppet communities awesome, and we need your help to keep it that way. While we have specific guidelines for various tools (see...">
+
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/ampersands.js'></script>
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/community/community_guidelines.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/style_legacy.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Community Guidelines and Code of Conduct for Puppet Communities</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+
+<p>We want to keep the Puppet communities awesome, and we need your help to keep it that way. While we have specific guidelines for various tools (see links below), in general, you should:</p>
+
+<ul>
+  <li><strong>Be nice</strong>: Be courteous, respectful and polite to fellow community members: no regional, racial, gender, or other abuse will be tolerated. We like nice people way better than mean ones!</li>
+  <li><strong>Encourage diversity and participation</strong>: Make everyone in our community feel welcome, regardless of their background, and do everything possible to encourage participation in our community.</li>
+  <li><strong>Keep it legal</strong>: Basically, don&#8217;t get us in trouble. Share only content that you own, do not share private or sensitive information, and don&#8217;t break the law.</li>
+  <li><strong>Stay on topic</strong>: Make sure that you are posting to the correct online channel and avoid off-topic discussions.  Also remember that nobody likes spam.</li>
+</ul>
+
+<h2 id="guideline-violations-----3-strikes-method">Guideline Violations &#8212; 3 Strikes Method</h2>
+
+<p>The point of this section is not to find opportunities to punish people, but we do need a fair way to deal with people who are making our community suck.</p>
+
+<ol>
+  <li><strong>First occurrence</strong>: We’ll give you a friendly, but public reminder that the behavior is inappropriate according to our guidelines.</li>
+  <li><strong>Second occurrence</strong>:  We will send you a private message with a warning that any additional violations will result in removal from the community.</li>
+  <li><strong>Third occurrence</strong>: Depending on the violation, we may need to delete or ban your account.</li>
+</ol>
+
+<p>Notes:</p>
+
+<ul>
+  <li>Obvious spammers are banned on first occurrence. If we don’t do this, we’ll have spam all over the place.</li>
+  <li>Violations are forgiven after 6 months of good behavior, and we won’t hold a grudge.</li>
+  <li>People who are committing minor formatting / style infractions will get some education, rather than hammering them in the 3 strikes process.</li>
+  <li>Extreme violations of a threatening, abusive, destructive or illegal nature will be addressed immediately and are not subject to 3 strikes.</li>
+  <li>Contact Dawn Foster to report abuse or appeal violations. In the case of appeals, we know that mistakes happen, and we’ll work with you to come up with a fair solution if there has been a misunderstanding.</li>
+</ul>
+
+<h2 id="activity-specific-guidelines">Activity-Specific Guidelines</h2>
+
+<ul>
+  <li><a href="#getting-technical-help">Getting Technical Help</a></li>
+  <li><a href="#irc-guidelines">IRC Guidelines</a></li>
+  <li><a href="#mailing-list-guidelines">Mailing List Guidelines</a></li>
+  <li><a href="#ask-puppet-labs-qa-site-guidelines">Ask Puppet Labs Q&amp;A Site Guidelines</a></li>
+  <li><a href="#bug-guidelines">Bug Guidelines</a></li>
+  <li><a href="#documentation-guidelines">Documentation Guidelines</a></li>
+  <li><a href="#git--source-guidelines">Git / Source Guidelines</a></li>
+  <li><a href="#forge--module-guidelines">Forge and Module Guidelines</a></li>
+  <li><a href="#event-code-of-conduct">Event Code of Conduct</a></li>
+</ul>
+
+<h3 id="getting-technical-help">Getting Technical Help</h3>
+
+<p>Puppet has a healthy community full of people who are happy to help you get unstuck, but the community works best if you know how it works. If you run into trouble with puppet, these guidelines will make it easier for you to quickly get help.</p>
+
+<p>Puppet has a relatively long history and open development process for an open-source project, so there is a ton of information returned from google searches for various problems. To narrow down your results to the most relevant, try these google tips:</p>
+
+<ol>
+  <li>Restrict your search to site:projects.puppetlabs.com – this will cut out the old Trac / reductivelabs wiki and get you more recent hits.</li>
+  <li>Join the <a href="http://groups.google.com/group/puppet-users">puppet-users google group</a> and use the search box on the group page to search the mailing list. this eliminates duplicate hits from ML mirrors like nabble and lets you order results by date so you aren’t getting confused by a bug that was fixed three versions ago.</li>
+  <li>Use correct Puppet-specific terminology for your problem like yum provider, file resource, and manifest.</li>
+</ol>
+
+<p>Many general questions about Puppet and Puppet Labs are answered in the <a href="http://docs.puppetlabs.com/guides/faq.html">Frequently Asked Questions</a>. Otherwise, the <a href="http://docs.puppetlabs.com/">Documentation Start</a> is the place to go. Also available is <a href="http://www.amazon.com/gp/product/1590599780?ie=UTF8&amp;tag=puppet0e-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1590599780">“Pulling Strings with Puppet”</a> by James Turnbull which is the first book to be written about Puppet and its sequel <a href="http://www.amazon.com/gp/product/1430230576?ie=UTF8&amp;tag=puppet0e-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1430230576">“Pro Puppet”</a>.</p>
+
+<p>We also provide various <a href="http://puppetlabs.com/services/overview/">commercial services</a> around Puppet (training, professional services, support, certification and more) for people who want a little extra help.</p>
+
+<p>If you can&#8217;t solve a problem on your own, there are a lot of places you can go to get help from (and help back!) your fellow community members. The sections below cover the norms and expectations in each area of the Puppet community.</p>
+
+<h3 id="irc-guidelines">IRC Guidelines</h3>
+
+<p>A great place to get real-time help with Puppet is our IRC channel: #puppet on irc.freenode.net. There are usually many helpful people there in addition to some of the Puppetlabs staff.
+Please read and understand this <a href="http://workaround.org/getting-help-on-irc">fantastic guide to getting help for open-source projects on irc</a> before diving in. All of the points there apply to #puppet, especially “Don’t repeat yourself”, “Don’t ask to ask”, and “Stick around”. #puppet in particular has heavy concentrations of people in UK (GMT) and West-coast US (PST), so asking your question when those time zones are in business hours is more likely to get a good result.</p>
+
+<p>Be aware that the IRC channel is not an official support channel, it’s an ad hoc group of people (some of whom work on puppet for a living) self-organizing to help each other out. If you do not receive an answer to your question, (especially if you have not followed the <a href="http://workaround.org/getting-help-on-irc">getting help on irc best practices</a>!!), that doesn’t mean you are out of options, the software is hopelessly broken, or your problem is insoluble. It just means you need to keep troubleshooting.</p>
+
+<p>We also have a few IRC-specific guidelines:</p>
+
+<ul>
+  <li>Don&#8217;t be a jerk: Treat people with respect and consideration.</li>
+  <li>Be helpful: Be patient with new people and be willing to jump in to answer questions.</li>
+  <li>Stay calm: The written word is always subject to interpretation, so give people the benefit of the doubt and try not to let emotions get out of control.</li>
+  <li>Don&#8217;t post chunks: Avoid posting big chunks of text &#8212; use pastebin or a similar service to shorten it to a link.</li>
+  <li>Be patient: Folks might not be around when you ask a question, so wait a while for someone to speak before leaving.</li>
+  <li>Search first: Believe it or not, your question might not be new or you might be able to find someone who has already asked or answered your question. Do a thorough search of the <a href="http://www.puppetlogs.com/">IRC log archives</a> to see if it has been answered before.</li>
+  <li>Don&#8217;t private message: Ask permission before you send someone a private message (PM). Not everyone likes them. Also, by keeping it in public, others with similar issues can see the solution you were given.</li>
+  <li>More information: This <a href="http://irchelp.org/irchelp/ircprimer.html">IRC primer</a> for new users and the <a href="http://freenode.net/channel_guidelines.shtml">general IRC guidelines</a>, from freenode, are also useful resources.</li>
+</ul>
+
+<h3 id="mailing-list-guidelines">Mailing List Guidelines</h3>
+
+<p>Remember, when you post to a community mailing list, you are, in effect, asking a large group of people to give you some of their time and attention &#8212; to download your message, read it, and potentially reply to it. It is simply polite to make sure your message is relevant to as many of the people receiving the message as possible. Many of the guidelines below stem from this basic principle.</p>
+
+<p><strong>Puppet Community Mailing Lists</strong></p>
+
+<ul>
+  <li><a href="https://groups.google.com/group/puppet-users">Puppet-Users</a>: The Puppet users mailing list, for any and all Puppet discussion.</li>
+  <li><a href="https://groups.google.com/group/puppet-dev">Puppet-Dev</a>: The Puppet-dev mailing list, for all public discussions related to the development of the puppet codebase.</li>
+  <li><a href="https://groups.google.com/group/puppet-razor">Puppet-Razor</a>: The mailing list for any and all questions about the Razor project.</li>
+  <li><a href="https://groups.google.com/group/puppet-announce">Puppet-Announce</a> (Read-Only): A list for announcements related to Puppet, e.g.; major version releases</li>
+  <li><a href="http://groups.google.com/group/puppet-bugs">Puppet Bugs</a> (Read-Only): An automated list that gets a copy of all project ticket activity.</li>
+  <li><a href="http://groups.google.com/group/puppet-commit">Puppet Commit</a> (Read-Only): An automated list that gets a copy of all git source code commits.</li>
+</ul>
+
+<p><strong>Search First</strong></p>
+
+<ul>
+  <li>Believe it or not, your question might not be new. Do a thorough search of the mailing list archives (linked above) to see if it has been answered before.</li>
+  <li>You waste everyone&#8217;s time if you post repeat questions.</li>
+</ul>
+
+<p><strong>Stay on Topic</strong></p>
+
+<ul>
+  <li>Review a few posts from our lists before deciding where to post your question (see links to mailing lists above).</li>
+  <li>Recruiters are not permitted to post jobs to our mailing lists. However, if you are an active community member and you are personally hiring more people to work on Puppet, you may post relevant job descriptions.</li>
+</ul>
+
+<p><strong>Avoid Cross-Posting</strong></p>
+
+<ul>
+  <li>If you have a question, please pick the list that is most relevant to your topic and post the question only on that list.</li>
+  <li>Only important community announcements (like conferences, new releases, etc.) should be posted to multiple lists at the same time. When you post to multiple lists, please specify which one list people should reply to with questions and put the other lists in the bcc.</li>
+</ul>
+
+<p><strong>Keep It Short</strong></p>
+
+<p>Remember that thousands of copies of your message will exist in mailboxes:</p>
+
+<ul>
+  <li>Keep your messages as short as possible.</li>
+  <li>Avoid excessively long log output (select only the most relevant lines, or place the log on a website or in a pastebin, instead if the log messages are very long).</li>
+  <li>Don&#8217;t excessively quote previous messages in the thread (trim the quoted text down to only the most recent/relevant messages).</li>
+</ul>
+
+<p><strong>Use Proper Posting Style</strong></p>
+
+<ul>
+  <li>Please avoid using  HTML or Rich Text: Set your mailer to send only plain text messages to avoid getting caught in our spam filters and avoid irritating people who have disabled these types of formats.</li>
+  <li>Do not “top post”. Use interleaved posting where possible: Bottom, interleaved posting is replying to the relevant parts of the previous correspondence just below the block(s) of sentences. For a comment to another block of sentences of the same quoted text, you should move below that relevant block again. Do not reply below the whole of the quoted text. Also, remove any irrelevant text.</li>
+  <li>Use links: Please provide URLs to articles wherever possible. Avoid cutting and pasting whole articles, especially considering the fact that not everyone may be interested.</li>
+  <li>Don&#8217;t include large attached files: Instead of including large attachments, please upload your file to a server and post a link to the file from your email message.</li>
+</ul>
+
+<p><strong>Do Not Hijack Threads</strong></p>
+
+<ul>
+  <li>Post new questions or new topics as new threads (new email message). Please do not reply to a random thread with a new question or start an unrelated topic of conversation in an existing thread. This creates confusion and makes it much less likely that you will get a response.</li>
+</ul>
+
+<p><strong>Subscribers Only</strong></p>
+
+<ul>
+  <li>Only subscribers can post to our mailing lists. If you would like to contribute to our mailing lists, we think it is only fair that you be a subscriber. Note: If you want to participate only occasionally, you can subscribe to a list and set your email options to digest or no mail and read the web archives when you want to catch up.</li>
+  <li>To reduce spam, we may moderate posts from new mailing list users. If your message doesn’t appear right away, please be patient and give us a little time to respond to the list moderation requests.</li>
+</ul>
+
+<p><strong>Recipients</strong></p>
+
+<ul>
+  <li>Always reply to the mailing list (not the individual) when answering questions. In many cases, one person will post the question and several others will be silently waiting to see the answer on the list. This also helps avoid repeat questions because others can search the mailing list to get answers.</li>
+  <li>Always group-reply to a message. Some of the email recipients might not be subscribed, might have turned off email delivery, or may read list messages with lower priority than messages addressed to them directly. For the same reasons, it is advisable to add relevant people to the recipient list explicitly.</li>
+</ul>
+
+<p>Credit to the <a href="http://fedoraproject.org/wiki/Communicate/MailingListGuidelines">Fedora Mailing List Guidelines</a> as a starting point under the Creative Commons Attribution-ShareAlike 3.0 Unported license.</p>
+
+<h3 id="ask-puppet-labs-qa-site-guidelines">Ask Puppet Labs Q&amp;A Site Guidelines</h3>
+
+<p>The <a href="http://ask.puppetlabs.com">Ask Puppet Labs</a> site is a place where you can get answers to questions about anything related to Puppet.</p>
+
+<p>Here are a few guidelines:</p>
+
+<ul>
+  <li>Please search before asking your question to make sure that someone hasn&#8217;t already answered it.</li>
+  <li>If you ask a question and someone replies with an answer that works for you, please remember to go back to the Ask site and mark that answer as &#8220;correct&#8221; by clicking the checkmark next to the answer.</li>
+  <li>If you are reading answers to other people&#8217;s questions, and you find a good answer, vote it up. Likewise, please vote down answers that are not good to help other people avoid using them.</li>
+  <li>Leave comments on answers if you want to add some additional information, like a helpful tip or advice. You should also leave a comment on answers that didn&#8217;t work for you with a few notes about why it didn&#8217;t work to help us all learn from your experience.</li>
+  <li>This is a community website, you are encouraged to add relevant tags and make other improvements.</li>
+  <li>You get karma points to encourage people who are being helpful on the site. The site administrator can also remove karma points in the unlikely event that someone might try to abuse the system :)</li>
+  <li>If you see spam or any inappropriate content, please flag it as offensive so that our moderators can take a look at it.</li>
+  <li>If you find a bug in the way the Ask site itself works or you want to suggest a feature, you can submit your issue into our <a href="https://projects.puppetlabs.com/projects/ask/issues">Ask bug tracker</a>.</li>
+</ul>
+
+<h3 id="bug-guidelines">Bug Guidelines</h3>
+
+<p>You can lodge bug reports and support tickets for Puppet at the <a href="http://projects.puppetlabs.com/projects/puppet">Redmine ticketing system</a>. In order to cut down on ticket spam, the tracker requires you to register and log in before the “New issue” link appears in the UI.</p>
+
+<p>Here are a few guidelines that apply specifically to our bug tracker:</p>
+
+<ul>
+  <li>Each bug report is for only one issue. If you find several issues, please separate them into several reports.</li>
+  <li>Do a search before you file a bug, and try to avoid filing duplicates by taking a look at whether your issue has already been filed before.</li>
+  <li>Don&#8217;t start endless debates on topics not directly related to the scope of a specific bug report. We have mailing lists and other places for longer discussions.</li>
+  <li>Avoid quoting complete previous comments by stripping unneeded lines.</li>
+  <li>Please double check to make sure that the information you are including is public (not confidential), especially in attached log files or screenshots.</li>
+  <li>We encourage community members to help us triage bugs, and this is a great way for anyone to get involved without ever writing a line of code. For more details, see our <a href="./../community/puppet_projects_redmine_workflow.html">Redmine Workflow</a> document.</li>
+  <li>Refer to our <a href="./../community/puppet_projects_redmine_workflow.html">Redmine Workflow</a> document for more details about the process for filing bugs.</li>
+</ul>
+
+<h3 id="documentation-guidelines">Documentation Guidelines</h3>
+
+<ul>
+  <li>We encourage contributions to our documentation.</li>
+  <li>Our documentation is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.</li>
+  <li>For suggestions or minor corrections, just email faq@puppetlabs.com.</li>
+  <li>To contribute text or make larger-scale suggestions, see the <a href="http://docs.puppetlabs.com/contribute.html">instructions for contributing</a>.</li>
+  <li>If you would like to submit your own content, you can fork the project on <a href="http://github.com/puppetlabs/puppet-docs">github</a>, make changes, and send us a pull request. See the README files in the project for more information about how to generate and view a copy of the website.</li>
+</ul>
+
+<h3 id="git--source-guidelines">Git / Source Guidelines</h3>
+
+<ul>
+  <li>If you want to contribute code, you might want to start with a discussion on the mailing list to make sure that what you want to submit is a good idea or architected in a way that will be useful for others.</li>
+  <li>Look at existing pull requests to make sure that you aren’t duplicating effort.</li>
+  <li>Review any existing CONTRIBUTOR.MD files associated with the project.</li>
+  <li>If you are new to git or github, you might find these resources useful: <a href="http://help.github.com/">github help files</a>, <a href="http://help.github.com/git-cheat-sheets/">Git cheat sheets</a>, and <a href="http://gitref.org/">Git Reference documentation</a>.</li>
+</ul>
+
+<h3 id="forge--module-guidelines">Forge / Module Guidelines</h3>
+
+<p>The <a href="http://forge.puppetlabs.com/">Puppet Forge</a> is a repository of modules, written and contributed by users, and we encourage you to publish your modules on the Forge.</p>
+
+<ul>
+  <li>Start with the <a href="http://docs.puppetlabs.com/puppet/latest/reference/modules_publishing.html">Publishing Modules</a> document to learn how to publish your modules to the Puppet Forge.</li>
+  <li>See the <a href="http://docs.puppetlabs.com/puppet/latest/reference/modules_fundamentals.html">Module Fundamentals</a> document for how to write and use your own Puppet modules.</li>
+  <li>See the <a href="http://docs.puppetlabs.com/puppet/latest/reference/modules_installing.html">Installing Modules</a> document for how to install pre-built modules from the Puppet Forge.</li>
+  <li>See the <a href="http://docs.puppetlabs.com/guides/plugins_in_modules.html">Using Plugins</a> document for how to arrange plugins (like custom facts and custom resource types) in modules and sync them to agent nodes.</li>
+</ul>
+
+<h3 id="event-code-of-conduct">Event Code of Conduct</h3>
+
+<p>Exhibitors, speakers, sponsors, staff and all other attendees at events organized by Puppet Labs (PuppetConf,  Puppet Camps, training classes, and others) are subject to these Community Guidelines and Code of Conduct. We are dedicated to providing a harassment-free experience for everyone, regardless of gender, gender identity or expression, sexual orientation, disability, physical appearance, body size, race, or religion. We do not tolerate harassment of participants in any form.</p>
+
+<p>We ask you to be considerate of others and behave professionally and respectfully to all other participants. Remember that sexual language and imagery is not appropriate for any event venue, including talks. Participants violating these rules may be sanctioned or expelled from the event without a refund at the discretion of the organizers or Puppet Labs staff members.</p>
+
+<p>Harassment includes offensive verbal comments related to gender, gender identity or expression, sexual orientation, disability, physical appearance, body size, race, religion, sexual images in public spaces, deliberate intimidation, stalking, following, harassing photography or recording, sustained disruption of talks or other events, inappropriate physical contact, and unwelcome sexual attention. Participants asked to stop any harassing behavior are expected to comply immediately.</p>
+
+<p>If a participant engages in harassing behavior, the event organizers may take any action they deem appropriate, including warning the offender or expulsion from the event with no refund. If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of the event staff immediately.</p>
+
+<p>Event staff will be happy to help participants address concerns. All reports will be treated as confidential. We strongly encourage you to address your issues privately with any of our staff members who are organizing the event. We encourage you to avoid disclosing information about the incident until the staff have had sufficient time in which to address the situation. Please also keep in mind that public shaming can be counter-productive to building a strong community. We do not condone nor participate in such actions.</p>
+
+<p>We value your attendance. If you cannot find a member of the event staff or are not comfortable contacting one of the staff, you can alternatively contact Dawn Foster (dawn at puppetlabs.com) or Kara Sowles (kara at puppetlabs.com).</p>
+
+<p>We expect all participants to follow these rules at all event venues and related social events.</p>
+
+<h3 id="credits">Credits</h3>
+
+<p>Credit to <a href="https://01.org/community/participation-guidelines">01.org</a> and <a href="http://wiki.meego.com/Community_guidelines">meego.com</a>, since they formed the starting point for many of these guidelines.</p>
+
+<p>The Event Code of Conduct is based on the <a href="http://geekfeminism.wikia.com/wiki/Conference_anti-harassment">example policy from the Geek Feminism wiki</a>, created by the Ada Initiative and other volunteers. The <a href="https://github.com/python/pycon-code-of-conduct">PyCon Code of Conduct</a> also served as inspiration.</p>
+
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <div class="secondary-content">
+                  <div id="subCol">
+                      <h3 class="chapter">Contents</h3>
+
+<ol class="toc">
+  <li class="toc-lv2"><a href="#guideline-violations-----3-strikes-method">Guideline Violations &#8212; 3 Strikes Method</a></li>
+  <li class="toc-lv2"><a href="#activity-specific-guidelines">Activity-Specific Guidelines</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#getting-technical-help">Getting Technical Help</a></li>
+   <li class="toc-lv3"><a href="#irc-guidelines">IRC Guidelines</a></li>
+   <li class="toc-lv3"><a href="#mailing-list-guidelines">Mailing List Guidelines</a></li>
+   <li class="toc-lv3"><a href="#ask-puppet-labs-qa-site-guidelines">Ask Puppet Labs Q&amp;A Site Guidelines</a></li>
+   <li class="toc-lv3"><a href="#bug-guidelines">Bug Guidelines</a></li>
+   <li class="toc-lv3"><a href="#documentation-guidelines">Documentation Guidelines</a></li>
+   <li class="toc-lv3"><a href="#git--source-guidelines">Git / Source Guidelines</a></li>
+   <li class="toc-lv3"><a href="#forge--module-guidelines">Forge / Module Guidelines</a></li>
+   <li class="toc-lv3"><a href="#event-code-of-conduct">Event Code of Conduct</a></li>
+   <li class="toc-lv3"><a href="#credits">Credits</a></li>
+</ol></li>
+</ol>
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+	</body>
+</html>

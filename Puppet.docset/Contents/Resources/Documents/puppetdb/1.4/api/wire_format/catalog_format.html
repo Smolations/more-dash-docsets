@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>PuppetDB 1.4 » API » Catalog Wire Format, Version 1 — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../../../favicon.ico' />
+
+
+  <meta name="description" content="PuppetDB receives catalogs from puppet masters in the following wire format. This format is subtly different from the internal format used by Puppe...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/puppetdb/latest/api/wire_format/catalog_format.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">PuppetDB 1.4 » API » Catalog Wire Format, Version 1</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>PuppetDB 1.4 » API » Catalog Wire Format, Version 1</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#catalog-interchange-format">Catalog Interchange Format</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#version">Version</a></li>
+   <li class="toc-lv3"><a href="#encoding">Encoding</a></li>
+   <li class="toc-lv3"><a href="#main-data-type-catalog">Main Data Type: Catalog</a></li>
+   <li class="toc-lv3"><a href="#data-type-string">Data Type: &lt;string&gt;</a></li>
+   <li class="toc-lv3"><a href="#data-type-integer">Data Type: &lt;integer&gt;</a></li>
+   <li class="toc-lv3"><a href="#data-type-boolean">Data Type: &lt;boolean&gt;</a></li>
+   <li class="toc-lv3"><a href="#data-type-edge">Data Type: &lt;edge&gt;</a></li>
+   <li class="toc-lv3"><a href="#data-type-resource-spec">Data Type: &lt;resource-spec&gt;</a></li>
+   <li class="toc-lv3"><a href="#data-type-relationship">Data Type: &lt;relationship&gt;</a></li>
+   <li class="toc-lv3"><a href="#data-type-resource">Data Type: &lt;resource&gt;</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#why-a-new-wire-format">Why a new wire format?</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#previous-wire-format-shortcomings">Previous Wire Format Shortcomings</a></li>
+   <li class="toc-lv3"><a href="#differences-from-current-wire-format">Differences from Current Wire Format</a></li>
+   <li class="toc-lv3"><a href="#future-development-goals">Future Development Goals</a></li>
+</ol></li>
+</ol></nav>
+
+<p>PuppetDB receives catalogs from puppet masters in the following wire format. This format is subtly different from the internal format used by Puppet so catalogs are converted by the <a href="../../connect_puppet_master.html">PuppetDB terminus plugins</a> before they are sent. <a href="#why-a-new-wire-format">See below</a> for the justification for this separate format.</p>
+
+<h2 id="catalog-interchange-format">Catalog Interchange Format</h2>
+
+<h3 id="version">Version</h3>
+
+<p>This is <strong>version 1</strong> of the catalog interchange format, which is used by PuppetDB 1 (and all pre-1.0 releases).</p>
+
+<h3 id="encoding">Encoding</h3>
+
+<p>The entire catalog is serialized as JSON, which requires strict UTF-8 encoding. Unless otherwise noted, null is not allowed anywhere in the catalog.</p>
+
+<h3 id="main-data-type-catalog">Main Data Type: Catalog</h3>
+
+<p>A catalog is a JSON object with two keys: <code>"metadata"</code> and <code>"data"</code>. <a href="../commands.html#replace-catalog-version-2">Version 2 of the &#8220;replace catalog&#8221; command</a> will strictly validate this object and throw an error in the event of missing or extra fields. <a href="../commands.html#replace-catalog-version-1">Version 1 of the &#8220;replace catalog&#8221; command</a> will silently tolerate some inexact catalog objects.</p>
+
+<pre><code>{"metadata": {
+    "api_version": 1
+    }
+ "data": {
+    "name": &lt;string&gt;,
+    "version": &lt;string&gt;,
+    "edges":
+        [&lt;edge&gt;, &lt;edge&gt;, ...],
+    "resources":
+        [&lt;resource&gt;, &lt;resource&gt;, ...]
+    }
+}
+</code></pre>
+
+<p>The value of the <code>"metadata"</code> key must be <code>{ "api_version": 1 }</code> &#8212; no other value is valid for this version of the format.</p>
+
+<p>The value of the <code>"data"</code> key must be a JSON object with four keys: <code>"name"</code>, <code>"version"</code>, <code>"edges"</code>, and <code>"resources"</code>. Each of the keys is mandatory, although values that are lists may be empty lists. The value of each key in the data object is as follows:</p>
+
+<dl>
+  <dt><code>"name"</code></dt>
+  <dd>
+    <p>String. The name of the node for which the catalog was compiled.</p>
+  </dd>
+  <dt><code>"version"</code></dt>
+  <dd>
+    <p>String. An arbitrary string that uniquely identifies this specific catalog across time for a single node. This is controlled by Puppet&#8217;s <a href="./../../../../references/latest/configuration.html#configversion"><code>config_version</code> setting</a> and is usually the seconds elapsed since the epoch.</p>
+  </dd>
+  <dt><code>"edges"</code></dt>
+  <dd>
+    <p>List of <a href="#data-type-edge"><code>&lt;edge&gt;</code> objects</a>. <strong>Every</strong> <a href="./../../../../puppet/2.7/reference/lang_relationships.html">relationship</a> between any two resources in the catalog, which may have been made with <a href="/puppet/2.7/reference/lang_relationships.html#chaining-arrows">chaining arrows</a>, <a href="/puppet/2.7/reference/lang_relationships.html#relationship-metaparameters">metaparameters</a>, or <a href="/puppet/2.7/reference/lang_relationships.html#the-require-function">the <code>require</code> function</a>.</p>
+
+    <blockquote>
+      <p><strong>Notes:</strong></p>
+
+      <ul>
+        <li>&#8220;Autorequire&#8221; relationships are not currently encoded in the catalog.</li>
+        <li>This key is significantly different from its equivalent in Puppet&#8217;s internal catalog format, which only encodes containment edges.</li>
+      </ul>
+    </blockquote>
+  </dd>
+  <dt><code>"resources"</code></dt>
+  <dd>
+    <p>List of <a href="#data-type-resource"><code>&lt;resource&gt;</code> objects</a>. Contains <strong>every</strong> resource in the catalog.</p>
+  </dd>
+</dl>
+
+<h3 id="data-type-string">Data Type: <code>&lt;string&gt;</code></h3>
+
+<p>A JSON string. Because the catalog is UTF-8, these must also be UTF-8.</p>
+
+<h3 id="data-type-integer">Data Type: <code>&lt;integer&gt;</code></h3>
+
+<p>A JSON int.</p>
+
+<h3 id="data-type-boolean">Data Type: <code>&lt;boolean&gt;</code></h3>
+
+<p>A JSON boolean.</p>
+
+<h3 id="data-type-edge">Data Type: <code>&lt;edge&gt;</code></h3>
+
+<p>A JSON object of the following form, which represents a <a href="./../../../../puppet/2.7/reference/lang_relationships.html">relationship</a> between two resources:</p>
+
+<pre><code>{"source": &lt;resource-spec&gt;,
+ "target": &lt;resource-spec&gt;,
+ "relationship": &lt;relationship&gt;}
+</code></pre>
+
+<p>All edges are normalized so that the &#8220;source&#8221; resource is managed <strong>before</strong> the &#8220;target&#8221; resource. To do this, the Puppet language&#8217;s &#8220;require&#8221; and &#8220;subscribe&#8221; <a href="./../../../../puppet/2.7/reference/lang_relationships.html">relationship types</a> are munged into &#8220;required-by&#8221; and &#8220;subscription-of&#8221; when they are converted into edges.</p>
+
+<p>The keys of an edge are <code>source</code>, <code>target</code>, and <code>relationship</code>, all of which are required.</p>
+
+<dl>
+  <dt><code>source</code></dt>
+  <dd>
+    <p>A <a href="#data-type-resource-spec"><code>&lt;resource-spec&gt;</code></a>. The resource which should be managed <strong>first.</strong></p>
+  </dd>
+  <dt><code>target</code></dt>
+  <dd>
+    <p>A <a href="#data-type-resource-spec"><code>&lt;resource-spec&gt;</code></a>. The resource which should be managed <strong>second.</strong></p>
+  </dd>
+  <dt><code>relationship</code></dt>
+  <dd>
+    <p>A <a href="#data-type-relationship"><code>&lt;relationship&gt;</code></a>. The way the two resources are related.</p>
+  </dd>
+</dl>
+
+<h3 id="data-type-resource-spec">Data Type: <code>&lt;resource-spec&gt;</code></h3>
+
+<p>(Synonym: <code>&lt;resource-hash&gt;</code>.)</p>
+
+<p>The JSON representation of a <a href="./../../../../puppet/2.7/reference/lang_datatypes.html#resource-references">resource reference</a> (single-resource kind). An object of the following form:</p>
+
+<pre><code>{"type": &lt;string&gt;,
+ "title": &lt;string&gt;}
+</code></pre>
+
+<p>The resource named by a resource-spec <strong>must</strong> exist in the catalog&#8217;s <code>"resources"</code> list. Note also that the title must be the resource&#8217;s actual <a href="./../../../../puppet/2.7/reference/lang_resources.html#title">title</a>, rather than an alias or <a href="/puppet/2.7/reference/lang_resources.html#namenamevar">name/namevar</a>.</p>
+
+<h3 id="data-type-relationship">Data Type: <code>&lt;relationship&gt;</code></h3>
+
+<p>One of the following exact strings, when used in the <code>relationship</code> key of an <a href="#data-type-edge"><code>&lt;edge&gt;</code> object</a>:</p>
+
+<ul>
+  <li><code>contains</code></li>
+  <li><code>before</code></li>
+  <li><code>required-by</code></li>
+  <li><code>notifies</code></li>
+  <li><code>subscription-of</code></li>
+</ul>
+
+<p><strong>Note:</strong> Regardless of the relationship type, the &#8220;source&#8221; resource is always managed <strong>before</strong> the &#8220;target&#8221; resource. This means that, functionally speaking, <code>required-by</code> is a synonym of <code>before</code> and <code>subscription-of</code> is a synonym of <code>notifies</code>. In this catalog format, the different relationship types preserve information about the <em>origin</em> of the relationship.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>String</th>
+      <th>Relationship Type</th>
+      <th>Origin of Relationship</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>contains</code></td>
+      <td><a href="./../../../../puppet/2.7/reference/lang_containment.html">containment</a></td>
+      <td>Class or defined type <a href="./../../../../puppet/2.7/reference/lang_containment.html">containment</a></td>
+    </tr>
+    <tr>
+      <td><code>before</code></td>
+      <td>ordering</td>
+      <td><code>before</code> metaparam on source, or <code>-&gt;</code> chaining arrow</td>
+    </tr>
+    <tr>
+      <td><code>required-by</code></td>
+      <td>ordering</td>
+      <td><code>require</code> metaparam on target, or <code>require</code> function</td>
+    </tr>
+    <tr>
+      <td><code>notifies</code></td>
+      <td>ordering w/ notification</td>
+      <td><code>notify</code> metaparam on source, or <code>~&gt;</code> chaining arrow</td>
+    </tr>
+    <tr>
+      <td><code>subscription-of</code></td>
+      <td>ordering w/ notification</td>
+      <td><code>subscribe</code> metaparam on target</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="data-type-resource">Data Type: <code>&lt;resource&gt;</code></h3>
+
+<p>A JSON object of the following form, which represents a <a href="./../../../../puppet/2.7/reference/lang_resources.html">Puppet resource</a>:</p>
+
+<pre><code>{"type": &lt;string&gt;,
+ "title": &lt;string&gt;,
+ "aliases": [&lt;string&gt;, &lt;string&gt;, ...],
+ "exported": &lt;boolean&gt;,
+ "file": &lt;string&gt;,
+ "line": &lt;string&gt;,
+ "tags": [&lt;string&gt;, &lt;string&gt;, ...],
+ "parameters": {&lt;string&gt;: &lt;JSON object&gt;,
+                &lt;string&gt;: &lt;JSON object&gt;,
+                ...}
+}
+</code></pre>
+
+<p>The eight keys in a resource object are <code>type</code>, <code>title</code>, <code>aliases</code>, <code>exported</code>, <code>file</code>, <code>line</code>, <code>tags</code> and <code>parameters</code>. All of them are <strong>required.</strong></p>
+
+<dl>
+  <dt><code>type</code></dt>
+  <dd>
+    <p>String. The <a href="./../../../../puppet/2.7/reference/lang_resources.html#type">type</a> of the resource, <strong>capitalized.</strong> (E.g. <code>File</code>, <code>Service</code>, <code>Class</code>, <code>Apache::Vhost</code>.) Note that every segment must be capitalized if the type includes a namespace separator (<code>::</code>).</p>
+  </dd>
+  <dt><code>title</code></dt>
+  <dd>
+    <p>String. The <a href="./../../../../puppet/2.7/reference/lang_resources.html#title">title</a> of the resource.</p>
+  </dd>
+  <dt><code>aliases</code></dt>
+  <dd>
+    <p>List of strings. Includes <strong>every</strong> alias for the resource, including the value of its <a href="./../../../../puppet/2.7/reference/lang_resources.html#namenamevar">name/namevar</a> and any extra names added with the <code>"alias"</code> metaparameter.</p>
+  </dd>
+  <dt><code>exported</code></dt>
+  <dd>
+    <p>Boolean. Whether or not this is an exported resource.</p>
+  </dd>
+  <dt><code>file</code></dt>
+  <dd>
+    <p>String. The manifest file in which the resource definition is located.</p>
+  </dd>
+  <dt><code>line</code></dt>
+  <dd>
+    <p>Positive integer. The line (of the containing manifest file) at which the resource definition can be found.</p>
+  </dd>
+  <dt><code>tags</code></dt>
+  <dd>
+    <p>List of strings. Includes every tag the resource has. This is a normalized superset of the value of the resource&#8217;s <code>tag</code> attribute.</p>
+  </dd>
+  <dt><code>parameters</code></dt>
+  <dd>
+    <p>JSON object. Includes all of the resource&#8217;s <a href="./../../../../puppet/2.7/reference/lang_resources.html#attributes">attributes</a> and their associated values. The value of an attribute may be any JSON data type, but Puppet will only provide booleans, strings, arrays, and hashes &#8212; <a href="/puppet/2.7/reference/lang_datatypes.html#resource-references">resource references</a> and <a href="/puppet/2.7/reference/lang_datatypes.html#numbers">numbers</a> in attributes are converted to strings before being inserted into the catalog. Attributes with <a href="/puppet/2.7/reference/lang_datatypes.html#undef">undef</a> values are not added to the catalog.</p>
+  </dd>
+</dl>
+
+<h2 id="why-a-new-wire-format">Why a new wire format?</h2>
+
+<h3 id="previous-wire-format-shortcomings">Previous Wire Format Shortcomings</h3>
+
+<p>There were a number of issues with the built-in JSON wire format used
+in Puppet prior to PuppetDB:</p>
+
+<ol>
+  <li>The format isn&#8217;t actually JSON, it&#8217;s PSON. This means a catalog may contain non-UTF-8 data. This can present problems for conforming JSON parsers that expect Unicode.</li>
+  <li>Dependency edges aren&#8217;t represented as first-class entities in the wire format. Instead, dependencies have to be parsed out of resource attributes.</li>
+  <li>Containment edges can point to resources that aren&#8217;t in the catalog&#8217;s list of resources. Examples of this include things like <code>Stage[main]</code>, or other special classes.</li>
+  <li>There are no (good) provisions for binary data, which can show up in a catalog via use of <code>generate</code>, among other functions.</li>
+  <li>Resources can refer to other resources in several ways: by proper name, by alias, by using a type-specific namevar (such as <code>path</code> for the file type). None of this is normalized in any way, and consumers of the wire format have to sift through all of this. And for the case of type-specific namevars, it may be impossible for a consumer to reconcile (because the consumer may not have access to puppet source code)</li>
+</ol>
+
+<p>In general, for communication between master and agent, it&#8217;s useful to have the wire format as stripped-down as possible. But for other consumers, the catalog needs to be precise in its semantics. Otherwise, consumers just end up (poorly) re-coding the catalog-manipulation logic from puppet proper. Hence the need for a wire format that allows consuming code (which may not even originate from puppet) to handle this data.</p>
+
+<h3 id="differences-from-current-wire-format">Differences from Current Wire Format</h3>
+
+<ol>
+  <li>The format is fully documented here.</li>
+  <li>Information that previously had to be deduced by Puppet is now codified inside of the wire format. All possible aliases for a resource are listed as attributes of that resource. The list of edges now contains edges of all types, not just containment edges. And that list of edges is normalized to refer to the <code>Type</code> and <code>Title</code> of a resource, as opposed to referring to it by any of its aliases.</li>
+  <li>The new format is explicitly versioned. This format is version 1.0.0, unambiguously.</li>
+  <li>Catalogs will be explictly transformed into this format. Currently, the behavior of <code>#to_pson</code> is simply expected to &#8220;Do The Right Thing&#8221; in terms of serialization.</li>
+</ol>
+
+<h3 id="future-development-goals">Future Development Goals</h3>
+
+<ol>
+  <li>Binary data support is yet to be developed.</li>
+  <li>The use of a more compact, binary representation of the wire format may be considered. For example, using something like MessagePack, BSON, Thrift, or Protocol Buffers.</li>
+</ol>
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+                      <h2 id="puppetdb">PuppetDB 1.4</h2>
+
+<ul>
+  <li><strong>General Information</strong>
+    <ul>
+      <li><a href="./../../../../puppetdb/1.4/index.html">Overview & Requirements</a></li>
+      <li><a href="./../../../../puppetdb/1.4/puppetdb-faq.html">Frequently Asked Questions</a></li>
+      <li><a href="./../../../../puppetdb/1.4/release_notes.html">Release Notes</a></li>
+      <li><a href="./../../../../puppetdb/1.4/known_issues.html">Known Issues</a></li>
+      <li><a href="./../../../../puppetdb/1.4/community_add_ons.html">Community Add-ons</a></li>
+    </ul>
+  </li>
+  <li><strong>Installation</strong>
+    <ul>
+      <li><a href="./../../../../puppetdb/1.4/migrate.html">Migrating Existing Data</a></li>
+      <li><a href="./../../../../puppetdb/1.4/install_via_module.html">Installing via Puppet Module</a></li>
+      <li><a href="./../../../../puppetdb/1.4/install_from_packages.html">Installing From Packages</a></li>
+      <li><a href="./../../../../puppetdb/1.4/install_from_source.html">Installing from Source</a></li>
+      <li><a href="./../../../../puppetdb/1.4/upgrade.html">Upgrading PuppetDB</a></li>
+      <li><a href="./../../../../puppetdb/1.4/connect_puppet_master.html">Connecting Puppet Masters</a></li>
+      <li><a href="./../../../../puppetdb/1.4/connect_puppet_apply.html">Connecting Standalone Puppet</a></li>
+    </ul>
+  </li>
+  <li><strong>Configuration</strong>
+    <ul>
+      <li><a href="./../../../../puppetdb/1.4/configure.html">Configuring PuppetDB</a></li>
+      <li><a href="./../../../../puppetdb/1.4/postgres_ssl.html">Setting Up SSL for PostgreSQL</a></li>
+    </ul>
+  <li><strong>Usage/Admin</strong>
+    <ul>
+      <li><a href="./../../../../puppetdb/1.4/using.html">Using PuppetDB</a></li>
+      <li><a href="./../../../../puppetdb/1.4/maintain_and_tune.html">Maintaining and Tuning</a></li>
+      <li><a href="./../../../../puppetdb/1.4/migrate.html">Migrating Data</a></li>
+      <li><a href="./../../../../puppetdb/1.4/scaling_recommendations.html">Scaling Recommendations</a></li>
+      <li><a href="./../../../../puppetdb/1.4/repl.html">Debugging with Remote REPL</a></li>
+    </ul>
+  </li>
+  <li><strong>Troubleshooting</strong>
+    <ul>
+      <li><a href="./../../../../puppetdb/1.4/trouble_kahadb_corruption.html">KahaDB Corruption</a></li>
+    </ul>
+  </li>
+  <li><strong>API</strong>
+    <ul>
+      <li><a href="./../../../../puppetdb/1.4/api/index.html">Overview</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/tutorial.html">Query Tutorial</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/curl.html">Curl Tips</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/commands.html">Command API</a></li>
+    </ul>
+  </li>
+  <li><strong>Query API Version 2</strong>
+    <ul>
+      <li><a href="./../../../../puppetdb/1.4/api/query/v2/query.html">Query Structure</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/v2/operators.html">Available Operators</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/v2/facts.html">Facts Endpoint</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/v2/resources.html">Resources Endpoint</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/v2/nodes.html">Nodes Endpoint</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/v2/fact-names.html">Fact-Names Endpoint</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/v2/metrics.html">Metrics Endpoint</a></li>
+    </ul>
+  </li>
+  <li><strong>Query API Version 1</strong>
+    <ul>
+      <li><a href="./../../../../puppetdb/1.4/api/query/v1/facts.html">Facts Endpoint</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/v1/resources.html">Resources Endpoint</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/v1/nodes.html">Nodes Endpoint</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/v1/status.html">Status Endpoint</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/v1/metrics.html">Metrics Endpoint</a></li>
+    </ul>
+  </li>
+  <li><strong>Query API Experimental</strong>
+    <ul>
+      <li><a href="./../../../../puppetdb/1.4/api/query/experimental/report.html">Report Endpoint</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/query/experimental/event.html">Event Endpoint</a></li>
+    </ul>
+  </li>
+  <li><strong>Wire Formats</strong>
+    <ul>
+      <li><span class="currentpage">Catalog Wire Format</span></li>
+      <li><a href="./../../../../puppetdb/1.4/api/wire_format/facts_format.html">Facts Wire Format</a></li>
+      <li><a href="./../../../../puppetdb/1.4/api/wire_format/report_format.html">Report Wire Format</a></li>
+    </ul>
+  </li>
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Installing Puppet — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../favicon.ico' />
+
+
+  <meta name="description" content="Installing Puppet  This document covers open source releases of Puppet. See here for instructions on installing Puppet Enterprise.Pre-InstallCheck ...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/guides/installation.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Installing Puppet</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>Installing Puppet</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#pre-install">Pre-Install</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#osruby-version">OS/Ruby Version</a></li>
+   <li class="toc-lv3"><a href="#deployment-type">Deployment Type</a></li>
+   <li class="toc-lv3"><a href="#network">Network</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#installing-puppet-1">Installing Puppet</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#red-hat-enterprise-linux-and-derivatives">Red Hat Enterprise Linux (and Derivatives)</a></li>
+   <li class="toc-lv3"><a href="#debian-and-ubuntu">Debian and Ubuntu</a></li>
+   <li class="toc-lv3"><a href="#fedora">Fedora</a></li>
+   <li class="toc-lv3"><a href="#mac-os-x">Mac OS X</a></li>
+   <li class="toc-lv3"><a href="#windows">Windows</a></li>
+   <li class="toc-lv3"><a href="#installing-from-gems-not-recommended">Installing from Gems (Not Recommended)</a></li>
+   <li class="toc-lv3"><a href="#installing-from-a-tarball-not-recommended">Installing from a Tarball (Not Recommended)</a></li>
+   <li class="toc-lv3"><a href="#running-directly-from-source-not-recommended">Running Directly from Source (Not Recommended)</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#post-install">Post-Install</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#configure-puppet">Configure Puppet</a></li>
+   <li class="toc-lv3"><a href="#start-and-enable-the-puppet-services">Start and Enable the Puppet Services</a></li>
+   <li class="toc-lv3"><a href="#sign-node-certificates">Sign Node Certificates</a></li>
+   <li class="toc-lv3"><a href="#change-puppet-masters-web-server">Change Puppet Master&#8217;s Web Server</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#next">Next</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#learn-to-use-puppet">Learn to Use Puppet</a></li>
+   <li class="toc-lv3"><a href="#install-optional-software">Install Optional Software</a></li>
+</ol></li>
+</ol></nav>
+
+<h1 id="installing-puppet">Installing Puppet</h1>
+
+<blockquote>
+  <p>This document covers open source releases of Puppet. <a href="./../pe/latest/install_basic.html">See here for instructions on installing Puppet Enterprise.</a></p>
+</blockquote>
+
+<h2 id="pre-install">Pre-Install</h2>
+
+<p>Check the following before you install Puppet.</p>
+
+<h3 id="osruby-version">OS/Ruby Version</h3>
+
+<ul>
+  <li>See the <a href="./../guides/platforms.html">supported platforms</a> guide.</li>
+  <li>If your OS is older than the supported versions, you may still be able to run Puppet if you install an updated version of Ruby. See the <a href="./../guides/platforms.html#ruby-versions">list of supported Ruby versions</a>.</li>
+</ul>
+
+<h3 id="deployment-type">Deployment Type</h3>
+
+<p>Decide on a deployment type before installing:</p>
+
+<dl>
+  <dt>Agent/master</dt>
+  <dd>Agent nodes pull their configurations from a puppet master server. Admins must manage node certificates, but will only have to maintain manifests and modules on the puppet master server(s), and can more easily take advantage of features like reporting and external data sources.
+
+    <p>You must decide in advance which server will be the master; install Puppet on it before installing on any agents. The master should be a dedicated machine with a fast processor, lots of RAM, and a fast disk.</p>
+  </dd>
+  <dt>Standalone</dt>
+  <dd>Every node compiles its own configuration from manifests. Admins must regularly sync Puppet manifests and modules to every node.</dd>
+</dl>
+
+<h3 id="network">Network</h3>
+
+<p>In an agent/master deployment, you must prepare your network for Puppet&#8217;s traffic.</p>
+
+<ul>
+  <li><strong>Firewalls:</strong> The puppet master server must allow incoming connections on port 8140, and agent nodes must be able to connect to the master on that port.</li>
+  <li><strong>Name resolution:</strong> Every node must have a unique hostname. <strong>Forward and reverse DNS</strong> must both be configured correctly. Instructions for configuring DNS are beyond the scope of this guide. If your site lacks DNS, you must write an <code>/etc/hosts</code> file on each node.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Note:</strong> The default master hostname is <code>puppet</code>. Your agent nodes will be ready sooner if this hostname resolves to your puppet master.</p>
+</blockquote>
+
+<h2 id="installing-puppet-1">Installing Puppet</h2>
+
+<p>The best way to install Puppet varies by operating system. Use the links below to skip to your OS&#8217;s instructions.</p>
+
+<ul>
+  <li><a href="#red-hat-enterprise-linux-and-derivatives">Red Hat Enterprise Linux (and Derivatives)</a></li>
+  <li><a href="#debian-and-ubuntu">Debian and Ubuntu</a></li>
+  <li><a href="#fedora">Fedora</a></li>
+  <li><a href="#mac-os-x">Mac OS X</a></li>
+  <li><a href="#windows">Windows</a></li>
+  <li><a href="#installing-from-gems-not-recommended">Installing from Gems (Not Recommended)</a></li>
+  <li><a href="#installing-from-a-tarball-not-recommended">Installing from a Tarball (Not Recommended)</a></li>
+  <li><a href="#running-directly-from-source-not-recommended">Running Directly from Source (Not Recommended)</a></li>
+</ul>
+
+<hr />
+
+<h3 id="red-hat-enterprise-linux-and-derivatives">Red Hat Enterprise Linux (and Derivatives)</h3>
+
+<p>These instructions apply to the following Enterprise Linux (EL) versions:</p>
+
+<ul>
+  <li>Enterprise Linux 5 (also supported by <a href="./../pe/latest/install_basic.html">Puppet Enterprise</a>)</li>
+  <li>Enterprise Linux 6 (also supported by <a href="./../pe/latest/install_basic.html">Puppet Enterprise</a>)</li>
+</ul>
+
+<p>This information applies to RHEL itself, as well as any distributions that maintain binary compatibility with it, including but not limited to CentOS, Scientific Linux, Oracle Linux, and Ascendos.</p>
+
+<!-- When updating these, also edit guides/puppetlabs_package_repositories.markdown and add/delete the repo packages as needed. -->
+
+<p>Users of out-of-production EL systems (i.e. RHEL 4) may need to compile their own copy of Ruby before installing, or use an older snapshot of EPEL.</p>
+
+<h4 id="choose-a-package-source">1. Choose a Package Source</h4>
+
+<p>Enterprise Linux users can install from Puppet Labs&#8217; official repo, or from <a href="http://fedoraproject.org/wiki/EPEL">EPEL</a>.</p>
+
+<h5 id="using-puppet-labs-packages">Using Puppet Labs&#8217; Packages</h5>
+
+<p>Puppet Labs provides an official package repo at <a href="http://yum.puppetlabs.com">yum.puppetlabs.com</a>. It contains up-to-date packages, and can install Puppet and its prerequisites without requiring any other external repositories.</p>
+
+<p>To use the Puppet Labs repo, <a href="./../guides/puppetlabs_package_repositories.html#for-red-hat-enterprise-linux-and-derivatives">follow the instructions here</a>.</p>
+
+<h5 id="using-epel">Using EPEL</h5>
+
+<p>The <a href="http://fedoraproject.org/wiki/EPEL">Extra Packages for Enterprise Linux (EPEL)</a> repo includes Puppet and its prerequisites. These packages are usually older Puppet versions with security patches. <!-- dated --> As of April 2012, EPEL was shipping a Puppet version from the prior, maintenance-only release series.</p>
+
+<p>To install Puppet from EPEL, follow <a href="http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F">EPEL&#8217;s own instructions</a> for enabling their repository on all of your target systems.</p>
+
+<h4 id="install-the-puppet-master">2. Install the Puppet Master</h4>
+
+<p>Skip this step for a standalone deployment.</p>
+
+<p>On your puppet master node, run <code>sudo yum install puppet-server</code>. This will install Puppet and an init script (<code>/etc/init.d/puppetmaster</code>) for running a test-quality puppet master server.</p>
+
+<h4 id="install-puppet-on-agent-nodes">3. Install Puppet on Agent Nodes</h4>
+
+<p>On your other nodes, run <code>sudo yum install puppet</code>. This will install Puppet and an init script (<code>/etc/init.d/puppet</code>) for running the puppet agent daemon.</p>
+
+<p>For a standalone deployment, install this same package on all nodes.</p>
+
+<h4 id="configure-and-enable">4. Configure and Enable</h4>
+
+<p><a href="#post-install">Continue reading here</a> and follow any necessary post-install steps. </p>
+
+<hr />
+
+<h3 id="debian-and-ubuntu">Debian and Ubuntu</h3>
+
+<p>These instructions apply to currently supported versions of Debian, Ubuntu, and derived Linux distributions, including:</p>
+
+<ul>
+  <li>Debian 6 &#8220;Squeeze&#8221; (obsolete stable release) (also supported by <a href="./../pe/latest/install_basic.html">Puppet Enterprise</a>)</li>
+  <li>Debian 7 &#8220;Wheezy&#8221; (current stable release) (also supported by <a href="./../pe/latest/install_basic.html">Puppet Enterprise</a>)</li>
+  <li>Debian &#8220;Sid&#8221; (current unstable distribution)</li>
+  <li>Ubuntu 12.04 LTS &#8220;Precise Pangolin&#8221; (also supported by <a href="./../pe/latest/install_basic.html">Puppet Enterprise</a>)</li>
+  <li>Ubuntu 10.04 LTS &#8220;Lucid Lynx&#8221; (also supported by <a href="./../pe/latest/install_basic.html">Puppet Enterprise</a>)</li>
+  <li>Ubuntu 12.10 &#8220;Quantal Quetzal&#8221;</li>
+  <li>Ubuntu 13.04 &#8220;Raring Ringtail&#8221;</li>
+</ul>
+
+<!-- When updating these, you don't need to update any other area of the docs. -->
+
+<p>Users of out-of-production versions may have vendor packages of Puppet available, but cannot use the Puppet Labs packages.</p>
+
+<h4 id="choose-a-package-source-1">1. Choose a Package Source</h4>
+
+<p>Debian and Ubuntu systems can install Puppet from Puppet Labs&#8217; official repo, or from the OS vendor&#8217;s default repo.</p>
+
+<h5 id="using-puppet-labs-packages-1">Using Puppet Labs&#8217; Packages</h5>
+
+<p>Puppet Labs provides an official package repo at <a href="http://apt.puppetlabs.com">apt.puppetlabs.com</a>. It contains up-to-date packages, and can install Puppet and its prerequisites without requiring any other external repositories.</p>
+
+<p>To use the Puppet Labs repo, <a href="./../guides/puppetlabs_package_repositories.html#for-debian-and-ubuntu">follow the instructions here</a>.</p>
+
+<h5 id="using-vendor-packages">Using Vendor Packages</h5>
+
+<p>Debian and Ubuntu distributions include Puppet in their default package repos. No extra steps are necessary to enable it.</p>
+
+<p>Older OS versions will have outdated Puppet versions, which are updated only with security patches. As a general guideline to how current OS packages tend to be, we found the following when checking versions in April 2012:</p>
+
+<ul>
+  <li>Debian unstable&#8217;s Puppet was current.</li>
+  <li>Debian testing&#8217;s Puppet was nearly current (one point release behind the current version).</li>
+  <li>Debian stable&#8217;s Puppet was more than 18 months old, with additional security patches.</li>
+  <li>The latest Ubuntu&#8217;s Puppet was nearly current (one point release behind).</li>
+  <li>The prior (non-LTS) Ubuntu&#8217;s Puppet was nine months old, with additional security patches.</li>
+  <li>The prior LTS Ubuntu&#8217;s Puppet was more than two years old, with additional security patches.</li>
+</ul>
+
+<h4 id="install-the-puppet-master-1">2. Install the Puppet Master</h4>
+
+<p>Skip this step for a standalone deployment.</p>
+
+<p>On your puppet master node, run <code>sudo apt-get install puppetmaster</code>. This will install Puppet, its prerequisites, and an init script (<code>/etc/init.d/puppetmaster</code>) for running a test-quality puppet master server.</p>
+
+<p><strong>If you are using vendor packages,</strong> a <code>puppetmaster-passenger</code> package may be available. If you install this package instead of <code>puppetmaster</code>, it will automatically configure a production-capacity web server for the Puppet master, using Passenger and Apache. In this configuration, do not use the puppetmaster init script; instead, control the puppet master by turning the Apache web server on and off or by disabling the puppet master vhost.</p>
+
+<h4 id="install-puppet-on-agent-nodes-1">3. Install Puppet on Agent Nodes</h4>
+
+<p>On your other nodes, run <code>sudo apt-get install puppet</code>. This will install Puppet and an init script (<code>/etc/init.d/puppet</code>) for running the puppet agent daemon.</p>
+
+<p>For a standalone deployment, run <code>sudo apt-get install puppet-common</code> on all nodes instead. This will install Puppet without the agent init script.</p>
+
+<h4 id="configure-and-enable-1">4. Configure and Enable</h4>
+
+<p><a href="#post-install">Continue reading here</a> and follow any necessary post-install steps. </p>
+
+<hr />
+
+<h3 id="fedora">Fedora</h3>
+
+<p>These instructions apply to the currently supported Fedora releases, which are:</p>
+
+<ul>
+  <li>Fedora 17 (EOL 2013-07-30)</li>
+  <li>Fedora 18</li>
+  <li>Fedora 19</li>
+</ul>
+
+<!-- When updating these, also edit guides/puppetlabs_package_repositories.markdown and add/delete the repo packages as needed. -->
+
+<p>Users of out-of-production versions may have vendor packages of Puppet available, but cannot use the Puppet Labs packages.</p>
+
+<h4 id="choose-a-package-source-2">1. Choose a Package Source</h4>
+
+<p>Fedora systems can install Puppet from Puppet Labs&#8217; official repo, or from the OS vendor&#8217;s default repo.</p>
+
+<h5 id="using-puppet-labs-packages-2">Using Puppet Labs&#8217; Packages</h5>
+
+<p>Puppet Labs provides an official package repo at <a href="http://yum.puppetlabs.com">yum.puppetlabs.com</a>. It contains up-to-date packages, and can install Puppet and its prerequisites without requiring any other external repositories.</p>
+
+<p>To use the Puppet Labs repo, <a href="./../guides/puppetlabs_package_repositories.html#for-fedora">follow the instructions here</a>.</p>
+
+<h5 id="using-vendor-packages-1">Using Vendor Packages</h5>
+
+<p>Fedora includes Puppet in its default package repos. No extra steps are necessary to enable it.</p>
+
+<p>These packages are usually older Puppet versions with security patches. <!-- dated --> As of April 2012, both current releases of Fedora had Puppet versions from the prior, maintenance-only release series.</p>
+
+<h4 id="install-the-puppet-master-2">2. Install the Puppet Master</h4>
+
+<p>Skip this step for a standalone deployment.</p>
+
+<p>On your puppet master node, run <code>sudo yum install puppet-server</code>. This will install Puppet and an init script (<code>/etc/init.d/puppetmaster</code>) for running a test-quality puppet master server.</p>
+
+<h4 id="install-puppet-on-agent-nodes-2">3. Install Puppet on Agent Nodes</h4>
+
+<p>On your other nodes, run <code>sudo yum install puppet</code>. This will install Puppet and an init script (<code>/etc/init.d/puppet</code>) for running the puppet agent daemon.</p>
+
+<p>For a standalone deployment, install this same package on all nodes.</p>
+
+<h4 id="configure-and-enable-2">4. Configure and Enable</h4>
+
+<p><a href="#post-install">Continue reading here</a> and follow any necessary post-install steps. </p>
+
+<hr />
+
+<h3 id="mac-os-x">Mac OS X</h3>
+
+<h4 id="download-the-package">1. Download the Package</h4>
+
+<p>OS X users should install Puppet with official Puppet Labs packages. <a href="http://downloads.puppetlabs.com/mac/">Download them here</a>. You will need:</p>
+
+<ul>
+  <li>The most recent Facter package</li>
+  <li>The most recent Hiera package</li>
+  <li>The most recent Puppet package</li>
+</ul>
+
+<h4 id="install-facter">2. Install Facter</h4>
+
+<p>Mount the Facter disk image, and run the installer package it contains.</p>
+
+<h4 id="install-hiera">3. Install Hiera</h4>
+
+<p>Mount the Hiera disk image, and run the installer package it contains.</p>
+
+<h4 id="install-puppet">4. Install Puppet</h4>
+
+<p>Mount the Puppet disk image, and run the installer package it contains.</p>
+
+<h4 id="configure-and-enable-3">5. Configure and Enable</h4>
+
+<p>The OS X packages are currently fairly minimal, and do not create launchd jobs, users, or default configuration or manifest files. You will have to:</p>
+
+<ul>
+  <li>Manually create a <code>puppet</code> group, by running <code>sudo puppet resource group puppet ensure=present</code>.</li>
+  <li>Manually create a <code>puppet</code> user, by running <code>sudo puppet resource user puppet ensure=present gid=puppet shell='/sbin/nologin'</code>.</li>
+  <li>If you intend to run the puppet agent daemon regularly, or if you intend to automatically run puppet apply at a set interval, you must create and register your own launchd services. <a href="#with-launchd">See the post-installation instructions</a> for a model.</li>
+</ul>
+
+<p><a href="#post-install">Continue reading here</a> and follow any necessary post-install steps. </p>
+
+<hr />
+
+<h3 id="windows">Windows</h3>
+
+<p><a href="./../windows/installing.html">See the Windows installation instructions</a>.</p>
+
+<hr />
+
+<h3 id="installing-from-gems-not-recommended">Installing from Gems (Not Recommended)</h3>
+
+<p>On *nix platforms without native packages available, you can install Puppet with Ruby&#8217;s <code>gem</code> package manager.</p>
+
+<h4 id="ensure-prerequisites-are-installed">1. Ensure Prerequisites are Installed</h4>
+
+<p>Use your OS&#8217;s package tools to install both Ruby and RubyGems. In some cases, you may need to compile and install these yourself.</p>
+
+<p>On Linux platforms, you should also ensure that the LSB tools are installed; at a minimum, we recommend installing <code>lsb_release</code>. See your OS&#8217;s documentation for details about its LSB tools.</p>
+
+<h4 id="install-puppet-1">2. Install Puppet</h4>
+
+<p>To install Puppet and Facter, run:</p>
+
+<pre><code>$ sudo gem install puppet
+</code></pre>
+
+<h4 id="configure-and-enable-4">3. Configure and Enable</h4>
+
+<p>Installing with gem requires some additional steps:</p>
+
+<ul>
+  <li>Manually create a <code>puppet</code> group, by running <code>sudo puppet resource group puppet ensure=present</code>.</li>
+  <li>Manually create a <code>puppet</code> user, by running <code>sudo puppet resource user puppet ensure=present gid=puppet shell='/sbin/nologin'</code>.</li>
+  <li>Create and install init scripts for the puppet agent and/or puppet master services. See the <code>ext/</code> directory in the Puppet source for example init scripts (<a href="https://github.com/puppetlabs/puppet/blob/master/ext/redhat">Red Hat</a>, <a href="https://github.com/puppetlabs/puppet/blob/master/ext/debian">Debian</a>, <a href="https://github.com/puppetlabs/puppet/blob/master/ext/suse">SUSE</a>, <a href="https://github.com/puppetlabs/puppet/blob/master/ext/systemd">systemd</a>, <a href="https://github.com/puppetlabs/puppet/blob/master/ext/freebsd">FreeBSD</a>, <a href="https://github.com/puppetlabs/puppet/blob/master/ext/gentoo">Gentoo</a>, <a href="https://github.com/puppetlabs/puppet/blob/master/ext/solaris">Solaris</a>).</li>
+  <li>Manually create an <code>/etc/puppet/puppet.conf</code> file.</li>
+  <li>Locate the Puppet source on disk, and manually copy the <code>auth.conf</code> file from the <code>/conf</code> directory to <code>/etc/puppet/auth.conf</code>.</li>
+  <li>If you get the error <code>require: no such file to load</code> when trying to run Puppet, define the RUBYOPT environment variable as advised in the <a href="http://docs.rubygems.org/read/chapter/3#page70">post-install instructions</a> of the RubyGems User Guide.</li>
+</ul>
+
+<p><a href="#post-install">Continue reading here</a> and follow any necessary post-install steps. </p>
+
+<hr />
+
+<h3 id="installing-from-a-tarball-not-recommended">Installing from a Tarball (Not Recommended)</h3>
+
+<p>This is almost never recommended, but may be necessary in some cases.</p>
+
+<h4 id="ensure-prerequisites-are-installed-1">1. Ensure Prerequisites are Installed</h4>
+
+<p>Use your OS&#8217;s package tools to install Ruby. In some cases, you may need to compile and install it yourself.</p>
+
+<p>On Linux platforms, you should also ensure that the LSB tools are installed; at a minimum, we recommend installing <code>lsb_release</code>. See your OS&#8217;s documentation for details about its LSB tools.</p>
+
+<p>If you wish to use Puppet ≥ 3.2 <a href="./../puppet/3/reference/lang_experimental_3_2.html">with <code>parser = future</code> enabled</a>, you should also install the <code>rgen</code> gem.</p>
+
+<h4 id="download-puppet-and-facter">2. Download Puppet and Facter</h4>
+
+<ul>
+  <li>Download Puppet <a href="http://downloads.puppetlabs.com/puppet/">here</a>.</li>
+  <li>Download Facter <a href="http://downloads.puppetlabs.com/facter/">here</a>.</li>
+</ul>
+
+<h4 id="install-facter-1">3. Install Facter</h4>
+
+<p>Unarchive the Facter tarball, navigate to the resulting directory, and run:</p>
+
+<pre><code>$ sudo ruby install.rb
+</code></pre>
+
+<h4 id="install-puppet-2">4. Install Puppet</h4>
+
+<p>Unarchive the Puppet tarball, navigate to the resulting directory, and run:</p>
+
+<pre><code>$ sudo ruby install.rb
+</code></pre>
+
+<h4 id="configure-and-enable-5">5. Configure and Enable</h4>
+
+<p>Installing from a tarball requires some additional steps:</p>
+
+<ul>
+  <li>Manually create a <code>puppet</code> group, by running <code>sudo puppet resource group puppet ensure=present</code>.</li>
+  <li>Manually create a <code>puppet</code> user, by running <code>sudo puppet resource user puppet ensure=present gid=puppet shell='/sbin/nologin'</code>.</li>
+  <li>Create and install init scripts for the puppet agent and/or puppet master services. See the <code>ext/</code> directory in the Puppet source for example init scripts (<a href="https://github.com/puppetlabs/puppet/blob/master/ext/redhat">Red Hat</a>, <a href="https://github.com/puppetlabs/puppet/blob/master/ext/debian">Debian</a>, <a href="https://github.com/puppetlabs/puppet/blob/master/ext/suse">SUSE</a>, <a href="https://github.com/puppetlabs/puppet/blob/master/ext/systemd">systemd</a>, <a href="https://github.com/puppetlabs/puppet/blob/master/ext/freebsd">FreeBSD</a>, <a href="https://github.com/puppetlabs/puppet/blob/master/ext/gentoo">Gentoo</a>, <a href="https://github.com/puppetlabs/puppet/blob/master/ext/solaris">Solaris</a>).</li>
+  <li>Manually create an <code>/etc/puppet/puppet.conf</code> file.</li>
+</ul>
+
+<p><a href="#post-install">Continue reading here</a> and follow any necessary post-install steps. </p>
+
+<hr />
+
+<h3 id="running-directly-from-source-not-recommended">Running Directly from Source (Not Recommended)</h3>
+
+<p>This is recommended only for developers and testers.</p>
+
+<p>See <a href="./../guides/from_source.html">Running Puppet from Source</a>.</p>
+
+<!--
+### OpenSuSE
+
+### ArchLinux
+
+### Solaris
+
+### AIX
+
+### HPUX
+
+### BSDs
+ -->
+
+<hr />
+
+<h2 id="post-install">Post-Install</h2>
+
+<p>Perform the following tasks after you finish installing Puppet.</p>
+
+<h3 id="configure-puppet">Configure Puppet</h3>
+
+<p>Puppet&#8217;s main configuration file is found at <code>/etc/puppet/puppet.conf</code>. See <a href="./../guides/configuring.html">Configuring Puppet</a> for more details.</p>
+
+<p>Most users should specify the following settings:</p>
+
+<h4 id="on-agent-nodes">On Agent Nodes</h4>
+
+<p>Settings for agent nodes should go in the <code>[agent]</code> or <code>[main]</code> block of <code>puppet.conf</code>.</p>
+
+<ul>
+  <li><a href="./../references/latest/configuration.html#server"><code>server</code></a>: The hostname of your puppet master server. Defaults to <code>puppet</code>.</li>
+  <li><a href="./../references/latest/configuration.html#report"><code>report</code></a>: Most users should set this to <code>true</code>.</li>
+  <li><a href="./../references/latest/configuration.html#pluginsync"><code>pluginsync</code></a>: Most users should set this to <code>true</code>.</li>
+  <li><a href="./../references/latest/configuration.html#certname"><code>certname</code></a>: The sitewide unique identifier for this node. Defaults to the node&#8217;s fully qualified domain name, which is usually fine.</li>
+</ul>
+
+<h4 id="on-puppet-masters">On Puppet Masters</h4>
+
+<p>Settings for puppet master servers should go in the <code>[master]</code> or <code>[main]</code> block of <code>puppet.conf</code>.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> puppet masters are usually also agent nodes; settings in <code>[main]</code> will be available to both services, and settings in the <code>[master]</code> and <code>[agent]</code> blocks will override the settings in <code>[main]</code>.</p>
+</blockquote>
+
+<ul>
+  <li><a href="./../references/latest/configuration.html#dnsaltnames"><code>dns_alt_names</code></a>: A list of valid hostnames for the master, which will be embedded in its certificate. Defaults to the puppet master&#8217;s <code>certname</code> and <code>puppet</code>, which is usually fine. If you are using a non-default setting, set it <strong>before</strong> starting the puppet master for the first time.</li>
+</ul>
+
+<h4 id="on-standalone-nodes">On Standalone Nodes</h4>
+
+<p>Settings for standalone puppet nodes should go in the <code>[main]</code> block of <code>puppet.conf</code>.</p>
+
+<p>Puppet&#8217;s default settings are generally appropriate for standalone nodes. No additional configuration is necessary unless you intend to use centralized reporting or an <a href="./../guides/external_nodes.html">external node classifier</a>.</p>
+
+<h3 id="start-and-enable-the-puppet-services">Start and Enable the Puppet Services</h3>
+
+<p>Some packages do not automatically start the puppet services after installing the software. You may need to start them manually in order to use Puppet.</p>
+
+<h4 id="with-init-scripts">With Init Scripts</h4>
+
+<p>Most packages create init scripts called <code>puppet</code> and <code>puppetmaster</code>, which run the puppet agent and puppet master services.</p>
+
+<p>You can start and permanently enable these services using Puppet:</p>
+
+<pre><code>$ sudo puppet resource service puppet ensure=running enable=true
+$ sudo puppet resource service puppetmaster ensure=running enable=true
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> If you have configured puppet master to use a production web server, do not use the default init script; instead, start and stop the web server that is managing the puppet master service.</p>
+</blockquote>
+
+<h4 id="with-cron">With Cron</h4>
+
+<p>Standalone deployments do not use services with init scripts; instead, they require a cron task to regularly run puppet apply on a main manifest (usually the same <code>/etc/puppet/manifests/site.pp</code> manifest that puppet master uses). You can create this cron job with Puppet:</p>
+
+<pre><code>$ sudo puppet resource cron puppet-apply ensure=present user=root minute=30 command='/usr/bin/puppet apply $(puppet --configprint manifest)'
+</code></pre>
+
+<p>In an agent/master deployment, you may wish to run puppet agent with cron rather than its init script; this can sometimes perform better and use less memory. You can create this cron job with Puppet:</p>
+
+<pre><code>$ sudo puppet resource cron puppet-agent ensure=present user=root minute=30 command='/usr/bin/puppet agent --onetime --no-daemonize --splay'
+</code></pre>
+
+<h4 id="with-launchd">With Launchd</h4>
+
+<p>Apple <a href="http://developer.apple.com/library/mac/#documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html">recommends you use launchd</a> to manage the execution of services and daemons. You can define a launchd service with XML property lists (plists), and manage it with the <a href="http://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man1/launchctl.1.html"><code>launchctl</code></a> command line utility. If you&#8217;d like to use launchd to manage execution of your puppet master or agent, download the following files and copy each into <code>/Library/LaunchDaemons/</code>:</p>
+
+<ul>
+  <li><a href="files/com.puppetlabs.puppetmaster.plist">com.puppetlabs.puppetmaster.plist</a> (to manage launch of a puppet master)</li>
+  <li><a href="files/com.puppetlabs.puppet.plist">com.puppetlabs.puppet.plist</a> (to manage launch of a puppet agent)</li>
+</ul>
+
+<p>Set the correct owner and permissions on the files. Both must be owned by the root user and both must be writable only by the root user:</p>
+
+<pre><code>$ sudo chown root:wheel /Library/LaunchDaemons/com.puppetlabs.puppet.plist
+$ sudo chmod 644 /Library/LaunchDaemons/com.puppetlabs.puppet.plist
+$ sudo chown root:wheel /Library/LaunchDaemons/com.puppetlabs.puppetmaster.plist
+$ sudo chmod 644 /Library/LaunchDaemons/com.puppetlabs.puppetmaster.plist
+</code></pre>
+
+<p>Make launchd aware of the new services:</p>
+
+<pre><code>$ sudo launchctl load -w /Library/LaunchDaemons/com.puppetlabs.puppet.plist
+$ sudo launchctl load -w /Library/LaunchDaemons/com.puppetlabs.puppetmaster.plist
+</code></pre>
+
+<p>Note that the files we provide here are responsible only for initial launch of a puppet master or puppet agent at system start. How frequently each conducts a run is determined by Puppet&#8217;s configuration, not the plists.</p>
+
+<p>See the OS X <code>launchctl</code> man page for more information on how to stop, start, and manage launchd jobs.</p>
+
+<h3 id="sign-node-certificates">Sign Node Certificates</h3>
+
+<p>In an agent/master deployment, an admin must approve a certificate request for each agent node before that node can fetch configurations. Agent nodes will request certificates the first time they attempt to run.</p>
+
+<ul>
+  <li>Periodically log into the puppet master server and run <code>sudo puppet cert list</code> to view outstanding requests.</li>
+  <li>Run <code>sudo puppet cert sign &lt;NAME&gt;</code> to sign a request, or <code>sudo puppet cert sign --all</code> to sign all pending requests.</li>
+</ul>
+
+<p>An agent node whose request has been signed on the master will run normally on its next attempt.</p>
+
+<h3 id="change-puppet-masters-web-server">Change Puppet Master&#8217;s Web Server</h3>
+
+<p>In an agent/master deployment, you <strong>must</strong> <a href="./../guides/passenger.html">configure the puppet master to run under a scalable web server</a> after you have done some reasonable testing. The default web server is simpler to configure and better for testing, but <strong>cannot</strong> support real-life workloads.</p>
+
+<p>A replacement web server can be configured at any time, and does not affect the configuration of agent nodes.</p>
+
+<h2 id="next">Next</h2>
+
+<p>Now that you have installed and configured Puppet:</p>
+
+<h3 id="learn-to-use-puppet">Learn to Use Puppet</h3>
+
+<p>If you have not used Puppet before, you should read the <a href="./../learning/index.html">Learning Puppet</a> series and experiment, either with the Learning Puppet VM or with your own machines. This series will introduce the concepts underpinning Puppet, and will guide you through the process of writing Puppet code, using modules, and classifying nodes.</p>
+
+<h3 id="install-optional-software">Install Optional Software</h3>
+
+<p>You can extend and improve Puppet with other software:</p>
+
+<ul>
+  <li><a href="./../dashboard/manual/1.2/index.html">Puppet Dashboard</a> is an open-source report analyzer, node classifier, and web GUI for Puppet.</li>
+  <li><a href="http://forge.puppetlabs.com/puppetlabs/stdlib">The stdlib module</a> adds extra functions, an easier way to write custom facts, and more.</li>
+  <li>For Puppet 2.6 and 2.7, the <a href="https://github.com/puppetlabs/hiera">Hiera</a> data lookup tool can help you separate your data from your Puppet manifests and write cleaner code. <!-- (Puppet 3.0 and higher install Hiera as a dependency.) --></li>
+  <li>User-submitted modules that solve common problems are available at the <a href="http://forge.puppetlabs.com/">Puppet Forge</a>. Search here first before writing a new Puppet module from scratch; you can often find something that matches your need or can be quickly hacked to do so.</li>
+</ul>
+
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+<h3 id="general-puppet-info">General Puppet Info</h3>
+
+<ul>
+  <li><span class="currentpage">Installing Puppet</span></li>
+  <li><a href="./../guides/upgrading.html">Upgrading Puppet</a></li>
+  <li><a href="./../guides/language_history.html">History of Language Features</a></li>
+</ul>
+
+<h3 id="other-puppet-docs">Other Puppet Docs</h3>
+
+<ul>
+  <li><a href="./../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></li>
+  <li><a href="./../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></li>
+  <li><a href="./../learning/index.html">Learning Puppet</a></li>
+  <li><a href="./../windows/index.html">Puppet on Windows</a></li>
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

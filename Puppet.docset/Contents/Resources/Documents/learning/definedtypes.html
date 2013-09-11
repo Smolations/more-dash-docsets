@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Learning Puppet — Defined Types — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../favicon.ico' />
+
+
+  <meta name="description" content="Beyond SingletonsSay you wrote a chunk of Puppet code that takes parameters and configures an individual Apache virtual host. You put it in a class...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/learning/definedtypes.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Learning Puppet — Defined Types</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>Learning Puppet — Defined Types</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#beyond-singletons">Beyond Singletons</a></li>
+  <li class="toc-lv2"><a href="#defining-a-type">Defining a Type</a></li>
+  <li class="toc-lv2"><a href="#special-little-flowers">Special Little Flowers</a></li>
+  <li class="toc-lv2"><a href="#defined-types-in-modules">Defined Types in Modules</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#resource-references-and-namespaced-types">Resource References and Namespaced Types</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#an-example-apache-vhosts">An Example: Apache Vhosts</a></li>
+  <li class="toc-lv2"><a href="#exercises">Exercises</a></li>
+  <li class="toc-lv2"><a href="#one-last-tip">One Last Tip</a></li>
+  <li class="toc-lv2"><a href="#next">Next</a></li>
+</ol></nav>
+              <h2 id="beyond-singletons">Beyond Singletons</h2>
+
+<p>Say you wrote a chunk of Puppet code that takes parameters and configures an individual Apache virtual host. You put it in a class. It works fine, but since classes are singletons, Puppet won&#8217;t ever let you declare more than one vhost.</p>
+
+<p>What you want is something more like a <em>resource type</em> &#8212; you can&#8217;t declare the same resource twice, but you can declare as many files or users as you want.</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">apache</span><span class="o">::</span><span class="n">vhost</span> <span class="p">{</span><span class="s1">&#39;users.example.com&#39;</span><span class="p">:</span>
+      <span class="n">port</span>    <span class="o">=&gt;</span> <span class="mi">80</span><span class="p">,</span>
+      <span class="n">docroot</span> <span class="o">=&gt;</span> <span class="s1">&#39;/var/www/personal&#39;</span><span class="p">,</span>
+      <span class="n">options</span> <span class="o">=&gt;</span> <span class="s1">&#39;Indexes MultiViews&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>This turns out to be easy. To model <em>repeatable</em> chunks of configuration &#8212; like a Git repository or an Apache vhost &#8212; you should use <strong>defined resource types.</strong></p>
+
+<p>Defined types act like normal resource types and are declared in the same way, but they&#8217;re composed of other resources.</p>
+
+<h2 id="defining-a-type">Defining a Type</h2>
+
+<p><strong>You define a type with the <code>define</code> keyword,</strong> and the definition looks almost exactly like a class with parameters. You need:</p>
+
+<ul>
+  <li>The <code>define</code> keyword</li>
+  <li>A <strong>name</strong></li>
+  <li>A list of <strong>parameters</strong> (in parentheses, after the name)
+    <ul>
+      <li>
+        <p>Defined types always automatically get a special <code>$title</code> parameter. Its value is always set to the title of the resource instance. (The <code>$name</code> parameter acts the same way &#8212; you can treat it as a synonym for <code>$title</code>.)</p>
+
+        <p>Classes get <code>$title</code> and <code>$name</code> parameters too, but they&#8217;re less useful since a class only has one name.</p>
+      </li>
+    </ul>
+  </li>
+  <li>A <strong>block of Puppet code</strong></li>
+</ul>
+
+<p>Like this:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">define</span> <span class="n">planfile</span> <span class="p">(</span><span class="vg">$user</span> <span class="o">=</span> <span class="vg">$title</span><span class="p">,</span> <span class="vg">$content</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;/home/${user}/.plan&quot;</span><span class="p">:</span>
+        <span class="k">ensure</span>  <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
+        <span class="n">content</span> <span class="o">=&gt;</span> <span class="vg">$content</span><span class="p">,</span>
+        <span class="n">mode</span>    <span class="o">=&gt;</span> <span class="mo">0644</span><span class="p">,</span>
+        <span class="n">owner</span>   <span class="o">=&gt;</span> <span class="vg">$user</span><span class="p">,</span>
+        <span class="nb">require</span> <span class="o">=&gt;</span> <span class="no">User</span><span class="o">[</span><span class="vg">$user</span><span class="o">]</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">user</span> <span class="p">{</span><span class="s1">&#39;nick&#39;</span><span class="p">:</span>
+      <span class="k">ensure</span>     <span class="o">=&gt;</span> <span class="n">present</span><span class="p">,</span>
+      <span class="n">managehome</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+      <span class="n">uid</span>        <span class="o">=&gt;</span> <span class="mi">517</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">planfile</span> <span class="p">{</span><span class="s1">&#39;nick&#39;</span><span class="p">:</span>
+      <span class="n">content</span> <span class="o">=&gt;</span> <span class="s2">&quot;Working on new Learning Puppet chapters. Tomorrow: upgrading the LP virtual machine.&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>This one&#8217;s pretty simple. (In fact, it&#8217;s basically just a macro.) It has two parameters, one of which is optional (it defaults to the title of the resource), and the collection of resources it declares is just a single file resource.</p>
+
+<h2 id="special-little-flowers">Special Little Flowers</h2>
+
+<p>So it&#8217;s pretty simple, right? Exactly like defining a class? <strong>Almost:</strong> there&#8217;s one extra requirement. Since the user might declare any number of instances of a defined type, you have to make sure that the implementation will <strong>never declare the same resource twice.</strong></p>
+
+<p>Consider a slightly different version of that first definition:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">define</span> <span class="n">planfile</span> <span class="p">(</span><span class="vg">$user</span> <span class="o">=</span> <span class="vg">$title</span><span class="p">,</span> <span class="vg">$content</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">file</span> <span class="p">{</span><span class="s1">&#39;.plan&#39;</span><span class="p">:</span>
+        <span class="n">path</span>    <span class="o">=&gt;</span> <span class="s2">&quot;/home/${user}/.plan&quot;</span><span class="p">,</span>
+        <span class="k">ensure</span>  <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
+        <span class="n">content</span> <span class="o">=&gt;</span> <span class="vg">$content</span><span class="p">,</span>
+        <span class="n">mode</span>    <span class="o">=&gt;</span> <span class="mo">0644</span><span class="p">,</span>
+        <span class="n">owner</span>   <span class="o">=&gt;</span> <span class="vg">$user</span><span class="p">,</span>
+        <span class="nb">require</span> <span class="o">=&gt;</span> <span class="no">User</span><span class="o">[</span><span class="vg">$user</span><span class="o">]</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>See how the title of the file resource isn&#8217;t tied to any of the definition&#8217;s parameters?</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">planfile</span> <span class="p">{</span><span class="s1">&#39;nick&#39;</span><span class="p">:</span>
+      <span class="n">content</span> <span class="o">=&gt;</span> <span class="s2">&quot;Working on new Learning Puppet chapters. Tomorrow: upgrading the LP virtual machine.&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">planfile</span> <span class="p">{</span><span class="s1">&#39;chris&#39;</span><span class="p">:</span>
+      <span class="n">content</span> <span class="o">=&gt;</span> <span class="s2">&quot;Resurrecting a very dead laptop.&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<pre><code># puppet apply planfiles.pp
+Duplicate definition: File[.plan] is already defined in file /root/manifests/planfile.pp at line 9; cannot redefine at /root/manifests/planfile.pp:9 on node puppet.localdomain
+</code></pre>
+
+<p>Yikes. You can see where we went wrong &#8212; every time we declare an instance of <code>planfile</code>, it&#8217;s going to declare the resource <code>File['.plan']</code>, and Puppet will fail compilation if you try to declare the same resource twice.</p>
+
+<p><img src="./images/defined_type_collision.png" alt="Tragedy vs. comedy - a diagram showing a resource being declared by two defined type instances, and a diagram showing unique resources being declared by each instance." /></p>
+
+<p>To avoid this, you have to make sure that <strong>both the title and the name</strong> (or namevar) of <strong>every resource</strong> in the definition are somehow derived from a <strong>unique parameter</strong> (often the <code>$title</code>) of the defined type. (For example, we couldn&#8217;t derive the file&#8217;s title from the <code>$content</code> of the <code>planfile</code> resource, because more than one user might write the same .plan text.)</p>
+
+<p>If there&#8217;s a singleton resource that has to exist for any instance of the defined type to work, you should:</p>
+
+<ul>
+  <li>Put that resource in a class.</li>
+  <li>Inside the type definition, use <code>include</code> to declare that class.</li>
+  <li>
+    <p>Also inside the type definition, use something like the following to establish an order dependency:</p>
+
+    <pre><code>  # Make sure compilation will fail if 'myclass' doesn't get declared:
+  Class['myclass'] -&gt; Apache::Vhost["$title"]
+</code></pre>
+
+    <p>Establishing ordering relationships at the class level is generally better than directly requiring one of the resources inside it.</p>
+  </li>
+</ul>
+
+<h2 id="defined-types-in-modules">Defined Types in Modules</h2>
+
+<p>Defined types can be autoloaded just like classes, and thus used from anywhere in your manifests. <a href="./modules1.html#module-structure">Like with classes</a>, <strong>each defined type should go in its own file</strong> in a module&#8217;s <code>manifests/</code> directory, and <strong>the same rules for namespacing apply.</strong> (So the <code>apache::vhost</code> type would go somewhere like <code>/etc/puppetlabs/puppet/modules/apache/manifests/vhost.pp</code>, and if we were to keep the <code>planfile</code> type around, it would go in <code>/etc/puppetlabs/puppet/modules/planfile/manifests/init.pp</code>.)</p>
+
+<h3 id="resource-references-and-namespaced-types">Resource References and Namespaced Types</h3>
+
+<p>You might have already noticed this above, but: when you make a <a href="./../puppet/latest/reference/lang_datatypes.html#resource-references">resource reference</a> to an instance of a defined type, you have to <strong>capitalize every <a href="/puppet/latest/reference/lang_namespaces.html">namespace segment</a></strong> in the type&#8217;s name. That means an instance of the <code>foo::bar::baz</code> type would be referenced like <code>Foo::Bar::Baz['mybaz']</code>.</p>
+
+<h2 id="an-example-apache-vhosts">An Example: Apache Vhosts</h2>
+
+<p>Not that my .plan macro wasn&#8217;t pretty great, but let&#8217;s be serious for a minute. Remember your <a href="./modules1.html#exercises">Apache module</a> from a few chapters back? Let&#8217;s extend it so we can easily declare vhosts. This example code is borrowed from <a href="https://github.com/puppetlabs/puppetlabs-apache">the puppetlabs-apache module</a>.</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="c1"># Definition: apache::vhost</span>
+    <span class="c1">#</span>
+    <span class="c1"># This class installs Apache Virtual Hosts</span>
+    <span class="c1">#</span>
+    <span class="c1"># Parameters:</span>
+    <span class="c1"># - The $port to configure the host on</span>
+    <span class="c1"># - The $docroot provides the DocumentationRoot variable</span>
+    <span class="c1"># - The $template option specifies whether to use the default template or override</span>
+    <span class="c1"># - The $priority of the site</span>
+    <span class="c1"># - The $serveraliases of the site</span>
+    <span class="c1"># - The $options for the given vhost</span>
+    <span class="c1"># - The $vhost_name for name based virtualhosting, defaulting to *</span>
+    <span class="c1">#</span>
+    <span class="c1"># Actions:</span>
+    <span class="c1"># - Install Apache Virtual Hosts</span>
+    <span class="c1">#</span>
+    <span class="c1"># Requires:</span>
+    <span class="c1"># - The apache class</span>
+    <span class="c1">#</span>
+    <span class="c1"># Sample Usage:</span>
+    <span class="c1">#  apache::vhost { &#39;site.name.fqdn&#39;:</span>
+    <span class="c1">#    priority =&gt; &#39;20&#39;,</span>
+    <span class="c1">#    port =&gt; &#39;80&#39;,</span>
+    <span class="c1">#    docroot =&gt; &#39;/path/to/docroot&#39;,</span>
+    <span class="c1">#  }</span>
+    <span class="c1">#</span>
+    <span class="n">define</span> <span class="n">apache</span><span class="o">::</span><span class="n">vhost</span><span class="p">(</span>
+        <span class="vg">$port</span><span class="p">,</span>
+        <span class="vg">$docroot</span><span class="p">,</span>
+        <span class="vg">$template</span>      <span class="o">=</span> <span class="s1">&#39;apache/vhost-default.conf.erb&#39;</span><span class="p">,</span>
+        <span class="vg">$priority</span>      <span class="o">=</span> <span class="s1">&#39;25&#39;</span><span class="p">,</span>
+        <span class="vg">$servername</span>    <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="vg">$serveraliases</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="vg">$options</span>       <span class="o">=</span> <span class="s2">&quot;Indexes FollowSymLinks MultiViews&quot;</span><span class="p">,</span>
+        <span class="vg">$vhost_name</span>    <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+      <span class="p">)</span> <span class="p">{</span>
+
+      <span class="kp">include</span> <span class="n">apache</span>
+
+      <span class="c1"># Below is a pre-2.6.5 idiom for having a parameter default to the title,</span>
+      <span class="c1"># but you could also just declare $servername = &quot;$title&quot; in the parameters</span>
+      <span class="c1"># list and change srvname to servername in the template.</span>
+
+      <span class="k">if</span> <span class="vg">$servername</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="p">{</span>
+        <span class="vg">$srvname</span> <span class="o">=</span> <span class="vg">$title</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="vg">$srvname</span> <span class="o">=</span> <span class="vg">$servername</span>
+      <span class="p">}</span>
+      <span class="k">case</span> <span class="vg">$operatingsystem</span> <span class="p">{</span>
+        <span class="s1">&#39;centos&#39;</span><span class="p">,</span> <span class="s1">&#39;redhat&#39;</span><span class="p">,</span> <span class="s1">&#39;fedora&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="vg">$vdir</span>   <span class="o">=</span> <span class="s1">&#39;/etc/httpd/conf.d&#39;</span>
+                                        <span class="vg">$logdir</span> <span class="o">=</span> <span class="s1">&#39;/var/log/httpd&#39;</span><span class="p">}</span>
+        <span class="s1">&#39;ubuntu&#39;</span><span class="p">,</span> <span class="s1">&#39;debian&#39;</span><span class="p">:</span>           <span class="p">{</span> <span class="vg">$vdir</span>   <span class="o">=</span> <span class="s1">&#39;/etc/apache2/sites-enabled&#39;</span>
+                                        <span class="vg">$logdir</span> <span class="o">=</span> <span class="s1">&#39;/var/log/apache2&#39;</span><span class="p">}</span>
+        <span class="n">default</span><span class="p">:</span>                      <span class="p">{</span> <span class="vg">$vdir</span>   <span class="o">=</span> <span class="s1">&#39;/etc/apache2/sites-enabled&#39;</span>
+                                        <span class="vg">$logdir</span> <span class="o">=</span> <span class="s1">&#39;/var/log/apache2&#39;</span><span class="p">}</span>
+      <span class="p">}</span>
+      <span class="n">file</span> <span class="p">{</span>
+        <span class="s2">&quot;${vdir}/${priority}-${name}.conf&quot;</span><span class="p">:</span>
+          <span class="n">content</span> <span class="o">=&gt;</span> <span class="n">template</span><span class="p">(</span><span class="vg">$template</span><span class="p">),</span>
+          <span class="n">owner</span>   <span class="o">=&gt;</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+          <span class="n">group</span>   <span class="o">=&gt;</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+          <span class="n">mode</span>    <span class="o">=&gt;</span> <span class="s1">&#39;755&#39;</span><span class="p">,</span>
+          <span class="nb">require</span> <span class="o">=&gt;</span> <span class="no">Package</span><span class="o">[</span><span class="s1">&#39;httpd&#39;</span><span class="o">]</span><span class="p">,</span>
+          <span class="n">notify</span>  <span class="o">=&gt;</span> <span class="no">Service</span><span class="o">[</span><span class="s1">&#39;httpd&#39;</span><span class="o">]</span><span class="p">,</span>
+      <span class="p">}</span>
+
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<div class="highlight"><pre><code class="erb"><span class="x">    # /etc/puppetlabs/modules/apache/templates/vhost-default.conf.erb</span>
+
+<span class="x">    # ************************************</span>
+<span class="x">    # Default template in module puppetlabs-apache</span>
+<span class="x">    # Managed by Puppet</span>
+<span class="x">    # ************************************</span>
+
+<span class="x">    Listen </span><span class="cp">&lt;%=</span> <span class="n">port</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">    NameVirtualHost </span><span class="cp">&lt;%=</span> <span class="n">vhost_name</span> <span class="cp">%&gt;</span><span class="x">:</span><span class="cp">&lt;%=</span> <span class="n">port</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">    &lt;VirtualHost </span><span class="cp">&lt;%=</span> <span class="n">vhost_name</span> <span class="cp">%&gt;</span><span class="x">:</span><span class="cp">&lt;%=</span> <span class="n">port</span> <span class="cp">%&gt;</span><span class="x">&gt;</span>
+<span class="x">      ServerName </span><span class="cp">&lt;%=</span> <span class="n">srvname</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">    </span><span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">serveraliases</span><span class="o">.</span><span class="n">is_a?</span> <span class="nb">Array</span> <span class="cp">-%&gt;</span><span class="x"></span>
+<span class="x">    </span><span class="cp">&lt;%</span> <span class="n">serveraliases</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="cp">-%&gt;&lt;%=</span> <span class="s2">&quot;  ServerAlias </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="cp">%&gt;&lt;%</span> <span class="k">end</span> <span class="cp">-%&gt;</span><span class="x"></span>
+<span class="x">    </span><span class="cp">&lt;%</span> <span class="k">elsif</span> <span class="n">serveraliases</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="cp">-%&gt;</span><span class="x"></span>
+<span class="x">    </span><span class="cp">&lt;%=</span> <span class="s2">&quot;  ServerAlias </span><span class="si">#{</span><span class="n">serveraliases</span><span class="si">}</span><span class="s2">&quot;</span> <span class="cp">-%&gt;</span><span class="x"></span>
+<span class="x">    </span><span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">-%&gt;</span><span class="x"></span>
+<span class="x">      DocumentRoot </span><span class="cp">&lt;%=</span> <span class="n">docroot</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">      &lt;Directory </span><span class="cp">&lt;%=</span> <span class="n">docroot</span> <span class="cp">%&gt;</span><span class="x">&gt;</span>
+<span class="x">        Options </span><span class="cp">&lt;%=</span> <span class="n">options</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="x">        AllowOverride None</span>
+<span class="x">        Order allow,deny</span>
+<span class="x">        allow from all</span>
+<span class="x">      &lt;/Directory&gt;</span>
+<span class="x">      ErrorLog </span><span class="cp">&lt;%=</span> <span class="n">logdir</span> <span class="cp">%&gt;</span><span class="x">/</span><span class="cp">&lt;%=</span> <span class="nb">name</span> <span class="cp">%&gt;</span><span class="x">_error.log</span>
+<span class="x">      LogLevel warn</span>
+<span class="x">      CustomLog </span><span class="cp">&lt;%=</span> <span class="n">logdir</span> <span class="cp">%&gt;</span><span class="x">/</span><span class="cp">&lt;%=</span> <span class="nb">name</span> <span class="cp">%&gt;</span><span class="x">_access.log combined</span>
+<span class="x">      ServerSignature Off</span>
+<span class="x">    &lt;/VirtualHost&gt;</span>
+</code></pre>
+</div>
+
+<p>And that&#8217;s more or less a wrap. You can apply a manifest like this:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">apache</span><span class="o">::</span><span class="n">vhost</span> <span class="p">{</span><span class="s1">&#39;testhost&#39;</span><span class="p">:</span>
+      <span class="n">port</span> <span class="o">=&gt;</span> <span class="mi">8081</span><span class="p">,</span>
+      <span class="n">docroot</span> <span class="o">=&gt;</span> <span class="s1">&#39;/var/www-testhost&#39;</span><span class="p">,</span>
+      <span class="n">priority</span> <span class="o">=&gt;</span> <span class="mi">25</span><span class="p">,</span>
+      <span class="n">servername</span> <span class="o">=&gt;</span> <span class="s1">&#39;puppet&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>&#8230;and (as long as the directory exists) you&#8217;ll immediately be able to reach the new vhost:</p>
+
+<pre><code># curl http://puppet:8081
+</code></pre>
+
+<p>In a way, this is just slightly more sophisticated than the first example &#8212; it&#8217;s still only one <code>file</code> resource &#8212; but the use of a template makes it a LOT more powerful, and you can already see how much time it can save. And you can make it slicker as you build more types: once you&#8217;ve got a custom type that handles firewall rules, for example, you can add something like <em>this</em> to the definition:</p>
+
+<pre><code>firewall {"0100-INPUT ACCEPT $port":
+    jump  =&gt; 'ACCEPT',
+    dport =&gt; "$port",
+    proto =&gt; 'tcp'
+}
+</code></pre>
+
+<h2 id="exercises">Exercises</h2>
+
+<p>Take a minute to make a few more defined types, just to get used to modeling repeatable groups of resources.</p>
+
+<ul>
+  <li>Try wrapping a <code>user</code> resource in a <code>human::user</code> type that manages that person&#8217;s .bashrc file and manages one or more <code>ssh_authorized_key</code> resources for their account.</li>
+  <li>If you&#8217;re familiar with git, take a stab at writing a <code>git::repo</code> type that can clone from a repository on the network (and maybe even keep the working copy up-to-date on a specific branch!). This&#8217;ll be harder &#8212; you&#8217;ll probably have to make a <code>git</code> class to make sure git is available, and you&#8217;ll have to use at least one <code>file</code> (<code>ensure =&gt; directory</code>) and at least one <code>exec</code> resource. Keep in mind that execs can be tricky, since you need to make sure they only run when necessary.</li>
+</ul>
+
+<h2 id="one-last-tip">One Last Tip</h2>
+
+<p>Defined types take input, and input can get a little dirty &#8212; you might want to check your parameters to make sure they&#8217;re the correct data type, and fail early if they&#8217;re garbage instead of writing undefined stuff to the system.</p>
+
+<p>If you&#8217;re going to make a practice of validating your inputs (hint: DO), you can save yourself a lot of effort by using the validation functions in Puppet Labs&#8217; <code>stdlib</code> module. We ship a version of <code>stdlib</code> with PE 2.0, and you can also download it for free at either <a href="https://github.com/puppetlabs/puppetlabs-stdlib/">GitHub</a> or <a href="http://forge.puppetlabs.com/puppetlabs/stdlib">the module forge</a>. The functions are:</p>
+
+<ul>
+  <li><code>validate_array</code></li>
+  <li><code>validate_bool</code></li>
+  <li><code>validate_hash</code></li>
+  <li><code>validate_re</code></li>
+  <li><code>validate_string</code></li>
+</ul>
+
+<p>You can learn how to use these by running <code>puppet doc --reference function | less</code> on a system that has <code>stdlib</code> installed in its <code>modulepath</code>, or you can read the documentation directly in each of the functions&#8217; files &#8212; look in the <code>lib/puppet/parser/functions</code> directory of the module.</p>
+
+<h2 id="next">Next</h2>
+
+<p><strong>Next Lesson:</strong></p>
+
+<p>There&#8217;s more to say about modules &#8212; we still haven&#8217;t covered data separation, patterns for making your modules more readable, or module composition yet &#8212; but there&#8217;s more important business afoot. <a href="./agentprep.html">Continue reading</a> to prepare your VMs (yes, plural) for agent/master Puppet.</p>
+
+<p><strong>Off-Road:</strong></p>
+
+<p>We&#8217;ve seen several Apache examples already, and it&#8217;s pretty likely that you&#8217;re running at least one web server in your own infrastructure. Why not use one of the off-the-shelf modules available, and see whether you can reproduce your own configuration in an automated way?</p>
+
+<p><a href="http://info.puppetlabs.com/download-pe.html">Download Puppet Enterprise for free</a>, and follow <a href="http://docs.puppetlabs.com/pe/latest/quick_start.html">the quick start guide</a> to get a small environment installed on some test machines. Then, install one of the following modules:</p>
+
+<ul>
+  <li><a href="http://forge.puppetlabs.com/puppetlabs/apache">puppetlabs/apache</a></li>
+  <li><a href="http://forge.puppetlabs.com/simondean/iis">simondean/iis</a> (for IIS on Windows Server)</li>
+  <li><a href="http://forge.puppetlabs.com/modules?utf-8=%E2%9C%93&amp;q=nginx&amp;LeadSource=Web+-+Organic&amp;Lead_Source_Description__c=google+-+%28not+provided%29&amp;utm_source__c=google&amp;utm_medium__c=organic&amp;utm_term__c=%28not+provided%29&amp;utm_content__c=null&amp;utm_campaign__c=%28organic%29&amp;utm_adgroup__c=null&amp;gclid=">Any of the many Nginx modules</a></li>
+</ul>
+
+<p>Read the module&#8217;s documentation to see how it works, then try managing the service and any relevant virtual hosts to match your manually configured infrastructure.</p>
+
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+
+<ul>
+  <li><a href="./../learning/index.html">Introduction</a></li>
+  <li><strong>Part one: Serverless Puppet</strong>
+    <ul>
+      <li><a href="./../learning/ral.html">Resources and the RAL</a></li>
+      <li><a href="./../learning/manifests.html">Manifests</a></li>
+      <li><a href="./../learning/ordering.html">Ordering</a></li>
+      <li><a href="./../learning/variables.html">Variables, Conditionals, Facts</a></li>
+      <li><a href="./../learning/modules1.html">Modules and Classes</a></li>
+      <li><a href="./../learning/templates.html">Templates</a></li>
+      <li><a href="./../learning/modules2.html">Class Parameters</a></li>
+      <li><span class="currentpage">Defined Types</span></li>
+    </ul>
+  </li>
+  <li><strong>Part two: Master/Agent Puppet</strong>
+    <ul>
+      <li><a href="./../learning/agentprep.html">Preparing an Agent VM</a></li>
+      <li><a href="./../learning/agent_master_basic.html">Basic Agent/Master Puppet</a></li>
+    </ul>
+  </li>
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

@@ -1,0 +1,4883 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 3.0dev">
+
+	<title>PHP 2: Class Aws\Sns\SnsClient | AWS SDK for PHP 2</title>
+
+	<script type="text/javascript" src="resources/combined.js?215010371"></script>
+	<script type="text/javascript" src="elementlist.js?840307205"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?1683603398">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3334156134">
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AWS SDK for PHP 2</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Aws.Sns.html" title="Summary of Aws\Sns"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical">
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+						<li class="divider-vertical">
+
+						<li>
+							<a href="aws-sdk-for-php-2-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active main">
+<a href="namespace-Aws.html">Aws<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.html">AutoScaling<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.html">CloudFormation<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.html">CloudFront<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.html">CloudFront_2012_05_05<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.html">CloudSearch<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.html">CloudWatch<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.html">Common<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Client.html">Client</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Command.html">Command</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Credentials.html">Credentials</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Exception.html">Exception<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Exception.Parser.html">Parser</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Facade.html">Facade</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Hash.html">Hash</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.InstanceMetadata.html">InstanceMetadata<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.InstanceMetadata.Waiter.html">Waiter</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Signature.html">Signature</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Waiter.html">Waiter</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.html">DataPipeline<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.html">DirectConnect<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.html">DynamoDb<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Model.BatchRequest.html">BatchRequest</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Session.html">Session<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Session.LockingStrategy.html">LockingStrategy</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.html">DynamoDb_2011_12_05<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.html">Ec2<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Iterator.html">Iterator</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.html">ElastiCache<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.html">ElasticBeanstalk<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticLoadBalancing.html">ElasticLoadBalancing<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticLoadBalancing.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticTranscoder.html">ElasticTranscoder<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticTranscoder.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Emr.html">Emr<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Emr.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Emr.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.html">Glacier<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Iam.html">Iam<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Iam.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Iam.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.html">ImportExport<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Iterator.html">Iterator</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.html">OpsWorks<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Rds.html">Rds<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Rds.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Rds.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Redshift.html">Redshift<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Redshift.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Redshift.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Route53.html">Route53<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Route53.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Route53.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.html">S3<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Command.html">Command</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Exception.html">Exception<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Exception.Parser.html">Parser</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Sync.html">Sync</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Ses.html">Ses<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Ses.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ses.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.SimpleDb.html">SimpleDb<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.SimpleDb.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="active main">
+<a href="namespace-Aws.Sns.html">Sns<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sns.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Sns.MessageValidator.html">MessageValidator<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sns.MessageValidator.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sqs.html">Sqs<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sqs.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Sqs.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.html">StorageGateway<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sts.html">Sts<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sts.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Support.html">Support<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Support.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Swf.html">Swf<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Swf.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Swf.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.html">Guzzle<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Batch.html">Batch<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Batch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Cache.html">Cache</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Common.html">Common<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Common.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Http.html">Http<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Http.Curl.html">Curl</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Http.Exception.html">Exception</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Http.Message.html">Message<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Http.Message.Header.html">Header</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Http.QueryAggregator.html">QueryAggregator</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Inflection.html">Inflection</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Iterator.html">Iterator</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Log.html">Log</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.html">Parser<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Parser.Cookie.html">Cookie</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.Message.html">Message</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.UriTemplate.html">UriTemplate</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.Url.html">Url</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.html">Plugin<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.Async.html">Async</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Backoff.html">Backoff</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cache.html">Cache</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.html">Cookie<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.CookieJar.html">CookieJar</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.ErrorResponse.html">ErrorResponse<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.ErrorResponse.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.History.html">History</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Log.html">Log</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Md5.html">Md5</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Mock.html">Mock</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Oauth.html">Oauth</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Service.html">Service<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Builder.html">Builder</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.html">Command<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Command.Factory.html">Factory</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.html">LocationVisitor<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.Request.html">Request</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.Response.html">Response</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Service.Description.html">Description</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Exception.html">Exception</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Resource.html">Resource</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Stream.html">Stream</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Aws.Sns.SnsClient.html">SnsClient</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class SnsClient</h1>
+
+
+	<div class="description">
+	
+<p>Client to interact with Amazon Simple Notification Service</p>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-Guzzle.Common.AbstractHasDispatcher.html"><span>Guzzle\Common\AbstractHasDispatcher</span></a>
+			
+			 implements 
+				<a href="class-Guzzle.Common.HasDispatcherInterface.html"><span>Guzzle\Common\HasDispatcherInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-Guzzle.Http.Client.html"><span>Guzzle\Http\Client</span></a>
+			
+			 implements 
+				<a href="class-Guzzle.Http.ClientInterface.html"><span>Guzzle\Http\ClientInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-Guzzle.Service.Client.html"><span>Guzzle\Service\Client</span></a>
+			
+			 implements 
+				<a href="class-Guzzle.Service.ClientInterface.html"><span>Guzzle\Service\ClientInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:90px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-Aws.Common.Client.AbstractClient.html"><span>Aws\Common\Client\AbstractClient</span></a>
+			
+			 implements 
+				<a href="class-Aws.Common.Client.AwsClientInterface.html"><span>Aws\Common\Client\AwsClientInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:120px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Aws\Sns\SnsClient</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aws.html">Aws</a>\<a href="namespace-Aws.Sns.html">Sns</a><br>
+		
+
+				<b>Link:</b>
+				<a href="http://docs.aws.amazon.com/aws-sdk-php-2/guide/latest/service-sns.html">User guide</a><br>
+				<b>Link:</b>
+				<a href="http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.Sns.SnsClient.html">API docs</a><br>
+		<b>Located at</b> Aws/Sns/SnsClient.php<br>
+	</div>
+
+
+
+
+        <h2>Methods summary</h2>
+        <ul class="method-summary">
+        <li>
+            <a class="method-summary-link" href="#_factory">
+                <span class="attributes">
+                    <code>
+                     public static
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">factory</span> ( <span>array|Collection $config = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Factory method to create a new Amazon Simple Notification Service client
+using an array of configuration options.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_addPermission">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">addPermission</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the AddPermission operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_confirmSubscription">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">confirmSubscription</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the ConfirmSubscription operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_createPlatformApplication">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">createPlatformApplication</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the CreatePlatformApplication operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_createPlatformEndpoint">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">createPlatformEndpoint</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the CreatePlatformEndpoint operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_createTopic">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">createTopic</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the CreateTopic operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_deleteEndpoint">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">deleteEndpoint</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the DeleteEndpoint operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_deletePlatformApplication">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">deletePlatformApplication</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the DeletePlatformApplication operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_deleteTopic">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">deleteTopic</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the DeleteTopic operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getEndpointAttributes">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getEndpointAttributes</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the GetEndpointAttributes operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getPlatformApplicationAttributes">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getPlatformApplicationAttributes</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the GetPlatformApplicationAttributes operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getSubscriptionAttributes">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getSubscriptionAttributes</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the GetSubscriptionAttributes operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getTopicAttributes">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getTopicAttributes</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the GetTopicAttributes operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_listEndpointsByPlatformApplication">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">listEndpointsByPlatformApplication</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the ListEndpointsByPlatformApplication operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_listPlatformApplications">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">listPlatformApplications</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the ListPlatformApplications operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_listSubscriptions">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">listSubscriptions</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the ListSubscriptions operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_listSubscriptionsByTopic">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">listSubscriptionsByTopic</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the ListSubscriptionsByTopic operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_listTopics">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">listTopics</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the ListTopics operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_publish">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">publish</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the Publish operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_removePermission">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">removePermission</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the RemovePermission operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_setEndpointAttributes">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">setEndpointAttributes</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the SetEndpointAttributes operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_setPlatformApplicationAttributes">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">setPlatformApplicationAttributes</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the SetPlatformApplicationAttributes operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_setSubscriptionAttributes">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">setSubscriptionAttributes</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the SetSubscriptionAttributes operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_setTopicAttributes">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">setTopicAttributes</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the SetTopicAttributes operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_subscribe">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">subscribe</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the Subscribe operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_unsubscribe">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">unsubscribe</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the Unsubscribe operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getListEndpointsByPlatformApplicationIterator">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getListEndpointsByPlatformApplicationIterator</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>The input array uses the parameters of the ListEndpointsByPlatformApplication
+operation</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getListPlatformApplicationsIterator">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getListPlatformApplicationsIterator</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>The input array uses the parameters of the ListPlatformApplications
+operation</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getListSubscriptionsIterator">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getListSubscriptionsIterator</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>The input array uses the parameters of the ListSubscriptions operation</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getListSubscriptionsByTopicIterator">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getListSubscriptionsByTopicIterator</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>The input array uses the parameters of the ListSubscriptionsByTopic
+operation</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getListTopicsIterator">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getListTopicsIterator</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>The input array uses the parameters of the ListTopics operation</p>
+</div>
+        </li>
+        </ul>
+
+		<h2>Methods detail</h2>
+		<div id="methods">
+		<a name="//apple_ref/cpp/Method/_factory" class="dashAnchor"></a><div id="_factory" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_factory">#</a>
+                <code class="attributes ">
+                     public static
+                    self
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">factory</span>( <span>array|<code><a href="class-Guzzle.Common.Collection.html">Guzzle\Common\Collection</a></code> <var>$config</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Factory method to create a new Amazon Simple Notification Service client
+using an array of configuration options.</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$config</var></dt>
+                            <dd>
+<code>array|<code><a href="class-Guzzle.Common.Collection.html">Guzzle\Common\Collection</a></code></code><br>$config Client configuration data</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>self</code><br>
+                        </div>
+
+
+                        <h4>See</h4>
+                        <div class="list">
+                                \Aws\Common\Client\DefaultClient for a list of available configuration options<br>
+                        </div>
+
+                        <h4>Overrides</h4>
+                        <div class="list"><code><a href="class-Guzzle.Service.Client.html#_factory">Guzzle\Service\Client::factory</a></code></div>
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_addPermission" class="dashAnchor"></a><div id="_addPermission" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_addPermission">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">addPermission</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the AddPermission operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>AddPermission</literal>
+		 action adds a statement to a topic's access control policy, granting access for
+		the specified AWS accounts to the specified actions.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;addPermission(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// TopicArn is required</span>
+    <span class="php-quote">'TopicArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// Label is required</span>
+    <span class="php-quote">'Label'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// AWSAccountId is required</span>
+    <span class="php-quote">'AWSAccountId'</span> =&gt; <span class="php-keyword1">array</span>(<span class="php-quote">'string'</span>, ... ),
+    <span class="php-comment">// ActionName is required</span>
+    <span class="php-quote">'ActionName'</span> =&gt; <span class="php-keyword1">array</span>(<span class="php-quote">'string'</span>, ... ),
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>TopicArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the topic whose access control policy you wish to modify.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>Label</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>A unique identifier for the new policy statement.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>AWSAccountId</b></literal>
+		 =&gt; (array&lt;string&gt;)
+		<div class="indented">
+			<p>The AWS account IDs of the users (principals) who will be given access to the
+			specified actions. The users must have AWS accounts, but do not need to be
+			signed up for this service.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>ActionName</b></literal>
+		 =&gt; (array&lt;string&gt;)
+		<div class="indented">
+			<p>The action you want to allow for the specified principal(s).</p>
+
+			<p>Valid values: any Amazon SNS action name.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list"></ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_confirmSubscription" class="dashAnchor"></a><div id="_confirmSubscription" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_confirmSubscription">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">confirmSubscription</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the ConfirmSubscription operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>ConfirmSubscription</literal>
+		 action verifies an endpoint owner's intent to receive messages by validating
+		the token sent to the endpoint by an earlier
+		<literal>Subscribe</literal>
+		 action. If the token is valid, the action creates a new subscription and
+		returns its Amazon Resource Name (ARN). This call requires an AWS signature only
+		when the
+		<literal>AuthenticateOnUnsubscribe</literal>
+		 flag is set to "true".</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;confirmSubscription(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// TopicArn is required</span>
+    <span class="php-quote">'TopicArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// Token is required</span>
+    <span class="php-quote">'Token'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'AuthenticateOnUnsubscribe'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>TopicArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the topic for which you wish to confirm a subscription.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>Token</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Short-lived token sent to an endpoint during the Subscribe action.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">AuthenticateOnUnsubscribe</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Disallows unauthenticated unsubscribes of the subscription. If the value of
+			this parameter is true and the request has an AWS signature, then only the topic
+			owner and the subscription owner can unsubscribe the endpoint. The unsubscribe
+			action requires AWS authentication.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">SubscriptionArn</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the created subscription.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_createPlatformApplication" class="dashAnchor"></a><div id="_createPlatformApplication" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_createPlatformApplication">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">createPlatformApplication</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the CreatePlatformApplication operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>CreatePlatformApplication</literal>
+		 action creates a platform application object for one of the supported push
+		notification services, such as APNS and GCM, to which devices and mobile apps
+		may register. You must specify PlatformPrincipal and PlatformCredential
+		attributes when using the
+		<literal>CreatePlatformApplication</literal>
+		 action. The PlatformPrincipal is received from the notification service. For
+		APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM,
+		PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id".
+		The PlatformCredential is also received from the notification service. For
+		APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM,
+		PlatformCredential is "API key". For ADM, PlatformCredential is "client secret".
+		The PlatformApplicationArn that is returned when using
+		<literal>CreatePlatformApplication</literal>
+		 is then used as an attribute for the
+		<literal>CreatePlatformEndpoint</literal>
+		 action. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
+		SNS Mobile Push Notifications. </a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;createPlatformApplication(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// Name is required</span>
+    <span class="php-quote">'Name'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// Platform is required</span>
+    <span class="php-quote">'Platform'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// Attributes is required</span>
+    <span class="php-quote">'Attributes'</span> =&gt; <span class="php-keyword1">array</span>(
+        <span class="php-comment">// Associative array of custom 'String' key names</span>
+        <span class="php-quote">'String'</span> =&gt; <span class="php-quote">'string'</span>,
+        <span class="php-comment">// ... repeated</span>
+    ),
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>Name</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Application names must be made up of only uppercase and lowercase ASCII
+			letters, numbers, underscores, hyphens, and periods, and must be between 1 and
+			256 characters long.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>Platform</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The following platforms are supported: ADM (Amazon Device Messaging), APNS
+			(Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud
+			Messaging).</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>Attributes</b></literal>
+		 =&gt; (associative-array&lt;string&gt;)
+		<div class="indented">
+			<p>Associative array of &lt;<i>String</i>&gt; keys mapping to (string) values.
+			Each array key should be changed to an appropriate &lt;<i>String</i>&gt;.</p>
+
+			<p>For a list of attributes, see <a href="http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">
+			SetPlatformApplicationAttributes</a></p>
+		</div>
+
+		<ul class="param-list">
+			<li>
+				<literal class="shaded"><i>&lt;String&gt;</i></literal>
+				 =&gt; (string)</li>
+		</ul>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">PlatformApplicationArn</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>PlatformApplicationArn is returned.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_createPlatformEndpoint" class="dashAnchor"></a><div id="_createPlatformEndpoint" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_createPlatformEndpoint">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">createPlatformEndpoint</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the CreatePlatformEndpoint operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>CreatePlatformEndpoint</literal>
+		 creates an endpoint for a device and mobile app on one of the supported push
+		notification services, such as GCM and APNS.
+		<literal>CreatePlatformEndpoint</literal>
+		 requires the PlatformApplicationArn that is returned from
+		<literal>CreatePlatformApplication</literal>
+		. The EndpointArn that is returned when using
+		<literal>CreatePlatformEndpoint</literal>
+		 can then be used by the
+		<literal>Publish</literal>
+		 action to send a message to a mobile app or by the
+		<literal>Subscribe</literal>
+		 action for subscription to a topic. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
+		SNS Mobile Push Notifications. </a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;createPlatformEndpoint(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// PlatformApplicationArn is required</span>
+    <span class="php-quote">'PlatformApplicationArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// Token is required</span>
+    <span class="php-quote">'Token'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'CustomUserData'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'Attributes'</span> =&gt; <span class="php-keyword1">array</span>(
+        <span class="php-comment">// Associative array of custom 'String' key names</span>
+        <span class="php-quote">'String'</span> =&gt; <span class="php-quote">'string'</span>,
+        <span class="php-comment">// ... repeated</span>
+    ),
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>PlatformApplicationArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>PlatformApplicationArn returned from CreatePlatformApplication is used to
+			create a an endpoint.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>Token</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Unique identifier created by the notification service for an app on a device.
+			The specific name for Token will vary, depending on which notification service
+			is being used. For example, when using APNS as the notification service, you
+			need the device token. Alternatively, when using GCM or ADM, the device token
+			equivalent is called the registration ID.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">CustomUserData</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Arbitrary user data to associate with the endpoint. SNS does not use this
+			data. The data must be in UTF-8 format and less than 2KB.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">Attributes</literal>
+		 =&gt; (associative-array&lt;string&gt;)
+		<div class="indented">
+			<p>Associative array of &lt;<i>String</i>&gt; keys mapping to (string) values.
+			Each array key should be changed to an appropriate &lt;<i>String</i>&gt;.</p>
+
+			<p>For a list of attributes, see <a href="http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">
+			SetEndpointAttributes.</a></p>
+		</div>
+
+		<ul class="param-list">
+			<li>
+				<literal class="shaded"><i>&lt;String&gt;</i></literal>
+				 =&gt; (string)</li>
+		</ul>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">EndpointArn</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>EndpointArn returned from CreateEndpoint action.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_createTopic" class="dashAnchor"></a><div id="_createTopic" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_createTopic">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">createTopic</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the CreateTopic operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>CreateTopic</literal>
+		 action creates a topic to which notifications can be published. Users can
+		create at most 100 topics. For more information, see <a href="http://aws.amazon.com/sns/">http://aws.amazon.com/sns. This action is
+		idempotent, so if the requester already owns a topic with the specified name,
+		that topic's ARN is returned without creating a new topic.</a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;createTopic(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// Name is required</span>
+    <span class="php-quote">'Name'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>Name</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The name of the topic you want to create.</p>
+
+			<p>Constraints: Topic names must be made up of only uppercase and lowercase
+			ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256
+			characters long.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">TopicArn</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The Amazon Resource Name (ARN) assigned to the created topic.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_deleteEndpoint" class="dashAnchor"></a><div id="_deleteEndpoint" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_deleteEndpoint">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">deleteEndpoint</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the DeleteEndpoint operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>DeleteEndpoint</literal>
+		 action, which is idempotent, deletes the endpoint from SNS. For more
+		information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
+		SNS Mobile Push Notifications. </a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;deleteEndpoint(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// EndpointArn is required</span>
+    <span class="php-quote">'EndpointArn'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>EndpointArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>EndpointArn of endpoint to delete.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list"></ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_deletePlatformApplication" class="dashAnchor"></a><div id="_deletePlatformApplication" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_deletePlatformApplication">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">deletePlatformApplication</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the DeletePlatformApplication operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>DeletePlatformApplication</literal>
+		 action deletes a platform application object for one of the supported push
+		notification services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
+		SNS Mobile Push Notifications. </a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;deletePlatformApplication(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// PlatformApplicationArn is required</span>
+    <span class="php-quote">'PlatformApplicationArn'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>PlatformApplicationArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>PlatformApplicationArn of platform application object to delete.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list"></ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_deleteTopic" class="dashAnchor"></a><div id="_deleteTopic" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_deleteTopic">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">deleteTopic</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the DeleteTopic operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>DeleteTopic</literal>
+		 action deletes a topic and all its subscriptions. Deleting a topic might
+		prevent some messages previously sent to the topic from being delivered to
+		subscribers. This action is idempotent, so deleting a topic that does not exist
+		does not result in an error.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;deleteTopic(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// TopicArn is required</span>
+    <span class="php-quote">'TopicArn'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>TopicArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the topic you want to delete.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list"></ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getEndpointAttributes" class="dashAnchor"></a><div id="_getEndpointAttributes" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getEndpointAttributes">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getEndpointAttributes</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the GetEndpointAttributes operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>GetEndpointAttributes</literal>
+		 retrieves the endpoint attributes for a device on one of the supported push
+		notification services, such as GCM and APNS. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
+		SNS Mobile Push Notifications. </a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;getEndpointAttributes(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// EndpointArn is required</span>
+    <span class="php-quote">'EndpointArn'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>EndpointArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>EndpointArn for GetEndpointAttributes input.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">Attributes</literal>
+		 =&gt; (array&lt;associative-array&gt;)
+		<div class="indented">
+			<p>Attributes include the following:</p>
+
+			<ul>
+				<li>CustomUserData -- arbitrary user data to associate with the endpoint. SNS
+				does not use this data. The data must be in UTF-8 format and less than 2KB.</li>
+
+				<li>Enabled -- flag that enables/disables delivery to the endpoint. Message
+				Processor will set this to false when a notification service indicates to SNS
+				that the endpoint is invalid. Users can set it back to true, typically after
+				updating Token.</li>
+
+				<li>Token -- device token, also referred to as a registration id, for an app and
+				mobile device. This is returned from the notification service when an app and
+				mobile device are registered with the notification service.</li>
+			</ul>
+		</div>
+
+		<ul class="param-list">
+			<li>(associative-array)
+				<ul class="param-list">
+					<li>
+						<literal class="shaded">key</literal>
+						 =&gt; (string)</li>
+
+					<li>
+						<literal class="shaded">value</literal>
+						 =&gt; (string)</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getPlatformApplicationAttributes" class="dashAnchor"></a><div id="_getPlatformApplicationAttributes" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getPlatformApplicationAttributes">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getPlatformApplicationAttributes</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the GetPlatformApplicationAttributes operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>GetPlatformApplicationAttributes</literal>
+		 action retrieves the attributes of the platform application object for the
+		supported push notification services, such as APNS and GCM. For more
+		information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
+		SNS Mobile Push Notifications. </a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;getPlatformApplicationAttributes(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// PlatformApplicationArn is required</span>
+    <span class="php-quote">'PlatformApplicationArn'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>PlatformApplicationArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>PlatformApplicationArn for GetPlatformApplicationAttributesInput.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">Attributes</literal>
+		 =&gt; (array&lt;associative-array&gt;)
+		<div class="indented">
+			<p>Attributes include the following:</p>
+
+			<ul>
+				<li>EventEndpointCreated -- Topic ARN to which EndpointCreated event
+				notifications should be sent.</li>
+
+				<li>EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
+				notifications should be sent.</li>
+
+				<li>EventEndpointUpdated -- Topic ARN to which EndpointUpdate event
+				notifications should be sent.</li>
+
+				<li>EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
+				notifications should be sent upon Direct Publish delivery failure (permanent) to
+				one of the application's endpoints.</li>
+			</ul>
+		</div>
+
+		<ul class="param-list">
+			<li>(associative-array)
+				<ul class="param-list">
+					<li>
+						<literal class="shaded">key</literal>
+						 =&gt; (string)</li>
+
+					<li>
+						<literal class="shaded">value</literal>
+						 =&gt; (string)</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getSubscriptionAttributes" class="dashAnchor"></a><div id="_getSubscriptionAttributes" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getSubscriptionAttributes">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getSubscriptionAttributes</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the GetSubscriptionAttributes operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>GetSubscriptionAttribtues</literal>
+		 action returns all of the properties of a subscription.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;getSubscriptionAttributes(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// SubscriptionArn is required</span>
+    <span class="php-quote">'SubscriptionArn'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>SubscriptionArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the subscription whose properties you want to get.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">Attributes</literal>
+		 =&gt; (array&lt;associative-array&gt;)
+		<div class="indented">
+			<p>A map of the subscription's attributes. Attributes in this map include the
+			following:</p>
+
+			<ul>
+				<li>SubscriptionArn -- the subscription's ARN</li>
+
+				<li>TopicArn -- the topic ARN that the subscription is associated with</li>
+
+				<li>Owner -- the AWS account ID of the subscription's owner</li>
+
+				<li>ConfirmationWasAuthenticated -- true if the subscription confirmation
+				request was authenticated</li>
+
+				<li>DeliveryPolicy -- the JSON serialization of the subscription's delivery
+				policy</li>
+
+				<li>EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
+				policy that takes into account the topic delivery policy and account system
+				defaults</li>
+			</ul>
+		</div>
+
+		<ul class="param-list">
+			<li>(associative-array)
+				<ul class="param-list">
+					<li>
+						<literal class="shaded">key</literal>
+						 =&gt; (string)</li>
+
+					<li>
+						<literal class="shaded">value</literal>
+						 =&gt; (string)</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getTopicAttributes" class="dashAnchor"></a><div id="_getTopicAttributes" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getTopicAttributes">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getTopicAttributes</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the GetTopicAttributes operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>GetTopicAttributes</literal>
+		 action returns all of the properties of a topic. Topic properties returned
+		might differ based on the authorization of the user.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;getTopicAttributes(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// TopicArn is required</span>
+    <span class="php-quote">'TopicArn'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>TopicArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the topic whose properties you want to get.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">Attributes</literal>
+		 =&gt; (array&lt;associative-array&gt;)
+		<div class="indented">
+			<p>A map of the topic's attributes. Attributes in this map include the
+			following:</p>
+
+			<ul>
+				<li>TopicArn -- the topic's ARN</li>
+
+				<li>Owner -- the AWS account ID of the topic's owner</li>
+
+				<li>Policy -- the JSON serialization of the topic's access control policy</li>
+
+				<li>DisplayName -- the human-readable name used in the "From" field for
+				notifications to email and email-json endpoints</li>
+
+				<li>SubscriptionsPending -- the number of subscriptions pending confirmation on
+				this topic</li>
+
+				<li>SubscriptionsConfirmed -- the number of confirmed subscriptions on this
+				topic</li>
+
+				<li>SubscriptionsDeleted -- the number of deleted subscriptions on this
+				topic</li>
+
+				<li>DeliveryPolicy -- the JSON serialization of the topic's delivery policy</li>
+
+				<li>EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
+				policy that takes into account system defaults</li>
+			</ul>
+		</div>
+
+		<ul class="param-list">
+			<li>(associative-array)
+				<ul class="param-list">
+					<li>
+						<literal class="shaded">key</literal>
+						 =&gt; (string)</li>
+
+					<li>
+						<literal class="shaded">value</literal>
+						 =&gt; (string)</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_listEndpointsByPlatformApplication" class="dashAnchor"></a><div id="_listEndpointsByPlatformApplication" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_listEndpointsByPlatformApplication">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">listEndpointsByPlatformApplication</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the ListEndpointsByPlatformApplication operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>ListEndpointsByPlatformApplication</literal>
+		 action lists the endpoints and endpoint attributes for devices in a supported
+		push notification service, such as GCM and APNS. The results for
+		<literal>ListEndpointsByPlatformApplication</literal>
+		 are paginated and return a limited list of endpoints, up to 100. If additional
+		records are available after the first page results, then a NextToken string will
+		be returned. To receive the next page, you call
+		<literal>ListEndpointsByPlatformApplication</literal>
+		 again using the NextToken string received from the previous call. When there
+		are no more records to return, NextToken will be null. For more information, see
+		<a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
+		Amazon SNS Mobile Push Notifications. </a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;listEndpointsByPlatformApplication(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// PlatformApplicationArn is required</span>
+    <span class="php-quote">'PlatformApplicationArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'NextToken'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>PlatformApplicationArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>PlatformApplicationArn for ListEndpointsByPlatformApplicationInput
+			action.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">NextToken</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>NextToken string is used when calling ListEndpointsByPlatformApplication
+			action to retrieve additional records that are available after the first page
+			results.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">Endpoints</literal>
+		 =&gt; (array&lt;associative-array&gt;)
+		<div class="indented">
+			<p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
+		</div>
+
+		<ul class="param-list">
+			<li>(associative-array)
+				<div class="indented">
+					<p>Endpoint for mobile app and device.</p>
+				</div>
+
+				<ul class="param-list">
+					<li>
+						<literal class="shaded">EndpointArn</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>EndpointArn for mobile app and device.</p>
+						</div>
+					</li>
+
+					<li>
+						<literal class="shaded">Attributes</literal>
+						 =&gt; (array&lt;associative-array&gt;)
+						<div class="indented">
+							<p>Attributes for endpoint.</p>
+						</div>
+
+						<ul class="param-list">
+							<li>(associative-array)
+								<ul class="param-list">
+									<li>
+										<literal class="shaded">key</literal>
+										 =&gt; (string)</li>
+
+									<li>
+										<literal class="shaded">value</literal>
+										 =&gt; (string)</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+
+	<li>
+		<literal class="shaded">NextToken</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>NextToken string is returned when calling ListEndpointsByPlatformApplication
+			action if additional records are available after the first page results.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_listPlatformApplications" class="dashAnchor"></a><div id="_listPlatformApplications" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_listPlatformApplications">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">listPlatformApplications</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the ListPlatformApplications operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>ListPlatformApplications</literal>
+		 action lists the platform application objects for the supported push
+		notification services, such as APNS and GCM. The results for
+		<literal>ListPlatformApplications</literal>
+		 are paginated and return a limited list of applications, up to 100. If
+		additional records are available after the first page results, then a NextToken
+		string will be returned. To receive the next page, you call
+		<literal>ListPlatformApplications</literal>
+		 using the NextToken string received from the previous call. When there are no
+		more records to return, NextToken will be null. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
+		SNS Mobile Push Notifications. </a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;listPlatformApplications(<span class="php-keyword1">array</span>(
+    <span class="php-quote">'NextToken'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded">NextToken</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>NextToken string is used when calling ListPlatformApplications action to
+			retrieve additional records that are available after the first page results.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">PlatformApplications</literal>
+		 =&gt; (array&lt;associative-array&gt;)
+		<div class="indented">
+			<p>Platform applications returned when calling ListPlatformApplications
+			action.</p>
+		</div>
+
+		<ul class="param-list">
+			<li>(associative-array)
+				<div class="indented">
+					<p>Platform application object.</p>
+				</div>
+
+				<ul class="param-list">
+					<li>
+						<literal class="shaded">PlatformApplicationArn</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>PlatformApplicationArn for platform application object.</p>
+						</div>
+					</li>
+
+					<li>
+						<literal class="shaded">Attributes</literal>
+						 =&gt; (array&lt;associative-array&gt;)
+						<div class="indented">
+							<p>Attributes for platform application object.</p>
+						</div>
+
+						<ul class="param-list">
+							<li>(associative-array)
+								<ul class="param-list">
+									<li>
+										<literal class="shaded">key</literal>
+										 =&gt; (string)</li>
+
+									<li>
+										<literal class="shaded">value</literal>
+										 =&gt; (string)</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+
+	<li>
+		<literal class="shaded">NextToken</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>NextToken string is returned when calling ListPlatformApplications action if
+			additional records are available after the first page results.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_listSubscriptions" class="dashAnchor"></a><div id="_listSubscriptions" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_listSubscriptions">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">listSubscriptions</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the ListSubscriptions operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>ListSubscriptions</literal>
+		 action returns a list of the requester's subscriptions. Each call returns a
+		limited list of subscriptions, up to 100. If there are more subscriptions, a
+		<literal>NextToken</literal>
+		 is also returned. Use the
+		<literal>NextToken</literal>
+		 parameter in a new
+		<literal>ListSubscriptions</literal>
+		 call to get further results.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;listSubscriptions(<span class="php-keyword1">array</span>(
+    <span class="php-quote">'NextToken'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded">NextToken</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Token returned by the previous ListSubscriptions request.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">Subscriptions</literal>
+		 =&gt; (array&lt;associative-array&gt;)
+		<div class="indented">
+			<p>A list of subscriptions.</p>
+		</div>
+
+		<ul class="param-list">
+			<li>(associative-array)
+				<div class="indented">
+					<p>A wrapper type for the attributes of an SNS subscription.</p>
+				</div>
+
+				<ul class="param-list">
+					<li>
+						<literal class="shaded">SubscriptionArn</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>The subscription's ARN.</p>
+						</div>
+					</li>
+
+					<li>
+						<literal class="shaded">Owner</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>The subscription's owner.</p>
+						</div>
+					</li>
+
+					<li>
+						<literal class="shaded">Protocol</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>The subscription's protocol.</p>
+						</div>
+					</li>
+
+					<li>
+						<literal class="shaded">Endpoint</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>The subscription's endpoint (format depends on the protocol).</p>
+						</div>
+					</li>
+
+					<li>
+						<literal class="shaded">TopicArn</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>The ARN of the subscription's topic.</p>
+						</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+
+	<li>
+		<literal class="shaded">NextToken</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Token to pass along to the next ListSubscriptions request. This element is
+			returned if there are more subscriptions to retrieve.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_listSubscriptionsByTopic" class="dashAnchor"></a><div id="_listSubscriptionsByTopic" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_listSubscriptionsByTopic">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">listSubscriptionsByTopic</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the ListSubscriptionsByTopic operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>ListSubscriptionsByTopic</literal>
+		 action returns a list of the subscriptions to a specific topic. Each call
+		returns a limited list of subscriptions, up to 100. If there are more
+		subscriptions, a
+		<literal>NextToken</literal>
+		 is also returned. Use the
+		<literal>NextToken</literal>
+		 parameter in a new
+		<literal>ListSubscriptionsByTopic</literal>
+		 call to get further results.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;listSubscriptionsByTopic(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// TopicArn is required</span>
+    <span class="php-quote">'TopicArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'NextToken'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>TopicArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the topic for which you wish to find subscriptions.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">NextToken</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Token returned by the previous ListSubscriptionsByTopic request.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">Subscriptions</literal>
+		 =&gt; (array&lt;associative-array&gt;)
+		<div class="indented">
+			<p>A list of subscriptions.</p>
+		</div>
+
+		<ul class="param-list">
+			<li>(associative-array)
+				<div class="indented">
+					<p>A wrapper type for the attributes of an SNS subscription.</p>
+				</div>
+
+				<ul class="param-list">
+					<li>
+						<literal class="shaded">SubscriptionArn</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>The subscription's ARN.</p>
+						</div>
+					</li>
+
+					<li>
+						<literal class="shaded">Owner</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>The subscription's owner.</p>
+						</div>
+					</li>
+
+					<li>
+						<literal class="shaded">Protocol</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>The subscription's protocol.</p>
+						</div>
+					</li>
+
+					<li>
+						<literal class="shaded">Endpoint</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>The subscription's endpoint (format depends on the protocol).</p>
+						</div>
+					</li>
+
+					<li>
+						<literal class="shaded">TopicArn</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>The ARN of the subscription's topic.</p>
+						</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+
+	<li>
+		<literal class="shaded">NextToken</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Token to pass along to the next ListSubscriptionsByTopic request. This
+			element is returned if there are more subscriptions to retrieve.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_listTopics" class="dashAnchor"></a><div id="_listTopics" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_listTopics">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">listTopics</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the ListTopics operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>ListTopics</literal>
+		 action returns a list of the requester's topics. Each call returns a limited
+		list of topics, up to 100. If there are more topics, a
+		<literal>NextToken</literal>
+		 is also returned. Use the
+		<literal>NextToken</literal>
+		 parameter in a new
+		<literal>ListTopics</literal>
+		 call to get further results.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;listTopics(<span class="php-keyword1">array</span>(
+    <span class="php-quote">'NextToken'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded">NextToken</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Token returned by the previous ListTopics request.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">Topics</literal>
+		 =&gt; (array&lt;associative-array&gt;)
+		<div class="indented">
+			<p>A list of topic ARNs.</p>
+		</div>
+
+		<ul class="param-list">
+			<li>(associative-array)
+				<div class="indented">
+					<p>A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a
+					topic's attributes, use GetTopicAttributes.</p>
+				</div>
+
+				<ul class="param-list">
+					<li>
+						<literal class="shaded">TopicArn</literal>
+						 =&gt; (string)
+						<div class="indented">
+							<p>The topic's ARN.</p>
+						</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+
+	<li>
+		<literal class="shaded">NextToken</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Token to pass along to the next ListTopics request. This element is returned
+			if there are additional topics to retrieve.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_publish" class="dashAnchor"></a><div id="_publish" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_publish">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">publish</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the Publish operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>Publish</literal>
+		 action sends a message to all of a topic's subscribed endpoints. When a
+		<literal>messageId</literal>
+		 is returned, the message has been saved and Amazon SNS will attempt to deliver
+		it to the topic's subscribers shortly. The format of the outgoing message to
+		each subscribed endpoint depends on the notification protocol selected.</p>
+
+	<p>To use the
+		<literal>Publish</literal>
+		 action for sending a message to a mobile endpoint, such as an app on a Kindle
+		device or mobile phone, you must specify the EndpointArn. The EndpointArn is
+		returned when making a call with the
+		<literal>CreatePlatformEndpoint</literal>
+		 action. The second example below shows a request and response for publishing to
+		a mobile endpoint.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;publish(<span class="php-keyword1">array</span>(
+    <span class="php-quote">'TopicArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'TargetArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// Message is required</span>
+    <span class="php-quote">'Message'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'Subject'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'MessageStructure'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded">TopicArn</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The topic you want to publish to.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">TargetArn</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Either TopicArn or EndpointArn, but not both.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>Message</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The message you want to send to the topic.</p>
+
+			<p>If you want to send the same message to all transport protocols, include the
+			text of the message as a String value.</p>
+
+			<p>If you want to send different messages for each transport protocol, set the
+			value of the MessageStructure parameter to json and use a JSON object for the
+			Message parameter. See the Examples section for the format of the JSON
+			object.</p>
+
+			<p>Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size
+			(262144 bytes, not 262144 characters).</p>
+
+			<p>JSON-specific constraints:</p>
+
+			<ul>
+				<li>Keys in the JSON object that correspond to supported transport protocols
+				must have simple JSON string values.</li>
+
+				<li>The values will be parsed (unescaped) before they are used in outgoing
+				messages.</li>
+
+				<li>Outbound notifications are JSON encoded (meaning that the characters will be
+				reescaped for sending).</li>
+
+				<li>Values have a minimum length of 0 (the empty string, "", is allowed).</li>
+
+				<li>Values have a maximum length bounded by the overall message size (so,
+				including multiple protocols may limit message sizes).</li>
+
+				<li>Non-string values will cause the key to be ignored.</li>
+
+				<li>Keys that do not correspond to supported transport protocols are
+				ignored.</li>
+
+				<li>Duplicate keys are not allowed.</li>
+
+				<li>Failure to parse or validate any key or value in the message will cause the
+				Publish call to return an error (no partial delivery).</li>
+			</ul>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">Subject</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Optional parameter to be used as the "Subject" line when the message is
+			delivered to email endpoints. This field will also be included, if present, in
+			the standard JSON messages delivered to other endpoints.</p>
+
+			<p>Constraints: Subjects must be ASCII text that begins with a letter, number,
+			or punctuation mark; must not include line breaks or control characters; and
+			must be less than 100 characters long.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">MessageStructure</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Set MessageStructure to json if you want to send a different message for each
+			protocol. For example, using one publish action, you can send a short message to
+			your SMS subscribers and a longer message to your email subscribers. If you set
+			MessageStructure to json, the value of the Message parameter must:</p>
+
+			<ul>
+				<li>be a syntactically valid JSON object; and</li>
+
+				<li>contain at least a top-level JSON key of "default" with a value that is a
+				string.</li>
+			</ul>
+
+			<p>You can define other top-level keys that define the message you want to send
+			to a specific transport protocol (e.g., "http").</p>
+
+			<p>For information about sending different messages for each protocol using the
+			AWS Management Console, go to <a href="http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol">
+			Create Different Messages for Each Protocol in the <em>Amazon Simple
+			Notification Service Getting Started Guide</em>.</a></p>
+
+			<p><a href="http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol">
+			Valid value: json</a></p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">MessageId</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>Unique identifier assigned to the published message.</p>
+
+			<p>Length Constraint: Maximum 100 characters</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_removePermission" class="dashAnchor"></a><div id="_removePermission" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_removePermission">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">removePermission</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the RemovePermission operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>RemovePermission</literal>
+		 action removes a statement from a topic's access control policy.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;removePermission(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// TopicArn is required</span>
+    <span class="php-quote">'TopicArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// Label is required</span>
+    <span class="php-quote">'Label'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>TopicArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the topic whose access control policy you wish to modify.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>Label</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The unique label of the statement you want to remove.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list"></ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_setEndpointAttributes" class="dashAnchor"></a><div id="_setEndpointAttributes" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_setEndpointAttributes">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">setEndpointAttributes</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the SetEndpointAttributes operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>SetEndpointAttributes</literal>
+		 action sets the attributes for an endpoint for a device on one of the supported
+		push notification services, such as GCM and APNS. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
+		SNS Mobile Push Notifications. </a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;setEndpointAttributes(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// EndpointArn is required</span>
+    <span class="php-quote">'EndpointArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// Attributes is required</span>
+    <span class="php-quote">'Attributes'</span> =&gt; <span class="php-keyword1">array</span>(
+        <span class="php-comment">// Associative array of custom 'String' key names</span>
+        <span class="php-quote">'String'</span> =&gt; <span class="php-quote">'string'</span>,
+        <span class="php-comment">// ... repeated</span>
+    ),
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>EndpointArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>EndpointArn used for SetEndpointAttributes action.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>Attributes</b></literal>
+		 =&gt; (associative-array&lt;string&gt;)
+		<div class="indented">
+			<p>Associative array of &lt;<i>String</i>&gt; keys mapping to (string) values.
+			Each array key should be changed to an appropriate &lt;<i>String</i>&gt;.</p>
+
+			<p>A map of the endpoint attributes. Attributes in this map include the
+			following:</p>
+
+			<ul>
+				<li>CustomUserData -- arbitrary user data to associate with the endpoint. SNS
+				does not use this data. The data must be in UTF-8 format and less than 2KB.</li>
+
+				<li>Enabled -- flag that enables/disables delivery to the endpoint. Message
+				Processor will set this to false when a notification service indicates to SNS
+				that the endpoint is invalid. Users can set it back to true, typically after
+				updating Token.</li>
+
+				<li>Token -- device token, also referred to as a registration id, for an app and
+				mobile device. This is returned from the notification service when an app and
+				mobile device are registered with the notification service.</li>
+			</ul>
+		</div>
+
+		<ul class="param-list">
+			<li>
+				<literal class="shaded"><i>&lt;String&gt;</i></literal>
+				 =&gt; (string)</li>
+		</ul>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list"></ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_setPlatformApplicationAttributes" class="dashAnchor"></a><div id="_setPlatformApplicationAttributes" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_setPlatformApplicationAttributes">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">setPlatformApplicationAttributes</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the SetPlatformApplicationAttributes operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>SetPlatformApplicationAttributes</literal>
+		 action sets the attributes of the platform application object for the supported
+		push notification services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
+		SNS Mobile Push Notifications. </a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;setPlatformApplicationAttributes(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// PlatformApplicationArn is required</span>
+    <span class="php-quote">'PlatformApplicationArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// Attributes is required</span>
+    <span class="php-quote">'Attributes'</span> =&gt; <span class="php-keyword1">array</span>(
+        <span class="php-comment">// Associative array of custom 'String' key names</span>
+        <span class="php-quote">'String'</span> =&gt; <span class="php-quote">'string'</span>,
+        <span class="php-comment">// ... repeated</span>
+    ),
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>PlatformApplicationArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>PlatformApplicationArn for SetPlatformApplicationAttributes action.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>Attributes</b></literal>
+		 =&gt; (associative-array&lt;string&gt;)
+		<div class="indented">
+			<p>Associative array of &lt;<i>String</i>&gt; keys mapping to (string) values.
+			Each array key should be changed to an appropriate &lt;<i>String</i>&gt;.</p>
+
+			<p>A map of the platform application attributes. Attributes in this map include
+			the following:</p>
+
+			<ul>
+				<li>PlatformCredential -- The credential received from the notification service.
+				For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM,
+				PlatformCredential is "API key". For ADM, PlatformCredential is "client
+				secret".</li>
+
+				<li>PlatformPrincipal -- The principal received from the notification service.
+				For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM,
+				PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client
+				id".</li>
+
+				<li>EventEndpointCreated -- Topic ARN to which EndpointCreated event
+				notifications should be sent.</li>
+
+				<li>EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
+				notifications should be sent.</li>
+
+				<li>EventEndpointUpdated -- Topic ARN to which EndpointUpdate event
+				notifications should be sent.</li>
+
+				<li>EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
+				notifications should be sent upon Direct Publish delivery failure (permanent) to
+				one of the application's endpoints.</li>
+			</ul>
+		</div>
+
+		<ul class="param-list">
+			<li>
+				<literal class="shaded"><i>&lt;String&gt;</i></literal>
+				 =&gt; (string)</li>
+		</ul>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list"></ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_setSubscriptionAttributes" class="dashAnchor"></a><div id="_setSubscriptionAttributes" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_setSubscriptionAttributes">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">setSubscriptionAttributes</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the SetSubscriptionAttributes operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>SetSubscriptionAttributes</literal>
+		 action allows a subscription owner to set an attribute of the topic to a new
+		value.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;setSubscriptionAttributes(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// SubscriptionArn is required</span>
+    <span class="php-quote">'SubscriptionArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// AttributeName is required</span>
+    <span class="php-quote">'AttributeName'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'AttributeValue'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>SubscriptionArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the subscription to modify.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>AttributeName</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The name of the attribute you want to set. Only a subset of the subscriptions
+			attributes are mutable.</p>
+
+			<p>Valid values: DeliveryPolicy</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">AttributeValue</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The new value for the attribute in JSON format.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list"></ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_setTopicAttributes" class="dashAnchor"></a><div id="_setTopicAttributes" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_setTopicAttributes">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">setTopicAttributes</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the SetTopicAttributes operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>SetTopicAttributes</literal>
+		 action allows a topic owner to set an attribute of the topic to a new
+		value.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;setTopicAttributes(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// TopicArn is required</span>
+    <span class="php-quote">'TopicArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// AttributeName is required</span>
+    <span class="php-quote">'AttributeName'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'AttributeValue'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>TopicArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the topic to modify.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>AttributeName</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The name of the attribute you want to set. Only a subset of the topic's
+			attributes are mutable.</p>
+
+			<p>Valid values: Policy | DisplayName | DeliveryPolicy</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">AttributeValue</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The new value for the attribute.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list"></ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_subscribe" class="dashAnchor"></a><div id="_subscribe" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_subscribe">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">subscribe</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the Subscribe operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>Subscribe</literal>
+		 action prepares to subscribe an endpoint by sending the endpoint a confirmation
+		message. To actually create a subscription, the endpoint owner must call the
+		<literal>ConfirmSubscription</literal>
+		 action with the token from the confirmation message. Confirmation tokens are
+		valid for three days.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;subscribe(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// TopicArn is required</span>
+    <span class="php-quote">'TopicArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// Protocol is required</span>
+    <span class="php-quote">'Protocol'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'Endpoint'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>TopicArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the topic you want to subscribe to.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>Protocol</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The protocol you want to use. Supported protocols include:</p>
+
+			<ul>
+				<li>http -- delivery of JSON-encoded message via HTTP POST</li>
+
+				<li>https -- delivery of JSON-encoded message via HTTPS POST</li>
+
+				<li>email -- delivery of message via SMTP</li>
+
+				<li>email-json -- delivery of JSON-encoded message via SMTP</li>
+
+				<li>sms -- delivery of message via SMS</li>
+
+				<li>sqs -- delivery of JSON-encoded message to an Amazon SQS queue</li>
+
+				<li>application -- delivery of JSON-encoded message to an EndpointArn for a
+				mobile app and device.</li>
+			</ul>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">Endpoint</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The endpoint that you want to receive notifications. Endpoints vary by
+			protocol:</p>
+
+			<ul>
+				<li>For the http protocol, the endpoint is an URL beginning with "http://"</li>
+
+				<li>For the https protocol, the endpoint is a URL beginning with "https://"</li>
+
+				<li>For the email protocol, the endpoint is an email address</li>
+
+				<li>For the email-json protocol, the endpoint is an email address</li>
+
+				<li>For the sms protocol, the endpoint is a phone number of an SMS-enabled
+				device</li>
+
+				<li>For the sqs protocol, the endpoint is the ARN of an Amazon SQS queue</li>
+
+				<li>For the application protocol, the endpoint is the EndpointArn of a mobile
+				app and device.</li>
+			</ul>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">SubscriptionArn</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the subscription, if the service was able to create a subscription
+			immediately (without requiring endpoint owner confirmation).</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_unsubscribe" class="dashAnchor"></a><div id="_unsubscribe" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_unsubscribe">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">unsubscribe</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the Unsubscribe operation.</p>
+
+<div class="aws-api-docs">
+	<p>The
+		<literal>Unsubscribe</literal>
+		 action deletes a subscription. If the subscription requires authentication for
+		deletion, only the owner of the subscription or the topic's owner can
+		unsubscribe, and an AWS signature is required. If the
+		<literal>Unsubscribe</literal>
+		 call does not require authentication and the requester is not the subscription
+		owner, a final cancellation message is delivered to the endpoint, so that the
+		endpoint owner can easily resubscribe to the topic if the
+		<literal>Unsubscribe</literal>
+		 request was unintended.</p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;unsubscribe(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// SubscriptionArn is required</span>
+    <span class="php-quote">'SubscriptionArn'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>SubscriptionArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The ARN of the subscription to be deleted.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list"></ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getListEndpointsByPlatformApplicationIterator" class="dashAnchor"></a><div id="_getListEndpointsByPlatformApplicationIterator" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getListEndpointsByPlatformApplicationIterator">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.ResourceIteratorInterface.html">Guzzle\Service\Resource\ResourceIteratorInterface</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getListEndpointsByPlatformApplicationIterator</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>The input array uses the parameters of the ListEndpointsByPlatformApplication
+operation</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$args</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.ResourceIteratorInterface.html">Guzzle\Service\Resource\ResourceIteratorInterface</a></code></code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getListPlatformApplicationsIterator" class="dashAnchor"></a><div id="_getListPlatformApplicationsIterator" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getListPlatformApplicationsIterator">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.ResourceIteratorInterface.html">Guzzle\Service\Resource\ResourceIteratorInterface</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getListPlatformApplicationsIterator</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>The input array uses the parameters of the ListPlatformApplications
+operation</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$args</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.ResourceIteratorInterface.html">Guzzle\Service\Resource\ResourceIteratorInterface</a></code></code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getListSubscriptionsIterator" class="dashAnchor"></a><div id="_getListSubscriptionsIterator" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getListSubscriptionsIterator">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.ResourceIteratorInterface.html">Guzzle\Service\Resource\ResourceIteratorInterface</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getListSubscriptionsIterator</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>The input array uses the parameters of the ListSubscriptions operation</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$args</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.ResourceIteratorInterface.html">Guzzle\Service\Resource\ResourceIteratorInterface</a></code></code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getListSubscriptionsByTopicIterator" class="dashAnchor"></a><div id="_getListSubscriptionsByTopicIterator" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getListSubscriptionsByTopicIterator">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.ResourceIteratorInterface.html">Guzzle\Service\Resource\ResourceIteratorInterface</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getListSubscriptionsByTopicIterator</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>The input array uses the parameters of the ListSubscriptionsByTopic
+operation</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$args</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.ResourceIteratorInterface.html">Guzzle\Service\Resource\ResourceIteratorInterface</a></code></code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getListTopicsIterator" class="dashAnchor"></a><div id="_getListTopicsIterator" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getListTopicsIterator">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.ResourceIteratorInterface.html">Guzzle\Service\Resource\ResourceIteratorInterface</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getListTopicsIterator</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>The input array uses the parameters of the ListTopics operation</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$args</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.ResourceIteratorInterface.html">Guzzle\Service\Resource\ResourceIteratorInterface</a></code></code><br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		</div>
+
+		<h3>Methods inherited from <a href="class-Aws.Common.Client.AbstractClient.html#methods">Aws\Common\Client\AbstractClient</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#___call">__call()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#___construct">__construct()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getAllEvents">getAllEvents()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getApiVersion">getApiVersion()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getCredentials">getCredentials()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getEndpoint">getEndpoint()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getRegion">getRegion()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getRegions">getRegions()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getSignature">getSignature()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getWaiter">getWaiter()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getWaiterFactory">getWaiterFactory()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_send">send()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_setCredentials">setCredentials()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_setRegion">setRegion()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_setWaiterFactory">setWaiterFactory()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_waitUntil">waitUntil()</a></code>
+		</p>
+		<h3>Methods inherited from <a href="class-Guzzle.Service.Client.html#methods">Guzzle\Service\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Service.Client.html#_execute">execute()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_executeMultiple">executeMultiple()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getCommand">getCommand()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getCommandFactory">getCommandFactory()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getDescription">getDescription()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getInflector">getInflector()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getIterator">getIterator()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getResourceIteratorFactory">getResourceIteratorFactory()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_prepareCommand">prepareCommand()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_setCommandFactory">setCommandFactory()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_setDescription">setDescription()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_setInflector">setInflector()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_setResourceIteratorFactory">setResourceIteratorFactory()</a></code>
+		</p>
+		<h3>Methods inherited from <a href="class-Guzzle.Http.Client.html#methods">Guzzle\Http\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Http.Client.html#_createRequest">createRequest()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_delete">delete()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_expandTemplate">expandTemplate()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_get">get()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getBaseUrl">getBaseUrl()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getConfig">getConfig()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getCurlMulti">getCurlMulti()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getDefaultOption">getDefaultOption()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getDefaultUserAgent">getDefaultUserAgent()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getUriTemplate">getUriTemplate()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_head">head()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_initSsl">initSsl()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_options">options()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_patch">patch()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_post">post()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_preparePharCacert">preparePharCacert()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_prepareRequest">prepareRequest()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_put">put()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_sendMultiple">sendMultiple()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setBaseUrl">setBaseUrl()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setConfig">setConfig()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setCurlMulti">setCurlMulti()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setDefaultOption">setDefaultOption()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setRequestFactory">setRequestFactory()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setSslVerification">setSslVerification()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setUriTemplate">setUriTemplate()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setUserAgent">setUserAgent()</a></code>
+		</p>
+		<h3>Methods inherited from <a href="class-Guzzle.Common.AbstractHasDispatcher.html#methods">Guzzle\Common\AbstractHasDispatcher</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#_addSubscriber">addSubscriber()</a></code>, 
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#_dispatch">dispatch()</a></code>, 
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#_getEventDispatcher">getEventDispatcher()</a></code>, 
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#_setEventDispatcher">setEventDispatcher()</a></code>
+		</p>
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+		<h2>Constants summary</h2>
+		<table class="summary table table-bordered table-striped" id="constants">
+		<tr data-order="LATEST_API_VERSION" id="LATEST_API_VERSION">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+<b>LATEST_API_VERSION</b>			</code></td>
+			<td class="value"><code><span class="php-quote">'2010-03-31'</span></code></td>
+			<td class="description"><div>
+				<a href="#LATEST_API_VERSION" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Constants inherited from <a href="class-Guzzle.Service.Client.html#constants">Guzzle\Service\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Service.Client.html#COMMAND_PARAMS"><b>COMMAND_PARAMS</b></a></code>
+		</p>
+		<h3>Constants inherited from <a href="class-Guzzle.Http.Client.html#constants">Guzzle\Http\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Http.Client.html#CURL_OPTIONS"><b>CURL_OPTIONS</b></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#DISABLE_REDIRECTS"><b>DISABLE_REDIRECTS</b></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#REQUEST_OPTIONS"><b>REQUEST_OPTIONS</b></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#SSL_CERT_AUTHORITY"><b>SSL_CERT_AUTHORITY</b></a></code>
+		</p>
+		<h3>Constants inherited from <a href="class-Guzzle.Http.ClientInterface.html#constants">Guzzle\Http\ClientInterface</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Http.ClientInterface.html#CREATE_REQUEST"><b>CREATE_REQUEST</b></a></code>, 
+			<code><a href="class-Guzzle.Http.ClientInterface.html#HTTP_DATE"><b>HTTP_DATE</b></a></code>
+		</p>
+
+
+
+		<h2>Properties summary</h2>
+
+		<h3>Properties inherited from <a href="class-Aws.Common.Client.AbstractClient.html#properties">Aws\Common\Client\AbstractClient</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#$credentials"><var>$credentials</var></a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#$signature"><var>$signature</var></a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#$waiterFactory"><var>$waiterFactory</var></a></code>
+		</p>
+		<h3>Properties inherited from <a href="class-Guzzle.Service.Client.html#properties">Guzzle\Service\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Service.Client.html#$commandFactory"><var>$commandFactory</var></a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#$inflector"><var>$inflector</var></a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#$resourceIteratorFactory"><var>$resourceIteratorFactory</var></a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#$serviceDescription"><var>$serviceDescription</var></a></code>
+		</p>
+		<h3>Properties inherited from <a href="class-Guzzle.Http.Client.html#properties">Guzzle\Http\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Http.Client.html#$defaultHeaders"><var>$defaultHeaders</var></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#$requestFactory"><var>$requestFactory</var></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#$userAgent"><var>$userAgent</var></a></code>
+		</p>
+		<h3>Properties inherited from <a href="class-Guzzle.Common.AbstractHasDispatcher.html#properties">Guzzle\Common\AbstractHasDispatcher</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#$eventDispatcher"><var>$eventDispatcher</var></a></code>
+		</p>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AWS SDK for PHP 2 API documentation generated by <a href="http://apigen.org">ApiGen 3.0dev</a>
+	</div>
+</div>
+
+<script type="text/javascript">
+    // Toggle example display
+    $('.example a').click(function(ele) {
+        $(this).parent('li').children('pre').toggle();
+        return false;
+    });
+</script>
+
+</body>
+</html>

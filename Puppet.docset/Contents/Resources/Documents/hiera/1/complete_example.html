@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Hiera 1: Complete Example — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../favicon.ico' />
+
+
+  <meta name="description" content="Learn how to use Hiera to pull site-specific data out of your manifests with this walkthrough.">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/hiera/1/complete_example.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Hiera 1: Complete Example</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>Hiera 1: Complete Example</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#what-can-we-do-with-hiera">What Can We Do With Hiera?</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#express-organizational-information">Express Organizational Information</a></li>
+   <li class="toc-lv3"><a href="#classify-nodes-with-hiera">Classify Nodes With Hiera</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#describing-our-environment">Describing Our Environment</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#our-environment-before-hiera">Our Environment Before Hiera</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#configuring-hiera-and-setting-up-the-hierarchy">Configuring Hiera and Setting Up the Hierarchy</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#configuring-for-the-command-line">Configuring for the Command Line</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#writing-the-data-sources">Writing the Data Sources</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#identifying-parameters">Identifying Parameters</a></li>
+   <li class="toc-lv3"><a href="#making-decisions-and-expressing-them-in-hiera">Making Decisions and Expressing Them in Hiera</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#assigning-a-class-to-a-node-with-hiera">Assigning a Class to a Node With Hiera</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#using-hierainclude">Using hiera_include</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#exploring-hiera-further">Exploring Hiera Further</a></li>
+</ol></nav>
+
+<p>In this example, we&#8217;ll use the popular <a href="http://forge.puppetlabs.com/puppetlabs/ntp">Puppet Labs ntp module</a>, an exemplar of the package/file/service pattern in common use among Puppet users. We&#8217;ll start simply, using Hiera to provide the ntp module with parameter data based on particular nodes in our organization. Then we&#8217;ll use Hiera to assign the <code>ntp</code> class provided by the module to specific nodes.</p>
+
+<h2 id="what-can-we-do-with-hiera">What Can We Do With Hiera?</h2>
+
+<p>Let&#8217;s get started by looking at the ntp module. It does all of its work in a single <code>ntp</code> class, which lives in <a href="https://github.com/puppetlabs/puppetlabs-ntp/blob/master/manifests/init.pp">the <code>init.pp</code> manifest</a>. The <code>ntp</code> class also evaluates some ERB templates stored in the module&#8217;s <a href="https://github.com/puppetlabs/puppetlabs-ntp/blob/master/templates">template directory</a>. So, what can we do with Hiera?</p>
+
+<h3 id="express-organizational-information">Express Organizational Information</h3>
+
+<p>The <code>ntp</code> class takes five parameters:</p>
+
+<ul>
+  <li>servers</li>
+  <li>restrict</li>
+  <li>autoupdate</li>
+  <li>enable</li>
+  <li>template</li>
+</ul>
+
+<p>Most of these parameters reflect decisions we have to make about each of the nodes to which we&#8217;d apply the <code>ntp</code> class: Can it act as a time server for other hosts? (<code>restrict</code>), which servers should it consult? (<code>servers</code>), or  should we allow Puppet to automatically update the ntp package or not? (<code>autoupdate</code>).</p>
+
+<p>Without Hiera, we might find ourselves adding organizational data to our module code as default parameter values, reducing how shareable it is. We might find ourselves repeating configuration data in our site manifests to cover minor differences in configuration between nodes.</p>
+
+<p>With Hiera, we can move these decisions into a hierarchy built around the facts that drive these decisions, increase sharability, and repeat ourselves less.</p>
+
+<h3 id="classify-nodes-with-hiera">Classify Nodes With Hiera</h3>
+
+<p>We can also use Hiera to assign classes to nodes using the <a href="./puppet.html#assigning-classes-to-nodes-with-hiera-hierainclude">hiera_include</a> function, adding a single line to our <code>site.pp</code> manifest, then assigning classes to nodes within Hiera instead of within our site manifests. This can be a useful shortcut when we&#8217;re explicitly assigning classes to specific nodes within Hiera, but it becomes very powerful when we implicitly assign classes based on a node&#8217;s characteristics. In other words, we&#8217;ll show you how you don&#8217;t need to know the name of very VMWare guest in your organization to make sure they all have a current version of VMWare Tools installed.</p>
+
+<h2 id="describing-our-environment">Describing Our Environment</h2>
+
+<p>For purposes of this walkthrough, we&#8217;ll assume a situation that looks something like this:</p>
+
+<ul>
+  <li>We have two ntp servers in the organization that are allowed to talk to outside time servers. Other ntp servers get their time data from these two servers.</li>
+  <li>One of our primary ntp servers is very cautiously configured &#8212; we can&#8217;t afford outages, so it&#8217;s not allowed to automatically update its ntp server package without testing. The other server is more permissively configured.</li>
+  <li>We have a number of other ntp servers that will use our two primary servers.</li>
+  <li>We have a number of VMWare guest operating systems that need to have VMWare Tools installed.</li>
+</ul>
+
+<h3 id="our-environment-before-hiera">Our Environment Before Hiera</h3>
+
+<p>How did things look before we decided to use Hiera? Classes are assigned to nodes via the puppet site manifest (<code>/etc/puppet/manifests/sites.pp</code> for Puppet open source), so here&#8217;s how our site manifest might have looked:</p>
+
+<div class="highlight"><pre><code class="ruby">	<span class="n">node</span> <span class="s2">&quot;kermit.example.com&quot;</span> <span class="p">{</span>
+	  <span class="k">class</span> <span class="p">{</span> <span class="s2">&quot;ntp&quot;</span><span class="p">:</span>
+		<span class="n">servers</span>    <span class="o">=&gt;</span> <span class="o">[</span> <span class="s1">&#39;0.us.pool.ntp.org iburst&#39;</span><span class="p">,</span><span class="s1">&#39;1.us.pool.ntp.org iburst&#39;</span><span class="p">,</span><span class="s1">&#39;2.us.pool.ntp.org iburst&#39;</span><span class="p">,</span><span class="s1">&#39;3.us.pool.ntp.org iburst&#39;</span><span class="o">]</span><span class="p">,</span>
+		<span class="n">autoupdate</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
+		<span class="n">restrict</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
+		<span class="n">enable</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+	  <span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="n">node</span> <span class="s2">&quot;grover.example.com&quot;</span> <span class="p">{</span>
+	  <span class="k">class</span> <span class="p">{</span> <span class="s2">&quot;ntp&quot;</span><span class="p">:</span>
+		<span class="n">servers</span>    <span class="o">=&gt;</span> <span class="o">[</span> <span class="s1">&#39;kermit.example.com&#39;</span><span class="p">,</span><span class="s1">&#39;0.us.pool.ntp.org iburst&#39;</span><span class="p">,</span><span class="s1">&#39;1.us.pool.ntp.org iburst&#39;</span><span class="p">,</span><span class="s1">&#39;2.us.pool.ntp.org iburst&#39;</span><span class="o">]</span><span class="p">,</span>
+		<span class="n">autoupdate</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+		<span class="n">restrict</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
+		<span class="n">enable</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+	  <span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="n">node</span> <span class="s2">&quot;snuffie.example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;bigbird.example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;hooper.example.com&quot;</span> <span class="p">{</span>
+	  <span class="k">class</span> <span class="p">{</span> <span class="s2">&quot;ntp&quot;</span><span class="p">:</span>
+		<span class="n">servers</span>    <span class="o">=&gt;</span> <span class="o">[</span> <span class="s1">&#39;grover.example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;kermit.example.com&#39;</span><span class="o">]</span><span class="p">,</span>
+		<span class="n">autoupdate</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+		<span class="n">restrict</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+		<span class="n">enable</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+	  <span class="p">}</span>
+	<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="configuring-hiera-and-setting-up-the-hierarchy">Configuring Hiera and Setting Up the Hierarchy</h2>
+
+<p>All Hiera configuration begins with <code>hiera.yaml</code>. You can read a <a href="./configuring.html">full discussion of this file</a>, including where you should put it depending on the version of Puppet you&#8217;re using.  Here&#8217;s the one we&#8217;ll be using for this walkthrough:</p>
+
+<pre><code>---
+:backends:
+  - json
+:json:
+  :datadir: /etc/puppet/hiera
+:hierarchy:
+  - "node/%{::fqdn}"
+  - common
+</code></pre>
+
+<p>Step-by-step:</p>
+
+<p><code>:backends:</code> tells Hiera what kind of data sources it should process. In this case, we&#8217;ll be using JSON files.</p>
+
+<p><code>:json:</code> configures the JSON data backend, telling Hiera to look in <code>/etc/puppet/hiera</code> for JSON data sources.</p>
+
+<p><code>:hierarchy:</code> configures the data sources Hiera should consult. Puppet users commonly separate their hierarchies into directories to make it easier to get a quick top-level sense of how the hierarchy is put together. In this case, we&#8217;re keeping it simple:</p>
+
+<ul>
+  <li>A single <code>node/</code> directory will contain any number of files named after some node&#8217;s <code>fqdn</code> (fully qualified domain name) fact. (E.g. <code>/etc/puppet/hiera/node/grover.example.com.json</code>) This lets us specifically configure any given node with Hiera. Not every node needs to have a file in <code>node/</code> &#8212; if it&#8217;s not there, Hiera will just move onto the next hierarchy level.</li>
+  <li>Next, the <code>common</code> data source (the <code>/etc/puppet/hiera/common.json</code> file) will provide any common or default values we want to use when Hiera can&#8217;t find a match for a given key elsewhere in our hierarchy. In this case, we&#8217;re going to use it to set common ntp servers and default configuration options for the ntp module.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Hierarchy and facts note:</strong> When constructing a hierarchy, keep in mind that most of the useful Puppet variables are <a href="./../../puppet/latest/reference/lang_variables.html#facts-and-built-in-variables"><strong>facts.</strong></a> Since facts are submitted by the agent node itself, they <em>aren&#8217;t necessarily trustworthy.</em> We don&#8217;t recommend using facts as the sole deciding factor for distributing sensitive credentials.</p>
+
+  <p>In this example, we&#8217;re using the <code>fqdn</code> fact to identify specific nodes; the special <code>clientcert</code> variable is another option, which the agent sets to the value of its <code>certname</code> setting. (This is usually the same as the fqdn, but not always.) Right now, Puppet doesn&#8217;t provide any variables with trusted data about a given node; we&#8217;re currently <a href="http://projects.puppetlabs.com/issues/19514">investigating the possibility of adding some</a>.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Puppet master note:</strong> If you modify <code>hiera.yaml</code> between agent runs, you&#8217;ll have to restart your puppet master for your changes to take effect.</p>
+</blockquote>
+
+<h3 id="configuring-for-the-command-line">Configuring for the Command Line</h3>
+
+<p>The <a href="./command_line.html">Hiera command line tool</a> is useful when you&#8217;re in the process of designing and testing your hierarchy. You can use it to mock in
+facts for Hiera to look up without having to go through cumbersome trial-and-error puppet runs. Since the <code>hiera</code> command expects to find
+<code>hiera.yaml</code> at <code>/etc/hiera.yaml</code>, you should set a symbolic link from your <code>hiera.yaml</code> file to <code>/etc/hiera.yaml</code>:</p>
+
+<pre><code>$ ln -s /etc/puppet/hiera.yaml /etc/hiera.yaml
+</code></pre>
+
+<h2 id="writing-the-data-sources">Writing the Data Sources</h2>
+
+<p>Now that we&#8217;ve got Hiera configured, we&#8217;re ready to return to the ntp module and take a look at the <code>ntp</code> class&#8217;s parameters.</p>
+
+<blockquote>
+  <p><strong>Learning About Hiera Data Sources:</strong> This example won&#8217;t cover all the data types you might want to use, and we&#8217;re only using one of two built-in data backends (JSON). For a more complete look at data sources, please see our guide to <a href="./data_sources.html">writing Hiera data sources</a>, which includes more complete examples written in JSON and YAML.</p>
+</blockquote>
+
+<h3 id="identifying-parameters">Identifying Parameters</h3>
+
+<p>We need to start by figuring out the parameters required by the <code>ntp</code> class. So let&#8217;s look at the <a href="https://github.com/puppetlabs/puppetlabs-ntp/blob/master/manifests/init.pp">ntp module&#8217;s <code>init.pp</code> manifest</a>, where we see five:</p>
+
+<dl>
+  <dt>servers</dt>
+  <dd>An array of time servers; <code>UNSET</code> by default. Conditional logic in <code>init.pp</code> provides a list of ntp servers maintained by the respective maintainers of our module&#8217;s supported operating systems.</dd>
+  <dt>restrict</dt>
+  <dd>Whether to restrict ntp daemons from allowing others to use as a server; <code>true</code> by default</dd>
+  <dt>autoupdate</dt>
+  <dd>Whether to update the ntp package automatically or not; <code>false</code> by default</dd>
+  <dt>enable</dt>
+  <dd>Whether to start the ntp daemon on boot; <code>true</code> by default</dd>
+  <dt>template</dt>
+  <dd>The name of the template to use to configure the ntp service. This is <code>undef</code> by default, and it&#8217;s configured within the <code>init.pp</code> manifest with some conditional logic.</dd>
+</dl>
+
+<blockquote>
+  <ul>
+    <li><a href="./../../puppet/latest/reference/lang_classes.html#class-parameters-and-variables">See the Puppet language reference for more about class parameters.</a></li>
+  </ul>
+</blockquote>
+
+<h3 id="making-decisions-and-expressing-them-in-hiera">Making Decisions and Expressing Them in Hiera</h3>
+
+<p>Now that we know the parameters the <code>ntp</code> class expects, we can start making decisions about the nodes on our system, then expressing those decisions as Hiera data. Let&#8217;s start with kermit and grover: The two nodes in our organization that we allow to talk to the outside world for purposes of timekeeping.</p>
+
+<h4 id="kermitexamplecomjson"><code>kermit.example.com.json</code></h4>
+
+<p>We want one of these two nodes, <code>kermit.example.com</code>, to act as the primary organizational time server. We want it to consult outside time servers, we won&#8217;t want it to update its ntp server package by default, and we definitely want it to launch the ntp service at boot. So let&#8217;s write that out in JSON, making sure to express our variables as part of the <code>ntp</code> namespace to insure Hiera will pick them up as part of its <a href="./puppet.html#automatic-parameter-lookup">automatic parameter lookup</a>.</p>
+
+<pre><code>{
+   "ntp::restrict" : false,
+   "ntp::autoupdate" : false,
+   "ntp::enable" : true,
+   "ntp::servers" : [
+	   "0.us.pool.ntp.org iburst",
+	   "1.us.pool.ntp.org iburst",
+	   "2.us.pool.ntp.org iburst",
+	   "3.us.pool.ntp.org iburst"
+	   ]
+}
+</code></pre>
+
+<p>Since we want to provide this data for a specific node, and since we&#8217;re using the <code>fqdn</code> fact to identify unique nodes in our hierarchy, we need to save this data in the <code>/etc/puppet/hiera/node</code> directory as <code>kermit.example.com.json</code>.</p>
+
+<p>Once you&#8217;ve saved that, let&#8217;s do a quick test using the <a href="./command_line.html">Hiera command line tool</a>:</p>
+
+<pre><code>$ hiera ntp::servers ::fqdn=kermit.example.com
+</code></pre>
+
+<p>You should see this:</p>
+
+<pre><code>["0.us.pool.ntp.org iburst", "1.us.pool.ntp.org iburst", "2.us.pool.ntp.org iburst", "3.us.pool.ntp.org iburst"]
+</code></pre>
+
+<p>That&#8217;s just the array of outside ntp servers and options, which we expressed as a JSON array and which Hiera is converting to a Puppet-like array. The module will use this array when it generates configuration files from its templates.</p>
+
+<blockquote id="something-went-wrong">
+  <p><strong>Something Went Wrong?</strong> If, instead, you get <code>nil</code>, <code>false</code>, or something else completely, you should step back through your Hiera configuration making sure:</p>
+
+  <ul>
+    <li>Your <code>hiera.yaml</code> file matches the example we provided</li>
+    <li>You&#8217;ve put a symlink to <code>hiera.yaml</code> where the command line tool expects to find it (<code>/etc/hiera.yaml</code>)</li>
+    <li>You&#8217;ve saved your <code>kermit.example.com</code> data source file with a <code>.json</code> extension</li>
+    <li>Your data source file&#8217;s JSON is well formed. Missing or extraneous commas will cause the JSON parser to fail</li>
+    <li>You restarted your puppet master if you modified <code>hiera.yaml</code></li>
+  </ul>
+</blockquote>
+
+<p>Provided everything works and you get back that array of ntp servers, you&#8217;re ready to configure another node.</p>
+
+<h4 id="groverexamplecomjson"><code>grover.example.com.json</code></h4>
+
+<p>Our next ntp node, <code>grover.example.com</code>, is a little less critical to our infrastructure than kermit, so we can be a little more permissive with its configuration: It&#8217;s o.k. if grover&#8217;s ntp packages are automatically updated. We also want grover to use kermit as its primary ntp server. Let&#8217;s express that as JSON:</p>
+
+<pre><code>{
+   "ntp::restrict" : false,
+   "ntp::autoupdate" : true,
+   "ntp::enable" : true,
+   "ntp::servers" : [
+	   "kermit.example.com iburst",
+	   "0.us.pool.ntp.org iburst",
+	   "1.us.pool.ntp.org iburst",
+	   "2.us.pool.ntp.org iburst",
+	   ]
+}
+</code></pre>
+
+<p>As with <code>kermit.example.com</code>, we want to save grover&#8217;s Hiera data source in the <code>/etc/puppet/hiera/nodes</code> directory using the <code>fqdn</code> fact for the file name: <code>grover.example.com.json</code>. We can once again test it with the hiera command line tool:</p>
+
+<pre><code>$ hiera ntp::servers ::fqdn=grover.example.com
+["kermit.example.com iburst", "0.us.pool.ntp.org iburst", "1.us.pool.ntp.org iburst", "2.us.pool.ntp.org iburst"]
+</code></pre>
+
+<h4 id="commonjson"><code>common.json</code></h4>
+
+<p>So, now we&#8217;ve configured the two nodes in our organization that we&#8217;ll allow to update from outside ntp servers. However, we still have a few nodes to account for that also provide ntp services. They depend on kermit and grover to get the correct time, and we don&#8217;t mind if they update themselves. Let&#8217;s write that out in JSON:</p>
+
+<pre><code>{
+   "ntp::restrict" : true,
+   "ntp::autoupdate" : true,
+   "ntp::enable" : true,
+   "ntp::servers" : [
+	   "grover.example.com iburst",
+	   "kermit.example.com iburst"
+	  ]
+}
+</code></pre>
+
+<p>Unlike kermit and grover, for which we had slightly different but node-specific configuration needs, we&#8217;re comfortable letting any other node that uses the ntp class use this generic configuration data. Rather than creating a node-specific data source for every possible node on our network that might need to use the ntp module, we&#8217;ll store this data in <code>/etc/puppet/hiera/common.json</code>. With our very simple hierarchy, which so far only looks for the <code>fqdn</code> facts, any node with a <code>fqdn</code> that doesn&#8217;t match the nodes we have data sources for will get the data found in <code>common.json</code>. Let&#8217;s test against one of those nodes:</p>
+
+<pre><code>$ hiera ntp::servers ::fqdn=snuffie.example.com
+["kermit.example.com iburst", "grover.example.com iburst"]
+</code></pre>
+
+<h4 id="modifying-our-sitepp-manifest">Modifying Our <code>site.pp</code> Manifest</h4>
+
+<p>Now that everything has tested out from the command line, it&#8217;s time to get a little benefit from this work in production.</p>
+
+<p>If you&#8217;ll remember back to our pre-Hiera configuration, we were declaring a number of parameters for the <code>ntp</code> class in our <code>site.pp</code> manifest, like this:</p>
+
+<div class="highlight"><pre><code class="ruby">	<span class="n">node</span> <span class="s2">&quot;kermit.example.com&quot;</span> <span class="p">{</span>
+	  <span class="k">class</span> <span class="p">{</span> <span class="s2">&quot;ntp&quot;</span><span class="p">:</span>
+		<span class="n">servers</span>    <span class="o">=&gt;</span> <span class="o">[</span> <span class="s1">&#39;0.us.pool.ntp.org iburst&#39;</span><span class="p">,</span><span class="s1">&#39;1.us.pool.ntp.org iburst&#39;</span><span class="p">,</span><span class="s1">&#39;2.us.pool.ntp.org iburst&#39;</span><span class="p">,</span><span class="s1">&#39;3.us.pool.ntp.org iburst&#39;</span><span class="o">]</span><span class="p">,</span>
+		<span class="n">autoupdate</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
+		<span class="n">restrict</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
+		<span class="n">enable</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+	  <span class="p">}</span>
+	<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>In fact, we had three separate stanzas of that length. But now that we&#8217;ve moved all of that parameter data into Hiera, we can significantly pare down <code>site.pp</code>:</p>
+
+<div class="highlight"><pre><code class="ruby">	<span class="n">node</span> <span class="s2">&quot;kermit.example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;grover.example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;snuffie.example.com&quot;</span> <span class="p">{</span>
+      <span class="kp">include</span> <span class="n">ntp</span>
+      <span class="c1"># or:</span>
+      <span class="c1"># class { &quot;ntp&quot;: }</span>
+	<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>That&#8217;s it.</p>
+
+<p>Since Hiera is automatically providing the parameter data from the data sources in its hierarchy, we don&#8217;t need to do anything besides assign the <code>ntp</code> class to the nodes and let Hiera&#8217;s parameter lookups do the rest. In the future, as we change or add nodes that need to use the <code>ntp</code> class, we can:</p>
+
+<ul>
+  <li>Quickly copy data source files to cover cases where a node needs a specialized configuration.</li>
+  <li>If the new node can work with the generic configuration in <code>common.json</code>, we can say <code>include ntp</code> in our <code>site.pp</code> without writing any new Hiera data.</li>
+  <li>Since Hiera looks up each parameter individually, we can also write a new JSON file that, for example, only changes <code>ntp::autoupdate</code> &#8212; Hiera will get the rest of the parameters from <code>common.json</code>.</li>
+</ul>
+
+<p>If you&#8217;re interested in taking things a step further, using the decision-making skills you picked up in this example to choose which nodes even get a particular class, let&#8217;s keep going.</p>
+
+<h2 id="assigning-a-class-to-a-node-with-hiera">Assigning a Class to a Node With Hiera</h2>
+
+<p>In the first part of our example, we were concerned with how to use Hiera to provide data to a parameterized class, but we were assigning the classes to nodes in the traditional Puppet way: By making <code>class</code> declarations for each node in our <code>site.pp</code> manifest. Thanks to the <code>hiera_include</code> function, you can assign nodes to a class the same way you can assign values to class parameters: Picking a facter fact on which you want to base a decision, adding to the hierarchy in your <code>hiera.yaml</code> file, then writing data sources.</p>
+
+<h3 id="using-hierainclude">Using <code>hiera_include</code></h3>
+
+<p>Where last we left off, our <code>site.pp</code> manifest was looking somewhat spare. With the <code>hiera_include</code> function, we can pare things down even further by picking a key to use for classes (we recommend <code>classes</code>), then declaring it in our <code>site.pp</code> manifest:</p>
+
+<pre><code>hiera_include('classes')
+</code></pre>
+
+<p>From this point on, you can add or modify an existing Hiera data source to add an array of classes you&#8217;d like to assign to matching nodes. In the simplest case, we can visit each of kermit, grover, and snuffie and add this to their JSON data sources in <code>/etc/puppet/hiera/node</code>:</p>
+
+<pre><code>"classes" : "ntp",
+</code></pre>
+
+<p>modifying kermit&#8217;s data source, for instance, to look like this:</p>
+
+<pre><code>{
+   "classes" : "ntp",
+   "ntp::restrict" : false,
+   "ntp::autoupdate" : false,
+   "ntp::enable" : true,
+   "ntp::servers" : [
+	   "0.us.pool.ntp.org iburst",
+	   "1.us.pool.ntp.org iburst",
+	   "2.us.pool.ntp.org iburst",
+	   "3.us.pool.ntp.org iburst"
+	   ]
+}
+</code></pre>
+
+<p><code>hiera_include</code> requires either a string with a single class, or an array of classes to apply to a given node. Take a look at the &#8220;classes&#8221; array at the top of our kermit data source to see how we might add three classes to kermit:</p>
+
+<pre><code>{
+   "classes" : [
+	   "ntp",
+	   "apache",
+	   "postfix"
+   ],
+   "ntp::restrict" : false,
+   "ntp::autoupdate" : false,
+   "ntp::enable" : true,
+   "ntp::servers" : [
+	   "0.us.pool.ntp.org iburst",
+	   "1.us.pool.ntp.org iburst",
+	   "2.us.pool.ntp.org iburst",
+	   "3.us.pool.ntp.org iburst"
+	   ]
+}
+</code></pre>
+
+<p>We can test which classes we&#8217;ve assigned to a given node with the Hiera command line tool:</p>
+
+<pre><code>$ hiera classes ::fqdn=kermit.example.com
+["ntp", "apache", "postfix"]
+</code></pre>
+
+<blockquote>
+  <p><strong>Note:</strong> The <code>hiera_include</code> function will do an <a href="./lookup_types.html#array-merge">array merge lookup</a>, which can let more specific data sources <strong>add to</strong> common sources instead of <strong>replacing</strong> them. This helps you avoid repeating yourself.</p>
+</blockquote>
+
+<h4 id="using-facts-to-drive-class-assignments">Using Facts to Drive Class Assignments</h4>
+
+<p>That demonstrates a very simple case for <code>hiera_include</code>, where we knew that we wanted to assign a particular class to a specific host by name. But just as we used the <code>fqdn</code> fact to choose which of our nodes received specific parameter values, we can use that or any other fact to drive class assignments. In other words, you can assign classes to nodes based on characteristics that aren&#8217;t as obvious as their names, creating the possibility of configuring nodes based on more complex characteristics.</p>
+
+<p>Some organizations might choose to make sure all their Macs have Homebrew installed, or assign a <code>postfix</code> class to nodes that have a mail server role expressed through a custom fact, or assign a <code>vmware_tools</code> class that installs and configures VMWare Tools packages on every host that returns <code>vmware</code> as the value for its <code>virtual</code> fact.</p>
+
+<p>In fact, let&#8217;s use that last case for this part of the walkthrough: Installing VMWare Tools on a virtual guest. There&#8217;s a <a href="https://github.com/craigwatson/puppet-vmwaretools">puppet-vmwaretools</a> module on the Puppet Forge that addresses just this need. It takes two parameters:</p>
+
+<dl>
+  <dt>version</dt>
+  <dd>The version of VMWare Tools we want to install</dd>
+  <dt>working_dir</dt>
+  <dd>The directory into which we want to install VMWare</dd>
+</dl>
+
+<p>Two ways we might want to use Hiera to help us organize our use of the class this module provides include making sure it&#8217;s applied to all our VMWare virtual hosts, and configuring where it&#8217;s installed depending on the guest operating system for a given virtual host.</p>
+
+<p>So let&#8217;s take a look at our <code>hiera.yaml</code> file and make provisions for two new data sources. We&#8217;ll create one based on the <code>virtual</code> fact, which will return <code>vmware</code> when a node is a VMWare-based guest.  We&#8217;ll create another based on the <code>osfamily</code> fact, which returns the general family to which a node&#8217;s operating system belongs (e.g. &#8220;Debian&#8221; for Ubuntu and Debian systems, or &#8220;RedHat&#8221; for RHEL, CentOS, and Fedora systems):</p>
+
+<pre><code>---
+:backends:
+  - json
+:json:
+  :datadir: /etc/puppet/hieradata
+:hierarchy:
+  - "node/%{::fqdn}"
+  - "virtual/%{::virtual}"
+  - "osfamily/%{osfamily}"
+  - common
+</code></pre>
+
+<p>Next, we&#8217;ll need to create directories for our two new data sources:</p>
+
+<pre><code>`mkdir /etc/puppet/hiera/virtual; mkdir /etc/puppet/hiera/osfamily`
+</code></pre>
+
+<p>In our <code>virtual</code> directory, we&#8217;ll want to create the file <code>vmware.json</code>. In this data source, we&#8217;ll be assigning the <code>vmwaretools</code> class, so the file will need to look like this:</p>
+
+<pre><code>{
+  "classes": "vmwaretools"
+}
+</code></pre>
+
+<p>Next, we need to provide the data for the <code>vmwaretools</code> class parameters. We&#8217;ll assume we have a mix of Red Hat and Debian VMs in use in our organization, and that we want to install VMWare Tools in <code>/opt/vmware</code> in our Red Hat VMs, and <code>/usr/local/vmware</code> for our Debian VMs.  We&#8217;ll need <code>RedHat.json</code> and <code>Debian.json</code> files in the <code>/etc/puppet/hiera/osfamily</code> directory.</p>
+
+<p><code>RedHat.json</code> should look like this:</p>
+
+<pre><code>{
+  "vmwaretools::working_dir" : "/opt/vmware"
+}
+</code></pre>
+
+<p><code>Debian.json</code> should look like this:</p>
+
+<pre><code>{
+ "vmwaretools::working_dir" : "/usr/local/vmware"
+}
+</code></pre>
+
+<p>That leaves us with one parameter we haven&#8217;t covered: the <code>version</code> parameter. Since we don&#8217;t need to vary which version of VMWare Tools any of our VMs are using, we can put that in <code>common.json</code>, which should now look like this:</p>
+
+<pre><code>{
+   "vmwaretools::version" : "8.6.5-621624",
+   "ntp::restrict" : true,
+   "ntp::autoupdate" : true,
+   "ntp::enable" : true,
+   "ntp::servers" : [
+	   "grover.example.com iburst",
+	   "kermit.example.com iburst"
+	  ]
+}
+</code></pre>
+
+<p>Once you&#8217;ve got all that configured, go ahead and test with the Hiera command line tool:</p>
+
+<pre><code>$ hiera vmwaretools::working_dir osfamily=RedHat
+/opt/vmware
+
+$ hiera vmwaretools::working_dir osfamily=Debian
+/usr/local/vmware
+
+$ hiera vmwaretools::version
+8.6.5-621624
+
+$ hiera classes virtual=vmware
+vmwaretools
+</code></pre>
+
+<p>If everything worked, great. If not, <a href="#something-went-wrong">consult the checklist we provided earlier</a> and give it another shot.</p>
+
+<h2 id="exploring-hiera-further">Exploring Hiera Further</h2>
+
+<p>We hope this walkthrough gave you a good feel for the things you can do with Hiera. There are a few things we didn&#8217;t touch on, though:</p>
+
+<ul>
+  <li>We didn&#8217;t discuss how to use Hiera in module manifests, preferring to highlight its ability to provide data to parameterized classes. Hiera also provides a <a href="./puppet.html#hiera-lookup-functions">collection of functions</a> that allow you to use Hiera within a module. Tread carefully here, though: Once you start requiring Hiera for your module to work at all, you&#8217;re reducing its shareability and potentially closing it off to some users.</li>
+  <li>We showed how to conduct priority lookups with Hiera; that is, retrieving data from the hierarchy based on the first match for a given key. This is the only way to use Hiera with parameterized classes, but Hiera&#8217;s lookup functions include <a href="./lookup_types.html">special hash and array lookups</a>, allowing you to collect data from sources throughout your hierarchy, or to selectively override your hierarchy&#8217;s normal precedence. This allows you to declare, for instance, certain base values for all nodes, then layer on additional values for nodes that match differing keys, receiving all the data back as an array or hash.</li>
+</ul>
+
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+
+<h2 id="hiera-1">Hiera 1</h2>
+
+<ul>
+  <li><a href="./index.html">Overview</a></li>
+  <li><a href="./installing.html">Installation</a></li>
+  <li><a href="./configuring.html">Configuration and hiera.yaml</a></li>
+  <li><a href="./hierarchy.html">Hierarchies</a></li>
+  <li><a href="./lookup_types.html">Lookup Types</a></li>
+  <li><a href="./data_sources.html">Writing Data Sources</a></li>
+  <li><a href="./variables.html">Variables and Interpolation</a></li>
+  <li><a href="./puppet.html">Usage with Puppet</a></li>
+  <li><span class="currentpage">Complete Example</span></li>
+  <li><a href="./command_line.html">Usage on the Command Line</a></li>
+  <li><a href="./custom_backends.html">Writing New Backends</a></li>
+</ul>
+
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

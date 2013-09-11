@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Puppet 2.6 Release Notes — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../../favicon.ico' />
+
+
+  <meta name="description" content="Puppet release notes for version 2.6.x">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/puppet/2.6/reference/release_notes.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Puppet 2.6 Release Notes</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>Puppet 2.6 Release Notes</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#section">2.6.18</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#downloads">2.6.18 Downloads</a></li>
+   <li class="toc-lv3"><a href="#changelog">2.6.18 Changelog</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-1">2.6.17</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#security-fixes">Security Fixes</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-2">2.6.16</a></li>
+  <li class="toc-lv2"><a href="#section-3">2.6.15</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#security-fixes-1">Security Fixes</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-4">2.6.14</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#security-fixes-2">Security Fixes</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-5">2.6.13</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#changelog-1">2.6.13 Changelog</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-6">2.6.12</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#security-fixes-3">Security Fixes</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-7">2.6.11</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#security-fixes-4">Security Fixes</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-8">2.6.10</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#security-fixes-5">Security Fixes</a></li>
+   <li class="toc-lv3"><a href="#commits">Commits</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-9">2.6.9</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#notable-fixes-and-features">Notable Fixes and Features</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-10">2.6.8</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#notable-features-and-bug-fixes">Notable Features and Bug Fixes</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-11">2.6.7</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#notable-features-and-bug-fixes-1">Notable Features and Bug Fixes</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-12">2.6.6</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#notable-features-and-bug-fixes-2">Notable Features and Bug Fixes</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-13">2.6.5</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#notable-features-and-bug-fixes-3">Notable Features and Bug Fixes</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-14">2.6.4</a></li>
+  <li class="toc-lv2"><a href="#section-15">2.6.3</a></li>
+  <li class="toc-lv2"><a href="#section-16">2.6.2</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#types-and-providers">Types and Providers</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-17">2.6.1</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#functions">Functions</a></li>
+   <li class="toc-lv3"><a href="#documentation">Documentation</a></li>
+   <li class="toc-lv3"><a href="#types-and-providers-1">Types and Providers</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#section-18">2.6.0</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#language">Language</a></li>
+   <li class="toc-lv3"><a href="#stored-configuration">Stored Configuration</a></li>
+   <li class="toc-lv3"><a href="#facts">Facts</a></li>
+   <li class="toc-lv3"><a href="#types-and-providers-2">Types and Providers</a></li>
+   <li class="toc-lv3"><a href="#binaries-and-configuration">Binaries and Configuration</a></li>
+   <li class="toc-lv3"><a href="#functions-1">Functions</a></li>
+   <li class="toc-lv3"><a href="#reports">Reports</a></li>
+   <li class="toc-lv3"><a href="#puppet-runner">Puppet Runner</a></li>
+   <li class="toc-lv3"><a href="#incompatibilities">Incompatibilities</a></li>
+</ol></li>
+</ol></nav>
+              <h1 id="puppet-26-release-notes">Puppet 2.6 Release Notes</h1>
+
+<h2 id="section">2.6.18</h2>
+
+<p>Puppet 2.6.18 is a <strong>security release</strong> addressing several vulnerabilities discovered in the 2.6.x line of Puppet. These vulnerabilities have been assigned Mitre CVE numbers <a href="http://puppetlabs.com/security/cve/cve-2013-1640">CVE-2013-1640</a>, <a href="http://puppetlabs.com/security/cve/cve-2013-1652">CVE-2013-1652</a>, <a href="http://puppetlabs.com/security/cve/cve-2013-1654">CVE-2013-1654</a>, <a href="http://puppetlabs.com/security/cve/cve-2013-2274">CVE-2013-2274</a>, and <a href="http://puppetlabs.com/security/cve/cve-2013-2275">CVE-2013-2275</a>.</p>
+
+<p>All users of Puppet 2.6.17 and earlier who cannot upgrade to the current version of Puppet, 3.1.1, are strongly encouraged to upgrade
+to 2.6.18.</p>
+
+<h3 id="downloads">2.6.18 Downloads</h3>
+
+<ul>
+  <li>Source: <a href="https://downloads.puppetlabs.com/puppet/puppet-2.6.18.tar.gz">https://downloads.puppetlabs.com/puppet/puppet-2.6.18.tar.gz</a></li>
+  <li>RPMs: <a href="https://yum.puppetlabs.com/el">https://yum.puppetlabs.com/el</a> or <code>/fedora</code></li>
+  <li>Debs: <a href="https://apt.puppetlabs.com">https://apt.puppetlabs.com</a></li>
+</ul>
+
+<p>See the Verifying Puppet Download section at:<br />
+<a href="https://projects.puppetlabs.com/projects/puppet/wiki/Downloading_Puppet">https://projects.puppetlabs.com/projects/puppet/wiki/Downloading_Puppet</a></p>
+
+<p>Please report feedback via the Puppet Labs Redmine site, using an affected puppet version of 2.6.18:<br />
+<a href="http://projects.puppetlabs.com/projects/puppet/">http://projects.puppetlabs.com/projects/puppet/</a></p>
+
+<h3 id="changelog">2.6.18 Changelog</h3>
+
+<ul>
+  <li>Andrew Parker (2):
+    <ul>
+      <li>(#14093) Remove unsafe attributes from TemplateWrapper</li>
+      <li>(#14093) Restore access to the filename in the template</li>
+    </ul>
+  </li>
+  <li>Daniel Pittman (2):
+    <ul>
+      <li>(#8858) Refactor tests to use real HTTP objects</li>
+      <li>(#8858) Explicitly set SSL peer verification mode.</li>
+    </ul>
+  </li>
+  <li>Jeff McCune (2):
+    <ul>
+      <li>(#19151) Reject SSLv2 SSL handshakes and ciphers</li>
+      <li>(#19531) (CVE-2013-2275) Only allow report save from the node matching the certname</li>
+    </ul>
+  </li>
+  <li>Josh Cooper (8):
+    <ul>
+      <li>(#19391) Backport Request#remote? method</li>
+      <li>Run openssl from windows when trying to downgrade master</li>
+      <li>Remove unnecessary rubygems require</li>
+      <li>Don&#8217;t assume puppetbindir is defined</li>
+      <li>Display SSL messages so we can match our regex</li>
+      <li>Don&#8217;t require openssl client to return 0 on failure</li>
+      <li>Don&#8217;t assume master supports SSLv2</li>
+      <li>(#19391) Find the catalog for the specified node name</li>
+    </ul>
+  </li>
+  <li>Justin Stoller (2):
+    <ul>
+      <li>Acceptance tests for CVEs 2013 (1640, 1652, 1653, 1654, 2274, 2275)</li>
+      <li>Separate tests for same CVEs into separate files</li>
+    </ul>
+  </li>
+  <li>Matthaus Owens (1):
+    <ul>
+      <li>Update CHANGELOG, lib/puppet.rb, conf/redhat/puppet.spec for 2.6.18</li>
+    </ul>
+  </li>
+  <li>Nick Lewis (2):
+    <ul>
+      <li>Always read request body when using Rack</li>
+      <li>Fix order-dependent test failure in rest_authconfig_spec</li>
+    </ul>
+  </li>
+  <li>Patrick Carlisle (4):
+    <ul>
+      <li>(#19391) (CVE-2013-1652) Disallow use_node compiler parameter for remote requests</li>
+      <li>(#19392) (CVE-2013-1653) Validate instances passed to indirector</li>
+      <li>(#19392) (CVE-2013-1653) Validate indirection model in save handler</li>
+      <li>(#19392) (CVE-2013-1653) Fix acceptance test to catch unvalidated model on 2.6</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section-1">2.6.17</h2>
+
+<p>This is a <strong>security</strong> release in the 2.6.x branch.</p>
+
+<h3 id="security-fixes">Security Fixes</h3>
+
+<p>CVE-2012-3864 Arbitrary file read on the puppet master from authenticated clients (high)
+    It is possible to construct an HTTP get request from an authenticated
+    client with a valid certificate that will return the contents of an arbitrary
+    file on the Puppet master that the master has read-access to.</p>
+
+<p>CVE-2012-3865 Arbitrary file delete/D.O.S on Puppet Master from authenticated clients (high)
+    Given a Puppet master with the &#8220;Delete&#8221; directive allowed in auth.conf
+    for an authenticated host, an attacker on that host can send a specially
+    crafted Delete request that can cause an arbitrary file deletion on the
+    Puppet master, potentially causing a denial of service attack. Note that
+    this vulnerability does <em>not</em> exist in Puppet as configured by default.</p>
+
+<p>CVE-2012-3867 Insufficient input validation for agent hostnames (low)
+    An attacker could trick the administrator into signing an attacker&#8217;s
+    certificate rather than the intended one by constructing specially
+    crafted certificate requests containing specific ANSI control sequences.
+    It is possible to use the sequences to rewrite the order of text displayed
+    to an administrator such that display of an invalid certificate and valid
+    certificate are transposed. If the administrator signs the attacker&#8217;s
+    certificate, the attacker can then man-in-the-middle the agent.</p>
+
+<h2 id="section-2">2.6.16</h2>
+<p>This release addresses and reverts a behavior change related to puppet&#8217;s pidfile
+that was introduced in Puppet 2.6.15.</p>
+
+<p>65446c9 Revert &#8220;(#5246) Puppetd does not remove it&#8217;s pidfile when it exits&#8221;</p>
+
+<h2 id="section-3">2.6.15</h2>
+
+<p>This is a <strong>security</strong> release in the 2.6.x branch.</p>
+
+<h3 id="security-fixes-1">Security Fixes</h3>
+
+<h5 id="cve-2012-1906-high---appdmg-and-pkgdmg-providers-write-packages-to-insecure-location">CVE-2012-1906 (High) - appdmg and pkgdmg providers write packages to insecure location</h5>
+
+<p>http://puppetlabs.com/security/cve/cve-2012-1906</p>
+
+<p>(#13260)</p>
+
+<pre><code>If a remote source is given for a package, the package is downloaded
+to a predictable filename in /tmp. It is possible to create a symlink at this
+name and use it to clobber any file on the system, or by switching
+the symlink install arbitrary packages (and package installers can
+execute arbitrary code).
+</code></pre>
+
+<h5 id="cve-2012-1986-high---filebucket-arbitrary-file-read">CVE-2012-1986 (High) - Filebucket arbitrary file read</h5>
+
+<p>http://puppetlabs.com/security/cve/cve-2012-1986</p>
+
+<p>(#13511)
+    It is possible to construct a REST request to fetch a file from a
+    filebucket that overrides the puppet master’s defined location
+    for the files to be stored. If a user has access to construct directories
+    and symlinks on the machine they can read any file that the user the
+    puppet master is running as has access to.</p>
+
+<h5 id="cve-2012-1987-moderate---filebucket-denial-of-service">CVE-2012-1987 (Moderate) - Filebucket denial of service</h5>
+
+<p>http://puppetlabs.com/security/cve/cve-2012-1987</p>
+
+<p>(#13552,#13553)</p>
+
+<pre><code>By constructing a marshaled form of a Puppet::FileBucket::File
+object a user can cause it it to be written to any place on the disk
+of the puppet master. This could be used for a denial of service attack
+against the puppet master if an attacker fills a filesystem that can cause
+systems to stop working. In order to do this the attacker needs no access
+to the puppet master system, but does need access to agent SSL keys.
+
+Using the symlink attack described in Bug #13511 the puppet master
+can be caused to read from a stream (e.g. /dev/random) when either
+trying to save a file or read a file. Because of the way in which the puppet
+master deals with sending files on the filesystem to a remote system via a
+REST request the thread handling the request will block forever reading from
+that stream and continually consuming more memory. This can lead to the
+puppet master system running out of memory and cause a denial of service.
+</code></pre>
+
+<h5 id="cve-2012-1988-high---filebucket-arbitrary-code-execution">CVE-2012-1988 (High) - Filebucket arbitrary code execution</h5>
+
+<p>http://puppetlabs.com/security/cve/cve-2012-1988</p>
+
+<p>(#13518)
+    Filebucket arbitrary code execution
+    This requires access to the cert on the agent and an unprivileged
+    account on the master.  By creating a path on the master in a
+    world-writable location that matches a command string, one can
+    then make a file bucket request to execute that command.</p>
+
+<h2 id="section-4">2.6.14</h2>
+
+<p>This is a <strong>security</strong> release in the 2.6.x branch.</p>
+
+<h3 id="security-fixes-2">Security Fixes</h3>
+
+<h5 id="cve-2012-1053-group-privilege-escalation">CVE-2012-1053 (Group Privilege Escalation)</h5>
+
+<p>http://puppetlabs.com/security/cve/cve-2012-1053/</p>
+
+<p>(#12457, #12458, #12459)
+A bug in Puppet gives unexpected and improper group privileges to execs and types/providers.
+When executing commands as a different user, Puppet leaves the forked
+process with Puppet’s own group permissions. Specifically:</p>
+
+<ul>
+  <li>Puppet’s primary group (usually root) is always present in a process’s supplementary groups.</li>
+  <li>When an exec resource is assigned a user to run as but not a group,</li>
+  <li>Puppet will set its effective GID to Puppet’s own GID (usually root).</li>
+  <li>Permanently changing a process’s UID and GID won’t clear the supplementary groups, leaving the process with Puppet’s own supplementary groups (usually including root).</li>
+</ul>
+
+<p>This causes any untrusted code executed by a Puppet exec resource to
+be given unexpectedly high permissions.</p>
+
+<h5 id="cve-2012-1054-user-privilege-escalation">CVE-2012-1054 (User Privilege Escalation)</h5>
+
+<p>http://puppetlabs.com/security/cve/cve-2012-1054/</p>
+
+<p>(#12460)</p>
+
+<p>If a user’s <code>.k5login</code> file is a symlink, Puppet will overwrite the
+link’s target when managing that user’s login file with the k5login
+resource type. This allows local privilege escalation by linking a
+user’s <code>.k5login</code> file to root’s <code>.k5login</code> file.</p>
+
+<h2 id="section-5">2.6.13</h2>
+
+<p>Fix #10739 Provide default subjectAltNames while bootstrapping master</p>
+
+<pre><code>Prior to #2848 (CVE-2011-3872), if Puppet[:certdnsnames] was not set,
+puppet would add default subjectAltNames to any non-CA cert it signed,
+including agent certs. The subjectAltNames were of the form:
+
+  DNS:puppet, DNS:&lt;fqdn&gt;, DNS:puppet.&lt;domain&gt;
+
+The fix for #2848, prevented subjectAltNames from ever being
+implicitly added at signing time. But during this change, the default
+subjectAltNames behavior was accidentally removed.
+
+This commit restores the 'defaulting' behavior that existed
+previously, but only when bootstrapping the initial master.
+Additionally, default subjectAltNames are only ever added when
+generating the master's certificate signing request, not at signing
+time. This is important, because it ensures all subjectAltNames
+originate from the CSR and are subject to our internal signing policy.
+
+The code now requires that all of the following be true in order to
+add default subjectAltNames to the CSR:
+
+ 1. We are a CA and master
+ 2. We're signing the master's cert, not self-signing the CA
+ 3. The CSR is for the current host
+ 4. No subjectAltNames have been specified, e.g. Puppet[:dns_alt_names]
+ 5. The master can resolve its fqdn
+
+These should only ever be true when bootstrapping the initial
+master. In particular, it should never be true for the CA's
+self-signed cert, for remote agents, or for servers that are either
+masters or CAs, but not both.
+
+The fqdn requirement existed previously, and so the same behavior has
+been restored.
+
+Note if Puppet[:dns_alt_names] are specified when bootstrapping the
+master, then we do not merge the default options -- it's either one of
+the other, but not both.
+</code></pre>
+
+<p>Fix #10289</p>
+
+<p>Add an ext script to upload facts to inventory server</p>
+
+<pre><code>This script, ext/upload_facts, will read facts from the master's yaml
+dir and save them to the facts terminus. The intended use of this is
+when the facts terminus is set to inventory_service, to be run
+periodically via cron to ensure facts are uploaded even if the
+inventory_service becomes temporarily unavailable. It supports a
+--minutes option, which will limit the facts uploaded to only those
+added in the last n minutes.
+</code></pre>
+
+<p>Add a safe alternative to REST for inventory service</p>
+
+<pre><code>With the default implementation of the inventory service, with a
+terminus REST and cache YAML, a failed upload to the inventory service
+would cause compilation to fail. This means the inventory service was a
+single point of failure for the entire Puppet infrastructure. Now, we
+introduce an inventory_service terminus which can be used in place of
+the REST terminus, and will absorb failures, allowing compilation to
+continue.
+</code></pre>
+
+<h3 id="changelog-1">2.6.13 Changelog</h3>
+
+<ul>
+  <li>e4ee794 (#10739) Provide default subjectAltNames while bootstrapping master</li>
+  <li>9dfd011 (#5617)  Puppet queue logging</li>
+  <li>a91cfa1 maint: Fix failing spec on old version of rspec</li>
+  <li>aa2a762 (#10289) Add an ext script to upload facts to inventory server</li>
+  <li>5129d38 (#10289) Add a safe alternative to REST for inventory service</li>
+  <li>7514d32 missing includes in network XML-RPC handlers</li>
+  <li>397a506 (#10244) Restore Mongrel XMLRPC functionality</li>
+  <li>8d86e5a (9547) Minor mods to acceptance tests</li>
+  <li>2bf6721 Reset indirector state after configurer tests.</li>
+  <li>bb224dd (#8770) Don&#8217;t fail to set supplementary groups when changing user to root</li>
+  <li>2a0de12 (#8770) Always fully drop privileges when changing user</li>
+  <li>00c4b25 (#8662) Migrate suidmanager test case to rspec</li>
+  <li>d7c9c76 (#8740) Do not enumerate files in the root directory.</li>
+  <li>0e00473 (#3553) Explain that cron resources require time attributes</li>
+  <li>769d432 (#8302) Improve documentation of exec providers</li>
+  <li>c209f62 Add document outlining preferred contribution methods</li>
+  <li>fb2ffd6 (#8596) Detect resource alias conflicts when titles do not match</li>
+  <li>89c021c (#8418) Fix inspect app to have the correct run_mode</li>
+  <li>3165364 maint: Adding logging to include environment when source fails</li>
+  <li>f484851 maint: Add debug logging when the master receives a report</li>
+  <li>e639868 Confine password disclosure acceptance test to hosts with required libraries</li>
+  <li>a109c90 (maint) Cleanup and strengthen acceptance tests</li>
+  <li>b268fb3 (#7144) Update Settings#writesub to convert mode to Fixnum</li>
+  <li>4a2f22c (maint) Fix platform dection for RHEL</li>
+  <li>111a4b5 (#6857) Password disclosure when changing a user&#8217;s password</li>
+</ul>
+
+<h2 id="section-6">2.6.12</h2>
+
+<p>This is a security release in the 2.6.x branch.</p>
+
+<h3 id="security-fixes-3">Security Fixes</h3>
+
+<h5 id="cve-2011-3872-altnames-vulnerability">CVE-2011-3872 (AltNames vulnerability)</h5>
+
+<p>[(Full vulnerability and mitigation details)][cve20113872]</p>
+
+<!-- [cve20113872]: http://puppetlabs.com/security/cve/cve-2011-3872/ -->
+<!-- This link reference already exists under 2.7.6. Uncomment it if re-posting these notes elsewhere. -->
+
+<p><strong>This is a major security vulnerability which must be manually remediated;</strong>
+upgrading Puppet will not fully protect a site from this vulnerability.</p>
+
+<p>A bug in all previous versions causes Puppet to insert the puppet master’s DNS
+alt names (&#8220;certdnsnames&#8221; in puppet.conf) into the X.509 Subject Alternative
+Name field of all certificates, rather than just the puppet master’s
+certificate.</p>
+
+<p>Since the puppet agent daemon can use the Subject Alternative Name field to
+identify its puppet master, your site may contain agent certificates that can
+be used in a Man in the Middle (MITM) attack to impersonate the puppet master.</p>
+
+<p>This release fixes the underlying bug that caused dangerous certificates to be
+issued, but <strong>any existing certificates with improper DNS alternate names will
+remain dangerous until your agent nodes have been reconfigured.</strong></p>
+
+<p>Any site where the puppet master&#8217;s <code>certdnsnames</code> setting has been enabled is
+vulnerable to attack. See the [CVE-2011-3872 details page][cve20113872] for
+more information, including:</p>
+
+<ul>
+  <li>How to determine whether you are affected</li>
+  <li>How to fully remediate the vulnerability</li>
+  <li>How to download and use the automated remediation toolkit released by Puppet Labs</li>
+</ul>
+
+<h2 id="section-7">2.6.11</h2>
+
+<p>This is a security release in the 2.6.x branch.</p>
+
+<h3 id="security-fixes-4">Security Fixes</h3>
+
+<h5 id="three-security-vulnerabilities">Three security vulnerabilities</h5>
+
+<p>This release resolves the following security vulnerabilities:</p>
+
+<ul>
+  <li>[CVE-2011-3869 &#8211; k5login can overwrite arbitrary files as root][cve20113869]</li>
+  <li>[CVE-2011-3870 &#8211; SSH auth key local privilege escalation][cve20113870]</li>
+  <li>[CVE-2011-3871 &#8211; Predictable temporary filename in puppet resource/ralsh][cve20113871]</li>
+</ul>
+
+<p>Follow the links above for details on each vulnerability.</p>
+
+<!--
+[cve20113871]: http://puppetlabs.com/security/cve/cve-2011-3871/
+[cve20113870]: http://puppetlabs.com/security/cve/cve-2011-3870/
+[cve20113869]: http://puppetlabs.com/security/cve/cve-2011-3869/
+(These link references are enabled under 2.7.5.)
+ -->
+
+<h2 id="section-8">2.6.10</h2>
+
+<p>2.6.10 is a security release in the 2.6.x branch.</p>
+
+<h3 id="security-fixes-5">Security Fixes</h3>
+
+<h5 id="cve-2011-3848-directory-traversal-attacks-through-indirections">CVE-2011-3848 (directory traversal attacks through indirections)</h5>
+
+<p>[(Full vulnerability details)][cve20113848]</p>
+
+<p>In various versions of Puppet it was possible to cause a directory traversal
+attack through the SSLFile indirection base class.  This was variously
+triggered through the user-supplied key, or the Subject of the certificate, in
+the code.</p>
+
+<p>Now, we detect bad patterns down in the base class for our indirections, and
+fail hard on them.  This reduces the attack surface with as little disruption
+to the overall codebase as possible, making it suitable to deploy as part of
+older, stable versions of Puppet.</p>
+
+<p>In the long term we will also address this higher up the stack, to prevent
+these problems from reoccurring, but for now this will suffice.</p>
+
+<p>Huge thanks to Kristian Erik Hermansen <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#107;&#114;&#105;&#115;&#116;&#105;&#097;&#110;&#046;&#104;&#101;&#114;&#109;&#097;&#110;&#115;&#101;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#107;&#114;&#105;&#115;&#116;&#105;&#097;&#110;&#046;&#104;&#101;&#114;&#109;&#097;&#110;&#115;&#101;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a> for the
+responsible disclosure, and useful analysis, around this defect.</p>
+
+<h3 id="commits">Commits</h3>
+
+<p>ec5a32a Update spec and lib/puppet.rb for 2.6.10 release
+fe2de81 Resist directory traversal attacks through indirections. (CVE-2011-3484)</p>
+
+<h2 id="section-9">2.6.9</h2>
+
+<p>2.6.9 is a maintenance release in the 2.6.x branch.</p>
+
+<h3 id="notable-fixes-and-features">Notable Fixes and Features</h3>
+
+<p>Bug #5318</p>
+
+<p>Puppet master behind Passenger no longer requires two runs to detect changes to manifests.</p>
+
+<p>Bug #7127:</p>
+
+<p>A puppet run will now stop if a prerun command fails.</p>
+
+<p>Bug #650</p>
+
+<p>Puppet will now honor symlinks for configuration directories</p>
+
+<p>Feature #2128</p>
+
+<p>Added support for hostname setting based on facts, also get facts before retrieving the catalog.</p>
+
+<p>Bug #7139</p>
+
+<p>Accept &#8216;/&#8217; as a valid path in filesets</p>
+
+<h2 id="section-10">2.6.8</h2>
+
+<p>2.6.8 is a maintenance release in the 2.6.x branch.</p>
+
+<h3 id="notable-features-and-bug-fixes">Notable Features and Bug Fixes</h3>
+
+<p>Bug #4884:</p>
+
+<p>Added a new <code>shell</code> exec provider that executes code as a raw shell script. Although the <code>posix</code> provider remains the default, the new provider allows the use of shell globbing and built-ins, and does not require that the path to a command be fully-qualified. The <code>shell</code> provider closely resembles the behavior of the <code>exec</code> type in Puppet 0.25.x.</p>
+
+<p>Bug #5670:</p>
+
+<p>Failed resources don&#8217;t improperly trigger a refresh</p>
+
+<p>Feature #2331:</p>
+
+<p>New macports provider</p>
+
+<h2 id="section-11">2.6.7</h2>
+
+<p>2.6.7 is a maintenance release in the 2.6.x branch.</p>
+
+<h3 id="notable-features-and-bug-fixes-1">Notable Features and Bug Fixes</h3>
+
+<h5 id="inventory-service-available">Inventory Service Available</h5>
+
+<p>The inventory service is a way to track facts for all nodes.  Preliminary documentation can be found <a href="https://github.com/puppetlabs/puppet-docs/blob/master/source/guides/inventory_service.markdown">here</a>, which will be finalized by the time 2.6.7 is released.</p>
+
+<h5 id="plugin-sync-works-when-using-tags">Plugin sync works when using tags</h5>
+
+<p>Bug #5073 This fixes a regression from 0.25.x</p>
+
+<h5 id="dont-truncate-remotely-sourced-files-on-404">Don&#8217;t truncate remotely-sourced files on 404</h5>
+
+<p>Bug #4922 Now 404s just cause a normal failure without affecting the file</p>
+
+<h5 id="storeconfigs-compatibility-with-older-version-of-puppet">Storeconfigs compatibility with older version of Puppet</h5>
+
+<p>Bug #5428 Upgrading from 0.25.x caused problems with the data format that storeconfigs used, and previously you had to delete your old storeconfigs data to work with 2.6.x.  2.6.7 can now work with the old storeconfigs data.</p>
+
+<h5 id="selectors-now-can-use-hashes">Selectors now can use hashes</h5>
+
+<p>Ticket #5516  Example:</p>
+
+<pre><code>$int = { 'eth0' =&gt; 'bla' }
+$foo = $int['eth0'] ? {
+  'bla' =&gt; 'foo',
+   default =&gt; 'bleh'
+}
+</code></pre>
+
+<h5 id="hashes-can-now-be-multiple-levels-deep">Hashes can now be multiple levels deep</h5>
+
+<p>Bug #6269  The following now works:</p>
+
+<pre><code>$hash = { 'a' =&gt; { 'b' =&gt; { 'c' =&gt; 'it works' } } }
+$out = $hash['a']['b']['c']
+</code></pre>
+
+<h5 id="documented-autorequire-relationships">Documented autorequire relationships</h5>
+
+<p>Ticket #6606</p>
+
+<h5 id="better-support-for-multiple-key-attributes">Better support for multiple key attributes</h5>
+
+<p>Bugs #5661 #5662 #5605</p>
+
+<h5 id="better-error-message-when-realizing-a-non-existent-virtual-resource">Better error message when realizing a non-existent virtual resource</h5>
+
+<p>Bug #5392 The error message you used to get when realizing a bogus virtual resource didn&#8217;t give you any indication of what was happening to cause the error.  Now it should be much faster to figure out that the virtual resource was bad.</p>
+
+<h5 id="noop-no-longer-suppresses-error-codes">Noop no longer suppresses error codes</h5>
+
+<p>Bug #6322  Running in noop mode used to always return 0.  It will now return the same exit code that a regular run would if possible</p>
+
+<h5 id="settings-propagate-environment">Settings Propagate Environment</h5>
+
+<p>Bug #6513  The code in settings did not always propagate the environment, creating situations in which inconsistent results were produced</p>
+
+<h5 id="able-to-create-system-users">Able to create system users</h5>
+
+<p>Ticket #2645 You can now create users like when running <code>useradd -r</code> if you specify <code>system =&gt; true</code> on a user resource.</p>
+
+<h5 id="the-reports-directory-is-now-automatically-created">The reports directory is now automatically created</h5>
+
+<p>Bug #5794 If the reports directory didn&#8217;t exist the report creation used to fail until it was manually added</p>
+
+<h5 id="destdir-in-installrb-now-warns-that-its-deprecated-in-favor-of---destdir">DESTDIR in install.rb now warns that it&#8217;s deprecated in favor of <code>--destdir</code></h5>
+
+<p>Ticket #5724</p>
+
+<h5 id="allow-disabling-of-default-selinux-context-detection-for-files">Allow disabling of default SELinux context detection for files</h5>
+
+<p>Ticket #3999</p>
+
+<h5 id="add-search-rest-api-aliases-for-plural-get-requests">Add <code>_search</code> REST API aliases for plural GET requests</h5>
+
+<p>Ticket #6376 The plural form creates problems when the name of the indirection is already plural, e.g. “facts” pluralizes to “factss”</p>
+
+<h2 id="section-12">2.6.6</h2>
+
+<p>2.6.6 is a maintenance release in the 2.6.x branch.</p>
+
+<h3 id="notable-features-and-bug-fixes-2">Notable Features and Bug Fixes</h3>
+
+<h5 id="no-longer-audit-recursive-files">No longer audit recursive files</h5>
+
+<p>Bug #6418: Files with the &#8220;source&#8221; parameter set are automatically set to audit</p>
+
+<p>The audit functionality was activated unexpectedly on file resources that use the &#8220;source&#8221; parameter. This could cause spurrious notify events.  These notifications could trigger unintended refreshes of subscribed resources.</p>
+
+<h5 id="no-longer-truncate-files-when-given-an-invalid-checksum">No longer truncate files when given an invalid checksum</h5>
+
+<p>Bug #6541: File type truncates target when filebucket can not retrieve hash</p>
+
+<p>In the case where a file resource had content specified using an invalid checksum (Eg: &#8220;{md5}not-a-checksum&#8221;) or the valid checksum of a file not contained in the filebucket, the file would end up being truncated.  This is now properly reported as an error, instead of zeroing out the file.</p>
+
+<h2 id="section-13">2.6.5</h2>
+
+<p>2.6.5 is a maintenance release in the 2.6.x branch.</p>
+
+<h3 id="notable-features-and-bug-fixes-3">Notable Features and Bug Fixes</h3>
+
+<h5 id="faster-passenger-support">Faster Passenger support</h5>
+
+<p>Bug #6257: Rack POST and PUT request handling is very slow.</p>
+
+<p>The speed of the Rack HTTP handler has been dramatically improved. This should prevent timeouts that some users were experiencing when running under Passenger.</p>
+
+<h5 id="parameterised-class-support-in-external-node-classifiers">Parameterised class support in external node classifiers</h5>
+
+<p>Bug #5045: External node classifiers should be able to specify parameters for parameterized classes</p>
+
+<p>External node classifiers can now declare parameterized classes (with parameters). To declare the following parameterized class:</p>
+
+<pre><code>class foo($foobar='default', $foobaz, $fooblah) {
+  notify { 'foobar': message =&gt; $foobar }
+  notify { 'foobaz': message =&gt; $foobaz }
+  notify { 'fooblahfirst': message =&gt; $fooblah[0] }
+  notify { 'fooblahsecond': message =&gt; $fooblah[1] }
+}
+</code></pre>
+
+<p>&#8230;your external node classifier should return the following YAML:</p>
+
+<pre><code>classes:
+    foo:
+      foobar: onesie
+      foobaz: twosie
+      fooblah:
+          - one
+          - two
+</code></pre>
+
+<h5 id="new-puppet-inspect-application">New puppet inspect application</h5>
+
+<p>Puppet now includes puppet inspect, an application which sends inspection reports to the puppet master. Inspection reports document the current state of resource attributes which marked for auditing in the most recently applied catalog, and are useful in certain pre-existing workflows.</p>
+
+<h5 id="name-can-now-be-used-to-set-default-values-in-defined-resource-types"><code>$name</code> can now be used to set default values in defined resource types</h5>
+
+<p>Feature #5061: should be able to access ($name, $module_name, $title) from within defined resources type parameter list</p>
+
+<p>The <code>$name</code> variable is now resolved within the scope of the resource being declared, rather than the enclosing scope. This enables usages like:</p>
+
+<pre><code>define audited_file($filename = $name) {
+    file { $filename:
+        audit =&gt; all,
+    }
+}
+
+audited_file { "/etc/hosts": }
+</code></pre>
+
+<h5 id="managed-resource-attributes-can-now-be-audited">Managed resource attributes can now be audited</h5>
+
+<p>Bug #5408: Puppet should allow audited attributes to also be managed</p>
+
+<p>The audit metaparameter can now be used on attributes which are managed by Puppet.</p>
+
+<h5 id="manifests-can-now-specify-arbitrary-data-for-file-contents">Manifests can now specify arbitrary data for file contents</h5>
+
+<p>Bug #5261: Need a way to transmit binary data for file contents in manifests</p>
+
+<p>Previous versions of Puppet would experience errors when file contents contained invalid UTF8.</p>
+
+<h5 id="puppet-agent-reliably-writes-valid-cache-yaml-for-very-large-catalogs">Puppet agent reliably writes valid cache YAML for very large catalogs</h5>
+
+<p>Bug #5755: Unable to load puppet generated catalog via YAML.load_file</p>
+
+<p>In Puppet 2.6.3 and 2.6.4, puppet agent would sometimes write invalid YAML to its cache when serializing extremely large catalogs, and subsequent tasks attempting to consume this YAML would fail. This has been fixed.</p>
+
+<h5 id="the-environment-column-in-storeconfigs-is-no-longer-corrupted">The environment column in storeconfigs is no longer corrupted</h5>
+
+<p>Bug #4487: Environment column in hosts table updating incorrectly</p>
+
+<p>A bug which corrupted the environment column in storeconfigs databases has been fixed.</p>
+
+<h5 id="mount-resource-on-aix-has-been-improved">Mount resource on AIX has been improved</h5>
+
+<p>Bug #5681: Puppet mount module Puppet::Provider::Mount does not properly parse AIX mount command output</p>
+
+<h5 id="puppet-resource-can-now-manage-files">Puppet resource can now manage files</h5>
+
+<p>Bug #3165: Ralsh can&#8217;t manage files</p>
+
+<p>The puppet resource shell can now manage file resources.</p>
+
+<h5 id="generating-puppetconf-with---genconfig-no-longer-sets-genconfig--true">Generating puppet.conf with <code>--genconfig</code> no longer sets genconfig = true</h5>
+
+<p>Bug #5914: Genconfig returns genconfig=true</p>
+
+<p>Using the <code>--genconfig</code> command line option now generates fully usable puppet.conf content.</p>
+
+<p>Bug #5977: Puppet applications in multiple directories.</p>
+
+<p>Setting RUBYLIB should no longer have the potential to break finding puppet sub-commands.</p>
+
+<h5 id="license-is-now-gplv2">License is now GPLv2</h5>
+
+<p>Previous versions of Puppet were licensed as GPL version 2 or greater; the license is now specified as GPL version 2.</p>
+
+<h5 id="filebucket-api-can-now-provide-diffs-of-file-contents">Filebucket API can now provide diffs of file contents</h5>
+
+<p>The filebucket service can now diff file contents specified by MD5 checksum. From <a href="http://docs.puppetlabs.com/guides/rest_api.html">the REST API documentation</a>:</p>
+
+<pre><code>GET /{environment}/file_bucket_file/md5/{checksum}?diff_with={checksum}
+</code></pre>
+
+<p>No tools using this feature are currently shipping; however, a future version of Puppet Dashboard will support viewing diffs of arbitrary file content revisions.</p>
+
+<h5 id="report-format-has-changed-report-formats-are-now-versioned">Report format has changed; report formats are now versioned</h5>
+
+<p>The report format has been made more consistent, more documentatable, and less redundant. Report formats are now versioned, and inspection reports are now supported with the <code>kind</code> attribute.</p>
+
+<p>See the wiki for details:</p>
+
+<ul>
+  <li>[[Report Format 0]]</li>
+  <li>[[Report Format 1]]</li>
+  <li>[[Report Format 2]]</li>
+</ul>
+
+<h5 id="user-type-now-takes--1-to-disable-password-aging">&#8220;user&#8221; type now takes -1 to disable password aging</h5>
+
+<p>Bug #6061: password_max_age can not be set to null or -1</p>
+
+<h5 id="time-and-timestamp-checksum-options-have-been-removed-from-the-file-type">Time and timestamp checksum options have been removed from the &#8220;file&#8221; type</h5>
+
+<p>These attributes, deprecated in 0.25.0, have been removed.</p>
+
+<h5 id="file-type-now-accepts-posix-files-with-multiple-slashes">&#8220;file&#8221; type now accepts POSIX files with multiple slashes</h5>
+
+<p>Bug #6091: Fix Posix file paths with multiple slashes</p>
+
+<p>Valid POSIX file paths with multiple slashes are now usable.</p>
+
+<h5 id="document-the---apply-and---compile-options-to-puppet-apply-and-puppet-master">Document the <code>--apply</code> and <code>--compile</code> options to <code>puppet apply</code> and <code>puppet master</code></h5>
+
+<p>Feature #3646: Updated documentation for <code>puppet apply</code>, and <code>puppet master</code>.</p>
+
+<h2 id="section-14">2.6.4</h2>
+
+<p>2.6.4 is a security release in the 2.6.x branch and contains only
+security related bug fixes and one update to copyright information.</p>
+
+<h2 id="section-15">2.6.3</h2>
+
+<p>2.6.3 is a maintenance release in the 2.6.x branch and contains only
+bug fixes and no new features.</p>
+
+<h2 id="section-16">2.6.2</h2>
+
+<p>This release is largely a maintenance release for the 2.6.x cycle</p>
+
+<h3 id="types-and-providers">Types and Providers</h3>
+
+<h5 id="user-type-now-manages-password-age">User type now manages password age</h5>
+
+<p>We&#8217;ve add a new feature to user providers <code>manages_password_age</code>, along with the new properties <code>password_min_age</code> and <code>password_max_age</code> to the user type. These represent password minimum and maximum age in days. The useradd and user_role_add providers now support these new properties.</p>
+
+<h5 id="user-type-now-manages-user-expiry">User type now manages user expiry</h5>
+
+<p>We&#8217;ve add a new feature to user providers, <code>manages_expiry</code>, along with a new property, <code>expiry</code>.  The <code>expiry</code> property is specified in the form of YYYY-MM-DD and sets an expiration date for an account.</p>
+
+<p>An example of these new features:</p>
+
+<pre><code>user { "james":
+  password_min_age =&gt; '10',
+  password_max_age =&gt; '30',
+  expiry =&gt; '2010-09-30',
+  ...
+  ensure =&gt; present,
+}
+</code></pre>
+
+<h2 id="section-17">2.6.1</h2>
+
+<p>This release is largely a maintenance release for 2.6.0 but also includes basic support for running Puppet under JRuby.</p>
+
+<h3 id="functions">Functions</h3>
+
+<h5 id="extlookup">Extlookup</h5>
+
+<p>R.I. Pienaar&#8217;s extlookup function has been added to core.  This is an initial import of this function.  Additional functionality, including YAML and JSON backends, will be added in future releases.</p>
+
+<p>This is a parser function to read data from external files, this version
+uses CSV files but the concept can easily be adjust for databases, yaml
+or any other queryable data source.</p>
+
+<p>The object of this is to make it obvious when it&#8217;s being used, rather than
+magically loading data in when an module is loaded I prefer to look at the code
+and see statements like:</p>
+
+<pre><code>$snmp_contact = extlookup("snmp_contact")
+</code></pre>
+
+<p>The above snippet will load the snmp_contact value from CSV files, this in its
+own is useful but a common construct in puppet manifests is something like this:</p>
+
+<pre><code>case $domain {
+   "myclient.com": { $snmp_contact = "John Doe &lt;john@myclient.com&gt;" }
+   default:        { $snmp_contact = "My Support &lt;support@my.com&gt;" }
+}
+</code></pre>
+
+<p>Over time there will be a lot of this kind of thing spread all over your manifests
+and adding an additional client involves grepping through manifests to find all the
+places where you have constructs like this.</p>
+
+<p>This is a data problem and shouldn&#8217;t be handled in code, a using this function you
+can do just that.</p>
+
+<p>First you configure it in site.pp:</p>
+
+<pre><code>$extlookup_datadir = "/etc/puppet/manifests/extdata"
+$extlookup_precedence = ["%{fqdn}", "domain_%{domain}", "common"]
+</code></pre>
+
+<p>The array tells the code how to resolve values, first it will try to find it in
+web1.myclient.com.csv then in domain_myclient.com.csv and finally in common.csv</p>
+
+<p>Now create the following data files in /etc/puppet/manifests/extdata like this:</p>
+
+<p>domain_myclient.com.csv:
+     snmp_contact,John Doe <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#106;&#111;&#104;&#110;&#064;&#109;&#121;&#099;&#108;&#105;&#101;&#110;&#116;&#046;&#099;&#111;&#109;">&#106;&#111;&#104;&#110;&#064;&#109;&#121;&#099;&#108;&#105;&#101;&#110;&#116;&#046;&#099;&#111;&#109;</a>
+     root_contact,support@%{domain}
+     client_trusted_ips,192.168.1.130,192.168.10.0/24</p>
+
+<p>common.csv:
+     snmp_contact,My Support <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#109;&#121;&#046;&#099;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#109;&#121;&#046;&#099;&#111;&#109;</a>
+     root_contact,support@my.com</p>
+
+<p>Now you can replace the case statement with the simple single line to achieve
+the exact same outcome:</p>
+
+<pre><code>$snmp_contact = extlookup("snmp_contact")
+</code></pre>
+
+<p>The obove code shows some other features, you can use any fact or variable that
+is in scope by simply using %{varname} in your data files, you can return arrays
+by just having multiple values in the csv after the initial variable name.</p>
+
+<p>In the event that a variable is nowhere to be found a critical error will be raised
+that will prevent your manifest from compiling, this is to avoid accidentally putting
+in empty values etc.  You can however specify a default value:</p>
+
+<pre><code>$ntp_servers = extlookup("ntp_servers", "1.${country}.pool.ntp.org")
+</code></pre>
+
+<p>In this case it will default to &#8220;1.${country}.pool.ntp.org&#8221; if nothing is defined in
+any data file.</p>
+
+<p>You can also specify an additional data file to search first before any others at use
+time, for example:</p>
+
+<pre><code>$version = extlookup("rsyslog_version", "present", "packages")
+package{"rsyslog": ensure =&gt; $version }
+</code></pre>
+
+<p>This will look for a version configured in packages.csv and then in the rest as configured
+by $extlookup_precedence if it&#8217;s not found anywhere it will default to &#8220;present&#8221;, this kind
+of use case makes puppet a lot nicer for managing large amounts of packages since you do not
+need to edit a load of manifests to do simple things like adjust a desired version number.</p>
+
+<h5 id="md5">md5</h5>
+
+<p>An md5 hashing function</p>
+
+<h3 id="documentation">Documentation</h3>
+
+<p>Migration of internal Restructured Text Documentation to Markdown</p>
+
+<h3 id="types-and-providers-1">Types and Providers</h3>
+
+<p>Added http_refresh and cost parameters to the yumrepo type</p>
+
+<h2 id="section-18">2.6.0</h2>
+
+<h3 id="language">Language</h3>
+
+<h5 id="support-for-parameterised-classes">Support for parameterised classes</h5>
+
+<p>The Rowlf release provides an extension to the existing class
+syntax to allow parameters to be passed to classes. This brings
+classes more in line with definitions, with the significant
+difference that definitions have multiple instances whilst classes
+remain singletons.</p>
+
+<p>To create a class with parameters you can now specify:</p>
+
+<pre><code>class apache($version) {
+
+... class contents ...
+
+}
+</code></pre>
+
+<p>Classes with parameters are NOT added using the include function
+but rather the resulting class can then be included more like a
+definition:</p>
+
+<pre><code>node webserver {
+    class { apache: version =&gt; "1.3.13" }
+}
+</code></pre>
+
+<p>Like definitions, you can also specify default parameter values in
+your class like so:</p>
+
+<pre><code>class apache($version="1.3.13",$home="/var/www") {
+
+... class contents ...
+
+}
+</code></pre>
+
+<h5 id="new-relationship-syntax">New relationship syntax</h5>
+
+<p>You can now specify relationships directly in the language:</p>
+
+<pre><code>File[/foo] -&gt; Service[bar]
+</code></pre>
+
+<p>Specifies a normal dependency while:</p>
+
+<pre><code>File[/foo] ~&gt; Service[bar]
+</code></pre>
+
+<p>Specifies a subscription.</p>
+
+<p>You can also do relationship chaining, specifying multiple
+relationships on a single line:</p>
+
+<pre><code>File[/foo] -&gt; Package[baz] -&gt; Service[bar]
+</code></pre>
+
+<p>Note that while it&#8217;s confusing, you don&#8217;t have to have all of the arrows be the same direction:</p>
+
+<pre><code>File[/foo] -&gt; Service[bar] &lt;~ Package[baz]
+</code></pre>
+
+<p>This can provide some succinctness at the cost of readability.</p>
+
+<p>You can also specify full resources, rather than just resource references:</p>
+
+<pre><code>file { "/foo": ensure =&gt; present } -&gt; package { bar: ensure =&gt; installed }
+</code></pre>
+
+<p>But wait! There&#8217;s more!  You can also specify a subscription on either side of the relationship marker:</p>
+
+<pre><code>yumrepo { foo: .... }
+package { bar: provider =&gt; yum, ... }
+Yumrepo &lt;| |&gt; -&gt; Package &lt;| provider == yum |&gt;
+</code></pre>
+
+<p>This, finally, provides easy many to many relationships in Puppet, but it also opens the door to massive dependency cycles.  This last feature is a very powerful stick, and you can considerably hurt yourself with it.</p>
+
+<h5 id="run-stages">Run Stages</h5>
+
+<p>Run Stages are a way for you to provide coarse-grained ordering in your manifests without having to specify relationships to every resource you want in a given order.  It&#8217;s most useful for setup work that needs to be done before the vast majority of your catalog even works - things like configuring yum repositories so your package installs work.</p>
+
+<p>Run Stages are currently (intentionally) a bit limited - you can only put entire classes into a run stage, you can&#8217;t put individual resources there.</p>
+
+<p>There&#8217;s a <code>main</code> stage that resources all exist in by default; if you don&#8217;t use run stages, everything&#8217;s in this, but it doesn&#8217;t matter to you.  You can define new stages via the new <code>stage</code> resource type:</p>
+
+<pre><code>stage { pre: before =&gt; Stage[main] }
+</code></pre>
+
+<p>Here we&#8217;ve used the <code>before</code> metaparameter but you could also use <code>after</code>, <code>require</code>, etc to establish the necessary relationships between stages.</p>
+
+<p>Now you just specify that your class belongs in your new run stage:</p>
+
+<pre><code>class yum { ... }
+class redhat {
+  ...
+  class { yum: stage =&gt; pre }
+}
+</code></pre>
+
+<p>This will make sure that all of the resources in the <code>yum</code> are applied before the main stage is applied.</p>
+
+<p>Note that we&#8217;re using the new parameterized classes here - this is necessary because of the class-level limitations of Run Stages.  These limitations are present because of the complication of trying to untangle resource dependencies across stage boundaries if we allowed arbitrary resources to specify stages.</p>
+
+<p>On a related note, if you specify a stage for a given class, you should specify as few as possible explicit relationships to or from that class.  Otherwise you risk a greater chance of dependency cycles.</p>
+
+<p>This can all be visualized relatively easily using the <code>\-\-graph</code> option to <code>puppetd</code> and opening the graphs in OmniGraffle or GraphViz.</p>
+
+<p>Specifying the ordering of Run Stages also works much better when specified using the new relationship syntax, too:</p>
+
+<pre><code>stage { [pre, post]: }
+Stage[pre] -&gt; Stage[main] -&gt; Stage[post]
+</code></pre>
+
+<p>This way it&#8217;s very easy to see at a glance exactly how the stages are ordered.</p>
+
+<h5 id="support-for-hashes-in-the-dsl">Support for hashes in the DSL</h5>
+
+<p>This brings a new container syntax to the Puppet DSL: hashes.</p>
+
+<p>Hashes are defined like Ruby Hashes:</p>
+
+<pre><code>{ key1 =&gt; val1, ... }
+</code></pre>
+
+<p>The Hash keys are strings but hash values can be any possible right values admitted in Puppet DSL (i.e. a function call or a variable)</p>
+
+<p>Currently it is possible:</p>
+
+<ul>
+  <li>to assign hashes to a variable: &lt;pre&gt;
+$myhash = { key1 =&gt; &#8220;myval&#8221;, key2 =&gt; $b }&lt;/pre&gt;</li>
+  <li>to access hash members (recursively) from a variable containing a hash (works for array too): &lt;pre&gt;
+$myhash = { key =&gt; { subkey =&gt; &#8220;b&#8221; }}
+notice($myhash[key][subkey]]&lt;/pre&gt;</li>
+  <li>to use hash member access as resource title</li>
+  <li>to use hash in default definition parameter or resource parameter if the type supports it (none for the moment).</li>
+</ul>
+
+<p>It is not possible to use an hash as a resource title. This might be possible once we support compound resource title.</p>
+
+<h5 id="the-in-syntax">The &#8220;in&#8221; syntax</h5>
+
+<p>From Puppet 2.6.0 you can also use the &#8220;in&#8221; syntax.  This operator allows
+you to find if the left operand is in the right one. The left operand must
+be a string, but the right operand can be:</p>
+
+<ul>
+  <li>a string</li>
+  <li>an array</li>
+  <li>a hash (the search is done on the keys)</li>
+</ul>
+
+<p>This syntax can be used in any place where an expression is supported:</p>
+
+<pre><code>$eatme = 'eat'
+if $eatme in ['ate', 'eat'] {
+...
+}
+
+$value = 'beat generation'
+if 'eat' in $value {
+  notice("on the road")
+}
+</code></pre>
+
+<h5 id="pure-ruby-manifests">Pure Ruby Manifests</h5>
+
+<p>Puppet now supports pure Ruby manifests as equivalent to Puppet&#8217;s custom language.  That is, you can now have Ruby programs along side your Puppet manifests.  As is our custom, it&#8217;s a limited first version, but it covers most of the specification functionality of the current language.  For instance, here&#8217;s a simple ssh class:</p>
+
+<pre><code>hostclass :ssh do
+  package "ssh", :ensure =&gt; :present
+  file "/etc/ssh/sshd_config", :source =&gt; "puppet:///ssh/sshd_config", :require =&gt; "Package[ssh]"
+  service :sshd, :ensure =&gt; :running, :require =&gt; "File[/etc/ssh/sshd_config]"
+end
+</code></pre>
+
+<p>Similar to the &#8216;hostclass&#8217; construct here, you can specify defined resource types:</p>
+
+<pre><code>define "apache::vhost", :ip, :docroot, :modperl =&gt; false do
+  file "/etc/apache2/sites-enabled/#{@name}.conf", :content =&gt; template("apache/vhost.erb")
+end
+</code></pre>
+
+<p>As you can see from this code, the parameters for the resources become instance variables inside of the defined resource types (and classes, now that we support parameterized classes).</p>
+
+<p>We can do nodes, too:</p>
+
+<pre><code>node "mynode" do
+  include "apache"
+end
+</code></pre>
+
+<p>Ruby has become a first-class citizen alongside the existing external DSL.  That means anywhere you can put a manifest, you should be able to put ruby code and have it behave equivalently.  So, the &#8216;ssh&#8217; class above could be put into &#8216;$modules/ssh/manifests/init.rb&#8217;, the apache vhost type should be placed in &#8216;$modules/apache/manifests/vhost.rb&#8217;, and the node should probably be in your &#8216;site.pp&#8217; file.  You can also apply ruby manifests directly with puppet:</p>
+
+<pre><code>puppet -e mystuff.rb
+</code></pre>
+
+<p>Note that the Ruby support does not yet cover all of the functionality in Puppet&#8217;s language.  For instance, there is not yet support for overrides or defaults, nor for resource collections.  Virtual and exported resources are done using a separate method:</p>
+
+<pre><code>virtual file("/my/file", :content =&gt; "something")
+</code></pre>
+
+<p>All of the standard functions are also pulled into Ruby and should work fine &#8211; e.g., &#8216;include&#8217;, &#8216;template&#8217;, and &#8216;require&#8217;.</p>
+
+<h5 id="support-for-an-elsif-syntax">Support for an elsif syntax</h5>
+
+<p>Allows use of an elsif construct:</p>
+
+<pre><code>  if $server == 'mongrel' {
+      include mongrel
+  } elsif $server == 'nginx' {
+      include nginx
+  } else {
+      include thin
+  }
+</code></pre>
+
+<h5 id="audit-metaparameter">Audit Metaparameter</h5>
+
+<p>Puppet now supports an audit metaparameter in the style of Tripwire.</p>
+
+<p>Using this new metaparameter we can specify our resource like:</p>
+
+<pre><code>file { '/etc/hosts':
+   audit =&gt; [ owner, group, mode ],
+}
+</code></pre>
+
+<p>Now instead of changing each value (though you can change it too if you wish) Puppet will instead generate auditing log messages, which are available in your standard Puppet reports:</p>
+
+<pre><code>audit change: previously recorded value owner root has been changed to owner james
+</code></pre>
+
+<p>This allows you to track any changes that occur on resources under management on your hosts. You can specify this audit metaparameter for any resource and all their attributes and track users, groups, files, services and the myriad of other resources Puppet can manage.</p>
+
+<p>You can also specify the special value of all to have Puppet audit every attribute of a resource rather than needing to list all possible attributes, like so:</p>
+
+<pre><code>file { '/etc/hosts':
+   audit =&gt; all,
+}
+</code></pre>
+
+<p>You can also combine the audited resources with managed resources allowing you to manage some configuration items and simply track others. It is important to remember though, unlike many file integrity systems, that your audit state is not protected by a checksum or the like and is stored on the client in the state.yaml file. In future releases we will look at protecting and centralising this state data.</p>
+
+<h5 id="case-and-selectors-now-support-undef">Case and Selectors now support undef</h5>
+
+<p>The case and selector statements now support the undef syntax (see #2818).</p>
+
+<h3 id="stored-configuration">Stored Configuration</h3>
+
+<p>Support is now added for using Oracle databases as a back-end for
+your stored configuration.</p>
+
+<h3 id="facts">Facts</h3>
+
+<p>There are three new facts available in manifests:</p>
+
+<ul>
+  <li><code>$clientcert</code> - the name of the client certificate</li>
+  <li><code>$module_name</code> - the name of the current module (see #1545)</li>
+  <li><code>$caller_module_name</code> - the name of the calling module (see #1545)</li>
+</ul>
+
+<p>In addition all <code>puppet.conf</code> configuration items are now available as facts in your manifests.  These can be accessed using the structure:</p>
+
+<pre><code>$settings::setting_name
+</code></pre>
+
+<p>Where setting_name is the name of the configuration option you&#8217;d like to retrieve.</p>
+
+<h3 id="types-and-providers-2">Types and Providers</h3>
+
+<p>Basic Windows support has been introduced&#8230;</p>
+
+<p>A new provider for pkg has been added to support Solaris and
+OpenSolaris (pkgadd).</p>
+
+<p>A new package provider has been added to support AIX package management.</p>
+
+<p>The augeas type has added the &#8216;incl&#8217; and &#8216;lens&#8217; parameters. These parameters allow loading a file anywhere on the filesystem; using them also greatly speeds up processing the resource.</p>
+
+<h3 id="binaries-and-configuration">Binaries and Configuration</h3>
+
+<h5 id="single-binary">Single Binary</h5>
+
+<p>Puppet is now available as a single binary with sub-arguments for the functions previously provided by the separate binaries (the existing binaries remain for backwards compatibility).  This includes renaming several Puppet functions to better fit an overall model.</p>
+
+<p>List of binary changes</p>
+
+<ul>
+  <li>puppetmasterd     -&gt;   puppet master</li>
+  <li>puppetd           -&gt;   puppet agent</li>
+  <li>puppet            -&gt;   puppet apply</li>
+  <li>puppetca          -&gt;   puppet cert</li>
+  <li>ralsh             -&gt;   puppet resource</li>
+  <li>puppetrun         -&gt;   puppet kick</li>
+  <li>puppetqd          -&gt;   puppet queue</li>
+  <li>filebucket        -&gt;   puppet filebucket</li>
+  <li>puppetdoc         -&gt;   puppet doc</li>
+  <li>pi                -&gt;   puppet describe</li>
+</ul>
+
+<p>This also results in a change in the puppet.conf configuration file.  The sections, previously things like [puppetd], now should be renamed to match the new binary names.  So [puppetd] becomes [agent].  You will be prompted to do this when you start Puppet. You will be prompted to do this when you start Puppet with a log message for each section that needs to be renamed.  This is merely a warning - existing configuration file will work unchanged.</p>
+
+<h5 id="new-options">New options</h5>
+
+<p>A new option is available, ca_name, to specify the name to use for
+the Certificate Authority certificate. It defaults to the value of
+the certname option (see
+<a href="http://projects.puppetlabs.com/issues/1507">http://projects.puppetlabs.com/issues/1507</a>).</p>
+
+<p>A new option, dbconnections, is now available that specifies a
+limit for the number of database connections made to remote
+databases (postgreSQL, MySQL).</p>
+
+<p>A new option, dbport, is now available that specifies the database port for remote database connections.</p>
+
+<p>There&#8217;s also a new option/feature that lets the puppet client use HTTP
+compression (--http_compression):</p>
+
+<p>Allow http compression in REST communication with the master. This setting might improve performance for agent -&gt; master
+communications over slow WANs. Your puppetmaster needs to support compression (usually by activating some settings in a reverse-proxy in front of the puppetmaster, which
+rules out webrick).</p>
+
+<p>It is harmless to activate this settings if your master doesn&#8217;t support compression, but if it supports it, this setting might reduce  on high-speed LANs.</p>
+
+<h5 id="binary-changes">Binary changes</h5>
+
+<p>The puppetd (or puppet agent) binary now supports the --detailed-exitcodes option
+available in the puppet binary.</p>
+
+<p>The puppet agent will now create the ssl when passed the --noop option.</p>
+
+<p>Certificates cleaned with puppetca (or puppet cert) are now also revoked.</p>
+
+<p>The puppetca (puppet cert) and puppetd (puppet agent) binaries now have support for certificate
+fingerprinting and support for specifying digest algorithms. To
+display the fingerprint of a client certificate use:</p>
+
+<pre><code>$ puppetd --fingerprint
+</code></pre>
+
+<p>or</p>
+
+<pre><code>$ puppet agent --fingerprint
+</code></pre>
+
+<p>To specify a particular digest algorithm use --digest DIGESTNAME.</p>
+
+<p>To fingerprint a certificate with puppetca use:</p>
+
+<pre><code>$ puppetca --fingerprint host.example.com
+</code></pre>
+
+<p>or</p>
+
+<pre><code>$ puppet cert --fingerprint host.example.com
+</code></pre>
+
+<p>Also supported is the --digest option.</p>
+
+<p>The puppetdoc binary now documents inheritance between nodes, shows classes added via the require function and resources added via the realize function.</p>
+
+<h3 id="functions-1">Functions</h3>
+
+<p>The regsubst function now takes arrays as input (see #2491).</p>
+
+<h3 id="reports">Reports</h3>
+
+<p>There is a new report type called <code>http</code>.  If you specify:</p>
+
+<pre><code>reports = http
+</code></pre>
+
+<p>Then the new report processor will make a HTTP POST of the report in YAML format to a specified URL.  By default this URL is the report import URL for a local Puppet Dashboard installation.  You can override this with the new <code>reporturl</code> setting.</p>
+
+<pre><code>reports = http
+reporturl = http://yoururl/post/
+</code></pre>
+
+<h3 id="puppet-runner">Puppet Runner</h3>
+
+<p>In order for this to run at all:</p>
+
+<pre><code>puppetrun --foreground --host XXX
+</code></pre>
+
+<p>you must alter auth.conf to include:</p>
+
+<pre><code>path /run
+method save
+allow *
+</code></pre>
+
+<p>otherwise you will receive:</p>
+
+<pre><code>Host $PUPPET failed: Error 403 on SERVER: Forbidden request: $MASTER(X.X.X.X) access to /run/$PUPPET [save] authenticated  at line 101
+</code></pre>
+
+<h3 id="incompatibilities">Incompatibilities</h3>
+
+<p>PID files for puppet and master used to be named:</p>
+
+<pre><code>puppetd.pid
+puppetmasterd.pid
+</code></pre>
+
+<p>new names are:</p>
+
+<pre><code>agent.pid
+master.pid
+</code></pre>
+
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+                      <h3 id="puppet-26-reference-manual">Puppet 2.6 Reference Manual</h3>
+
+<ul>
+  <li><strong><a href="./../../../puppet/2.6/reference/release_notes.html">Release Notes</a></li>
+  <li><a href="./../../../puppet/2.6/format_report.html">Report Format</a></li>
+  <li><strong>Generated References</strong>
+    <ul>
+      <li><a href="./../../../references/2.6.latest/type.html">Resource Types</a></li>
+      <li><a href="./../../../references/2.6.latest/configuration.html">Configuration Settings</a></li>
+      <li><a href="./../../../references/2.6.latest/function.html">Functions</a></li>
+      <li><a href="./../../../references/2.6.latest/metaparameter.html">Metaparameters</a></li>
+      <li><a href="./../../../references/2.6.latest/report.html">Report Handlers</a></li>
+    </ul>
+  </li>
+
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

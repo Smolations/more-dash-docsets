@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Facter 1.6: Core Facts — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../favicon.ico' />
+
+
+  <meta name="description" content="SummaryThis is a list of all of the built-in facts that ship with Facter 1.6.x. Not all of them apply to every system, and your site may use many c...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/facter/1.6/core_facts.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Facter 1.6: Core Facts</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>Facter 1.6: Core Facts</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#summary">Summary</a></li>
+  <li class="toc-lv2"><a href="#architecture">architecture</a></li>
+  <li class="toc-lv2"><a href="#arp">arp</a></li>
+  <li class="toc-lv2"><a href="#arpnetwork-interface">arp_{NETWORK INTERFACE}</a></li>
+  <li class="toc-lv2"><a href="#augeasversion">augeasversion</a></li>
+  <li class="toc-lv2"><a href="#boardmanufacturer">boardmanufacturer</a></li>
+  <li class="toc-lv2"><a href="#boardproductname">boardproductname</a></li>
+  <li class="toc-lv2"><a href="#boardserialnumber">boardserialnumber</a></li>
+  <li class="toc-lv2"><a href="#cfkey">cfkey</a></li>
+  <li class="toc-lv2"><a href="#domain">domain</a></li>
+  <li class="toc-lv2"><a href="#ec2ec2-instance-data">ec2_{EC2 INSTANCE DATA}</a></li>
+  <li class="toc-lv2"><a href="#ec2userdata">ec2_userdata</a></li>
+  <li class="toc-lv2"><a href="#facterversion">facterversion</a></li>
+  <li class="toc-lv2"><a href="#fqdn">fqdn</a></li>
+  <li class="toc-lv2"><a href="#hardwareisa">hardwareisa</a></li>
+  <li class="toc-lv2"><a href="#hardwaremodel">hardwaremodel</a></li>
+  <li class="toc-lv2"><a href="#hostname">hostname</a></li>
+  <li class="toc-lv2"><a href="#id">id</a></li>
+  <li class="toc-lv2"><a href="#interfaces">interfaces</a></li>
+  <li class="toc-lv2"><a href="#ipaddress">ipaddress</a></li>
+  <li class="toc-lv2"><a href="#ipaddressnetwork-interface">ipaddress_{NETWORK INTERFACE}</a></li>
+  <li class="toc-lv2"><a href="#ipaddress6">ipaddress6</a></li>
+  <li class="toc-lv2"><a href="#ipaddress6network-interface">ipaddress6_{NETWORK INTERFACE}</a></li>
+  <li class="toc-lv2"><a href="#iphostnumber">iphostnumber</a></li>
+  <li class="toc-lv2"><a href="#isvirtual">is_virtual</a></li>
+  <li class="toc-lv2"><a href="#kernel">kernel</a></li>
+  <li class="toc-lv2"><a href="#kernelmajversion">kernelmajversion</a></li>
+  <li class="toc-lv2"><a href="#kernelrelease">kernelrelease</a></li>
+  <li class="toc-lv2"><a href="#kernelversion">kernelversion</a></li>
+  <li class="toc-lv2"><a href="#lsbdistcodename">lsbdistcodename</a></li>
+  <li class="toc-lv2"><a href="#lsbdistdescription">lsbdistdescription</a></li>
+  <li class="toc-lv2"><a href="#lsbdistid">lsbdistid</a></li>
+  <li class="toc-lv2"><a href="#lsbdistrelease">lsbdistrelease</a></li>
+  <li class="toc-lv2"><a href="#lsbmajdistrelease">lsbmajdistrelease</a></li>
+  <li class="toc-lv2"><a href="#lsbrelease">lsbrelease</a></li>
+  <li class="toc-lv2"><a href="#macaddress">macaddress</a></li>
+  <li class="toc-lv2"><a href="#macaddressnetwork-interface">macaddress_{NETWORK INTERFACE}</a></li>
+  <li class="toc-lv2"><a href="#macosxbuildversion">macosx_buildversion</a></li>
+  <li class="toc-lv2"><a href="#macosxproductname">macosx_productname</a></li>
+  <li class="toc-lv2"><a href="#macosxproductversion">macosx_productversion</a></li>
+  <li class="toc-lv2"><a href="#macosxproductversionmajor">macosx_productversion_major</a></li>
+  <li class="toc-lv2"><a href="#macosxproductversionminor">macosx_productversion_minor</a></li>
+  <li class="toc-lv2"><a href="#manufacturer">manufacturer</a></li>
+  <li class="toc-lv2"><a href="#memoryfree">memoryfree</a></li>
+  <li class="toc-lv2"><a href="#memorysize">memorysize</a></li>
+  <li class="toc-lv2"><a href="#memorytotal">memorytotal</a></li>
+  <li class="toc-lv2"><a href="#netmask">netmask</a></li>
+  <li class="toc-lv2"><a href="#netmasknetwork-interface">netmask_{NETWORK INTERFACE}</a></li>
+  <li class="toc-lv2"><a href="#networknetwork-interface">network_{NETWORK INTERFACE}</a></li>
+  <li class="toc-lv2"><a href="#operatingsystem">operatingsystem</a></li>
+  <li class="toc-lv2"><a href="#operatingsystemrelease">operatingsystemrelease</a></li>
+  <li class="toc-lv2"><a href="#osfamily">osfamily</a></li>
+  <li class="toc-lv2"><a href="#path">path</a></li>
+  <li class="toc-lv2"><a href="#physicalprocessorcount">physicalprocessorcount</a></li>
+  <li class="toc-lv2"><a href="#processor">processor</a></li>
+  <li class="toc-lv2"><a href="#processornumber">processor{NUMBER}</a></li>
+  <li class="toc-lv2"><a href="#processorcount">processorcount</a></li>
+  <li class="toc-lv2"><a href="#productname">productname</a></li>
+  <li class="toc-lv2"><a href="#ps">ps</a></li>
+  <li class="toc-lv2"><a href="#puppetversion">puppetversion</a></li>
+  <li class="toc-lv2"><a href="#rubysitedir">rubysitedir</a></li>
+  <li class="toc-lv2"><a href="#rubyversion">rubyversion</a></li>
+  <li class="toc-lv2"><a href="#selinux">selinux</a></li>
+  <li class="toc-lv2"><a href="#selinuxconfigmode">selinux_config_mode</a></li>
+  <li class="toc-lv2"><a href="#selinuxconfigpolicy">selinux_config_policy</a></li>
+  <li class="toc-lv2"><a href="#selinuxcurrentmode">selinux_current_mode</a></li>
+  <li class="toc-lv2"><a href="#selinuxenforced">selinux_enforced</a></li>
+  <li class="toc-lv2"><a href="#selinuxmode">selinux_mode</a></li>
+  <li class="toc-lv2"><a href="#selinuxpolicyversion">selinux_policyversion</a></li>
+  <li class="toc-lv2"><a href="#serialnumber">serialnumber</a></li>
+  <li class="toc-lv2"><a href="#spsystem-profiler-data">sp_{SYSTEM PROFILER DATA}</a></li>
+  <li class="toc-lv2"><a href="#sshdsakey">sshdsakey</a></li>
+  <li class="toc-lv2"><a href="#sshecdsakey">sshecdsakey</a></li>
+  <li class="toc-lv2"><a href="#sshrsakey">sshrsakey</a></li>
+  <li class="toc-lv2"><a href="#swapencrypted">swapencrypted</a></li>
+  <li class="toc-lv2"><a href="#swapfree">swapfree</a></li>
+  <li class="toc-lv2"><a href="#swapsize">swapsize</a></li>
+  <li class="toc-lv2"><a href="#timezone">timezone</a></li>
+  <li class="toc-lv2"><a href="#type">type</a></li>
+  <li class="toc-lv2"><a href="#uniqueid">uniqueid</a></li>
+  <li class="toc-lv2"><a href="#uptime">uptime</a></li>
+  <li class="toc-lv2"><a href="#uptimedays">uptime_days</a></li>
+  <li class="toc-lv2"><a href="#uptimehours">uptime_hours</a></li>
+  <li class="toc-lv2"><a href="#uptimeseconds">uptime_seconds</a></li>
+  <li class="toc-lv2"><a href="#virtual">virtual</a></li>
+  <li class="toc-lv2"><a href="#vlans">vlans</a></li>
+  <li class="toc-lv2"><a href="#xendomains">xendomains</a></li>
+</ol></nav>
+              <h2 id="summary">Summary</h2>
+
+<p>This is a list of all of the built-in facts that ship with Facter 1.6.x. Not all of them apply to every system, and your site may use many <a href="./../../guides/custom_facts.html">custom facts</a> delivered via Puppet modules. To see the actual available facts (including plugins) and their values on any of your systems, run <code>facter -p</code> at the command line. If you are using Puppet Enterprise, you can view all of the facts for any node on the node&#8217;s page in the console.</p>
+
+<p>Facts appear in Puppet as normal top-scope variables. This means you can access any fact for a node in your manifests with <code>$&lt;fact name&gt;</code>. (E.g. <code>$osfamily</code>, <code>$memorysize</code>, etc.)</p>
+
+<h2 id="architecture"><code>architecture</code></h2>
+
+<p>Returns the CPU hardware architecture.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>On OpenBSD, Linux and Debian&#8217;s kfreebsd, use the hardwaremodel fact.</li>
+  <li>Gentoo and Debian call &#8220;x86_64&#8221; &#8220;amd64&#8221;.</li>
+  <li>Gentoo also calls &#8220;i386&#8221; &#8220;x86&#8221;.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="arp"><code>arp</code></h2>
+
+<p>Undocumented.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="arpnetwork-interface"><code>arp_{NETWORK INTERFACE}</code></h2>
+
+<p>Undocumented.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="augeasversion"><code>augeasversion</code></h2>
+
+<p>Report the version of the Augeas library</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Loads ruby-augeas and reports the value of <code>/augeas/version</code>, the version of
+the underlying Augeas library.</p>
+
+<p><strong>Caveats:</strong></p>
+
+<p>The library version may not indicate the presence of certain lenses,
+depending on the system packages updated, nor the version of ruby-augeas
+which may affect support for the Puppet Augeas provider.
+Versions prior to 0.3.6 cannot be interrogated for their version.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="boardmanufacturer"><code>boardmanufacturer</code></h2>
+
+<p>Returns the manufacturer of the machine&#8217;s motherboard.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="boardproductname"><code>boardproductname</code></h2>
+
+<p>Returns the model name of the machine&#8217;s motherboard.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="boardserialnumber"><code>boardserialnumber</code></h2>
+
+<p>Returns the serial number of the machine&#8217;s motherboard.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="cfkey"><code>cfkey</code></h2>
+
+<p>Returns the public key(s) for CFengine.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Tries each file of standard localhost.pub &amp; cfkey.pub locations,
+checks if they appear to be a public key, and then join them all together.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="domain"><code>domain</code></h2>
+
+<p>Returns the host&#8217;s primary DNS domain name.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>On UNIX (excluding Darwin), first try and use the hostname fact, which uses the hostname system command, and then parse the output of that.</li>
+  <li>Failing that it tries the dnsdomainname system command.</li>
+  <li>Failing that it uses /etc/resolv.conf and takes the domain from that, or as a final resort, the search from that.</li>
+  <li>Otherwise returns nil.</li>
+  <li>On Windows uses the win32ole gem and winmgmts to get the DNSDomain value from the Win32 networking stack.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="ec2ec2-instance-data"><code>ec2_{EC2 INSTANCE DATA}</code></h2>
+
+<p>Returns info retrieved in bulk from the EC2 API. The names of these facts should be self explanatory, and they are otherwise undocumented. The full list of these facts is:</p>
+
+<ul>
+  <li><code>ec2_ami_id</code></li>
+  <li><code>ec2_ami_launch_index</code></li>
+  <li><code>ec2_ami_manifest_path</code></li>
+  <li><code>ec2_block_device_mapping_ami</code></li>
+  <li><code>ec2_block_device_mapping_ephemeral0</code></li>
+  <li><code>ec2_block_device_mapping_root</code></li>
+  <li><code>ec2_hostname</code></li>
+  <li><code>ec2_instance_id</code></li>
+  <li><code>ec2_instance_type</code></li>
+  <li><code>ec2_kernel_id</code></li>
+  <li><code>ec2_local_hostname</code></li>
+  <li><code>ec2_local_ipv4</code></li>
+  <li><code>ec2_placement_availability_zone</code></li>
+  <li><code>ec2_profile</code></li>
+  <li><code>ec2_public_hostname</code></li>
+  <li><code>ec2_public_ipv4</code></li>
+  <li><code>ec2_public_keys_0_openssh_key</code></li>
+  <li><code>ec2_reservation_id</code></li>
+  <li><code>ec2_security_groups</code></li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="ec2userdata"><code>ec2_userdata</code></h2>
+
+<p>Undocumented.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="facterversion"><code>facterversion</code></h2>
+
+<p>Returns the version of the facter module.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Uses the version constant.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="fqdn"><code>fqdn</code></h2>
+
+<p>Returns the fully qualified domain name of the host.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Simply joins the hostname fact with the domain name fact.</p>
+
+<p><strong>Caveats:</strong></p>
+
+<p>No attempt is made to check that the two facts are accurate or that
+the two facts go together. At no point is there any DNS resolution made
+either.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="hardwareisa"><code>hardwareisa</code></h2>
+
+<p>Returns hardware processor type.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>On Solaris, Linux and the BSDs simply uses the output of &#8220;uname -p&#8221;</p>
+
+<p><strong>Caveats:</strong></p>
+
+<p>Some linuxes return unknown to uname -p with relative ease.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="hardwaremodel"><code>hardwaremodel</code></h2>
+
+<p>Returns the hardware model of the system.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>Uses purely &#8220;uname -m&#8221; on all platforms other than AIX and Windows.</li>
+  <li>On AIX uses the parsed &#8220;modelname&#8221; output of &#8220;lsattr -El sys0 -a modelname&#8221;.</li>
+  <li>On Windows uses the &#8216;host_cpu&#8217; pulled out of Ruby&#8217;s config.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="hostname"><code>hostname</code></h2>
+
+<p>Returns the system&#8217;s short hostname.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>On all system bar Darwin, parses the output of the &#8220;hostname&#8221; system command to everything before the first period.</li>
+  <li>On Darwin, uses the system configuration util to get the LocalHostName variable.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="id"><code>id</code></h2>
+
+<p>Internal fact used to specify the program to return the currently running user id.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>On all Unixes bar Solaris, just returns &#8220;whoami&#8221;.</li>
+  <li>On Solaris, parses the output of the &#8220;id&#8221; command to grab the username, as Solaris doesn&#8217;t have the whoami command.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="interfaces"><code>interfaces</code></h2>
+
+<p>Returns a list of the network interfaces on the machine. These interface names are also used to construct several additional facts.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="ipaddress"><code>ipaddress</code></h2>
+
+<p>Returns the main IP address for a host.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>On the Unixes does an ifconfig, and returns the first non 127.0.0.0/8 subnetted IP it finds.</li>
+  <li>On Windows, it attempts to use the socket library and resolve the machine&#8217;s hostname via DNS.</li>
+  <li>On LDAP based hosts it tries to use either the win32/resolv library to resolve the hostname to an IP address, or on Unix, it uses the resolv library.</li>
+  <li>As a fall back for undefined systems, it tries to run the &#8220;host&#8221; command to resolve the machine&#8217;s hostname using the system DNS.</li>
+</ul>
+
+<p><strong>Caveats:</strong></p>
+
+<ul>
+  <li>DNS resolution relies on working DNS infrastructure and resolvers on the host system.</li>
+  <li>The ifconfig parsing purely takes the first IP address it finds without any checking this is a useful IP address.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="ipaddressnetwork-interface"><code>ipaddress_{NETWORK INTERFACE}</code></h2>
+
+<p>Returns the IP4 address for a specific network interface (from the list in the <code>interfaces</code> fact).</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="ipaddress6"><code>ipaddress6</code></h2>
+
+<p>Returns the &#8220;main&#8221; IPv6 IP address of a system.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>OS-dependent code that parses the output of various networking tools and currently not very intelligent. Returns the first non-loopback and non-linklocal address found in the ouput unless a default route can be mapped to a routeable interface. Guessing an interface is currently only possible with BSD type systems to many assumptions have to be made on other platforms to make this work with the current code. Most code ported or modeled after the ipaddress fact for the sake of similar functionality and familiar mechanics.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="ipaddress6network-interface"><code>ipaddress6_{NETWORK INTERFACE}</code></h2>
+
+<p>Returns the IP6 address for a specific network interface (from the list in the <code>interfaces</code> fact).</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="iphostnumber"><code>iphostnumber</code></h2>
+
+<p>On selected versions of Darwin, returns the host&#8217;s IP address.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Uses either the scutil program to get the localhost name, or parses output of ifconfig for a MAC address.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="isvirtual"><code>is_virtual</code></h2>
+
+<p>Returns <code>true</code> or <code>false</code> if a machine is virtualized or not.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Hypervisors and the like may be detected as a virtual type, but are not actual virtual machines, or should not be treated as such. This determines if the host is actually virtualized.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="kernel"><code>kernel</code></h2>
+
+<p>Returns the operating system&#8217;s name.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Uses Ruby&#8217;s rbconfig to find <code>host_os</code>, if that is a Windows derivative, the returns &#8216;windows&#8217;, otherwise returns &#8220;uname -s&#8221; verbatim.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="kernelmajversion"><code>kernelmajversion</code></h2>
+
+<p>Returns the operating system&#8217;s release number&#8217;s major value.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Takes the first 2 elements of the kernel version as delimited by periods.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="kernelrelease"><code>kernelrelease</code></h2>
+
+<p>Returns the operating system&#8217;s release number.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>On AIX returns the output from the &#8220;oslevel -s&#8221; system command.</li>
+  <li>On Windows based systems, uses the win32ole gem to query Windows Management for the &#8216;<code>Win32_OperatingSystem</code>&#8217; value.</li>
+  <li>Otherwise uses the output of &#8220;uname -r&#8221; system command.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="kernelversion"><code>kernelversion</code></h2>
+
+<p>Returns the operating system&#8217;s kernel version.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>On Solaris and SunOS based machines, returns the output of &#8220;uname -v&#8221;.</li>
+  <li>Otherwise returns the &#8216;kernerlrelease&#8217; fact up to the first &#8216;-&#8216;. This may be the entire &#8216;kernelrelease&#8217; fact in many cases.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="lsbdistcodename"><code>lsbdistcodename</code></h2>
+
+<p>Returns Linux Standard Base information for the host.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Uses the <code>lsb_release</code> system command</p>
+
+<p><strong>Caveats:</strong></p>
+
+<p>Only works on Linux (and the kfreebsd derivative) systems.
+Requires the <code>lsb_release</code> program, which may not be installed by default.
+Also is as only as accurate as that program outputs.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="lsbdistdescription"><code>lsbdistdescription</code></h2>
+
+<p>Returns Linux Standard Base information for the host.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Uses the <code>lsb_release</code> system command</p>
+
+<p><strong>Caveats:</strong></p>
+
+<p>Only works on Linux (and the kfreebsd derivative) systems.
+Requires the <code>lsb_release</code> program, which may not be installed by default.
+Also is as only as accurate as that program outputs.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="lsbdistid"><code>lsbdistid</code></h2>
+
+<p>Returns Linux Standard Base information for the host.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Uses the <code>lsb_release</code> system command</p>
+
+<p><strong>Caveats:</strong></p>
+
+<p>Only works on Linux (and the kfreebsd derivative) systems.
+Requires the <code>lsb_release</code> program, which may not be installed by default.
+Also is as only as accurate as that program outputs.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="lsbdistrelease"><code>lsbdistrelease</code></h2>
+
+<p>Returns Linux Standard Base information for the host.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Uses the <code>lsb_release</code> system command</p>
+
+<p><strong>Caveats:</strong></p>
+
+<p>Only works on Linux (and the kfreebsd derivative) systems. Requires the <code>lsb_release</code>
+program, which may not be installed by default. Also is as only as accurate as that program outputs.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="lsbmajdistrelease"><code>lsbmajdistrelease</code></h2>
+
+<p>Returns the major version of the operation system version as gleaned from the lsbdistrelease fact.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Parses the lsbdistrelease fact for numbers followed by a period and returns those, or just the lsbdistrelease fact if none were found.</p>
+
+<p><strong>Caveats:</strong></p>
+
+<p>lsbmajdistrelease.rb</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="lsbrelease"><code>lsbrelease</code></h2>
+
+<p>Returns Linux Standard Base information for the host.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Uses the <code>lsb_release</code> system command</p>
+
+<p><strong>Caveats:</strong></p>
+
+<p>Only works on Linux (and the kfreebsd derivative) systems.
+Requires the <code>lsb_release</code> program, which may not be installed by default.
+Also is as only as accurate as that program outputs.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="macaddress"><code>macaddress</code></h2>
+
+<p>Returns the MAC address of the primary network interface.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="macaddressnetwork-interface"><code>macaddress_{NETWORK INTERFACE}</code></h2>
+
+<p>Returns the MAC address for a specific network interface (from the list in the <code>interfaces</code> fact).</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="macosxbuildversion"><code>macosx_buildversion</code></h2>
+
+<p>Returns the system&#8217;s Mac OS X build version.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="macosxproductname"><code>macosx_productname</code></h2>
+
+<p>Returns the system&#8217;s Mac OS X product name. Will almost always be &#8220;Mac OS X&#8221;.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="macosxproductversion"><code>macosx_productversion</code></h2>
+
+<p>Returns the system&#8217;s full Mac OS X version number. (e.g. 10.7.4)</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="macosxproductversionmajor"><code>macosx_productversion_major</code></h2>
+
+<p>Returns the system&#8217;s major Mac OS X version number. (e.g. 10.7)</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="macosxproductversionminor"><code>macosx_productversion_minor</code></h2>
+
+<p>Returns the system&#8217;s minor Mac OS X version number. (e.g. 4)</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="manufacturer"><code>manufacturer</code></h2>
+
+<p>Returns the hardware&#8217;s manufacturer information.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>On OpenBSD, queries sysctl values, via a util class.</li>
+  <li>On SunOS Sparc, uses prtdiag via a util class.</li>
+  <li>On Windows, queries the system via a util class.</li>
+  <li>Uses  <code>util/manufacturer.rb</code> for fallback parsing.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="memoryfree"><code>memoryfree</code></h2>
+
+<p>Returns the amount of free memory on the system.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="memorysize"><code>memorysize</code></h2>
+
+<p>Returns the total amount of memory on the system.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="memorytotal"><code>memorytotal</code></h2>
+
+<p>Synonym for <code>memorysize</code>. Deprecated.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="netmask"><code>netmask</code></h2>
+
+<p>Returns the netmask for the main interfaces.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Uses the facter/util/netmask library routines.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="netmasknetwork-interface"><code>netmask_{NETWORK INTERFACE}</code></h2>
+
+<p>Returns the netmask for a specific network interface (from the list in the <code>interfaces</code> fact).</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="networknetwork-interface"><code>network_{NETWORK INTERFACE}</code></h2>
+
+<p>Returns the network for a specific network interface (from the list in the <code>interfaces</code> fact).</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="operatingsystem"><code>operatingsystem</code></h2>
+
+<p>Returns the name of the operating system.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>If the kernel is a Linux kernel, check for the existence of a selection of files in /etc/ to find the specific flavour.</li>
+  <li>On SunOS based kernels, return Solaris.</li>
+  <li>On systems other than Linux, use the kernel value.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="operatingsystemrelease"><code>operatingsystemrelease</code></h2>
+
+<p>Returns the release of the operating system.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>On RedHat derivatives, returns their &#8216;<code>/etc/&lt;variant&gt;-release</code>&#8217; file.</li>
+  <li>On Debian, returns &#8216;<code>/etc/debian_version</code>&#8217;.</li>
+  <li>On Ubuntu, parses &#8216;/etc/issue&#8217; for the release version.</li>
+  <li>On Suse, derivatives, parses &#8216;/etc/SuSE-release&#8217; for a selection of version information.</li>
+  <li>On Slackware, parses &#8216;/etc/slackware-version&#8217;.</li>
+  <li>On Amazon Linux, returns the &#8216;lsbdistrelease&#8217; value.</li>
+  <li>On all remaining systems, returns the &#8216;kernelrelease&#8217; value.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="osfamily"><code>osfamily</code></h2>
+
+<p>Returns the operating system family.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Maps operating systems to operating system families, such as Linux distribution derivatives.
+Adds mappings from specific operating systems to kernels in the case that it is relevant.</p>
+
+<p><strong>Caveats:</strong></p>
+
+<p>This fact is completely reliant on the operatingsystem fact, and no heuristics are used.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="path"><code>path</code></h2>
+
+<p>Returns the $PATH variable.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Gets $PATH from the environment.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="physicalprocessorcount"><code>physicalprocessorcount</code></h2>
+
+<p>Returns the number of physical processors.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Attempts to use sysfs to get the physical IDs of the processors. Falls
+back to <code>/proc/cpuinfo</code> and &#8220;physical id&#8221; if sysfs is not available.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="processor"><code>processor</code></h2>
+
+<p>Additional Facts about the machine&#8217;s CPUs. Only used on BSDs.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="processornumber"><code>processor{NUMBER}</code></h2>
+
+<p>One fact for each processor, with processor info.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>On Linux and kFreeBSD, parse <code>/proc/cpuinfo</code> for each processor.</li>
+  <li>On AIX, parse the output of <code>lsdev</code> for its processor section.</li>
+  <li>On Solaris, parse the output of <code>kstat</code> for each processor.</li>
+  <li>On OpenBSD, use <code>uname -p</code> and the sysctl variable for <code>hw.ncpu</code> for CPU count.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="processorcount"><code>processorcount</code></h2>
+
+<p>Returns the number of processors in the machine.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="productname"><code>productname</code></h2>
+
+<p>Returns the model identifier of the machine.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="ps"><code>ps</code></h2>
+
+<p>Internal fact for what to use to list all processes. Used by Service{} type in Puppet.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Assumes <code>ps -ef</code> for all operating systems other than BSD derivatives, where it uses
+<code>ps auxwww</code>.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="puppetversion"><code>puppetversion</code></h2>
+
+<p>Returns the version of puppet installed.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Requres puppet via Ruby and returns its version constant.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="rubysitedir"><code>rubysitedir</code></h2>
+
+<p>Returns Ruby&#8217;s site library directory.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Works out the version to major/minor (1.8, 1.9, etc), then joins that with all the $:
+library paths.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="rubyversion"><code>rubyversion</code></h2>
+
+<p>Returns the version of Ruby facter is running under.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Returns <code>RUBY_VERSION</code>.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="selinux"><code>selinux</code></h2>
+
+<p>Determine whether SE Linux is enabled on the node.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Checks for the existence of the <code>enforce</code> file under the SE Linux mount point (e.g. <code>/selinux/enforce</code>)
+and returns <code>true</code> if <code>/proc/self/attr/current</code> does not contain <code>kernel</code>.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="selinuxconfigmode"><code>selinux_config_mode</code></h2>
+
+<p>Returns the configured SE Linux mode (e.g. <code>enforcing</code>, <code>permissive</code>, or <code>disabled</code>).</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Parses the output of <code>sestatus_cmd</code> and returns the value of the line beginning with <code>Mode from config file:</code>.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="selinuxconfigpolicy"><code>selinux_config_policy</code></h2>
+
+<p>Returns the configured SE Linux policy (e.g. <code>targeted</code>, <code>MLS</code>, or <code>minimum</code>).</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Parses the output of <code>sestatus_cmd</code> and returns the value of the line beginning with <code>Policy from config file:</code>.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="selinuxcurrentmode"><code>selinux_current_mode</code></h2>
+
+<p>Returns the current SE Linux mode (e.g. <code>enforcing</code>, <code>permissive</code>, or <code>disabled</code>).</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Parses the output of <code>sestatus_cmd</code> and returns the value of the line beginning with <code>Current mode:</code>.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="selinuxenforced"><code>selinux_enforced</code></h2>
+
+<p>Returns whether SE Linux is enabled (<code>true</code>) or not (<code>false</code>).</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Returns the value found in the <code>enforce</code> file under the SE Linux mount point (e.g. <code>/selinux/enforce</code>).</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="selinuxmode"><code>selinux_mode</code></h2>
+
+<p>Returns the value of <code>selinux_config_policy</code>. Deprecated.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="selinuxpolicyversion"><code>selinux_policyversion</code></h2>
+
+<p>Returns the current SE Linux policy version.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Reads the content of the <code>policyvers</code> file found under the SE Linux mount point, e.g. (<code>/selinux/policyvers</code>).</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="serialnumber"><code>serialnumber</code></h2>
+
+<p>Returns the machine&#8217;s serial number.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="spsystem-profiler-data"><code>sp_{SYSTEM PROFILER DATA}</code></h2>
+
+<p>Returns info retrieved in bulk from the OS X system profiler. The names of these facts should be self explanatory, and they are otherwise undocumented. The full list of these facts is:</p>
+
+<ul>
+  <li><code>sp_64bit_kernel_and_kexts</code></li>
+  <li><code>sp_boot_mode</code></li>
+  <li><code>sp_boot_rom_version</code></li>
+  <li><code>sp_boot_volume</code></li>
+  <li><code>sp_cpu_interconnect_speed</code></li>
+  <li><code>sp_cpu_type</code></li>
+  <li><code>sp_current_processor_speed</code></li>
+  <li><code>sp_kernel_version</code></li>
+  <li><code>sp_l2_cache_core</code></li>
+  <li><code>sp_l3_cache</code></li>
+  <li><code>sp_local_host_name</code></li>
+  <li><code>sp_machine_model</code></li>
+  <li><code>sp_machine_name</code></li>
+  <li><code>sp_mmm_entry</code></li>
+  <li><code>sp_number_processors</code></li>
+  <li><code>sp_os_version</code></li>
+  <li><code>sp_packages</code></li>
+  <li><code>sp_physical_memory</code></li>
+  <li><code>sp_platform_uuid</code></li>
+  <li><code>sp_secure_vm</code></li>
+  <li><code>sp_serial_number</code></li>
+  <li><code>sp_smc_version_system</code></li>
+  <li><code>sp_uptime</code></li>
+  <li><code>sp_user_name</code></li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="sshdsakey"><code>sshdsakey</code></h2>
+
+<p>Returns the host&#8217;s SSH DSA key.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="sshecdsakey"><code>sshecdsakey</code></h2>
+
+<p>Returns the host&#8217;s SSH ECDSA key.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="sshrsakey"><code>sshrsakey</code></h2>
+
+<p>Returns the host&#8217;s SSH RSA key.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="swapencrypted"><code>swapencrypted</code></h2>
+
+<p>Say whether the system&#8217;s swap space is encrypted. Only used on Darwin.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="swapfree"><code>swapfree</code></h2>
+
+<p>Returns the amount of free swap on the system.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="swapsize"><code>swapsize</code></h2>
+
+<p>Returns the total amount of swap space available on the system.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="timezone"><code>timezone</code></h2>
+
+<p>Returns the machine&#8217;s time zone.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Uses&#8217;s Ruby&#8217;s Time module&#8217;s Time.new call.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="type"><code>type</code></h2>
+
+<p>Returns the machine&#8217;s chassis type.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="uniqueid"><code>uniqueid</code></h2>
+
+<p>Returns the output of the <code>hostid</code> command.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="uptime"><code>uptime</code></h2>
+
+<p>Returns the system uptime in a human readable format.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Does basic maths on the &#8220;<code>uptime_seconds</code>&#8221; fact to return a count of
+days, hours and minutes of uptime</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="uptimedays"><code>uptime_days</code></h2>
+
+<p>Returns the total days of uptime.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Divides <code>uptime_hours</code> fact by 24.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="uptimehours"><code>uptime_hours</code></h2>
+
+<p>Returns the total hours of uptime.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Divides <code>uptime_seconds</code> fact by 3600.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="uptimeseconds"><code>uptime_seconds</code></h2>
+
+<p>Returns the total seconds of uptime.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<ul>
+  <li>Using the &#8216;facter/util/uptime.rb&#8217; module, try a verity of methods to acquire the uptime on Unix.</li>
+  <li>On Windows, the module calculates the uptime by the &#8220;LastBootupTime&#8221; Windows management value.</li>
+</ul>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="virtual"><code>virtual</code></h2>
+
+<p>Determine if the system&#8217;s hardware is real or virtualized.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>Assumes physical unless proven otherwise.</p>
+
+<ul>
+  <li>On Darwin, uses the macosx util module to acquire the SPDisplaysDataType and from that parses it to see if it&#8217;s VMWare or Parallels pretending to be the display.</li>
+  <li>On Linux, BSD, Solaris, and HPUX: Much of the logic here is obscured behind util/virtual.rb, which rather than document here, which would encourage drift, just refer to it. The Xen tests in here rely on <code>/sys</code> and <code>/proc</code>, and check for the presence and contents of files in there. If after all the other tests it&#8217;s still seen as physical, then it tries to parse the output of <code>lspci</code>, <code>dmidecode</code> and <code>prtdiag</code> for obvious signs of being under VMWare, Parallels, or VirtualBox. Finally, it checks for the existence of vmware-vmx, which would hint it&#8217;s VMWare.</li>
+</ul>
+
+<p><strong>Caveats:</strong></p>
+
+<p>Many checks rely purely on existence of files.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="vlans"><code>vlans</code></h2>
+
+<p>On Linux, return a list of all the VLANs on the system.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>On Linux only, checks for and reads /proc/net/vlan/config and parses it.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+<hr />
+
+<h2 id="xendomains"><code>xendomains</code></h2>
+
+<p>Returns the list of Xen domains on the Dom0.</p>
+
+<p><strong>Resolution:</strong></p>
+
+<p>On a Xen Dom0 host, return a list of Xen domains using the &#8216;util/xendomains&#8217; library.
+No support for Solaris 9 and below, where zones are not available.</p>
+
+<p>(<a href="#page-nav">↑ Back to top</a>)</p>
+
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+                      <h2>Facter 1.6</h2>
+
+<ul>
+<li><a href="./../../facter/1.6/core_facts.html">Core Facts</a></li>
+<li><a href="./../../guides/custom_facts.html">Custom Facts</a></li>
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

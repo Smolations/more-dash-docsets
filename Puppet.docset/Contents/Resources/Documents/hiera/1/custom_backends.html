@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>Hiera 1: Writing Custom Backends — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../favicon.ico' />
+
+
+  <meta name="description" content="Custom Hiera backends must be written in Ruby, must conform to certain API requirements, and must be available in Ruby&#8217;s load path; when usin...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/hiera/1/custom_backends.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">Hiera 1: Writing Custom Backends</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>Hiera 1: Writing Custom Backends</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#backend-api-and-requirements">Backend API and Requirements</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#namespace-and-name">Namespace and Name</a></li>
+   <li class="toc-lv3"><a href="#filenamepath">Filename/Path</a></li>
+   <li class="toc-lv3"><a href="#initialize-method">initialize Method</a></li>
+   <li class="toc-lv3"><a href="#lookup-method">lookup Method</a></li>
+   <li class="toc-lv3"><a href="#available-helper-methods">Available Helper Methods</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#tips">Tips</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#handling-lookup-types">Handling Lookup Types</a></li>
+   <li class="toc-lv3"><a href="#what-to-do-and-not-do-in-the-datasources-block">What To Do and Not Do in the Datasources Block</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#complete-example">Complete Example</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#terse-version">Terse Version</a></li>
+   <li class="toc-lv3"><a href="#annotated-version">Annotated Version</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#more-examples">More Examples</a></li>
+</ol></nav>
+              <p>Custom Hiera backends must be written in Ruby, must conform to certain API requirements, and must be available in Ruby&#8217;s load path; when using Hiera with Puppet, you can load backends from the <code>lib</code> directory of Puppet modules. Backends that retrieve data from multiple files on disk (similar to the default <code>yaml</code> and <code>json</code> backends) can take advantage of <a href="#available-helper-methods">extra helper methods</a> provided by the <code>Backend</code> Ruby module.</p>
+
+<h2 id="backend-api-and-requirements">Backend API and Requirements</h2>
+
+<h3 id="namespace-and-name">Namespace and Name</h3>
+
+<p>Each Hiera backend must be a Ruby class under the <code>Hiera::Backend</code> namespace. This most often means nesting the class inside <code>class Hiera</code> and <code>module Backend</code> statements.</p>
+
+<p>You must choose a unique <strong>short common name</strong> for your backend, and derive a <strong>class name</strong> from that short name. The class name should be the backend name with a capitalized first letter and a <code>_backend</code> suffix. So a backend named <code>file</code> would have a class name of <code>File_backend</code>.</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="nc">Hiera</span>
+      <span class="k">module</span> <span class="nn">Backend</span>
+        <span class="k">class</span> <span class="nc">File_backend</span>
+          <span class="c1"># ...</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<h3 id="filenamepath">Filename/Path</h3>
+
+<p>By standard Ruby code loading conventions, the file containing a backend should be located in a Ruby lib directory with a sub path of <code>hiera/backend/&lt;LOWERCASED CLASS NAME&gt;.rb</code>.</p>
+
+<p>When using Hiera with Puppet, you can load backends from the <code>lib</code> directory of a Puppet module; however, these backends won&#8217;t be loaded when you run Hiera from the command line unless you specify that directory in your <code>RUBYLIB</code> environment variable.</p>
+
+<p>A backend named <code>file</code> would be located in a lib directory at <code>hiera/backend/file_backend.rb</code>.</p>
+
+<h3 id="initialize-method"><code>initialize</code> Method</h3>
+
+<p>If you have any setup to do in your backend before you can look up data &#8212; for example, loading a library necessary for interfacing with a database &#8212; you should put it in an <code>initialize</code> method. From the crayfishx/hiera-mysql backend:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">def</span> <span class="nf">initialize</span>
+      <span class="k">begin</span>
+        <span class="nb">require</span> <span class="s1">&#39;mysql&#39;</span>
+      <span class="k">rescue</span> <span class="no">LoadError</span>
+        <span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span>
+        <span class="nb">require</span> <span class="s1">&#39;mysql&#39;</span>
+      <span class="k">end</span>
+
+      <span class="no">Hiera</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;mysql_backend initialized&quot;</span><span class="p">)</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<h3 id="lookup-method"><code>lookup</code> Method</h3>
+
+<p>Every backend must define a <code>lookup(key, scope, order_override, resolution_type)</code> method, which must return either a single value or <code>nil</code>. The returned value can be a string, number, boolean, array, or hash. If no value is found, it should return <code>nil</code>.</p>
+
+<p>The lookup method can do basically anything to acquire its value, but will usually use <a href="#backenddatasourcesscope-orderoverride-hierarchy-source--">the <code>Backend.datasources</code> method</a> to iterate over the hierarchy (see below).</p>
+
+<p>When Hiera calls the lookup method, it will pass four pieces of data as arguments:</p>
+
+<ul>
+  <li><code>key</code> is the lookup key</li>
+  <li><code>scope</code> is the set of <a href="./variables.html">variables</a> available to make decisions about the hierarchy and perform data interpolation</li>
+  <li><code>order_override</code> is a requested first hierarchy level, which can optionally be inserted at the top of the hierarchy</li>
+  <li><code>resolution_type</code> is the requested <a href="./lookup_types.html">lookup type</a></li>
+</ul>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="nc">Hiera</span>
+      <span class="k">module</span> <span class="nn">Backend</span>
+        <span class="k">class</span> <span class="nc">File_backend</span>
+          <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">order_override</span><span class="p">,</span> <span class="n">resolution_type</span><span class="p">)</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="kp">nil</span>
+            <span class="c1"># ...</span>
+            <span class="k">return</span> <span class="n">answer</span>
+          <span class="k">end</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<h3 id="available-helper-methods">Available Helper Methods</h3>
+
+<p>Index of methods:</p>
+
+<ul>
+  <li><a href="#backenddatasourcesscope-orderoverride-hierarchy-source--"><code>Backend.datasources</code></a></li>
+  <li><a href="#backenddatafilebackend-name-scope-source-extension"><code>Backend.datafile</code></a></li>
+  <li><a href="#backendparseanswerdata-scope"><code>Backend.parse_answer</code></a></li>
+  <li><a href="#backendmergeanswernewansweranswer"><code>Backend.merge_answer</code></a></li>
+  <li><a href="#hieradebugmsg-and-hierawarnmsg"><code>Hiera.debug</code> and <code>Hiera.warn</code></a></li>
+</ul>
+
+<p>A backend&#8217;s lookup method can construct its own arbitrary hierarchy and do anything to retrieve data. However:</p>
+
+<ul>
+  <li>You will usually want to iterate over Hiera&#8217;s normal configured <a href="./hierarchy.html">hierarchy</a>.</li>
+  <li>You may want to locate data files in a directory.</li>
+  <li>You may want to allow values in the looked-up data to <a href="./variables.html#in-data">interpolate variables</a>.</li>
+  <li>You may want to accommodate hash merge lookups.</li>
+  <li>You may want to log messages to assist debugging.</li>
+</ul>
+
+<p>The Hiera::Backend module provides helper methods for the first four, and the Hiera class provides logging methods.</p>
+
+<h4 id="backenddatasourcesscope-orderoverride-hierarchy-source--"><code>Backend.datasources(scope, [order_override], [hierarchy]) {|source| ... }</code></h4>
+
+<p>The <code>Backend.datasources</code> method finds a <a href="./hierarchy.html">hierarchy</a> (usually from the config file), interpolates any dynamic values, removes any empty hierarchy levels, then iterates over it with a provided block of code, calling the block once for each hierarchy level. You will almost always want to use this method, as it&#8217;s the easiest way to take advantage of the configured hierarchy.</p>
+
+<p>The <strong>block</strong> passed to this method must take one argument (which will be a hierarchy level, with any variable interpolation already performed). It does not need to return anything, and will usually modify an existing variable outside its scope in order to set an answer. This block will do most of the heavy lifting in your backend, accessing any data sources you need to consult.</p>
+
+<p>The <strong>arguments</strong> passed to this method are a scope, an order override (optional), and a replacement hierarchy (optional). Usually, you will pass along the <code>scope</code> and <code>order_override</code> values that your <code>lookup</code> method received and omit the hierarchy argument, so that you can use the normal hierarchy from the config file.</p>
+
+<p>When doing a priority lookup, you should generally use a <code>break</code> statement in your block once you get a valid answer, in order to exit early and not overwrite the highest priority answer with a lower priority answer.</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="nc">Hiera</span>
+      <span class="k">module</span> <span class="nn">Backend</span>
+        <span class="k">class</span> <span class="nc">File_backend</span>
+          <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">order_override</span><span class="p">,</span> <span class="n">resolution_type</span><span class="p">)</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="kp">nil</span>
+            <span class="no">Backend</span><span class="o">.</span><span class="n">datasources</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">order_override</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">source</span><span class="o">|</span>
+              <span class="c1"># ...</span>
+              <span class="k">break</span> <span class="k">if</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+            <span class="k">end</span>
+            <span class="k">return</span> <span class="n">answer</span>
+          <span class="k">end</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<h4 id="backenddatafilebackend-name-scope-source-extension"><code>Backend.datafile(:&lt;BACKEND NAME&gt;, scope, source, "&lt;EXTENSION&gt;")</code></h4>
+
+<p>The <code>Backend.datafile</code> method returns a string, representing the complete path to a file on disk corresponding to a provided hierarchy level. The backend author is in charge of deciding what to do with this path and the file it represents.</p>
+
+<p>It is optional, and is only useful when your backend is searching files on disk. It provides facilities similar to those in the <code>yaml</code> and <code>json</code> backends. To use this, you must set a <code>:datadir</code> setting in hiera.yaml under a key named for your backend:</p>
+
+<pre><code>:file:
+  :datadir: /etc/puppet/hieradata
+</code></pre>
+
+<p>The arguments you must provide are the <strong>name of the backend</strong> (as a symbol), the <strong>scope</strong> (usually just passed on from the lookup method&#8217;s arguments), the <strong>current hierarchy level</strong> (usually passed to the current block by the <code>Backend.datasources</code> method), and the <strong>file extension</strong> to expect.</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="nc">Hiera</span>
+      <span class="k">module</span> <span class="nn">Backend</span>
+        <span class="k">class</span> <span class="nc">File_backend</span>
+          <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">order_override</span><span class="p">,</span> <span class="n">resolution_type</span><span class="p">)</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="kp">nil</span>
+            <span class="no">Backend</span><span class="o">.</span><span class="n">datasources</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">order_override</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">source</span><span class="o">|</span>
+              <span class="n">file</span> <span class="o">=</span> <span class="no">Backend</span><span class="o">.</span><span class="n">datafile</span><span class="p">(</span><span class="ss">:file</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="k">next</span>
+              <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+              <span class="k">next</span> <span class="k">unless</span> <span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+              <span class="n">data</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+              <span class="k">next</span> <span class="k">unless</span> <span class="n">data</span>
+              <span class="k">break</span> <span class="k">if</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">data</span>
+            <span class="k">end</span>
+            <span class="k">return</span> <span class="n">answer</span>
+          <span class="k">end</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<h4 id="backendparseanswerdata-scope"><code>Backend.parse_answer(data, scope)</code></h4>
+
+<p>The <code>Backend.parse_answer</code> method returns its first argument, but with any <a href="./variables.html">interpolation tokens</a> replaced by variables from the scope passed as its second argument. Use it if you want to support interpolation of variables into data with your backend. (This is optional.)</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">class</span> <span class="nc">Hiera</span>
+      <span class="k">module</span> <span class="nn">Backend</span>
+        <span class="k">class</span> <span class="nc">File_backend</span>
+          <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">order_override</span><span class="p">,</span> <span class="n">resolution_type</span><span class="p">)</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="kp">nil</span>
+            <span class="no">Backend</span><span class="o">.</span><span class="n">datasources</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">order_override</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">source</span><span class="o">|</span>
+              <span class="n">file</span> <span class="o">=</span> <span class="no">Backend</span><span class="o">.</span><span class="n">datafile</span><span class="p">(</span><span class="ss">:file</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="k">next</span>
+              <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+              <span class="k">next</span> <span class="k">unless</span> <span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+              <span class="n">data</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+              <span class="k">next</span> <span class="k">unless</span> <span class="n">data</span>
+              <span class="k">break</span> <span class="k">if</span> <span class="n">answer</span> <span class="o">=</span> <span class="no">Backend</span><span class="o">.</span><span class="n">parse_answer</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">scope</span><span class="p">)</span>
+            <span class="k">end</span>
+            <span class="k">return</span> <span class="n">answer</span>
+          <span class="k">end</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<h4 id="backendmergeanswernewansweranswer"><code>Backend.merge_answer(new_answer,answer)</code></h4>
+
+<p>The <code>Backend.merge_answer</code> method expects two hashes, and returns a merged hash using the <a href="./lookup_types.html#hash-merge">configured hash merge behavior</a>. If your backend supports hash merge lookups, you should always use this helper method to do the merging.</p>
+
+<p>From the json backend:</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="n">new_answer</span> <span class="o">=</span> <span class="no">Backend</span><span class="o">.</span><span class="n">parse_answer</span><span class="p">(</span><span class="n">data</span><span class="o">[</span><span class="n">key</span><span class="o">]</span><span class="p">,</span> <span class="n">scope</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">resolution_type</span>
+    <span class="k">when</span> <span class="ss">:array</span>
+      <span class="k">raise</span> <span class="no">Exception</span><span class="p">,</span> <span class="s2">&quot;Hiera type mismatch: expected Array and got </span><span class="si">#{</span><span class="n">new_answer</span><span class="o">.</span><span class="n">class</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="n">new_answer</span><span class="o">.</span><span class="n">kind_of?</span> <span class="nb">Array</span> <span class="ow">or</span> <span class="n">new_answer</span><span class="o">.</span><span class="n">kind_of?</span> <span class="nb">String</span>
+      <span class="n">answer</span> <span class="o">||=</span> <span class="o">[]</span>
+      <span class="n">answer</span> <span class="o">&lt;&lt;</span> <span class="n">new_answer</span>
+    <span class="k">when</span> <span class="ss">:hash</span>
+      <span class="k">raise</span> <span class="no">Exception</span><span class="p">,</span> <span class="s2">&quot;Hiera type mismatch: expected Hash and got </span><span class="si">#{</span><span class="n">new_answer</span><span class="o">.</span><span class="n">class</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="n">new_answer</span><span class="o">.</span><span class="n">kind_of?</span> <span class="no">Hash</span>
+      <span class="n">answer</span> <span class="o">||=</span> <span class="p">{}</span>
+      <span class="n">answer</span> <span class="o">=</span> <span class="no">Backend</span><span class="o">.</span><span class="n">merge_answer</span><span class="p">(</span><span class="n">new_answer</span><span class="p">,</span><span class="n">answer</span><span class="p">)</span>
+    <span class="k">else</span>
+      <span class="n">answer</span> <span class="o">=</span> <span class="n">new_answer</span>
+      <span class="k">break</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<h4 id="hieradebugmsg-and-hierawarnmsg"><code>Hiera.debug(msg)</code> and <code>Hiera.warn(msg)</code></h4>
+
+<p>These two methods log messages at the debug and warn loglevels, respectively.</p>
+
+<div class="highlight"><pre><code class="ruby">    <span class="k">def</span> <span class="nf">initialize</span>
+      <span class="no">Hiera</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Hiera File backend starting&quot;</span><span class="p">)</span>
+    <span class="k">end</span>
+</code></pre>
+</div>
+
+<h2 id="tips">Tips</h2>
+
+<h3 id="handling-lookup-types">Handling Lookup Types</h3>
+
+<p>Your backend should generally support all three <a href="./lookup_types.html">lookup types</a>. In Hiera 1, the lookup type passed to your <code>lookup</code> method (as the fourth argument) will always be one of:</p>
+
+<ul>
+  <li><code>:priority</code></li>
+  <li><code>:array</code></li>
+  <li><code>:hash</code></li>
+</ul>
+
+<p>Usually, the block you pass to <code>Backend.datasources</code> will contain a case statement that decides what to do based on the lookup type. <a href="#backendmergeanswernewansweranswer">An example of this is shown above in the description of the <code>Backend.merge_answer</code> method.</a></p>
+
+<ul>
+  <li>Priority lookups should stop iterating over the hierarchy as soon as a valid value is found.</li>
+  <li>Array lookups should continue iterating and append any new answers onto an array of existing answers.</li>
+  <li>Hash lookups should continue iterating and use <a href="#backendmergeanswernewansweranswer">the <code>Backend.merge_answer</code> method</a> to merge any new answers into a hash of existing answers.</li>
+</ul>
+
+<h3 id="what-to-do-and-not-do-in-the-datasources-block">What To Do and Not Do in the Datasources Block</h3>
+
+<p>In our examples here, the block passed to the <a href="#backenddatasourcesscope-orderoverride-hierarchy-source--"><code>Backend.datasources</code> method</a> is doing all of the data lookup work and is directly modifying the answer that will eventually be returned by the <code>lookup</code> method. This makes sense for simple file-based backends, where lookups are resource-cheap.</p>
+
+<p>It may make less sense if both of the following are true:</p>
+
+<ul>
+  <li>Lookups are relatively resource-expensive compared to local text files, such as anything requiring a request over the network.</li>
+  <li>It&#8217;s possible to construct complex requests (think SQL) which aren&#8217;t significantly more expensive than simple requests.</li>
+</ul>
+
+<p>In this case, you might want to use the hierarchy iterator block to construct a complex request, then issue that request outside the block after the <code>Backend.datasources</code> call has finished.</p>
+
+<p>This way, you could get answers for every hierarchy level at once, and make decisions about which answer(s) to use once you have the full results in your hand. If your data is highly hierarchical and you frequently have lookup misses at the top of the hierarchy (say most of your data is in fact-based hierarchy levels, and only a few answers are ever assigned directly to individual nodes), this might double your backend&#8217;s performance.</p>
+
+<h2 id="complete-example">Complete Example</h2>
+
+<p>This backend was written as an example by Reid Vandewiele. It only handles priority lookups, and only handles string values. It expects a collection of <code>hierarchy_level.d</code> directories containing files named after lookup keys; when looking up a key, the contents of the file corresponding to that key will be returned as a string.</p>
+
+<h3 id="terse-version">Terse Version</h3>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">Hiera</span>
+  <span class="k">module</span> <span class="nn">Backend</span>
+    <span class="k">class</span> <span class="nc">File_backend</span>
+
+      <span class="k">def</span> <span class="nf">initialize</span>
+        <span class="no">Hiera</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Hiera File backend starting&quot;</span><span class="p">)</span>
+      <span class="k">end</span>
+
+      <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">order_override</span><span class="p">,</span> <span class="n">resolution_type</span><span class="p">)</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="kp">nil</span>
+
+        <span class="no">Hiera</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Looking up </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2"> in File backend&quot;</span><span class="p">)</span>
+
+        <span class="no">Backend</span><span class="o">.</span><span class="n">datasources</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">order_override</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">source</span><span class="o">|</span>
+          <span class="no">Hiera</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Looking for data source </span><span class="si">#{</span><span class="n">source</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+          <span class="n">file</span> <span class="o">=</span> <span class="no">Backend</span><span class="o">.</span><span class="n">datafile</span><span class="p">(</span><span class="ss">:file</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="k">next</span>
+          <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+          <span class="k">next</span> <span class="k">unless</span> <span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+          <span class="n">data</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+          <span class="k">next</span> <span class="k">unless</span> <span class="n">data</span>
+          <span class="k">break</span> <span class="k">if</span> <span class="n">answer</span> <span class="o">=</span> <span class="no">Backend</span><span class="o">.</span><span class="n">parse_answer</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">scope</span><span class="p">)</span>
+        <span class="k">end</span>
+        <span class="k">return</span> <span class="n">answer</span>
+      <span class="k">end</span>
+
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<h3 id="annotated-version">Annotated Version</h3>
+
+<div class="highlight"><pre><code class="ruby"><span class="c1"># This is an annotated walkthrough of a *very* simple custom backend for Hiera,</span>
+<span class="c1"># which uses a directory-based file lookup scheme.</span>
+<span class="c1">#</span>
+<span class="c1"># First: skip the rest of this comment block and take a dive into the code.</span>
+<span class="c1">#</span>
+<span class="c1"># Then:  read the following note about additional resources</span>
+<span class="c1">#</span>
+<span class="c1"># Additional Resources:</span>
+<span class="c1">#</span>
+<span class="c1"># If after reading through this you would like some additional resources, example</span>
+<span class="c1"># code is currently pretty good documentation since Hiera is fundamentally simple</span>
+<span class="c1"># under the hood. If you check out a few existing backends you&#39;re quite likely to</span>
+<span class="c1"># pick up other tricks and ideas. A few good backends to take a look at include:</span>
+<span class="c1">#</span>
+<span class="c1"># https://github.com/puppetlabs/hiera/blob/master/lib/hiera/backend/yaml_backend.rb</span>
+<span class="c1"># https://github.com/puppetlabs/puppet/blob/master/lib/hiera/backend/puppet_backend.rb</span>
+<span class="c1"># https://github.com/adrienthebo/hiera-file (the grown-up version of this example)</span>
+<span class="c1"># https://github.com/binford2k/hiera-rest</span>
+<span class="c1">#</span>
+<span class="c1"># See also https://github.com/puppetlabs/hiera/blob/master/lib/hiera/backend.rb for</span>
+<span class="c1"># other included utility functions.</span>
+<span class="c1">#</span>
+
+<span class="c1"># Filename: lib/hiera/backend/file_backend.rb</span>
+
+<span class="k">class</span> <span class="nc">Hiera</span>
+  <span class="k">module</span> <span class="nn">Backend</span>
+
+    <span class="c1"># The naming convention here is the backend name (&quot;file&quot;), first letter</span>
+    <span class="c1"># upcased, and given the suffix &quot;_backend&quot;.</span>
+    <span class="k">class</span> <span class="nc">File_backend</span>
+
+      <span class="c1"># This method contains any code necessary to start using the backend. In</span>
+      <span class="c1"># a network-based backend perhaps this method might contain code to</span>
+      <span class="c1"># establish a connection to a database or API, for example.</span>
+      <span class="k">def</span> <span class="nf">initialize</span>
+        <span class="no">Hiera</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Hiera File backend starting&quot;</span><span class="p">)</span>
+      <span class="k">end</span>
+
+      <span class="c1"># The lookup function is the most important part of a custom backend.</span>
+      <span class="c1"># The lookup function takes four arguments which are:</span>
+      <span class="c1">#</span>
+      <span class="c1"># @param key [String]             The lookup key specified by the user</span>
+      <span class="c1">#</span>
+      <span class="c1"># @param scope [Hash]             The variable scope. Contains fact</span>
+      <span class="c1">#                                 values and all other variables in</span>
+      <span class="c1">#                                 scope when the hiera() function was</span>
+      <span class="c1">#                                 called. Most backends will not make</span>
+      <span class="c1">#                                 use of this data directly, but it will</span>
+      <span class="c1">#                                 need to be passed in to a variety of</span>
+      <span class="c1">#                                 available utility methods within Hiera.</span>
+      <span class="c1">#</span>
+      <span class="c1"># @param order_override [String]  Like scope, a parameter that is</span>
+      <span class="c1">#                                 primarily simply passed through</span>
+      <span class="c1">#                                 to Hiera utility methods.</span>
+      <span class="c1">#</span>
+      <span class="c1"># @param resolution_type [Symbol] Hiera&#39;s default lookup method is</span>
+      <span class="c1">#                                 :priority, in which the first value</span>
+      <span class="c1">#                                 found in the hierarchy should be</span>
+      <span class="c1">#                                 returned as the answer. Other lookup</span>
+      <span class="c1">#                                 resolution methods exist. For example,</span>
+      <span class="c1">#                                 :array returns all answers found from</span>
+      <span class="c1">#                                 all levels of the hierarchy in an</span>
+      <span class="c1">#                                 array. This parameter allows the</span>
+      <span class="c1">#                                 backend to implement multiple</span>
+      <span class="c1">#                                 resolution types. This particular</span>
+      <span class="c1">#                                 example does not support multiple</span>
+      <span class="c1">#                                 resolution types, and will only do</span>
+      <span class="c1">#                                 priority lookups.</span>
+      <span class="c1">#</span>
+      <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">order_override</span><span class="p">,</span> <span class="n">resolution_type</span><span class="p">)</span>
+
+        <span class="c1"># Set the default answer. Returning nil from the lookup() method</span>
+        <span class="c1"># indicates that no value was found. In this example hiera backend,</span>
+        <span class="c1"># we start by assuming no match, and will then try to find a match at</span>
+        <span class="c1"># each level of the hierarchy. If by the time we complete our</span>
+        <span class="c1"># traversal of the hierarchy and have not found an answer, then this</span>
+        <span class="c1"># default value of nil will be returned.</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="kp">nil</span>
+
+        <span class="no">Hiera</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Looking up </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2"> in File backend&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Calling this method constructs a list of data sources to search. By</span>
+        <span class="c1"># default, for a hierarchy such as:</span>
+        <span class="c1">#</span>
+        <span class="c1">#     ---</span>
+        <span class="c1">#     :hierarchy:</span>
+        <span class="c1">#       - &quot;%{clientcert}&quot;</span>
+        <span class="c1">#       - &quot;%{environment}&quot;</span>
+        <span class="c1">#       - global</span>
+        <span class="c1">#</span>
+        <span class="c1"># The datasources() method, being given the scope parameter and a nil</span>
+        <span class="c1"># order_override parameter, will return something like:</span>
+        <span class="c1">#</span>
+        <span class="c1">#     [ &quot;client01.example.com&quot;, &quot;development&quot;, &quot;global&quot; ]</span>
+        <span class="c1">#</span>
+        <span class="c1"># Note that variable interpolation of the %{clientcert} and</span>
+        <span class="c1"># %{environment} has been performed, using values from the scope</span>
+        <span class="c1"># parameter. If a value is given for order_override that value will</span>
+        <span class="c1"># be inserted at the top of the hierarchy. For example, given an</span>
+        <span class="c1"># order_override value of &quot;custom&quot;, the datasources() method will</span>
+        <span class="c1"># return something like:</span>
+        <span class="c1">#</span>
+        <span class="c1">#     [ &quot;custom&quot;, &quot;client01.example.com&quot;, &quot;development&quot;, &quot;global&quot; ]</span>
+        <span class="c1">#</span>
+        <span class="c1"># Once we have this hierarchy list, we will perform some kind of</span>
+        <span class="c1"># lookup, starting with the top of the hierarchy and continuing</span>
+        <span class="c1"># until either we find a match or reach the end of the hierarchy</span>
+        <span class="c1"># list.</span>
+        <span class="no">Backend</span><span class="o">.</span><span class="n">datasources</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">order_override</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">source</span><span class="o">|</span>
+          <span class="no">Hiera</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Looking for data source </span><span class="si">#{</span><span class="n">source</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+          <span class="c1"># datafile() is a utility method to check for the existence of an</span>
+          <span class="c1"># approprate datafile for the current datasource and if it exists,</span>
+          <span class="c1"># return the full path to it. This utility method may be used if the</span>
+          <span class="c1"># custom backend adheres to a couple of conventions. The datafile()</span>
+          <span class="c1"># method assumes that:</span>
+          <span class="c1">#</span>
+          <span class="c1">#   1. As part of the lookup, the custom backend expects a file to</span>
+          <span class="c1">#      exist which corresponds to the current datasource.</span>
+          <span class="c1">#   2. The configuration setting :datadir: is used in the custom</span>
+          <span class="c1">#      backend.</span>
+          <span class="c1">#   3. Each datafile, located under :datadir:, has a standard</span>
+          <span class="c1">#      extension.</span>
+          <span class="c1">#</span>
+          <span class="c1"># The arguments given to datafile are</span>
+          <span class="c1">#</span>
+          <span class="c1"># @param backend [Symbol]   The name of the backend. This is used to</span>
+          <span class="c1">#                           refer to the appropriate setting key in</span>
+          <span class="c1">#                           hiera.yaml.</span>
+          <span class="c1">#</span>
+          <span class="c1"># @param scope [Hash]       The current scope. Interpolation could</span>
+          <span class="c1">#                           be performed on the value of :datadir:,</span>
+          <span class="c1">#                           and interpolation requires a scope.</span>
+          <span class="c1">#</span>
+          <span class="c1"># @param source [String]    The current datasource, or level in the</span>
+          <span class="c1">#                           hierarchy, for which a datafile is being</span>
+          <span class="c1">#                           searched.</span>
+          <span class="c1">#</span>
+          <span class="c1"># @param extension [String] The extension used by all datafiles. The</span>
+          <span class="c1">#                           datafile() method will search for the</span>
+          <span class="c1">#                           file by cat&#39;ing &quot;#{source}.#{extension}&quot;.</span>
+          <span class="c1">#</span>
+          <span class="c1"># In example form, the datafile() method works for a custom backend</span>
+          <span class="c1"># &quot;foo&quot; if hiera.yaml contains something like:</span>
+          <span class="c1">#</span>
+          <span class="c1">#     ---</span>
+          <span class="c1">#     :backends:</span>
+          <span class="c1">#       - foo</span>
+          <span class="c1">#     :hierarchy:</span>
+          <span class="c1">#       - &quot;%{clientcert}&quot;</span>
+          <span class="c1">#       - global</span>
+          <span class="c1">#     :foo:</span>
+          <span class="c1">#       :datadir: /etc/puppetlabs/puppet/hieradata</span>
+          <span class="c1">#</span>
+          <span class="c1"># And the hieradata directory contains something like:</span>
+          <span class="c1">#</span>
+          <span class="c1">#     `-- hieradata</span>
+          <span class="c1">#         |-- client1.example.com.foo</span>
+          <span class="c1">#         |-- client2.example.com.foo</span>
+          <span class="c1">#         |-- client3.example.com.foo</span>
+          <span class="c1">#         `-- global.foo</span>
+          <span class="c1">#</span>
+          <span class="c1"># And the datafile() method is called something like:</span>
+          <span class="c1">#</span>
+          <span class="c1">#     Backend.datafile(:foo, scope, source, &quot;foo&quot;)</span>
+          <span class="c1">#</span>
+          <span class="c1"># In this example backend called &quot;file&quot; we expect there to exist a</span>
+          <span class="c1"># *.d directory for each datasource, and we will use the datafile()</span>
+          <span class="c1"># method to check for and return its path if it exists. Custom</span>
+          <span class="c1"># backends that do not use files for anything will probably not use</span>
+          <span class="c1"># this method.</span>
+          <span class="n">file</span> <span class="o">=</span> <span class="no">Backend</span><span class="o">.</span><span class="n">datafile</span><span class="p">(</span><span class="ss">:file</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="k">next</span>
+
+          <span class="c1"># For this example file backend we expect every source to be a *.d</span>
+          <span class="c1"># directory, and we will look for a file in the directory with the</span>
+          <span class="c1"># name of the specified key. The next few lines in essence take the</span>
+          <span class="c1"># file name determined by using the datafile() method and check to</span>
+          <span class="c1"># see if that directory contains a file named with the key. E.g. if</span>
+          <span class="c1"># the user passed the key &quot;myvalue1&quot;, and for a given datasource</span>
+          <span class="c1"># (level in the hierarchy) the file path was &quot;/hieradata/global.d&quot;,</span>
+          <span class="c1"># these next few lines will check to see if</span>
+          <span class="c1"># &quot;/hieradata/global.d/myvalue1&quot; exists and contains data. If any of</span>
+          <span class="c1"># these preconditions fails, we will abort and move on to the next</span>
+          <span class="c1"># datasource.</span>
+          <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+          <span class="k">next</span> <span class="k">unless</span> <span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+          <span class="n">data</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+          <span class="k">next</span> <span class="k">unless</span> <span class="n">data</span>
+
+          <span class="c1"># Using the parse_answer() method is important if we want to be able</span>
+          <span class="c1"># to use templated or scoped data. Calling parse_answer() on the data</span>
+          <span class="c1"># will cause Hiera to perform variable interpolation, looking for</span>
+          <span class="c1"># instances of the %{} syntax. Any instance found will be replaced</span>
+          <span class="c1"># with the value from the scope. Finally, the &quot;break&quot; statement is</span>
+          <span class="c1"># used to stop traversing datasources, as we have found and set our</span>
+          <span class="c1"># answer.</span>
+          <span class="k">break</span> <span class="k">if</span> <span class="n">answer</span> <span class="o">=</span> <span class="no">Backend</span><span class="o">.</span><span class="n">parse_answer</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">scope</span><span class="p">)</span>
+        <span class="k">end</span>
+        <span class="c1"># The return value of this method is the result of the hiera lookup.</span>
+        <span class="k">return</span> <span class="n">answer</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<h2 id="more-examples">More Examples</h2>
+
+<p>Read the code for Hiera&#8217;s built-in yaml and json backends to learn more about looking up data from files on disk:</p>
+
+<ul>
+  <li><a href="https://github.com/puppetlabs/hiera/blob/master/lib/hiera/backend/json_backend.rb">json</a></li>
+  <li><a href="https://github.com/puppetlabs/hiera/blob/master/lib/hiera/backend/yaml_backend.rb">yaml</a></li>
+</ul>
+
+<p>Read the code of various third-party backends to learn more about accessing various other sources of data:</p>
+
+<ul>
+  <li><a href="https://github.com/crayfishx/hiera-mysql">crayfishx/hiera-mysql</a></li>
+  <li><a href="https://github.com/crayfishx/hiera-http">crayfishx/hiera-http</a></li>
+  <li><a href="https://github.com/binford2k/hiera-rest">binford2k/hiera-rest</a></li>
+</ul>
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+
+<h2 id="hiera-1">Hiera 1</h2>
+
+<ul>
+  <li><a href="./index.html">Overview</a></li>
+  <li><a href="./installing.html">Installation</a></li>
+  <li><a href="./configuring.html">Configuration and hiera.yaml</a></li>
+  <li><a href="./hierarchy.html">Hierarchies</a></li>
+  <li><a href="./lookup_types.html">Lookup Types</a></li>
+  <li><a href="./data_sources.html">Writing Data Sources</a></li>
+  <li><a href="./variables.html">Variables and Interpolation</a></li>
+  <li><a href="./puppet.html">Usage with Puppet</a></li>
+  <li><a href="./complete_example.html">Complete Example</a></li>
+  <li><a href="./command_line.html">Usage on the Command Line</a></li>
+  <li><span class="currentpage">Writing New Backends</span></li>
+</ul>
+
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

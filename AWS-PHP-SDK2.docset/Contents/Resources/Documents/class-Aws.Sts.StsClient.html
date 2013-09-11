@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 3.0dev">
+
+	<title>PHP 2: Class Aws\Sts\StsClient | AWS SDK for PHP 2</title>
+
+	<script type="text/javascript" src="resources/combined.js?215010371"></script>
+	<script type="text/javascript" src="elementlist.js?840307205"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?1683603398">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3334156134">
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AWS SDK for PHP 2</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Aws.Sts.html" title="Summary of Aws\Sts"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical">
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+
+						<li class="divider-vertical">
+
+						<li>
+							<a href="aws-sdk-for-php-2-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active main">
+<a href="namespace-Aws.html">Aws<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.html">AutoScaling<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.AutoScaling.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.html">CloudFormation<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFormation.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.html">CloudFront<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.html">CloudFront_2012_05_05<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudFront_2012_05_05.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.html">CloudSearch<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudSearch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.html">CloudWatch<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.CloudWatch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.html">Common<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Client.html">Client</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Command.html">Command</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Credentials.html">Credentials</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Exception.html">Exception<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Exception.Parser.html">Parser</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Facade.html">Facade</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Hash.html">Hash</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.InstanceMetadata.html">InstanceMetadata<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.InstanceMetadata.Waiter.html">Waiter</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Common.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Signature.html">Signature</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Common.Waiter.html">Waiter</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.html">DataPipeline<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DataPipeline.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.html">DirectConnect<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DirectConnect.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.html">DynamoDb<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Model.BatchRequest.html">BatchRequest</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Session.html">Session<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb.Session.LockingStrategy.html">LockingStrategy</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.html">DynamoDb_2011_12_05<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.DynamoDb_2011_12_05.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.html">Ec2<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ec2.Iterator.html">Iterator</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.html">ElastiCache<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ElastiCache.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.html">ElasticBeanstalk<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticBeanstalk.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticLoadBalancing.html">ElasticLoadBalancing<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticLoadBalancing.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ElasticTranscoder.html">ElasticTranscoder<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ElasticTranscoder.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Emr.html">Emr<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Emr.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Emr.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.html">Glacier<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Glacier.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Iam.html">Iam<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Iam.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Iam.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.html">ImportExport<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.ImportExport.Iterator.html">Iterator</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.html">OpsWorks<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.OpsWorks.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Rds.html">Rds<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Rds.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Rds.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Redshift.html">Redshift<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Redshift.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Redshift.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Route53.html">Route53<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Route53.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Route53.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.html">S3<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Command.html">Command</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Exception.html">Exception<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Exception.Parser.html">Parser</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Iterator.html">Iterator</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Model.html">Model<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.S3.Model.MultipartUpload.html">MultipartUpload</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.S3.Sync.html">Sync</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Ses.html">Ses<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Ses.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Ses.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.SimpleDb.html">SimpleDb<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.SimpleDb.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sns.html">Sns<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sns.Exception.html">Exception</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Sns.MessageValidator.html">MessageValidator<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sns.MessageValidator.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Sqs.html">Sqs<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sqs.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Sqs.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.html">StorageGateway<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.StorageGateway.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="active main">
+<a href="namespace-Aws.Sts.html">Sts<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Sts.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Support.html">Support<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Support.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li class="main">
+<a href="namespace-Aws.Swf.html">Swf<span></span></a>
+						<ul>
+				<li class="main">
+<a href="namespace-Aws.Swf.Enum.html">Enum</a>
+						</li>
+				<li class="main">
+<a href="namespace-Aws.Swf.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.html">Guzzle<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Batch.html">Batch<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Batch.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Cache.html">Cache</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Common.html">Common<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Common.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Http.html">Http<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Http.Curl.html">Curl</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Http.Exception.html">Exception</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Http.Message.html">Message<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Http.Message.Header.html">Header</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Http.QueryAggregator.html">QueryAggregator</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Inflection.html">Inflection</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Iterator.html">Iterator</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Log.html">Log</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.html">Parser<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Parser.Cookie.html">Cookie</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.Message.html">Message</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.UriTemplate.html">UriTemplate</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Parser.Url.html">Url</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.html">Plugin<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.Async.html">Async</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Backoff.html">Backoff</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cache.html">Cache</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.html">Cookie<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.CookieJar.html">CookieJar</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Cookie.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.ErrorResponse.html">ErrorResponse<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Plugin.ErrorResponse.Exception.html">Exception</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.History.html">History</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Log.html">Log</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Md5.html">Md5</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Mock.html">Mock</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Plugin.Oauth.html">Oauth</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Service.html">Service<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Builder.html">Builder</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.html">Command<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Command.Factory.html">Factory</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.html">LocationVisitor<span></span></a>
+						<ul>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.Request.html">Request</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Command.LocationVisitor.Response.html">Response</a>
+						</li>
+							</ul>
+</li>
+</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Service.Description.html">Description</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Exception.html">Exception</a>
+						</li>
+				<li>
+<a href="namespace-Guzzle.Service.Resource.html">Resource</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-Guzzle.Stream.html">Stream</a>
+						</li>
+							</ul>
+</li>
+				<li>
+<a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Aws.Sts.StsClient.html">StsClient</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class StsClient</h1>
+
+
+	<div class="description">
+	
+<p>Client to interact with AWS Security Token Service</p>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-Guzzle.Common.AbstractHasDispatcher.html"><span>Guzzle\Common\AbstractHasDispatcher</span></a>
+			
+			 implements 
+				<a href="class-Guzzle.Common.HasDispatcherInterface.html"><span>Guzzle\Common\HasDispatcherInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-Guzzle.Http.Client.html"><span>Guzzle\Http\Client</span></a>
+			
+			 implements 
+				<a href="class-Guzzle.Http.ClientInterface.html"><span>Guzzle\Http\ClientInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-Guzzle.Service.Client.html"><span>Guzzle\Service\Client</span></a>
+			
+			 implements 
+				<a href="class-Guzzle.Service.ClientInterface.html"><span>Guzzle\Service\ClientInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:90px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-Aws.Common.Client.AbstractClient.html"><span>Aws\Common\Client\AbstractClient</span></a>
+			
+			 implements 
+				<a href="class-Aws.Common.Client.AwsClientInterface.html"><span>Aws\Common\Client\AwsClientInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:120px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Aws\Sts\StsClient</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Aws.html">Aws</a>\<a href="namespace-Aws.Sts.html">Sts</a><br>
+		
+
+				<b>Link:</b>
+				<a href="http://docs.aws.amazon.com/aws-sdk-php-2/guide/latest/service-sts.html">User guide</a><br>
+				<b>Link:</b>
+				<a href="http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.Sts.StsClient.html">API docs</a><br>
+		<b>Located at</b> Aws/Sts/StsClient.php<br>
+	</div>
+
+
+
+
+        <h2>Methods summary</h2>
+        <ul class="method-summary">
+        <li>
+            <a class="method-summary-link" href="#_factory">
+                <span class="attributes">
+                    <code>
+                     public static
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">factory</span> ( <span>array|Collection $config = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Factory method to create a new Amazon STS client using an array of
+configuration options:</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_createCredentials">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">createCredentials</span> ( <span>Guzzle\Service\Resource\Model $result</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Creates a credentials object from the credential data return by an STS
+operation</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_assumeRole">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">assumeRole</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the AssumeRole operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_assumeRoleWithWebIdentity">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">assumeRoleWithWebIdentity</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the AssumeRoleWithWebIdentity operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_decodeAuthorizationMessage">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">decodeAuthorizationMessage</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the DecodeAuthorizationMessage operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getFederationToken">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getFederationToken</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the GetFederationToken operation.</p>
+</div>
+        </li>
+        <li>
+            <a class="method-summary-link" href="#_getSessionToken">
+                <span class="attributes">
+                    <code>
+                     public 
+                    
+                    </code>
+                </span>
+                <span class="name">
+                    <code>
+<span class="method">getSessionToken</span> ( <span>array $args = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </span>
+            </a>
+            <div class="summary-info">
+<p>Executes the GetSessionToken operation.</p>
+</div>
+        </li>
+        </ul>
+
+		<h2>Methods detail</h2>
+		<div id="methods">
+		<a name="//apple_ref/cpp/Method/_factory" class="dashAnchor"></a><div id="_factory" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_factory">#</a>
+                <code class="attributes ">
+                     public static
+                    self
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">factory</span>( <span>array|<code><a href="class-Guzzle.Common.Collection.html">Guzzle\Common\Collection</a></code> <var>$config</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Factory method to create a new Amazon STS client using an array of
+configuration options:</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$config</var></dt>
+                            <dd>
+<code>array|<code><a href="class-Guzzle.Common.Collection.html">Guzzle\Common\Collection</a></code></code><br>$config Client configuration data</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code>self</code><br>
+                        </div>
+
+                        <h4>Throws</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Exception.InvalidArgumentException.html">Aws\Common\Exception\InvalidArgumentException</a></code></code><br>
+                        </div>
+
+                        <h4>See</h4>
+                        <div class="list">
+                                \Aws\Common\Client\DefaultClient for a list of available configuration options<br>
+                        </div>
+
+                        <h4>Overrides</h4>
+                        <div class="list"><code><a href="class-Guzzle.Service.Client.html#_factory">Guzzle\Service\Client::factory</a></code></div>
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_createCredentials" class="dashAnchor"></a><div id="_createCredentials" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_createCredentials">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Aws.Common.Credentials.Credentials.html">Aws\Common\Credentials\Credentials</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">createCredentials</span>( <span><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code> <var>$result</var></span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Creates a credentials object from the credential data return by an STS
+operation</p>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$result</var></dt>
+                            <dd>
+<code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>$result The result of an STS operation</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Credentials.Credentials.html">Aws\Common\Credentials\Credentials</a></code></code><br>
+                        </div>
+
+                        <h4>Throws</h4>
+                        <div class="list">
+                            <code><code><a href="class-Aws.Common.Exception.InvalidArgumentException.html">Aws\Common\Exception\InvalidArgumentException</a></code></code><br>if the result does not contain credential data<br>
+                        </div>
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_assumeRole" class="dashAnchor"></a><div id="_assumeRole" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_assumeRole">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">assumeRole</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the AssumeRole operation.</p>
+
+<div class="aws-api-docs">
+	<p>Returns a set of temporary security credentials (consisting of an access key
+	ID, a secret access key, and a security token) that you can use to access AWS
+	resources that you might not normally have access to. Typically, you use
+		<literal>AssumeRole</literal>
+		 for cross-account access or federation.</p>
+
+	<p>For cross-account access, imagine that you own multiple accounts and need to
+	access resources in each account. You could create long-term credentials in each
+	account to access those resources. However, managing all those credentials and
+	remembering which one can access which account can be time consuming. Instead,
+	you can create one set of long-term credentials in one account and then use
+	temporary security credentials to access all the other accounts by assuming
+	roles in those accounts. For more information about roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Roles
+	in <i>Using IAM</i>. </a></p>
+
+	<p>For federation, you can, for example, grant single sign-on access to the AWS
+	Management Console. If you already have an identity and authentication system in
+	your corporate network, you don't have to recreate user identities in AWS in
+	order to grant those user identities access to AWS. Instead, after a user has
+	been authenticated, you call
+		<literal>AssumeRole</literal>
+		 (and specify the role with the appropriate permissions) to get temporary
+		security credentials for that user. With those temporary security credentials,
+		you construct a sign-in URL that users can use to access the console. For more
+		information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html">Scenarios
+		for Granting Temporary Access in <i>AWS Security Token Service</i>. </a></p>
+
+	<p>The temporary security credentials are valid for the duration that you
+	specified when calling
+		<literal>AssumeRole</literal>
+		, which can be from 900 seconds (15 minutes) to 3600 seconds (1 hour). The
+		default is 1 hour.</p>
+
+	<p>The temporary security credentials that are returned from the
+		<literal>AssumeRoleWithWebIdentity</literal>
+		 response have the permissions that are associated with the access policy of the
+		role being assumed and any policies that are associated with the AWS resource
+		being accessed. You can further restrict the permissions of the temporary
+		security credentials by passing a policy in the request. The resulting
+		permissions are an intersection of the role's access policy and the policy that
+		you passed. These policies and any applicable resource-based policies are
+		evaluated when calls to AWS service APIs are made using the temporary security
+		credentials.</p>
+
+	<p>To assume a role, your AWS account must be trusted by the role. The trust
+	relationship is defined in the role's trust policy when the IAM role is created.
+	You must also have a policy that allows you to call
+		<literal>sts:AssumeRole</literal>
+		.</p>
+
+	<p><b>Important:</b> You cannot call
+		<literal>Assumerole</literal>
+		 by using AWS account credentials; access will be denied. You must use IAM user
+		credentials or temporary security credentials to call
+		<literal>AssumeRole</literal>
+		.</p>
+	 &lt;member name="RoleArn" target="arnType"&gt;&lt;/member&gt; &lt;member
+	name="RoleSessionName" target="userNameType"&gt;&lt;/member&gt; &lt;member
+	name="Policy" target="sessionPolicyDocumentType"&gt;&lt;/member&gt; &lt;member
+	name="DurationSeconds" target="roleDurationSecondsType"&gt;&lt;/member&gt;
+	&lt;member name="ExternalId" target="externalIdType"&gt;&lt;/member&gt;</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;assumeRole(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// RoleArn is required</span>
+    <span class="php-quote">'RoleArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// RoleSessionName is required</span>
+    <span class="php-quote">'RoleSessionName'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'Policy'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'DurationSeconds'</span> =&gt; integer,
+    <span class="php-quote">'ExternalId'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>RoleArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>RoleSessionName</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>An identifier for the assumed role session. The session name is included as
+			part of the AssumedRoleUser.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">Policy</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>A supplemental policy that is associated with the temporary security
+			credentials from the AssumeRole call. The resulting permissions of the temporary
+			security credentials are an intersection of this policy and the access policy
+			that is associated with the role. Use this policy to further restrict the
+			permissions of the temporary security credentials.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">DurationSeconds</literal>
+		 =&gt; (int)
+		<div class="indented">
+			<p>The duration, in seconds, of the role session. The value can range from 900
+			seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to
+			3600 seconds.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">ExternalId</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>A unique identifier that is used by third parties to assume a role in their
+			customers' accounts. For each role that the third party can assume, they should
+			instruct their customers to create a role with the external ID that the third
+			party generated. Each time the third party assumes the role, they must pass the
+			customer's external ID. The external ID is useful in order to help third parties
+			bind a role to the customer who created it. For more information about the
+			external ID, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/sts-delegating-externalid.html" target="_blank">About the External ID in <em>Using Temporary Security
+			Credentials</em>.</a></p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">Credentials</literal>
+		 =&gt; (associative-array)
+		<div class="indented">
+			<p>The temporary security credentials, which include an access key ID, a secret
+			access key, and a security token.</p>
+		</div>
+
+		<ul class="param-list">
+			<li>
+				<literal class="shaded">AccessKeyId</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The access key ID that identifies the temporary security credentials.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">SecretAccessKey</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The secret access key that can be used to sign requests.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">SessionToken</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The token that users must pass to the service API to use the temporary
+					credentials.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">Expiration</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The date on which the current credentials expire.</p>
+				</div>
+			</li>
+		</ul>
+	</li>
+
+	<li>
+		<literal class="shaded">AssumedRoleUser</literal>
+		 =&gt; (associative-array)
+		<div class="indented">
+			<p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers
+			that you can use to refer to the resulting temporary security credentials. For
+			example, you can reference these credentials as a principal in a resource-based
+			policy by using the ARN or assumed role ID. The ARN and ID include the
+			RoleSessionName that you specified when you called AssumeRole.</p>
+		</div>
+
+		<ul class="param-list">
+			<li>
+				<literal class="shaded">AssumedRoleId</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>A unique identifier that contains the role ID and the role session name of
+					the role that is being assumed. The role ID is generated by AWS when the role is
+					created.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">Arn</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The ARN of the temporary security credentials that are returned from the
+					AssumeRole action. For more information about ARNs and how to use them in
+					policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html" target="_blank">Identifiers for IAM Entities in <em>Using IAM</em>.</a></p>
+				</div>
+			</li>
+		</ul>
+	</li>
+
+	<li>
+		<literal class="shaded">PackedPolicySize</literal>
+		 =&gt; (int)
+		<div class="indented">
+			<p>A percentage value that indicates the size of the policy in packed form. The
+			service rejects any policy with a packed size greater than 100 percent, which
+			means the policy exceeded the allowed space.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_assumeRoleWithWebIdentity" class="dashAnchor"></a><div id="_assumeRoleWithWebIdentity" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_assumeRoleWithWebIdentity">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">assumeRoleWithWebIdentity</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the AssumeRoleWithWebIdentity operation.</p>
+
+<div class="aws-api-docs">
+	<p>Returns a set of temporary security credentials for users who have been
+	authenticated in a mobile or web application with a web identity provider, such
+	as Login with Amazon, Facebook, or Google.
+		<literal>AssumeRoleWithWebIdentity</literal>
+		 is an API call that does not require the use of AWS security credentials.
+		Therefore, you can distribute an application (for example, on mobile devices)
+		that requests temporary security credentials without including long-term AWS
+		credentials in the application or by deploying server-based proxy services that
+		use long-term AWS credentials. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html#MobileApplication-KnownProvider">Creating
+		a Mobile Application with Third-Party Sign-In in <i>AWS Security Token
+		Service</i>. </a></p>
+
+	<p>The temporary security credentials consist of an access key ID, a secret
+	access key, and a security token. Applications can use these temporary security
+	credentials to sign calls to AWS service APIs. The credentials are valid for the
+	duration that you specified when calling
+		<literal>AssumeRoleWithWebIdentity</literal>
+		, which can be from 900 seconds (15 minutes) to 3600 seconds (1 hour). By
+		default, the temporary security credentials are valid for 1 hour.</p>
+
+	<p>The temporary security credentials that are returned from the
+		<literal>AssumeRoleWithWebIdentity</literal>
+		 response have the permissions that are associated with the access policy of the
+		role being assumed. You can further restrict the permissions of the temporary
+		security credentials by passing a policy in the request. The resulting
+		permissions are an intersection of the role's access policy and the policy that
+		you passed. These policies and any applicable resource-based policies are
+		evaluated when calls to AWS service APIs are made using the temporary security
+		credentials.</p>
+
+	<p>Before your application can call
+		<literal>AssumeRoleWithWebIdentity</literal>
+		, you must have an identity token from a supported identity provider and create
+		a role that the application can assume. The role that your application assumes
+		must trust the identity provider that is associated with the identity token. In
+		other words, the identity provider must be specified in the role's trust policy.
+		For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html" target="_blank"> Creating Temporary Security Credentials for Mobile Apps Using
+		Third-Party Identity Providers . </a></p>
+	 &lt;member name="RoleArn" target="arnType"&gt;&lt;/member&gt; &lt;member
+	name="RoleSessionName" target="userNameType"&gt;&lt;/member&gt; &lt;member
+	name="WebIdentityToken" target="clientTokenType"&gt;&lt;/member&gt; &lt;member
+	name="ProviderId" target="urlType"&gt;&lt;/member&gt; &lt;member name="Policy"
+	target="sessionPolicyDocumentType"&gt;&lt;/member&gt; &lt;member
+	name="DurationSeconds" target="roleDurationSecondsType"&gt;&lt;/member&gt;</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;assumeRoleWithWebIdentity(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// RoleArn is required</span>
+    <span class="php-quote">'RoleArn'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// RoleSessionName is required</span>
+    <span class="php-quote">'RoleSessionName'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-comment">// WebIdentityToken is required</span>
+    <span class="php-quote">'WebIdentityToken'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'ProviderId'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'Policy'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'DurationSeconds'</span> =&gt; integer,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>RoleArn</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>RoleSessionName</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>An identifier for the assumed role session. Typically, you pass the name or
+			identifier that is associated with the user who is using your application. That
+			way, the temporary security credentials that your application will use are
+			associated with that user. This session name is included as part of the ARN and
+			assumed role ID in the AssumedRoleUser response element.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded"><b>WebIdentityToken</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The OAuth 2.0 access token or OpenID Connect ID token that is provided by the
+			identity provider. Your application must get this token by authenticating the
+			user who is using your application with a web identity provider before the
+			application makes an AssumeRoleWithWebIdentity call.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">ProviderId</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The fully-qualified host component of the domain name of the identity
+			provider. Specify this value only for OAuth access tokens. Do not specify this
+			value for OpenID Connect ID tokens, such as accounts.google.com. Do not include
+			URL schemes and port numbers. Currently, <a href="http://www.amazon.com">www.amazon.com</a> and graph.facebook.com are
+			supported.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">Policy</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>A supplemental policy that is associated with the temporary security
+			credentials from the AssumeRoleWithWebIdentity call. The resulting permissions
+			of the temporary security credentials are an intersection of this policy and the
+			access policy that is associated with the role. Use this policy to further
+			restrict the permissions of the temporary security credentials.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">DurationSeconds</literal>
+		 =&gt; (int)
+		<div class="indented">
+			<p>The duration, in seconds, of the role session. The value can range from 900
+			seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to
+			3600 seconds.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">Credentials</literal>
+		 =&gt; (associative-array)
+		<div class="indented">
+			<p>The temporary security credentials, which include an access key ID, a secret
+			access key, and a security token.</p>
+		</div>
+
+		<ul class="param-list">
+			<li>
+				<literal class="shaded">AccessKeyId</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The access key ID that identifies the temporary security credentials.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">SecretAccessKey</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The secret access key that can be used to sign requests.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">SessionToken</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The token that users must pass to the service API to use the temporary
+					credentials.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">Expiration</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The date on which the current credentials expire.</p>
+				</div>
+			</li>
+		</ul>
+	</li>
+
+	<li>
+		<literal class="shaded">SubjectFromWebIdentityToken</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The unique user identifier that is returned by the identity provider. This
+			identifier is associated with the WebIdentityToken that was submitted with the
+			AssumeRoleWithWebIdentity call. The identifier is typically unique to the user
+			and the application that acquired the WebIdentityToken (pairwise identifier). If
+			an OpenID Connect ID token was submitted in the WebIdentityToken, this value is
+			returned by the identity provider as the token's sub (Subject) claim.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">AssumedRoleUser</literal>
+		 =&gt; (associative-array)
+		<div class="indented">
+			<p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers
+			that you can use to refer to the resulting temporary security credentials. For
+			example, you can reference these credentials as a principal in a resource-based
+			policy by using the ARN or assumed role ID. The ARN and ID include the
+			RoleSessionName that you specified when you called AssumeRole.</p>
+		</div>
+
+		<ul class="param-list">
+			<li>
+				<literal class="shaded">AssumedRoleId</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>A unique identifier that contains the role ID and the role session name of
+					the role that is being assumed. The role ID is generated by AWS when the role is
+					created.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">Arn</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The ARN of the temporary security credentials that are returned from the
+					AssumeRole action. For more information about ARNs and how to use them in
+					policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html" target="_blank">Identifiers for IAM Entities in <em>Using IAM</em>.</a></p>
+				</div>
+			</li>
+		</ul>
+	</li>
+
+	<li>
+		<literal class="shaded">PackedPolicySize</literal>
+		 =&gt; (int)
+		<div class="indented">
+			<p>A percentage value that indicates the size of the policy in packed form. The
+			service rejects any policy with a packed size greater than 100 percent, which
+			means the policy exceeded the allowed space.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_decodeAuthorizationMessage" class="dashAnchor"></a><div id="_decodeAuthorizationMessage" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_decodeAuthorizationMessage">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">decodeAuthorizationMessage</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the DecodeAuthorizationMessage operation.</p>
+
+<div class="aws-api-docs">
+	<p>Decodes additional information about the authorization status of a request
+	from an encoded message returned in response to an AWS request.</p>
+
+	<p>For example, if a user is not authorized to perform an action that he or she
+	has requested, the request returns a
+		<literal>Client.UnauthorizedOperation</literal>
+		 response (an HTTP 403 response). Some AWS actions additionally return an
+		encoded message that can provide details about this authorization failure.</p>
+	 Only certain AWS actions return an encoded authorization message. The
+	documentation for an individual action indicates whether that action returns an
+	encoded message in addition to returning an HTTP code.
+	<p>The message is encoded because the details of the authorization status can
+	constitute privileged information that the user who requested the action should
+	not see. To decode an authorization status message, a user must be granted
+	permissions via an IAM policy to request the
+		<literal>DecodeAuthorizationMessage</literal>
+		 (
+		<literal>sts:DecodeAuthorizationMessage</literal>
+		) action.</p>
+
+	<p>The decoded message includes the following type of information:</p>
+
+	<ul>
+		<li>Whether the request was denied due to an explicit deny or due to the absence
+		of an explicit allow. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AccessPolicyLanguage_EvaluationLogic.html#policy-eval-denyallow">Determining
+		Whether a Request is Allowed or Denied in <i>Using IAM</i>. </a>
+</li>
+
+		<li>The principal who made the request.</li>
+
+		<li>The requested action.</li>
+
+		<li>The requested resource.</li>
+
+		<li>The values of condition keys in the context of the user's request.</li>
+	</ul>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;decodeAuthorizationMessage(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// EncodedMessage is required</span>
+    <span class="php-quote">'EncodedMessage'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>EncodedMessage</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The encoded message that was returned with the response.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">DecodedMessage</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>An XML document that contains the decoded message.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getFederationToken" class="dashAnchor"></a><div id="_getFederationToken" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getFederationToken">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getFederationToken</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the GetFederationToken operation.</p>
+
+<div class="aws-api-docs">
+	<p>Returns a set of temporary security credentials (consisting of an access key
+	ID, a secret access key, and a security token) for a federated user. A typical
+	use is in a proxy application that is getting temporary security credentials on
+	behalf of distributed applications inside a corporate network. Because you must
+	call the
+		<literal>GetFederationToken</literal>
+		 action using the long-term security credentials of an IAM user, this call is
+		appropriate in contexts where those credentials can be safely stored, usually in
+		a server-based application.</p>
+
+	<p><b>Note:</b> Do not use this call in mobile applications or client-based web
+	applications that directly get temporary security credentials. For those types
+	of applications, use
+		<literal>AssumeRoleWithWebIdentity</literal>
+		.</p>
+
+	<p>The
+		<literal>GetFederationToken</literal>
+		 action must be called by using the long-term AWS security credentials of the
+		AWS account or an IAM user. Credentials that are created by IAM users are valid
+		for the specified duration, between 900 seconds (15 minutes) and 129600 seconds
+		(36 hours); credentials that are created by using account credentials have a
+		maximum duration of 3600 seconds (1 hour).</p>
+
+	<p>The permissions that are granted to the federated user are the intersection
+	of the policy that is passed with the
+		<literal>GetFederationToken</literal>
+		 request and policies that are associated with of the entity making the
+		<literal>GetFederationToken</literal>
+		 call.</p>
+
+	<p>For more information about how permissions work, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/TokenPermissions.html" target="_blank">Controlling Permissions in Temporary Credentials in <i>Using
+	Temporary Security Credentials</i>. For information about using
+		<literal>GetFederationToken</literal>
+		 to create temporary security credentials, see Creating Temporary Credentials to
+		Enable Access for Federated Users in <i>Using Temporary Security
+		Credentials</i>. </a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;getFederationToken(<span class="php-keyword1">array</span>(
+    <span class="php-comment">// Name is required</span>
+    <span class="php-quote">'Name'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'Policy'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'DurationSeconds'</span> =&gt; integer,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded"><b>Name</b></literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The name of the federated user. The name is used as an identifier for the
+			temporary security credentials (such as Bob). For example, you can reference the
+			federated user name in a resource-based policy, such as in an Amazon S3 bucket
+			policy.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">Policy</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>A policy that specifies the permissions that are granted to the federated
+			user. By default, federated users have no permissions; they do not inherit any
+			from the IAM user. When you specify a policy, the federated user's permissions
+			are intersection of the specified policy and the IAM user's policy. If you don't
+			specify a policy, federated users can only access AWS resources that explicitly
+			allow those federated users in a resource policy, such as in an Amazon S3 bucket
+			policy.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">DurationSeconds</literal>
+		 =&gt; (int)
+		<div class="indented">
+			<p>The duration, in seconds, that the session should last. Acceptable durations
+			for federation sessions range from 900 seconds (15 minutes) to 129600 seconds
+			(36 hours), with 43200 seconds (12 hours) as the default. Sessions for AWS
+			account owners are restricted to a maximum of 3600 seconds (one hour). If the
+			duration is longer than one hour, the session for AWS account owners defaults to
+			one hour.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">Credentials</literal>
+		 =&gt; (associative-array)
+		<div class="indented">
+			<p>Credentials for the service API authentication.</p>
+		</div>
+
+		<ul class="param-list">
+			<li>
+				<literal class="shaded">AccessKeyId</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The access key ID that identifies the temporary security credentials.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">SecretAccessKey</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The secret access key that can be used to sign requests.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">SessionToken</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The token that users must pass to the service API to use the temporary
+					credentials.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">Expiration</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The date on which the current credentials expire.</p>
+				</div>
+			</li>
+		</ul>
+	</li>
+
+	<li>
+		<literal class="shaded">FederatedUser</literal>
+		 =&gt; (associative-array)
+		<div class="indented">
+			<p>Identifiers for the federated user associated with the credentials (such as
+			arn:aws:sts::123456789012:federated-user/Bob or 123456789012:Bob). You can use
+			the federated user's ARN in your resource policies like in an Amazon S3 bucket
+			policy.</p>
+		</div>
+
+		<ul class="param-list">
+			<li>
+				<literal class="shaded">FederatedUserId</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The string that identifies the federated user associated with the
+					credentials, similar to the unique ID of an IAM user.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">Arn</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The ARN that specifies the federated user that is associated with the
+					credentials. For more information about ARNs and how to use them in policies,
+					see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html" target="_blank">Identifiers for IAM Entities in <em>Using IAM</em>.</a></p>
+				</div>
+			</li>
+		</ul>
+	</li>
+
+	<li>
+		<literal class="shaded">PackedPolicySize</literal>
+		 =&gt; (int)
+		<div class="indented">
+			<p>A percentage value indicating the size of the policy in packed form. The
+			service rejects policies for which the packed size is greater than 100 percent
+			of the allowed value.</p>
+		</div>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		<a name="//apple_ref/cpp/Method/_getSessionToken" class="dashAnchor"></a><div id="_getSessionToken" class="method-container">
+            <div class="method-info-container">
+                <a class="anchor" href="#_getSessionToken">#</a>
+                <code class="attributes ">
+                     public 
+                    <code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code>
+                    
+                </code>
+                <div class="name">
+                    <code>
+<span class="method-name">getSessionToken</span>( <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )
+                    </code>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="name method-details">
+
+
+                <div class="description detailed">
+                    
+<p>Executes the GetSessionToken operation.</p>
+
+<div class="aws-api-docs">
+	<p>Returns a set of temporary credentials for an AWS account or IAM user. The
+	credentials consist of an access key ID, a secret access key, and a security
+	token. Typically, you use
+		<literal>GetSessionToken</literal>
+		 if you want use MFA to protect programmatic calls to specific AWS APIs like
+		Amazon EC2
+		<literal>StopInstances</literal>
+		. MFA-enabled IAM users would need to call
+		<literal>GetSessionToken</literal>
+		 and submit an MFA code that is associated with their MFA device. Using the
+		temporary security credentials that are returned from the call, IAM users can
+		then make programmatic calls to APIs that require MFA authentication.</p>
+
+	<p>The
+		<literal>GetSessionToken</literal>
+		 action must be called by using the long-term AWS security credentials of the
+		AWS account or an IAM user. Credentials that are created by IAM users are valid
+		for the duration that you specify, between 900 seconds (15 minutes) and 129600
+		seconds (36 hours); credentials that are created by using account credentials
+		have a maximum duration of 3600 seconds (1 hour).</p>
+
+	<p>The permissions that are granted to the federated user are the intersection
+	of the policy that is passed with the
+		<literal>GetSessionToken</literal>
+		 request and policies that are associated with of the entity making the
+		<literal>GetSessionToken</literal>
+		 call.</p>
+
+	<p>For more information about using
+		<literal>GetSessionToken</literal>
+		 to create temporary credentials, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/CreatingSessionTokens.html" target="_blank"> Creating Temporary Credentials to Enable Access for IAM Users
+		in <i>Using IAM</i>. </a></p>
+</div>
+
+<div class="examples-container">
+	<h4>Examples</h4>
+
+	<div class="list">
+		<ul>
+			<li class="example">
+<a href="#">Basic formatting example</a>
+				<pre>
+<span class="php-var">$result</span> = <span class="php-var">$client</span>-&gt;getSessionToken(<span class="php-keyword1">array</span>(
+    <span class="php-quote">'DurationSeconds'</span> =&gt; integer,
+    <span class="php-quote">'SerialNumber'</span> =&gt; <span class="php-quote">'string'</span>,
+    <span class="php-quote">'TokenCode'</span> =&gt; <span class="php-quote">'string'</span>,
+));
+</pre>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+                        <h4>Parameters</h4>
+                        <div class="list"><dl>
+                            <dt><var>$args</var></dt>
+                            <dd>
+<code>array</code><br>$arg Associative array containing the following keys (required keys are bold):
+<ul class="param-list">
+	<li>
+		<literal class="shaded">DurationSeconds</literal>
+		 =&gt; (int)
+		<div class="indented">
+			<p>The duration, in seconds, that the credentials should remain valid.
+			Acceptable durations for IAM user sessions range from 900 seconds (15 minutes)
+			to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default.
+			Sessions for AWS account owners are restricted to a maximum of 3600 seconds (one
+			hour). If the duration is longer than one hour, the session for AWS account
+			owners defaults to one hour.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">SerialNumber</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The identification number of the MFA device that is associated with the IAM
+			user who is making the GetSessionToken call. Specify this value if the IAM user
+			has a policy that requires MFA authentication. The value is either the serial
+			number for a hardware device (such as GAHT12345678) or an Amazon Resource Name
+			(ARN) for a virtual device (such as arn:aws:iam::123456789012:mfa/user). You can
+			find the device for an IAM user by going to the AWS Management Console and
+			viewing the user's security credentials.</p>
+		</div>
+	</li>
+
+	<li>
+		<literal class="shaded">TokenCode</literal>
+		 =&gt; (string)
+		<div class="indented">
+			<p>The value provided by the MFA device, if MFA is required. If any policy
+			requires the IAM user to submit an MFA code, specify this value. If MFA
+			authentication is required, and the user does not provide a code when requesting
+			a set of temporary security credentials, the user will receive an "access
+			denied" response when requesting resources that require MFA authentication.</p>
+		</div>
+	</li>
+</ul>
+</dd>
+                        </dl></div>
+
+                        <h4>Returns</h4>
+                        <div class="list">
+                            <code><code><a href="class-Guzzle.Service.Resource.Model.html">Guzzle\Service\Resource\Model</a></code></code><br>Returns a response Model object
+<ul class="param-list">
+	<li>
+		<literal class="shaded">Credentials</literal>
+		 =&gt; (associative-array)
+		<div class="indented">
+			<p>The session credentials for API authentication.</p>
+		</div>
+
+		<ul class="param-list">
+			<li>
+				<literal class="shaded">AccessKeyId</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The access key ID that identifies the temporary security credentials.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">SecretAccessKey</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The secret access key that can be used to sign requests.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">SessionToken</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The token that users must pass to the service API to use the temporary
+					credentials.</p>
+				</div>
+			</li>
+
+			<li>
+				<literal class="shaded">Expiration</literal>
+				 =&gt; (string)
+				<div class="indented">
+					<p>The date on which the current credentials expire.</p>
+				</div>
+			</li>
+		</ul>
+	</li>
+</ul>
+<br>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+
+		</div>
+		</div>
+
+		<h3>Methods inherited from <a href="class-Aws.Common.Client.AbstractClient.html#methods">Aws\Common\Client\AbstractClient</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#___call">__call()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#___construct">__construct()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getAllEvents">getAllEvents()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getApiVersion">getApiVersion()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getCredentials">getCredentials()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getEndpoint">getEndpoint()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getRegion">getRegion()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getRegions">getRegions()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getSignature">getSignature()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getWaiter">getWaiter()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_getWaiterFactory">getWaiterFactory()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_send">send()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_setCredentials">setCredentials()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_setRegion">setRegion()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_setWaiterFactory">setWaiterFactory()</a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#_waitUntil">waitUntil()</a></code>
+		</p>
+		<h3>Methods inherited from <a href="class-Guzzle.Service.Client.html#methods">Guzzle\Service\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Service.Client.html#_execute">execute()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_executeMultiple">executeMultiple()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getCommand">getCommand()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getCommandFactory">getCommandFactory()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getDescription">getDescription()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getInflector">getInflector()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getIterator">getIterator()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_getResourceIteratorFactory">getResourceIteratorFactory()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_prepareCommand">prepareCommand()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_setCommandFactory">setCommandFactory()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_setDescription">setDescription()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_setInflector">setInflector()</a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#_setResourceIteratorFactory">setResourceIteratorFactory()</a></code>
+		</p>
+		<h3>Methods inherited from <a href="class-Guzzle.Http.Client.html#methods">Guzzle\Http\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Http.Client.html#_createRequest">createRequest()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_delete">delete()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_expandTemplate">expandTemplate()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_get">get()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getBaseUrl">getBaseUrl()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getConfig">getConfig()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getCurlMulti">getCurlMulti()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getDefaultOption">getDefaultOption()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getDefaultUserAgent">getDefaultUserAgent()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_getUriTemplate">getUriTemplate()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_head">head()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_initSsl">initSsl()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_options">options()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_patch">patch()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_post">post()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_preparePharCacert">preparePharCacert()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_prepareRequest">prepareRequest()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_put">put()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_sendMultiple">sendMultiple()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setBaseUrl">setBaseUrl()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setConfig">setConfig()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setCurlMulti">setCurlMulti()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setDefaultOption">setDefaultOption()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setRequestFactory">setRequestFactory()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setSslVerification">setSslVerification()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setUriTemplate">setUriTemplate()</a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#_setUserAgent">setUserAgent()</a></code>
+		</p>
+		<h3>Methods inherited from <a href="class-Guzzle.Common.AbstractHasDispatcher.html#methods">Guzzle\Common\AbstractHasDispatcher</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#_addSubscriber">addSubscriber()</a></code>, 
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#_dispatch">dispatch()</a></code>, 
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#_getEventDispatcher">getEventDispatcher()</a></code>, 
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#_setEventDispatcher">setEventDispatcher()</a></code>
+		</p>
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+		<h2>Constants summary</h2>
+		<table class="summary table table-bordered table-striped" id="constants">
+		<tr data-order="LATEST_API_VERSION" id="LATEST_API_VERSION">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+<b>LATEST_API_VERSION</b>			</code></td>
+			<td class="value"><code><span class="php-quote">'2011-06-15'</span></code></td>
+			<td class="description"><div>
+				<a href="#LATEST_API_VERSION" class="anchor">#</a>
+
+
+				<div class="description detailed">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Constants inherited from <a href="class-Guzzle.Service.Client.html#constants">Guzzle\Service\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Service.Client.html#COMMAND_PARAMS"><b>COMMAND_PARAMS</b></a></code>
+		</p>
+		<h3>Constants inherited from <a href="class-Guzzle.Http.Client.html#constants">Guzzle\Http\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Http.Client.html#CURL_OPTIONS"><b>CURL_OPTIONS</b></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#DISABLE_REDIRECTS"><b>DISABLE_REDIRECTS</b></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#REQUEST_OPTIONS"><b>REQUEST_OPTIONS</b></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#SSL_CERT_AUTHORITY"><b>SSL_CERT_AUTHORITY</b></a></code>
+		</p>
+		<h3>Constants inherited from <a href="class-Guzzle.Http.ClientInterface.html#constants">Guzzle\Http\ClientInterface</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Http.ClientInterface.html#CREATE_REQUEST"><b>CREATE_REQUEST</b></a></code>, 
+			<code><a href="class-Guzzle.Http.ClientInterface.html#HTTP_DATE"><b>HTTP_DATE</b></a></code>
+		</p>
+
+
+
+		<h2>Properties summary</h2>
+
+		<h3>Properties inherited from <a href="class-Aws.Common.Client.AbstractClient.html#properties">Aws\Common\Client\AbstractClient</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#$credentials"><var>$credentials</var></a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#$signature"><var>$signature</var></a></code>, 
+			<code><a href="class-Aws.Common.Client.AbstractClient.html#$waiterFactory"><var>$waiterFactory</var></a></code>
+		</p>
+		<h3>Properties inherited from <a href="class-Guzzle.Service.Client.html#properties">Guzzle\Service\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Service.Client.html#$commandFactory"><var>$commandFactory</var></a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#$inflector"><var>$inflector</var></a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#$resourceIteratorFactory"><var>$resourceIteratorFactory</var></a></code>, 
+			<code><a href="class-Guzzle.Service.Client.html#$serviceDescription"><var>$serviceDescription</var></a></code>
+		</p>
+		<h3>Properties inherited from <a href="class-Guzzle.Http.Client.html#properties">Guzzle\Http\Client</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Http.Client.html#$defaultHeaders"><var>$defaultHeaders</var></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#$requestFactory"><var>$requestFactory</var></a></code>, 
+			<code><a href="class-Guzzle.Http.Client.html#$userAgent"><var>$userAgent</var></a></code>
+		</p>
+		<h3>Properties inherited from <a href="class-Guzzle.Common.AbstractHasDispatcher.html#properties">Guzzle\Common\AbstractHasDispatcher</a>
+</h3>
+		<p class="elementList">
+			<code><a href="class-Guzzle.Common.AbstractHasDispatcher.html#$eventDispatcher"><var>$eventDispatcher</var></a></code>
+		</p>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AWS SDK for PHP 2 API documentation generated by <a href="http://apigen.org">ApiGen 3.0dev</a>
+	</div>
+</div>
+
+<script type="text/javascript">
+    // Toggle example display
+    $('.example a').click(function(ele) {
+        $(this).parent('li').children('pre').toggle();
+        return false;
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>MCollective » Configure » Clients — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../favicon.ico' />
+
+
+  <meta name="description" content="This document describes MCollective client configuration in MCollective 2.0.0 and higher. Older versions may lack certain features.Example / IndexT...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/mcollective/configure/client.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">MCollective » Configure » Clients</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>MCollective » Configure » Clients</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#example--index">Example / Index</a></li>
+  <li class="toc-lv2"><a href="#the-client-config-files">The Client Config File(s)</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#file-format">File Format</a></li>
+   <li class="toc-lv3"><a href="#plugin-config-directory-optional">Plugin Config Directory (Optional)</a></li>
+   <li class="toc-lv3"><a href="#best-practices">Best Practices</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#required-settings">Required Settings</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#connector-settings">Connector Settings</a></li>
+   <li class="toc-lv3"><a href="#security-plugin-settings">Security Plugin Settings</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#interface-settings">Interface Settings</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#discovery">Discovery</a></li>
+   <li class="toc-lv3"><a href="#performance">Performance</a></li>
+   <li class="toc-lv3"><a href="#miscellaneous">Miscellaneous</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#optional-features">Optional Features</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#subcollectives">Subcollectives</a></li>
+</ol></li>
+  <li class="toc-lv2"><a href="#advanced-settings">Advanced Settings</a>
+<ol class="toc">
+   <li class="toc-lv3"><a href="#logging">Logging</a></li>
+   <li class="toc-lv3"><a href="#platform-defaults">Platform Defaults</a></li>
+</ol></li>
+</ol></nav>
+
+<p>This document describes MCollective client configuration in MCollective 2.0.0 and higher. Older versions may lack certain features.</p>
+
+<h2 id="example--index">Example / Index</h2>
+
+<p>The following is an example MCollective client config file showing all of the major groups of settings. All of the setting names styled as links can be clicked, and will take you down the page to a full description of that setting.</p>
+
+<p><a href="#the-client-config-files">See below the example for a full description of the config file location and format.</a></p>
+
+<pre><code># ~/.mcollective
+# or
+# /etc/mcollective/client.cfg
+
+# <a href="#connector-settings">Connector settings (required):</a>
+# -----------------------------
+
+<a href="#connector">connector</a> = activemq
+<a href="#directaddressing">direct_addressing</a> = 1
+
+# <a href="#activemq-connector-settings">ActiveMQ connector settings:</a>
+plugin.activemq.pool.size = 1
+plugin.activemq.pool.1.host = middleware.example.net
+plugin.activemq.pool.1.port = 61614
+plugin.activemq.pool.1.user = mcollective
+plugin.activemq.pool.1.password = secret
+plugin.activemq.pool.1.ssl = 1
+plugin.activemq.pool.1.ssl.ca = /var/lib/puppet/ssl/certs/ca.pem
+plugin.activemq.pool.1.ssl.cert = /var/lib/puppet/ssl/certs/web01.example.com.pem
+plugin.activemq.pool.1.ssl.key = /var/lib/puppet/ssl/private_keys/web01.example.com.pem
+plugin.activemq.pool.1.ssl.fallback = 0
+
+# <a href="#rabbitmq-connector-settings">RabbitMQ connector settings:</a>
+plugin.rabbitmq.vhost = /mcollective
+plugin.rabbitmq.pool.size = 1
+plugin.rabbitmq.pool.1.host = middleware.example.net
+plugin.rabbitmq.pool.1.port = 61613
+# ... etc., similar to activemq settings
+
+# <a href="#security-plugin-settings">Security plugin settings (required):</a>
+# -----------------------------------
+
+<a href="#securityprovider">securityprovider</a> = ssl
+
+# <a href="#ssl-plugin-settings">SSL plugin settings:</a>
+plugin.ssl_server_public = /Users/nick/mcollective.d/credentials/certs/mcollective-servers.pem
+plugin.ssl_client_private = /Users/nick/mcollective.d/credentials/private_keys/nick-mco.pem
+plugin.ssl_client_public = /Users/nick/mcollective.d/credentials/certs/nick-mco.pem
+
+# <a href="#psk-plugin-settings">PSK plugin settings:</a>
+plugin.psk = j9q8kx7fnuied9e
+
+# <a href="#interface-settings">Interface settings (optional):</a>
+# ------------------------------
+
+# <a href="#discovery">Discovery settings:</a>
+
+<a href="#defaultdiscoverymethod">default_discovery_method</a> = mc
+# <a href="#defaultdiscoveryoptions">default_discovery_options</a> = /etc/mcollective/nodes.txt
+
+# <a href="#performance">Performance settings:</a>
+
+<a href="#directaddressingthreshold">direct_addressing_threshold</a> = 10
+<a href="#ttl">ttl</a> = 60
+
+# <a href="#miscellaneous">Miscellaneous settings:</a>
+
+<a href="#color">color</a> = 1
+<a href="#rpclimitmethod">rpclimitmethod</a> = first
+
+# <a href="#subcollectives">Subcollectives (optional):</a>
+# -----------------------------------
+
+<a href="#collectives">collectives</a> = mcollective,uk_collective
+<a href="#maincollective">main_collective</a> = mcollective
+
+# <a href="#advanced-settings">Advanced settings and platform defaults:</a>
+# -----------------------------------
+
+<a href="#loggertype">logger_type</a> = console
+<a href="#loglevel">loglevel</a> = warn
+<a href="#logfile">logfile</a> = /var/log/mcollective.log
+<a href="#keeplogs">keeplogs</a> = 5
+<a href="#maxlogsize">max_log_size</a> = 2097152
+<a href="#logfacility">logfacility</a> = user
+<a href="#libdir">libdir</a> = /usr/libexec/mcollective
+<a href="#rpchelptemplate">rpchelptemplate</a> = /etc/mcollective/rpc-help.erb
+<a href="#helptemplatedir">helptemplatedir</a> = /etc/mcollective
+<a href="#sslcipher">ssl_cipher</a> = aes-256-cbc
+</code>
+</pre>
+
+<h2 id="the-client-config-files">The Client Config File(s)</h2>
+
+<p>The <code>mco</code> client is usually run interactively from an admin workstation, but can also be run by scripts on a server.</p>
+
+<p>These cases have different needs. In the first, the configuration and credentials should be per-user; in the second, they should be at the system level with restricted visibility of the credentials. MCollective solves this by having two locations for the client configuration:</p>
+
+<ul>
+  <li><code>~/.mcollective</code> &#8212; A <code>.mcollective</code> file in the current user&#8217;s home directory. If this file exists, <code>mco</code> will use it instead of the global config file.</li>
+  <li><code>/etc/mcollective/client.cfg</code> &#8212; A global client config file, which will be used if <code>~/.mcollective</code> doesn&#8217;t exist. If you are using this file, read access to it and the external credentials it refers to should be strictly controlled, probably limited to the root user.</li>
+</ul>
+
+<h3 id="file-format">File Format</h3>
+
+<p>Each line consists of a setting, an equals sign, and a value:</p>
+
+<pre><code># setting = value
+connector = activemq
+</code></pre>
+
+<p>The spaces on either side of the equals sign are optional. Lines starting with a <code>#</code> are comments.</p>
+
+<blockquote>
+  <p><strong>Note on Boolean Values:</strong> MCollective&#8217;s config code does not have consistent handling of boolean values. Many of the core settings will accept values of <code>1/0</code> and <code>y/n</code>, but will fail to handle <code>true/false</code>; additionally, each plugin can handle boolean values differently, and some of them do not properly handle the <code>y/n</code> values accepted by the core settings.</p>
+
+  <p>Nearly all known plugins and core settings accept <code>1</code> and <code>0</code>. Until further notice, you should always use these for all boolean settings, as no other values are universally safe.</p>
+</blockquote>
+
+<h3 id="plugin-config-directory-optional">Plugin Config Directory (Optional)</h3>
+
+<p>Many of MCollective&#8217;s settings are named with the format <code>plugin.&lt;NAME&gt;.&lt;SETTING_NAME&gt;</code>. These settings can optionally be put in separate files, in the <code>/etc/mcollective/plugin.d/</code> directory. If you are using the mco client in system-level scripts, this can let the client and the server daemon share some settings, but it isn&#8217;t particularly useful when you&#8217;re doing per-user client configuration, and there&#8217;s no equivalent <code>plugin.d</code> directory in the user&#8217;s home directory.</p>
+
+<p>To move a <code>plugin.&lt;NAME&gt;.&lt;SETTING_NAME&gt;</code> setting to an external file, put it in <code>/etc/mcollective/plugin.d/&lt;NAME&gt;.cfg</code>, and use only the <code>&lt;SETTING_NAME&gt;</code> segment of the setting. So this:</p>
+
+<pre><code># /etc/mcollective/server.cfg
+plugin.puppet.splay = true
+</code></pre>
+
+<p>&#8230;is equivalent to:</p>
+
+<pre><code># /etc/mcollective/plugin.d/puppet.cfg
+splay = true
+</code></pre>
+
+<p>Note that this doesn&#8217;t work for settings like <code>plugin.psk</code>, since they have no <code>&lt;SETTING_NAME&gt;</code> segment; a setting must have at least three segments to go in a plugin.cfg file.</p>
+
+<h3 id="best-practices">Best Practices</h3>
+
+<p>Due to the user-centric nature of client configuration and the need to keep client private keys secure and isolated, it doesn&#8217;t make as much sense to manage client config files with Puppet (or other config management software). In fact, creating a Puppet-based client configuration toolkit is likely to be a non-trivial effort.</p>
+
+<p>Instead, we recommend manually distributing a partial configuration file with most of the connector settings filled out, and allowing your admin users to finish their configuration based on their own credentials. Include hints for the settings they&#8217;ll need to fill in:</p>
+
+<pre><code>plugin.ssl_client_private = &lt;YOUR PRIVATE KEY FILE&gt;
+</code></pre>
+
+<h2 id="required-settings">Required Settings</h2>
+
+<h3 id="connector-settings">Connector Settings</h3>
+
+<pre><code><a href="#connector">connector</a> = activemq
+<a href="#directaddressing">direct_addressing</a> = 1
+
+# <a href="#activemq-connector-settings">ActiveMQ connector settings:</a>
+plugin.activemq.pool.size = 1
+plugin.activemq.pool.1.host = middleware.example.net
+plugin.activemq.pool.1.port = 61614
+plugin.activemq.pool.1.user = mcollective
+plugin.activemq.pool.1.password = secret
+plugin.activemq.pool.1.ssl = 1
+# When ssl == 1:
+plugin.activemq.pool.1.ssl.ca = /var/lib/puppet/ssl/certs/ca.pem
+plugin.activemq.pool.1.ssl.cert = /var/lib/puppet/ssl/certs/web01.example.com.pem
+plugin.activemq.pool.1.ssl.key = /var/lib/puppet/ssl/private_keys/web01.example.com.pem
+plugin.activemq.pool.1.ssl.fallback = 0
+
+# <a href="#rabbitmq-connector-settings">RabbitMQ connector settings:</a>
+plugin.rabbitmq.vhost = /mcollective
+plugin.rabbitmq.pool.size = 1
+plugin.rabbitmq.pool.1.host = middleware.example.net
+plugin.rabbitmq.pool.1.port = 61613
+# ... etc., similar to activemq settings
+</code>
+</pre>
+
+<p>MCollective always requires a connector plugin. The connector plugin is determined by the <a href="./../../mcollective/deploy/middleware/index.html">middleware</a> you chose for your deployment. Each connector plugin will have additional settings it requires.</p>
+
+<blockquote>
+  <h4 id="shared-configuration">Shared Configuration</h4>
+
+  <ul>
+    <li>All servers and clients must use the same connector plugin, and its settings must be configured compatibly.</li>
+    <li>You must use the right connector plugin for your <a href="./../../mcollective/deploy/middleware/index.html">choice of middleware</a>.</li>
+    <li>The hostname and port must match what the middleware is using. The username and password must be valid login accounts on the middleware. If you are using <a href="./../../mcollective/deploy/middleware/activemq.html#tls-credentials">CA-verified TLS</a>, the certificate must be signed by the same CA the middleware is using.</li>
+  </ul>
+</blockquote>
+
+<h4 id="connector"><code>connector</code></h4>
+
+<p>Which connector plugin to use. This is determined by your <a href="./../../mcollective/deploy/middleware/index.html">choice of middleware</a>.</p>
+
+<ul>
+  <li><em>Default:</em> <code>activemq</code></li>
+  <li><em>Allowed values:</em> <code>activemq</code>, <code>rabbitmq</code>, or the name of a third-party connector plugin. <strong>Note:</strong> Capitalization of plugin names doesn&#8217;t matter; MCollective normalizes it before loading the plugin.</li>
+</ul>
+
+<h4 id="directaddressing"><code>direct_addressing</code></h4>
+
+<p>Whether your middleware supports direct point-to-point messages. <strong>This should usually be turned on,</strong> although it is off by default. The built-in <code>activemq</code> and <code>rabbitmq</code> connectors both support direct addressing, as does the external <code>redis</code> connector. (The older <code>stomp</code> connector, however, does not.)</p>
+
+<ul>
+  <li><em>Default:</em> <code>0</code></li>
+  <li><em>Allowed values:</em> <code>1</code>, <code>0</code>, <code>y</code>, <code>n</code> &#8212; <strong>Note:</strong> Use these exact values only; do not use &#8220;true&#8221; or &#8220;false.&#8221;</li>
+</ul>
+
+<h4 id="activemq-connector-settings">ActiveMQ Connector Settings</h4>
+
+<p>ActiveMQ is the main middleware we recommend for MCollective. The ActiveMQ connector can use multiple servers as a failover pool; if you have only one server, just use a pool size of <code>1</code>.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> This is only a summary of the most commonly used ActiveMQ settings; there are about ten more settings that can be used to tune the connector&#8217;s performance. <a href="./../../mcollective/reference/plugins/connector_activemq.html">See the ActiveMQ connector documentation</a> for more complete details.</p>
+</blockquote>
+
+<ul>
+  <li><strong><code>plugin.activemq.pool.size</code></strong> &#8212; How many ActiveMQ servers to attempt to use. <em>Default:</em> (nothing)</li>
+  <li><strong><code>plugin.activemq.pool.1.host</code></strong> &#8212; The hostname of the first ActiveMQ server. (Note that additional servers use the same settings as the first, incrementing the number.) <em>Default:</em> (nothing)</li>
+  <li><strong><code>plugin.activemq.pool.1.port</code></strong> &#8212; The Stomp port of the first ActiveMQ server. <em>Default:</em> <code>61613</code> or <code>6163</code>, depending on the MCollective version.</li>
+  <li><strong><code>plugin.activemq.pool.1.user</code></strong> &#8212; The ActiveMQ user account to connect as. If the <code>STOMP_USER</code> environment variable is set, MCollective will use its value instead of this setting.</li>
+  <li><strong><code>plugin.activemq.pool.1.password</code></strong> &#8212; The password for the user account being used. If the <code>STOMP_PASSWORD</code> environment variable is set, MCollective will use its value instead of this setting.</li>
+  <li><strong><code>plugin.activemq.pool.1.ssl</code></strong> &#8212; Whether to use TLS when connecting to ActiveMQ. <em>Default:</em> <code>0</code>; <em>allowed:</em> <code>1/0</code>, <code>true/false</code>, <code>yes/no</code></li>
+  <li><strong><code>plugin.activemq.pool.1.ssl.fallback</code></strong> &#8212; <em>(When <code>ssl == 1</code>)</em> Whether to allow unverified TLS if the ca/cert/key settings aren&#8217;t set. <em>Default:</em> <code>0</code>; <em>allowed:</em> <code>1/0</code>, <code>true/false</code>, <code>yes/no</code></li>
+  <li><strong><code>plugin.activemq.pool.1.ssl.ca</code></strong> &#8212; <em>(When <code>ssl == 1</code>)</em> The CA certificate to use when verifying ActiveMQ&#8217;s certificate. Must be the fully-qualified path to a <code>.pem</code> file. <em>Default:</em> (nothing)</li>
+  <li><strong><code>plugin.activemq.pool.1.ssl.cert</code></strong> &#8212; <em>(When <code>ssl == 1</code>)</em> The certificate to present when connecting to ActiveMQ. Must be the fully-qualified path to a <code>.pem</code> file. As of version 2.3.2 MCollective will also check the environment variable <code>MCOLLECTIVE_ACTIVEMQ_POOL1_SSL_CERT</code> for
+the client&#8217;s ssl cert. <em>Default:</em> (nothing)</li>
+  <li><strong><code>plugin.activemq.pool.1.ssl.key</code></strong> &#8212; <em>(When <code>ssl == 1</code>)</em> The private key corresponding to this node&#8217;s certificate. Must be the fully-qualified path to a <code>.pem</code> file. As of version 2.3.2 MCollective will also check the environment variable <code>MCOLLECTIVE_ACTIVEMQ_POOL1_SSL_KEY</code> for
+the client&#8217;s ssl key. <em>Default:</em> (nothing)</li>
+</ul>
+
+<h4 id="rabbitmq-connector-settings">RabbitMQ Connector Settings</h4>
+
+<p>The RabbitMQ connector uses very similar settings to the ActiveMQ connector, with the same <code>.pool.1.host</code> style of setting names.</p>
+
+<p><a href="./../../mcollective/reference/plugins/connector_rabbitmq.html">See the RabbitMQ connector documentation</a> for more complete details.</p>
+
+<p>(<a href="#content">↑ Back to top</a>)</p>
+
+<h3 id="security-plugin-settings">Security Plugin Settings</h3>
+
+<pre><code><a href="#securityprovider">securityprovider</a> = ssl
+
+# <a href="#ssl-plugin-settings">SSL plugin settings:</a>
+plugin.ssl_server_public = /Users/nick/mcollective.d/credentials/certs/mcollective-servers.pem
+plugin.ssl_client_private = /Users/nick/mcollective.d/credentials/private_keys/nick-mco.pem
+plugin.ssl_client_public = /Users/nick/mcollective.d/credentials/certs/nick-mco.pem
+
+# <a href="#psk-plugin-settings">PSK plugin settings:</a>
+plugin.psk = j9q8kx7fnuied9e
+</code>
+</pre>
+
+<p>MCollective always requires a security plugin. (Although they&#8217;re called security plugins, they actually handle more, including message serialization.) Each security plugin will have additional settings it requires.</p>
+
+<blockquote>
+  <h4 id="shared-configuration-1">Shared Configuration</h4>
+
+  <p>All servers and clients must use the same security plugin, and its settings must be configured compatibly.</p>
+</blockquote>
+
+<p>It&#8217;s possible to write new security plugins, but most people use one of the three included in MCollective:</p>
+
+<ul>
+  <li><strong>SSL:</strong> The best choice for most users. Provides very good security when combined with TLS on the connector plugin (see above).</li>
+  <li><strong>PSK:</strong> Poor security, but easy to configure; fine for proof-of-concept deployments.</li>
+  <li><strong>AES:</strong> Complex to configure, and carries a noticable performance cost in large networks. Only suitable for certain use cases, like where TLS on the middleware is impossible.</li>
+</ul>
+
+<p>For a full-system look at how security works in MCollective, see <a href="./../../mcollective/security.html">Security Overview</a>.</p>
+
+<h4 id="securityprovider"><code>securityprovider</code></h4>
+
+<p>Which security plugin to use.</p>
+
+<ul>
+  <li><em>Default:</em> <code>psk</code></li>
+  <li><em>Allowed values:</em> <code>ssl</code>, <code>psk</code>, <code>aes_security</code>, or the name of a third-party security plugin. <strong>Note:</strong> Capitalization of plugin names doesn&#8217;t matter; MCollective normalizes it before loading the plugin.</li>
+</ul>
+
+<h4 id="ssl-plugin-settings">SSL Plugin Settings</h4>
+
+<blockquote>
+  <p><strong>Note:</strong> This security plugin requires you to manage and distribute SSL credentials. <a href="./../../mcollective/reference/plugins/security_ssl.html">See the SSL security plugin page</a> for full details. In summary:</p>
+
+  <ul>
+    <li>All servers share <strong>one</strong> &#8220;server&#8221; keypair. They must all have a copy of the public key and private key.</li>
+    <li>Every admin user must have a copy of the server public key.</li>
+    <li>Every admin user has their own &#8220;client&#8221; keypair.</li>
+    <li>Every server must have a copy of <strong>every</strong> authorized client public key.</li>
+  </ul>
+</blockquote>
+
+<p>All of these settings have <strong>no default,</strong> and must be set for the SSL plugin to work.</p>
+
+<ul>
+  <li><strong><code>plugin.ssl_server_public</code></strong> &#8212; The fully-qualified path to the server public key file, which must be in <code>.pem</code> format.</li>
+  <li><strong><code>plugin.ssl_client_private</code></strong> &#8212; The fully-qualified path to the client private key file, which must be in <code>.pem</code> format.</li>
+  <li><strong><code>plugin.ssl_client_public</code></strong> &#8212; The fully-qualified path to the client public key file, which must be in <code>.pem</code> format.</li>
+</ul>
+
+<p>The server uses different settings, which are covered in the <a href="./server.html#ssl-plugin-settings">server config reference</a>:</p>
+
+<ul>
+  <li><code>plugin.ssl_server_private</code></li>
+  <li><code>plugin.ssl_server_public</code></li>
+  <li><code>plugin.ssl_client_cert_dir</code></li>
+</ul>
+
+<h4 id="psk-plugin-settings">PSK Plugin Settings</h4>
+
+<blockquote>
+  <p><strong>Note:</strong> The only credential used by this plugin is a single shared password, which all servers and admin users have a copy of.</p>
+</blockquote>
+
+<ul>
+  <li><strong><code>plugin.psk</code></strong> &#8212; The shared passphrase. If the <code>MCOLLECTIVE_PSK</code> environment variable is set, MCollective will use its value instead of this setting.</li>
+</ul>
+
+<p>(<a href="#content">↑ Back to top</a>)</p>
+
+<h2 id="interface-settings">Interface Settings</h2>
+
+<pre><code># <a href="#discovery">Discovery settings:</a>
+
+<a href="#defaultdiscoverymethod">default_discovery_method</a> = mc
+# <a href="#defaultdiscoveryoptions">default_discovery_options</a> = /etc/mcollective/nodes.txt
+
+# <a href="#performance">Performance settings:</a>
+
+<a href="#directaddressingthreshold">direct_addressing_threshold</a> = 10
+<a href="#ttl">ttl</a> = 60
+
+# <a href="#miscellaneous">Miscellaneous settings:</a>
+
+<a href="#color">color</a> = 1
+<a href="#rpclimitmethod">rpclimitmethod</a> = first
+</code>
+</pre>
+
+<p>These settings affect the user-facing behavior of the <code>mco</code> client. They generally have sensible defaults and can be ignored, but you can also modify them to match your day-to-day usage.</p>
+
+<h3 id="discovery">Discovery</h3>
+
+<p>The mco client always &#8220;discovers&#8221; a list of nodes before issuing requests. For broadcast requests, this is the list of expected responses to the request, and the client will stop waiting once every node has replied. For directed requests, the list is used as the list of destinations as well as the list of expected responses.</p>
+
+<p>Discovery is <a href="./../../mcollective/reference/ui/filters.html">performed with command-line filters</a>, which can operate on identity, facts, classes, agent plugins, or custom data plugins.</p>
+
+<p>The default <code>mc</code> discovery method uses dummy MCollective messages; this is maximally versatile and requires no central inventory, but entails a wait for responses before mco can send the request. There are other discovery plugins available, all of which trade features for speed.</p>
+
+<h4 id="defaultdiscoverymethod"><code>default_discovery_method</code></h4>
+
+<p>The default method to use for <a href="./../../mcollective/reference/ui/filters.html">discovery</a>; you can specify discovery methods per command with the <code>--dm METHOD</code> option.</p>
+
+<p>Discovery methods are provided by <a href="./../../mcollective/reference/plugins/discovery.html">discovery plugins</a>; run <code>mco plugin doc</code> and see the &#8220;Discovery Methods&#8221; section to see a list of available discovery plugins on your system.</p>
+
+<ul>
+  <li><em>Default:</em> <code>mc</code></li>
+  <li><em>Allowed values:</em> Any installed discovery plugin</li>
+</ul>
+
+<h4 id="defaultdiscoveryoptions"><code>default_discovery_options</code></h4>
+
+<p>Options to pass to the discovery plugin. This acts as a default value for the <code>--do OPTIONS</code> command-line flag.</p>
+
+<p><strong>Most discovery methods do not use this,</strong> and there isn&#8217;t a common format for its value; it&#8217;s parsed independently by each discovery plugin.</p>
+
+<p>The only common discovery method that uses this setting is <code>flatfile</code>, where it should be the filename of a list of nodes (with one node identity per line). Setting the following options:</p>
+
+<pre><code>default_discovery_method = flatfile
+default_discovery_options = /etc/mcollective/nodes.txt
+</code></pre>
+
+<p>&#8230;is the equivalent of specifying the option <code>--nodes /etc/mcollective/nodes.txt</code> (or the pair <code>--dm flatfile --do /etc/mcollective/nodes.txt</code>) for every command, except those where you explicitly specify something like <code>--dm mc</code>.</p>
+
+<ul>
+  <li><em>Default:</em> (nothing)</li>
+</ul>
+
+<h3 id="performance">Performance</h3>
+
+<h4 id="directaddressingthreshold"><code>direct_addressing_threshold</code></h4>
+
+<p>If <a href="#directaddressing">direct addressing</a> is enabled and <a href="./../../mcollective/reference/ui/filters.html">discovery</a> returns few nodes &#8212; less than or equal to the value of this setting &#8212; <code>mco</code> will automatically translate a broadcast request into several direct requests. This saves load on your whole infrastructure, since uninvolved servers will not have to deserialize and validate the message.</p>
+
+<ul>
+  <li><em>Default:</em> <code>10</code></li>
+  <li><em>Allowed values:</em> Any positive integer</li>
+</ul>
+
+<h4 id="ttl"><code>ttl</code></h4>
+
+<p>The default TTL for requests. You can specify TTL per command with the <code>--ttl</code> option.</p>
+
+<p>Any server that receives a request after its TTL has expired will reject it. Since the recommend SSL security plugin signs the TTL, it cannot be altered or spoofed; this provides some protection from replay attacks.</p>
+
+<ul>
+  <li><em>Default:</em> <code>60</code></li>
+  <li><em>Allowed values:</em> Any positive integer</li>
+</ul>
+
+<h3 id="miscellaneous">Miscellaneous</h3>
+
+<h4 id="color"><code>color</code></h4>
+
+<p>Whether to use color when displaying text on the console.</p>
+
+<ul>
+  <li><em>Default:</em> <code>1</code> on *nix systems; <code>0</code> on Windows</li>
+  <li><em>Allowed values:</em> <code>1</code>, <code>0</code>, <code>y</code>, <code>n</code> &#8212; <strong>Note:</strong> Use these exact values only; do not use &#8220;true&#8221; or &#8220;false.&#8221;</li>
+</ul>
+
+<h4 id="rpclimitmethod"><code>rpclimitmethod</code></h4>
+
+<p>How <code>mco</code> should choose which nodes to message, when using the <code>--limit-nodes</code> option.</p>
+
+<ul>
+  <li><em>Default:</em> <code>first</code></li>
+  <li><em>Allowed values:</em> <code>first</code>, <code>random</code></li>
+</ul>
+
+<p>(<a href="#content">↑ Back to top</a>)</p>
+
+<h2 id="optional-features">Optional Features</h2>
+
+<h3 id="subcollectives">Subcollectives</h3>
+
+<pre><code><a href="#collectives">collectives</a> = mcollective,uk_collective
+<a href="#maincollective">main_collective</a> = mcollective
+</code>
+</pre>
+
+<p>Subcollectives provide an alternate way of dividing up the servers in a deployment. They are mostly useful because the middleware can be made aware of them, which enables traffic flow and access restrictions. In multi-datacenter deployments, this can save bandwidth costs and give some extra security.</p>
+
+<ul>
+  <li><a href="./../../mcollective/reference/basic/subcollectives.html">See the Subcollectives and Partitioning page</a> for more details and an example of site partitioning.</li>
+</ul>
+
+<p>Subcollective membership is managed <strong>on the server side,</strong> by each server&#8217;s config file. A given server can join any number of collectives, and will respond to commands from any of them.</p>
+
+<p>On the client side, mco will only send requests to subcollectives that are mentioned in its config file. It will default to sending requests to its <code>main_collective</code>.</p>
+
+<blockquote>
+  <h4 id="shared-configuration-2">Shared Configuration</h4>
+
+  <p>If you are using any additional collectives (besides the default <code>mcollective</code> collective), your middleware must be configured to permit traffic on those collectives. See the middleware deployment guide for your specific middleware to see how to do this:</p>
+
+  <ul>
+    <li>ActiveMQ: <a href="./../../mcollective/deploy/middleware/activemq.html#topic-and-queue-names">Subcollective topic/queue names</a> &#8212; <a href="/mcollective/deploy/middleware/activemq.html#detailed-restrictions-with-multiple-subcollectives">Multi-subcollective authorization example</a></li>
+  </ul>
+</blockquote>
+
+<h4 id="collectives"><code>collectives</code></h4>
+
+<p>A comma-separated list (spaces OK) of <a href="./../../mcollective/reference/basic/subcollectives.html">subcollectives</a> mco can send requests to.</p>
+
+<ul>
+  <li><em>Default:</em> <code>mcollective</code></li>
+  <li><em>Sample value:</em> <code>mcollective,uk_collective</code></li>
+</ul>
+
+<h4 id="maincollective"><code>main_collective</code></h4>
+
+<p>The default collective to send requests to; requests without an explicit collective will go here. You can specify another collective on the command line with the <code>--target</code> option.</p>
+
+<ul>
+  <li><em>Default:</em> (the first value of <a href="#collectives">the <code>collectives</code> setting</a>, usually <code>mcollective</code>)</li>
+</ul>
+
+<p>(<a href="#content">↑ Back to top</a>)</p>
+
+<h2 id="advanced-settings">Advanced Settings</h2>
+
+<p>These settings can generally be ignored, as appropriate values should have been set by the package you installed MCollective with.</p>
+
+<h3 id="logging">Logging</h3>
+
+<pre><code><a href="#loggertype">logger_type</a> = console
+<a href="#loglevel">loglevel</a> = warn
+<a href="#logfile">logfile</a> = /var/log/mcollective.log
+<a href="#keeplogs">keeplogs</a> = 5
+<a href="#maxlogsize">max_log_size</a> = 2097152
+<a href="#logfacility">logfacility</a> = user
+</code>
+</pre>
+
+<p>By default, the <code>mco</code> client logs directly to the console with a loglevel of <code>warn</code>. This is generally what you want. You can get more information by setting the <code>loglevel</code> to <code>info</code> or <code>debug</code>, and you can redirect the log to a file by changing the <code>logger_type</code>.</p>
+
+<p>The other log settings are mostly applicable to the server daemon, rather than the client. Some settings only apply if you are using log files, and some only apply if you are using syslog.</p>
+
+<h4 id="loggertype"><code>logger_type</code></h4>
+
+<p>How the MCollective server daemon should log. You generally want to use a file or syslog.</p>
+
+<ul>
+  <li><em>Default:</em> <code>file</code></li>
+  <li><em>Allowed values:</em> <code>file</code>, <code>syslog</code>, <code>console</code></li>
+</ul>
+
+<h4 id="loglevel"><code>loglevel</code></h4>
+
+<p>How verbosely to log.</p>
+
+<ul>
+  <li><em>Default:</em> <code>info</code></li>
+  <li><em>Allowed values:</em> In increasing order of verbosity: <code>fatal</code>, <code>error</code> , <code>warn</code>, <code>info</code>, <code>debug</code></li>
+</ul>
+
+<h4 id="logfile"><code>logfile</code></h4>
+
+<p><em>When <code>logger_type == file</code></em></p>
+
+<p>Where the log file should be stored.</p>
+
+<ul>
+  <li><em>Default:</em> (nothing; the package&#8217;s default config file usually sets a platform-appropriate value)</li>
+  <li><em>Sample value:</em> <code>/var/log/mcollective.log</code></li>
+</ul>
+
+<h4 id="keeplogs"><code>keeplogs</code></h4>
+
+<p><em>When <code>logger_type == file</code></em></p>
+
+<p>The number of log files to keep when rotating.</p>
+
+<ul>
+  <li><em>Default:</em> <code>5</code></li>
+</ul>
+
+<h4 id="maxlogsize"><code>max_log_size</code></h4>
+
+<p><em>When <code>logger_type == file</code></em></p>
+
+<p>Max size in bytes for log files before rotation happens.</p>
+
+<ul>
+  <li><em>Default:</em> <code>2097152</code></li>
+</ul>
+
+<h4 id="logfacility"><code>logfacility</code></h4>
+
+<p><em>When <code>logger_type == syslog</code></em></p>
+
+<p>The syslog facility to use.</p>
+
+<ul>
+  <li><em>Default:</em> <code>user</code></li>
+</ul>
+
+<p>(<a href="#content">↑ Back to top</a>)</p>
+
+<h3 id="platform-defaults">Platform Defaults</h3>
+
+<pre><code><a href="#libdir">libdir</a> = /usr/libexec/mcollective
+<a href="#rpchelptemplate">rpchelptemplate</a> = /etc/mcollective/rpc-help.erb
+<a href="#helptemplatedir">helptemplatedir</a> = /etc/mcollective
+<a href="#sslcipher">ssl_cipher</a> = aes-256-cbc
+</code>
+</pre>
+
+<h4 id="libdir"><code>libdir</code></h4>
+
+<p>Where to look for plugins. Should be a single path or a list of paths separated by the system path separator (colon [<code>:</code>] on *nix, semicolon [<code>;</code>] on Windows).</p>
+
+<p>By default, this setting is blank, but the package you installed MCollective with should supply a default server.cfg file with a platform-appropriate value for this setting. <strong>If server.cfg has no value for this setting, MCollective will not work.</strong></p>
+
+<ul>
+  <li><em>Default:</em> (nothing; the package&#8217;s default config file usually sets a platform-appropriate value)</li>
+  <li><em>Sample value:</em> <code>/usr/libexec/mcollective:/opt/mcollective</code></li>
+</ul>
+
+<h4 id="rpchelptemplate"><code>rpchelptemplate</code></h4>
+
+<p>The path to one particular ERB template used for part of MCollective&#8217;s interactive help.</p>
+
+<ul>
+  <li><em>Default:</em> If it exists, <code>rpc-help.erb</code> in the same directory as the current config file; otherwise, <code>/etc/mcollective/rpc-help.erb</code></li>
+</ul>
+
+<h4 id="helptemplatedir"><code>helptemplatedir</code></h4>
+
+<p>The path to a directory containing all of MCollective&#8217;s ERB help templates.</p>
+
+<p>This setting is generally only useful if you installed MCollective without a package, in which case the help templates may be stored with the source instead of installed in the <code>/etc/mcollective</code> directory.</p>
+
+<ul>
+  <li><em>Default:</em> The directory containing the <code>rpchelptemplate</code> file, usually <code>/etc/mcollective</code></li>
+  <li><em>Allowed values:</em> Any fully qualified path on disk</li>
+</ul>
+
+<h4 id="sslcipher"><code>ssl_cipher</code></h4>
+
+<p>The cipher to use for encryption. This is currently only relevant if you are using the <a href="./../../mcollective/reference/plugins/security_aes.html">AES security plugin</a>.</p>
+
+<p>This setting should be a standard OpenSSL cipher string. See <code>man enc</code> for a list.</p>
+
+<ul>
+  <li><em>Default:</em> <code>aes-256-cbc</code></li>
+</ul>
+
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+
+
+<ul>
+  <li><strong>Overview</strong>
+    <ul>
+      <li><a href="./../../mcollective/index.html">Introduction</a></li>
+      <li><a href="./../../mcollective/overview_components.html">Overview of Components</a></li>
+      <li><a href="./../../mcollective/terminology.html">Terminology</a></li>
+      <li><a href="./../../mcollective/screencasts.html">Screencasts</a></li>
+      <li><a href="./../../mcollective/releasenotes.html">Release Notes</a></li>
+      <li><a href="./../../mcollective/changelog.html">Changelog</a></li>
+    </ul>
+  </li>
+  <li><strong>Deploying MCollective</strong>
+    <ul>
+      <li><a href="./../../mcollective/deploy/index.html">Index</a></li>
+      <li><a href="./../../mcollective/deploy/demo.html">Demo</a></li>
+      <li><a href="./../../mcollective/deploy/standard.html">Getting Started (Standard Deployment)</a></li>
+    </ul>
+  </li>
+  <li><strong>Configuration / Deployment Topics</strong>
+    <ul>
+      <li><strong>Installation:</strong></li>
+      <li><a href="./../../mcollective/deploy/install.html">Installing MCollective</a></li>
+      <li><a href="./../../mcollective/deploy/plugins.html">Installing Plugins</a></li>
+      <li><strong>Configuration:</strong></li>
+      <li><a href="./../../mcollective/configure/server.html">Server Config Reference</a></li>
+      <li><span class="currentpage">Client Config Reference</span></li>
+      <li><a href="./../../mcollective/reference/integration/puppet.html">Puppet Integration</a></li>
+      <li><a href="./../../mcollective/reference/integration/chef.html">Chef Integration</a></li>
+      <li><strong>Middleware:</strong></li>
+      <li><a href="./../../mcollective/deploy/middleware/index.html">Middleware Types</a></li>
+      <li><a href="./../../mcollective/deploy/middleware/activemq.html">ActiveMQ Configs for MCollective</a></li>
+      <li><a href="./../../mcollective/deploy/middleware/activemq_keystores.html">ActiveMQ TLS Keystore Setup</a></li>
+      <li><a href="./../../mcollective/reference/integration/activemq_clusters.html">ActiveMQ Clustering</a></li>
+      <li><a href="./../../mcollective/reference/integration/activemq_ssl.html">ActiveMQ TLS</a></li>
+      <li><a href="./../../mcollective/reference/integration/activemq_security.html">ActiveMQ Security</a></li>
+      <li><strong>Connector Plugins:</strong></li>
+      <li><a href="./../../mcollective/reference/plugins/connector_activemq.html">The ActiveMQ Connector</a></li>
+      <li><a href="./../../mcollective/reference/plugins/connector_rabbitmq.html">The RabbitMQ Connector</a></li>
+      <li><strong>Security Plugins:</strong></li>
+      <li><a href="./../../mcollective/reference/plugins/security_ssl.html">Configuring SSL Validation Security</a></li>
+      <li><strong>Advanced Features:</strong></li>
+      <li><a href="./../../mcollective/reference/basic/subcollectives.html">Subcollectives and Partitioning</a></li>
+      <li><a href="./../../mcollective/simplerpc/auditing.html">Auditing</a> <!-- contains plugin-writing info --></li>
+    </ul>
+  </li>
+  <li><strong>Use and Administer MCollective</strong>
+    <ul>
+      <li><a href="./../../mcollective/reference/basic/basic_cli_usage.html">Command Line Usage Instructions</a></li>
+      <li><a href="./../../mcollective/reference/ui/filters.html">Command Filtering and Discovery</a></li>
+      <li><a href="./../../mcollective/reference/basic/daemon.html">Controlling the MCollective Daemon</a></li>
+      <li><a href="./../../mcollective/reference/plugins/rpcutil.html">Controlling the MCollective Daemon with the rpcutil Agent</a></li>
+      <li><a href="./../../mcollective/reference/ui/nodereports.html">On-Demand Node Reports</a></li>
+    </ul>
+  </li>
+  <li><strong>Write Agent Plugins</strong>
+    <ul>
+      <li><a href="./../../mcollective/simplerpc/agents.html">Writing Agent Plugins</a></li>
+      <li><a href="./../../mcollective/reference/plugins/ddl.html">Writing DDL Files</a></li>
+      <li><a href="./../../mcollective/reference/plugins/aggregate.html">Aggregating Results</a> <!-- mixes DDL info with info about writing aggregate plugins --></li>
+    </ul>
+  </li>
+  <li><strong>Write Clients and Applications</strong>
+    <ul>
+      <li><a href="./../../mcollective/simplerpc/clients.html">Writing Clients</a></li>
+      <li><a href="./../../mcollective/reference/plugins/application.html">Writing New mco Subcommands</a></li>
+    </ul>
+  </li>
+  <li><strong>Write Other Plugins</strong>
+    <ul>
+      <li><a href="./../../mcollective/simplerpc/authorization.html">Writing Authorization Plugins and Enabling Authorization</a> <!-- contains deploy/config info --></li>
+      <li><a href="./../../mcollective/reference/plugins/data.html">Writing Data Plugins</a></li>
+      <li><a href="./../../mcollective/reference/plugins/discovery.html">Writing and Using Discovery Plugins</a> <!-- contains usage info --></li>
+      <li><a href="./../../mcollective/reference/plugins/facts.html">Writing Facts Plugins</a></li>
+      <li><a href="./../../mcollective/reference/plugins/registration.html">Writing Registration Plugins</a></li>
+      <li><a href="./../../mcollective/reference/plugins/validator.html">Writing Validator Plugins</a></li>
+    </ul>
+  </li>
+  <li><a href="http://projects.puppetlabs.com/projects/mcollective-plugins/wiki">Plugin Directory</a></li>
+  <li><strong>Internals</strong>
+    <ul>
+      <li><a href="./../../mcollective/reference/basic/messageflow.html">Message Flow</a> <!-- needs more/needs update --></li>
+      <li><a href="./../../mcollective/simplerpc/index.html">SimpleRPC Overview</a></li>
+      <li><a href="./../../mcollective/simplerpc/messageformat.html">SimpleRPC Message Format</a></li>
+      <li><a href="./../../mcollective/reference/basic/messageformat.html">Core Message Format</a></li>
+      <li><a href="./../../mcollective/security.html">Security Overview</a></li>
+    </ul>
+  </li>
+  <li><strong>Older and Non-Recommended Information</strong>
+    <ul>
+      <li><a href="./../../mcollective/reference/plugins/security_aes.html">Configuring AES Security</a></li>
+      <li><a href="./../../mcollective/reference/plugins/connector_stomp.html">Configuring the Generic Stomp Connector</a></li>
+      <li><a href="./../../mcollective/reference/basic/basic_agent_and_client.html">Writing Old-Style Agent Plugins</a></li>
+      <li><a href="./../../mcollective/reference/index.html">Alternate Index</a></li>
+    </ul>
+  </li>
+</ul>
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>

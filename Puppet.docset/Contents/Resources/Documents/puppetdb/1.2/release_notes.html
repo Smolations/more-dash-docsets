@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<title>PuppetDB 1.2 » Release Notes — Documentation — Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
+    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
+    <link rel='icon' href='./../../favicon.ico' />
+
+
+  <meta name="description" content="1.2.0Many thanks to following people who contributed patches to thisrelease:  Chris Price  Deepak Giridharagopal  Erik Dalén  Jordi Boggiano  Ken ...">
+
+
+
+    <!-- FIXME: absolute paths -->
+
+    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
+    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
+    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+
+    <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
+
+    <!-- All in One SEO Pack 1.6.10.1 by Michael Torbert of Semper Fi Web Design[127,146] -->
+    <meta name="keywords" content="Puppet, puppet labs, reductive labs, open source, system administrator, ruby, data center, automation, support" />
+    <!-- /all in one seo pack -->
+
+    <!-- Give us the option of setting a canonical URL in yaml frontmatter -NF -->
+    <link rel="canonical" href="http://docs.puppetlabs.com/puppetdb/latest/release_notes.html" />
+
+    <!-- FIXME: absolute paths -->
+
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+
+    <!--[if IE 7]>
+	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+    <!--[if IE 8]>
+	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    <![endif]-->
+
+  	<script type="text/javascript">
+      Cufon.replace('h1, h2', { fontWeight: '600' });
+  	</script>
+</head>
+
+
+
+
+  <body id="puppetlabsdocs" class="docs">
+  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <!--[if IE 8]>
+    <style type="text/css">h1, h2{ visibility : visible }</style>
+  <![endif]-->
+
+  	<header id="header">
+      <div class="site-width">
+    		<h1><a href="http://puppetlabs.com/"><span>Puppet Labs</span></a></h1>
+        <a class="screen-reader-content" href="#content">Skip navigation</a>
+        <nav>
+    		<ul id="global-navigation">
+          <li id="puppet-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/puppet/puppet-enterprise">
+              <span>Products</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/what-is-puppet/">What is Puppet?</a>
+                </ul>
+              </li>
+			       <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-enterprise/">Puppet Enterprise</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/whats-new/">What's New in 2.5</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet Open Source</a>
+                </ul>
+              </li>
+            <li>
+                <ul>
+                   <a href="http://puppetlabs.com/puppet/enterprise-vs-open-source/">Enterprise vs. Open Source</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://forge.puppetlabs.com">Puppet Forge</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/requirements/">Components &amp; Requirements</a>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/faq/">FAQ</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/puppet/how-to-buy/">How to Buy</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="solutions-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/solutions/">
+              <span>Solutions</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-12296"><a href="http://puppetlabs.com/solutions/configuration-management/">Configuration Management</a></li>
+<li class="page_item page-item-986"><a href="http://puppetlabs.com/solutions/virtualization-management/">Virtualization Management</a></li>
+<li class="page_item page-item-993"><a href="http://puppetlabs.com/solutions/cloud-management/">Cloud Management</a></li>
+<li class="page_item page-item-996"><a href="http://puppetlabs.com/solutions/it-compliance/">IT Compliance</a></li>
+<li class="page_item page-item-9520"><a href="http://puppetlabs.com/solutions/devops/">DevOps</a></li>
+<li class="page_item page-item-991"><a href="http://puppetlabs.com/solutions/manage-os-x-resources/">OS X Desktops</a></li>
+            </ul>
+          </li>
+          <li id="services-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/services/">
+              <span>Services</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-783"><a href="http://puppetlabs.com/services/overview/">Overview</a></li>
+<li class="page_item page-item-1052"><a href="http://puppetlabs.com/services/customer-support/">Customer Support</a></li>
+<li class="page_item page-item-11022"><a href="http://puppetlabs.com/services/support-plans/">Support Plans</a></li>
+<li class="page_item page-item-845"><a href="http://puppetlabs.com/services/training-workshops/">On-Site Education</a></li>
+<li class="page_item page-item-4899"><a href="http://puppetlabs.com/services/consulting/">Professional Services</a></li>
+<li class="page_item page-item-849"><a href="http://puppetlabs.com/category/events/upcoming/">Events &amp; Workshops</a></li>
+<li class="page_item page-item-851"><a href="http://puppetlabs.com/services/partners/">Partners</a></li>
+            </ul>
+          </li>
+                    <li id="resources-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/resources/">
+              <span>Resources</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-1048"><a href="http://puppetlabs.com/resources/overview-2/">Overview</a></li>
+<li class="page_item page-item-1040"><a href="http://docs.puppetlabs.com">Documentation</a></li>
+<li class="page_item page-item-872"><a href="http://info.puppetlabs.com/register-download">Downloads</a></li>
+<li class="page_item page-item-1961"><a href="http://forge.puppetlabs.com">Puppet Forge</a></li>
+<li class="page_item page-item-835"><a href="http://info.puppetlabs.com/download-whitepapers.html">White Papers</a></li>
+<li class="page_item page-item-1967"><a href="http://projects.puppetlabs.com/projects/puppet/wiki">Wiki</a></li>
+<li class="page_item page-item-7279"><a href="http://puppetlabs.com/resources/webinars/">Upcoming Webinars</a></li>
+<li class="page_item page-item-10183"><a href="http://puppetlabs.com/resources/newsletter/">Newsletter</a></li>
+<li class="page_item page-item-12263"><a href="http://puppetlabs.com/resources/tech-notes/">Tech Notes</a></li>
+<li class="page_item page-item-10265"><a href="http://info.puppetlabs.com/pe2-webinar.html">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li id="customers-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/customers/companies/">
+              <span>Customers</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/companies/">Companies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/case-studies/">Case Studies</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/product-testimonials/">Product Testimonials</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/customers/what-customers-are-saying/">Service Testimonials</a>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="community-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/community/">
+              <span>Community</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+
+ <ul>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/overview/">Overview</a>
+                </ul>
+              </li>
+			<li>
+                <ul>
+                  <a href="http://puppetlabs.com/blog">Blog</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/puppet-camp/">Puppet Camp</a>
+                </ul>
+              </li>
+			  <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                </ul>
+              </li>
+	          <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/presentations/">Presentations</a>
+                </ul>
+              </li>
+			    <li>
+                <ul>
+                  <a href="http://puppetlabs.com/community/videos/">Videos</a>
+                </ul>
+              </li>
+            </ul>
+
+          <li id="company-tab" class="with-submenu">
+            <a href="http://puppetlabs.com/company/">
+              <span>Company</span>
+              <span class="drop-down-trigger"></span>
+            </a>
+            <ul>
+              <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
+<li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
+<ul class='children'>
+	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
+	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
+</ul>
+</li>
+<li class="page_item page-item-1571"><a href="http://puppetlabs.com/company/careers/">Careers</a></li>
+<li class="page_item page-item-10372"><a href="http://puppetlabs.com/company/management/">Management</a></li>
+<li class="page_item page-item-10311"><a href="http://puppetlabs.com/company/board-and-advisors/">Board and Advisors</a></li>
+<li class="page_item page-item-10367"><a href="http://puppetlabs.com/company/investors/">Investors</a></li>
+<li class="page_item page-item-2313"><a href="http://puppetlabs.com/company/contact-us/">Contact Us</a></li>
+<li class="page_item page-item-10579"><a href="http://puppetlabs.com/company/awards/">Awards</a></li>
+            </ul>
+          </li>
+    		</ul>
+          <div id="misc-navigation">
+			  <ul>
+				<li><a href="http://puppetlabs.com/security/">Security</a></li>
+				<li><a href="http://docs.puppetlabs.com">Documentation</a></li>
+				<li><a href="http://puppetlabs.com/resources/customer-support/">Support</a></li>
+			        <li><a href="http://projects.puppetlabs.com/">Bug Tracker</a></li>
+				<li><a href="http://puppetlabs.com/company/contact/contact-us">Contact Us</a></li>
+				<li><a href="http://info.puppetlabs.com/download-pe2.html" class="gateway">Download</a></li>
+			  </ul>
+			<form action="http://www.google.com/cse" id="cse-search-box">
+			  <div>
+				<input type="hidden" name="cx" value="017668764424496204839:ubligvgbenm" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" class="gsc-input" size="31" />
+				<input type="submit" name="sa" class="searchbtn" value="Search" />
+			  </div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+          </div>
+      </nav>
+    	</div>
+    </header>
+
+      <section id="masthead">
+        <div class="site-width">
+          <h1>Docs: <span class="section-name">PuppetDB 1.2 » Release Notes</span></h1>
+          <ul id="doc-navigation">
+            <li><a href="./../../index.html">Docs Home</a></li>
+            <li class="with-submenu">
+              <a href="#">
+                <span>Quick Nav</span>
+                <span class="drop-down-trigger"></span>
+              </a>
+               <!-- the following links can't be relative, unfortunately -->
+               <!-- future: add some JS to disable this if running from file:// -->
+                               <dl>
+                  <dt>Puppet Documentation</dt>
+                      <dd><a href="./../../puppet/3/reference/index.html">Puppet 3 Reference Manual</a></dd>
+                      <dd><a href="./../../puppet/2.7/reference/index.html">Puppet 2.7 Reference Manual</a></dd>
+                      <dd><a href="./../../pe/latest/index.html">Puppet Enterprise User's Guide</a></dd>
+                      <dd><a href="./../../learning/index.html">Learning Puppet</a></dd>
+                      <dd><a href="./../../references/latest/type.html">Resource Types</a></dd>
+                      <dd><a href="./../../references/latest/function.html">Functions</a></dd>
+                      <dd><a href="./../../references/latest/configuration.html">Configuration</a></dd>
+                      <dd><a href="./../../references/latest/developer/index.html">Developer</a></dd>
+                      <dd><a href="./../../references/glossary.html">Glossary of Puppet Terms</a></dd>
+                      <dd><a href="./../../references/index.html">Older References</a></dd>
+                  <dt>Facter</dt>
+                      <dd><a href="./../../facter/latest/core_facts.html">Core Facts Reference</a></dd>
+                  <dt>PuppetDB</dt>
+                      <dd><a href="./../../puppetdb/1/index.html">PuppetDB 1 Manual</a></dd>
+                  <dt>MCollective</dt>
+                      <dd><a href="./../../mcollective/index.html">Index</a></dd>
+                      <dd><a href="./../../mcollective/reference/index.html">References</a></dd>
+                      <dd><a href="./../../mcollective/simplerpc/index.html">Writing Plugins</a></dd>
+                      <dd><a href="./../../mcollective/releasenotes.html">Release Notes</a></dd>
+                </dl>
+
+            </li>
+            <li><a href="./../../contribute.html">Contribute</a></li>
+          </ul>
+        </div>
+        <br />
+      </section>
+
+      <section id="content">
+        <div class="site-width">
+          <div class="primary-secondary-content">
+            <div class="primary-content">
+              <h1>PuppetDB 1.2 » Release Notes</h1>
+              <nav class="in-page" id="page-nav">
+<ol class="toc">
+  <li class="toc-lv2"><a href="#section">1.2.0</a></li>
+  <li class="toc-lv2"><a href="#section-1">1.1.1</a></li>
+  <li class="toc-lv2"><a href="#section-2">1.1.0</a></li>
+  <li class="toc-lv2"><a href="#section-3">1.0.5</a></li>
+  <li class="toc-lv2"><a href="#section-4">1.0.4</a></li>
+  <li class="toc-lv2"><a href="#section-5">1.0.3</a></li>
+  <li class="toc-lv2"><a href="#section-6">1.0.2</a></li>
+  <li class="toc-lv2"><a href="#section-7">1.0.1</a></li>
+  <li class="toc-lv2"><a href="#section-8">1.0.0</a></li>
+  <li class="toc-lv2"><a href="#section-9">0.11.0</a></li>
+  <li class="toc-lv2"><a href="#section-10">0.10.0</a></li>
+</ol></nav>
+              <h2 id="section">1.2.0</h2>
+
+<p>Many thanks to following people who contributed patches to this
+release:</p>
+
+<ul>
+  <li>Chris Price</li>
+  <li>Deepak Giridharagopal</li>
+  <li>Erik Dalén</li>
+  <li>Jordi Boggiano</li>
+  <li>Ken Barber</li>
+  <li>Matthaus Owens</li>
+  <li>Michael Hall</li>
+  <li>Moses Mendoza</li>
+  <li>Nick Fagerlund</li>
+  <li>Nick Lewis</li>
+</ul>
+
+<p>Notable features:</p>
+
+<ul>
+  <li>
+    <p>Automatic node purging</p>
+
+    <p>This is the first feature which allows data in PuppetDB to be deleted. The
+new <code>node-purge-ttl</code> setting specifies a period of time to keep deactivated
+nodes before deleting them. This can be used with the <code>puppet node
+deactivate</code> command or the automatic node deactivation <code>node-ttl</code> setting.
+This will also delete all facts, catalogs and reports for the purged nodes.
+As always, if new data is received for a deactivated node, the node will be
+reactivated, and thus exempt from purging until it is deactivated again. The
+<code>node-purge-ttl</code> setting defaults to 0, which disables purging.</p>
+  </li>
+  <li>
+    <p>Import/export of PuppetDB data</p>
+
+    <p>Two new commands have been added, <code>puppetdb-export</code> and <code>puppetdb-import</code>.
+These will respectively export and import the entire collection of catalogs
+in your PuppetDB database. This can be useful for migrating from HSQL to
+PostgreSQL, for instance.</p>
+
+    <p>There is also a new Puppet subcommand, <code>puppet storeconfigs export</code>. This
+command will generate a similar export data from the ActiveRecord
+storeconfigs database. Specifically, this includes only exported resources,
+and is useful when first migrating to PuppetDB, in order to prevent failures
+due to temporarily missing exported resources.</p>
+  </li>
+  <li>
+    <p>Automatic dead-letter office compression</p>
+
+    <p>When commands fail irrecoverably or over a long period of time, they are
+written to disk in what is called the dead-letter office (or DLO). Until now,
+this directory had no automatic maintenance, and could rapidly grow in size.
+Now there is a <code>dlo-compression-threshold</code> setting, which defaults to 1 day,
+after which commands in the DLO will be compressed. There are also now
+metrics collected about DLO usage, several of which (size, number of
+messages, compression time) are visible from the PuppetDB dashboard.</p>
+  </li>
+  <li>
+    <p>Package availability changes</p>
+
+    <p>Packages are now provided for Fedora 18, but are no longer provided for
+Ubuntu 11.04 Natty Narwhal, which is end-of-life. Due to work being done to
+integrate PuppetDB with Puppet Enterprise, new pe-puppetdb packages are not
+available.</p>
+  </li>
+</ul>
+
+<p>Bug fixes:</p>
+
+<ul>
+  <li>
+    <p>KahaDB journal corruption workaround</p>
+
+    <p>If the KahaDB journal, used by ActiveMQ (in turn used for asynchronous
+message processing), becomes corrupted, PuppetDB would fail to start.
+However, if the embedded ActiveMQ broker is restarted, it will cleanup the
+corruption itself. Now, PuppetDB will recover from such a failure and restart
+the broker automatically.</p>
+  </li>
+  <li>
+    <p>Terminus files conflict between puppetdb-terminus and puppet</p>
+
+    <p>There was a conflict between these two packages over ownership of certain
+directories which could cause the puppetdb-terminus package to fail to
+install in some cases. This has been resolved.</p>
+  </li>
+</ul>
+
+<h2 id="section-1">1.1.1</h2>
+
+<p>PuppetDB 1.1.1 is a bugfix release.  It contains the following fixes:</p>
+
+<ul>
+  <li>
+    <p>(#18934) Dashboard Inventory Service returns 404</p>
+
+    <p>Version 1.1.0 of the PuppetDB terminus package contained a faulty URL for
+retrieving fact data for the inventory service.  This issue is fixed and
+we&#8217;ve added better testing to ensure that this doesn&#8217;t break again in the
+future.</p>
+  </li>
+  <li>
+    <p>(#18879) PuppetDB terminus 1.0.5 is incompatible with PuppetDB 1.1.0</p>
+
+    <p>Version 1.1.0 of the PuppetDB server package contained some API changes that
+were not entirely backward-compatible with version 1.0.5 of the PuppetDB
+terminus; this caused failures for some users if they upgraded the server
+to 1.1.0 without simultaneously upgrading the terminus package.  Version 1.1.1
+of the server is backward-compatible with terminus 1.0.5, allowing an easier
+upgrade path for 1.0.x users.</p>
+  </li>
+</ul>
+
+<h2 id="section-2">1.1.0</h2>
+
+<p>Many thanks to the following people who contributed patches to this
+release:</p>
+
+<ul>
+  <li>Chris Price</li>
+  <li>Deepak Giridharagopal</li>
+  <li>Jeff Blaine</li>
+  <li>Ken Barber</li>
+  <li>Kushal Pisavadia</li>
+  <li>Matthaus Litteken</li>
+  <li>Michael Stahnke</li>
+  <li>Moses Mendoza</li>
+  <li>Nick Lewis</li>
+  <li>Pierre-Yves Ritschard</li>
+</ul>
+
+<p>Notable features:</p>
+
+<ul>
+  <li>
+    <p>Enhanced query API</p>
+
+    <p>A substantially improved version 2 of the HTTP query API has been added. This
+is located under the /v2 route. Detailed documentation on all the available
+routes and query language can be found in the API documentation, but here are
+a few of the noteworthy improvements:</p>
+
+    <ul>
+      <li>
+        <p>Query based on regular expressions</p>
+
+        <p>Regular expressions are now supported against most fields when querying
+against resources, facts, and nodes, using the ~ operator. This makes it
+easy to, for instance, find <em>all</em> IP addresses for a node, or apply a query
+to some set of nodes.</p>
+      </li>
+      <li>
+        <p>More node information</p>
+
+        <p>Queries against the /v2/nodes endpoint now return objects, rather than
+simply a list of node names. These are effectively the same as what was
+previously returned by the /status endpoint, containing the node name, its
+deactivation time, as well as the timestamps of its latest catalog, facts,
+and report.</p>
+      </li>
+      <li>
+        <p>Full fact query</p>
+
+        <p>The /v2/facts endpoint supports the same type of query language available
+when querying resources, where previously it could only be used to retrieve
+the set of facts for a given node. This makes it easy to find the value of
+some fact for all nodes, or to do more complex queries.</p>
+      </li>
+      <li>
+        <p>Subqueries</p>
+
+        <p>Queries can now contain subqueries through the <code>select-resources</code> and
+<code>select-facts</code> operators. These operators perform queries equivalent to
+using the /v2/resources and /v2/facts routes, respectively. The information
+returned from them can then be correlated, to perform complex queries such
+as &#8220;fetch the IP address of all nodes with <code>Class[apache]</code>&#8221;, or &#8220;fetch the
+<code>operatingsystemrelease</code> of all Debian nodes&#8221;. These operators can also be
+nested and correlated on any field, to answer virtually any question in a
+single query.</p>
+      </li>
+      <li>
+        <p>Friendlier, RESTful query routes</p>
+
+        <p>In addition to the standard query language, there are also now more
+friendly, &#8220;RESTful&#8221; query routes. For instance, <code>/v2/nodes/foo.example.com</code>
+will return information about the node foo.example.com. Similarly,
+<code>/v2/facts/operatingsystem</code> will return the <code>operatingsystem</code> of every node, or
+<code>/v2/nodes/foo.example.com/operatingsystem</code> can be used to just find the
+<code>operatingsystem</code> of foo.example.com.</p>
+
+        <p>The same sort of routes are available for resources as well.
+<code>/v2/resources/User</code> will return every User resource, <code>/v2/resources/User/joe</code>
+will return every instance of the <code>User[joe]</code> resource, and
+<code>/v2/nodes/foo.example.com/Package</code> will return every Package resource on
+foo.example.com. These routes can also have a query parameter supplied, to
+further query against their results, as with the standard query API.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Improved catalog storage performance</p>
+
+    <p>Some improvements have been made to the way catalog hashes are computed for
+ deduplication, resulting in somewhat faster catalog storage, and a
+ significant decrease in the amount of time taken to store the first catalog
+ received after startup.</p>
+  </li>
+  <li>
+    <p>Experimental report submission and storage</p>
+
+    <p>The &#8216;puppetdb&#8217; report processor is now available, which can be used
+(alongside any other reports) to submit reports to PuppetDB for storage. This
+feature is considered experimental, which means the query API may change
+significantly in the future. The ability to query reports is currently
+limited and experimental, meaning it is accessed via /experimental/reports
+rather than /v2/reports. Currently it is possible to get a list of reports
+for a node, and to retrieve the contents of a single report. More advanced
+querying (and integration with other query endpoints) will come in a future
+release.</p>
+
+    <p>Unlike catalogs, reports are retained for a fixed time period (defaulting to
+7 days), rather than only the most recent report being stored. This means
+more data is available than just the latest, but also prevents the database
+from growing unbounded. See the documentation for information on how to
+configure the storage duration.</p>
+  </li>
+  <li>
+    <p>Tweakable settings for database connection and ActiveMQ storage</p>
+
+    <p>It is now possible to set the timeout for an idle database connection to be
+terminated, as well as the keep alive interval for the connection, through
+the <code>conn-max-age</code> and <code>conn-keep-alive</code> settings.</p>
+
+    <p>The settings <code>store-usage</code> and <code>temp-usage</code> can be used to set the amount of
+disk space (in MB) for ActiveMQ to use for permanent and temporary message
+storage. The main use for these settings is to lower the usage from the
+default of 100GB and 50GB respectively, as ActiveMQ will issue a warning if
+that amount of space is not available.</p>
+  </li>
+</ul>
+
+<p>Behavior changes:</p>
+
+<ul>
+  <li>
+    <p>Messages received after a node is deactivated will be processed</p>
+
+    <p>Previously, commands which were initially received before a node was
+deactivated, but not processed until after (for instance, because the first
+attempt to process the command failed, and the node was deactivated before
+the command was retried) were ignored and the node was left deactivated.
+For example, if a new catalog were submitted, but couldn&#8217;t be processed
+because the database was temporarily down, and the node was deactivated
+before the catalog was retried, the catalog would be dropped. Now the
+catalog will be stored, though the node will stay deactivated. Commands
+<em>received</em> after a node is deactivated will continue to reactivate the node
+as before.</p>
+  </li>
+</ul>
+
+<h2 id="section-3">1.0.5</h2>
+
+<p>Many thanks to the following people who contributed patches to this
+release:</p>
+
+<ul>
+  <li>Chris Price</li>
+  <li>Deepak Giridharagopal</li>
+</ul>
+
+<p>Fixes:</p>
+
+<ul>
+  <li>
+    <p>Drop a large, unused index on catalog_resources(tags)</p>
+
+    <p>This index was superseded by a GIN index on the same column, but the previous
+index was kept around by mistake. This should result in a space savings of
+10-20%, as well as a possible very minor improvement in catalog insert
+performance.</p>
+  </li>
+</ul>
+
+<h2 id="section-4">1.0.4</h2>
+
+<p>Many thanks to the following people who contributed patches to this
+release:</p>
+
+<ul>
+  <li>Chris Price</li>
+</ul>
+
+<p>Fixes:</p>
+
+<ul>
+  <li>
+    <p>(#16554) Fix postgres query for numeric comparisons</p>
+
+    <p>This commit changes the regex that we are using for numeric
+comparisons in postgres to a format that is compatible with both 8.4
+and 9.1.</p>
+  </li>
+</ul>
+
+<h2 id="section-5">1.0.3</h2>
+
+<p>NOTE: This version was not officially released, as additional fixes
+came in between the time we tagged this and the time we were going to
+publish release artifacts.</p>
+
+<p>Many thanks to the following people who contributed patches to this
+release:</p>
+
+<ul>
+  <li>Deepak Giridharagopal</li>
+  <li>Nick Lewis</li>
+  <li>Chris Price</li>
+</ul>
+
+<p>Fixes:</p>
+
+<ul>
+  <li>
+    <p>(#17216) Fix problems with UTF-8 transcoding</p>
+
+    <p>Certain 5 and 6 byte sequences were being incorrectly transcoded to
+UTF-8 on Ruby 1.8.x systems. We now do two separate passes, one with
+iconv and one with our hand-rolled transcoding algorithms. Better
+safe than sorry!</p>
+  </li>
+  <li>
+    <p>(#17498) Pretty-print JSON HTTP responses</p>
+
+    <p>We now output more nicely-formatted JSON when using the PuppetDB
+HTTP API.</p>
+  </li>
+  <li>
+    <p>(#17397) DB pool setup fails with numeric username or password</p>
+
+    <p>This bug happens during construction of the DB connection pool. If
+the username or password is numeric, when parsing the configuration
+file they&#8217;re turned into numbers. When we go to actually create the
+pool, we get an error because we&#8217;re passing in numbers when strings
+are expected.</p>
+  </li>
+  <li>
+    <p>(#17524) Better logging and response handling for version checks</p>
+
+    <p>Errors when using the <code>version</code> endpoint are now caught, logged at a
+more appropriate log level, and a reasonable HTTP response code is
+returned to callers.</p>
+  </li>
+</ul>
+
+<h2 id="section-6">1.0.2</h2>
+
+<p>Many thanks to the following people who contributed patches to this
+release:</p>
+
+<ul>
+  <li>Matthaus Owens</li>
+</ul>
+
+<p>Fixes:</p>
+
+<ul>
+  <li>
+    <p>(#17178) Update rubylib on debian/ubuntu installs</p>
+
+    <p>Previously the terminus would be installed to the 1.8 sitelibdir for ruby1.8 or
+the 1.9.1 vendorlibdir on ruby1.9. The ruby1.9 code path was never used, so
+platforms with ruby1.9 as the default (such as quantal and wheezy) would not be
+able to load the terminus. Modern debian packages put version agnostic ruby
+code in vendordir (/usr/lib/ruby/vendor_ruby), so this commit moves the
+terminus install dir to be vendordir.</p>
+  </li>
+</ul>
+
+<h2 id="section-7">1.0.1</h2>
+
+<p>Many thanks to the following people who contributed patches to this
+release:</p>
+
+<ul>
+  <li>Deepak Giridharagopal</li>
+  <li>Nick Lewis</li>
+  <li>Matthaus Litteken</li>
+  <li>Chris Price</li>
+</ul>
+
+<p>Fixes:</p>
+
+<ul>
+  <li>
+    <p>(#16180) Properly handle edges between exported resources</p>
+
+    <p>This was previously failing when an edge referred to an exported
+resource which was also collected, because it was incorrectly
+assuming collected resources would always be marked as NOT
+exported. However, in the case of a node collecting a resource which
+it also exports, the resource is still marked exported. In that
+case, it can be distinguished from a purely exported resource by
+whether it&#8217;s virtual. Purely virtual, non-exported resources never
+appear in the catalog.</p>
+
+    <p>Virtual, exported resources are not collected, whereas non-virtual,
+exported resources are. The former will eventually be removed from
+the catalog before being sent to the agent, and thus aren&#8217;t eligible
+for participation in a relationship. We now check whether the
+resource is virtual rather than exported, for correct behavior.</p>
+  </li>
+  <li>
+    <p>(#16535) Properly find edges that point at an exec by an alias</p>
+
+    <p>During namevar aliasing, we end up changing the :alias parameter to
+&#8216;alias&#8217; and using that for the duration (to distinguish &#8220;our&#8221;
+aliases form the &#8220;original&#8221; aliases). However, in the case of exec,
+we were bailing out early because execs aren&#8217;t isomorphic, and not
+adding &#8216;alias&#8217;. Now we will always change :alias to &#8216;alias&#8217;, and
+just won&#8217;t add the namevar alias for execs.</p>
+  </li>
+  <li>
+    <p>(#16407) Handle trailing slashes when creating edges for file
+resources</p>
+
+    <p>We were failing to create relationships (edges) to File resources if
+the relationship was specified with a different number of trailing
+slashes in the title than the title of the original resource.</p>
+  </li>
+  <li>
+    <p>(#16652) Replace dir with specific files for terminus package</p>
+
+    <p>Previously, the files section claimed ownership of Puppet&#8217;s libdir,
+which confuses rpm when both packages are installed. This commit
+breaks out all of the files and only owns one directory, which
+clearly belongs to puppetdb. This will allow rpm to correctly
+identify files which belong to puppet vs puppetdb-terminus.</p>
+  </li>
+</ul>
+
+<h2 id="section-8">1.0.0</h2>
+
+<p>The 1.0.0 release contains no changes from 0.11.0 except a minor packaging change.</p>
+
+<h2 id="section-9">0.11.0</h2>
+
+<p>Many thanks to the following people who contributed patches to this
+release:</p>
+
+<ul>
+  <li>Kushal Pisavadia</li>
+  <li>Deepak Giridharagopal</li>
+  <li>Nick Lewis</li>
+  <li>Moses Mendoza</li>
+  <li>Chris Price</li>
+</ul>
+
+<p>Notable features:</p>
+
+<ul>
+  <li>
+    <p>Additional database indexes for improved performance</p>
+
+    <p>Queries involving resources (type,title) or tags without much
+additional filtering criteria are now much faster. Note that tag
+queries cannot be sped up on PostgreSQL 8.1, as it doesn&#8217;t have
+support for GIN indexes on array columns.</p>
+  </li>
+  <li>
+    <p>Automatic generation of heap snapshots on OutOfMemoryError</p>
+
+    <p>In the unfortunate situation where PuppetDB runs out of memory, a
+heap snapshot is automatically generated and saved in the log
+directory. This helps us work with users to much more precisely
+triangulate what&#8217;s taking up the majority of the available heap
+without having to work to reproduce the problem on a completely
+different system (an often difficult proposition). This helps
+keep PuppetDB lean for everyone.</p>
+  </li>
+  <li>
+    <p>Preliminary packaging support for Fedora 17 and Ruby 1.9</p>
+
+    <p>This hasn&#8217;t been fully tested, nor integrated into our CI systems,
+and therefore should be considered experimental. This fix adds
+support for packaging for ruby 1.9 by modifying the @plibdir path
+based on the ruby version. <code>RUBY_VER</code> can be passed in as an
+environment variable, and if none is passed, <code>RUBY_VER</code> defaults to
+the ruby on the local host as reported by facter. As is currently
+the case, we use the sitelibdir in ruby 1.8, and with this commit
+use vendorlibdir for 1.9. Fedora 17 ships with 1.9, so we use this
+to test for 1.9 in the spec file. Fedora 17 also ships with open-jdk
+1.7, so this commit updates the Requires to 1.7 for fedora 17.</p>
+  </li>
+  <li>
+    <p>Resource tags semantics now match those of Puppet proper</p>
+
+    <p>In Puppet, tags are lower-case only. We now fail incoming catalogs that
+contain mixed case tags, and we treat tags in queries as
+case-insensitive comparisons.</p>
+  </li>
+</ul>
+
+<p>Notable fixes:</p>
+
+<ul>
+  <li>
+    <p>Properly escape resource query strings in our terminus</p>
+
+    <p>This fixes failures caused by storeconfigs queries that involve, for
+example, resource titles whose names contain spaces.</p>
+  </li>
+  <li>
+    <p>(#15947) Allow comments in puppetdb.conf</p>
+
+    <p>We now support whole-line comments in puppetdb.conf.</p>
+  </li>
+  <li>
+    <p>(#15903) Detect invalid UTF-8 multi-byte sequences</p>
+
+    <p>Prior to this fix, certain sequences of bytes used on certain
+versions of Puppet with certain versions of Ruby would cause our
+terminii to send malformed data to PuppetDB (which the daemon then
+properly rejects with a checksum error, so no data corruption would
+have taken place).</p>
+  </li>
+  <li>
+    <p>Don&#8217;t remove puppetdb user during RPM package uninstall</p>
+
+    <p>We never did this on Debian systems, and most other packages seem
+not to as well. Also, removing the user and not all files owned by
+it can cause problems if another service later usurps the user id.</p>
+  </li>
+  <li>
+    <p>Compatibility with legacy storeconfigs behavior for duplicate
+resources</p>
+
+    <p>Prior to this commit, the puppetdb resource terminus was not setting
+a value for &#8220;collector_id&#8221; on collected resources.  This field is
+used by puppet to detect duplicate resources (exported by multiple
+nodes) and will cause a run to fail. Hence, the semantics around
+duplicate resources were ill-specified and could cause
+problems. This fix adds code to set the collector id based on node
+name + resource title + resource type, and adds tests to verify that
+a puppet run will fail if it collects duplicate instances of the
+same resource from different exporters.</p>
+  </li>
+  <li>
+    <p>Internal benchmarking suite fully functional again</p>
+
+    <p>Previous changes had broken the benchmark tool; functionality has
+been restored.</p>
+  </li>
+  <li>
+    <p>Better version display</p>
+
+    <p>We now display the latest version info during daemon startup and on the
+web dashboard.</p>
+  </li>
+</ul>
+
+<h2 id="section-10">0.10.0</h2>
+
+<p>Many thanks to the following people who contributed patches to this
+release:</p>
+
+<ul>
+  <li>Deepak Giridharagopal</li>
+  <li>Nick Lewis</li>
+  <li>Matthaus Litteken</li>
+  <li>Moses Mendoza</li>
+  <li>Chris Price</li>
+</ul>
+
+<p>Notable features:</p>
+
+<ul>
+  <li>
+    <p>Auto-deactivation of stale nodes</p>
+
+    <p>There is a new, optional setting you can add to the <code>[database]</code>
+section of your configuration: <code>node-ttl-days</code>, which defines how
+long, in days, a node can continue without seeing new activity (new
+catalogs, new facts, etc) before it&#8217;s automatically deactivated
+during a garbage-collection run.</p>
+
+    <p>The default behavior, if that config setting is ommitted, is the
+same as in previous releases: no automatic deactivation of anything.</p>
+
+    <p>This feature is useful for those who have a non-trivial amount of
+volatility in the lifecycles of their nodes, such as those who
+regularly bring up nodes in a cloud environment and tear them down
+shortly thereafter.</p>
+  </li>
+  <li>
+    <p>(#15696) Limit the number of results returned from a resource query</p>
+
+    <p>For sites with tens or even hundreds of thousands of resources, an
+errant query could result in PuppetDB attempting to pull in a large
+number of resources and parameters into memory before serializing
+them over the wire. This can potentially trigger out-of-memory
+conditions.</p>
+
+    <p>There is a new, optional setting you can add to the <code>[database]</code>
+section of your configuration: <code>resource-query-limit</code>, which denotes
+the maximum number of resources returnable via a resource query. If
+the supplied query results in more than the indicated number of
+resources, we return an HTTP 500.</p>
+
+    <p>The default behavior is to limit resource queries to 20,000
+resources.</p>
+  </li>
+  <li>
+    <p>(#15696) Slow query logging</p>
+
+    <p>There is a new, optional setting you can add to the <code>[database]</code>
+section of your configuration: <code>log-slow-statements</code>, which denotes
+how many seconds a database query can take before the query is
+logged at WARN level.</p>
+
+    <p>The default behavior for this setting is to log queries that take more than 10
+seconds.</p>
+  </li>
+  <li>
+    <p>Add support for a &#8211;debug flag, and a debug-oriented startup script</p>
+
+    <p>This commit adds support for a new command-line flag: &#8211;debug.  For
+now, this flag only affects logging: it forces a console logger and
+ensures that the log level is set to DEBUG. The option is also
+added to the main config hash so that it can potentially be used for
+other purposes in the future.</p>
+
+    <p>This commit also adds a shell script, <code>puppetdb-foreground</code>, which
+can be used to launch the services from the command line. This
+script will be packaged (in /usr/sbin) along with the
+puppetdb-ssl-setup script, and may be useful in helping users
+troubleshoot problems on their systems (especially problems with
+daemon startup).</p>
+  </li>
+</ul>
+
+<p>Notable fixes:</p>
+
+<ul>
+  <li>
+    <p>Update CONTRIBUTING.md to better reflect reality</p>
+
+    <p>The process previously described in CONTRIBUTING.md was largely
+vestigial; we&#8217;ve now updated that documentation to reflect the
+actual, current contribution process.</p>
+  </li>
+  <li>
+    <p>Proper handling of composite namevars</p>
+
+    <p>Normally, as part of converting a catalog to the PuppetDB wire
+format, we ensure that every resource has its namevar as one of its
+aliases. This allows us to handle edges that refer to said resource
+using its namevar instead of its title.</p>
+
+    <p>However, Puppet implements <code>#namevar</code> for resources with composite
+namevars in a strange way, only returning part of the composite
+name. This can result in bugs in the generated catalog, where we
+may have 2 resources with the same alias (because <code>#namevar</code> returns
+the same thing for both of them).</p>
+
+    <p>Because resources with composite namevars can&#8217;t be referred to by
+anything other than their title when declaring relationships,
+there&#8217;s no real point to adding their aliases in anyways. So now we
+don&#8217;t bother.</p>
+  </li>
+  <li>
+    <p>Fix deb packaging so that the puppetdb service is restarted during
+upgrades</p>
+
+    <p>Prior to this commit, when you ran a debian package upgrade, the
+puppetdb service would be stopped but would not be restarted.</p>
+  </li>
+  <li>
+    <p>(#1406) Add curl-based query examples to docs</p>
+
+    <p>The repo now contains examples of querying PuppetDB via curl over
+both HTTP and HTTPS.</p>
+  </li>
+  <li>
+    <p>Documentation on how to configure PuppetDB to work with &#8220;puppet apply&#8221;</p>
+
+    <p>There are some extra steps necessary to get PuppetDB working
+properly with Puppet apply, and there are limitations
+thereafter. The repo now contains documentation around what those
+limitations are, and what additional configuration is necessary.</p>
+  </li>
+  <li>
+    <p>Upgraded testing during acceptance test runs</p>
+
+    <p>We now automatically test upgrades from the last published version
+of PuppetDB to the currently-under-test version.</p>
+  </li>
+  <li>
+    <p>(#15281) Added postgres support to acceptance testing</p>
+
+    <p>Our acceptance tests now regularly run against both the embedded
+database and PostgreSQL, automatically, on every commit.</p>
+  </li>
+  <li>
+    <p>(#15378) Improved behavior of acceptance tests in single-node
+environment</p>
+
+    <p>We have some acceptance tests that require multiple nodes in order
+to execute successfully (mostly around exporting / collecting
+resources). If you tried to run them in a single-node environment,
+they would give a weird ruby error about &#8216;nil&#8217; not defining a
+certain method. Now, they will be skipped if you are running without
+more than one host in your acceptance test-bed.</p>
+  </li>
+  <li>
+    <p>Spec tests now work against Puppet master branch</p>
+
+    <p>We now regularly and automatically run PuppetDB spec tests against
+Puppet&#8217;s master branch.</p>
+  </li>
+  <li>
+    <p>Acceptance testing for RPM-based systems</p>
+
+    <p>Previously we were running all of our acceptance tests solely
+against Debian systems. We now run them all, automatically upon each
+commit against RedHat machines as well.</p>
+  </li>
+  <li>
+    <p>Added new <code>rake version</code> task</p>
+
+    <p>Does what it says on the tin.</p>
+  </li>
+</ul>
+
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+            </div>
+            <nav class="main">
+                  <div id="subCol">
+                      <p class="versionnote">A newer version of PuppetDB has been released!</p>
+<ul class="versionnote">
+  <li><a href="./../../puppetdb/latest/release_notes.html">Jump to newest version of this page</a></li>
+  <li><a href="./../../puppetdb/latest/index.html">Jump to the index of the latest PuppetDB Manual</a></li>
+</ul>
+
+
+<h2 id="puppetdb">PuppetDB 1.2</h2>
+
+<ul>
+  <li><strong>General Information</strong>
+    <ul>
+      <li><a href="./../../puppetdb/1.2/index.html">Overview & Requirements</a></li>
+      <li><a href="./../../puppetdb/1.2/puppetdb-faq.html">Frequently Asked Questions</a></li>
+      <li><span class="currentpage">Release Notes</span></li>
+      <li><a href="./../../puppetdb/1.2/known_issues.html">Known Issues</a></li>
+      <li><a href="./../../puppetdb/1.2/community_add_ons.html">Community Add-ons</a></li>
+    </ul>
+  </li>
+  <li><strong>Installation</strong>
+    <ul>
+      <li><a href="./../../puppetdb/1.2/install_via_module.html">Installing via Puppet Module</a></li>
+      <li><a href="./../../puppetdb/1.2/install_from_packages.html">Installing From Packages</a></li>
+      <li><a href="./../../puppetdb/1.2/install_from_source.html">Installing from Source</a></li>
+      <li><a href="./../../puppetdb/1.2/upgrade.html">Upgrading PuppetDB</a></li>
+      <li><a href="./../../puppetdb/1.2/connect_puppet_master.html">Connecting Puppet Masters</a></li>
+      <li><a href="./../../puppetdb/1.2/connect_puppet_apply.html">Connecting Standalone Puppet</a></li>
+    </ul>
+  </li>
+  <li><strong>Configuration</strong>
+    <ul>
+      <li><a href="./../../puppetdb/1.2/configure.html">Configuring PuppetDB</a></li>
+      <li><a href="./../../puppetdb/1.2/postgres_ssl.html">Setting Up SSL for PostgreSQL</a></li>
+    </ul>
+  <li><strong>Usage/Admin</strong>
+    <ul>
+      <li><a href="./../../puppetdb/1.2/using.html">Using PuppetDB</a></li>
+      <li><a href="./../../puppetdb/1.2/maintain_and_tune.html">Maintaining and Tuning</a></li>
+      <li><a href="./../../puppetdb/1.2/migrate.html">Migrating Data</a></li>
+      <li><a href="./../../puppetdb/1.2/scaling_recommendations.html">Scaling Recommendations</a></li>
+      <li><a href="./../../puppetdb/1.2/repl.html">Debugging with Remote REPL</a></li>
+    </ul>
+  </li>
+  <li><strong>Troubleshooting</strong>
+    <ul>
+      <li><a href="./../../puppetdb/1.2/trouble_kahadb_corruption.html">KahaDB Corruption</a></li>
+    </ul>
+  </li>
+  <li><strong>API</strong>
+    <ul>
+      <li><a href="./../../puppetdb/1.2/api/index.html">Overview</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/tutorial.html">Query Tutorial</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/curl.html">Curl Tips</a></li>
+      <li><a href="./../../puppetdb/1.2/api/commands.html">Command API</a></li>
+    </ul>
+  </li>
+  <li><strong>Query API Version 2</strong>
+    <ul>
+      <li><a href="./../../puppetdb/1.2/api/query/v2/query.html">Query Structure</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/v2/operators.html">Available Operators</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/v2/facts.html">Facts Endpoint</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/v2/resources.html">Resources Endpoint</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/v2/nodes.html">Nodes Endpoint</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/v2/fact-names.html">Fact-Names Endpoint</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/v2/metrics.html">Metrics Endpoint</a></li>
+    </ul>
+  </li>
+  <li><strong>Query API Version 1</strong>
+    <ul>
+      <li><a href="./../../puppetdb/1.2/api/query/v1/facts.html">Facts Endpoint</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/v1/resources.html">Resources Endpoint</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/v1/nodes.html">Nodes Endpoint</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/v1/status.html">Status Endpoint</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/v1/metrics.html">Metrics Endpoint</a></li>
+    </ul>
+  </li>
+  <li><strong>Query API Experimental</strong>
+    <ul>
+      <li><a href="./../../puppetdb/1.2/api/query/experimental/report.html">Report Endpoint</a></li>
+      <li><a href="./../../puppetdb/1.2/api/query/experimental/event.html">Event Endpoint</a></li>
+    </ul>
+  </li>
+  <li><strong>Wire Formats</strong>
+    <ul>
+      <li><a href="./../../puppetdb/1.2/api/wire_format/catalog_format.html">Catalog Wire Format</a></li>
+      <li><a href="./../../puppetdb/1.2/api/wire_format/facts_format.html">Facts Wire Format</a></li>
+      <li><a href="./../../puppetdb/1.2/api/wire_format/report_format.html">Report Wire Format</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+                      <div style="margin-top: 1.5em; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                      </div>
+                      <div style="margin-top: 0; padding-bottom: 10px;">
+                          <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                      </div>
+                  </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+		<footer id="footer">
+      <div class="site-width">
+
+        <div class="primary-secondary-content">
+          <div class="primary-content">
+            <section id="newsletter">
+                 <h4>Puppet Labs is Hiring</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
+                  <p>
+		<h4>Newsletter</h4>
+
+              <p>Stay up to date on all things puppet</p>
+
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+
+				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+
+				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+
+				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+
+				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
+				<input type="hidden" name="lpId" value="-1" />
+				<input type="hidden" name="subId" value="100" />
+
+				<input type="hidden" name="kw" value="" />
+				<input type="hidden" name="cr" value="" />
+
+				<input type="hidden" name="searchstr" value="" />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="formid" value="1013" />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="_mkt_disp" value="return" />
+				<input type="hidden" name="_mkt_trk" value="" />
+
+				</form>
+				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
+
+				<script type="text/javascript">
+				function formSubmit(elt) {
+				return Mkto.formSubmit(elt);
+				}
+				function formReset(elt) {
+				return Mkto.formReset(elt);
+				}
+				</script>
+
+<a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
+
+            </section>
+            <section id="elsewhere">
+              <h4>Get Involved</h4>
+              <ul>
+
+                <li class="chat"><a href="http://webchat.freenode.net/?channels=puppet" rel="external"><span class="indicator"></span><span>Chat with us on IRC</span></a></li>
+		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
+                <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
+
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+
+              </ul>
+		<p>
+		              		<h4>Follow us&#8230;</h4>
+
+              		<ul class="followus">
+
+
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+					</ul>
+
+              	</p>
+
+            </section>
+          </div>
+          <div class="secondary-content">
+            <section id="book-it">
+              <h4>Get the book!</h4>
+
+              <p>James Turnbull and Jeff McCune's book <a href="http://www.apress.com/9781430230571" rel="nofollow">Pro Puppet</a> is a comprehensive and up-to-date look at Puppet and MCollective. </p>
+              <a href="http://www.apress.com/9781430230571" rel="nofollow"><img src="http://www.puppetlabs.com/wp-content/uploads/2011/05/propuppetthumb.png" /></a>
+            </section>
+          </div>
+        </div>
+      </div>
+		</footer>
+
+    <div id="copyright">
+      <div class="site-width">
+        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        <span class="vcard">
+         <span class="org"></span>
+         <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
+
+          <span class="adr">
+           <span class="street-address">926 NW 13th Avenue #210</span>
+           /
+           <span class="locality">Portland</span>,
+           <span class="region">OR</span>
+           <span class="postal-code">97209</span>
+
+          </span>
+
+         <span class="tel">1-877-575-9775</span>
+        </span>
+      </div>
+    </div>
+
+  	<script type="text/javascript">Cufon.now();</script>
+  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+
+
+	</body>
+</html>
