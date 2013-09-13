@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>list-activity-types &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="swf" href="index.html" />
+    <link rel="next" title="list-closed-workflow-executions" href="list-closed-workflow-executions.html" />
+    <link rel="prev" title="get-workflow-execution-history" href="get-workflow-execution-history.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="list-closed-workflow-executions.html" title="list-closed-workflow-executions" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="get-workflow-execution-history.html" title="get-workflow-execution-history" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">swf</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="get-workflow-execution-history.html" title="previous chapter (use the left arrow)">&#8592; get-workflow-execution-history</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="list-closed-workflow-executions.html" title="next chapter (use the right arrow)">list-closed-workflow-executions &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">list-activity-types</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#listing-activity-types">Listing Activity Types</a></li>
+<li><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/swf/list-activity-types">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>swf</em></a> ]</p>
+<div class="section" id="list-activity-types">
+<h1>list-activity-types<a class="headerlink" href="#list-activity-types" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Returns information about all activities registered in the specified --domain that match the specified --name and registration status. The result includes information like creation date, current status of the activity, etc. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the <tt class="docutils literal"><span class="pre">--next-page-token</span></tt>  returned by the initial call.</p>
+<p><strong>Access Control</strong></p>
+<p>You can use IAM policies to control this action's access to Amazon SWF resources as follows:</p>
+<ul class="simple">
+<li>Use a <tt class="docutils literal"><span class="pre">Resource</span></tt>  element with the --domain --name to limit the action to only specified domains.</li>
+<li>Use an <tt class="docutils literal"><span class="pre">Action</span></tt>  element to allow or deny permission to call this action.</li>
+<li>You cannot use an IAM policy to constrain this action's parameters.</li>
+</ul>
+<p>If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing <tt class="docutils literal"><span class="pre">OperationNotPermitted</span></tt>  . For details and example IAM policies, see <a class="reference external" href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> .</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  list-activity-types
+--domain &lt;value&gt;
+[--name &lt;value&gt;]
+--registration-status &lt;value&gt;
+[--next-page-token &lt;value&gt;]
+[--maximum-page-size &lt;value&gt;]
+[--reverse-order | --no-reverse-order]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--domain" class="dashAnchor" id="domain"></a><span class="pre">--domain</span></tt> (string)</p>
+<blockquote>
+<div>The --name of the --domain in which the activity types have been registered.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--name" class="dashAnchor" id="name"></a><span class="pre">--name</span></tt> (string)</p>
+<blockquote>
+<div>If specified, only lists the activity types that have this name.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--registration-status" class="dashAnchor" id="registration-status"></a><span class="pre">--registration-status</span></tt> (string)</p>
+<blockquote>
+<div>Specifies the registration status of the activity types to list.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--next-page-token" class="dashAnchor" id="next-page-token"></a><span class="pre">--next-page-token</span></tt> (string)</p>
+<blockquote>
+<div>If on a previous call to this method a <tt class="docutils literal"><span class="pre">NextResultToken</span></tt>  was returned, the results have more than one page. To get the next page of results, repeat the call with the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--next-page-token" class="dashAnchor" id="next-page-token"></a><span class="pre">--next-page-token</span></tt>  and keep all other arguments unchanged.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--maximum-page-size" class="dashAnchor" id="maximum-page-size"></a><span class="pre">--maximum-page-size</span></tt> (integer)</p>
+<blockquote>
+<div>The maximum number of results returned in each page. The default is 100, but the caller can override this value to a page size <em>smaller</em> than the default. You cannot specify a page size greater than 100. Note that the number of types may be less than the maxiumum page size, in which case, the returned page will have fewer results than the --maximum-page-size specified.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--reverse-order" class="dashAnchor" id="reverse-order"></a><span class="pre">--reverse-order</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-reverse-order" class="dashAnchor" id="no-reverse-order"></a><span class="pre">--no-reverse-order</span></tt> (boolean)</p>
+<blockquote>
+<div>When set to <tt class="docutils literal"><span class="pre">true</span></tt>  , returns the results in reverse order. By default the results are returned in ascending alphabetical order of the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--name" class="dashAnchor" id="name"></a><span class="pre">--name</span></tt>  of the activity types.</div></blockquote>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="listing-activity-types">
+<h3>Listing Activity Types<a class="headerlink" href="#listing-activity-types" title="Permalink to this headline">&#182;</a></h3>
+<p>To get a list of the activity types for a domain, use <tt class="docutils literal"><span class="pre">swf</span> <span class="pre">list-activity-types</span></tt>. The <tt class="docutils literal"><span class="pre">--domain</span></tt> and
+<tt class="docutils literal"><span class="pre">--registration-status</span></tt> arguments are required. Here's a simple example:</p>
+<div class="highlight-python"><pre>aws swf list-activity-types --domain DataFrobtzz --registration-status REGISTERED</pre>
+</div>
+<p>Results:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">"typeInfos"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"status"</span><span class="p">:</span> <span class="s">"REGISTERED"</span><span class="p">,</span>
+            <span class="s">"creationDate"</span><span class="p">:</span> <span class="mf">1371454150.451</span><span class="p">,</span>
+            <span class="s">"activityType"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"version"</span><span class="p">:</span> <span class="s">"1"</span><span class="p">,</span>
+                <span class="s">"name"</span><span class="p">:</span> <span class="s">"confirm-user-email"</span>
+            <span class="p">},</span>
+            <span class="s">"description"</span><span class="p">:</span> <span class="s">"subscribe confirm-user-email activity"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">"status"</span><span class="p">:</span> <span class="s">"REGISTERED"</span><span class="p">,</span>
+            <span class="s">"creationDate"</span><span class="p">:</span> <span class="mf">1371454150.709</span><span class="p">,</span>
+            <span class="s">"activityType"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"version"</span><span class="p">:</span> <span class="s">"1"</span><span class="p">,</span>
+                <span class="s">"name"</span><span class="p">:</span> <span class="s">"confirm-user-phone"</span>
+            <span class="p">},</span>
+            <span class="s">"description"</span><span class="p">:</span> <span class="s">"subscribe confirm-user-phone activity"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">"status"</span><span class="p">:</span> <span class="s">"REGISTERED"</span><span class="p">,</span>
+            <span class="s">"creationDate"</span><span class="p">:</span> <span class="mf">1371454149.871</span><span class="p">,</span>
+            <span class="s">"activityType"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"version"</span><span class="p">:</span> <span class="s">"1"</span><span class="p">,</span>
+                <span class="s">"name"</span><span class="p">:</span> <span class="s">"get-subscription-info"</span>
+            <span class="p">},</span>
+            <span class="s">"description"</span><span class="p">:</span> <span class="s">"subscribe get-subscription-info activity"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">"status"</span><span class="p">:</span> <span class="s">"REGISTERED"</span><span class="p">,</span>
+            <span class="s">"creationDate"</span><span class="p">:</span> <span class="mf">1371454150.909</span><span class="p">,</span>
+            <span class="s">"activityType"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"version"</span><span class="p">:</span> <span class="s">"1"</span><span class="p">,</span>
+                <span class="s">"name"</span><span class="p">:</span> <span class="s">"send-subscription-success"</span>
+            <span class="p">},</span>
+            <span class="s">"description"</span><span class="p">:</span> <span class="s">"subscribe send-subscription-success activity"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">"status"</span><span class="p">:</span> <span class="s">"REGISTERED"</span><span class="p">,</span>
+            <span class="s">"creationDate"</span><span class="p">:</span> <span class="mf">1371454150.085</span><span class="p">,</span>
+            <span class="s">"activityType"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"version"</span><span class="p">:</span> <span class="s">"1"</span><span class="p">,</span>
+                <span class="s">"name"</span><span class="p">:</span> <span class="s">"subscribe-user-sns"</span>
+            <span class="p">},</span>
+            <span class="s">"description"</span><span class="p">:</span> <span class="s">"subscribe subscribe-user-sns activity"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can use the <tt class="docutils literal"><span class="pre">--name</span></tt> argument to select only activity types with a particular name:</p>
+<div class="highlight-python"><pre>aws swf list-activity-types --domain DataFrobtzz --registration-status REGISTERED --name "send-subscription-success"</pre>
+</div>
+<p>Results:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">"typeInfos"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"status"</span><span class="p">:</span> <span class="s">"REGISTERED"</span><span class="p">,</span>
+            <span class="s">"creationDate"</span><span class="p">:</span> <span class="mf">1371454150.909</span><span class="p">,</span>
+            <span class="s">"activityType"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"version"</span><span class="p">:</span> <span class="s">"1"</span><span class="p">,</span>
+                <span class="s">"name"</span><span class="p">:</span> <span class="s">"send-subscription-success"</span>
+            <span class="p">},</span>
+            <span class="s">"description"</span><span class="p">:</span> <span class="s">"subscribe send-subscription-success activity"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To retrieve results in pages, you can set the <tt class="docutils literal"><span class="pre">--maximum-page-size</span></tt> argument. If more results are returned than will
+fit in a page of results, a "nextPageToken" will be returned in the result set:</p>
+<div class="highlight-python"><pre>aws swf list-activity-types --domain DataFrobtzz --registration-status REGISTERED --maximum-page-size 2</pre>
+</div>
+<p>Results:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">"nextPageToken"</span><span class="p">:</span> <span class="s">"AAAAKgAAAAEAAAAAAAAAA1Gp1BelJq+PmHvAnDxJYbup8+0R4LVtbXLDl7QNY7C3OpHo9Sz06D/GuFz1OyC73umBQ1tOPJ/gC/aYpzDMqUIWIA1T9W0s2DryyZX4OC/6Lhk9/o5kdsuWMSBkHhgaZjgwp3WJINIFJFdaSMxY2vYAX7AtRtpcqJuBDDRE9RaRqDGYqIYUMltarkiqpSY1ZVveBasBvlvyUb/WGAaqehiDz7/JzLT/wWNNUMOd+Nhe"</span><span class="p">,</span>
+    <span class="s">"typeInfos"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"status"</span><span class="p">:</span> <span class="s">"REGISTERED"</span><span class="p">,</span>
+            <span class="s">"creationDate"</span><span class="p">:</span> <span class="mf">1371454150.451</span><span class="p">,</span>
+            <span class="s">"activityType"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"version"</span><span class="p">:</span> <span class="s">"1"</span><span class="p">,</span>
+                <span class="s">"name"</span><span class="p">:</span> <span class="s">"confirm-user-email"</span>
+            <span class="p">},</span>
+            <span class="s">"description"</span><span class="p">:</span> <span class="s">"subscribe confirm-user-email activity"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">"status"</span><span class="p">:</span> <span class="s">"REGISTERED"</span><span class="p">,</span>
+            <span class="s">"creationDate"</span><span class="p">:</span> <span class="mf">1371454150.709</span><span class="p">,</span>
+            <span class="s">"activityType"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"version"</span><span class="p">:</span> <span class="s">"1"</span><span class="p">,</span>
+                <span class="s">"name"</span><span class="p">:</span> <span class="s">"confirm-user-phone"</span>
+            <span class="p">},</span>
+            <span class="s">"description"</span><span class="p">:</span> <span class="s">"subscribe confirm-user-phone activity"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can pass the nextPageToken value to the next call to <tt class="docutils literal"><span class="pre">list-activity-types</span></tt> in the <tt class="docutils literal"><span class="pre">--next-page-token</span></tt> argument,
+retrieving the next page of results:</p>
+<div class="highlight-python"><pre>aws swf list-activity-types --domain DataFrobtzz --registration-status REGISTERED --maximum-page-size 2
+--next-page-token "AAAAKgAAAAEAAAAAAAAAA1Gp1BelJq+PmHvAnDxJYbup8+0R4LVtbXLDl7QNY7C3OpHo9Sz06D/GuFz1OyC73umBQ1tOPJ/gC/aYpzDMqUIWIA1T9W0s2DryyZX4OC/6Lhk9/o5kdsuWMSBkHhgaZjgwp3WJINIFJFdaSMxY2vYAX7AtRtpcqJuBDDRE9RaRqDGYqIYUMltarkiqpSY1ZVveBasBvlvyUb/WGAaqehiDz7/JzLT/wWNNUMOd+Nhe"</pre>
+</div>
+<p>Result:</p>
+<div class="highlight-python"><pre>{
+    "nextPageToken": "AAAAKgAAAAEAAAAAAAAAAw+7LZ4GRZPzTqBHsp2wBxWB8m1sgLCclgCuq3J+h/m3+vOfFqtkcjLwV5cc4OjNAzTCuq/XcylPumGwkjbajtqpZpbqOcVNfjFxGoi0LB2Olbvv0krbUISBvlpFPmSWpDSZJsxg5UxCcweteSlFn1PNSZ/MoinBZo8OTkjMuzcsTuKOzH9wCaR8ITcALJ3SaqHU3pyIRS5hPmFA3OLIc8zaAepjlaujo6hntNSCruB4"
+    "typeInfos": [
+        {
+            "status": "REGISTERED",
+            "creationDate": 1371454149.871,
+            "activityType": {
+                "version": "1",
+                "name": "get-subscription-info"
+            },
+            "description": "subscribe get-subscription-info activity"
+        },
+        {
+            "status": "REGISTERED",
+            "creationDate": 1371454150.909,
+            "activityType": {
+                "version": "1",
+                "name": "send-subscription-success"
+            },
+            "description": "subscribe send-subscription-success activity"
+        }
+    ]
+}</pre>
+</div>
+<p>If there are still more results to return, "nextPageToken" will be returned with the results. When there are no more
+pages of results to return, "nextPageToken" will <em>not</em> be returned in the result set.</p>
+<p>You can use the <tt class="docutils literal"><span class="pre">--reverse-order</span></tt> argument to reverse the order of the returned results. This also affects paged
+results:</p>
+<div class="highlight-python"><pre>aws swf list-activity-types --domain DataFrobtzz --registration-status REGISTERED --maximum-page-size 2 --reverse-order</pre>
+</div>
+<p>Results:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">"nextPageToken"</span><span class="p">:</span> <span class="s">"AAAAKgAAAAEAAAAAAAAAAwXcpu5ePSyQkrC+8WMbmSrenuZC2ZkIXQYBPB/b9xIOVkj+bMEFhGj0KmmJ4rF7iddhjf7UMYCsfGkEn7mk+yMCgVc1JxDWmB0EH46bhcmcLmYNQihMDmUWocpr7To6/R7CLu0St1gkFayxOidJXErQW0zdNfQaIWAnF/cwioBbXlkz1fQzmDeU3M5oYGMPQIrUqkPq7pMEW0q0lK5eDN97NzFYdZZ/rlcLDWPZhUjY"</span><span class="p">,</span>
+    <span class="s">"typeInfos"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"status"</span><span class="p">:</span> <span class="s">"REGISTERED"</span><span class="p">,</span>
+            <span class="s">"creationDate"</span><span class="p">:</span> <span class="mf">1371454150.085</span><span class="p">,</span>
+            <span class="s">"activityType"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"version"</span><span class="p">:</span> <span class="s">"1"</span><span class="p">,</span>
+                <span class="s">"name"</span><span class="p">:</span> <span class="s">"subscribe-user-sns"</span>
+            <span class="p">},</span>
+            <span class="s">"description"</span><span class="p">:</span> <span class="s">"subscribe subscribe-user-sns activity"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">"status"</span><span class="p">:</span> <span class="s">"REGISTERED"</span><span class="p">,</span>
+            <span class="s">"creationDate"</span><span class="p">:</span> <span class="mf">1371454150.909</span><span class="p">,</span>
+            <span class="s">"activityType"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"version"</span><span class="p">:</span> <span class="s">"1"</span><span class="p">,</span>
+                <span class="s">"name"</span><span class="p">:</span> <span class="s">"send-subscription-success"</span>
+            <span class="p">},</span>
+            <span class="s">"description"</span><span class="p">:</span> <span class="s">"subscribe send-subscription-success activity"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="see-also">
+<h3>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">&#182;</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListActivityTypes.html">ListActivityTypes</a>
+in the <em>Amazon Simple Workflow Service API Reference</em></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="get-workflow-execution-history.html" title="previous chapter (use the left arrow)">&#8592; get-workflow-execution-history</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="list-closed-workflow-executions.html" title="next chapter (use the right arrow)">list-closed-workflow-executions &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="list-closed-workflow-executions.html" title="list-closed-workflow-executions">next</a> |</li>
+        <li class="right">
+          <a href="get-workflow-execution-history.html" title="get-workflow-execution-history">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">swf</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'get-workflow-execution-history.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'list-closed-workflow-executions.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

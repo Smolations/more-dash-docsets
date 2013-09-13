@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>run-instances &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="ec2" href="index.html" />
+    <link rel="next" title="start-instances" href="start-instances.html" />
+    <link rel="prev" title="revoke-security-group-ingress" href="revoke-security-group-ingress.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="start-instances.html" title="start-instances" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="revoke-security-group-ingress.html" title="revoke-security-group-ingress" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">ec2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="revoke-security-group-ingress.html" title="previous chapter (use the left arrow)">&#8592; revoke-security-group-ingress</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="start-instances.html" title="next chapter (use the right arrow)">start-instances &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">run-instances</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/ec2/run-instances">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>ec2</em></a> ]</p>
+<div class="section" id="run-instances">
+<h1>run-instances<a class="headerlink" href="#run-instances" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>The run-instances operation launches a specified number of instances.</p>
+<p>If Amazon EC2 cannot launch the minimum number AMIs you request, no instances launch. If there is insufficient capacity to launch the maximum number of AMIs you request, Amazon EC2 launches as many as possible to satisfy the requested maximum values.</p>
+<p>Every instance is launched in a security group. If you do not specify a security group at launch, the instances start in your default security group. For more information on creating security groups, see CreateSecurityGroup.</p>
+<p>An optional instance type can be specified. For information about instance types, see Instance Types.</p>
+<p>You can provide an optional key pair ID for each image in the launch request (for more information, see CreateKeyPair). All instances that are created from images that use this key pair will have access to the associated public key at boot. You can use this key to provide secure access to an instance of an image on a per-instance basis. Amazon EC2 public images use this feature to provide secure access without passwords.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Launching public images without a key pair ID will leave them inaccessible.</p>
+<p>The public key material is made available to the instance at boot time by placing it in the <tt class="docutils literal"><span class="pre">openssh_id.pub</span></tt>  file on a logical device that is exposed to the instance as <tt class="docutils literal"><span class="pre">/dev/sda2</span></tt>  (the ephemeral store). The format of this file is suitable for use as an entry within <tt class="docutils literal"><span class="pre">~/.ssh/authorized_keys</span></tt>  (the OpenSSH format). This can be done at boot (e.g., as part of <tt class="docutils literal"><span class="pre">rc.local</span></tt>  ) allowing for secure access without passwords.</p>
+<p class="last">Optional user data can be provided in the launch request. All instances that collectively comprise the launch request have access to this data For more information, see Instance Metadata.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If any of the AMIs have a product code attached for which the user has not subscribed, the run-instances call will fail.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">We strongly recommend using the 2.6.18 Xen stock kernel with the <tt class="docutils literal"><span class="pre">c1.medium</span></tt>  and <tt class="docutils literal"><span class="pre">c1.xlarge</span></tt>  instances. Although the default Amazon EC2 kernels will work, the new kernels provide greater stability and performance for these instance types. For more information about kernels, see Kernels, RAM Disks, and Block Device Mappings.</p>
+</div>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  run-instances
+[--dry-run | --no-dry-run]
+--image-id &lt;value&gt;
+[--key-name &lt;value&gt;]
+[--security-groups &lt;value&gt;]
+[--security-group-ids &lt;value&gt;]
+[--user-data &lt;value&gt;]
+[--instance-type &lt;value&gt;]
+[--placement &lt;value&gt;]
+[--kernel-id &lt;value&gt;]
+[--ramdisk-id &lt;value&gt;]
+[--block-device-mappings &lt;value&gt;]
+[--monitoring &lt;value&gt;]
+[--subnet-id &lt;value&gt;]
+[--disable-api-termination | --enable-api-termination]
+[--instance-initiated-shutdown-behavior &lt;value&gt;]
+[--license &lt;value&gt;]
+[--private-ip-address &lt;value&gt;]
+[--client-token &lt;value&gt;]
+[--additional-info &lt;value&gt;]
+[--network-interfaces &lt;value&gt;]
+[--iam-instance-profile &lt;value&gt;]
+[--ebs-optimized | --no-ebs-optimized]
+[--count &lt;value&gt;]
+--secondary-private-ip-addresses &lt;value&gt;
+--secondary-private-ip-address-count &lt;value&gt;</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--dry-run" class="dashAnchor" id="dry-run"></a><span class="pre">--dry-run</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-dry-run" class="dashAnchor" id="no-dry-run"></a><span class="pre">--no-dry-run</span></tt> (boolean)</p>
+<p>Checks whether you have the required permissions for the action, without actually making the request. Using this option will result in one of two possible errorresponses. If you have the required permissions, the error response will be <tt class="docutils literal"><span class="pre">DryRunOperation</span></tt>  . Otherwise it will be <tt class="docutils literal"><span class="pre">UnauthorizedOperation</span></tt>  .</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--image-id" class="dashAnchor" id="image-id"></a><span class="pre">--image-id</span></tt> (string)</p>
+<blockquote>
+<div>Unique ID of a machine image, returned by a call to DescribeImages.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--key-name" class="dashAnchor" id="key-name"></a><span class="pre">--key-name</span></tt> (string)</p>
+<blockquote>
+<div>The name of the key pair.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--security-groups" class="dashAnchor" id="security-groups"></a><span class="pre">--security-groups</span></tt> (list)</p>
+<blockquote>
+<div>The names of the security groups into which the instances will be launched.</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"string" "string" ...</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--security-group-ids" class="dashAnchor" id="security-group-ids"></a><span class="pre">--security-group-ids</span></tt> (list)</p>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"string" "string" ...</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--user-data" class="dashAnchor" id="user-data"></a><span class="pre">--user-data</span></tt> (blob)</p>
+<blockquote>
+<div>Specifies additional information to make available to the instance(s). This parameter must be passed as a Base64-encoded string.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--instance-type" class="dashAnchor" id="instance-type"></a><span class="pre">--instance-type</span></tt> (string)</p>
+<blockquote>
+<div>Specifies the instance type for the launched instances.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--placement" class="dashAnchor" id="placement"></a><span class="pre">--placement</span></tt> (structure)</p>
+<blockquote>
+<div>Specifies the placement constraints (Availability Zones) for launching the instances.</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>--placement AvailabilityZone=value,GroupName=value,Tenancy=value</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"AvailabilityZone"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"GroupName"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"Tenancy"</span><span class="p">:</span> <span class="s">"string"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--kernel-id" class="dashAnchor" id="kernel-id"></a><span class="pre">--kernel-id</span></tt> (string)</p>
+<blockquote>
+<div>The ID of the kernel with which to launch the instance.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--ramdisk-id" class="dashAnchor" id="ramdisk-id"></a><span class="pre">--ramdisk-id</span></tt> (string)</p>
+<blockquote>
+<div>The ID of the RAM disk with which to launch the instance. Some kernels require additional drivers at launch. Check the kernel requirements for information on whether you need to specify a RAM disk. To find kernel requirements, go to the Resource Center and search for the kernel ID.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--block-device-mappings" class="dashAnchor" id="block-device-mappings"></a><span class="pre">--block-device-mappings</span></tt> (list)</p>
+<blockquote>
+<div>Specifies how block devices are exposed to the instance. Each mapping is made up of a virtualName and a deviceName.</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "VirtualName": "string",
+    "DeviceName": "string",
+    "Ebs": {
+      "SnapshotId": "string",
+      "VolumeSize": integer,
+      "DeleteOnTermination": true|false,
+      "VolumeType": "standard"|"io1",
+      "Iops": integer
+    },
+    "NoDevice": "string"
+  }
+  ...
+]</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--monitoring" class="dashAnchor" id="monitoring"></a><span class="pre">--monitoring</span></tt> (structure)</p>
+<blockquote>
+<div>Enables monitoring for the instance.</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"Enabled"</span><span class="p">:</span> <span class="n">true</span><span class="o">|</span><span class="n">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--subnet-id" class="dashAnchor" id="subnet-id"></a><span class="pre">--subnet-id</span></tt> (string)</p>
+<blockquote>
+<div>Specifies the subnet ID within which to launch the instance(s) for Amazon Virtual Private Cloud.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--disable-api-termination" class="dashAnchor" id="disable-api-termination"></a><span class="pre">--disable-api-termination</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--enable-api-termination" class="dashAnchor" id="enable-api-termination"></a><span class="pre">--enable-api-termination</span></tt> (boolean)</p>
+<blockquote>
+<div>Specifies whether the instance can be terminated using the APIs. You must modify this attribute before you can terminate any "locked" instances from the APIs.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--instance-initiated-shutdown-behavior" class="dashAnchor" id="instance-initiated-shutdown-behavior"></a><span class="pre">--instance-initiated-shutdown-behavior</span></tt> (string)</p>
+<blockquote>
+<div>Specifies whether the instance's Amazon EBS volumes are stopped or terminated when the instance is shut down.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--license" class="dashAnchor" id="license"></a><span class="pre">--license</span></tt> (structure)</p>
+<blockquote>
+<div>Specifies active licenses in use and attached to an Amazon EC2 instance.</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"Pool"</span><span class="p">:</span> <span class="s">"string"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--private-ip-address" class="dashAnchor" id="private-ip-address"></a><span class="pre">--private-ip-address</span></tt> (string)</p>
+<blockquote>
+<div>If you're using Amazon Virtual Private Cloud, you can optionally use this parameter to assign the instance a specific available IP address from the subnet.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--client-token" class="dashAnchor" id="client-token"></a><span class="pre">--client-token</span></tt> (string)</p>
+<blockquote>
+<div>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, go to How to Ensure Idempotency in the Amazon Elastic Compute Cloud User Guide.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--additional-info" class="dashAnchor" id="additional-info"></a><span class="pre">--additional-info</span></tt> (string)</p>
+<blockquote>
+<div>Do not use. Reserved for internal use.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--network-interfaces" class="dashAnchor" id="network-interfaces"></a><span class="pre">--network-interfaces</span></tt> (list)</p>
+<blockquote>
+<div>List of network interfaces associated with the instance.</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "NetworkInterfaceId": "string",
+    "DeviceIndex": integer,
+    "SubnetId": "string",
+    "Description": "string",
+    "PrivateIpAddress": "string",
+    "Groups": ["string", ...],
+    "DeleteOnTermination": true|false,
+    "PrivateIpAddresses": [
+      {
+        "PrivateIpAddress": "string",
+        "Primary": true|false
+      }
+      ...
+    ],
+    "SecondaryPrivateIpAddressCount": integer,
+    "AssociatePublicIpAddress": true|false
+  }
+  ...
+]</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--iam-instance-profile" class="dashAnchor" id="iam-instance-profile"></a><span class="pre">--iam-instance-profile</span></tt> (structure)</p>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>--iam-instance-profile Arn=value,Name=value</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"Arn"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"Name"</span><span class="p">:</span> <span class="s">"string"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--ebs-optimized" class="dashAnchor" id="ebs-optimized"></a><span class="pre">--ebs-optimized</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-ebs-optimized" class="dashAnchor" id="no-ebs-optimized"></a><span class="pre">--no-ebs-optimized</span></tt> (boolean)</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--count" class="dashAnchor" id="count"></a><span class="pre">--count</span></tt> (string)</p>
+<blockquote>
+<div>Number of instances to launch. If a single number is provided, it is assumed to be the minimum to launch (defaults to 1). If a range is provided in the form <tt class="docutils literal"><span class="pre">min:max</span></tt>  then the first number is interpreted as the minimum number of instances to launch and the second is interpreted as the maximum number of instances to launch.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--secondary-private-ip-addresses" class="dashAnchor" id="secondary-private-ip-addresses"></a><span class="pre">--secondary-private-ip-addresses</span></tt> (string)
+[EC2-VPC] A secondary private IP address for the network interface or instance. You can specify this multiple times to assign multiple secondary IP addresses. If you want additional private IP addresses but do not need a specific address, use the --secondary-private-ip-address-count option.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--secondary-private-ip-address-count" class="dashAnchor" id="secondary-private-ip-address-count"></a><span class="pre">--secondary-private-ip-address-count</span></tt> (string)
+[EC2-VPC] The number of secondary IP addresses to assign to the network interface or instance.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<p><strong>To launch an Amazon EC2 instance</strong></p>
+<p>This example launches a single Amazon EC2 instance of type t1.micro.</p>
+<p>The key pair and security group, named MyKeyPair and MySecurityGroup, must exist.</p>
+<p>Command:</p>
+<div class="highlight-python"><pre>aws ec2 run-instances --image-id ami-c3b8d6aa --count 1 --instance-type t1.micro --key-name MyKeyPair --security-groups MySecurityGroup</pre>
+</div>
+<p>Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">"OwnerId"</span><span class="p">:</span> <span class="s">"123456789012"</span><span class="p">,</span>
+    <span class="s">"ReservationId"</span><span class="p">:</span> <span class="s">"r-5875ca20"</span><span class="p">,</span>
+    <span class="s">"Groups"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"GroupName"</span><span class="p">:</span> <span class="s">"MySecurityGroup"</span><span class="p">,</span>
+            <span class="s">"GroupId"</span><span class="p">:</span> <span class="s">"sg-903004f8"</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s">"Instances"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"Monitoring"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"State"</span><span class="p">:</span> <span class="s">"disabled"</span>
+            <span class="p">},</span>
+            <span class="s">"PublicDnsName"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">"Platform"</span><span class="p">:</span> <span class="s">"windows"</span><span class="p">,</span>
+            <span class="s">"State"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"Code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s">"Name"</span><span class="p">:</span> <span class="s">"pending"</span>
+            <span class="p">},</span>
+            <span class="s">"EbsOptimized"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s">"LaunchTime"</span><span class="p">:</span> <span class="s">"2013-07-19T02:42:39.000Z"</span><span class="p">,</span>
+            <span class="s">"ProductCodes"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s">"InstanceId"</span><span class="p">:</span> <span class="s">"i-5203422c"</span><span class="p">,</span>
+            <span class="s">"ImageId"</span><span class="p">:</span> <span class="s">"ami-c3b8d6aa"</span><span class="p">,</span>
+            <span class="s">"PrivateDnsName"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">"KeyName"</span><span class="p">:</span> <span class="s">"MyKeyPair"</span><span class="p">,</span>
+            <span class="s">"SecurityGroups"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s">"GroupName"</span><span class="p">:</span> <span class="s">"MySecurityGroup"</span><span class="p">,</span>
+                    <span class="s">"GroupId"</span><span class="p">:</span> <span class="s">"sg-903004f8"</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s">"ClientToken"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">"InstanceType"</span><span class="p">:</span> <span class="s">"t1.micro"</span><span class="p">,</span>
+            <span class="s">"NetworkInterfaces"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s">"Placement"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"Tenancy"</span><span class="p">:</span> <span class="s">"default"</span><span class="p">,</span>
+                <span class="s">"GroupName"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+                <span class="s">"AvailabilityZone"</span><span class="p">:</span> <span class="s">"us-east-1b"</span>
+            <span class="p">},</span>
+            <span class="s">"Hypervisor"</span><span class="p">:</span> <span class="s">"xen"</span><span class="p">,</span>
+            <span class="s">"BlockDeviceMappings"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s">"Architecture"</span><span class="p">:</span> <span class="s">"x86_64"</span><span class="p">,</span>
+            <span class="s">"StateReason"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"Message"</span><span class="p">:</span> <span class="s">"pending"</span><span class="p">,</span>
+                <span class="s">"Code"</span><span class="p">:</span> <span class="s">"pending"</span>
+            <span class="p">},</span>
+            <span class="s">"RootDeviceName"</span><span class="p">:</span> <span class="s">"/dev/sda1"</span><span class="p">,</span>
+            <span class="s">"VirtualizationType"</span><span class="p">:</span> <span class="s">"hvm"</span><span class="p">,</span>
+            <span class="s">"RootDeviceType"</span><span class="p">:</span> <span class="s">"ebs"</span><span class="p">,</span>
+            <span class="s">"AmiLaunchIndex"</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For more information, see <a class="reference external" href="http://docs.aws.amazon.com/cli/latest/userguide/cli-ec2-launch.html">Using Amazon EC2 Instances</a> in the <em>AWS Command Line Interface User Guide</em>.</p>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="revoke-security-group-ingress.html" title="previous chapter (use the left arrow)">&#8592; revoke-security-group-ingress</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="start-instances.html" title="next chapter (use the right arrow)">start-instances &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="start-instances.html" title="start-instances">next</a> |</li>
+        <li class="right">
+          <a href="revoke-security-group-ingress.html" title="revoke-security-group-ingress">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">ec2</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'revoke-security-group-ingress.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'start-instances.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>update-pipeline &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="elastictranscoder" href="index.html" />
+    <link rel="next" title="update-pipeline-notifications" href="update-pipeline-notifications.html" />
+    <link rel="prev" title="test-role" href="test-role.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="update-pipeline-notifications.html" title="update-pipeline-notifications" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="test-role.html" title="test-role" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">elastictranscoder</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="test-role.html" title="previous chapter (use the left arrow)">&#8592; test-role</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="update-pipeline-notifications.html" title="next chapter (use the right arrow)">update-pipeline-notifications &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">update-pipeline</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/elastictranscoder/update-pipeline">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>elastictranscoder</em></a> ]</p>
+<div class="section" id="update-pipeline">
+<h1>update-pipeline<a class="headerlink" href="#update-pipeline" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Use the <tt class="docutils literal"><span class="pre">update-pipeline</span></tt>  operation to update settings for a pipeline.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">When you change pipeline settings, your changes take effect immediately. Jobs that you have already submitted and that Elastic Transcoder has not started to process are affected in addition to jobs that you submit after you change settings.</p>
+</div>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  update-pipeline
+--id &lt;value&gt;
+[--name &lt;value&gt;]
+[--input-bucket &lt;value&gt;]
+[--role &lt;value&gt;]
+[--notifications &lt;value&gt;]
+[--content-config &lt;value&gt;]
+[--thumbnail-config &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--id" class="dashAnchor" id="id"></a><span class="pre">--id</span></tt> (string)</p>
+<blockquote>
+<div>The ID of the pipeline that you want to update.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--name" class="dashAnchor" id="name"></a><span class="pre">--name</span></tt> (string)</p>
+<blockquote>
+<div><p>The name of the pipeline. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.</p>
+<p>Constraints: Maximum 40 characters</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--input-bucket" class="dashAnchor" id="input-bucket"></a><span class="pre">--input-bucket</span></tt> (string)</p>
+<blockquote>
+<div>The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--role" class="dashAnchor" id="role"></a><span class="pre">--role</span></tt> (string)</p>
+<blockquote>
+<div>The IAM Amazon Resource --name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--notifications" class="dashAnchor" id="notifications"></a><span class="pre">--notifications</span></tt> (structure)</p>
+<blockquote>
+<div><p>The Amazon Simple Notification Service (Amazon SNS) topic or topics to notify in order to report job status.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p>
+</div>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>--notifications Progressing=value,Completed=value,Warning=value,Error=value</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"Progressing"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"Completed"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"Warning"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"Error"</span><span class="p">:</span> <span class="s">"string"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--content-config" class="dashAnchor" id="content-config"></a><span class="pre">--content-config</span></tt> (structure)</p>
+<blockquote>
+<div><p>The optional <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--content-config" class="dashAnchor" id="content-config"></a><span class="pre">--content-config</span></tt>  object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists: which bucket to use, which users you want to have access to the files, the type of access you want users to have, and the storage class that you want to assign to the files.</p>
+<p>If you specify values for <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--content-config" class="dashAnchor" id="content-config"></a><span class="pre">--content-config</span></tt>  , you must also specify values for <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--thumbnail-config" class="dashAnchor" id="thumbnail-config"></a><span class="pre">--thumbnail-config</span></tt>  .</p>
+<p>If you specify values for <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--content-config" class="dashAnchor" id="content-config"></a><span class="pre">--content-config</span></tt>  and <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--thumbnail-config" class="dashAnchor" id="thumbnail-config"></a><span class="pre">--thumbnail-config</span></tt>  , omit the <tt class="docutils literal"><span class="pre">OutputBucket</span></tt>  object.</p>
+<ul class="simple">
+<li><strong>Bucket</strong> : The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.</li>
+<li><strong>Permissions</strong> (Optional): The Permissions object specifies which users you want to have access to transcoded files and the type of access you want them to have. You can grant permissions to a maximum of 30 users and/or predefined Amazon S3 groups.</li>
+<li><strong>Grantee Type</strong> : Specify the type of value that appears in the <tt class="docutils literal"><span class="pre">Grantee</span></tt>  object:  *  <strong>Canonical</strong> : The value in the <tt class="docutils literal"><span class="pre">Grantee</span></tt>  object is either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution. For more information about canonical user IDs, see Access Control List (ACL) Overview in the Amazon Simple Storage Service Developer Guide. For more information about using CloudFront origin access identities to require that users use CloudFront URLs instead of Amazon S3 URLs, see Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content. .. warning::A canonical user ID is not the same as an AWS account number.</li>
+<li><strong>Email</strong> : The value in the <tt class="docutils literal"><span class="pre">Grantee</span></tt>  object is the registered email address of an AWS account.</li>
+<li><strong>Group</strong> : The value in the <tt class="docutils literal"><span class="pre">Grantee</span></tt>  object is one of the following predefined Amazon S3 groups: <tt class="docutils literal"><span class="pre">AllUsers</span></tt>  , <tt class="docutils literal"><span class="pre">AuthenticatedUsers</span></tt>  , or <tt class="docutils literal"><span class="pre">LogDelivery</span></tt>  .</li>
+<li><strong>Grantee</strong> : The AWS user or group that you want to have access to transcoded files and playlists. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group</li>
+<li><strong>Access</strong> : The permission that you want to give to the AWS user that you specified in <tt class="docutils literal"><span class="pre">Grantee</span></tt>  . Permissions are granted on the files that Elastic Transcoder adds to the bucket, including playlists and video files. Valid values include:  *  <tt class="docutils literal"><span class="pre">READ</span></tt>  : The grantee can read the objects and metadata for objects that Elastic Transcoder adds to the Amazon S3 bucket.</li>
+<li><tt class="docutils literal"><span class="pre">READ_ACP</span></tt>  : The grantee can read the object ACL for objects that Elastic Transcoder adds to the Amazon S3 bucket.</li>
+<li><tt class="docutils literal"><span class="pre">WRITE_ACP</span></tt>  : The grantee can write the ACL for the objects that Elastic Transcoder adds to the Amazon S3 bucket.</li>
+<li><tt class="docutils literal"><span class="pre">FULL_CONTROL</span></tt>  : The grantee has <tt class="docutils literal"><span class="pre">READ</span></tt>  , <tt class="docutils literal"><span class="pre">READ_ACP</span></tt>  , and <tt class="docutils literal"><span class="pre">WRITE_ACP</span></tt>  permissions for the objects that Elastic Transcoder adds to the Amazon S3 bucket.</li>
+<li><strong>StorageClass</strong> : The Amazon S3 storage class, <tt class="docutils literal"><span class="pre">Standard</span></tt>  or <tt class="docutils literal"><span class="pre">ReducedRedundancy</span></tt>  , that you want Elastic Transcoder to assign to the video files and playlists that it stores in your Amazon S3 bucket.</li>
+</ul>
+</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>{
+  "Bucket": "string",
+  "StorageClass": "string",
+  "Permissions": [
+    {
+      "GranteeType": "string",
+      "Grantee": "string",
+      "Access": ["string", ...]
+    }
+    ...
+  ]
+}</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--thumbnail-config" class="dashAnchor" id="thumbnail-config"></a><span class="pre">--thumbnail-config</span></tt> (structure)</p>
+<blockquote>
+<div><p>The <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--thumbnail-config" class="dashAnchor" id="thumbnail-config"></a><span class="pre">--thumbnail-config</span></tt>  object specifies several values, including the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files, which users you want to have access to the files, the type of access you want users to have, and the storage class that you want to assign to the files.</p>
+<p>If you specify values for <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--content-config" class="dashAnchor" id="content-config"></a><span class="pre">--content-config</span></tt>  , you must also specify values for <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--thumbnail-config" class="dashAnchor" id="thumbnail-config"></a><span class="pre">--thumbnail-config</span></tt>  even if you don't want to create thumbnails.</p>
+<p>If you specify values for <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--content-config" class="dashAnchor" id="content-config"></a><span class="pre">--content-config</span></tt>  and <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--thumbnail-config" class="dashAnchor" id="thumbnail-config"></a><span class="pre">--thumbnail-config</span></tt>  , omit the <tt class="docutils literal"><span class="pre">OutputBucket</span></tt>  object.</p>
+<ul class="simple">
+<li><strong>Bucket</strong> : The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.</li>
+<li><strong>Permissions</strong> (Optional): The <tt class="docutils literal"><span class="pre">Permissions</span></tt>  object specifies which users and/or predefined Amazon S3 groups you want to have access to thumbnail files, and the type of access you want them to have. You can grant permissions to a maximum of 30 users and/or predefined Amazon S3 groups.</li>
+<li><strong>GranteeType</strong> : Specify the type of value that appears in the Grantee object:  *  <strong>Canonical</strong> : The value in the <tt class="docutils literal"><span class="pre">Grantee</span></tt>  object is either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution. .. warning::A canonical user ID is not the same as an AWS account number.</li>
+<li><strong>Email</strong> : The value in the <tt class="docutils literal"><span class="pre">Grantee</span></tt>  object is the registered email address of an AWS account.</li>
+<li><strong>Group</strong> : The value in the <tt class="docutils literal"><span class="pre">Grantee</span></tt>  object is one of the following predefined Amazon S3 groups: <tt class="docutils literal"><span class="pre">AllUsers</span></tt>  , <tt class="docutils literal"><span class="pre">AuthenticatedUsers</span></tt>  , or <tt class="docutils literal"><span class="pre">LogDelivery</span></tt>  .</li>
+<li><strong>Grantee</strong> : The AWS user or group that you want to have access to thumbnail files. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group.</li>
+<li><strong>Access</strong> : The permission that you want to give to the AWS user that you specified in <tt class="docutils literal"><span class="pre">Grantee</span></tt>  . Permissions are granted on the thumbnail files that Elastic Transcoder adds to the bucket. Valid values include:  *  <tt class="docutils literal"><span class="pre">READ</span></tt>  : The grantee can read the thumbnails and metadata for objects that Elastic Transcoder adds to the Amazon S3 bucket.</li>
+<li><tt class="docutils literal"><span class="pre">READ_ACP</span></tt>  : The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</li>
+<li><tt class="docutils literal"><span class="pre">WRITE_ACP</span></tt>  : The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</li>
+<li><tt class="docutils literal"><span class="pre">FULL_CONTROL</span></tt>  : The grantee has <tt class="docutils literal"><span class="pre">READ</span></tt>  , <tt class="docutils literal"><span class="pre">READ_ACP</span></tt>  , and <tt class="docutils literal"><span class="pre">WRITE_ACP</span></tt>  permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</li>
+<li><strong>StorageClass</strong> : The Amazon S3 storage class, <tt class="docutils literal"><span class="pre">Standard</span></tt>  or <tt class="docutils literal"><span class="pre">ReducedRedundancy</span></tt>  , that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.</li>
+</ul>
+</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>{
+  "Bucket": "string",
+  "StorageClass": "string",
+  "Permissions": [
+    {
+      "GranteeType": "string",
+      "Grantee": "string",
+      "Access": ["string", ...]
+    }
+    ...
+  ]
+}</pre>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="test-role.html" title="previous chapter (use the left arrow)">&#8592; test-role</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="update-pipeline-notifications.html" title="next chapter (use the right arrow)">update-pipeline-notifications &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="update-pipeline-notifications.html" title="update-pipeline-notifications">next</a> |</li>
+        <li class="right">
+          <a href="test-role.html" title="test-role">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">elastictranscoder</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'test-role.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'update-pipeline-notifications.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

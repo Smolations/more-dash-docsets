@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>create-job &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="elastictranscoder" href="index.html" />
+    <link rel="next" title="create-pipeline" href="create-pipeline.html" />
+    <link rel="prev" title="cancel-job" href="cancel-job.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="create-pipeline.html" title="create-pipeline" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="cancel-job.html" title="cancel-job" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">elastictranscoder</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="cancel-job.html" title="previous chapter (use the left arrow)">&#8592; cancel-job</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="create-pipeline.html" title="next chapter (use the right arrow)">create-pipeline &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">create-job</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/elastictranscoder/create-job">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>elastictranscoder</em></a> ]</p>
+<div class="section" id="create-job">
+<h1>create-job<a class="headerlink" href="#create-job" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>When you create a job, Elastic Transcoder returns JSON data that includes the values that you specified plus information about the job that is created.</p>
+<p>If you have specified more than one output for your jobs (for example, one output for the Kindle Fire and another output for the Apple iPhone 4s), you currently must use the Elastic Transcoder API to list the jobs (as opposed to the AWS Console).</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  create-job
+[--pipeline-id &lt;value&gt;]
+[--input &lt;value&gt;]
+[--job-output &lt;value&gt;]
+[--outputs &lt;value&gt;]
+[--output-key-prefix &lt;value&gt;]
+[--playlists &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--pipeline-id" class="dashAnchor" id="pipeline-id"></a><span class="pre">--pipeline-id</span></tt> (string)</p>
+<blockquote>
+<div>The <tt class="docutils literal"><span class="pre">Id</span></tt>  of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--input" class="dashAnchor" id="input"></a><span class="pre">--input</span></tt> (structure)</p>
+<blockquote>
+<div>A section of the request body that provides information about the file that is being transcoded.</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>--input Key=value,FrameRate=value,Resolution=value,AspectRatio=value,Interlaced=value,Container=value</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"Key"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"FrameRate"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"Resolution"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"AspectRatio"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"Interlaced"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"Container"</span><span class="p">:</span> <span class="s">"string"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--job-output" class="dashAnchor" id="job-output"></a><span class="pre">--job-output</span></tt> (structure)</p>
+<blockquote>
+<div>The <tt class="docutils literal"><span class="pre">CreateJobOutput</span></tt>  structure.</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>{
+  "Key": "string",
+  "ThumbnailPattern": "string",
+  "Rotate": "string",
+  "PresetId": "string",
+  "SegmentDuration": "string",
+  "Watermarks": [
+    {
+      "PresetWatermarkId": "string",
+      "InputKey": "string"
+    }
+    ...
+  ]
+}</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--outputs" class="dashAnchor" id="outputs"></a><span class="pre">--outputs</span></tt> (list)</p>
+<blockquote>
+<div>A section of the request body that provides information about the transcoded (target) files. We recommend that you use the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--outputs" class="dashAnchor" id="outputs"></a><span class="pre">--outputs</span></tt>  syntax instead of the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--job-output" class="dashAnchor" id="job-output"></a><span class="pre">--job-output</span></tt>  syntax.</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "Key": "string",
+    "ThumbnailPattern": "string",
+    "Rotate": "string",
+    "PresetId": "string",
+    "SegmentDuration": "string",
+    "Watermarks": [
+      {
+        "PresetWatermarkId": "string",
+        "InputKey": "string"
+      }
+      ...
+    ]
+  }
+  ...
+]</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--output-key-prefix" class="dashAnchor" id="output-key-prefix"></a><span class="pre">--output-key-prefix</span></tt> (string)</p>
+<blockquote>
+<div>The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--playlists" class="dashAnchor" id="playlists"></a><span class="pre">--playlists</span></tt> (list)</p>
+<blockquote>
+<div><p>If you specify a preset in <tt class="docutils literal"><span class="pre">PresetId</span></tt>  for which the value of <tt class="docutils literal"><span class="pre">Container</span></tt>  is ts (MPEG-TS), --playlists contains information about the master playlists that you want Elastic Transcoder to create.</p>
+<p>We recommend that you create only one master playlist. The maximum number of master playlists in a job is 30.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>  Key value pairs, where values are separated by commas.
+--playlists Name=string1,Format=string1,OutputKeys=string1,string2</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "Name": "string",
+    "Format": "string",
+    "OutputKeys": ["string", ...]
+  }
+  ...
+]</pre>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="cancel-job.html" title="previous chapter (use the left arrow)">&#8592; cancel-job</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="create-pipeline.html" title="next chapter (use the right arrow)">create-pipeline &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="create-pipeline.html" title="create-pipeline">next</a> |</li>
+        <li class="right">
+          <a href="cancel-job.html" title="cancel-job">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">elastictranscoder</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'cancel-job.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'create-pipeline.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

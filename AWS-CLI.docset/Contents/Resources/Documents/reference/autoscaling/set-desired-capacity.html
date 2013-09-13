@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>set-desired-capacity &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="autoscaling" href="index.html" />
+    <link rel="next" title="set-instance-health" href="set-instance-health.html" />
+    <link rel="prev" title="resume-processes" href="resume-processes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="set-instance-health.html" title="set-instance-health" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="resume-processes.html" title="resume-processes" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">autoscaling</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="resume-processes.html" title="previous chapter (use the left arrow)">&#8592; resume-processes</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="set-instance-health.html" title="next chapter (use the right arrow)">set-instance-health &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">set-desired-capacity</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/autoscaling/set-desired-capacity">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>autoscaling</em></a> ]</p>
+<div class="section" id="set-desired-capacity">
+<h1>set-desired-capacity<a class="headerlink" href="#set-desired-capacity" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Adjusts the desired size of the  AutoScalingGroup by initiating scaling activities. When reducing the size of the group, it is not possible to define which Amazon EC2 instances will be terminated. This applies to any Auto Scaling decisions that might result in terminating instances.</p>
+<p>There are two common use cases for <tt class="docutils literal"><span class="pre">set-desired-capacity</span></tt>  : one for users of the Auto Scaling triggering system, and another for developers who write their own triggering systems. Both use cases relate to the concept of cooldown.</p>
+<p>In the first case, if you use the Auto Scaling triggering system, <tt class="docutils literal"><span class="pre">set-desired-capacity</span></tt>  changes the size of your Auto Scaling group without regard to the cooldown period. This could be useful, for example, if Auto Scaling did something unexpected for some reason. If your cooldown period is 10 minutes, Auto Scaling would normally reject requests to change the size of the group for that entire 10-minute period. The <tt class="docutils literal"><span class="pre">set-desired-capacity</span></tt>  command allows you to circumvent this restriction and change the size of the group before the end of the cooldown period.</p>
+<p>In the second case, if you write your own triggering system, you can use <tt class="docutils literal"><span class="pre">set-desired-capacity</span></tt>  to control the size of your Auto Scaling group. If you want the same cooldown functionality that Auto Scaling offers, you can configure <tt class="docutils literal"><span class="pre">set-desired-capacity</span></tt>  to honor cooldown by setting the <tt class="docutils literal"><span class="pre">--honor-cooldown</span></tt>  parameter to <tt class="docutils literal"><span class="pre">true</span></tt>  .</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  set-desired-capacity
+--auto-scaling-group-name &lt;value&gt;
+--desired-capacity &lt;value&gt;
+[--honor-cooldown | --no-honor-cooldown]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--auto-scaling-group-name" class="dashAnchor" id="auto-scaling-group-name"></a><span class="pre">--auto-scaling-group-name</span></tt> (string)</p>
+<blockquote>
+<div>The name of the Auto Scaling group.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--desired-capacity" class="dashAnchor" id="desired-capacity"></a><span class="pre">--desired-capacity</span></tt> (integer)</p>
+<blockquote>
+<div>The new capacity setting for the Auto Scaling group.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--honor-cooldown" class="dashAnchor" id="honor-cooldown"></a><span class="pre">--honor-cooldown</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-honor-cooldown" class="dashAnchor" id="no-honor-cooldown"></a><span class="pre">--no-honor-cooldown</span></tt> (boolean)</p>
+<blockquote>
+<div>By default, <tt class="docutils literal"><span class="pre">set-desired-capacity</span></tt>  overrides any cooldown period. Set to <tt class="docutils literal"><span class="pre">True</span></tt>  if you want Auto Scaling to reject this request when the Auto Scaling group is in cooldown.</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="resume-processes.html" title="previous chapter (use the left arrow)">&#8592; resume-processes</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="set-instance-health.html" title="next chapter (use the right arrow)">set-instance-health &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="set-instance-health.html" title="set-instance-health">next</a> |</li>
+        <li class="right">
+          <a href="resume-processes.html" title="resume-processes">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">autoscaling</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'resume-processes.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'set-instance-health.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

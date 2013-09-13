@@ -1,0 +1,255 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>rds &mdash; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="aws" href="../index.html" />
+    <link rel="next" title="add-option-to-option-group" href="add-option-to-option-group.html" />
+    <link rel="prev" title="update-user-profile" href="../opsworks/update-user-profile.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&repo=aws-cli&type=watch&count=true&size=small"
+                  allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="add-option-to-option-group.html" title="add-option-to-option-group"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../opsworks/update-user-profile.html" title="update-user-profile"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">aws</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../opsworks/update-user-profile.html" title="previous chapter (use the left arrow)">&larr; update-user-profile</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="add-option-to-option-group.html" title="next chapter (use the right arrow)">add-option-to-option-group &rarr;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">rds</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#available-commands">Available Commands</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&guide_name=Guide&api_version=1.0&file_name=reference/rds/index">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <div class="section" id="rds">
+<h1>rds<a class="headerlink" href="#rds" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and scale a relational database in the cloud. It provides cost-efficient, resizable capacity for an industry-standard relational database and manages common database administration tasks, freeing up developers to focus on what makes their applications and businesses unique.</p>
+<p>Amazon RDS gives you access to the capabilities of a familiar MySQL or Oracle database server. This means the code, applications, and tools you already use today with your existing MySQL or Oracle databases work with Amazon RDS without modification. Amazon RDS automatically backs up your database and maintains the database software that powers your DB Instance. Amazon RDS is flexible: you can scale your database instance's compute resources and storage capacity to meet your application's demand. As with all Amazon Web Services, there are no up-front investments, and you pay only for the resources you use.</p>
+<p>This is the <em>Amazon RDS API Reference</em> . It contains a comprehensive description of all Amazon RDS Query APIs and data types. Note that this API is asynchronous and some actions may require polling to determine when an action has been applied. See the parameter description to determine if a change is applied immediately or on the next instance reboot or during the maintenance window. For more information on Amazon RDS concepts and usage scenarios, go to the <a class="reference external" href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/">Amazon RDS User Guide</a> .</p>
+</div>
+<div class="section" id="available-commands">
+<h2>Available Commands<a class="headerlink" href="#available-commands" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="add-option-to-option-group.html">add-option-to-option-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-source-identifier-to-subscription.html">add-source-identifier-to-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-tags-to-resource.html">add-tags-to-resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authorize-db-security-group-ingress.html">authorize-db-security-group-ingress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy-db-snapshot.html">copy-db-snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-db-instance.html">create-db-instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-db-instance-read-replica.html">create-db-instance-read-replica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-db-parameter-group.html">create-db-parameter-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-db-security-group.html">create-db-security-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-db-snapshot.html">create-db-snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-db-subnet-group.html">create-db-subnet-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-event-subscription.html">create-event-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-option-group.html">create-option-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-db-instance.html">delete-db-instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-db-parameter-group.html">delete-db-parameter-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-db-security-group.html">delete-db-security-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-db-snapshot.html">delete-db-snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-db-subnet-group.html">delete-db-subnet-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-event-subscription.html">delete-event-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-option-group.html">delete-option-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-db-engine-versions.html">describe-db-engine-versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-db-instances.html">describe-db-instances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-db-log-files.html">describe-db-log-files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-db-parameter-groups.html">describe-db-parameter-groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-db-parameters.html">describe-db-parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-db-security-groups.html">describe-db-security-groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-db-snapshots.html">describe-db-snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-db-subnet-groups.html">describe-db-subnet-groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-engine-default-parameters.html">describe-engine-default-parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-event-categories.html">describe-event-categories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-event-subscriptions.html">describe-event-subscriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-events.html">describe-events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-option-group-options.html">describe-option-group-options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-option-groups.html">describe-option-groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-orderable-db-instance-options.html">describe-orderable-db-instance-options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-reserved-db-instances.html">describe-reserved-db-instances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-reserved-db-instances-offerings.html">describe-reserved-db-instances-offerings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download-db-log-file-portion.html">download-db-log-file-portion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list-tags-for-resource.html">list-tags-for-resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modify-db-instance.html">modify-db-instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modify-db-parameter-group.html">modify-db-parameter-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modify-db-subnet-group.html">modify-db-subnet-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modify-event-subscription.html">modify-event-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="promote-read-replica.html">promote-read-replica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="purchase-reserved-db-instances-offering.html">purchase-reserved-db-instances-offering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reboot-db-instance.html">reboot-db-instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remove-option-from-option-group.html">remove-option-from-option-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remove-source-identifier-from-subscription.html">remove-source-identifier-from-subscription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remove-tags-from-resource.html">remove-tags-from-resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reset-db-parameter-group.html">reset-db-parameter-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore-db-instance-from-db-snapshot.html">restore-db-instance-from-db-snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore-db-instance-to-point-in-time.html">restore-db-instance-to-point-in-time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revoke-db-security-group-ingress.html">revoke-db-security-group-ingress</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../opsworks/update-user-profile.html" title="previous chapter (use the left arrow)">&larr; update-user-profile</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="add-option-to-option-group.html" title="next chapter (use the right arrow)">add-option-to-option-group &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="add-option-to-option-group.html" title="add-option-to-option-group"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../opsworks/update-user-profile.html" title="update-user-profile"
+             >previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &copy; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript">
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = '../opsworks/update-user-profile.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'add-option-to-option-group.html';
+            return false;
+            
+          }
+        });
+      </script>
+    
+  
+  </body>
+</html>

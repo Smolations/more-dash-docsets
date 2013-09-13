@@ -1,0 +1,252 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>redshift &mdash; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="aws" href="../index.html" />
+    <link rel="next" title="authorize-cluster-security-group-ingress" href="authorize-cluster-security-group-ingress.html" />
+    <link rel="prev" title="revoke-db-security-group-ingress" href="../rds/revoke-db-security-group-ingress.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&repo=aws-cli&type=watch&count=true&size=small"
+                  allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="authorize-cluster-security-group-ingress.html" title="authorize-cluster-security-group-ingress"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../rds/revoke-db-security-group-ingress.html" title="revoke-db-security-group-ingress"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">aws</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../rds/revoke-db-security-group-ingress.html" title="previous chapter (use the left arrow)">&larr; revoke-db-security-group-ingress</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="authorize-cluster-security-group-ingress.html" title="next chapter (use the right arrow)">authorize-cluster-security-group-ingress &rarr;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">redshift</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#available-commands">Available Commands</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&guide_name=Guide&api_version=1.0&file_name=reference/redshift/index">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <div class="section" id="redshift">
+<h1>redshift<a class="headerlink" href="#redshift" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><strong>Overview</strong></div></blockquote>
+<p>This is the Amazon Redshift API Reference. This guide provides descriptions and samples of the Amazon Redshift API.</p>
+<p>Amazon Redshift manages all the work of setting up, operating, and scaling a data warehouse: provisioning capacity, monitoring and backing up the cluster, and applying patches and upgrades to the Amazon Redshift engine. You can focus on using your data to acquire new insights for your business and customers.</p>
+<blockquote>
+<div><strong>Are You a First-Time Amazon Redshift User?</strong></div></blockquote>
+<p>If you are a first-time user of Amazon Redshift, we recommend that you begin by reading the following sections:</p>
+<ul class="simple">
+<li><em>Service Highlights and Pricing</em> - The <a class="reference external" href="http://aws.amazon.com/redshift/">product detail page</a> provides the Amazon Redshift value proposition, service highlights and pricing.</li>
+<li><em>Getting Started</em> - The <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html">Getting Started Guide</a> includes an example that walks you through the process of creating a cluster, creating database tables, uploading data, and testing queries.</li>
+</ul>
+<p>After you complete the Getting Started Guide, we recommend that you explore one of the following guides:</p>
+<ul class="simple">
+<li><em>Cluster Management</em> - If you are responsible for managing Amazon Redshift clusters, the <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html">Cluster Management Guide</a> shows you how to create and manage Amazon Redshift clusters. If you are an application developer, you can use the Amazon Redshift Query API to manage clusters programmatically. Additionally, the AWS SDK libraries that wrap the underlying Amazon Redshift API simplify your programming tasks. If you prefer a more interactive way of managing clusters, you can use the Amazon Redshift console and the AWS command line interface (AWS CLI). For information about the API and CLI, go to the following manuals :   * API Reference (<em>this document</em> )</li>
+<li><a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/cli">CLI Reference</a></li>
+<li><em>Amazon Redshift Database Database Developer</em> - If you are a database developer, the Amazon Redshift <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/dg/">Database Developer Guide</a> explains how to design, build, query, and maintain the databases that make up your data warehouse.</li>
+</ul>
+<p>For a list of supported AWS regions where you can provision a cluster, go to the <a class="reference external" href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions and Endpoints</a> section in the <em>Amazon Web Services Glossary</em> .</p>
+</div>
+<div class="section" id="available-commands">
+<h2>Available Commands<a class="headerlink" href="#available-commands" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorize-cluster-security-group-ingress.html">authorize-cluster-security-group-ingress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authorize-snapshot-access.html">authorize-snapshot-access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy-cluster-snapshot.html">copy-cluster-snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-cluster.html">create-cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-cluster-parameter-group.html">create-cluster-parameter-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-cluster-security-group.html">create-cluster-security-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-cluster-snapshot.html">create-cluster-snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-cluster-subnet-group.html">create-cluster-subnet-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-cluster.html">delete-cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-cluster-parameter-group.html">delete-cluster-parameter-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-cluster-security-group.html">delete-cluster-security-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-cluster-snapshot.html">delete-cluster-snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-cluster-subnet-group.html">delete-cluster-subnet-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-cluster-parameter-groups.html">describe-cluster-parameter-groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-cluster-parameters.html">describe-cluster-parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-cluster-security-groups.html">describe-cluster-security-groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-cluster-snapshots.html">describe-cluster-snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-cluster-subnet-groups.html">describe-cluster-subnet-groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-cluster-versions.html">describe-cluster-versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-clusters.html">describe-clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-default-cluster-parameters.html">describe-default-cluster-parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-events.html">describe-events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-orderable-cluster-options.html">describe-orderable-cluster-options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-reserved-node-offerings.html">describe-reserved-node-offerings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-reserved-nodes.html">describe-reserved-nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-resize.html">describe-resize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modify-cluster.html">modify-cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modify-cluster-parameter-group.html">modify-cluster-parameter-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modify-cluster-subnet-group.html">modify-cluster-subnet-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="purchase-reserved-node-offering.html">purchase-reserved-node-offering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reboot-cluster.html">reboot-cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reset-cluster-parameter-group.html">reset-cluster-parameter-group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore-from-cluster-snapshot.html">restore-from-cluster-snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revoke-cluster-security-group-ingress.html">revoke-cluster-security-group-ingress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revoke-snapshot-access.html">revoke-snapshot-access</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../rds/revoke-db-security-group-ingress.html" title="previous chapter (use the left arrow)">&larr; revoke-db-security-group-ingress</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="authorize-cluster-security-group-ingress.html" title="next chapter (use the right arrow)">authorize-cluster-security-group-ingress &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="authorize-cluster-security-group-ingress.html" title="authorize-cluster-security-group-ingress"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../rds/revoke-db-security-group-ingress.html" title="revoke-db-security-group-ingress"
+             >previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &copy; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript">
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = '../rds/revoke-db-security-group-ingress.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'authorize-cluster-security-group-ingress.html';
+            return false;
+            
+          }
+        });
+      </script>
+    
+  
+  </body>
+</html>

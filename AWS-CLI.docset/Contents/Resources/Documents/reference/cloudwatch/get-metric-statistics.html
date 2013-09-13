@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>get-metric-statistics &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="cloudwatch" href="index.html" />
+    <link rel="next" title="list-metrics" href="list-metrics.html" />
+    <link rel="prev" title="enable-alarm-actions" href="enable-alarm-actions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="list-metrics.html" title="list-metrics" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="enable-alarm-actions.html" title="enable-alarm-actions" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">cloudwatch</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="enable-alarm-actions.html" title="previous chapter (use the left arrow)">&#8592; enable-alarm-actions</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="list-metrics.html" title="next chapter (use the right arrow)">list-metrics &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get-metric-statistics</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/cloudwatch/get-metric-statistics">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>cloudwatch</em></a> ]</p>
+<div class="section" id="get-metric-statistics">
+<h1>get-metric-statistics<a class="headerlink" href="#get-metric-statistics" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Gets statistics for the specified metric.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The maximum number of data points returned from a single <tt class="docutils literal"><span class="pre">get-metric-statistics</span></tt>  request is 1,440. If a request is made that generates more than 1,440 data points, Amazon CloudWatch returns an error. In such a case, alter the request by narrowing the specified time range or increasing the specified period. Alternatively, make multiple requests across adjacent time ranges.</p>
+</div>
+<p>Amazon CloudWatch aggregates data points based on the length of the <tt class="docutils literal"><span class="pre">period</span></tt>  that you specify. For example, if you request statistics with a one-minute granularity, Amazon CloudWatch aggregates data points with time stamps that fall within the same one-minute period. In such a case, the data points queried can greatly outnumber the data points returned.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The maximum number of data points that can be queried is 50,850; whereas the maximum number of data points returned is 1,440.</p>
+</div>
+<p>The following examples show various statistics allowed by the data point query maximum of 50,850 when you call <tt class="docutils literal"><span class="pre">get-metric-statistics</span></tt>  on Amazon EC2 instances with detailed (one-minute) monitoring enabled:</p>
+<ul class="simple">
+<li>--statistics for up to 400 instances for a span of one hour</li>
+<li>--statistics for up to 35 instances over a span of 24 hours</li>
+<li>--statistics for up to 2 instances over a span of 2 weeks</li>
+</ul>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  get-metric-statistics
+--namespace &lt;value&gt;
+--metric-name &lt;value&gt;
+[--dimensions &lt;value&gt;]
+--start-time &lt;value&gt;
+--end-time &lt;value&gt;
+--period &lt;value&gt;
+--statistics &lt;value&gt;
+[--unit &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--namespace" class="dashAnchor" id="namespace"></a><span class="pre">--namespace</span></tt> (string)</p>
+<blockquote>
+<div>The namespace of the metric.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--metric-name" class="dashAnchor" id="metric-name"></a><span class="pre">--metric-name</span></tt> (string)</p>
+<blockquote>
+<div>The name of the metric.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--dimensions" class="dashAnchor" id="dimensions"></a><span class="pre">--dimensions</span></tt> (list)</p>
+<blockquote>
+<div>A list of dimensions describing qualities of the metric.</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>  Key value pairs, with multiple values separated by a space.
+--dimensions Name=string,Value=string</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "Name": "string",
+    "Value": "string"
+  }
+  ...
+]</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--start-time" class="dashAnchor" id="start-time"></a><span class="pre">--start-time</span></tt> (timestamp)</p>
+<blockquote>
+<div><p>The time stamp to use for determining the first datapoint to return. The value specified is inclusive; results include datapoints with the time stamp specified.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The specified start time is rounded down to the nearest value. Datapoints are returned for start times up to two weeks in the past. Specified start times that are more than two weeks in the past will not return datapoints for metrics that are older than two weeks.</p>
+</div>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--end-time" class="dashAnchor" id="end-time"></a><span class="pre">--end-time</span></tt> (timestamp)</p>
+<blockquote>
+<div>The time stamp to use for determining the last datapoint to return. The value specified is exclusive; results will include datapoints up to the time stamp specified.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--period" class="dashAnchor" id="period"></a><span class="pre">--period</span></tt> (integer)</p>
+<blockquote>
+<div>The granularity, in seconds, of the returned datapoints. <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--period" class="dashAnchor" id="period"></a><span class="pre">--period</span></tt>  must be at least 60 seconds and must be a multiple of 60. The default value is 60.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--statistics" class="dashAnchor" id="statistics"></a><span class="pre">--statistics</span></tt> (list)</p>
+<blockquote>
+<div>The metric statistics to return.</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"SampleCount"|"Average"|"Sum"|"Minimum"|"Maximum" "SampleCount"|"Average"|"Sum"|"Minimum"|"Maximum" ...</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--unit" class="dashAnchor" id="unit"></a><span class="pre">--unit</span></tt> (string)</p>
+<blockquote>
+<div>The unit for the metric.</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="enable-alarm-actions.html" title="previous chapter (use the left arrow)">&#8592; enable-alarm-actions</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="list-metrics.html" title="next chapter (use the right arrow)">list-metrics &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="list-metrics.html" title="list-metrics">next</a> |</li>
+        <li class="right">
+          <a href="enable-alarm-actions.html" title="enable-alarm-actions">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">cloudwatch</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'enable-alarm-actions.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'list-metrics.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

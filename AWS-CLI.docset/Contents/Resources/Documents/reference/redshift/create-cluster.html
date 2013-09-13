@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>create-cluster &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="redshift" href="index.html" />
+    <link rel="next" title="create-cluster-parameter-group" href="create-cluster-parameter-group.html" />
+    <link rel="prev" title="copy-cluster-snapshot" href="copy-cluster-snapshot.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="create-cluster-parameter-group.html" title="create-cluster-parameter-group" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="copy-cluster-snapshot.html" title="copy-cluster-snapshot" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">redshift</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="copy-cluster-snapshot.html" title="previous chapter (use the left arrow)">&#8592; copy-cluster-snapshot</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="create-cluster-parameter-group.html" title="next chapter (use the right arrow)">create-cluster-parameter-group &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">create-cluster</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#create-a-cluster-with-minimal-parameters">Create a Cluster with Minimal Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/redshift/create-cluster">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>redshift</em></a> ]</p>
+<div class="section" id="create-cluster">
+<h1>create-cluster<a class="headerlink" href="#create-cluster" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Creates a new cluster. To create the cluster in virtual private cloud (VPC), you must provide cluster subnet group name. If you don't provide a cluster subnet group name or the cluster security group parameter, Amazon Redshift creates a non-VPC cluster, it associates the default cluster security group with the cluster. For more information about managing clusters, go to <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in the <em>Amazon Redshift Management Guide</em> .</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  create-cluster
+[--db-name &lt;value&gt;]
+--cluster-identifier &lt;value&gt;
+[--cluster-type &lt;value&gt;]
+--node-type &lt;value&gt;
+--master-username &lt;value&gt;
+--master-user-password &lt;value&gt;
+[--cluster-security-groups &lt;value&gt;]
+[--vpc-security-group-ids &lt;value&gt;]
+[--cluster-subnet-group-name &lt;value&gt;]
+[--availability-zone &lt;value&gt;]
+[--preferred-maintenance-window &lt;value&gt;]
+[--cluster-parameter-group-name &lt;value&gt;]
+[--automated-snapshot-retention-period &lt;value&gt;]
+[--port &lt;value&gt;]
+[--cluster-version &lt;value&gt;]
+[--allow-version-upgrade | --no-allow-version-upgrade]
+[--number-of-nodes &lt;value&gt;]
+[--publicly-accessible | --no-publicly-accessible]
+[--encrypted | --no-encrypted]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--db-name" class="dashAnchor" id="db-name"></a><span class="pre">--db-name</span></tt> (string)</p>
+<blockquote>
+<div><p>The name of the first database to be created when the cluster is created.</p>
+<p>To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html">Create a Database</a> in the Amazon Redshift Developer Guide.</p>
+<p>Default: <tt class="docutils literal"><span class="pre">dev</span></tt></p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must contain 1 to 64 alphanumeric characters.</li>
+<li>Must contain only lowercase letters.</li>
+<li>Cannot be a word that is reserved by the service. A list of reserved words can be found in <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon Redshift Developer Guide.</li>
+</ul>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--cluster-identifier" class="dashAnchor" id="cluster-identifier"></a><span class="pre">--cluster-identifier</span></tt> (string)</p>
+<blockquote>
+<div><p>A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. The identifier also appears in the Amazon Redshift console.</p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li>
+<li>Alphabetic characters must be lowercase.</li>
+<li>First character must be a letter.</li>
+<li>Cannot end with a hyphen or contain two consecutive hyphens.</li>
+<li>Must be unique for all clusters within an AWS account.</li>
+</ul>
+<p>Example: <tt class="docutils literal"><span class="pre">myexamplecluster</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--cluster-type" class="dashAnchor" id="cluster-type"></a><span class="pre">--cluster-type</span></tt> (string)</p>
+<blockquote>
+<div><p>The type of the cluster. When cluster type is specified as</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">single-node</span></tt>  , the <strong>--number-of-nodes</strong> parameter is not required.</li>
+<li><tt class="docutils literal"><span class="pre">multi-node</span></tt>  , the <strong>--number-of-nodes</strong> parameter is required.</li>
+</ul>
+<p>Valid Values: <tt class="docutils literal"><span class="pre">multi-node</span></tt>  | <tt class="docutils literal"><span class="pre">single-node</span></tt></p>
+<p>Default: <tt class="docutils literal"><span class="pre">multi-node</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--node-type" class="dashAnchor" id="node-type"></a><span class="pre">--node-type</span></tt> (string)</p>
+<blockquote>
+<div><p>The node type to be provisioned for the cluster. For information about node types, go to <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">Working with Clusters</a> in the <em>Amazon Redshift Management Guide</em> .</p>
+<p>Valid Values: <tt class="docutils literal"><span class="pre">dw.hs1.xlarge</span></tt>  | <tt class="docutils literal"><span class="pre">dw.hs1.8xlarge</span></tt>  .</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--master-username" class="dashAnchor" id="master-username"></a><span class="pre">--master-username</span></tt> (string)</p>
+<blockquote>
+<div><p>The user name associated with the master user account for the cluster that is being created.</p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must be 1 - 128 alphanumeric characters.</li>
+<li>First character must be a letter.</li>
+<li>Cannot be a reserved word. A list of reserved words can be found in <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon Redshift Developer Guide.</li>
+</ul>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--master-user-password" class="dashAnchor" id="master-user-password"></a><span class="pre">--master-user-password</span></tt> (string)</p>
+<blockquote>
+<div><p>The password associated with the master user account for the cluster that is being created.</p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must be between 8 and 64 characters in length.</li>
+<li>Must contain at least one uppercase letter.</li>
+<li>Must contain at least one lowercase letter.</li>
+<li>Must contain one number.</li>
+<li>Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote), " (double quote), , /, @, or space.</li>
+</ul>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--cluster-security-groups" class="dashAnchor" id="cluster-security-groups"></a><span class="pre">--cluster-security-groups</span></tt> (list)</p>
+<blockquote>
+<div><p>A list of security groups to be associated with this cluster.</p>
+<p>Default: The default cluster security group for Amazon Redshift.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"string" "string" ...</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--vpc-security-group-ids" class="dashAnchor" id="vpc-security-group-ids"></a><span class="pre">--vpc-security-group-ids</span></tt> (list)</p>
+<blockquote>
+<div><p>A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.</p>
+<p>Default: The default VPC security group is associated with the cluster.</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"string" "string" ...</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--cluster-subnet-group-name" class="dashAnchor" id="cluster-subnet-group-name"></a><span class="pre">--cluster-subnet-group-name</span></tt> (string)</p>
+<blockquote>
+<div><p>The name of a cluster subnet group to be associated with this cluster.</p>
+<p>If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--availability-zone" class="dashAnchor" id="availability-zone"></a><span class="pre">--availability-zone</span></tt> (string)</p>
+<blockquote>
+<div><p>The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.</p>
+<p>Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint.</p>
+<p>Example: <tt class="docutils literal"><span class="pre">us-east-1d</span></tt></p>
+<p>Constraint: The specified Availability Zone must be in the same region as the current endpoint.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--preferred-maintenance-window" class="dashAnchor" id="preferred-maintenance-window"></a><span class="pre">--preferred-maintenance-window</span></tt> (string)</p>
+<blockquote>
+<div><p>The weekly time range (in UTC) during which automated cluster maintenance can occur.</p>
+<p>Format: <tt class="docutils literal"><span class="pre">ddd:hh24:mi-ddd:hh24:mi</span></tt></p>
+<p>Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. The following list shows the time blocks for each region from which the default maintenance windows are assigned.</p>
+<ul class="simple">
+<li><strong>US-East (Northern Virginia) Region:</strong> 03:00-11:00 UTC</li>
+<li><strong>US-West (Oregon) Region</strong> 06:00-14:00 UTC</li>
+</ul>
+<p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
+<p>Constraints: Minimum 30-minute window.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--cluster-parameter-group-name" class="dashAnchor" id="cluster-parameter-group-name"></a><span class="pre">--cluster-parameter-group-name</span></tt> (string)</p>
+<blockquote>
+<div><p>The name of the parameter group to be associated with this cluster.</p>
+<p>Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working with Amazon Redshift Parameter Groups</a></p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must be 1 to 255 alphanumeric characters or hyphens.</li>
+<li>First character must be a letter.</li>
+<li>Cannot end with a hyphen or contain two consecutive hyphens.</li>
+</ul>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--automated-snapshot-retention-period" class="dashAnchor" id="automated-snapshot-retention-period"></a><span class="pre">--automated-snapshot-retention-period</span></tt> (integer)</p>
+<blockquote>
+<div><p>The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with  create-cluster-snapshot .</p>
+<p>Default: <tt class="docutils literal"><span class="pre">1</span></tt></p>
+<p>Constraints: Must be a value from 0 to 35.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--port" class="dashAnchor" id="port"></a><span class="pre">--port</span></tt> (integer)</p>
+<blockquote>
+<div><p>The port number on which the cluster accepts incoming connections.</p>
+<p>The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections.</p>
+<p>Default: <tt class="docutils literal"><span class="pre">5439</span></tt></p>
+<p>Valid Values: <tt class="docutils literal"><span class="pre">1150-65535</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--cluster-version" class="dashAnchor" id="cluster-version"></a><span class="pre">--cluster-version</span></tt> (string)</p>
+<blockquote>
+<div><p>The version of the Amazon Redshift engine software that you want to deploy on the cluster.</p>
+<p>The version selected runs on all the nodes in the cluster.</p>
+<p>Constraints: Only version 1.0 is currently available.</p>
+<p>Example: <tt class="docutils literal"><span class="pre">1.0</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--allow-version-upgrade" class="dashAnchor" id="allow-version-upgrade"></a><span class="pre">--allow-version-upgrade</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-allow-version-upgrade" class="dashAnchor" id="no-allow-version-upgrade"></a><span class="pre">--no-allow-version-upgrade</span></tt> (boolean)</p>
+<blockquote>
+<div><p>If <tt class="docutils literal"><span class="pre">true</span></tt>  , upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster.</p>
+<p>When a new version of the Amazon Redshift engine is released, you can request that the service automatically apply upgrades during the maintenance window to the Amazon Redshift engine that is running on your cluster.</p>
+<p>Default: <tt class="docutils literal"><span class="pre">true</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--number-of-nodes" class="dashAnchor" id="number-of-nodes"></a><span class="pre">--number-of-nodes</span></tt> (integer)</p>
+<blockquote>
+<div><p>The number of compute nodes in the cluster. This parameter is required when the <strong>--cluster-type</strong> parameter is specified as <tt class="docutils literal"><span class="pre">multi-node</span></tt>  .</p>
+<p>For information about determining how many nodes you need, go to <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">Working with Clusters</a> in the <em>Amazon Redshift Management Guide</em> .</p>
+<p>If you don't specify this parameter, you get a single-node cluster. When requesting a multi-node cluster, you must specify the number of nodes that you want in the cluster.</p>
+<p>Default: <tt class="docutils literal"><span class="pre">1</span></tt></p>
+<p>Constraints: Value must be at least 1 and no more than 100.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--publicly-accessible" class="dashAnchor" id="publicly-accessible"></a><span class="pre">--publicly-accessible</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-publicly-accessible" class="dashAnchor" id="no-publicly-accessible"></a><span class="pre">--no-publicly-accessible</span></tt> (boolean)</p>
+<blockquote>
+<div>If <tt class="docutils literal"><span class="pre">true</span></tt>  , the cluster can be accessed from a public network.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--encrypted" class="dashAnchor" id="encrypted"></a><span class="pre">--encrypted</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-encrypted" class="dashAnchor" id="no-encrypted"></a><span class="pre">--no-encrypted</span></tt> (boolean)</p>
+<blockquote>
+<div><p>If <tt class="docutils literal"><span class="pre">true</span></tt>  , the data in cluster is encrypted at rest.</p>
+<p>Default: false</p>
+</div></blockquote>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="create-a-cluster-with-minimal-parameters">
+<h3>Create a Cluster with Minimal Parameters<a class="headerlink" href="#create-a-cluster-with-minimal-parameters" title="Permalink to this headline">&#182;</a></h3>
+<p>This example creates a cluster with the minimal set of parameters. By default, the output is in JSON format.</p>
+<p>Command:</p>
+<div class="highlight-python"><pre>aws redshift create-cluster --node-type dw.hs1.xlarge --number-of-nodes 2 --master-username adminuser --master-user-password TopSecret1 --cluster-identifier mycluster</pre>
+</div>
+<p>Result:</p>
+<div class="highlight-python"><pre>{
+   "Cluster": {
+      "NodeType": "dw.hs1.xlarge",
+      "ClusterVersion": "1.0",
+      "PubliclyAccessible": "true",
+      "MasterUsername": "adminuser",
+      "ClusterParameterGroups": [
+         {
+            "ParameterApplyStatus": "in-sync",
+            "ParameterGroupName": "default.redshift-1.0"
+         } ],
+      "ClusterSecurityGroups": [
+         {
+            "Status": "active",
+            "ClusterSecurityGroupName": "default"
+         } ],
+      "AllowVersionUpgrade": true,
+      "VpcSecurityGroups": \[],
+      "PreferredMaintenanceWindow": "sat:03:30-sat:04:00",
+      "AutomatedSnapshotRetentionPeriod": 1,
+      "ClusterStatus": "creating",
+      "ClusterIdentifier": "mycluster",
+      "DBName": "dev",
+      "NumberOfNodes": 2,
+      "PendingModifiedValues": {
+         "MasterUserPassword": "\****"
+      }
+   },
+   "ResponseMetadata": {
+      "RequestId": "7cf4bcfc-64dd-11e2-bea9-49e0ce183f07"
+   }
+}</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="copy-cluster-snapshot.html" title="previous chapter (use the left arrow)">&#8592; copy-cluster-snapshot</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="create-cluster-parameter-group.html" title="next chapter (use the right arrow)">create-cluster-parameter-group &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="create-cluster-parameter-group.html" title="create-cluster-parameter-group">next</a> |</li>
+        <li class="right">
+          <a href="copy-cluster-snapshot.html" title="copy-cluster-snapshot">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">redshift</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'copy-cluster-snapshot.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'create-cluster-parameter-group.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

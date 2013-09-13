@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>receive-message &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="sqs" href="index.html" />
+    <link rel="next" title="remove-permission" href="remove-permission.html" />
+    <link rel="prev" title="list-queues" href="list-queues.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="remove-permission.html" title="remove-permission" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="list-queues.html" title="list-queues" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">sqs</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="list-queues.html" title="previous chapter (use the left arrow)">&#8592; list-queues</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="remove-permission.html" title="next chapter (use the right arrow)">remove-permission &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">receive-message</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/sqs/receive-message">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>sqs</em></a> ]</p>
+<div class="section" id="receive-message">
+<h1>receive-message<a class="headerlink" href="#receive-message" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Retrieves one or more messages from the specified queue, including the message body and message ID of each message. Messages returned by this action stay in the queue until you delete them. However, once a message is returned to a <tt class="docutils literal"><span class="pre">receive-message</span></tt>  request, it is not returned on subsequent <tt class="docutils literal"><span class="pre">receive-message</span></tt>  requests for the duration of the <tt class="docutils literal"><span class="pre">--visibility-timeout</span></tt>  . If you do not specify a <tt class="docutils literal"><span class="pre">--visibility-timeout</span></tt>  in the request, the overall visibility timeout for the queue is used for the returned messages.</p>
+<p>If a message is available in the queue, the call will return immediately. Otherwise, it will wait up to <tt class="docutils literal"><span class="pre">--wait-time-seconds</span></tt>  for a message to arrive. If you do not specify <tt class="docutils literal"><span class="pre">--wait-time-seconds</span></tt>  in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait.</p>
+<p>You could ask for additional information about each message through the attributes. Attributes that can be requested are <tt class="docutils literal"><span class="pre">[SenderId,</span> <span class="pre">ApproximateFirstReceiveTimestamp,</span> <span class="pre">ApproximateReceiveCount,</span> <span class="pre">SentTimestamp]</span></tt>  .</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  receive-message
+--queue-url &lt;value&gt;
+[--attribute-names &lt;value&gt;]
+[--max-number-of-messages &lt;value&gt;]
+[--visibility-timeout &lt;value&gt;]
+[--wait-time-seconds &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--queue-url" class="dashAnchor" id="queue-url"></a><span class="pre">--queue-url</span></tt> (string)</p>
+<blockquote>
+<div>The URL of the SQS queue to take action on.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--attribute-names" class="dashAnchor" id="attribute-names"></a><span class="pre">--attribute-names</span></tt> (list)</p>
+<blockquote>
+<div>A list of attributes that need to be returned along with each message. The set of valid attributes are [SenderId, ApproximateFirstReceiveTimestamp, ApproximateReceiveCount, SentTimestamp].</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"Policy"|"VisibilityTimeout"|"MaximumMessageSize"|"MessageRetentionPeriod"|"ApproximateNumberOfMessages"|"ApproximateNumberOfMessagesNotVisible"|"CreatedTimestamp"|"LastModifiedTimestamp"|"QueueArn"|"ApproximateNumberOfMessagesDelayed"|"DelaySeconds"|"ReceiveMessageWaitTimeSeconds" "Policy"|"VisibilityTimeout"|"MaximumMessageSize"|"MessageRetentionPeriod"|"ApproximateNumberOfMessages"|"ApproximateNumberOfMessagesNotVisible"|"CreatedTimestamp"|"LastModifiedTimestamp"|"QueueArn"|"ApproximateNumberOfMessagesDelayed"|"DelaySeconds"|"ReceiveMessageWaitTimeSeconds" ...</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--max-number-of-messages" class="dashAnchor" id="max-number-of-messages"></a><span class="pre">--max-number-of-messages</span></tt> (integer)</p>
+<blockquote>
+<div><p>The maximum number of messages to return. Amazon SQS never returns more messages than this value but may return fewer.</p>
+<p>All of the messages are not necessarily returned.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--visibility-timeout" class="dashAnchor" id="visibility-timeout"></a><span class="pre">--visibility-timeout</span></tt> (integer)</p>
+<blockquote>
+<div>The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a <tt class="docutils literal"><span class="pre">receive-message</span></tt>  request.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--wait-time-seconds" class="dashAnchor" id="wait-time-seconds"></a><span class="pre">--wait-time-seconds</span></tt> (integer)</p>
+<blockquote>
+<div>The duration (in seconds) for which the call will wait for a message to arrive in the queue before returning. If a message is available, the call will return sooner than WaitTimeSeconds.</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="list-queues.html" title="previous chapter (use the left arrow)">&#8592; list-queues</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="remove-permission.html" title="next chapter (use the right arrow)">remove-permission &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="remove-permission.html" title="remove-permission">next</a> |</li>
+        <li class="right">
+          <a href="list-queues.html" title="list-queues">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">sqs</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'list-queues.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'remove-permission.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

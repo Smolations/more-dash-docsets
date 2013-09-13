@@ -1,0 +1,313 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>s3 &mdash; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="aws" href="../index.html" />
+    <link rel="next" title="cp" href="cp.html" />
+    <link rel="prev" title="list-resource-record-sets" href="../route53/list-resource-record-sets.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&repo=aws-cli&type=watch&count=true&size=small"
+                  allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="cp.html" title="cp"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../route53/list-resource-record-sets.html" title="list-resource-record-sets"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">aws</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../route53/list-resource-record-sets.html" title="previous chapter (use the left arrow)">&larr; list-resource-record-sets</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="cp.html" title="next chapter (use the right arrow)">cp &rarr;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">s3</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#important-concepts">Important Concepts</a><ul>
+<li><a class="reference internal" href="#path-argument-type">Path Argument Type</a></li>
+<li><a class="reference internal" href="#order-of-path-arguments">Order of Path Arguments</a></li>
+<li><a class="reference internal" href="#single-local-file-and-s3-object-operations">Single Local File and S3 Object Operations</a></li>
+<li><a class="reference internal" href="#directory-and-s3-prefix-operations">Directory and S3 Prefix Operations</a></li>
+<li><a class="reference internal" href="#use-of-exclude-and-include-filters">Use of Exclude and Include Filters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#available-commands">Available Commands</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&guide_name=Guide&api_version=1.0&file_name=reference/s3/index">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <div class="section" id="s3">
+<h1>s3<a class="headerlink" href="#s3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This provides higher level S3 commands for the AWS CLI.</p>
+</div>
+<div class="section" id="important-concepts">
+<h2>Important Concepts<a class="headerlink" href="#important-concepts" title="Permalink to this headline">¶</a></h2>
+<p>This section explains concepts and notations that are prominent in the set
+of commands provided.</p>
+<div class="section" id="path-argument-type">
+<h3>Path Argument Type<a class="headerlink" href="#path-argument-type" title="Permalink to this headline">¶</a></h3>
+<p>Whenever using a command, at least one path argument must be specified.  There
+are two types of path arguments: <tt class="docutils literal"><span class="pre">LocalPath</span></tt> and <tt class="docutils literal"><span class="pre">S3Path</span></tt>.</p>
+<p><tt class="docutils literal"><span class="pre">LocalPath</span></tt>: represents the path of a local file or directory.  It can be
+written as an absolute path or relative path.</p>
+<p><tt class="docutils literal"><span class="pre">S3Path</span></tt>: represents the location of a S3 object, prefix, or bucket.  This
+must be written in the form <tt class="docutils literal"><span class="pre">s3://mybucket/mykey</span></tt> where <tt class="docutils literal"><span class="pre">mybucket</span></tt> is
+the specified S3 bucket, <tt class="docutils literal"><span class="pre">mykey</span></tt> is the specified S3 key.  The path argument
+must begin with <tt class="docutils literal"><span class="pre">s3://</span></tt> in order to denote that the path argument refers to
+a S3 object. Note that prefixes are separated by forward slashes. For
+example, if the S3 object <tt class="docutils literal"><span class="pre">myobject</span></tt> had the prefix <tt class="docutils literal"><span class="pre">myprefix</span></tt>, the
+S3 key would be <tt class="docutils literal"><span class="pre">myprefix/myobject</span></tt>, and if the object was in the bucket
+<tt class="docutils literal"><span class="pre">mybucket</span></tt>, the <tt class="docutils literal"><span class="pre">S3Path</span></tt> would be <tt class="docutils literal"><span class="pre">s3://mybucket/myprefix/myobject</span></tt>.</p>
+</div>
+<div class="section" id="order-of-path-arguments">
+<h3>Order of Path Arguments<a class="headerlink" href="#order-of-path-arguments" title="Permalink to this headline">¶</a></h3>
+<p>Every command takes one or two positional path arguments.  The first path
+argument represents the source, which is the local file/directory or S3
+object/prefix/bucket that is being referenced.  If there is a second path
+argument, it represents the destination, which is is the local file/directory
+or S3 object/prefix/bucket that is being operated on.  Commands with only
+one path argument do not have a destination because the operation is being
+performed only on the source.</p>
+</div>
+<div class="section" id="single-local-file-and-s3-object-operations">
+<h3>Single Local File and S3 Object Operations<a class="headerlink" href="#single-local-file-and-s3-object-operations" title="Permalink to this headline">¶</a></h3>
+<p>Some commands perform operations only on single files and S3 objects.  The
+following commands are single file/object operations if no <tt class="docutils literal"><span class="pre">--recursive</span></tt>
+flag is provided.</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">cp</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">mv</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">rm</span></tt></li>
+</ul>
+</div></blockquote>
+<p>For this type of operation, the first path argument, the source, must exist
+and be a local file or S3 object.  The second path argument, the destination,
+can be the name of a local file, local directory, S3 object, S3 prefix,
+or S3 bucket.</p>
+<p>The destination is indicated as a local directory, S3 prefix, or S3 bucket
+if it ends with a forward slash or back slash.  The use of slash depends
+on the path argument type.  If the path argument is a <tt class="docutils literal"><span class="pre">LocalPath</span></tt>,
+the type of slash is the separator used by the operating system.  If the
+path is a <tt class="docutils literal"><span class="pre">S3Path</span></tt>, the forward slash must always be used.  If a slash
+is at the end of the destination, the destination file or object will
+adopt the name of the source file or object.  Otherwise, if there is no
+slash at the end, the file or object will be saved under the name provided.
+See examples in <tt class="docutils literal"><span class="pre">cp</span></tt> and <tt class="docutils literal"><span class="pre">mv</span></tt> to illustrate this description.</p>
+</div>
+<div class="section" id="directory-and-s3-prefix-operations">
+<h3>Directory and S3 Prefix Operations<a class="headerlink" href="#directory-and-s3-prefix-operations" title="Permalink to this headline">¶</a></h3>
+<p>Some commands only perform operations on the contents of a local directory
+or S3 prefix/bucket.  Adding or omitting a forward slash or back slash to
+the end of any path argument, depending on its type, does not affect the
+results of the operation.  The following features will always result in
+a directory or S3 prefix/bucket operation.</p>
+<blockquote>
+<div><ul class="simple">
+<li>commands: <tt class="docutils literal"><span class="pre">sync</span></tt>, <tt class="docutils literal"><span class="pre">mb</span></tt>, <tt class="docutils literal"><span class="pre">rb</span></tt>, <tt class="docutils literal"><span class="pre">ls</span></tt></li>
+<li>parameters: <tt class="docutils literal"><span class="pre">--recursive</span></tt></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="use-of-exclude-and-include-filters">
+<h3>Use of Exclude and Include Filters<a class="headerlink" href="#use-of-exclude-and-include-filters" title="Permalink to this headline">¶</a></h3>
+<p>Currently, there is no support for the use of UNIX style wildcards in
+a command's path arguments.  However, most commands have <tt class="docutils literal"><span class="pre">--exclude</span> <span class="pre">&lt;value&gt;</span></tt>
+and <tt class="docutils literal"><span class="pre">--include</span> <span class="pre">&lt;value&gt;</span></tt> parameters that can achieve the desired result.
+These parameters perform pattern matching to either exclude or include
+a particular file or object.  The following pattern symbols are supported.</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">*</span></tt>: Matches everything</li>
+<li><tt class="docutils literal"><span class="pre">?</span></tt>: Matches any single character</li>
+<li><tt class="docutils literal"><span class="pre">[sequence]</span></tt>: Matches any character in <tt class="docutils literal"><span class="pre">sequence</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">[!sequence]</span></tt>: Matches any charater not in <tt class="docutils literal"><span class="pre">sequence</span></tt></li>
+</ul>
+</div></blockquote>
+<p>The real power of these parameters is that any number of these parameters
+can be passed to a command.  When there are multiple filters, the rule is
+the filters that appear later in the command take precedence over filters
+that appear earlier in the command.  For example, if the filter parameters
+passed to the command were</p>
+<div class="highlight-python"><pre>--exclude * --include *.txt</pre>
+</div>
+<p>All files will be excluded from the command except for files ending with
+<tt class="docutils literal"><span class="pre">.txt</span></tt>  However, if the order of the filter parameters was changed to</p>
+<div class="highlight-python"><pre>--include *.txt --exclude *</pre>
+</div>
+<p>All files will be excluded from the command.</p>
+</div>
+</div>
+<div class="section" id="available-commands">
+<h2>Available Commands<a class="headerlink" href="#available-commands" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cp.html">cp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ls.html">ls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mb.html">mb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mv.html">mv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rb.html">rb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rm.html">rm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sync.html">sync</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../route53/list-resource-record-sets.html" title="previous chapter (use the left arrow)">&larr; list-resource-record-sets</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="cp.html" title="next chapter (use the right arrow)">cp &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="cp.html" title="cp"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../route53/list-resource-record-sets.html" title="list-resource-record-sets"
+             >previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &copy; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript">
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = '../route53/list-resource-record-sets.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'cp.html';
+            return false;
+            
+          }
+        });
+      </script>
+    
+  
+  </body>
+</html>

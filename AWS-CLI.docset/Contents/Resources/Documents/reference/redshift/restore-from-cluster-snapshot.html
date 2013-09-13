@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>restore-from-cluster-snapshot &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="redshift" href="index.html" />
+    <link rel="next" title="revoke-cluster-security-group-ingress" href="revoke-cluster-security-group-ingress.html" />
+    <link rel="prev" title="reset-cluster-parameter-group" href="reset-cluster-parameter-group.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="revoke-cluster-security-group-ingress.html" title="revoke-cluster-security-group-ingress" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="reset-cluster-parameter-group.html" title="reset-cluster-parameter-group" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">redshift</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="reset-cluster-parameter-group.html" title="previous chapter (use the left arrow)">&#8592; reset-cluster-parameter-group</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="revoke-cluster-security-group-ingress.html" title="next chapter (use the right arrow)">revoke-cluster-security-group-ingress &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">restore-from-cluster-snapshot</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#restore-a-cluster-from-a-snapshot">Restore a Cluster From a Snapshot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/redshift/restore-from-cluster-snapshot">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>redshift</em></a> ]</p>
+<div class="section" id="restore-from-cluster-snapshot">
+<h1>restore-from-cluster-snapshot<a class="headerlink" href="#restore-from-cluster-snapshot" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Creates a new cluster from a snapshot. Amazon Redshift creates the resulting cluster with the same configuration as the original cluster from which the snapshot was created, except that the new cluster is created with the default cluster security and parameter group. After Amazon Redshift creates the cluster you can use the  modify-cluster API to associate a different security group and different parameter group with the restored cluster.</p>
+<p>If a snapshot is taken of a cluster in VPC, you can restore it only in VPC. In this case, you must provide a cluster subnet group where you want the cluster restored. If snapshot is taken of a cluster outside VPC, then you can restore it only outside VPC.</p>
+<p>For more information about working with snapshots, go to <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a> in the <em>Amazon Redshift Management Guide</em> .</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  restore-from-cluster-snapshot
+--cluster-identifier &lt;value&gt;
+--snapshot-identifier &lt;value&gt;
+[--snapshot-cluster-identifier &lt;value&gt;]
+[--port &lt;value&gt;]
+[--availability-zone &lt;value&gt;]
+[--allow-version-upgrade | --no-allow-version-upgrade]
+[--cluster-subnet-group-name &lt;value&gt;]
+[--publicly-accessible | --no-publicly-accessible]
+[--owner-account &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--cluster-identifier" class="dashAnchor" id="cluster-identifier"></a><span class="pre">--cluster-identifier</span></tt> (string)</p>
+<blockquote>
+<div><p>The identifier of the cluster that will be created from restoring the snapshot.</p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li>
+<li>Alphabetic characters must be lowercase.</li>
+<li>First character must be a letter.</li>
+<li>Cannot end with a hyphen or contain two consecutive hyphens.</li>
+<li>Must be unique for all clusters within an AWS account.</li>
+</ul>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--snapshot-identifier" class="dashAnchor" id="snapshot-identifier"></a><span class="pre">--snapshot-identifier</span></tt> (string)</p>
+<blockquote>
+<div><p>The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.</p>
+<p>Example: <tt class="docutils literal"><span class="pre">my-snapshot-id</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--snapshot-cluster-identifier" class="dashAnchor" id="snapshot-cluster-identifier"></a><span class="pre">--snapshot-cluster-identifier</span></tt> (string)</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--port" class="dashAnchor" id="port"></a><span class="pre">--port</span></tt> (integer)</p>
+<blockquote>
+<div><p>The port number on which the cluster accepts connections.</p>
+<p>Default: The same port as the original cluster.</p>
+<p>Constraints: Must be between <tt class="docutils literal"><span class="pre">1115</span></tt>  and <tt class="docutils literal"><span class="pre">65535</span></tt>  .</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--availability-zone" class="dashAnchor" id="availability-zone"></a><span class="pre">--availability-zone</span></tt> (string)</p>
+<blockquote>
+<div><p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
+<p>Default: A random, system-chosen Availability Zone.</p>
+<p>Example: <tt class="docutils literal"><span class="pre">us-east-1a</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--allow-version-upgrade" class="dashAnchor" id="allow-version-upgrade"></a><span class="pre">--allow-version-upgrade</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-allow-version-upgrade" class="dashAnchor" id="no-allow-version-upgrade"></a><span class="pre">--no-allow-version-upgrade</span></tt> (boolean)</p>
+<blockquote>
+<div><p>If <tt class="docutils literal"><span class="pre">true</span></tt>  , upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster.</p>
+<p>Default: <tt class="docutils literal"><span class="pre">true</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--cluster-subnet-group-name" class="dashAnchor" id="cluster-subnet-group-name"></a><span class="pre">--cluster-subnet-group-name</span></tt> (string)</p>
+<blockquote>
+<div><p>The name of the subnet group where you want to cluster restored.</p>
+<p>A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must provide subnet group name where you want the cluster restored.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--publicly-accessible" class="dashAnchor" id="publicly-accessible"></a><span class="pre">--publicly-accessible</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-publicly-accessible" class="dashAnchor" id="no-publicly-accessible"></a><span class="pre">--no-publicly-accessible</span></tt> (boolean)</p>
+<blockquote>
+<div>If <tt class="docutils literal"><span class="pre">true</span></tt>  , the cluster can be accessed from a public network.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--owner-account" class="dashAnchor" id="owner-account"></a><span class="pre">--owner-account</span></tt> (string)</p>
+<blockquote>
+<div>The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.</div></blockquote>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="restore-a-cluster-from-a-snapshot">
+<h3>Restore a Cluster From a Snapshot<a class="headerlink" href="#restore-a-cluster-from-a-snapshot" title="Permalink to this headline">&#182;</a></h3>
+<p>This example restores a cluster from a snapshot.</p>
+<p>Command:</p>
+<div class="highlight-python"><pre>aws redshift restore-from-cluster-snapshot --cluster-identifier mycluster-clone --snapshot-identifier my-snapshot-id</pre>
+</div>
+<p>Result:</p>
+<div class="highlight-python"><pre>{
+   "Cluster": {
+      "NodeType": "dw.hs1.xlarge",
+      "ClusterVersion": "1.0",
+      "PubliclyAccessible": "true",
+      "MasterUsername": "adminuser",
+      "ClusterParameterGroups": [
+         {
+         "ParameterApplyStatus": "in-sync",
+         "ParameterGroupName": "default.redshift-1.0"
+         }
+      ],
+      "ClusterSecurityGroups": [
+         {
+         "Status": "active",
+         "ClusterSecurityGroupName": "default"
+         }
+      ],
+      "AllowVersionUpgrade": true,
+      "VpcSecurityGroups": \[],
+      "PreferredMaintenanceWindow": "sun:23:15-mon:03:15",
+      "AutomatedSnapshotRetentionPeriod": 1,
+      "ClusterStatus": "creating",
+      "ClusterIdentifier": "mycluster-clone",
+      "DBName": "dev",
+      "NumberOfNodes": 2,
+      "PendingModifiedValues": {}
+   },
+   "ResponseMetadata": {
+      "RequestId": "77fd512b-64e3-11e2-8f5b-e90bd6c77476"
+   }
+}</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="reset-cluster-parameter-group.html" title="previous chapter (use the left arrow)">&#8592; reset-cluster-parameter-group</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="revoke-cluster-security-group-ingress.html" title="next chapter (use the right arrow)">revoke-cluster-security-group-ingress &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="revoke-cluster-security-group-ingress.html" title="revoke-cluster-security-group-ingress">next</a> |</li>
+        <li class="right">
+          <a href="reset-cluster-parameter-group.html" title="reset-cluster-parameter-group">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">redshift</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'reset-cluster-parameter-group.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'revoke-cluster-security-group-ingress.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

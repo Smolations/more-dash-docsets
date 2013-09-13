@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>register-workflow-type &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="swf" href="index.html" />
+    <link rel="next" title="request-cancel-workflow-execution" href="request-cancel-workflow-execution.html" />
+    <link rel="prev" title="register-domain" href="register-domain.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="request-cancel-workflow-execution.html" title="request-cancel-workflow-execution" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="register-domain.html" title="register-domain" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">swf</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="register-domain.html" title="previous chapter (use the left arrow)">&#8592; register-domain</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="request-cancel-workflow-execution.html" title="next chapter (use the right arrow)">request-cancel-workflow-execution &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">register-workflow-type</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#registering-a-workflow-type">Registering a Workflow Type</a></li>
+<li><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/swf/register-workflow-type">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>swf</em></a> ]</p>
+<div class="section" id="register-workflow-type">
+<h1>register-workflow-type<a class="headerlink" href="#register-workflow-type" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Registers a new <em>workflow type</em> and its configuration settings in the specified domain.</p>
+<p>The retention period for the workflow history is set by the  register-domain action.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If the type already exists, then a <tt class="docutils literal"><span class="pre">TypeAlreadyExists</span></tt>  fault is returned. You cannot change the configuration settings of a workflow type once it is registered and it must be registered as a new version.</p>
+</div>
+<p><strong>Access Control</strong></p>
+<p>You can use IAM policies to control this action's access to Amazon SWF resources as follows:</p>
+<ul class="simple">
+<li>Use a <tt class="docutils literal"><span class="pre">Resource</span></tt>  element with the --domain --name to limit the action to only specified domains.</li>
+<li>Use an <tt class="docutils literal"><span class="pre">Action</span></tt>  element to allow or deny permission to call this action.</li>
+<li>Constrain the following parameters by using a <tt class="docutils literal"><span class="pre">Condition</span></tt>  element with the appropriate keys.  *  <tt class="docutils literal"><span class="pre">defaultTaskList.name</span></tt>  : String constraint. The key is <tt class="docutils literal"><span class="pre">swf:defaultTaskList.name</span></tt>  .</li>
+<li><tt class="docutils literal"><span class="pre">--name</span></tt>  : String constraint. The key is <tt class="docutils literal"><span class="pre">swf:name</span></tt>  .</li>
+<li><tt class="docutils literal"><span class="pre">--workflow-version</span></tt>  : String constraint. The key is <tt class="docutils literal"><span class="pre">swf:version</span></tt>  .</li>
+</ul>
+<p>If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing <tt class="docutils literal"><span class="pre">OperationNotPermitted</span></tt>  . For details and example IAM policies, see <a class="reference external" href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> .</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  register-workflow-type
+--domain &lt;value&gt;
+--name &lt;value&gt;
+--workflow-version &lt;value&gt;
+[--description &lt;value&gt;]
+[--default-task-start-to-close-timeout &lt;value&gt;]
+[--default-execution-start-to-close-timeout &lt;value&gt;]
+[--default-task-list &lt;value&gt;]
+[--default-child-policy &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--domain" class="dashAnchor" id="domain"></a><span class="pre">--domain</span></tt> (string)</p>
+<blockquote>
+<div>The --name of the --domain in which to register the workflow type.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--name" class="dashAnchor" id="name"></a><span class="pre">--name</span></tt> (string)</p>
+<blockquote>
+<div><p>The --name of the workflow type.</p>
+<p>The specified string must not start or end with whitespace. It must not contain a <tt class="docutils literal"><span class="pre">:</span></tt>  (colon), <tt class="docutils literal"><span class="pre">/</span></tt>  (slash), <tt class="docutils literal"><span class="pre">|</span></tt>  (vertical bar), or any control characters (u0000-u001f | u007f - u009f). Also, it must not contain the literal string arn.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--workflow-version" class="dashAnchor" id="workflow-version"></a><span class="pre">--workflow-version</span></tt> (string)</p>
+<blockquote>
+<div><p>The --workflow-version of the workflow type.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The workflow type consists of the --name and version, the combination of which must be unique within the domain. To get a list of all currently registered workflow types, use the  list-workflow-types action.</p>
+</div>
+<p>The specified string must not start or end with whitespace. It must not contain a <tt class="docutils literal"><span class="pre">:</span></tt>  (colon), <tt class="docutils literal"><span class="pre">/</span></tt>  (slash), <tt class="docutils literal"><span class="pre">|</span></tt>  (vertical bar), or any control characters (u0000-u001f | u007f - u009f). Also, it must not contain the literal string arn.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--description" class="dashAnchor" id="description"></a><span class="pre">--description</span></tt> (string)</p>
+<blockquote>
+<div>Textual --description of the workflow type.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--default-task-start-to-close-timeout" class="dashAnchor" id="default-task-start-to-close-timeout"></a><span class="pre">--default-task-start-to-close-timeout</span></tt> (string)</p>
+<blockquote>
+<div><p>If set, specifies the default maximum duration of decision tasks for this workflow type. This default can be overridden when starting a workflow execution using the  start-workflow-execution action or the <tt class="docutils literal"><span class="pre">StartChildWorkflowExecution</span></tt>    Decision .</p>
+<p>The valid values are integers greater than or equal to <tt class="docutils literal"><span class="pre">0</span></tt>  . An integer value can be used to specify the duration in seconds while <tt class="docutils literal"><span class="pre">NONE</span></tt>  can be used to specify unlimited duration.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--default-execution-start-to-close-timeout" class="dashAnchor" id="default-execution-start-to-close-timeout"></a><span class="pre">--default-execution-start-to-close-timeout</span></tt> (string)</p>
+<blockquote>
+<div><p>If set, specifies the default maximum duration for executions of this workflow type. You can override this default when starting an execution through the  start-workflow-execution Action or <tt class="docutils literal"><span class="pre">StartChildWorkflowExecution</span></tt>    Decision .</p>
+<p>The duration is specified in seconds. The valid values are integers greater than or equal to 0. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--default-execution-start-to-close-timeout" class="dashAnchor" id="default-execution-start-to-close-timeout"></a><span class="pre">--default-execution-start-to-close-timeout</span></tt>  ; there is a one-year max limit on the time that a workflow execution can run. Exceeding this limit will always cause the workflow execution to time out.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--default-task-list" class="dashAnchor" id="default-task-list"></a><span class="pre">--default-task-list</span></tt> (structure)</p>
+<blockquote>
+<div>If set, specifies the default task list to use for scheduling decision tasks for executions of this workflow type. This default is used only if a task list is not provided when starting the execution through the  start-workflow-execution Action or <tt class="docutils literal"><span class="pre">StartChildWorkflowExecution</span></tt>    Decision .</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"string"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--default-child-policy" class="dashAnchor" id="default-child-policy"></a><span class="pre">--default-child-policy</span></tt> (string)</p>
+<blockquote>
+<div><p>If set, specifies the default policy to use for the child workflow executions when a workflow execution of this type is terminated, by calling the  terminate-workflow-execution action explicitly or due to an expired timeout. This default can be overridden when starting a workflow execution using the  start-workflow-execution action or the <tt class="docutils literal"><span class="pre">StartChildWorkflowExecution</span></tt>    Decision . The supported child policies are:</p>
+<ul class="simple">
+<li><strong>TERMINATE:</strong> the child executions will be terminated.</li>
+<li><strong>REQUEST_CANCEL:</strong> a request to cancel will be attempted for each child execution by recording a <tt class="docutils literal"><span class="pre">WorkflowExecutionCancelRequested</span></tt>  event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.</li>
+<li><strong>ABANDON:</strong> no action will be taken. The child executions will continue to run.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="registering-a-workflow-type">
+<h3>Registering a Workflow Type<a class="headerlink" href="#registering-a-workflow-type" title="Permalink to this headline">&#182;</a></h3>
+<p>To register a Workflow type with the AWS CLI, use the <tt class="docutils literal"><span class="pre">swf</span> <span class="pre">register-workflow-type</span></tt> command:</p>
+<div class="highlight-python"><pre>aws swf register-workflow-type --domain DataFrobtzz --name "MySimpleWorkflow" --workflow-version "v1"</pre>
+</div>
+<p>If successful, the command returns no result. On an error (for example, if you try to register the same workflow type
+twice, or specify a domain that doesn't exist) you will get a response in JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">"message"</span><span class="p">:</span> <span class="s">"WorkflowType=[name=MySimpleWorkflow, version=v1]"</span><span class="p">,</span>
+    <span class="s">"__type"</span><span class="p">:</span> <span class="s">"com.amazonaws.swf.base.model#TypeAlreadyExistsFault"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">--domain</span></tt>, <tt class="docutils literal"><span class="pre">--name</span></tt> and <tt class="docutils literal"><span class="pre">--workflow-version</span></tt> are required. You can also set the workflow description,
+timeouts, and child workflow policy.</p>
+</div>
+<div class="section" id="see-also">
+<h3>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">&#182;</a></h3>
+<ul>
+<li><dl class="first docutils">
+<dt><cite>RegisterWorkflowType &lt;http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterWorkflowType.html&gt;</cite> in the</dt>
+<dd><p class="first last"><em>Amazon Simple Workflow Service API Reference</em></p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="register-domain.html" title="previous chapter (use the left arrow)">&#8592; register-domain</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="request-cancel-workflow-execution.html" title="next chapter (use the right arrow)">request-cancel-workflow-execution &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="request-cancel-workflow-execution.html" title="request-cancel-workflow-execution">next</a> |</li>
+        <li class="right">
+          <a href="register-domain.html" title="register-domain">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">swf</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'register-domain.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'request-cancel-workflow-execution.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

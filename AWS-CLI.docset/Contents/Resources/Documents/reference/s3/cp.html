@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>cp &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="s3" href="index.html" />
+    <link rel="next" title="ls" href="ls.html" />
+    <link rel="prev" title="s3" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="ls.html" title="ls" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="index.html" title="s3" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">s3</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="index.html" title="previous chapter (use the left arrow)">&#8592; s3</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="ls.html" title="next chapter (use the right arrow)">ls &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">cp</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/s3/cp">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <div class="section" id="cp">
+<h1>cp<a class="headerlink" href="#cp" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Copies a local file or S3 object to another location locally or in S3.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  cp &lt;LocalPath&gt; &lt;S3Path&gt; or &lt;S3Path&gt; &lt;LocalPath&gt; or &lt;S3Path&gt; &lt;S3Path&gt;
+[--no-guess-mime-type]
+[--dryrun]
+[--recursive]
+[--quiet]
+[--acl &lt;value&gt;]
+[--exclude &lt;value&gt;]
+[--include &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-guess-mime-type" class="dashAnchor" id="no-guess-mime-type"></a><span class="pre">--no-guess-mime-type</span></tt>
+Do not try to guess the mime type for uploaded files. By default the mime type of a file is guessed when it is uploaded.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--dryrun" class="dashAnchor" id="dryrun"></a><span class="pre">--dryrun</span></tt>
+Displays the operations that would be performed using the specified command without actuallyrunning them.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--recursive" class="dashAnchor" id="recursive"></a><span class="pre">--recursive</span></tt>
+Command is performed on allfiles or objects under the specified directory or prefix.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--quiet" class="dashAnchor" id="quiet"></a><span class="pre">--quiet</span></tt>
+Does not display the operations performed from the specified command.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--acl" class="dashAnchor" id="acl"></a><span class="pre">--acl</span></tt>
+Sets the ACl for the object when the command is performed. Only accepts values of <tt class="docutils literal"><span class="pre">private</span></tt>, <tt class="docutils literal"><span class="pre">public-read</span></tt>, or <tt class="docutils literal"><span class="pre">public-read-write</span></tt>.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--exclude" class="dashAnchor" id="exclude"></a><span class="pre">--exclude</span></tt>
+Exclude all files or objects from the command that follow the specified pattern.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--include" class="dashAnchor" id="include"></a><span class="pre">--include</span></tt>
+Include all files or objects in the command that follow the specified pattern.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<p>1) The following <tt class="docutils literal"><span class="pre">cp</span></tt> command copies a single file to a specified
+bucket and key.</p>
+<div class="highlight-python"><pre>aws s3 cp test.txt s3://mybucket/test2.txt</pre>
+</div>
+<p><em>Output</em>:</p>
+<div class="highlight-python"><pre>upload: test.txt to s3://mybucket/test2.txt</pre>
+</div>
+<p>2) The following <tt class="docutils literal"><span class="pre">cp</span></tt> command copies a single s3 object to a specified
+bucket and key.</p>
+<div class="highlight-python"><pre>aws s3 cp s3://mybucket/test.txt s3://mybucket/test2.txt</pre>
+</div>
+<p><em>Output:</em></p>
+<div class="highlight-python"><pre>copy: s3://mybucket/test.txt to s3://mybucket/test2.txt</pre>
+</div>
+<p>3) The following <tt class="docutils literal"><span class="pre">cp</span></tt> command copies a single object to a specified
+file locally.</p>
+<div class="highlight-python"><pre>aws s3 cp s3://mybucket/test.txt test2.txt</pre>
+</div>
+<p><em>Output:</em></p>
+<div class="highlight-python"><pre>download: s3://mybucket/test.txt to test2.txt</pre>
+</div>
+<p>4) The following <tt class="docutils literal"><span class="pre">cp</span></tt> command copies a single object to a specified
+bucket while retaining its original name.</p>
+<div class="highlight-python"><pre>aws s3 cp s3://mybucket/test.txt s3://mybucket2/</pre>
+</div>
+<p><em>Output:</em></p>
+<div class="highlight-python"><pre>copy: s3://mybucket/test.txt to s3://mybucket2/test.txt</pre>
+</div>
+<p>5) When passed with the parameter <tt class="docutils literal"><span class="pre">--recursive</span></tt>, the following <tt class="docutils literal"><span class="pre">cp</span></tt>
+command recursively copies all objects under a specified prefix and bucket
+to a specified directory.  In this example, the bucket <tt class="docutils literal"><span class="pre">mybucket</span></tt> has
+the objects <tt class="docutils literal"><span class="pre">test1.txt</span></tt> and <tt class="docutils literal"><span class="pre">test2.txt</span></tt>.</p>
+<div class="highlight-python"><pre>aws s3 cp s3://mybucket . --recursive</pre>
+</div>
+<p><em>Output:</em></p>
+<div class="highlight-python"><pre>download: s3://mybucket/test1.txt to test1.txt
+download: s3://mybucket/test2.txt to test2.txt</pre>
+</div>
+<p>6)  When passed with the parameter <tt class="docutils literal"><span class="pre">--recursive</span></tt>, the following <tt class="docutils literal"><span class="pre">cp</span></tt>
+command recursively copies all files under a specifed directory to a specified
+bucket and prefix while excluding some files by using an <tt class="docutils literal"><span class="pre">--exclude</span></tt>
+parameter.  In this example, the directory <tt class="docutils literal"><span class="pre">myDir</span></tt> has the files
+<tt class="docutils literal"><span class="pre">test1.txt</span></tt> and <tt class="docutils literal"><span class="pre">test2.jpg</span></tt>.</p>
+<div class="highlight-python"><pre>aws s3 cp myDir s3://mybucket/ --recursive --exclude *.jpg</pre>
+</div>
+<p><em>Output:</em></p>
+<div class="highlight-python"><pre>upload: myDir/test1.txt to s3://mybucket2/test1.txt</pre>
+</div>
+<p>7) When passed with the parameter <tt class="docutils literal"><span class="pre">--recursive</span></tt>, the following <tt class="docutils literal"><span class="pre">cp</span></tt>
+command recursively copies all objects under a specifed bucket to another
+bucket while excluding some objects by using an <tt class="docutils literal"><span class="pre">--exclude</span></tt> parameter.
+In this example, the bucket <tt class="docutils literal"><span class="pre">mybucket</span></tt> has the objects <tt class="docutils literal"><span class="pre">test1.txt</span></tt>
+and <tt class="docutils literal"><span class="pre">another/test1.txt</span></tt>.</p>
+<div class="highlight-python"><pre>aws s3 cp s3://mybucket/ s3://mybucket2/ --recursive --exclude mybucket/another/*</pre>
+</div>
+<p><em>Output:</em></p>
+<div class="highlight-python"><pre>copy: s3://mybucket/test1.txt to s3://mybucket2/test1.txt</pre>
+</div>
+<p>8) The following <tt class="docutils literal"><span class="pre">cp</span></tt> command copies a single object to a specified
+bucket and key while setting the ACL to <tt class="docutils literal"><span class="pre">public-read-write</span></tt>.</p>
+<div class="highlight-python"><pre>aws s3 cp s3://mybucket/test.txt s3://mybucket/test2.txt --acl public-read-write</pre>
+</div>
+<p><em>Output:</em></p>
+<div class="highlight-python"><pre>copy: s3://mybucket/test.txt to s3://mybucket/test2.txt</pre>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="index.html" title="previous chapter (use the left arrow)">&#8592; s3</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="ls.html" title="next chapter (use the right arrow)">ls &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="ls.html" title="ls">next</a> |</li>
+        <li class="right">
+          <a href="index.html" title="s3">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">s3</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'index.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'ls.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>create-table &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="dynamodb" href="index.html" />
+    <link rel="next" title="delete-item" href="delete-item.html" />
+    <link rel="prev" title="batch-write-item" href="batch-write-item.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="delete-item.html" title="delete-item" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="batch-write-item.html" title="batch-write-item" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">dynamodb</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="batch-write-item.html" title="previous chapter (use the left arrow)">&#8592; batch-write-item</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="delete-item.html" title="next chapter (use the right arrow)">delete-item &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">create-table</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/dynamodb/create-table">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>dynamodb</em></a> ]</p>
+<div class="section" id="create-table">
+<h1>create-table<a class="headerlink" href="#create-table" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>The <em>create-table</em> operation adds a new table to your account. In an AWS account, table names must be unique within each region. That is, you can have two tables with same name if you create the tables in different regions.</p>
+<p><em>create-table</em> is an asynchronous operation. Upon receiving a <em>create-table</em> request, Amazon DynamoDB immediately returns a response with a <em>TableStatus</em> of <tt class="docutils literal"><span class="pre">CREATING</span></tt>  . After the table is created, Amazon DynamoDB sets the <em>TableStatus</em> to <tt class="docutils literal"><span class="pre">ACTIVE</span></tt>  . You can perform read and write operations only on an <tt class="docutils literal"><span class="pre">ACTIVE</span></tt>  table.</p>
+<p>If you want to create multiple tables with local secondary indexes on them, you must create them sequentially. Only one table with local secondary indexes can be in the <tt class="docutils literal"><span class="pre">CREATING</span></tt>  state at any given time.</p>
+<p>You can use the <em>describe-table</em> API to check the table status.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  create-table
+--attribute-definitions &lt;value&gt;
+--table-name &lt;value&gt;
+--key-schema &lt;value&gt;
+[--local-secondary-indexes &lt;value&gt;]
+--provisioned-throughput &lt;value&gt;</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--attribute-definitions" class="dashAnchor" id="attribute-definitions"></a><span class="pre">--attribute-definitions</span></tt> (list)</p>
+<blockquote>
+<div>An array of attributes that describe the key schema for the table and indexes.</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>  Key value pairs, with multiple values separated by a space.
+--attribute-definitions AttributeName=string,AttributeType=string</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "AttributeName": "string",
+    "AttributeType": "S"|"N"|"B"
+  }
+  ...
+]</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--table-name" class="dashAnchor" id="table-name"></a><span class="pre">--table-name</span></tt> (string)</p>
+<blockquote>
+<div>The name of the table to create.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--key-schema" class="dashAnchor" id="key-schema"></a><span class="pre">--key-schema</span></tt> (list)</p>
+<blockquote>
+<div><p>Specifies the attributes that make up the primary key for the table. The attributes in <em>--key-schema</em> must also be defined in the <em>--attribute-definitions</em> array. For more information, see <a class="reference external" href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html">Data Model</a> in the Amazon DynamoDB Developer Guide.</p>
+<p>Each <em>KeySchemaElement</em> in the array is composed of:</p>
+<ul class="simple">
+<li><em>AttributeName</em> - The name of this key attribute.</li>
+<li><em>KeyType</em> - Determines whether the key attribute is <tt class="docutils literal"><span class="pre">HASH</span></tt>  or <tt class="docutils literal"><span class="pre">RANGE</span></tt>  .</li>
+</ul>
+<p>For a primary key that consists of a hash attribute, you must specify exactly one element with a <em>KeyType</em> of <tt class="docutils literal"><span class="pre">HASH</span></tt>  .</p>
+<p>For a primary key that consists of hash and range attributes, you must specify exactly two elements, in this order: The first element must have a <em>KeyType</em> of <tt class="docutils literal"><span class="pre">HASH</span></tt>  , and the second element must have a <em>KeyType</em> of <tt class="docutils literal"><span class="pre">RANGE</span></tt>  .</p>
+<p>For more information, see <a class="reference external" href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithDDTables.html#WorkingWithDDTables.primary.key">Specifying the Primary Key</a> in the Amazon DynamoDB Developer Guide.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>  Key value pairs, with multiple values separated by a space.
+--key-schema AttributeName=string,KeyType=string</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "AttributeName": "string",
+    "KeyType": "HASH"|"RANGE"
+  }
+  ...
+]</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--local-secondary-indexes" class="dashAnchor" id="local-secondary-indexes"></a><span class="pre">--local-secondary-indexes</span></tt> (list)</p>
+<blockquote>
+<div><p>One or more secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given hash key value. There is a 10 gigabyte size limit per hash key; otherwise, the size of a local secondary index is unconstrained.</p>
+<p>Each secondary index in the array includes the following:</p>
+<ul class="simple">
+<li><em>IndexName</em> - The name of the secondary index. Must be unique only for this table.</li>
+<li><em>--key-schema</em> - Specifies the key schema for the index. The key schema must begin with the same hash key attribute as the table.</li>
+<li><em>Projection</em> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:  *  <em>ProjectionType</em> - One of the following:  *  <tt class="docutils literal"><span class="pre">KEYS_ONLY</span></tt>  - Only the index and primary keys are projected into the index.</li>
+<li><tt class="docutils literal"><span class="pre">INCLUDE</span></tt>  - Only the specified table attributes are projected into the index. The list of projected attributes are in <em>NonKeyAttributes</em> .</li>
+<li><tt class="docutils literal"><span class="pre">ALL</span></tt>  - All of the table attributes are projected into the index.</li>
+<li><em>NonKeyAttributes</em> - A list of one or more non-key attribute names that are projected into the index. The total count of attributes specified in <em>NonKeyAttributes</em> , summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</li>
+</ul>
+</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "IndexName": "string",
+    "KeySchema": [
+      {
+        "AttributeName": "string",
+        "KeyType": "HASH"|"RANGE"
+      }
+      ...
+    ],
+    "Projection": {
+      "ProjectionType": "ALL"|"KEYS_ONLY"|"INCLUDE",
+      "NonKeyAttributes": ["string", ...]
+    }
+  }
+  ...
+]</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--provisioned-throughput" class="dashAnchor" id="provisioned-throughput"></a><span class="pre">--provisioned-throughput</span></tt> (structure)</p>
+<blockquote>
+<div><p>The provisioned throughput settings for the specified table. The settings can be modified using the <em>update-table</em> operation.</p>
+<p>For current minimum and maximum provisioned throughput values, see <a class="reference external" href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the Amazon DynamoDB Developer Guide.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>--provisioned-throughput ReadCapacityUnits=value,WriteCapacityUnits=value</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"ReadCapacityUnits"</span><span class="p">:</span> <span class="nb">long</span><span class="p">,</span>
+  <span class="s">"WriteCapacityUnits"</span><span class="p">:</span> <span class="nb">long</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="batch-write-item.html" title="previous chapter (use the left arrow)">&#8592; batch-write-item</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="delete-item.html" title="next chapter (use the right arrow)">delete-item &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="delete-item.html" title="delete-item">next</a> |</li>
+        <li class="right">
+          <a href="batch-write-item.html" title="batch-write-item">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">dynamodb</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'batch-write-item.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'delete-item.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

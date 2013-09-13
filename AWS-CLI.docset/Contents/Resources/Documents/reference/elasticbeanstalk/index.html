@@ -1,0 +1,233 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>elasticbeanstalk &mdash; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="aws" href="../index.html" />
+    <link rel="next" title="check-dns-availability" href="check-dns-availability.html" />
+    <link rel="prev" title="revoke-cache-security-group-ingress" href="../elasticache/revoke-cache-security-group-ingress.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&repo=aws-cli&type=watch&count=true&size=small"
+                  allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="check-dns-availability.html" title="check-dns-availability"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../elasticache/revoke-cache-security-group-ingress.html" title="revoke-cache-security-group-ingress"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">aws</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../elasticache/revoke-cache-security-group-ingress.html" title="previous chapter (use the left arrow)">&larr; revoke-cache-security-group-ingress</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="check-dns-availability.html" title="next chapter (use the right arrow)">check-dns-availability &rarr;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">elasticbeanstalk</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#available-commands">Available Commands</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&guide_name=Guide&api_version=1.0&file_name=reference/elasticbeanstalk/index">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <div class="section" id="elasticbeanstalk">
+<h1>elasticbeanstalk<a class="headerlink" href="#elasticbeanstalk" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This is the AWS Elastic Beanstalk API Reference. This guide provides detailed information about AWS Elastic Beanstalk actions, data types, parameters, and errors.</p>
+<p>AWS Elastic Beanstalk is a tool that makes it easy for you to create, deploy, and manage scalable, fault-tolerant applications running on Amazon Web Services cloud resources.</p>
+<p>For more information about this product, go to the <a class="reference external" href="http://aws.amazon.com/elasticbeanstalk/">AWS Elastic Beanstalk</a> details page. The location of the lastest AWS Elastic Beanstalk WSDL is <a class="reference external" href="http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl">http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl</a> .</p>
+<p><strong>Endpoints</strong></p>
+<p>For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to <a class="reference external" href="http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region">Regions and Endpoints</a> in the <em>Amazon Web Services Glossary</em> .</p>
+</div>
+<div class="section" id="available-commands">
+<h2>Available Commands<a class="headerlink" href="#available-commands" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="check-dns-availability.html">check-dns-availability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-application.html">create-application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-application-version.html">create-application-version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-configuration-template.html">create-configuration-template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-environment.html">create-environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-storage-location.html">create-storage-location</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-application.html">delete-application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-application-version.html">delete-application-version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-configuration-template.html">delete-configuration-template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-environment-configuration.html">delete-environment-configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-application-versions.html">describe-application-versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-applications.html">describe-applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-configuration-options.html">describe-configuration-options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-configuration-settings.html">describe-configuration-settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-environment-resources.html">describe-environment-resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-environments.html">describe-environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe-events.html">describe-events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list-available-solution-stacks.html">list-available-solution-stacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebuild-environment.html">rebuild-environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request-environment-info.html">request-environment-info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restart-app-server.html">restart-app-server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retrieve-environment-info.html">retrieve-environment-info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swap-environment-cnam-es.html">swap-environment-cnam-es</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminate-environment.html">terminate-environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="update-application.html">update-application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="update-application-version.html">update-application-version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="update-configuration-template.html">update-configuration-template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="update-environment.html">update-environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validate-configuration-settings.html">validate-configuration-settings</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../elasticache/revoke-cache-security-group-ingress.html" title="previous chapter (use the left arrow)">&larr; revoke-cache-security-group-ingress</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="check-dns-availability.html" title="next chapter (use the right arrow)">check-dns-availability &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="check-dns-availability.html" title="check-dns-availability"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../elasticache/revoke-cache-security-group-ingress.html" title="revoke-cache-security-group-ingress"
+             >previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &copy; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript">
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = '../elasticache/revoke-cache-security-group-ingress.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'check-dns-availability.html';
+            return false;
+            
+          }
+        });
+      </script>
+    
+  
+  </body>
+</html>

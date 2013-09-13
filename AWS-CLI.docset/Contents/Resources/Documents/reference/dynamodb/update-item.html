@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>update-item &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="dynamodb" href="index.html" />
+    <link rel="next" title="update-table" href="update-table.html" />
+    <link rel="prev" title="scan" href="scan.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="update-table.html" title="update-table" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="scan.html" title="scan" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">dynamodb</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="scan.html" title="previous chapter (use the left arrow)">&#8592; scan</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="update-table.html" title="next chapter (use the right arrow)">update-table &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">update-item</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/dynamodb/update-item">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>dynamodb</em></a> ]</p>
+<div class="section" id="update-item">
+<h1>update-item<a class="headerlink" href="#update-item" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Edits an existing item's attributes, or inserts a new item if it does not already exist. You can put, delete, or add attribute values. You can also perform a conditional update (insert a new attribute name-value pair if it doesn't exist, or replace an existing name-value pair if it has certain expected attribute values).</p>
+<p>In addition to updating an item, you can also return the item's attribute values in the same operation, using the <em>--return-values</em> parameter.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  update-item
+--table-name &lt;value&gt;
+--key &lt;value&gt;
+[--attribute-updates &lt;value&gt;]
+[--expected &lt;value&gt;]
+[--return-values &lt;value&gt;]
+[--return-consumed-capacity &lt;value&gt;]
+[--return-item-collection-metrics &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--table-name" class="dashAnchor" id="table-name"></a><span class="pre">--table-name</span></tt> (string)</p>
+<blockquote>
+<div>The name of the table containing the item to update.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--key" class="dashAnchor" id="key"></a><span class="pre">--key</span></tt> (map)</p>
+<blockquote>
+<div>The primary key that defines the item. Each element consists of an attribute name and a value for that attribute.</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>{"string": {
+      "S": "string",
+      "N": "string",
+      "B": blob,
+      "SS": ["string", ...],
+      "NS": ["string", ...],
+      "BS": [blob, ...]
+    }
+  ...}</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--attribute-updates" class="dashAnchor" id="attribute-updates"></a><span class="pre">--attribute-updates</span></tt> (map)</p>
+<blockquote>
+<div><p>The names of attributes to be modified, the action to perform on each, and the new value for each. If you are updating an attribute that is an index key attribute for any indexes on that table, the attribute type must match the index key type defined in the <em>AttributesDefinition</em> of the table description. You can use <em>update-item</em> to update any non-key attributes.</p>
+<p>Attribute values cannot be null. String and binary type attributes must have lengths greater than zero. Set type attributes must not be empty. Requests with empty values will be rejected with a <em>ValidationException</em> .</p>
+<p>Each <em>--attribute-updates</em> element consists of an attribute name to modify, along with the following:</p>
+<ul class="simple">
+<li><em>Value</em> - The new value, if applicable, for this attribute.</li>
+<li><em>Action</em> - Specifies how to perform the update. Valid values for <em>Action</em> are <tt class="docutils literal"><span class="pre">PUT</span></tt>  , <tt class="docutils literal"><span class="pre">DELETE</span></tt>  , and <tt class="docutils literal"><span class="pre">ADD</span></tt>  . The behavior depends on whether the specified primary key already exists in the table.  <strong>If an item with the specified *--key* is found in the table:</strong>    *  <tt class="docutils literal"><span class="pre">PUT</span></tt>  - Adds the specified attribute to the item. If the attribute already exists, it is replaced by the new value.</li>
+<li><tt class="docutils literal"><span class="pre">DELETE</span></tt>  - If no value is specified, the attribute and its value are removed from the item. The data type of the specified value must match the existing value's data type. If a <em>set</em> of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set <tt class="docutils literal"><span class="pre">[a,b,c]</span></tt>  and the <em>DELETE</em> action specified <tt class="docutils literal"><span class="pre">[a,c]</span></tt>  , then the final attribute value would be <tt class="docutils literal"><span class="pre">[b]</span></tt>  . Specifying an empty set is an error.</li>
+<li><tt class="docutils literal"><span class="pre">ADD</span></tt>  - If the attribute does not already exist, then the attribute and its values are added to the item. If the attribute does exist, then the behavior of <tt class="docutils literal"><span class="pre">ADD</span></tt>  depends on the data type of the attribute:  *  If the existing attribute is a number, and if <em>Value</em> is also a number, then the <em>Value</em> is mathematically added to the existing attribute. If <em>Value</em> is a negative number, then it is subtracted from the existing attribute. .. note:: If you use <tt class="docutils literal"><span class="pre">ADD</span></tt>  to increment or decrement a number value for an item that doesn't exist before the update, Amazon DynamoDB uses 0 as the initial value. In addition, if you use <tt class="docutils literal"><span class="pre">ADD</span></tt>  to update an existing item, and intend to increment or decrement an attribute value which does not yet exist, Amazon DynamoDB uses <tt class="docutils literal"><span class="pre">0</span></tt>  as the initial value. For example, suppose that the item you want to update does not yet have an attribute named <em>itemcount</em> , but you decide to <tt class="docutils literal"><span class="pre">ADD</span></tt>  the number <tt class="docutils literal"><span class="pre">3</span></tt>  to this attribute anyway, even though it currently does not exist. Amazon DynamoDB will create the <em>itemcount</em> attribute, set its initial value to <tt class="docutils literal"><span class="pre">0</span></tt>  , and finally add <tt class="docutils literal"><span class="pre">3</span></tt>  to it. The result will be a new <em>itemcount</em> attribute in the item, with a value of <tt class="docutils literal"><span class="pre">3</span></tt>  .</li>
+<li>If the existing data type is a set, and if the <em>Value</em> is also a set, then the <em>Value</em> is added to the existing set. (This is a <em>set</em> operation, not mathematical addition.) For example, if the attribute value was the set <tt class="docutils literal"><span class="pre">[1,2]</span></tt>  , and the <tt class="docutils literal"><span class="pre">ADD</span></tt>  action specified <tt class="docutils literal"><span class="pre">[3]</span></tt>  , then the final attribute value would be <tt class="docutils literal"><span class="pre">[1,2,3]</span></tt>  . An error occurs if an Add action is specified for a set attribute and the attribute type specified does not match the existing set type.  Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the <em>Value</em> must also be a set of strings. The same holds true for number sets and binary sets.</li>
+</ul>
+<p>This action is only valid for an existing attribute whose data type is number or is a set. Do not use <tt class="docutils literal"><span class="pre">ADD</span></tt>  for any other data types.</p>
+<blockquote>
+<div><strong>If no item with the specified *--key* is found:</strong></div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">PUT</span></tt>  - Amazon DynamoDB creates a new item with the specified primary key, and then adds the attribute.</li>
+<li><tt class="docutils literal"><span class="pre">DELETE</span></tt>  - Nothing happens; there is no attribute to delete.</li>
+<li><tt class="docutils literal"><span class="pre">ADD</span></tt>  - Amazon DynamoDB creates an item with the supplied primary key and number (or set of numbers) for the attribute value. The only data types allowed are number and number set; no other data types can be specified.</li>
+</ul>
+<p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
+</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>{"string": {
+      "Value": {
+        "S": "string",
+        "N": "string",
+        "B": blob,
+        "SS": ["string", ...],
+        "NS": ["string", ...],
+        "BS": [blob, ...]
+      },
+      "Action": "ADD"|"PUT"|"DELETE"
+    }
+  ...}</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--expected" class="dashAnchor" id="expected"></a><span class="pre">--expected</span></tt> (map)</p>
+<blockquote>
+<div><p>A map of attribute/condition pairs. This is the conditional block for the <em>update-item</em> operation. All the conditions must be met for the operation to succeed.</p>
+<p><em>--expected</em> allows you to provide an attribute name, and whether or not Amazon DynamoDB should check to see if the attribute value already exists; or if the attribute value exists and has a particular value before changing it.</p>
+<p>Each item in <em>--expected</em> represents an attribute name for Amazon DynamoDB to check, along with the following:</p>
+<ul class="simple">
+<li><em>Value</em> - The attribute value for Amazon DynamoDB to check.</li>
+<li><em>Exists</em> - Causes Amazon DynamoDB to evaluate the value before attempting a conditional operation:  *  If <em>Exists</em> is <tt class="docutils literal"><span class="pre">true</span></tt>  , Amazon DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a <em>ConditionalCheckFailedException</em> .</li>
+<li>If <em>Exists</em> is <tt class="docutils literal"><span class="pre">false</span></tt>  , Amazon DynamoDB assumes that the attribute value does <em>not</em> exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a <em>ConditionalCheckFailedException</em> .</li>
+</ul>
+<p>The default setting for <em>Exists</em> is <tt class="docutils literal"><span class="pre">true</span></tt>  . If you supply a <em>Value</em> all by itself, Amazon DynamoDB assumes the attribute exists: You don't have to set <em>Exists</em> to <tt class="docutils literal"><span class="pre">true</span></tt>  , because it is implied.</p>
+<p>Amazon DynamoDB returns a <em>ValidationException</em> if:</p>
+<ul class="simple">
+<li><em>Exists</em> is <tt class="docutils literal"><span class="pre">true</span></tt>  but there is no <em>Value</em> to check. (You expect a value to exist, but don't specify what that value is.)</li>
+<li><em>Exists</em> is <tt class="docutils literal"><span class="pre">false</span></tt>  but you also specify a <em>Value</em> . (You cannot expect an attribute to have a value, while also expecting it not to exist.)</li>
+</ul>
+<p>If you specify more than one condition for <em>Exists</em> , then all of the conditions must evaluate to true. (In other words, the conditions are ANDed together.) Otherwise, the conditional operation will fail.</p>
+</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>{"string": {
+      "Value": {
+        "S": "string",
+        "N": "string",
+        "B": blob,
+        "SS": ["string", ...],
+        "NS": ["string", ...],
+        "BS": [blob, ...]
+      },
+      "Exists": true|false
+    }
+  ...}</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--return-values" class="dashAnchor" id="return-values"></a><span class="pre">--return-values</span></tt> (string)</p>
+<blockquote>
+<div><p>Use <em>--return-values</em> if you want to get the item attributes as they appeared either before or after they were updated. For <em>update-item</em> , the valid values are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">NONE</span></tt>  - If <em>--return-values</em> is not specified, or if its value is <tt class="docutils literal"><span class="pre">NONE</span></tt>  , then nothing is returned. (This is the default for <em>--return-values</em> .)</li>
+<li><tt class="docutils literal"><span class="pre">ALL_OLD</span></tt>  - If <em>update-item</em> overwrote an attribute name-value pair, then the content of the old item is returned.</li>
+<li><tt class="docutils literal"><span class="pre">UPDATED_OLD</span></tt>  - The old versions of only the updated attributes are returned.</li>
+<li><tt class="docutils literal"><span class="pre">ALL_NEW</span></tt>  - All of the attributes of the new version of the item are returned.</li>
+<li><tt class="docutils literal"><span class="pre">UPDATED_NEW</span></tt>  - The new versions of only the updated attributes are returned.</li>
+</ul>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--return-consumed-capacity" class="dashAnchor" id="return-consumed-capacity"></a><span class="pre">--return-consumed-capacity</span></tt> (string)</p>
+<blockquote>
+<div>If set to <tt class="docutils literal"><span class="pre">TOTAL</span></tt>  , <em>ConsumedCapacity</em> is included in the response; if set to <tt class="docutils literal"><span class="pre">NONE</span></tt>  (the default), <em>ConsumedCapacity</em> is not included.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--return-item-collection-metrics" class="dashAnchor" id="return-item-collection-metrics"></a><span class="pre">--return-item-collection-metrics</span></tt> (string)</p>
+<blockquote>
+<div>If set to <tt class="docutils literal"><span class="pre">SIZE</span></tt>  , statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <tt class="docutils literal"><span class="pre">NONE</span></tt>  (the default), no statistics are returned..</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="scan.html" title="previous chapter (use the left arrow)">&#8592; scan</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="update-table.html" title="next chapter (use the right arrow)">update-table &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="update-table.html" title="update-table">next</a> |</li>
+        <li class="right">
+          <a href="scan.html" title="scan">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">dynamodb</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'scan.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'update-table.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

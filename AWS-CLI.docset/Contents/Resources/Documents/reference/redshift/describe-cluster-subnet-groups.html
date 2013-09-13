@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>describe-cluster-subnet-groups &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="redshift" href="index.html" />
+    <link rel="next" title="describe-cluster-versions" href="describe-cluster-versions.html" />
+    <link rel="prev" title="describe-cluster-snapshots" href="describe-cluster-snapshots.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="describe-cluster-versions.html" title="describe-cluster-versions" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="describe-cluster-snapshots.html" title="describe-cluster-snapshots" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">redshift</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-cluster-snapshots.html" title="previous chapter (use the left arrow)">&#8592; describe-cluster-snapshots</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-cluster-versions.html" title="next chapter (use the right arrow)">describe-cluster-versions &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-cluster-subnet-groups</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#get-a-description-of-all-cluster-subnet-groups">Get a Description of All Cluster Subnet Groups</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/redshift/describe-cluster-subnet-groups">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>redshift</em></a> ]</p>
+<div class="section" id="describe-cluster-subnet-groups">
+<h1>describe-cluster-subnet-groups<a class="headerlink" href="#describe-cluster-subnet-groups" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Returns one or more cluster subnet group objects, which contain metadata about your cluster subnet groups. By default, this operation returns information about all cluster subnet groups that are defined in you AWS account.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  describe-cluster-subnet-groups
+[--cluster-subnet-group-name &lt;value&gt;]
+[--max-records &lt;value&gt;]
+[--marker &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--cluster-subnet-group-name" class="dashAnchor" id="cluster-subnet-group-name"></a><span class="pre">--cluster-subnet-group-name</span></tt> (string)</p>
+<blockquote>
+<div>The name of the cluster subnet group for which information is requested.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--max-records" class="dashAnchor" id="max-records"></a><span class="pre">--max-records</span></tt> (integer)</p>
+<blockquote>
+<div><p>The maximum number of cluster subnet group records to include in the response. If more records exist than the specified <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--max-records" class="dashAnchor" id="max-records"></a><span class="pre">--max-records</span></tt>  value, the response returns a marker that you can use in a subsequent  describe-cluster-subnet-groups request in order to retrieve the next set of cluster subnet group records.</p>
+<p>Default: 100</p>
+<p>Constraints: Must be at least 20 and no more than 100.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--marker" class="dashAnchor" id="marker"></a><span class="pre">--marker</span></tt> (string)</p>
+<blockquote>
+<div>An optional marker returned by a previous  describe-cluster-subnet-groups request to indicate the first cluster subnet group that the current request will return.</div></blockquote>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="get-a-description-of-all-cluster-subnet-groups">
+<h3>Get a Description of All Cluster Subnet Groups<a class="headerlink" href="#get-a-description-of-all-cluster-subnet-groups" title="Permalink to this headline">&#182;</a></h3>
+<p>This example returns a description of all cluster subnet groups.  By default, the output is in JSON format.</p>
+<p>Command:</p>
+<div class="highlight-python"><pre>aws redshift describe-cluster-subnet-groups</pre>
+</div>
+<p>Result:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+   <span class="s">"ClusterSubnetGroups"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+         <span class="s">"Subnets"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+               <span class="s">"SubnetStatus"</span><span class="p">:</span> <span class="s">"Active"</span><span class="p">,</span>
+               <span class="s">"SubnetIdentifier"</span><span class="p">:</span> <span class="s">"subnet-763fdd1c"</span><span class="p">,</span>
+               <span class="s">"SubnetAvailabilityZone"</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="s">"Name"</span><span class="p">:</span> <span class="s">"us-east-1a"</span>
+               <span class="p">}</span>
+            <span class="p">}</span>
+         <span class="p">],</span>
+         <span class="s">"VpcId"</span><span class="p">:</span> <span class="s">"vpc-7e3fdd14"</span><span class="p">,</span>
+         <span class="s">"SubnetGroupStatus"</span><span class="p">:</span> <span class="s">"Complete"</span><span class="p">,</span>
+         <span class="s">"Description"</span><span class="p">:</span> <span class="s">"My subnet group"</span><span class="p">,</span>
+         <span class="s">"ClusterSubnetGroupName"</span><span class="p">:</span> <span class="s">"mysubnetgroup"</span>
+      <span class="p">}</span>
+   <span class="p">],</span>
+   <span class="s">"ResponseMetadata"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">"RequestId"</span><span class="p">:</span> <span class="s">"37fa8c89-6990-11e2-8f75-ab4018764c77"</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-cluster-snapshots.html" title="previous chapter (use the left arrow)">&#8592; describe-cluster-snapshots</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-cluster-versions.html" title="next chapter (use the right arrow)">describe-cluster-versions &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="describe-cluster-versions.html" title="describe-cluster-versions">next</a> |</li>
+        <li class="right">
+          <a href="describe-cluster-snapshots.html" title="describe-cluster-snapshots">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">redshift</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'describe-cluster-snapshots.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'describe-cluster-versions.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

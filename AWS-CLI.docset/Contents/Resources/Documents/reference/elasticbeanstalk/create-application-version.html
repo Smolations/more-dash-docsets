@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>create-application-version &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="elasticbeanstalk" href="index.html" />
+    <link rel="next" title="create-configuration-template" href="create-configuration-template.html" />
+    <link rel="prev" title="create-application" href="create-application.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="create-configuration-template.html" title="create-configuration-template" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="create-application.html" title="create-application" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">elasticbeanstalk</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="create-application.html" title="previous chapter (use the left arrow)">&#8592; create-application</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="create-configuration-template.html" title="next chapter (use the right arrow)">create-configuration-template &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">create-application-version</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/elasticbeanstalk/create-application-version">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>elasticbeanstalk</em></a> ]</p>
+<div class="section" id="create-application-version">
+<h1>create-application-version<a class="headerlink" href="#create-application-version" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Creates an application version for the specified application.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Once you create an application version with a specified Amazon S3 bucket and key location, you cannot change that Amazon S3 location. If you change the Amazon S3 location, you receive an exception when you attempt to launch an environment from the application version.</p>
+</div>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  create-application-version
+--application-name &lt;value&gt;
+--version-label &lt;value&gt;
+[--description &lt;value&gt;]
+[--source-bundle &lt;value&gt;]
+[--auto-create-application | --no-auto-create-application]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--application-name" class="dashAnchor" id="application-name"></a><span class="pre">--application-name</span></tt> (string)</p>
+<blockquote>
+<div>The name of the application. If no application is found with this name, and <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--auto-create-application" class="dashAnchor" id="auto-create-application"></a><span class="pre">--auto-create-application</span></tt>  is <tt class="docutils literal"><span class="pre">false</span></tt>  , returns an <tt class="docutils literal"><span class="pre">InvalidParameterValue</span></tt>  error.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--version-label" class="dashAnchor" id="version-label"></a><span class="pre">--version-label</span></tt> (string)</p>
+<blockquote>
+<div><p>A label identifying this version.</p>
+<p>Constraint: Must be unique per application. If an application version already exists with this label for the specified application, AWS Elastic Beanstalk returns an <tt class="docutils literal"><span class="pre">InvalidParameterValue</span></tt>  error.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--description" class="dashAnchor" id="description"></a><span class="pre">--description</span></tt> (string)</p>
+<blockquote>
+<div>Describes this version.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--source-bundle" class="dashAnchor" id="source-bundle"></a><span class="pre">--source-bundle</span></tt> (structure)</p>
+<blockquote>
+<div><p>The Amazon S3 bucket and key that identify the location of the source bundle for this version.</p>
+<p>If data found at the Amazon S3 location exceeds the maximum allowed source bundle size, AWS Elastic Beanstalk returns an <tt class="docutils literal"><span class="pre">InvalidParameterValue</span></tt>  error. The maximum size allowed is 512 MB.</p>
+<p>Default: If not specified, AWS Elastic Beanstalk uses a sample application. If only partially specified (for example, a bucket is provided but not the key) or if no data is found at the Amazon S3 location, AWS Elastic Beanstalk returns an <tt class="docutils literal"><span class="pre">InvalidParameterCombination</span></tt>  error.</p>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>--source-bundle S3Bucket=value,S3Key=value</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"S3Bucket"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"S3Key"</span><span class="p">:</span> <span class="s">"string"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--auto-create-application" class="dashAnchor" id="auto-create-application"></a><span class="pre">--auto-create-application</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-auto-create-application" class="dashAnchor" id="no-auto-create-application"></a><span class="pre">--no-auto-create-application</span></tt> (boolean)</p>
+<blockquote>
+<div><p>Determines how the system behaves if the specified application for this version does not already exist:</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">true</span></tt>  : Automatically creates the specified application for this version if it does not already exist.</p>
+<p><tt class="docutils literal"><span class="pre">false</span></tt>  : Returns an <tt class="docutils literal"><span class="pre">InvalidParameterValue</span></tt>  if the specified application for this version does not already exist.</p>
+</div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">true</span></tt>  : Automatically creates the specified application for this release if it does not already exist.</li>
+<li><tt class="docutils literal"><span class="pre">false</span></tt>  : Throws an <tt class="docutils literal"><span class="pre">InvalidParameterValue</span></tt>  if the specified application for this release does not already exist.</li>
+</ul>
+<p>Default: <tt class="docutils literal"><span class="pre">false</span></tt></p>
+<p>Valid Values: <tt class="docutils literal"><span class="pre">true</span></tt>  | <tt class="docutils literal"><span class="pre">false</span></tt></p>
+</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="create-application.html" title="previous chapter (use the left arrow)">&#8592; create-application</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="create-configuration-template.html" title="next chapter (use the right arrow)">create-configuration-template &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="create-configuration-template.html" title="create-configuration-template">next</a> |</li>
+        <li class="right">
+          <a href="create-application.html" title="create-application">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">elasticbeanstalk</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'create-application.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'create-configuration-template.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

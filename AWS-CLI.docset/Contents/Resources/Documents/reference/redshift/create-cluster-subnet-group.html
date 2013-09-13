@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>create-cluster-subnet-group &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="redshift" href="index.html" />
+    <link rel="next" title="delete-cluster" href="delete-cluster.html" />
+    <link rel="prev" title="create-cluster-snapshot" href="create-cluster-snapshot.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="delete-cluster.html" title="delete-cluster" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="create-cluster-snapshot.html" title="create-cluster-snapshot" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">redshift</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="create-cluster-snapshot.html" title="previous chapter (use the left arrow)">&#8592; create-cluster-snapshot</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="delete-cluster.html" title="next chapter (use the right arrow)">delete-cluster &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">create-cluster-subnet-group</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#create-a-cluster-subnet-group">Create a Cluster Subnet Group</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/redshift/create-cluster-subnet-group">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>redshift</em></a> ]</p>
+<div class="section" id="create-cluster-subnet-group">
+<h1>create-cluster-subnet-group<a class="headerlink" href="#create-cluster-subnet-group" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.</p>
+<p>For information about subnet groups, go to <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html">Amazon Redshift Cluster Subnet Groups</a> in the <em>Amazon Redshift Management Guide</em> .</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  create-cluster-subnet-group
+--cluster-subnet-group-name &lt;value&gt;
+--description &lt;value&gt;
+--subnet-ids &lt;value&gt;</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--cluster-subnet-group-name" class="dashAnchor" id="cluster-subnet-group-name"></a><span class="pre">--cluster-subnet-group-name</span></tt> (string)</p>
+<blockquote>
+<div><p>The name for the subnet group. Amazon Redshift stores the value as a lowercase string.</p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must contain no more than 255 alphanumeric characters or hyphens.</li>
+<li>Must not be "Default".</li>
+<li>Must be unique for all subnet groups that are created by your AWS account.</li>
+</ul>
+<p>Example: <tt class="docutils literal"><span class="pre">examplesubnetgroup</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--description" class="dashAnchor" id="description"></a><span class="pre">--description</span></tt> (string)</p>
+<blockquote>
+<div>A description for the subnet group.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--subnet-ids" class="dashAnchor" id="subnet-ids"></a><span class="pre">--subnet-ids</span></tt> (list)</p>
+<blockquote>
+<div>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"string" "string" ...</pre>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="create-a-cluster-subnet-group">
+<h3>Create a Cluster Subnet Group<a class="headerlink" href="#create-a-cluster-subnet-group" title="Permalink to this headline">&#182;</a></h3>
+<p>This example creates a new cluster subnet group.</p>
+<p>Command:</p>
+<div class="highlight-python"><pre>aws redshift create-cluster-subnet-group --cluster-subnet-group-name mysubnetgroup  --description "My subnet group" --subnet-ids subnet-763fdd1c</pre>
+</div>
+<p>Result:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+   <span class="s">"ClusterSubnetGroup"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">"Subnets"</span><span class="p">:</span> <span class="p">[</span>
+         <span class="p">{</span>
+            <span class="s">"SubnetStatus"</span><span class="p">:</span> <span class="s">"Active"</span><span class="p">,</span>
+            <span class="s">"SubnetIdentifier"</span><span class="p">:</span> <span class="s">"subnet-763fdd1c"</span><span class="p">,</span>
+            <span class="s">"SubnetAvailabilityZone"</span><span class="p">:</span> <span class="p">{</span>
+               <span class="s">"Name"</span><span class="p">:</span> <span class="s">"us-east-1a"</span>
+            <span class="p">}</span>
+         <span class="p">}</span> <span class="p">],</span>
+      <span class="s">"VpcId"</span><span class="p">:</span> <span class="s">"vpc-7e3fdd14"</span><span class="p">,</span>
+      <span class="s">"SubnetGroupStatus"</span><span class="p">:</span> <span class="s">"Complete"</span><span class="p">,</span>
+      <span class="s">"Description"</span><span class="p">:</span> <span class="s">"My subnet group"</span><span class="p">,</span>
+      <span class="s">"ClusterSubnetGroupName"</span><span class="p">:</span> <span class="s">"mysubnetgroup"</span>
+   <span class="p">},</span>
+   <span class="s">"ResponseMetadata"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">"RequestId"</span><span class="p">:</span> <span class="s">"500b8ce2-698f-11e2-9790-fd67517fb6fd"</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="create-cluster-snapshot.html" title="previous chapter (use the left arrow)">&#8592; create-cluster-snapshot</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="delete-cluster.html" title="next chapter (use the right arrow)">delete-cluster &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="delete-cluster.html" title="delete-cluster">next</a> |</li>
+        <li class="right">
+          <a href="create-cluster-snapshot.html" title="create-cluster-snapshot">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">redshift</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'create-cluster-snapshot.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'delete-cluster.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

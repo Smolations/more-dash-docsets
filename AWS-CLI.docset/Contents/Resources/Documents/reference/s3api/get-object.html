@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>get-object &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="s3api" href="index.html" />
+    <link rel="next" title="get-object-acl" href="get-object-acl.html" />
+    <link rel="prev" title="get-bucket-website" href="get-bucket-website.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="get-object-acl.html" title="get-object-acl" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="get-bucket-website.html" title="get-bucket-website" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">s3api</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="get-bucket-website.html" title="previous chapter (use the left arrow)">&#8592; get-bucket-website</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="get-object-acl.html" title="next chapter (use the right arrow)">get-object-acl &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get-object</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#get-an-object">Get an object</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/s3api/get-object">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>s3api</em></a> ]</p>
+<div class="section" id="get-object">
+<h1>get-object<a class="headerlink" href="#get-object" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Retrieves objects from Amazon S3.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  get-object
+--bucket &lt;value&gt;
+[--if-match &lt;value&gt;]
+[--if-modified-since &lt;value&gt;]
+[--if-none-match &lt;value&gt;]
+[--if-unmodified-since &lt;value&gt;]
+--key &lt;value&gt;
+[--range &lt;value&gt;]
+[--response-cache-control &lt;value&gt;]
+[--response-content-disposition &lt;value&gt;]
+[--response-content-encoding &lt;value&gt;]
+[--response-content-language &lt;value&gt;]
+[--response-content-type &lt;value&gt;]
+[--response-expires &lt;value&gt;]
+[--version-id &lt;value&gt;]
+outfile &lt;value&gt;</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--bucket" class="dashAnchor" id="bucket"></a><span class="pre">--bucket</span></tt> (string)</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--if-match" class="dashAnchor" id="if-match"></a><span class="pre">--if-match</span></tt> (string)
+Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--if-modified-since" class="dashAnchor" id="if-modified-since"></a><span class="pre">--if-modified-since</span></tt> (timestamp)
+Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--if-none-match" class="dashAnchor" id="if-none-match"></a><span class="pre">--if-none-match</span></tt> (string)
+Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--if-unmodified-since" class="dashAnchor" id="if-unmodified-since"></a><span class="pre">--if-unmodified-since</span></tt> (timestamp)
+Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--key" class="dashAnchor" id="key"></a><span class="pre">--key</span></tt> (string)</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--range" class="dashAnchor" id="range"></a><span class="pre">--range</span></tt> (string)
+Downloads the specified range bytes of an object. For more information about the HTTP --range header, go to <a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--response-cache-control" class="dashAnchor" id="response-cache-control"></a><span class="pre">--response-cache-control</span></tt> (string)
+Sets the Cache-Control header of the response.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--response-content-disposition" class="dashAnchor" id="response-content-disposition"></a><span class="pre">--response-content-disposition</span></tt> (string)
+Sets the Content-Disposition header of the response</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--response-content-encoding" class="dashAnchor" id="response-content-encoding"></a><span class="pre">--response-content-encoding</span></tt> (string)
+Sets the Content-Encoding header of the response.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--response-content-language" class="dashAnchor" id="response-content-language"></a><span class="pre">--response-content-language</span></tt> (string)
+Sets the Content-Language header of the response.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--response-content-type" class="dashAnchor" id="response-content-type"></a><span class="pre">--response-content-type</span></tt> (string)
+Sets the Content-Type header of the response.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--response-expires" class="dashAnchor" id="response-expires"></a><span class="pre">--response-expires</span></tt> (timestamp)
+Sets the Expires header of the response.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--version-id" class="dashAnchor" id="version-id"></a><span class="pre">--version-id</span></tt> (string)
+--version-id used to reference a specific version of the object.</p>
+<p><tt class="docutils literal"><span class="pre">outfile</span></tt> (string)
+Filename where the content will be saved</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="get-an-object">
+<h3>Get an object<a class="headerlink" href="#get-an-object" title="Permalink to this headline">&#182;</a></h3>
+<p>The following example uses the <tt class="docutils literal"><span class="pre">get-object</span></tt> command to download an object from Amazon S3:</p>
+<div class="highlight-python"><pre>aws s3api get-object --bucket text-content --key dir/my_images.tar.bz2 my_images.tar.bz2</pre>
+</div>
+<p>For more information about retrieving objects, see <a class="reference external" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/GettingObjectsUsingAPIs.html">Getting Objects</a> in the <em>Amazon S3 Developer Guide</em>.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="get-bucket-website.html" title="previous chapter (use the left arrow)">&#8592; get-bucket-website</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="get-object-acl.html" title="next chapter (use the right arrow)">get-object-acl &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="get-object-acl.html" title="get-object-acl">next</a> |</li>
+        <li class="right">
+          <a href="get-bucket-website.html" title="get-bucket-website">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">s3api</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'get-bucket-website.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'get-object-acl.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>
