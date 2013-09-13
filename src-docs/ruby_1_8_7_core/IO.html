@@ -1,0 +1,5094 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <!-- classpage -- >
+    <!-- RD version: 0.24.6  -->
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="2013-08-24 23:20:00 -0700" http-equiv="change-date" />
+  <!-- rel_prefix  = ''  ENV['RDOC_FOR_WEBSITE']   = false-->
+    
+    <!-- WHY? -->
+    
+    
+  <!-- rel_prefix = '.'   asset_rel_prefix = ''  --> 
+  <title>Class: IO (Ruby 1.8.7) </title>
+  <!-- link rel="stylesheet" href=".css/obf.css"  -->
+  <link rel="stylesheet" href="css/inuit.css" >
+  <link rel="stylesheet" href="css/grid.inuit.css" >
+  <link rel="stylesheet" href="css/2011.css" type="text/css" >
+  <link rel="stylesheet" href="css/rdoc.css" type="text/css" >
+
+  <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/rubydoc.js" type="text/javascript" charset="utf-8"></script> 
+
+ 
+<script src="/js/highlight.min.js"></script>
+<script> 
+  hljs.tabReplace = '  ';
+  hljs.initHighlightingOnLoad();
+  </script> 
+
+  <style type='text/css'>
+
+    #vulns-alert #vulns{
+      background-color: #c33 ! important;
+      width: 100%;
+      text-align: center;
+   }
+   
+   #vulns-alert #vulns a {
+    color: #F99 ! important;
+   }
+ </style>
+
+</head>
+
+<body id="top" class="class rdocstar">
+<div id='actionbar' >
+<div class='wrapper'>
+  <ul class='grids g0'></ul>
+</div>
+<span id='vulns-alert'></span>
+</div> <!-- end action bar -->
+ <div class='wrapper'>
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+          
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul id='file-metadata'>
+
+          
+          
+          
+          <li class='in-file'>file.c</li>      
+            
+          
+          <li class='in-file'>io.c</li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-for_fd">::for_fd</a></li>
+          
+          <li><a href="#method-c-foreach">::foreach</a></li>
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-c-open">::open</a></li>
+          
+          <li><a href="#method-c-pipe">::pipe</a></li>
+          
+          <li><a href="#method-c-popen">::popen</a></li>
+          
+          <li><a href="#method-c-read">::read</a></li>
+          
+          <li><a href="#method-c-readlines">::readlines</a></li>
+          
+          <li><a href="#method-c-select">::select</a></li>
+          
+          <li><a href="#method-c-sysopen">::sysopen</a></li>
+          
+          <li><a href="#method-i-3C-3C">#<<</a></li>
+          
+          <li><a href="#method-i-binmode">#binmode</a></li>
+          
+          <li><a href="#method-i-bytes">#bytes</a></li>
+          
+          <li><a href="#method-i-chars">#chars</a></li>
+          
+          <li><a href="#method-i-close">#close</a></li>
+          
+          <li><a href="#method-i-close_read">#close_read</a></li>
+          
+          <li><a href="#method-i-close_write">#close_write</a></li>
+          
+          <li><a href="#method-i-closed-3F">#closed?</a></li>
+          
+          <li><a href="#method-i-each">#each</a></li>
+          
+          <li><a href="#method-i-each_byte">#each_byte</a></li>
+          
+          <li><a href="#method-i-each_char">#each_char</a></li>
+          
+          <li><a href="#method-i-each_line">#each_line</a></li>
+          
+          <li><a href="#method-i-eof">#eof</a></li>
+          
+          <li><a href="#method-i-eof-3F">#eof?</a></li>
+          
+          <li><a href="#method-i-fcntl">#fcntl</a></li>
+          
+          <li><a href="#method-i-fileno">#fileno</a></li>
+          
+          <li><a href="#method-i-flush">#flush</a></li>
+          
+          <li><a href="#method-i-fsync">#fsync</a></li>
+          
+          <li><a href="#method-i-getbyte">#getbyte</a></li>
+          
+          <li><a href="#method-i-getc">#getc</a></li>
+          
+          <li><a href="#method-i-gets">#gets</a></li>
+          
+          <li><a href="#method-i-inspect">#inspect</a></li>
+          
+          <li><a href="#method-i-ioctl">#ioctl</a></li>
+          
+          <li><a href="#method-i-isatty">#isatty</a></li>
+          
+          <li><a href="#method-i-lineno">#lineno</a></li>
+          
+          <li><a href="#method-i-lineno-3D">#lineno=</a></li>
+          
+          <li><a href="#method-i-lines">#lines</a></li>
+          
+          <li><a href="#method-i-pid">#pid</a></li>
+          
+          <li><a href="#method-i-pos">#pos</a></li>
+          
+          <li><a href="#method-i-pos-3D">#pos=</a></li>
+          
+          <li><a href="#method-i-print">#print</a></li>
+          
+          <li><a href="#method-i-printf">#printf</a></li>
+          
+          <li><a href="#method-i-putc">#putc</a></li>
+          
+          <li><a href="#method-i-puts">#puts</a></li>
+          
+          <li><a href="#method-i-read">#read</a></li>
+          
+          <li><a href="#method-i-read_nonblock">#read_nonblock</a></li>
+          
+          <li><a href="#method-i-readbyte">#readbyte</a></li>
+          
+          <li><a href="#method-i-readchar">#readchar</a></li>
+          
+          <li><a href="#method-i-readline">#readline</a></li>
+          
+          <li><a href="#method-i-readlines">#readlines</a></li>
+          
+          <li><a href="#method-i-readpartial">#readpartial</a></li>
+          
+          <li><a href="#method-i-reopen">#reopen</a></li>
+          
+          <li><a href="#method-i-rewind">#rewind</a></li>
+          
+          <li><a href="#method-i-seek">#seek</a></li>
+          
+          <li><a href="#method-i-stat">#stat</a></li>
+          
+          <li><a href="#method-i-sync">#sync</a></li>
+          
+          <li><a href="#method-i-sync-3D">#sync=</a></li>
+          
+          <li><a href="#method-i-sysread">#sysread</a></li>
+          
+          <li><a href="#method-i-sysseek">#sysseek</a></li>
+          
+          <li><a href="#method-i-syswrite">#syswrite</a></li>
+          
+          <li><a href="#method-i-tell">#tell</a></li>
+          
+          <li><a href="#method-i-to_i">#to_i</a></li>
+          
+          <li><a href="#method-i-to_io">#to_io</a></li>
+          
+          <li><a href="#method-i-tty-3F">#tty?</a></li>
+          
+          <li><a href="#method-i-ungetc">#ungetc</a></li>
+          
+          <li><a href="#method-i-write">#write</a></li>
+          
+          <li><a href="#method-i-write_nonblock">#write_nonblock</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Included Modules -->
+      <div id="includes-section" class="section">
+        <h3 class="section-header">Included Modules</h3>
+        <ul class="link-list">
+        
+        
+          <li><a class="include" href="File/Constants.html">File::Constants</a></li>
+        
+        
+        
+          <li><a class="include" href="Enumerable.html">Enumerable</a></li>
+        
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+          
+          
+          
+          <li><a href="./ArgumentError.html">ArgumentError</a></li>
+        
+          
+          
+          <li><a href="./Array.html">Array</a></li>
+        
+          
+          
+          <li><a href="./Bignum.html">Bignum</a></li>
+        
+          
+          
+          <li><a href="./Binding.html">Binding</a></li>
+        
+          
+          
+          <li><a href="./Class.html">Class</a></li>
+        
+          
+          
+          <li><a href="./Comparable.html">Comparable</a></li>
+        
+          
+          
+          <li><a href="./Continuation.html">Continuation</a></li>
+        
+          
+          
+          <li><a href="./Data.html">Data</a></li>
+        
+          
+          
+          <li><a href="./Dir.html">Dir</a></li>
+        
+          
+          
+          <li><a href="./EOFError.html">EOFError</a></li>
+        
+          
+          
+          <li><a href="./Enumerable.html">Enumerable</a></li>
+        
+          
+          
+          <li><a href="./Enumerable/Enumerator.html">Enumerable::Enumerator</a></li>
+        
+          
+          
+          <li><a href="./Errno.html">Errno</a></li>
+        
+          
+          
+          <li><a href="./Exception.html">Exception</a></li>
+        
+          
+          
+          <li><a href="./FalseClass.html">FalseClass</a></li>
+        
+          
+          
+          <li><a href="./File.html">File</a></li>
+        
+          
+          
+          <li><a href="./File/Constants.html">File::Constants</a></li>
+        
+          
+          
+          <li><a href="./File/Stat.html">File::Stat</a></li>
+        
+          
+          
+          <li><a href="./FileTest.html">FileTest</a></li>
+        
+          
+          
+          <li><a href="./Fixnum.html">Fixnum</a></li>
+        
+          
+          
+          <li><a href="./Float.html">Float</a></li>
+        
+          
+          
+          <li><a href="./FloatDomainError.html">FloatDomainError</a></li>
+        
+          
+          
+          <li><a href="./GC.html">GC</a></li>
+        
+          
+          
+          <li><a href="./Hash.html">Hash</a></li>
+        
+          
+          
+          <li><a href="./IO.html">IO</a></li>
+        
+          
+          
+          <li><a href="./IOError.html">IOError</a></li>
+        
+          
+          
+          <li><a href="./IndexError.html">IndexError</a></li>
+        
+          
+          
+          <li><a href="./Integer.html">Integer</a></li>
+        
+          
+          
+          <li><a href="./Interrupt.html">Interrupt</a></li>
+        
+          
+          
+          <li><a href="./Kernel.html">Kernel</a></li>
+        
+          
+          
+          <li><a href="./LoadError.html">LoadError</a></li>
+        
+          
+          
+          <li><a href="./LocalJumpError.html">LocalJumpError</a></li>
+        
+          
+          
+          <li><a href="./Marshal.html">Marshal</a></li>
+        
+          
+          
+          <li><a href="./MatchData.html">MatchData</a></li>
+        
+          
+          
+          <li><a href="./Math.html">Math</a></li>
+        
+          
+          
+          <li><a href="./Method.html">Method</a></li>
+        
+          
+          
+          <li><a href="./Module.html">Module</a></li>
+        
+          
+          
+          <li><a href="./NameError.html">NameError</a></li>
+        
+          
+          
+          <li><a href="./NameError/message.html">NameError::message</a></li>
+        
+          
+          
+          <li><a href="./NilClass.html">NilClass</a></li>
+        
+          
+          
+          <li><a href="./NoMemoryError.html">NoMemoryError</a></li>
+        
+          
+          
+          <li><a href="./NoMethodError.html">NoMethodError</a></li>
+        
+          
+          
+          <li><a href="./NotImplementedError.html">NotImplementedError</a></li>
+        
+          
+          
+          <li><a href="./Numeric.html">Numeric</a></li>
+        
+          
+          
+          <li><a href="./Object.html">Object</a></li>
+        
+          
+          
+          <li><a href="./ObjectSpace.html">ObjectSpace</a></li>
+        
+          
+          
+          <li><a href="./Precision.html">Precision</a></li>
+        
+          
+          
+          <li><a href="./Proc.html">Proc</a></li>
+        
+          
+          
+          <li><a href="./Process.html">Process</a></li>
+        
+          
+          
+          <li><a href="./Process/GID.html">Process::GID</a></li>
+        
+          
+          
+          <li><a href="./Process/Status.html">Process::Status</a></li>
+        
+          
+          
+          <li><a href="./Process/Sys.html">Process::Sys</a></li>
+        
+          
+          
+          <li><a href="./Process/UID.html">Process::UID</a></li>
+        
+          
+          
+          <li><a href="./Range.html">Range</a></li>
+        
+          
+          
+          <li><a href="./RangeError.html">RangeError</a></li>
+        
+          
+          
+          <li><a href="./Regexp.html">Regexp</a></li>
+        
+          
+          
+          <li><a href="./RegexpError.html">RegexpError</a></li>
+        
+          
+          
+          <li><a href="./RuntimeError.html">RuntimeError</a></li>
+        
+          
+          
+          <li><a href="./ScriptError.html">ScriptError</a></li>
+        
+          
+          
+          <li><a href="./SecurityError.html">SecurityError</a></li>
+        
+          
+          
+          <li><a href="./Signal.html">Signal</a></li>
+        
+          
+          
+          <li><a href="./SignalException.html">SignalException</a></li>
+        
+          
+          
+          <li><a href="./StandardError.html">StandardError</a></li>
+        
+          
+          
+          <li><a href="./StopIteration.html">StopIteration</a></li>
+        
+          
+          
+          <li><a href="./String.html">String</a></li>
+        
+          
+          
+          <li><a href="./Struct.html">Struct</a></li>
+        
+          
+          
+          <li><a href="./Symbol.html">Symbol</a></li>
+        
+          
+          
+          <li><a href="./SyntaxError.html">SyntaxError</a></li>
+        
+          
+          
+          <li><a href="./SystemCallError.html">SystemCallError</a></li>
+        
+          
+          
+          <li><a href="./SystemExit.html">SystemExit</a></li>
+        
+          
+          
+          <li><a href="./SystemStackError.html">SystemStackError</a></li>
+        
+          
+          
+          <li><a href="./Thread.html">Thread</a></li>
+        
+          
+          
+          <li><a href="./ThreadError.html">ThreadError</a></li>
+        
+          
+          
+          <li><a href="./ThreadGroup.html">ThreadGroup</a></li>
+        
+          
+          
+          <li><a href="./Time.html">Time</a></li>
+        
+          
+          
+          <li><a href="./TrueClass.html">TrueClass</a></li>
+        
+          
+          
+          <li><a href="./TypeError.html">TypeError</a></li>
+        
+          
+          
+          <li><a href="./UnboundMethod.html">UnboundMethod</a></li>
+        
+          
+          
+          <li><a href="./ZeroDivisionError.html">ZeroDivisionError</a></li>
+        
+          
+          
+          <li><a href="./fatal.html">fatal</a></li>
+        
+          
+          
+          <li><a href="./unknown.html">unknown</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div> <!-- metadata -->
+  <div class='adzbox'  id="azk83167">
+    
+  </div> 
+  <div id="documentation">
+    <h1 class="class">IO</h1>
+
+    <div id="description" class="description">
+      
+<p><a href="Class.html">Class</a> <code>IO</code> is the basis for all input
+and output in Ruby. An I/O stream may be <em>duplexed</em> (that is,
+bidirectional), and so may use more than one native operating system
+stream.</p>
+
+<p>Many of the examples in this section use class <code>File</code>, the only
+standard subclass of <code>IO</code>. The two classes are closely
+associated.</p>
+
+<p>As used in this section, <em>portname</em> may take any of the following
+forms.</p>
+<ul><li>
+<p>A plain string represents a filename suitable for the underlying operating
+system.</p>
+</li><li>
+<p>A string starting with “<code>|</code>” indicates a subprocess. The
+remainder of the string following the “<code>|</code>” is invoked as a
+process with appropriate input/output channels connected to it.</p>
+</li><li>
+<p>A string equal to “<code>|-</code>” will create another Ruby instance as a
+subprocess.</p>
+</li></ul>
+
+<p>Ruby will convert pathnames between different operating system conventions
+if possible. For instance, on a Windows system the filename
+“<code>/gumby/ruby/test.rb</code>” will be opened as
+“<code>\gumby\ruby\test.rb</code>”. When specifying a Windows-style
+filename in a Ruby string, remember to escape the backslashes:</p>
+
+<pre>&quot;c:\\gumby\\ruby\\test.rb&quot;</pre>
+
+<p>Our examples here will use the Unix-style forward slashes;
+<code>File::SEPARATOR</code> can be used to get the platform-specific
+separator character.</p>
+
+<p>I/O ports may be opened in any one of several different modes, which are
+shown in this section as <em>mode</em>. The mode may either be a <a
+href="Fixnum.html">Fixnum</a> or a <a href="String.html">String</a>. If
+numeric, it should be one of the operating system specific constants
+(O_RDONLY, O_WRONLY, O_RDWR, O_APPEND and so on). See man open(2) for more
+information.</p>
+
+<p>If the mode is given as a <a href="String.html">String</a>, it must be one
+of the values listed in the following table.</p>
+
+<pre>Mode |  Meaning
+-----+--------------------------------------------------------
+&quot;r&quot;  |  Read-only, starts at beginning of file  (default mode).
+-----+--------------------------------------------------------
+&quot;r+&quot; |  Read-write, starts at beginning of file.
+-----+--------------------------------------------------------
+&quot;w&quot;  |  Write-only, truncates existing file 
+     |  to zero length or creates a new file for writing.
+-----+--------------------------------------------------------
+&quot;w+&quot; |  Read-write, truncates existing file to zero length
+     |  or creates a new file for reading and writing.
+-----+--------------------------------------------------------
+&quot;a&quot;  |  Write-only, starts at end of file if file exists,
+     |  otherwise creates a new file for writing.
+-----+--------------------------------------------------------
+&quot;a+&quot; |  Read-write, starts at end of file if file exists,
+     |  otherwise creates a new file for reading and 
+     |  writing.
+-----+--------------------------------------------------------
+ &quot;b&quot; |  (DOS/Windows only) Binary file mode (may appear with 
+     |  any of the key letters listed above).</pre>
+
+<p>The global constant ARGF (also accessible as $&lt;) provides an IO-like
+stream which allows access to all files mentioned on the command line (or
+STDIN if no files are mentioned). ARGF provides the methods
+<code>#path</code> and <code>#filename</code> to access the name of the
+file currently being read.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+      <!-- Constants -->
+      <div id="constants-list" class="section">
+        <h3 class="section-header">Constants</h3>
+        <dl>
+        
+          <dt><a name="SEEK_CUR">SEEK_CUR</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="SEEK_END">SEEK_END</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="SEEK_SET">SEEK_SET</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+        </dl>
+      </div>
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="for_fd-method" class="method-detail ">
+          <a name="method-c-for_fd"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">for_fd(fd, mode)    => io</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Synonym for <code>IO::new</code>.</p>
+            
+
+            
+            <div class="method-source-code" id="for_fd-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_s_for_fd(argc, argv, klass)
+    int argc;
+    VALUE *argv;
+    VALUE klass;
+{
+    VALUE io = rb_obj_alloc(klass);
+    rb_io_initialize(argc, argv, io);
+    return io;
+}
+            </pre> 
+            </div><!-- for_fd-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- for_fd-method -->
+      
+        <div id="foreach-method" class="method-detail ">
+          <a name="method-c-foreach"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">foreach(name, sep_string=$/) {|line| block }   => nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Executes the block for every line in the named I/O port, where lines are
+separated by <em>sep_string</em>.</p>
+
+<pre class="ruby"><span class="ruby-constant">IO</span>.<span class="ruby-identifier">foreach</span>(<span class="ruby-string">&quot;testfile&quot;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;GOT &quot;</span>, <span class="ruby-identifier">x</span> }
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>GOT This is line one
+GOT This is line two
+GOT This is line three
+GOT And so on...</pre>
+            
+
+            
+            <div class="method-source-code" id="foreach-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_s_foreach(argc, argv, self)
+    int argc;
+    VALUE *argv;
+    VALUE self;
+{
+    VALUE fname;
+    struct foreach_arg arg;
+
+    rb_scan_args(argc, argv, &quot;11&quot;, &amp;fname, &amp;arg.sep);
+    RETURN_ENUMERATOR(self, argc, argv);
+    SafeStringValue(fname);
+
+    if (argc == 1) {
+        arg.sep = rb_default_rs;
+    }
+    else if (!NIL_P(arg.sep)) {
+        StringValue(arg.sep);
+    }
+    arg.io = rb_io_open(StringValueCStr(fname), &quot;r&quot;);
+    if (NIL_P(arg.io)) return Qnil;
+
+    return rb_ensure(io_s_foreach, (VALUE)&amp;arg, rb_io_close, arg.io);
+}
+            </pre> 
+            </div><!-- foreach-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- foreach-method -->
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">new(fd, mode_string)   => io</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns a new <code>IO</code> object (a stream) for the given integer file
+descriptor and mode string. See also <code>IO#fileno</code> and
+<code>IO::for_fd</code>.</p>
+
+<pre>a = IO.new(2,&quot;w&quot;)      # '2' is standard error
+$stderr.puts &quot;Hello&quot;
+a.puts &quot;World&quot;</pre>
+
+<p><em>produces:</em></p>
+
+<pre>Hello
+World</pre>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_s_new(argc, argv, klass)
+    int argc;
+    VALUE *argv;
+    VALUE klass;
+{
+    if (rb_block_given_p()) {
+        const char *cname = rb_class2name(klass);
+
+        rb_warn(&quot;%s::new() does not take block; use %s::open() instead&quot;,
+                cname, cname);
+    }
+    return rb_class_new_instance(argc, argv, klass);
+}
+            </pre> 
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+      
+        <div id="open-method" class="method-detail ">
+          <a name="method-c-open"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">open(fd, mode_string="r" )               => io</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">open(fd, mode_string="r" ) {|io| block } => obj</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>With no associated block, <code>open</code> is a synonym for
+<code>IO::new</code>. If the optional code block is given, it will be
+passed <em>io</em> as an argument, and the <a href="IO.html">IO</a> object
+will automatically be closed when the block terminates. In this instance,
+<code>IO::open</code> returns the value of the block.</p>
+            
+
+            
+            <div class="method-source-code" id="open-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_s_open(argc, argv, klass)
+    int argc;
+    VALUE *argv;
+    VALUE klass;
+{
+    VALUE io = rb_class_new_instance(argc, argv, klass);
+
+    if (rb_block_given_p()) {
+        return rb_ensure(rb_yield, io, io_close, io);
+    }
+
+    return io;
+}
+            </pre> 
+            </div><!-- open-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- open-method -->
+      
+        <div id="pipe-method" class="method-detail ">
+          <a name="method-c-pipe"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">pipe &rarr; array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Creates a pair of pipe endpoints (connected to each other) and returns them
+as a two-element array of <code>IO</code> objects: <code>[</code>
+<em>read_file</em>, <em>write_file</em> <code>]</code>. Not available on
+all platforms.</p>
+
+<p>In the example below, the two processes close the ends of the pipe that
+they are not using. This is not just a cosmetic nicety. The read end of a
+pipe will not generate an end of file condition if there are any writers
+with the pipe still open. In the case of the parent process, the
+<code>rd.read</code> will never return if it does not first issue a
+<code>wr.close</code>.</p>
+
+<pre>rd, wr = IO.pipe
+
+if fork
+  wr.close
+  puts &quot;Parent got: &lt;#{rd.read}&gt;&quot;
+  rd.close
+  Process.wait
+else
+  rd.close
+  puts &quot;Sending message to parent&quot;
+  wr.write &quot;Hi Dad&quot;
+  wr.close
+end</pre>
+
+<p><em>produces:</em></p>
+
+<pre>Sending message to parent
+Parent got: &lt;Hi Dad&gt;</pre>
+            
+
+            
+            <div class="method-source-code" id="pipe-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_s_pipe(klass)
+    VALUE klass;
+{
+#ifndef __human68k__
+    int pipes[2], state;
+    VALUE r, w, args[3];
+
+#ifdef _WIN32
+    if (_pipe(pipes, 1024, O_BINARY) == -1)
+#else
+    if (pipe(pipes) == -1)
+#endif
+        rb_sys_fail(0);
+
+    args[0] = klass;
+    args[1] = INT2NUM(pipes[0]);
+    args[2] = INT2FIX(O_RDONLY);
+    r = rb_protect(io_new_instance, (VALUE)args, &amp;state);
+    if (state) {
+        close(pipes[0]);
+        close(pipes[1]);
+        rb_jump_tag(state);
+    }
+    args[1] = INT2NUM(pipes[1]);
+    args[2] = INT2FIX(O_WRONLY);
+    w = rb_protect(io_new_instance, (VALUE)args, &amp;state);
+    if (state) {
+        close(pipes[1]);
+        if (!NIL_P(r)) rb_io_close(r);
+        rb_jump_tag(state);
+    }
+    rb_io_synchronized(RFILE(w)-&gt;fptr);
+
+    return rb_assoc_new(r, w);
+#else
+    rb_notimplement();
+    return Qnil;                /* not reached */
+#endif
+}
+            </pre> 
+            </div><!-- pipe-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- pipe-method -->
+      
+        <div id="popen-method" class="method-detail ">
+          <a name="method-c-popen"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">popen(cmd_string, mode="r" )               => io</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">popen(cmd_string, mode="r" ) {|io| block } => obj</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Runs the specified command string as a subprocess; the subprocess’s
+standard input and output will be connected to the returned <code>IO</code>
+object. If <em>cmd_string</em> starts with a “<code>-</code>”, then a new
+instance of Ruby is started as the subprocess. The default mode for the new
+file object is “r”, but <em>mode</em> may be set to any of the modes listed
+in the description for class <a href="IO.html">IO</a>.</p>
+
+<p>If a block is given, Ruby will run the command as a child connected to Ruby
+with a pipe. Ruby’s end of the pipe will be passed as a parameter to the
+block. At the end of block, Ruby close the pipe and sets <code>$?</code>.
+In this case <code>IO::popen</code> returns the value of the block.</p>
+
+<p>If a block is given with a <em>cmd_string</em> of “<code>-</code>”, the
+block will be run in two separate processes: once in the parent, and once
+in a child. The parent process will be passed the pipe object as a
+parameter to the block, the child version of the block will be passed
+<code>nil</code>, and the child’s standard in and standard out will be
+connected to the parent through the pipe. Not available on all platforms.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-string">&quot;uname&quot;</span>)
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">readlines</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Parent is #{Process.pid}&quot;</span>
+<span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span> (<span class="ruby-string">&quot;date&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">gets</span> }
+<span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-string">&quot;-&quot;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{Process.pid} is here, f is #{f}&quot;</span>}
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">$?</span>
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>[&quot;Linux\n&quot;]
+Parent is 26166
+Wed Apr  9 08:53:52 CDT 2003
+26169 is here, f is
+26166 is here, f is #&lt;IO:0x401b3d44&gt;
+#&lt;Process::Status: pid=26166,exited(0)&gt;</pre>
+            
+
+            
+            <div class="method-source-code" id="popen-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_s_popen(argc, argv, klass)
+    int argc;
+    VALUE *argv;
+    VALUE klass;
+{
+    const char *mode;
+    VALUE pname, pmode, port;
+
+    if (rb_scan_args(argc, argv, &quot;11&quot;, &amp;pname, &amp;pmode) == 1) {
+        mode = &quot;r&quot;;
+    }
+    else if (FIXNUM_P(pmode)) {
+        mode = rb_io_modenum_mode(FIX2INT(pmode));
+    }
+    else {
+        mode = rb_io_flags_mode(rb_io_mode_flags(StringValueCStr(pmode)));
+    }
+    SafeStringValue(pname);
+    port = pipe_open(pname, 0, mode);
+    if (NIL_P(port)) {
+        /* child */
+        if (rb_block_given_p()) {
+            rb_yield(Qnil);
+            fflush(stdout);
+            fflush(stderr);
+            _exit(0);
+        }
+        return Qnil;
+    }
+    RBASIC(port)-&gt;klass = klass;
+    if (rb_block_given_p()) {
+        return rb_ensure(rb_yield, port, io_close, port);
+    }
+    return port;
+}
+            </pre> 
+            </div><!-- popen-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- popen-method -->
+      
+        <div id="read-method" class="method-detail ">
+          <a name="method-c-read"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">read(name, [length [, offset]] )   => string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Opens the file, optionally seeks to the given offset, then returns
+<em>length</em> bytes (defaulting to the rest of the file).
+<code>read</code> ensures the file is closed before returning.</p>
+
+<pre class="ruby"><span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;testfile&quot;</span>)           <span class="ruby-comment">#=&gt; &quot;This is line one\nThis is line two\nThis is line three\nAnd so on...\n&quot;</span>
+<span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;testfile&quot;</span>, <span class="ruby-value">20</span>)       <span class="ruby-comment">#=&gt; &quot;This is line one\nThi&quot;</span>
+<span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;testfile&quot;</span>, <span class="ruby-value">20</span>, <span class="ruby-value">10</span>)   <span class="ruby-comment">#=&gt; &quot;ne one\nThis is line &quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="read-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_s_read(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    VALUE fname, offset;
+    struct foreach_arg arg;
+
+    rb_scan_args(argc, argv, &quot;12&quot;, &amp;fname, &amp;arg.sep, &amp;offset);
+    SafeStringValue(fname);
+
+    arg.argc = argc ? 1 : 0;
+    arg.io = rb_io_open(StringValueCStr(fname), &quot;r&quot;);
+    if (NIL_P(arg.io)) return Qnil;
+    if (!NIL_P(offset)) {
+        struct seek_arg sarg;
+        int state = 0;
+        sarg.io = arg.io;
+        sarg.offset = offset;
+        sarg.mode = SEEK_SET;
+        rb_protect((VALUE (*)(VALUE))seek_before_read, (VALUE)&amp;sarg, &amp;state);
+        if (state) {
+            rb_io_close(arg.io);
+            rb_jump_tag(state);
+        }
+    }
+    return rb_ensure(io_s_read, (VALUE)&amp;arg, rb_io_close, arg.io);
+}
+            </pre> 
+            </div><!-- read-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- read-method -->
+      
+        <div id="readlines-method" class="method-detail ">
+          <a name="method-c-readlines"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readlines(name, sep_string=$/)   => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Reads the entire file specified by <em>name</em> as individual lines, and
+returns those lines in an array. Lines are separated by
+<em>sep_string</em>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">readlines</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">a</span>[<span class="ruby-value">0</span>]   <span class="ruby-comment">#=&gt; &quot;This is line one\n&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="readlines-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_s_readlines(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    VALUE fname;
+    struct foreach_arg arg;
+
+    rb_scan_args(argc, argv, &quot;11&quot;, &amp;fname, &amp;arg.sep);
+    SafeStringValue(fname);
+
+    arg.argc = argc - 1;
+    arg.io = rb_io_open(StringValueCStr(fname), &quot;r&quot;);
+    if (NIL_P(arg.io)) return Qnil;
+    return rb_ensure(io_s_readlines, (VALUE)&amp;arg, rb_io_close, arg.io);
+}
+            </pre> 
+            </div><!-- readlines-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readlines-method -->
+      
+        <div id="select-method" class="method-detail ">
+          <a name="method-c-select"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">select(read_array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">[, write_array</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">[, error_array</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">[, timeout]]] ) =>  array  or  nil</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>See <code>Kernel#select</code>.</p>
+            
+
+            
+            <div class="method-source-code" id="select-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_f_select(argc, argv, obj)
+    int argc;
+    VALUE *argv;
+    VALUE obj;
+{
+    VALUE read, write, except, timeout, res, list;
+    fd_set rset, wset, eset, pset;
+    fd_set *rp, *wp, *ep;
+    struct timeval *tp, timerec;
+    rb_io_t *fptr;
+    long i;
+    int max = 0, n;
+    int interrupt_flag = 0;
+    int pending = 0;
+
+    rb_scan_args(argc, argv, &quot;13&quot;, &amp;read, &amp;write, &amp;except, &amp;timeout);
+    if (NIL_P(timeout)) {
+        tp = 0;
+    }
+    else {
+        timerec = rb_time_interval(timeout);
+        tp = &amp;timerec;
+    }
+
+    FD_ZERO(&amp;pset);
+    if (!NIL_P(read)) {
+        Check_Type(read, T_ARRAY);
+        rp = &amp;rset;
+        FD_ZERO(rp);
+        for (i=0; i&lt;RARRAY(read)-&gt;len; i++) {
+            GetOpenFile(rb_io_get_io(RARRAY(read)-&gt;ptr[i]), fptr);
+            FD_SET(fileno(fptr-&gt;f), rp);
+            if (READ_DATA_PENDING(fptr-&gt;f)) { /* check for buffered data */
+                pending++;
+                FD_SET(fileno(fptr-&gt;f), &amp;pset);
+            }
+            if (max &lt; fileno(fptr-&gt;f)) max = fileno(fptr-&gt;f);
+        }
+        if (pending) {         /* no blocking if there's buffered data */
+            timerec.tv_sec = timerec.tv_usec = 0;
+            tp = &amp;timerec;
+        }
+    }
+    else
+        rp = 0;
+
+    if (!NIL_P(write)) {
+        Check_Type(write, T_ARRAY);
+        wp = &amp;wset;
+        FD_ZERO(wp);
+        for (i=0; i&lt;RARRAY(write)-&gt;len; i++) {
+            GetOpenFile(rb_io_get_io(RARRAY(write)-&gt;ptr[i]), fptr);
+            FD_SET(fileno(fptr-&gt;f), wp);
+            if (max &lt; fileno(fptr-&gt;f)) max = fileno(fptr-&gt;f);
+            if (fptr-&gt;f2) {
+                FD_SET(fileno(fptr-&gt;f2), wp);
+                if (max &lt; fileno(fptr-&gt;f2)) max = fileno(fptr-&gt;f2);
+            }
+        }
+    }
+    else
+        wp = 0;
+
+    if (!NIL_P(except)) {
+        Check_Type(except, T_ARRAY);
+        ep = &amp;eset;
+        FD_ZERO(ep);
+        for (i=0; i&lt;RARRAY(except)-&gt;len; i++) {
+            GetOpenFile(rb_io_get_io(RARRAY(except)-&gt;ptr[i]), fptr);
+            FD_SET(fileno(fptr-&gt;f), ep);
+            if (max &lt; fileno(fptr-&gt;f)) max = fileno(fptr-&gt;f);
+            if (fptr-&gt;f2) {
+                FD_SET(fileno(fptr-&gt;f2), ep);
+                if (max &lt; fileno(fptr-&gt;f2)) max = fileno(fptr-&gt;f2);
+            }
+        }
+    }
+    else {
+        ep = 0;
+    }
+
+    max++;
+
+    n = rb_thread_select(max, rp, wp, ep, tp);
+    if (n &lt; 0) {
+        rb_sys_fail(0);
+    }
+    if (!pending &amp;&amp; n == 0) return Qnil; /* returns nil on timeout */
+
+    res = rb_ary_new2(3);
+    rb_ary_push(res, rp?rb_ary_new():rb_ary_new2(0));
+    rb_ary_push(res, wp?rb_ary_new():rb_ary_new2(0));
+    rb_ary_push(res, ep?rb_ary_new():rb_ary_new2(0));
+
+    if (interrupt_flag == 0) {
+        if (rp) {
+            list = RARRAY(res)-&gt;ptr[0];
+            for (i=0; i&lt; RARRAY(read)-&gt;len; i++) {
+                GetOpenFile(rb_io_get_io(RARRAY(read)-&gt;ptr[i]), fptr);
+                if (FD_ISSET(fileno(fptr-&gt;f), rp)
+                    || FD_ISSET(fileno(fptr-&gt;f), &amp;pset)) {
+                    rb_ary_push(list, rb_ary_entry(read, i));
+                }
+            }
+        }
+
+        if (wp) {
+            list = RARRAY(res)-&gt;ptr[1];
+            for (i=0; i&lt; RARRAY(write)-&gt;len; i++) {
+                GetOpenFile(rb_io_get_io(RARRAY(write)-&gt;ptr[i]), fptr);
+                if (FD_ISSET(fileno(fptr-&gt;f), wp)) {
+                    rb_ary_push(list, rb_ary_entry(write, i));
+                }
+                else if (fptr-&gt;f2 &amp;&amp; FD_ISSET(fileno(fptr-&gt;f2), wp)) {
+                    rb_ary_push(list, rb_ary_entry(write, i));
+                }
+            }
+        }
+
+        if (ep) {
+            list = RARRAY(res)-&gt;ptr[2];
+            for (i=0; i&lt; RARRAY(except)-&gt;len; i++) {
+                GetOpenFile(rb_io_get_io(RARRAY(except)-&gt;ptr[i]), fptr);
+                if (FD_ISSET(fileno(fptr-&gt;f), ep)) {
+                    rb_ary_push(list, rb_ary_entry(except, i));
+                }
+                else if (fptr-&gt;f2 &amp;&amp; FD_ISSET(fileno(fptr-&gt;f2), ep)) {
+                    rb_ary_push(list, rb_ary_entry(except, i));
+                }
+            }
+        }
+    }
+
+    return res;                 /* returns an empty array on interrupt */
+}
+            </pre> 
+            </div><!-- select-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- select-method -->
+      
+        <div id="sysopen-method" class="method-detail ">
+          <a name="method-c-sysopen"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sysopen(path, [mode, [perm]])  => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Opens the given path, returning the underlying file descriptor as a
+<code>Fixnum</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">IO</span>.<span class="ruby-identifier">sysopen</span>(<span class="ruby-string">&quot;testfile&quot;</span>)   <span class="ruby-comment">#=&gt; 3</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="sysopen-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_s_sysopen(argc, argv)
+    int argc;
+    VALUE *argv;
+{
+    VALUE fname, vmode, perm;
+    int flags, fd;
+    unsigned int fmode;
+    char *path;
+
+    rb_scan_args(argc, argv, &quot;12&quot;, &amp;fname, &amp;vmode, &amp;perm);
+    SafeStringValue(fname);
+
+    if (NIL_P(vmode)) flags = O_RDONLY;
+    else if (FIXNUM_P(vmode)) flags = FIX2INT(vmode);
+    else {
+        SafeStringValue(vmode);
+        flags = rb_io_mode_modenum(RSTRING(vmode)-&gt;ptr);
+    }
+    if (NIL_P(perm)) fmode = 0666;
+    else             fmode = NUM2UINT(perm);
+
+    path = ALLOCA_N(char, strlen(RSTRING(fname)-&gt;ptr)+1);
+    strcpy(path, RSTRING(fname)-&gt;ptr);
+    fd = rb_sysopen(path, flags, fmode);
+    return INT2NUM(fd);
+}
+            </pre> 
+            </div><!-- sysopen-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sysopen-method -->
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="3C-3C-method" class="method-detail ">
+          <a name="method-i-3C-3C"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">ios << obj     => ios</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p><a href="String.html">String</a> Output---Writes <em>obj</em> to
+<em>ios</em>. <em>obj</em> will be converted to a string using
+<code>to_s</code>.</p>
+
+<pre>$stdout &lt;&lt; &quot;Hello &quot; &lt;&lt; &quot;world!\n&quot;</pre>
+
+<p><em>produces:</em></p>
+
+<pre>Hello world!</pre>
+            
+
+            
+            <div class="method-source-code" id="3C-3C-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_io_addstr(io, str)
+    VALUE io, str;
+{
+    rb_io_write(io, str);
+    return io;
+}
+            </pre> 
+            </div><!-- 3C-3C-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 3C-3C-method -->
+      
+        <div id="binmode-method" class="method-detail ">
+          <a name="method-i-binmode"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">binmode    => ios</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Puts <em>ios</em> into binary mode. This is useful only in MS-DOS/Windows
+environments. Once a stream is in binary mode, it cannot be reset to
+nonbinary mode.</p>
+            
+
+            
+            <div class="method-source-code" id="binmode-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_io_binmode(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+
+    GetOpenFile(io, fptr);
+#if (defined(O_BINARY) &amp;&amp; O_BINARY) || (defined(_IOBIN) &amp;&amp; _IOBIN)
+#if (defined(_IOBIN) &amp;&amp; _IOBIN) /* __human68k__ */
+    if (fptr-&gt;f)
+        fmode(fptr-&gt;f, _IOBIN);
+    if (fptr-&gt;f2)
+        fmode(fptr-&gt;f2, _IOBIN);
+#else
+    if (fptr-&gt;f &amp;&amp; setmode(fileno(fptr-&gt;f), O_BINARY) == -1)
+        rb_sys_fail(fptr-&gt;path);
+    if (fptr-&gt;f2 &amp;&amp; setmode(fileno(fptr-&gt;f2), O_BINARY) == -1)
+        rb_sys_fail(fptr-&gt;path);
+#endif
+
+    fptr-&gt;mode |= FMODE_BINMODE;
+#endif
+    return io;
+}
+            </pre> 
+            </div><!-- binmode-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- binmode-method -->
+      
+        <div id="bytes-method" class="method-detail ">
+          <a name="method-i-bytes"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">bytes   => anEnumerator</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an enumerator that gives each byte (0..255) in <em>ios</em>. The
+stream must be opened for reading or an <code>IOError</code> will be
+raised.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">to_a</span>  <span class="ruby-comment">#=&gt; [104, 101, 108, 108, 111]</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">rewind</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">sort</span>  <span class="ruby-comment">#=&gt; [101, 104, 108, 108, 111]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="bytes-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_bytes(io)
+    VALUE io;
+{
+    return rb_enumeratorize(io, ID2SYM(rb_intern(&quot;each_byte&quot;)), 0, 0);
+}
+            </pre> 
+            </div><!-- bytes-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- bytes-method -->
+      
+        <div id="chars-method" class="method-detail ">
+          <a name="method-i-chars"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_char {|c| block }  => ios</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Calls the given block once for each character in <em>ios</em>, passing the
+character as an argument. The stream must be opened for reading or an
+<code>IOError</code> will be raised.  Multibyte characters are dealt with
+according to $KCODE.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">each_char</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">print</span> <span class="ruby-identifier">c</span>, <span class="ruby-string">' '</span> }   <span class="ruby-comment">#=&gt; #&lt;File:testfile&gt;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="chars-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_each_char(io)
+    VALUE io;
+{
+    VALUE ch;
+
+    RETURN_ENUMERATOR(io, 0, 0);
+
+    while (!NIL_P(ch = rb_io_getc(io))) {
+        unsigned char c;
+        int n;
+        VALUE str;
+
+        c= FIX2INT(ch);
+        n = mbclen(c);
+        str = rb_tainted_str_new((const char *)&amp;c, 1);
+
+        while (--n &gt; 0) {
+            if (NIL_P(ch = rb_io_getc(io))) {
+                rb_yield(str);
+                return io;
+            }
+            c = FIX2INT(ch);
+            rb_str_cat(str, (const char *)&amp;c, 1);
+        }
+        rb_yield(str);
+    }
+    return io;
+}
+            </pre> 
+            </div><!-- chars-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- chars-method -->
+      
+        <div id="close-method" class="method-detail ">
+          <a name="method-i-close"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">close   => nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Closes <em>ios</em> and flushes any pending writes to the operating system.
+The stream is unavailable for any further data operations; an
+<code>IOError</code> is raised if such an attempt is made. I/O streams are
+automatically closed when they are claimed by the garbage collector.</p>
+
+<p>If <em>ios</em> is opened by <code>IO.popen</code>, <code>close</code> sets
+<code>$?</code>.</p>
+            
+
+            
+            <div class="method-source-code" id="close-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_close_m(io)
+    VALUE io;
+{
+    if (rb_safe_level() &gt;= 4 &amp;&amp; !OBJ_TAINTED(io)) {
+        rb_raise(rb_eSecurityError, &quot;Insecure: can't close&quot;);
+    }
+    rb_io_check_closed(RFILE(io)-&gt;fptr);
+    rb_io_close(io);
+    return Qnil;
+}
+            </pre> 
+            </div><!-- close-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- close-method -->
+      
+        <div id="close_read-method" class="method-detail ">
+          <a name="method-i-close_read"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">close_read    => nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Closes the read end of a duplex I/O stream (i.e., one that contains both a
+read and a write stream, such as a pipe). Will raise an
+<code>IOError</code> if the stream is not duplexed.</p>
+
+<pre>f = IO.popen(&quot;/bin/sh&quot;,&quot;r+&quot;)
+f.close_read
+f.readlines</pre>
+
+<p><em>produces:</em></p>
+
+<pre>prog.rb:3:in `readlines': not opened for reading (IOError)
+ from prog.rb:3</pre>
+            
+
+            
+            <div class="method-source-code" id="close_read-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_close_read(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+    int n;
+
+    if (rb_safe_level() &gt;= 4 &amp;&amp; !OBJ_TAINTED(io)) {
+        rb_raise(rb_eSecurityError, &quot;Insecure: can't close&quot;);
+    }
+    GetOpenFile(io, fptr);
+    if (fptr-&gt;f2 == 0 &amp;&amp; (fptr-&gt;mode &amp; FMODE_WRITABLE)) {
+        rb_raise(rb_eIOError, &quot;closing non-duplex IO for reading&quot;);
+    }
+    if (fptr-&gt;f2 == 0) {
+        return rb_io_close(io);
+    }
+    n = fclose(fptr-&gt;f);
+    fptr-&gt;mode &amp;= ~FMODE_READABLE;
+    fptr-&gt;f = fptr-&gt;f2;
+    fptr-&gt;f2 = 0;
+    if (n != 0) rb_sys_fail(fptr-&gt;path);
+
+    return Qnil;
+}
+            </pre> 
+            </div><!-- close_read-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- close_read-method -->
+      
+        <div id="close_write-method" class="method-detail ">
+          <a name="method-i-close_write"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">close_write   => nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Closes the write end of a duplex I/O stream (i.e., one that contains both a
+read and a write stream, such as a pipe). Will raise an
+<code>IOError</code> if the stream is not duplexed.</p>
+
+<pre>f = IO.popen(&quot;/bin/sh&quot;,&quot;r+&quot;)
+f.close_write
+f.print &quot;nowhere&quot;</pre>
+
+<p><em>produces:</em></p>
+
+<pre>prog.rb:3:in `write': not opened for writing (IOError)
+ from prog.rb:3:in `print'
+ from prog.rb:3</pre>
+            
+
+            
+            <div class="method-source-code" id="close_write-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_close_write(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+    int n;
+
+    if (rb_safe_level() &gt;= 4 &amp;&amp; !OBJ_TAINTED(io)) {
+        rb_raise(rb_eSecurityError, &quot;Insecure: can't close&quot;);
+    }
+    GetOpenFile(io, fptr);
+    if (fptr-&gt;f2 == 0 &amp;&amp; (fptr-&gt;mode &amp; FMODE_READABLE)) {
+        rb_raise(rb_eIOError, &quot;closing non-duplex IO for writing&quot;);
+    }
+    if (fptr-&gt;f2 == 0) {
+        return rb_io_close(io);
+    }
+    n = fclose(fptr-&gt;f2);
+    fptr-&gt;f2 = 0;
+    fptr-&gt;mode &amp;= ~FMODE_WRITABLE;
+    if (n != 0) rb_sys_fail(fptr-&gt;path);
+
+    return Qnil;
+}
+            </pre> 
+            </div><!-- close_write-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- close_write-method -->
+      
+        <div id="closed-3F-method" class="method-detail ">
+          <a name="method-i-closed-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">closed?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>ios</em> is completely closed (for duplex
+streams, both reader and writer), <code>false</code> otherwise.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">close</span>         <span class="ruby-comment">#=&gt; nil</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">closed?</span>       <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-identifier">f</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-string">&quot;/bin/sh&quot;</span>,<span class="ruby-string">&quot;r+&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">close_write</span>   <span class="ruby-comment">#=&gt; nil</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">closed?</span>       <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">close_read</span>    <span class="ruby-comment">#=&gt; nil</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">closed?</span>       <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="closed-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_closed(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+
+    fptr = RFILE(io)-&gt;fptr;
+    rb_io_check_initialized(fptr);
+    return (fptr-&gt;f || fptr-&gt;f2)?Qfalse:Qtrue;
+}
+            </pre> 
+            </div><!-- closed-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- closed-3F-method -->
+      
+        <div id="each-method" class="method-detail ">
+          <a name="method-i-each"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each(sep_string=$/)      {|line| block }  => ios</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(sep_string=$/) {|line| block }  => ios</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Executes the block for every line in <em>ios</em>, where lines are
+separated by <em>sep_string</em>. <em>ios</em> must be opened for reading
+or an <code>IOError</code> will be raised.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{f.lineno}: #{line}&quot;</span> }
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>1: This is line one
+2: This is line two
+3: This is line three
+4: And so on...</pre>
+            
+
+            
+            <div class="method-source-code" id="each-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_each_line(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    VALUE str;
+    VALUE rs;
+
+    RETURN_ENUMERATOR(io, argc, argv);
+    if (argc == 0) {
+        rs = rb_rs;
+    }
+    else {
+        rb_scan_args(argc, argv, &quot;1&quot;, &amp;rs);
+        if (!NIL_P(rs)) StringValue(rs);
+    }
+    while (!NIL_P(str = rb_io_getline(rs, io))) {
+        rb_yield(str);
+    }
+    return io;
+}
+            </pre> 
+            </div><!-- each-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each-method -->
+      
+        <div id="each_byte-method" class="method-detail ">
+          <a name="method-i-each_byte"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_byte {|byte| block }  => ios</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Calls the given block once for each byte (0..255) in <em>ios</em>, passing
+the byte as an argument. The stream must be opened for reading or an
+<code>IOError</code> will be raised.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">checksum</span> = <span class="ruby-value">0</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">each_byte</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">checksum</span> <span class="ruby-operator">^=</span> <span class="ruby-identifier">x</span> }   <span class="ruby-comment">#=&gt; #&lt;File:testfile&gt;</span>
+<span class="ruby-identifier">checksum</span>                           <span class="ruby-comment">#=&gt; 12</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="each_byte-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_each_byte(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+    FILE *f;
+    int c;
+
+    RETURN_ENUMERATOR(io, 0, 0);
+    GetOpenFile(io, fptr);
+
+    for (;;) {
+        rb_io_check_readable(fptr);
+        f = fptr-&gt;f;
+        READ_CHECK(f);
+        clearerr(f);
+        TRAP_BEG;
+        c = getc(f);
+        TRAP_END;
+        if (c == EOF) {
+            if (ferror(f)) {
+                clearerr(f);
+                if (!rb_io_wait_readable(fileno(f)))
+                    rb_sys_fail(fptr-&gt;path);
+                continue;
+            }
+            break;
+        }
+        rb_yield(INT2FIX(c &amp; 0xff));
+    }
+    if (ferror(f)) rb_sys_fail(fptr-&gt;path);
+    return io;
+}
+            </pre> 
+            </div><!-- each_byte-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each_byte-method -->
+      
+        <div id="each_char-method" class="method-detail ">
+          <a name="method-i-each_char"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_char {|c| block }  => ios</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Calls the given block once for each character in <em>ios</em>, passing the
+character as an argument. The stream must be opened for reading or an
+<code>IOError</code> will be raised.  Multibyte characters are dealt with
+according to $KCODE.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">each_char</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">print</span> <span class="ruby-identifier">c</span>, <span class="ruby-string">' '</span> }   <span class="ruby-comment">#=&gt; #&lt;File:testfile&gt;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="each_char-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_each_char(io)
+    VALUE io;
+{
+    VALUE ch;
+
+    RETURN_ENUMERATOR(io, 0, 0);
+
+    while (!NIL_P(ch = rb_io_getc(io))) {
+        unsigned char c;
+        int n;
+        VALUE str;
+
+        c= FIX2INT(ch);
+        n = mbclen(c);
+        str = rb_tainted_str_new((const char *)&amp;c, 1);
+
+        while (--n &gt; 0) {
+            if (NIL_P(ch = rb_io_getc(io))) {
+                rb_yield(str);
+                return io;
+            }
+            c = FIX2INT(ch);
+            rb_str_cat(str, (const char *)&amp;c, 1);
+        }
+        rb_yield(str);
+    }
+    return io;
+}
+            </pre> 
+            </div><!-- each_char-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each_char-method -->
+      
+        <div id="each_line-method" class="method-detail ">
+          <a name="method-i-each_line"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_line(sep_string=$/) {|line| block }  => ios</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Executes the block for every line in <em>ios</em>, where lines are
+separated by <em>sep_string</em>. <em>ios</em> must be opened for reading
+or an <code>IOError</code> will be raised.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{f.lineno}: #{line}&quot;</span> }
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>1: This is line one
+2: This is line two
+3: This is line three
+4: And so on...</pre>
+            
+
+            
+            <div class="method-source-code" id="each_line-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_each_line(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    VALUE str;
+    VALUE rs;
+
+    RETURN_ENUMERATOR(io, argc, argv);
+    if (argc == 0) {
+        rs = rb_rs;
+    }
+    else {
+        rb_scan_args(argc, argv, &quot;1&quot;, &amp;rs);
+        if (!NIL_P(rs)) StringValue(rs);
+    }
+    while (!NIL_P(str = rb_io_getline(rs, io))) {
+        rb_yield(str);
+    }
+    return io;
+}
+            </pre> 
+            </div><!-- each_line-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each_line-method -->
+      
+        <div id="eof-method" class="method-detail ">
+          <a name="method-i-eof"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">eof     => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">eof?    => true or false</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns true if <em>ios</em> is at end of file that means there are no more
+data to read. The stream must be opened for reading or an
+<code>IOError</code> will be raised.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">dummy</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">readlines</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">eof</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+
+<p>If <em>ios</em> is a stream such as pipe or socket, <code>IO#eof?</code>
+blocks until the other end sends some data or closes it.</p>
+
+<pre class="ruby"><span class="ruby-identifier">r</span>, <span class="ruby-identifier">w</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>; <span class="ruby-identifier">w</span>.<span class="ruby-identifier">close</span> }
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">eof?</span>  <span class="ruby-comment">#=&gt; true after 1 second blocking</span>
+
+<span class="ruby-identifier">r</span>, <span class="ruby-identifier">w</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>; <span class="ruby-identifier">w</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;a&quot;</span> }
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">eof?</span>  <span class="ruby-comment">#=&gt; false after 1 second blocking</span>
+
+<span class="ruby-identifier">r</span>, <span class="ruby-identifier">w</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">eof?</span>  <span class="ruby-comment"># blocks forever</span>
+</pre>
+
+<p>Note that <code>IO#eof?</code> reads data to a input buffer. So
+<code>IO#sysread</code> doesn’t work with <code>IO#eof?</code>.</p>
+            
+
+            
+            <div class="method-source-code" id="eof-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_io_eof(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+    int ch;
+
+    GetOpenFile(io, fptr);
+    rb_io_check_readable(fptr);
+
+    if (feof(fptr-&gt;f)) return Qtrue;
+    if (READ_DATA_PENDING(fptr-&gt;f)) return Qfalse;
+    READ_CHECK(fptr-&gt;f);
+    clearerr(fptr-&gt;f);
+    TRAP_BEG;
+    ch = getc(fptr-&gt;f);
+    TRAP_END;
+
+    if (ch != EOF) {
+        ungetc(ch, fptr-&gt;f);
+        return Qfalse;
+    }
+    rb_io_check_closed(fptr);
+    clearerr(fptr-&gt;f);
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- eof-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- eof-method -->
+      
+        <div id="eof-3F-method" class="method-detail ">
+          <a name="method-i-eof-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">eof?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns true if <em>ios</em> is at end of file that means there are no more
+data to read. The stream must be opened for reading or an
+<code>IOError</code> will be raised.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">dummy</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">readlines</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">eof</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+
+<p>If <em>ios</em> is a stream such as pipe or socket, <code>IO#eof?</code>
+blocks until the other end sends some data or closes it.</p>
+
+<pre class="ruby"><span class="ruby-identifier">r</span>, <span class="ruby-identifier">w</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>; <span class="ruby-identifier">w</span>.<span class="ruby-identifier">close</span> }
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">eof?</span>  <span class="ruby-comment">#=&gt; true after 1 second blocking</span>
+
+<span class="ruby-identifier">r</span>, <span class="ruby-identifier">w</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>; <span class="ruby-identifier">w</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;a&quot;</span> }
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">eof?</span>  <span class="ruby-comment">#=&gt; false after 1 second blocking</span>
+
+<span class="ruby-identifier">r</span>, <span class="ruby-identifier">w</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">eof?</span>  <span class="ruby-comment"># blocks forever</span>
+</pre>
+
+<p>Note that <code>IO#eof?</code> reads data to a input buffer. So
+<code>IO#sysread</code> doesn’t work with <code>IO#eof?</code>.</p>
+            
+
+            
+            <div class="method-source-code" id="eof-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_io_eof(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+    int ch;
+
+    GetOpenFile(io, fptr);
+    rb_io_check_readable(fptr);
+
+    if (feof(fptr-&gt;f)) return Qtrue;
+    if (READ_DATA_PENDING(fptr-&gt;f)) return Qfalse;
+    READ_CHECK(fptr-&gt;f);
+    clearerr(fptr-&gt;f);
+    TRAP_BEG;
+    ch = getc(fptr-&gt;f);
+    TRAP_END;
+
+    if (ch != EOF) {
+        ungetc(ch, fptr-&gt;f);
+        return Qfalse;
+    }
+    rb_io_check_closed(fptr);
+    clearerr(fptr-&gt;f);
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- eof-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- eof-3F-method -->
+      
+        <div id="fcntl-method" class="method-detail ">
+          <a name="method-i-fcntl"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">fcntl(integer_cmd, arg)    => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Provides a mechanism for issuing low-level commands to control or query
+file-oriented I/O streams. Arguments and results are platform dependent. If
+<em>arg</em> is a number, its value is passed directly. If it is a string,
+it is interpreted as a binary sequence of bytes (<code>Array#pack</code>
+might be a useful way to build this string). On Unix platforms, see
+<code>fcntl(2)</code> for details. Not implemented on all platforms.</p>
+            
+
+            
+            <div class="method-source-code" id="fcntl-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_fcntl(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+#ifdef HAVE_FCNTL
+    VALUE req, arg;
+
+    rb_scan_args(argc, argv, &quot;11&quot;, &amp;req, &amp;arg);
+    return rb_io_ctl(io, req, arg, 0);
+#else
+    rb_notimplement();
+    return Qnil;                /* not reached */
+#endif
+}
+            </pre> 
+            </div><!-- fcntl-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- fcntl-method -->
+      
+        <div id="fileno-method" class="method-detail ">
+          <a name="method-i-fileno"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">fileno    => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">to_i      => fixnum</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an integer representing the numeric file descriptor for
+<em>ios</em>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">$stdin</span>.<span class="ruby-identifier">fileno</span>    <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">fileno</span>   <span class="ruby-comment">#=&gt; 1</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="fileno-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_fileno(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+    int fd;
+
+    GetOpenFile(io, fptr);
+    fd = fileno(fptr-&gt;f);
+    return INT2FIX(fd);
+}
+            </pre> 
+            </div><!-- fileno-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="IO.html#method-i-to_i">to_i</a>
+          </div>
+          
+
+          
+        </div><!-- fileno-method -->
+      
+        <div id="flush-method" class="method-detail ">
+          <a name="method-i-flush"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">flush    => ios</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Flushes any buffered data within <em>ios</em> to the underlying operating
+system (note that this is Ruby internal buffering only; the OS may buffer
+the data as well).</p>
+
+<pre>$stdout.print &quot;no newline&quot;
+$stdout.flush</pre>
+
+<p><em>produces:</em></p>
+
+<pre>no newline</pre>
+            
+
+            
+            <div class="method-source-code" id="flush-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_flush(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+    FILE *f;
+
+    GetOpenFile(io, fptr);
+    rb_io_check_writable(fptr);
+    f = GetWriteFile(fptr);
+
+    io_fflush(f, fptr);
+#ifdef _WIN32
+    fsync(fileno(f));
+#endif
+
+    return io;
+}
+            </pre> 
+            </div><!-- flush-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- flush-method -->
+      
+        <div id="fsync-method" class="method-detail ">
+          <a name="method-i-fsync"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">fsync   => 0 or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Immediately writes all buffered data in <em>ios</em> to disk. Returns
+<code>nil</code> if the underlying operating system does not support
+<em>fsync(2)</em>. Note that <code>fsync</code> differs from using
+<code>IO#sync=</code>. The latter ensures that data is flushed from Ruby’s
+buffers, but doesn’t not guarantee that the underlying operating system
+actually writes it to disk.</p>
+            
+
+            
+            <div class="method-source-code" id="fsync-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_fsync(io)
+    VALUE io;
+{
+#ifdef HAVE_FSYNC
+    rb_io_t *fptr;
+    FILE *f;
+
+    GetOpenFile(io, fptr);
+    f = GetWriteFile(fptr);
+
+    io_fflush(f, fptr);
+    if (fsync(fileno(f)) &lt; 0)
+        rb_sys_fail(fptr-&gt;path);
+    return INT2FIX(0);
+#else
+    rb_notimplement();
+    return Qnil;                /* not reached */
+#endif
+}
+            </pre> 
+            </div><!-- fsync-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- fsync-method -->
+      
+        <div id="getbyte-method" class="method-detail ">
+          <a name="method-i-getbyte"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">getc   => fixnum or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Gets the next 8-bit byte (0..255) from <em>ios</em>. Returns
+<code>nil</code> if called at end of file.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">getc</span>   <span class="ruby-comment">#=&gt; 84</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">getc</span>   <span class="ruby-comment">#=&gt; 104</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="getbyte-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_io_getc(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+    FILE *f;
+    int c;
+
+    GetOpenFile(io, fptr);
+    rb_io_check_readable(fptr);
+    f = fptr-&gt;f;
+
+  retry:
+    READ_CHECK(f);
+    clearerr(f);
+    TRAP_BEG;
+    c = getc(f);
+    TRAP_END;
+
+    if (c == EOF) {
+        if (ferror(f)) {
+            clearerr(f);
+            if (!rb_io_wait_readable(fileno(f)))
+                rb_sys_fail(fptr-&gt;path);
+            goto retry;
+        }
+        return Qnil;
+    }
+    return INT2FIX(c &amp; 0xff);
+}
+            </pre> 
+            </div><!-- getbyte-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- getbyte-method -->
+      
+        <div id="getc-method" class="method-detail ">
+          <a name="method-i-getc"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">getc   => fixnum or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Gets the next 8-bit byte (0..255) from <em>ios</em>. Returns
+<code>nil</code> if called at end of file.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">getc</span>   <span class="ruby-comment">#=&gt; 84</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">getc</span>   <span class="ruby-comment">#=&gt; 104</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="getc-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_io_getc(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+    FILE *f;
+    int c;
+
+    GetOpenFile(io, fptr);
+    rb_io_check_readable(fptr);
+    f = fptr-&gt;f;
+
+  retry:
+    READ_CHECK(f);
+    clearerr(f);
+    TRAP_BEG;
+    c = getc(f);
+    TRAP_END;
+
+    if (c == EOF) {
+        if (ferror(f)) {
+            clearerr(f);
+            if (!rb_io_wait_readable(fileno(f)))
+                rb_sys_fail(fptr-&gt;path);
+            goto retry;
+        }
+        return Qnil;
+    }
+    return INT2FIX(c &amp; 0xff);
+}
+            </pre> 
+            </div><!-- getc-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- getc-method -->
+      
+        <div id="gets-method" class="method-detail ">
+          <a name="method-i-gets"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">gets(sep_string=$/)   => string or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Reads the next “line” from the I/O stream; lines are separated by
+<em>sep_string</em>. A separator of <code>nil</code> reads the entire
+contents, and a zero-length separator reads the input a paragraph at a time
+(two successive newlines in the input separate paragraphs). The stream must
+be opened for reading or an <code>IOError</code> will be raised. The line
+read in will be returned and also assigned to <code>$_</code>. Returns
+<code>nil</code> if called at end of file.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">gets</span>   <span class="ruby-comment">#=&gt; &quot;This is line one\n&quot;</span>
+<span class="ruby-identifier">$_</span>                          <span class="ruby-comment">#=&gt; &quot;This is line one\n&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="gets-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_gets_m(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    VALUE rs, str;
+
+    if (argc == 0) {
+        rs = rb_rs;
+    }
+    else {
+        rb_scan_args(argc, argv, &quot;1&quot;, &amp;rs);
+        if (!NIL_P(rs)) StringValue(rs);
+    }
+    str = rb_io_getline(rs, io);
+    rb_lastline_set(str);
+
+    return str;
+}
+            </pre> 
+            </div><!-- gets-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- gets-method -->
+      
+        <div id="inspect-method" class="method-detail ">
+          <a name="method-i-inspect"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">inspect   => string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Return a string describing this <a href="IO.html">IO</a> object.</p>
+            
+
+            
+            <div class="method-source-code" id="inspect-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_inspect(obj)
+    VALUE obj;
+{
+    rb_io_t *fptr;
+    char *buf;
+    const char *cname, *st = &quot;&quot;;
+    long len;
+
+    fptr = RFILE(rb_io_taint_check(obj))-&gt;fptr;
+    if (!fptr || !fptr-&gt;path) return rb_any_to_s(obj);
+    cname = rb_obj_classname(obj);
+    len = strlen(cname) + strlen(fptr-&gt;path) + 5;
+    if (!(fptr-&gt;f || fptr-&gt;f2)) {
+        st = &quot; (closed)&quot;;
+        len += 9;
+    }
+    buf = ALLOCA_N(char, len);
+    snprintf(buf, len, &quot;#&lt;%s:%s%s&gt;&quot;, cname, fptr-&gt;path, st);
+    return rb_str_new2(buf);
+}
+            </pre> 
+            </div><!-- inspect-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- inspect-method -->
+      
+        <div id="ioctl-method" class="method-detail ">
+          <a name="method-i-ioctl"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">ioctl(integer_cmd, arg)    => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Provides a mechanism for issuing low-level commands to control or query I/O
+devices. Arguments and results are platform dependent. If <em>arg</em> is a
+number, its value is passed directly. If it is a string, it is interpreted
+as a binary sequence of bytes. On Unix platforms, see <code>ioctl(2)</code>
+for details. Not implemented on all platforms.</p>
+            
+
+            
+            <div class="method-source-code" id="ioctl-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_ioctl(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    VALUE req, arg;
+
+    rb_scan_args(argc, argv, &quot;11&quot;, &amp;req, &amp;arg);
+    return rb_io_ctl(io, req, arg, 1);
+}
+            </pre> 
+            </div><!-- ioctl-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ioctl-method -->
+      
+        <div id="isatty-method" class="method-detail ">
+          <a name="method-i-isatty"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">isatty   => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>ios</em> is associated with a terminal
+device (tty), <code>false</code> otherwise.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">isatty</span>   <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;/dev/tty&quot;</span>).<span class="ruby-identifier">isatty</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="isatty-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_isatty(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+
+    GetOpenFile(io, fptr);
+    if (isatty(fileno(fptr-&gt;f)) == 0)
+        return Qfalse;
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- isatty-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- isatty-method -->
+      
+        <div id="lineno-method" class="method-detail ">
+          <a name="method-i-lineno"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">lineno    => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the current line number in <em>ios</em>. The stream must be opened
+for reading. <code>lineno</code> counts the number of times
+<code>gets</code> is called, rather than the number of newlines
+encountered. The two values will differ if <code>gets</code> is called with
+a separator other than newline. See also the <code>$.</code> variable.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">lineno</span>   <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">gets</span>     <span class="ruby-comment">#=&gt; &quot;This is line one\n&quot;</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">lineno</span>   <span class="ruby-comment">#=&gt; 1</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">gets</span>     <span class="ruby-comment">#=&gt; &quot;This is line two\n&quot;</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">lineno</span>   <span class="ruby-comment">#=&gt; 2</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="lineno-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_lineno(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+
+    GetOpenFile(io, fptr);
+    rb_io_check_readable(fptr);
+    return INT2NUM(fptr-&gt;lineno);
+}
+            </pre> 
+            </div><!-- lineno-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- lineno-method -->
+      
+        <div id="lineno-3D-method" class="method-detail ">
+          <a name="method-i-lineno-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">lineno = integer    => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Manually sets the current line number to the given value. <code>$.</code>
+is updated only on the next read.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">gets</span>                     <span class="ruby-comment">#=&gt; &quot;This is line one\n&quot;</span>
+<span class="ruby-identifier">$.</span>                         <span class="ruby-comment">#=&gt; 1</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">lineno</span> = <span class="ruby-value">1000</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">lineno</span>                   <span class="ruby-comment">#=&gt; 1000</span>
+<span class="ruby-identifier">$.</span> <span class="ruby-comment"># lineno of last read   #=&gt; 1</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">gets</span>                     <span class="ruby-comment">#=&gt; &quot;This is line two\n&quot;</span>
+<span class="ruby-identifier">$.</span> <span class="ruby-comment"># lineno of last read   #=&gt; 1001</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="lineno-3D-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_set_lineno(io, lineno)
+    VALUE io, lineno;
+{
+    rb_io_t *fptr;
+
+    GetOpenFile(io, fptr);
+    rb_io_check_readable(fptr);
+    fptr-&gt;lineno = NUM2INT(lineno);
+    return lineno;
+}
+            </pre> 
+            </div><!-- lineno-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- lineno-3D-method -->
+      
+        <div id="lines-method" class="method-detail ">
+          <a name="method-i-lines"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(sep=$/)     => anEnumerator</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(limit)      => anEnumerator</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">lines(sep, limit) => anEnumerator</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an enumerator that gives each line in <em>ios</em>. The stream must
+be opened for reading or an <code>IOError</code> will be raised.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">to_a</span>  <span class="ruby-comment">#=&gt; [&quot;foo\n&quot;, &quot;bar\n&quot;]</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">rewind</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">sort</span>  <span class="ruby-comment">#=&gt; [&quot;bar\n&quot;, &quot;foo\n&quot;]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="lines-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_lines(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    return rb_enumeratorize(io, ID2SYM(rb_intern(&quot;each_line&quot;)), argc, argv);
+}
+            </pre> 
+            </div><!-- lines-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- lines-method -->
+      
+        <div id="pid-method" class="method-detail ">
+          <a name="method-i-pid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">pid    => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the process ID of a child process associated with <em>ios</em>.
+This will be set by <code>IO::popen</code>.</p>
+
+<pre>pipe = IO.popen(&quot;-&quot;)
+if pipe
+  $stderr.puts &quot;In parent, child pid is #{pipe.pid}&quot;
+else
+  $stderr.puts &quot;In child, pid is #{$$}&quot;
+end</pre>
+
+<p><em>produces:</em></p>
+
+<pre>In child, pid is 26209
+In parent, child pid is 26209</pre>
+            
+
+            
+            <div class="method-source-code" id="pid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_pid(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+
+    GetOpenFile(io, fptr);
+    if (!fptr-&gt;pid)
+        return Qnil;
+    return INT2FIX(fptr-&gt;pid);
+}
+            </pre> 
+            </div><!-- pid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- pid-method -->
+      
+        <div id="pos-method" class="method-detail ">
+          <a name="method-i-pos"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">pos     => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the current offset (in bytes) of <em>ios</em>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">pos</span>    <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">gets</span>   <span class="ruby-comment">#=&gt; &quot;This is line one\n&quot;</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">pos</span>    <span class="ruby-comment">#=&gt; 17</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="pos-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_tell(io)
+     VALUE io;
+{
+    rb_io_t *fptr;
+    off_t pos;
+
+    GetOpenFile(io, fptr);
+    pos = io_tell(fptr);
+    if (pos &lt; 0 &amp;&amp; errno) rb_sys_fail(fptr-&gt;path);
+    return OFFT2NUM(pos);
+}
+            </pre> 
+            </div><!-- pos-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- pos-method -->
+      
+        <div id="pos-3D-method" class="method-detail ">
+          <a name="method-i-pos-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">pos = integer    => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Seeks to the given position (in bytes) in <em>ios</em>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">17</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">gets</span>   <span class="ruby-comment">#=&gt; &quot;This is line two\n&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="pos-3D-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_set_pos(io, offset)
+     VALUE io, offset;
+{
+    rb_io_t *fptr;
+    off_t pos;
+
+    pos = NUM2OFFT(offset);
+    GetOpenFile(io, fptr);
+    pos = io_seek(fptr, pos, SEEK_SET);
+    if (pos != 0) rb_sys_fail(fptr-&gt;path);
+    clearerr(fptr-&gt;f);
+
+    return OFFT2NUM(pos);
+}
+            </pre> 
+            </div><!-- pos-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- pos-3D-method -->
+      
+        <div id="print-method" class="method-detail ">
+          <a name="method-i-print"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">print()             => nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">print(obj, ...)     => nil</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Writes the given object(s) to <em>ios</em>. The stream must be opened for
+writing. If the output record separator (<code>$\&lt;/code&gt;) is not
+&lt;code&gt;nil</code>, it will be appended to the output. If no arguments
+are given, prints <code>$_</code>. Objects that aren’t strings will be
+converted by calling their <code>to_s</code> method. With no argument,
+prints the contents of the variable <code>$_</code>. Returns
+<code>nil</code>.</p>
+
+<pre>$stdout.print(&quot;This is &quot;, 100, &quot; percent.\n&quot;)</pre>
+
+<p><em>produces:</em></p>
+
+<pre>This is 100 percent.</pre>
+            
+
+            
+            <div class="method-source-code" id="print-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_io_print(argc, argv, out)
+    int argc;
+    VALUE *argv;
+    VALUE out;
+{
+    int i;
+    VALUE line;
+
+    /* if no argument given, print `$_' */
+    if (argc == 0) {
+        argc = 1;
+        line = rb_lastline_get();
+        argv = &amp;line;
+    }
+    for (i=0; i&lt;argc; i++) {
+        if (!NIL_P(rb_output_fs) &amp;&amp; i&gt;0) {
+            rb_io_write(out, rb_output_fs);
+        }
+        switch (TYPE(argv[i])) {
+          case T_NIL:
+            rb_io_write(out, rb_str_new2(&quot;nil&quot;));
+            break;
+          default:
+            rb_io_write(out, argv[i]);
+            break;
+        }
+    }
+    if (!NIL_P(rb_output_rs)) {
+        rb_io_write(out, rb_output_rs);
+    }
+
+    return Qnil;
+}
+            </pre> 
+            </div><!-- print-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- print-method -->
+      
+        <div id="printf-method" class="method-detail ">
+          <a name="method-i-printf"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">printf(format_string [, obj, ...] )   => nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Formats and writes to <em>ios</em>, converting parameters under control of
+the format string. See <code>Kernel#sprintf</code> for details.</p>
+            
+
+            
+            <div class="method-source-code" id="printf-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_io_printf(argc, argv, out)
+    int argc;
+    VALUE argv[];
+    VALUE out;
+{
+    rb_io_write(out, rb_f_sprintf(argc, argv));
+    return Qnil;
+}
+            </pre> 
+            </div><!-- printf-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- printf-method -->
+      
+        <div id="putc-method" class="method-detail ">
+          <a name="method-i-putc"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">putc(obj)    => obj</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>If <em>obj</em> is <code>Numeric</code>, write the character whose code is
+<em>obj</em>, otherwise write the first character of the string
+representation of  <em>obj</em> to <em>ios</em>.</p>
+
+<pre>$stdout.putc &quot;A&quot;
+$stdout.putc 65</pre>
+
+<p><em>produces:</em></p>
+
+<pre>AA</pre>
+            
+
+            
+            <div class="method-source-code" id="putc-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_putc(io, ch)
+    VALUE io, ch;
+{
+    char c = NUM2CHR(ch);
+
+    rb_io_write(io, rb_str_new(&amp;c, 1));
+    return ch;
+}
+            </pre> 
+            </div><!-- putc-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- putc-method -->
+      
+        <div id="puts-method" class="method-detail ">
+          <a name="method-i-puts"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">puts(obj, ...)    => nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Writes the given objects to <em>ios</em> as with <code>IO#print</code>.
+Writes a record separator (typically a newline) after any that do not
+already end with a newline sequence. If called with an array argument,
+writes each element on a new line. If called without arguments, outputs a
+single record separator.</p>
+
+<pre>$stdout.puts(&quot;this&quot;, &quot;is&quot;, &quot;a&quot;, &quot;test&quot;)</pre>
+
+<p><em>produces:</em></p>
+
+<pre>this
+is
+a
+test</pre>
+            
+
+            
+            <div class="method-source-code" id="puts-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_io_puts(argc, argv, out)
+    int argc;
+    VALUE *argv;
+    VALUE out;
+{
+    int i;
+    VALUE line;
+
+    /* if no argument given, print newline. */
+    if (argc == 0) {
+        rb_io_write(out, rb_default_rs);
+        return Qnil;
+    }
+    for (i=0; i&lt;argc; i++) {
+        if (NIL_P(argv[i])) {
+            line = rb_str_new2(&quot;nil&quot;);
+        }
+        else {
+            line = rb_check_array_type(argv[i]);
+            if (!NIL_P(line)) {
+                rb_protect_inspect(io_puts_ary, line, out);
+                continue;
+            }
+            line = rb_obj_as_string(argv[i]);
+        }
+        rb_io_write(out, line);
+        if (RSTRING(line)-&gt;len == 0 ||
+            RSTRING(line)-&gt;ptr[RSTRING(line)-&gt;len-1] != '\n') {
+            rb_io_write(out, rb_default_rs);
+        }
+    }
+
+    return Qnil;
+}
+            </pre> 
+            </div><!-- puts-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- puts-method -->
+      
+        <div id="read-method" class="method-detail ">
+          <a name="method-i-read"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">read([length [, buffer]])    => string, buffer, or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Reads at most <em>length</em> bytes from the I/O stream, or to the end of
+file if <em>length</em> is omitted or is <code>nil</code>. <em>length</em>
+must be a non-negative integer or nil. If the optional <em>buffer</em>
+argument is present, it must reference a <a href="String.html">String</a>,
+which will receive the data.</p>
+
+<p>At end of file, it returns <code>nil</code> or <code>&quot;&quot;</code>
+depend on <em>length</em>. <code><em>ios</em>.read()</code> and
+<code><em>ios</em>.read(nil)</code> returns <code>&quot;&quot;</code>.
+<code><em>ios</em>.read(<em>positive-integer</em>)</code> returns nil.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">read</span>(<span class="ruby-value">16</span>)   <span class="ruby-comment">#=&gt; &quot;This is line one&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="read-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+io_read(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    rb_io_t *fptr;
+    long n, len;
+    VALUE length, str;
+
+    rb_scan_args(argc, argv, &quot;02&quot;, &amp;length, &amp;str);
+
+    if (NIL_P(length)) {
+        if (!NIL_P(str)) StringValue(str);
+        GetOpenFile(io, fptr);
+        rb_io_check_readable(fptr);    
+        return read_all(fptr, remain_size(fptr), str);
+    }
+    len = NUM2LONG(length);
+    if (len &lt; 0) {
+        rb_raise(rb_eArgError, &quot;negative length %ld given&quot;, len);
+    }
+
+    if (NIL_P(str)) {
+        str = rb_tainted_str_new(0, len);
+    }
+    else {
+        StringValue(str);
+        rb_str_modify(str);
+        rb_str_resize(str,len);
+    }
+
+    GetOpenFile(io, fptr);
+    rb_io_check_readable(fptr);
+    if (feof(fptr-&gt;f)) return Qnil;
+    if (len == 0) return str;
+
+    rb_str_locktmp(str);
+    READ_CHECK(fptr-&gt;f);
+    if (RSTRING(str)-&gt;len != len) {
+        rb_raise(rb_eRuntimeError, &quot;buffer string modified&quot;);
+    }
+    n = io_fread(RSTRING(str)-&gt;ptr, len, fptr);
+    rb_str_unlocktmp(str);
+    if (n == 0) {
+        if (!fptr-&gt;f) return Qnil;
+        if (feof(fptr-&gt;f)) {
+            rb_str_resize(str, 0);
+            return Qnil;
+        }
+        if (len &gt; 0) rb_sys_fail(fptr-&gt;path);
+    }
+    rb_str_resize(str, n);
+    RSTRING(str)-&gt;len = n;
+    RSTRING(str)-&gt;ptr[n] = '\0';
+    OBJ_TAINT(str);
+
+    return str;
+}
+            </pre> 
+            </div><!-- read-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- read-method -->
+      
+        <div id="read_nonblock-method" class="method-detail ">
+          <a name="method-i-read_nonblock"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">read_nonblock(maxlen)              => string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">read_nonblock(maxlen, outbuf)      => outbuf</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Reads at most <em>maxlen</em> bytes from <em>ios</em> using read(2) system
+call after O_NONBLOCK is set for the underlying file descriptor.</p>
+
+<p>If the optional <em>outbuf</em> argument is present, it must reference a <a
+href="String.html">String</a>, which will receive the data.</p>
+
+<p><a href="IO.html#method-i-read_nonblock">#read_nonblock</a> just calls
+read(2). It causes all errors read(2) causes: EAGAIN, EINTR, etc. The
+caller should care such errors.</p>
+
+<p><a href="IO.html#method-i-read_nonblock">#read_nonblock</a> causes <a
+href="EOFError.html">EOFError</a> on EOF.</p>
+
+<p>If the read buffer is not empty, <a
+href="IO.html#method-i-read_nonblock">#read_nonblock</a> reads from the
+buffer like readpartial. In this case, read(2) is not called.</p>
+            
+
+            
+            <div class="method-source-code" id="read_nonblock-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+io_read_nonblock(int argc, VALUE *argv, VALUE io)
+{
+    VALUE ret;
+
+    ret = io_getpartial(argc, argv, io, 1);
+    if (NIL_P(ret))
+        rb_eof_error();
+    else
+        return ret;
+}
+            </pre> 
+            </div><!-- read_nonblock-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- read_nonblock-method -->
+      
+        <div id="readbyte-method" class="method-detail ">
+          <a name="method-i-readbyte"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readchar   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Reads a character as with <code>IO#getc</code>, but raises an
+<code>EOFError</code> on end of file.</p>
+            
+
+            
+            <div class="method-source-code" id="readbyte-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_readchar(io)
+    VALUE io;
+{
+    VALUE c = rb_io_getc(io);
+
+    if (NIL_P(c)) {
+        rb_eof_error();
+    }
+    return c;
+}
+            </pre> 
+            </div><!-- readbyte-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readbyte-method -->
+      
+        <div id="readchar-method" class="method-detail ">
+          <a name="method-i-readchar"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readchar   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Reads a character as with <code>IO#getc</code>, but raises an
+<code>EOFError</code> on end of file.</p>
+            
+
+            
+            <div class="method-source-code" id="readchar-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_readchar(io)
+    VALUE io;
+{
+    VALUE c = rb_io_getc(io);
+
+    if (NIL_P(c)) {
+        rb_eof_error();
+    }
+    return c;
+}
+            </pre> 
+            </div><!-- readchar-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readchar-method -->
+      
+        <div id="readline-method" class="method-detail ">
+          <a name="method-i-readline"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readline(sep_string=$/)   => string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Reads a line as with <code>IO#gets</code>, but raises an
+<code>EOFError</code> on end of file.</p>
+            
+
+            
+            <div class="method-source-code" id="readline-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_readline(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    VALUE line = rb_io_gets_m(argc, argv, io);
+
+    if (NIL_P(line)) {
+        rb_eof_error();
+    }
+    return line;
+}
+            </pre> 
+            </div><!-- readline-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readline-method -->
+      
+        <div id="readlines-method" class="method-detail ">
+          <a name="method-i-readlines"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readlines(sep_string=$/)  =>   array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Reads all of the lines in <em>ios</em>, and returns them in
+<em>anArray</em>. Lines are separated by the optional <em>sep_string</em>.
+If <em>sep_string</em> is <code>nil</code>, the rest of the stream is
+returned as a single record. The stream must be opened for reading or an
+<code>IOError</code> will be raised.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">readlines</span>[<span class="ruby-value">0</span>]   <span class="ruby-comment">#=&gt; &quot;This is line one\n&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="readlines-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_readlines(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    VALUE line, ary;
+    VALUE rs;
+
+    if (argc == 0) {
+        rs = rb_rs;
+    }
+    else {
+        rb_scan_args(argc, argv, &quot;1&quot;, &amp;rs);
+        if (!NIL_P(rs)) StringValue(rs);
+    }
+    ary = rb_ary_new();
+    while (!NIL_P(line = rb_io_getline(rs, io))) {
+        rb_ary_push(ary, line);
+    }
+    return ary;
+}
+            </pre> 
+            </div><!-- readlines-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readlines-method -->
+      
+        <div id="readpartial-method" class="method-detail ">
+          <a name="method-i-readpartial"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readpartial(maxlen)              => string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">readpartial(maxlen, outbuf)      => outbuf</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Reads at most <em>maxlen</em> bytes from the I/O stream. It blocks only if
+<em>ios</em> has no data immediately available. It doesn’t block if some
+data available. If the optional <em>outbuf</em> argument is present, it
+must reference a <a href="String.html">String</a>, which will receive the
+data. It raises <code>EOFError</code> on end of file.</p>
+
+<p>readpartial is designed for streams such as pipe, socket, tty, etc. It
+blocks only when no data immediately available. This means that it blocks
+only when following all conditions hold.</p>
+<ul><li>
+<p>the buffer in the <a href="IO.html">IO</a> object is empty.</p>
+</li><li>
+<p>the content of the stream is empty.</p>
+</li><li>
+<p>the stream is not reached to EOF.</p>
+</li></ul>
+
+<p>When readpartial blocks, it waits data or EOF on the stream. If some data
+is reached, readpartial returns with the data. If EOF is reached,
+readpartial raises <a href="EOFError.html">EOFError</a>.</p>
+
+<p>When readpartial doesn’t blocks, it returns or raises immediately. If the
+buffer is not empty, it returns the data in the buffer. Otherwise if the
+stream has some content, it returns the data in the stream.  Otherwise if
+the stream is reached to EOF, it raises <a
+href="EOFError.html">EOFError</a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">r</span>, <span class="ruby-identifier">w</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>           <span class="ruby-comment">#               buffer          pipe content</span>
+<span class="ruby-identifier">w</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;abc&quot;</span>               <span class="ruby-comment">#               &quot;&quot;              &quot;abc&quot;.</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">readpartial</span>(<span class="ruby-value">4096</span>)      <span class="ruby-comment">#=&gt; &quot;abc&quot;       &quot;&quot;              &quot;&quot;</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">readpartial</span>(<span class="ruby-value">4096</span>)      <span class="ruby-comment"># blocks because buffer and pipe is empty.</span>
+
+<span class="ruby-identifier">r</span>, <span class="ruby-identifier">w</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>           <span class="ruby-comment">#               buffer          pipe content</span>
+<span class="ruby-identifier">w</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;abc&quot;</span>               <span class="ruby-comment">#               &quot;&quot;              &quot;abc&quot;</span>
+<span class="ruby-identifier">w</span>.<span class="ruby-identifier">close</span>                  <span class="ruby-comment">#               &quot;&quot;              &quot;abc&quot; EOF</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">readpartial</span>(<span class="ruby-value">4096</span>)      <span class="ruby-comment">#=&gt; &quot;abc&quot;       &quot;&quot;              EOF</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">readpartial</span>(<span class="ruby-value">4096</span>)      <span class="ruby-comment"># raises EOFError</span>
+
+<span class="ruby-identifier">r</span>, <span class="ruby-identifier">w</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>           <span class="ruby-comment">#               buffer          pipe content</span>
+<span class="ruby-identifier">w</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;abc\ndef\n&quot;</span>        <span class="ruby-comment">#               &quot;&quot;              &quot;abc\ndef\n&quot;</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">gets</span>                   <span class="ruby-comment">#=&gt; &quot;abc\n&quot;     &quot;def\n&quot;         &quot;&quot;</span>
+<span class="ruby-identifier">w</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;ghi\n&quot;</span>             <span class="ruby-comment">#               &quot;def\n&quot;         &quot;ghi\n&quot;</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">readpartial</span>(<span class="ruby-value">4096</span>)      <span class="ruby-comment">#=&gt; &quot;def\n&quot;     &quot;&quot;              &quot;ghi\n&quot;</span>
+<span class="ruby-identifier">r</span>.<span class="ruby-identifier">readpartial</span>(<span class="ruby-value">4096</span>)      <span class="ruby-comment">#=&gt; &quot;ghi\n&quot;     &quot;&quot;              &quot;&quot;</span>
+</pre>
+
+<p>Note that readpartial behaves similar to sysread. The differences are:</p>
+<ul><li>
+<p>If the buffer is not empty, read from the buffer instead of “sysread for
+buffered <a href="IO.html">IO</a> (IOError)”.</p>
+</li><li>
+<p>It doesn’t cause Errno::EAGAIN and Errno::EINTR.  When readpartial meets
+EAGAIN and EINTR by read system call, readpartial retry the system call.</p>
+</li></ul>
+
+<p>The later means that readpartial is nonblocking-flag insensitive. It blocks
+on the situation <a href="IO.html#method-i-sysread">#sysread</a> causes
+Errno::EAGAIN as if the fd is blocking mode.</p>
+            
+
+            
+            <div class="method-source-code" id="readpartial-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+io_readpartial(int argc, VALUE *argv, VALUE io)
+{
+    VALUE ret;
+
+    ret = io_getpartial(argc, argv, io, 0);
+    if (NIL_P(ret))
+        rb_eof_error();
+    else
+        return ret;
+}
+            </pre> 
+            </div><!-- readpartial-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readpartial-method -->
+      
+        <div id="reopen-method" class="method-detail ">
+          <a name="method-i-reopen"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">reopen(other_IO)         => ios</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">reopen(path, mode_str)   => ios</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Reassociates <em>ios</em> with the I/O stream given in <em>other_IO</em> or
+to a new stream opened on <em>path</em>. This may dynamically change the
+actual class of this stream.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f1</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f2</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f2</span>.<span class="ruby-identifier">readlines</span>[<span class="ruby-value">0</span>]   <span class="ruby-comment">#=&gt; &quot;This is line one\n&quot;</span>
+<span class="ruby-identifier">f2</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-identifier">f1</span>)     <span class="ruby-comment">#=&gt; #&lt;File:testfile&gt;</span>
+<span class="ruby-identifier">f2</span>.<span class="ruby-identifier">readlines</span>[<span class="ruby-value">0</span>]   <span class="ruby-comment">#=&gt; &quot;This is line one\n&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="reopen-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_reopen(argc, argv, file)
+    int argc;
+    VALUE *argv;
+    VALUE file;
+{
+    VALUE fname, nmode;
+    const char *mode;
+    rb_io_t *fptr;
+
+    rb_secure(4);
+    if (rb_scan_args(argc, argv, &quot;11&quot;, &amp;fname, &amp;nmode) == 1) {
+        VALUE tmp = rb_io_check_io(fname);
+        if (!NIL_P(tmp)) {
+            return io_reopen(file, tmp);
+        }
+    }
+
+    SafeStringValue(fname);
+    rb_io_taint_check(file);
+    fptr = RFILE(file)-&gt;fptr;
+    if (!fptr) {
+        fptr = RFILE(file)-&gt;fptr = ALLOC(rb_io_t);
+        MEMZERO(fptr, rb_io_t, 1);
+    }
+
+    if (!NIL_P(nmode)) {
+        fptr-&gt;mode = rb_io_mode_flags(StringValueCStr(nmode));
+    }
+
+    if (fptr-&gt;path) {
+        free(fptr-&gt;path);
+        fptr-&gt;path = 0;
+    }
+
+    fptr-&gt;path = strdup(StringValueCStr(fname));
+    mode = rb_io_flags_mode(fptr-&gt;mode);
+    if (!fptr-&gt;f) {
+        fptr-&gt;f = rb_fopen(fptr-&gt;path, mode);
+        if (fptr-&gt;f2) {
+            fclose(fptr-&gt;f2);
+            fptr-&gt;f2 = 0;
+        }
+        return file;
+    }
+
+    if (freopen(fptr-&gt;path, mode, fptr-&gt;f) == 0) {
+        rb_sys_fail(fptr-&gt;path);
+    }
+#ifdef USE_SETVBUF
+    if (setvbuf(fptr-&gt;f, NULL, _IOFBF, 0) != 0)
+        rb_warn(&quot;setvbuf() can't be honoured for %s&quot;, fptr-&gt;path);
+#endif
+
+    if (fptr-&gt;f2) {
+        if (freopen(fptr-&gt;path, &quot;w&quot;, fptr-&gt;f2) == 0) {
+            rb_sys_fail(fptr-&gt;path);
+        }
+    }
+
+    return file;
+}
+            </pre> 
+            </div><!-- reopen-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- reopen-method -->
+      
+        <div id="rewind-method" class="method-detail ">
+          <a name="method-i-rewind"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">rewind    => 0</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Positions <em>ios</em> to the beginning of input, resetting
+<code>lineno</code> to zero.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">readline</span>   <span class="ruby-comment">#=&gt; &quot;This is line one\n&quot;</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">rewind</span>     <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">lineno</span>     <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">readline</span>   <span class="ruby-comment">#=&gt; &quot;This is line one\n&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="rewind-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_rewind(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+
+    GetOpenFile(io, fptr);
+    if (io_seek(fptr, 0L, 0) != 0) rb_sys_fail(fptr-&gt;path);
+    clearerr(fptr-&gt;f);
+    if (io == current_file) {
+        gets_lineno -= fptr-&gt;lineno;
+    }
+    fptr-&gt;lineno = 0;
+
+    return INT2FIX(0);
+}
+            </pre> 
+            </div><!-- rewind-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- rewind-method -->
+      
+        <div id="seek-method" class="method-detail ">
+          <a name="method-i-seek"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">seek(amount, whence=SEEK_SET) &rarr; 0</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Seeks to a given offset <em>anInteger</em> in the stream according to the
+value of <em>whence</em>:</p>
+
+<pre>IO::SEEK_CUR  | Seeks to _amount_ plus current position
+--------------+----------------------------------------------------
+IO::SEEK_END  | Seeks to _amount_ plus end of stream (you probably 
+              | want a negative value for _amount_)
+--------------+----------------------------------------------------
+IO::SEEK_SET  | Seeks to the absolute location given by _amount_</pre>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">seek</span>(<span class="ruby-value">-13</span>, <span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_END</span>)   <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">readline</span>                  <span class="ruby-comment">#=&gt; &quot;And so on...\n&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="seek-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_seek_m(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    VALUE offset, ptrname;
+    int whence = SEEK_SET;
+
+    if (rb_scan_args(argc, argv, &quot;11&quot;, &amp;offset, &amp;ptrname) == 2) {
+        whence = NUM2INT(ptrname);
+    }
+
+    return rb_io_seek(io, offset, whence);
+}
+            </pre> 
+            </div><!-- seek-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- seek-method -->
+      
+        <div id="stat-method" class="method-detail ">
+          <a name="method-i-stat"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">stat    => stat</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns status information for <em>ios</em> as an object of type
+<code>File::Stat</code>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">s</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">stat</span>
+<span class="ruby-string">&quot;%o&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">mode</span>   <span class="ruby-comment">#=&gt; &quot;100644&quot;</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">blksize</span>       <span class="ruby-comment">#=&gt; 4096</span>
+<span class="ruby-identifier">s</span>.<span class="ruby-identifier">atime</span>         <span class="ruby-comment">#=&gt; Wed Apr 09 08:53:54 CDT 2003</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="stat-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_stat(obj)
+    VALUE obj;
+{
+    rb_io_t *fptr;
+    struct stat st;
+
+    GetOpenFile(obj, fptr);
+    if (fstat(fileno(fptr-&gt;f), &amp;st) == -1) {
+        rb_sys_fail(fptr-&gt;path);
+    }
+    return stat_new(&amp;st);
+}
+            </pre> 
+            </div><!-- stat-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- stat-method -->
+      
+        <div id="sync-method" class="method-detail ">
+          <a name="method-i-sync"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sync    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the current “sync mode” of <em>ios</em>. When sync mode is true,
+all output is immediately flushed to the underlying operating system and is
+not buffered by Ruby internally. See also <code>IO#fsync</code>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">sync</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="sync-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_sync(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+
+    GetOpenFile(io, fptr);
+    return (fptr-&gt;mode &amp; FMODE_SYNC) ? Qtrue : Qfalse;
+}
+            </pre> 
+            </div><!-- sync-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sync-method -->
+      
+        <div id="sync-3D-method" class="method-detail ">
+          <a name="method-i-sync-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sync = boolean   => boolean</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Sets the “sync mode” to <code>true</code> or <code>false</code>. When sync
+mode is true, all output is immediately flushed to the underlying operating
+system and is not buffered internally. Returns the new state. See also
+<code>IO#fsync</code>.</p>
+
+<pre>f = File.new(&quot;testfile&quot;)
+f.sync = true</pre>
+
+<p><em>(produces no output)</em></p>
+            
+
+            
+            <div class="method-source-code" id="sync-3D-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_set_sync(io, mode)
+    VALUE io, mode;
+{
+    rb_io_t *fptr;
+
+    GetOpenFile(io, fptr);
+    if (RTEST(mode)) {
+        fptr-&gt;mode |= FMODE_SYNC;
+    }
+    else {
+        fptr-&gt;mode &amp;= ~FMODE_SYNC;
+    }
+    return mode;
+}
+            </pre> 
+            </div><!-- sync-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sync-3D-method -->
+      
+        <div id="sysread-method" class="method-detail ">
+          <a name="method-i-sysread"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sysread(integer )    => string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Reads <em>integer</em> bytes from <em>ios</em> using a low-level read and
+returns them as a string. Do not mix with other methods that read from
+<em>ios</em> or you may get unpredictable results. Raises
+<code>SystemCallError</code> on error and <code>EOFError</code> at end of
+file.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">sysread</span>(<span class="ruby-value">16</span>)   <span class="ruby-comment">#=&gt; &quot;This is line one&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="sysread-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_sysread(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    VALUE len, str;
+    rb_io_t *fptr;
+    long n, ilen;
+
+    rb_scan_args(argc, argv, &quot;11&quot;, &amp;len, &amp;str);
+    ilen = NUM2LONG(len);
+
+    if (NIL_P(str)) {
+        str = rb_str_new(0, ilen);
+    }
+    else {
+        StringValue(str);
+        rb_str_modify(str);
+        rb_str_resize(str, ilen);
+    }
+    if (ilen == 0) return str;
+
+    GetOpenFile(io, fptr);
+    rb_io_check_readable(fptr);
+
+    if (READ_DATA_BUFFERED(fptr-&gt;f)) {
+        rb_raise(rb_eIOError, &quot;sysread for buffered IO&quot;);
+    }
+    rb_str_locktmp(str);
+
+    n = fileno(fptr-&gt;f);
+    rb_thread_wait_fd(fileno(fptr-&gt;f));
+    rb_io_check_closed(fptr);
+    if (RSTRING(str)-&gt;len != ilen) {
+        rb_raise(rb_eRuntimeError, &quot;buffer string modified&quot;);
+    }
+    TRAP_BEG;
+    n = read(fileno(fptr-&gt;f), RSTRING(str)-&gt;ptr, ilen);
+    TRAP_END;
+
+    rb_str_unlocktmp(str);
+    if (n == -1) {
+        rb_sys_fail(fptr-&gt;path);
+    }
+    rb_str_resize(str, n);
+    if (n == 0 &amp;&amp; ilen &gt; 0) {
+        rb_eof_error();
+    }
+    RSTRING(str)-&gt;len = n;
+    RSTRING(str)-&gt;ptr[n] = '\0';
+    OBJ_TAINT(str);
+
+    return str;
+}
+            </pre> 
+            </div><!-- sysread-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sysread-method -->
+      
+        <div id="sysseek-method" class="method-detail ">
+          <a name="method-i-sysseek"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sysseek(offset, whence=SEEK_SET)   => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Seeks to a given <em>offset</em> in the stream according to the value of
+<em>whence</em> (see <code>IO#seek</code> for values of <em>whence</em>).
+Returns the new offset into the file.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">sysseek</span>(<span class="ruby-value">-13</span>, <span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_END</span>)   <span class="ruby-comment">#=&gt; 53</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">sysread</span>(<span class="ruby-value">10</span>)                  <span class="ruby-comment">#=&gt; &quot;And so on.&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="sysseek-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_sysseek(argc, argv, io)
+    int argc;
+    VALUE *argv;
+    VALUE io;
+{
+    VALUE offset, ptrname;
+    int whence = SEEK_SET;
+    rb_io_t *fptr;
+    off_t pos;
+
+    if (rb_scan_args(argc, argv, &quot;11&quot;, &amp;offset, &amp;ptrname) == 2) {
+        whence = NUM2INT(ptrname);
+    }
+    pos = NUM2OFFT(offset);
+    GetOpenFile(io, fptr);
+    if ((fptr-&gt;mode &amp; FMODE_READABLE) &amp;&amp; READ_DATA_BUFFERED(fptr-&gt;f)) {
+        rb_raise(rb_eIOError, &quot;sysseek for buffered IO&quot;);
+    }
+    if ((fptr-&gt;mode &amp; FMODE_WRITABLE) &amp;&amp; (fptr-&gt;mode &amp; FMODE_WBUF)) {
+        rb_warn(&quot;sysseek for buffered IO&quot;);
+    }
+    pos = lseek(fileno(fptr-&gt;f), pos, whence);
+    if (pos == -1) rb_sys_fail(fptr-&gt;path);
+    clearerr(fptr-&gt;f);
+
+    return OFFT2NUM(pos);
+}
+            </pre> 
+            </div><!-- sysseek-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sysseek-method -->
+      
+        <div id="syswrite-method" class="method-detail ">
+          <a name="method-i-syswrite"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">syswrite(string)   => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Writes the given string to <em>ios</em> using a low-level write. Returns
+the number of bytes written. Do not mix with other methods that write to
+<em>ios</em> or you may get unpredictable results. Raises
+<code>SystemCallError</code> on error.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;out&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">syswrite</span>(<span class="ruby-string">&quot;ABCDEF&quot;</span>)   <span class="ruby-comment">#=&gt; 6</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="syswrite-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_syswrite(io, str)
+    VALUE io, str;
+{
+    rb_io_t *fptr;
+    FILE *f;
+    long n;
+
+    rb_secure(4);
+    if (TYPE(str) != T_STRING)
+        str = rb_obj_as_string(str);
+
+    GetOpenFile(io, fptr);
+    rb_io_check_writable(fptr);
+    f = GetWriteFile(fptr);
+
+    if (fptr-&gt;mode &amp; FMODE_WBUF) {
+        rb_warn(&quot;syswrite for buffered IO&quot;);
+    }
+    if (!rb_thread_fd_writable(fileno(f))) {
+        rb_io_check_closed(fptr);
+    }
+    TRAP_BEG;
+    n = write(fileno(f), RSTRING(str)-&gt;ptr, RSTRING(str)-&gt;len);
+    TRAP_END;
+
+    if (n == -1) rb_sys_fail(fptr-&gt;path);
+
+    return LONG2FIX(n);
+}
+            </pre> 
+            </div><!-- syswrite-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- syswrite-method -->
+      
+        <div id="tell-method" class="method-detail ">
+          <a name="method-i-tell"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">tell    => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the current offset (in bytes) of <em>ios</em>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">pos</span>    <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">gets</span>   <span class="ruby-comment">#=&gt; &quot;This is line one\n&quot;</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">pos</span>    <span class="ruby-comment">#=&gt; 17</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="tell-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_tell(io)
+     VALUE io;
+{
+    rb_io_t *fptr;
+    off_t pos;
+
+    GetOpenFile(io, fptr);
+    pos = io_tell(fptr);
+    if (pos &lt; 0 &amp;&amp; errno) rb_sys_fail(fptr-&gt;path);
+    return OFFT2NUM(pos);
+}
+            </pre> 
+            </div><!-- tell-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- tell-method -->
+      
+        <div id="to_i-method" class="method-detail method-alias">
+          <a name="method-i-to_i"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">to_i</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+          <div>
+  
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="IO.html#method-i-fileno">fileno</a>
+          </div>
+          
+        </div><!-- to_i-method -->
+      
+        <div id="to_io-method" class="method-detail ">
+          <a name="method-i-to_io"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">to_io &rarr; ios</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <em>ios</em>.</p>
+            
+
+            
+            <div class="method-source-code" id="to_io-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_to_io(io)
+    VALUE io;
+{
+    return io;
+}
+            </pre> 
+            </div><!-- to_io-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_io-method -->
+      
+        <div id="tty-3F-method" class="method-detail ">
+          <a name="method-i-tty-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">tty?     => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>ios</em> is associated with a terminal
+device (tty), <code>false</code> otherwise.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">isatty</span>   <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;/dev/tty&quot;</span>).<span class="ruby-identifier">isatty</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="tty-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_isatty(io)
+    VALUE io;
+{
+    rb_io_t *fptr;
+
+    GetOpenFile(io, fptr);
+    if (isatty(fileno(fptr-&gt;f)) == 0)
+        return Qfalse;
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- tty-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- tty-3F-method -->
+      
+        <div id="ungetc-method" class="method-detail ">
+          <a name="method-i-ungetc"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">ungetc(integer)   => nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Pushes back one character (passed as a parameter) onto <em>ios</em>, such
+that a subsequent buffered read will return it. Only one character may be
+pushed back before a subsequent read operation (that is, you will be able
+to read only the last of several characters that have been pushed back).
+Has no effect with unbuffered reads (such as <code>IO#sysread</code>).</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testfile&quot;</span>)   <span class="ruby-comment">#=&gt; #&lt;File:testfile&gt;</span>
+<span class="ruby-identifier">c</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">getc</span>                 <span class="ruby-comment">#=&gt; 84</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">ungetc</span>(<span class="ruby-identifier">c</span>)                <span class="ruby-comment">#=&gt; nil</span>
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">getc</span>                     <span class="ruby-comment">#=&gt; 84</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="ungetc-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_io_ungetc(io, c)
+    VALUE io, c;
+{
+    rb_io_t *fptr;
+    int cc = NUM2INT(c);
+
+    GetOpenFile(io, fptr);
+    if (!(fptr-&gt;mode &amp; FMODE_RBUF))
+        rb_raise(rb_eIOError, &quot;unread stream&quot;);
+    rb_io_check_readable(fptr);
+
+    if (ungetc(cc, fptr-&gt;f) == EOF &amp;&amp; cc != EOF) {
+        rb_raise(rb_eIOError, &quot;ungetc failed&quot;);
+    }
+    return Qnil;
+}
+            </pre> 
+            </div><!-- ungetc-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ungetc-method -->
+      
+        <div id="write-method" class="method-detail ">
+          <a name="method-i-write"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">write(string)    => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Writes the given string to <em>ios</em>. The stream must be opened for
+writing. If the argument is not a string, it will be converted to a string
+using <code>to_s</code>. Returns the number of bytes written.</p>
+
+<pre>count = $stdout.write( &quot;This is a test\n&quot; )
+puts &quot;That was #{count} bytes of data&quot;</pre>
+
+<p><em>produces:</em></p>
+
+<pre>This is a test
+That was 15 bytes of data</pre>
+            
+
+            
+            <div class="method-source-code" id="write-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+io_write(io, str)
+    VALUE io, str;
+{
+    rb_io_t *fptr;
+    long n;
+
+    rb_secure(4);
+    if (TYPE(str) != T_STRING)
+        str = rb_obj_as_string(str);
+
+    if (TYPE(io) != T_FILE) {
+        /* port is not IO, call write method for it. */
+        return rb_funcall(io, id_write, 1, str);
+    }
+    if (RSTRING(str)-&gt;len == 0) return INT2FIX(0);
+
+    GetOpenFile(io, fptr);
+    rb_io_check_writable(fptr);
+
+    n = io_fwrite(str, fptr);
+    if (n == -1L) rb_sys_fail(fptr-&gt;path);
+    if (!(fptr-&gt;mode &amp; FMODE_SYNC)) {
+        fptr-&gt;mode |= FMODE_WBUF;
+    }
+
+    return LONG2FIX(n);
+}
+            </pre> 
+            </div><!-- write-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- write-method -->
+      
+        <div id="write_nonblock-method" class="method-detail ">
+          <a name="method-i-write_nonblock"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">write_nonblock(string)   => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Writes the given string to <em>ios</em> using write(2) system call after
+O_NONBLOCK is set for the underlying file descriptor.</p>
+
+<p><a href="IO.html#method-i-write_nonblock">#write_nonblock</a> just calls
+write(2). It causes all errors write(2) causes: EAGAIN, EINTR, etc. The
+result may also be smaller than string.length (partial write). The caller
+should care such errors and partial write.</p>
+            
+
+            
+            <div class="method-source-code" id="write_nonblock-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_io_write_nonblock(VALUE io, VALUE str)
+{
+    rb_io_t *fptr;
+    FILE *f;
+    long n;
+
+    rb_secure(4);
+    if (TYPE(str) != T_STRING)
+        str = rb_obj_as_string(str);
+
+    GetOpenFile(io, fptr);
+    rb_io_check_writable(fptr);
+
+    f = GetWriteFile(fptr);
+
+    rb_io_set_nonblock(fptr);
+    n = write(fileno(f), RSTRING(str)-&gt;ptr, RSTRING(str)-&gt;len);
+
+    if (n == -1) rb_sys_fail(fptr-&gt;path);
+
+    return LONG2FIX(n);
+}
+            </pre> 
+            </div><!-- write_nonblock-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- write_nonblock-method -->
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+  <div id='tx_IO_versioned' class='associated_wrapper'></div><script type='text/javascript'>$("#tx_IO_versioned").load("/associated/1.8.7/IO.html");</script> <div id='tx_IO' class='associated_wrapper'></div><script type='text/javascript'>$("#tx_IO").load("/associated/IO.html");</script> 
+      
+  </div><!-- documentation -->
+  <div id='dynamic'>
+  </div>
+      
+<div class='grids wrapper' id="footer">
+  <p><small>This page was generated for Ruby 1.8.7</small></p> 
+  
+   <p> <a href="http://www.ruby-doc.org">Ruby-doc.org</a> is managed by <a href="http://www.jamesbritt.com">James Britt</a> and <a href="http://www.neurogami.com">Neurogami</a>. <a href="http://www.neurogami.com">Live curious.</a> </p>
+ 
+    <p><small>Generated with Ruby-doc Rdoc Generator 0.24.6</small>.</p>
+  </div>
+</div>
+  
+ <script type='text/javascript'>
+$(document).ready(function() {
+      $.ajaxSetup({ cache: false });
+      $("#vulns-alert").load("/associated/vulns.html");
+    });
+
+    </script>
+
+
+ 
+    <script type='text/javascript'>
+
+  function loadPlus(plusdocs){
+    var img_h = $("img.carbonad-image").css('height');
+    //if(img_h != undefined) { //---
+      $(plusdocs).find("div[class='associated_wrapper']").each (function() {
+          $("#" + this.id).append($(plusdocs).find("#" + this.id ));
+          });
+    //} // ---
+  } // end loadPlusdocs
+
+
+$(document).ready(function() {
+    $.ajaxSetup({ cache: false });
+      $.get('/associated/1.8.7/plus_IO.html', 
+      function(plusdocs) {
+      setTimeout(function() {
+        loadPlus(plusdocs);
+        }, 2000);
+      }
+      );
+    });
+</script>
+		
+</body>
+</html>
+
+

@@ -1,0 +1,2372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <!-- classpage -- >
+    <!-- RD version: 0.24.6  -->
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="2013-08-24 23:19:57 -0700" http-equiv="change-date" />
+  <!-- rel_prefix  = ''  ENV['RDOC_FOR_WEBSITE']   = false-->
+    
+    <!-- WHY? -->
+    
+    
+  <!-- rel_prefix = '.'   asset_rel_prefix = ''  --> 
+  <title>Class: Bignum (Ruby 1.8.7) </title>
+  <!-- link rel="stylesheet" href=".css/obf.css"  -->
+  <link rel="stylesheet" href="css/inuit.css" >
+  <link rel="stylesheet" href="css/grid.inuit.css" >
+  <link rel="stylesheet" href="css/2011.css" type="text/css" >
+  <link rel="stylesheet" href="css/rdoc.css" type="text/css" >
+
+  <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/rubydoc.js" type="text/javascript" charset="utf-8"></script> 
+
+ 
+<script src="/js/highlight.min.js"></script>
+<script> 
+  hljs.tabReplace = '  ';
+  hljs.initHighlightingOnLoad();
+  </script> 
+
+  <style type='text/css'>
+
+    #vulns-alert #vulns{
+      background-color: #c33 ! important;
+      width: 100%;
+      text-align: center;
+   }
+   
+   #vulns-alert #vulns a {
+    color: #F99 ! important;
+   }
+ </style>
+
+</head>
+
+<body id="top" class="class rdocstar">
+<div id='actionbar' >
+<div class='wrapper'>
+  <ul class='grids g0'></ul>
+</div>
+<span id='vulns-alert'></span>
+</div> <!-- end action bar -->
+ <div class='wrapper'>
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+          
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul id='file-metadata'>
+
+          
+          
+          
+          <li class='in-file'>bignum.c</li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="Integer.html">Integer</a></p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-25">#%</a></li>
+          
+          <li><a href="#method-i-26">#&</a></li>
+          
+          <li><a href="#method-i-2A">#*</a></li>
+          
+          <li><a href="#method-i-2A-2A">#**</a></li>
+          
+          <li><a href="#method-i-2B">#+</a></li>
+          
+          <li><a href="#method-i-2D">#-</a></li>
+          
+          <li><a href="#method-i-2D-40">#-@</a></li>
+          
+          <li><a href="#method-i-2F">#/</a></li>
+          
+          <li><a href="#method-i-3C-3C">#<<</a></li>
+          
+          <li><a href="#method-i-3C-3D-3E">#<=></a></li>
+          
+          <li><a href="#method-i-3D-3D">#==</a></li>
+          
+          <li><a href="#method-i-3E-3E">#>></a></li>
+          
+          <li><a href="#method-i-5B-5D">#[]</a></li>
+          
+          <li><a href="#method-i-5E">#^</a></li>
+          
+          <li><a href="#method-i-abs">#abs</a></li>
+          
+          <li><a href="#method-i-coerce">#coerce</a></li>
+          
+          <li><a href="#method-i-div">#div</a></li>
+          
+          <li><a href="#method-i-divmod">#divmod</a></li>
+          
+          <li><a href="#method-i-eql-3F">#eql?</a></li>
+          
+          <li><a href="#method-i-fdiv">#fdiv</a></li>
+          
+          <li><a href="#method-i-hash">#hash</a></li>
+          
+          <li><a href="#method-i-modulo">#modulo</a></li>
+          
+          <li><a href="#method-i-quo">#quo</a></li>
+          
+          <li><a href="#method-i-remainder">#remainder</a></li>
+          
+          <li><a href="#method-i-size">#size</a></li>
+          
+          <li><a href="#method-i-to_f">#to_f</a></li>
+          
+          <li><a href="#method-i-to_s">#to_s</a></li>
+          
+          <li><a href="#method-i-7C">#|</a></li>
+          
+          <li><a href="#method-i-7E">#~</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+          
+          
+          
+          <li><a href="./ArgumentError.html">ArgumentError</a></li>
+        
+          
+          
+          <li><a href="./Array.html">Array</a></li>
+        
+          
+          
+          <li><a href="./Bignum.html">Bignum</a></li>
+        
+          
+          
+          <li><a href="./Binding.html">Binding</a></li>
+        
+          
+          
+          <li><a href="./Class.html">Class</a></li>
+        
+          
+          
+          <li><a href="./Comparable.html">Comparable</a></li>
+        
+          
+          
+          <li><a href="./Continuation.html">Continuation</a></li>
+        
+          
+          
+          <li><a href="./Data.html">Data</a></li>
+        
+          
+          
+          <li><a href="./Dir.html">Dir</a></li>
+        
+          
+          
+          <li><a href="./EOFError.html">EOFError</a></li>
+        
+          
+          
+          <li><a href="./Enumerable.html">Enumerable</a></li>
+        
+          
+          
+          <li><a href="./Enumerable/Enumerator.html">Enumerable::Enumerator</a></li>
+        
+          
+          
+          <li><a href="./Errno.html">Errno</a></li>
+        
+          
+          
+          <li><a href="./Exception.html">Exception</a></li>
+        
+          
+          
+          <li><a href="./FalseClass.html">FalseClass</a></li>
+        
+          
+          
+          <li><a href="./File.html">File</a></li>
+        
+          
+          
+          <li><a href="./File/Constants.html">File::Constants</a></li>
+        
+          
+          
+          <li><a href="./File/Stat.html">File::Stat</a></li>
+        
+          
+          
+          <li><a href="./FileTest.html">FileTest</a></li>
+        
+          
+          
+          <li><a href="./Fixnum.html">Fixnum</a></li>
+        
+          
+          
+          <li><a href="./Float.html">Float</a></li>
+        
+          
+          
+          <li><a href="./FloatDomainError.html">FloatDomainError</a></li>
+        
+          
+          
+          <li><a href="./GC.html">GC</a></li>
+        
+          
+          
+          <li><a href="./Hash.html">Hash</a></li>
+        
+          
+          
+          <li><a href="./IO.html">IO</a></li>
+        
+          
+          
+          <li><a href="./IOError.html">IOError</a></li>
+        
+          
+          
+          <li><a href="./IndexError.html">IndexError</a></li>
+        
+          
+          
+          <li><a href="./Integer.html">Integer</a></li>
+        
+          
+          
+          <li><a href="./Interrupt.html">Interrupt</a></li>
+        
+          
+          
+          <li><a href="./Kernel.html">Kernel</a></li>
+        
+          
+          
+          <li><a href="./LoadError.html">LoadError</a></li>
+        
+          
+          
+          <li><a href="./LocalJumpError.html">LocalJumpError</a></li>
+        
+          
+          
+          <li><a href="./Marshal.html">Marshal</a></li>
+        
+          
+          
+          <li><a href="./MatchData.html">MatchData</a></li>
+        
+          
+          
+          <li><a href="./Math.html">Math</a></li>
+        
+          
+          
+          <li><a href="./Method.html">Method</a></li>
+        
+          
+          
+          <li><a href="./Module.html">Module</a></li>
+        
+          
+          
+          <li><a href="./NameError.html">NameError</a></li>
+        
+          
+          
+          <li><a href="./NameError/message.html">NameError::message</a></li>
+        
+          
+          
+          <li><a href="./NilClass.html">NilClass</a></li>
+        
+          
+          
+          <li><a href="./NoMemoryError.html">NoMemoryError</a></li>
+        
+          
+          
+          <li><a href="./NoMethodError.html">NoMethodError</a></li>
+        
+          
+          
+          <li><a href="./NotImplementedError.html">NotImplementedError</a></li>
+        
+          
+          
+          <li><a href="./Numeric.html">Numeric</a></li>
+        
+          
+          
+          <li><a href="./Object.html">Object</a></li>
+        
+          
+          
+          <li><a href="./ObjectSpace.html">ObjectSpace</a></li>
+        
+          
+          
+          <li><a href="./Precision.html">Precision</a></li>
+        
+          
+          
+          <li><a href="./Proc.html">Proc</a></li>
+        
+          
+          
+          <li><a href="./Process.html">Process</a></li>
+        
+          
+          
+          <li><a href="./Process/GID.html">Process::GID</a></li>
+        
+          
+          
+          <li><a href="./Process/Status.html">Process::Status</a></li>
+        
+          
+          
+          <li><a href="./Process/Sys.html">Process::Sys</a></li>
+        
+          
+          
+          <li><a href="./Process/UID.html">Process::UID</a></li>
+        
+          
+          
+          <li><a href="./Range.html">Range</a></li>
+        
+          
+          
+          <li><a href="./RangeError.html">RangeError</a></li>
+        
+          
+          
+          <li><a href="./Regexp.html">Regexp</a></li>
+        
+          
+          
+          <li><a href="./RegexpError.html">RegexpError</a></li>
+        
+          
+          
+          <li><a href="./RuntimeError.html">RuntimeError</a></li>
+        
+          
+          
+          <li><a href="./ScriptError.html">ScriptError</a></li>
+        
+          
+          
+          <li><a href="./SecurityError.html">SecurityError</a></li>
+        
+          
+          
+          <li><a href="./Signal.html">Signal</a></li>
+        
+          
+          
+          <li><a href="./SignalException.html">SignalException</a></li>
+        
+          
+          
+          <li><a href="./StandardError.html">StandardError</a></li>
+        
+          
+          
+          <li><a href="./StopIteration.html">StopIteration</a></li>
+        
+          
+          
+          <li><a href="./String.html">String</a></li>
+        
+          
+          
+          <li><a href="./Struct.html">Struct</a></li>
+        
+          
+          
+          <li><a href="./Symbol.html">Symbol</a></li>
+        
+          
+          
+          <li><a href="./SyntaxError.html">SyntaxError</a></li>
+        
+          
+          
+          <li><a href="./SystemCallError.html">SystemCallError</a></li>
+        
+          
+          
+          <li><a href="./SystemExit.html">SystemExit</a></li>
+        
+          
+          
+          <li><a href="./SystemStackError.html">SystemStackError</a></li>
+        
+          
+          
+          <li><a href="./Thread.html">Thread</a></li>
+        
+          
+          
+          <li><a href="./ThreadError.html">ThreadError</a></li>
+        
+          
+          
+          <li><a href="./ThreadGroup.html">ThreadGroup</a></li>
+        
+          
+          
+          <li><a href="./Time.html">Time</a></li>
+        
+          
+          
+          <li><a href="./TrueClass.html">TrueClass</a></li>
+        
+          
+          
+          <li><a href="./TypeError.html">TypeError</a></li>
+        
+          
+          
+          <li><a href="./UnboundMethod.html">UnboundMethod</a></li>
+        
+          
+          
+          <li><a href="./ZeroDivisionError.html">ZeroDivisionError</a></li>
+        
+          
+          
+          <li><a href="./fatal.html">fatal</a></li>
+        
+          
+          
+          <li><a href="./unknown.html">unknown</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div> <!-- metadata -->
+  <div class='adzbox'  id="azk83167">
+    
+  </div> 
+  <div id="documentation">
+    <h1 class="class">Bignum</h1>
+
+    <div id="description" class="description">
+      
+<p><a href="Bignum.html">Bignum</a> objects hold integers outside the range of
+<a href="Fixnum.html">Fixnum</a>. <a href="Bignum.html">Bignum</a> objects
+are created automatically when integer calculations would otherwise
+overflow a <a href="Fixnum.html">Fixnum</a>. When a calculation involving
+<a href="Bignum.html">Bignum</a> objects returns a result that will fit in
+a <a href="Fixnum.html">Fixnum</a>, the result is automatically converted.</p>
+
+<p>For the purposes of the bitwise operations and <code>[]</code>, a <a
+href="Bignum.html">Bignum</a> is treated as if it were an infinite-length
+bitstring with 2’s complement representation.</p>
+
+<p>While <a href="Fixnum.html">Fixnum</a> values are immediate, <a
+href="Bignum.html">Bignum</a> objects are not—assignment and parameter
+passing work with references to objects, not the objects themselves.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="25-method" class="method-detail ">
+          <a name="method-i-25"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big % other         => Numeric</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns big modulo other. See <a
+href="Numeric.html#method-i-divmod">Numeric#divmod</a> for more
+information.</p>
+            
+
+            
+            <div class="method-source-code" id="25-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_modulo(x, y)
+    VALUE x, y;
+{
+    VALUE z;
+
+    switch (TYPE(y)) {
+      case T_FIXNUM:
+        y = rb_int2big(FIX2LONG(y));
+        break;
+
+      case T_BIGNUM:
+        break;
+
+      default:
+        return rb_num_coerce_bin(x, y);
+    }
+    bigdivmod(x, y, 0, &amp;z);
+
+    return bignorm(z);
+}
+            </pre> 
+            </div><!-- 25-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 25-method -->
+      
+        <div id="26-method" class="method-detail ">
+          <a name="method-i-26"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big & numeric   =>  integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Performs bitwise <code>and</code> between <em>big</em> and
+<em>numeric</em>.</p>
+            
+
+            
+            <div class="method-source-code" id="26-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_big_and(xx, yy)
+    VALUE xx, yy;
+{
+    volatile VALUE x, y, z;
+    BDIGIT *ds1, *ds2, *zds;
+    long i, l1, l2;
+    char sign;
+
+    x = xx;
+    y = rb_to_int(yy);
+    if (FIXNUM_P(y)) {
+        y = rb_int2big(FIX2LONG(y));
+    }
+    if (!RBIGNUM(y)-&gt;sign) {
+        y = rb_big_clone(y);
+        get2comp(y);
+    }
+    if (!RBIGNUM(x)-&gt;sign) {
+        x = rb_big_clone(x);
+        get2comp(x);
+    }
+    if (RBIGNUM(x)-&gt;len &gt; RBIGNUM(y)-&gt;len) {
+        l1 = RBIGNUM(y)-&gt;len;
+        l2 = RBIGNUM(x)-&gt;len;
+        ds1 = BDIGITS(y);
+        ds2 = BDIGITS(x);
+        sign = RBIGNUM(y)-&gt;sign;
+    }
+    else {
+        l1 = RBIGNUM(x)-&gt;len;
+        l2 = RBIGNUM(y)-&gt;len;
+        ds1 = BDIGITS(x);
+        ds2 = BDIGITS(y);
+        sign = RBIGNUM(x)-&gt;sign;
+    }
+    z = bignew(l2, RBIGNUM(x)-&gt;sign || RBIGNUM(y)-&gt;sign);
+    zds = BDIGITS(z);
+
+    for (i=0; i&lt;l1; i++) {
+        zds[i] = ds1[i] &amp; ds2[i];
+    }
+    for (; i&lt;l2; i++) {
+        zds[i] = sign?0:ds2[i];
+    }
+    if (!RBIGNUM(z)-&gt;sign) get2comp(z);
+    return bignorm(z);
+}
+            </pre> 
+            </div><!-- 26-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 26-method -->
+      
+        <div id="2A-method" class="method-detail ">
+          <a name="method-i-2A"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big * other  => Numeric</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Multiplies big and other, returning the result.</p>
+            
+
+            
+            <div class="method-source-code" id="2A-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_big_mul(x, y)
+    VALUE x, y;
+{
+    return bignorm(rb_big_mul0(x, y));
+}
+            </pre> 
+            </div><!-- 2A-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 2A-method -->
+      
+        <div id="2A-2A-method" class="method-detail ">
+          <a name="method-i-2A-2A"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big ** exponent   #=> numeric</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Raises <em>big</em> to the <em>exponent</em> power (which may be an
+integer, float, or anything that will coerce to a number). The result may
+be a <a href="Fixnum.html">Fixnum</a>, <a href="Bignum.html">Bignum</a>, or
+<a href="Float.html">Float</a></p>
+
+<pre class="ruby"><span class="ruby-value">123456789</span> <span class="ruby-operator">**</span> <span class="ruby-value">2</span>      <span class="ruby-comment">#=&gt; 15241578750190521</span>
+<span class="ruby-value">123456789</span> <span class="ruby-operator">**</span> <span class="ruby-value">1.2</span>    <span class="ruby-comment">#=&gt; 5126464716.09932</span>
+<span class="ruby-value">123456789</span> <span class="ruby-operator">**</span> <span class="ruby-value">-2</span>     <span class="ruby-comment">#=&gt; 6.5610001194102e-17</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="2A-2A-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_big_pow(x, y)
+    VALUE x, y;
+{
+    double d;
+    long yy;
+
+    if (y == INT2FIX(0)) return INT2FIX(1);
+    switch (TYPE(y)) {
+      case T_FLOAT:
+        d = RFLOAT(y)-&gt;value;
+        break;
+
+      case T_BIGNUM:
+        rb_warn(&quot;in a**b, b may be too big&quot;);
+        d = rb_big2dbl(y);
+        break;
+
+      case T_FIXNUM:
+        yy = FIX2LONG(y);
+        if (yy &gt; 0) {
+            VALUE z = 0;
+            long mask;
+            const long BIGLEN_LIMIT = 1024*1024 / SIZEOF_BDIGITS;
+
+            if ((RBIGNUM(x)-&gt;len &gt; BIGLEN_LIMIT) ||
+                (RBIGNUM(x)-&gt;len &gt; BIGLEN_LIMIT / yy)) {
+                rb_warn(&quot;in a**b, b may be too big&quot;);
+                d = (double)yy;
+                break;
+            }
+            for (mask = FIXNUM_MAX + 1; mask; mask &gt;&gt;= 1) {
+                if (z) z = bigtrunc(bigsqr(z));
+                if (yy &amp; mask) {
+                    z = z ? bigtrunc(rb_big_mul0(z, x)) : x;
+                }
+            }
+            return bignorm(z);
+        }
+        d = (double)yy;
+        break;
+
+      default:
+        return rb_num_coerce_bin(x, y);
+    }
+    return rb_float_new(pow(rb_big2dbl(x), d));
+}
+            </pre> 
+            </div><!-- 2A-2A-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 2A-2A-method -->
+      
+        <div id="2B-method" class="method-detail ">
+          <a name="method-i-2B"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big + other  => Numeric</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Adds big and other, returning the result.</p>
+            
+
+            
+            <div class="method-source-code" id="2B-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_big_plus(x, y)
+    VALUE x, y;
+{
+    switch (TYPE(y)) {
+      case T_FIXNUM:
+        y = rb_int2big(FIX2LONG(y));
+        /* fall through */
+      case T_BIGNUM:
+        return bignorm(bigadd(x, y, 1));
+
+      case T_FLOAT:
+        return rb_float_new(rb_big2dbl(x) + RFLOAT(y)-&gt;value);
+
+      default:
+        return rb_num_coerce_bin(x, y);
+    }
+}
+            </pre> 
+            </div><!-- 2B-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 2B-method -->
+      
+        <div id="2D-method" class="method-detail ">
+          <a name="method-i-2D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big - other  => Numeric</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Subtracts other from big, returning the result.</p>
+            
+
+            
+            <div class="method-source-code" id="2D-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_big_minus(x, y)
+    VALUE x, y;
+{
+    switch (TYPE(y)) {
+      case T_FIXNUM:
+        y = rb_int2big(FIX2LONG(y));
+        /* fall through */
+      case T_BIGNUM:
+        return bignorm(bigadd(x, y, 0));
+
+      case T_FLOAT:
+        return rb_float_new(rb_big2dbl(x) - RFLOAT(y)-&gt;value);
+
+      default:
+        return rb_num_coerce_bin(x, y);
+    }
+}
+            </pre> 
+            </div><!-- 2D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 2D-method -->
+      
+        <div id="2D-40-method" class="method-detail ">
+          <a name="method-i-2D-40"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">-big   =>  other_big</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Unary minus (returns a new <a href="Bignum.html">Bignum</a> whose value is
+0-big)</p>
+            
+
+            
+            <div class="method-source-code" id="2D-40-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_uminus(x)
+    VALUE x;
+{
+    VALUE z = rb_big_clone(x);
+
+    RBIGNUM(z)-&gt;sign = !RBIGNUM(x)-&gt;sign;
+
+    return bignorm(z);
+}
+            </pre> 
+            </div><!-- 2D-40-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 2D-40-method -->
+      
+        <div id="2F-method" class="method-detail ">
+          <a name="method-i-2F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big / other     => Numeric</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Divides big by other, returning the result.</p>
+            
+
+            
+            <div class="method-source-code" id="2F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_div(x, y)
+    VALUE x, y;
+{
+    VALUE z;
+
+    switch (TYPE(y)) {
+      case T_FIXNUM:
+        y = rb_int2big(FIX2LONG(y));
+        break;
+
+      case T_BIGNUM:
+        break;
+
+      default:
+        return rb_num_coerce_bin(x, y);
+    }
+    bigdivmod(x, y, &amp;z, 0);
+
+    return bignorm(z);
+}
+            </pre> 
+            </div><!-- 2F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 2F-method -->
+      
+        <div id="3C-3C-method" class="method-detail ">
+          <a name="method-i-3C-3C"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big << numeric   =>  integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Shifts big left <em>numeric</em> positions (right if <em>numeric</em> is
+negative).</p>
+            
+
+            
+            <div class="method-source-code" id="3C-3C-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_big_lshift(x, y)
+    VALUE x, y;
+{
+    long shift;
+    int neg = 0;
+
+    for (;;) {
+        if (FIXNUM_P(y)) {
+            shift = FIX2LONG(y);
+            if (shift &lt; 0) {
+                neg = 1;
+                shift = -shift;
+            }
+            break;
+        }
+        else if (TYPE(y) == T_BIGNUM) {
+            if (!RBIGNUM(y)-&gt;sign) {
+                VALUE t = check_shiftdown(y, x);
+                if (!NIL_P(t)) return t;
+                neg = 1;
+            }
+            shift = big2ulong(y, &quot;long&quot;);
+            break;
+        }
+        y = rb_to_int(y);
+    }
+
+    x = neg ? big_rshift(x, shift) : big_lshift(x, shift);
+    return bignorm(x);
+}
+            </pre> 
+            </div><!-- 3C-3C-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 3C-3C-method -->
+      
+        <div id="3C-3D-3E-method" class="method-detail ">
+          <a name="method-i-3C-3D-3E"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big <=> numeric   => -1, 0, +1</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Comparison—Returns -1, 0, or +1 depending on whether <em>big</em> is less
+than, equal to, or greater than <em>numeric</em>. This is the basis for the
+tests in <code>Comparable</code>.</p>
+            
+
+            
+            <div class="method-source-code" id="3C-3D-3E-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_cmp(x, y)
+    VALUE x, y;
+{
+    long xlen = RBIGNUM(x)-&gt;len;
+
+    switch (TYPE(y)) {
+      case T_FIXNUM:
+        y = rb_int2big(FIX2LONG(y));
+        break;
+
+      case T_BIGNUM:
+        break;
+
+      case T_FLOAT:
+        {
+            double a = RFLOAT_VALUE(y);
+
+            if (isinf(a)) {
+                if (a &gt; 0.0) return INT2FIX(-1);
+                else return INT2FIX(1);
+            }
+            return rb_dbl_cmp(rb_big2dbl(x), a);
+        }
+
+      default:
+        return rb_num_coerce_cmp(x, y);
+    }
+
+    if (RBIGNUM(x)-&gt;sign &gt; RBIGNUM(y)-&gt;sign) return INT2FIX(1);
+    if (RBIGNUM(x)-&gt;sign &lt; RBIGNUM(y)-&gt;sign) return INT2FIX(-1);
+    if (xlen &lt; RBIGNUM(y)-&gt;len)
+        return (RBIGNUM(x)-&gt;sign) ? INT2FIX(-1) : INT2FIX(1);
+    if (xlen &gt; RBIGNUM(y)-&gt;len)
+        return (RBIGNUM(x)-&gt;sign) ? INT2FIX(1) : INT2FIX(-1);
+
+    while(xlen-- &amp;&amp; (BDIGITS(x)[xlen]==BDIGITS(y)[xlen]));
+    if (-1 == xlen) return INT2FIX(0);
+    return (BDIGITS(x)[xlen] &gt; BDIGITS(y)[xlen]) ?
+        (RBIGNUM(x)-&gt;sign ? INT2FIX(1) : INT2FIX(-1)) :
+            (RBIGNUM(x)-&gt;sign ? INT2FIX(-1) : INT2FIX(1));
+}
+            </pre> 
+            </div><!-- 3C-3D-3E-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 3C-3D-3E-method -->
+      
+        <div id="3D-3D-method" class="method-detail ">
+          <a name="method-i-3D-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big == obj  => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> only if <em>obj</em> has the same value as
+<em>big</em>. Contrast this with <code>Bignum#eql?</code>, which requires
+<em>obj</em> to be a <code>Bignum</code>.</p>
+
+<pre class="ruby"><span class="ruby-value">68719476736</span> <span class="ruby-operator">==</span> <span class="ruby-value">68719476736.0</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="3D-3D-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_eq(x, y)
+    VALUE x, y;
+{
+    switch (TYPE(y)) {
+      case T_FIXNUM:
+        y = rb_int2big(FIX2LONG(y));
+        break;
+      case T_BIGNUM:
+        break;
+      case T_FLOAT:
+        {
+            volatile double a, b;
+
+            a = RFLOAT(y)-&gt;value;
+            if (isnan(a)) return Qfalse;
+            b = rb_big2dbl(x);
+            return (a == b)?Qtrue:Qfalse;
+        }
+      default:
+        return rb_equal(y, x);
+    }
+    if (RBIGNUM(x)-&gt;sign != RBIGNUM(y)-&gt;sign) return Qfalse;
+    if (RBIGNUM(x)-&gt;len != RBIGNUM(y)-&gt;len) return Qfalse;
+    if (MEMCMP(BDIGITS(x),BDIGITS(y),BDIGIT,RBIGNUM(y)-&gt;len) != 0) return Qfalse;
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- 3D-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 3D-3D-method -->
+      
+        <div id="3E-3E-method" class="method-detail ">
+          <a name="method-i-3E-3E"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big >> numeric   =>  integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Shifts big right <em>numeric</em> positions (left if <em>numeric</em> is
+negative).</p>
+            
+
+            
+            <div class="method-source-code" id="3E-3E-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_big_rshift(x, y)
+    VALUE x, y;
+{
+    long shift;
+    int neg = 0;
+
+    for (;;) {
+        if (FIXNUM_P(y)) {
+            shift = FIX2LONG(y);
+            if (shift &lt; 0) {
+                neg = 1;
+                shift = -shift;
+            }
+            break;
+        }
+        else if (TYPE(y) == T_BIGNUM) {
+            if (RBIGNUM(y)-&gt;sign) {
+                VALUE t = check_shiftdown(y, x);
+                if (!NIL_P(t)) return t;
+            }
+            else {
+                neg = 1;
+            }
+            shift = big2ulong(y, &quot;long&quot;);
+            break;
+        }
+        y = rb_to_int(y);
+    }
+
+    x = neg ? big_lshift(x, shift) : big_rshift(x, shift);
+    return bignorm(x);
+}
+            </pre> 
+            </div><!-- 3E-3E-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 3E-3E-method -->
+      
+        <div id="5B-5D-method" class="method-detail ">
+          <a name="method-i-5B-5D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big[n] &rarr; 0, 1</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Bit Reference—Returns the <em>n</em>th bit in the (assumed) binary
+representation of <em>big</em>, where <em><a href="http://0">big</a></em>
+is the least significant bit.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-value">9</span><span class="ruby-operator">**</span><span class="ruby-value">15</span>
+<span class="ruby-value">50</span>.<span class="ruby-identifier">downto</span>(<span class="ruby-value">0</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">print</span> <span class="ruby-identifier">a</span>[<span class="ruby-identifier">n</span>]
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>000101110110100000111000011110010100111100010111001</pre>
+            
+
+            
+            <div class="method-source-code" id="5B-5D-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_aref(x, y)
+    VALUE x, y;
+{
+    BDIGIT *xds;
+    BDIGIT_DBL num;
+    unsigned long shift;
+    long i, s1, s2;
+
+    if (TYPE(y) == T_BIGNUM) {
+        if (!RBIGNUM(y)-&gt;sign)
+            return INT2FIX(0);
+        if (RBIGNUM(bigtrunc(y))-&gt;len &gt; SIZEOF_LONG/SIZEOF_BDIGITS) {
+          out_of_range:
+            return RBIGNUM(x)-&gt;sign ? INT2FIX(0) : INT2FIX(1);
+        }
+        shift = big2ulong(y, &quot;long&quot;);
+    }
+    else {
+        i = NUM2LONG(y);
+        if (i &lt; 0) return INT2FIX(0);
+        shift = (VALUE)i;
+    }
+    s1 = shift/BITSPERDIG;
+    s2 = shift%BITSPERDIG;
+
+    if (s1 &gt;= RBIGNUM(x)-&gt;len) goto out_of_range;
+    if (!RBIGNUM(x)-&gt;sign) {
+        xds = BDIGITS(x);
+        i = 0; num = 1;
+        while (num += ~xds[i], ++i &lt;= s1) {
+            num = BIGDN(num);
+        }
+    }
+    else {
+        num = BDIGITS(x)[s1];
+    }
+    if (num &amp; ((BDIGIT_DBL)1&lt;&lt;s2))
+        return INT2FIX(1);
+    return INT2FIX(0);
+}
+            </pre> 
+            </div><!-- 5B-5D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 5B-5D-method -->
+      
+        <div id="5E-method" class="method-detail ">
+          <a name="method-i-5E"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big ^ numeric   =>  integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Performs bitwise +exclusive or+ between <em>big</em> and <em>numeric</em>.</p>
+            
+
+            
+            <div class="method-source-code" id="5E-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_big_xor(xx, yy)
+    VALUE xx, yy;
+{
+    volatile VALUE x, y;
+    VALUE z;
+    BDIGIT *ds1, *ds2, *zds;
+    long i, l1, l2;
+    char sign;
+
+    x = xx;
+    y = rb_to_int(yy);
+    if (FIXNUM_P(y)) {
+        y = rb_int2big(FIX2LONG(y));
+    }
+    if (!RBIGNUM(y)-&gt;sign) {
+        y = rb_big_clone(y);
+        get2comp(y);
+    }
+    if (!RBIGNUM(x)-&gt;sign) {
+        x = rb_big_clone(x);
+        get2comp(x);
+    }
+    if (RBIGNUM(x)-&gt;len &gt; RBIGNUM(y)-&gt;len) {
+        l1 = RBIGNUM(y)-&gt;len;
+        l2 = RBIGNUM(x)-&gt;len;
+        ds1 = BDIGITS(y);
+        ds2 = BDIGITS(x);
+        sign = RBIGNUM(y)-&gt;sign;
+    }
+    else {
+        l1 = RBIGNUM(x)-&gt;len;
+        l2 = RBIGNUM(y)-&gt;len;
+        ds1 = BDIGITS(x);
+        ds2 = BDIGITS(y);
+        sign = RBIGNUM(x)-&gt;sign;
+    }
+    RBIGNUM(x)-&gt;sign = RBIGNUM(x)-&gt;sign?1:0;
+    RBIGNUM(y)-&gt;sign = RBIGNUM(y)-&gt;sign?1:0;
+    z = bignew(l2, !(RBIGNUM(x)-&gt;sign ^ RBIGNUM(y)-&gt;sign));
+    zds = BDIGITS(z);
+
+    for (i=0; i&lt;l1; i++) {
+        zds[i] = ds1[i] ^ ds2[i];
+    }
+    for (; i&lt;l2; i++) {
+        zds[i] = sign?ds2[i]:~ds2[i];
+    }
+    if (!RBIGNUM(z)-&gt;sign) get2comp(z);
+
+    return bignorm(z);
+}
+            </pre> 
+            </div><!-- 5E-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 5E-method -->
+      
+        <div id="abs-method" class="method-detail ">
+          <a name="method-i-abs"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">abs &rarr; aBignum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the absolute value of <em>big</em>.</p>
+
+<pre class="ruby"><span class="ruby-value">-1234567890987654321</span>.<span class="ruby-identifier">abs</span>   <span class="ruby-comment">#=&gt; 1234567890987654321</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="abs-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_abs(x)
+    VALUE x;
+{
+    if (!RBIGNUM(x)-&gt;sign) {
+        x = rb_big_clone(x);
+        RBIGNUM(x)-&gt;sign = 1;
+    }
+    return x;
+}
+            </pre> 
+            </div><!-- abs-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- abs-method -->
+      
+        <div id="coerce-method" class="method-detail ">
+          <a name="method-i-coerce"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">coerce</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+          <div>
+  
+            
+            <p>MISSING: documentation</p>
+            
+
+            
+            <div class="method-source-code" id="coerce-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_coerce(x, y)
+    VALUE x, y;
+{
+    if (FIXNUM_P(y)) {
+        return rb_assoc_new(rb_int2big(FIX2LONG(y)), x);
+    }
+    else if (TYPE(y) == T_BIGNUM) {
+       return rb_assoc_new(y, x);
+    }
+    else {
+        rb_raise(rb_eTypeError, &quot;can't coerce %s to Bignum&quot;,
+                 rb_obj_classname(y));
+    }
+    /* not reached */
+    return Qnil;
+}
+            </pre> 
+            </div><!-- coerce-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- coerce-method -->
+      
+        <div id="div-method" class="method-detail ">
+          <a name="method-i-div"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">div(other)  => Numeric</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Divides big by other, returning the result.</p>
+            
+
+            
+            <div class="method-source-code" id="div-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_div(x, y)
+    VALUE x, y;
+{
+    VALUE z;
+
+    switch (TYPE(y)) {
+      case T_FIXNUM:
+        y = rb_int2big(FIX2LONG(y));
+        break;
+
+      case T_BIGNUM:
+        break;
+
+      default:
+        return rb_num_coerce_bin(x, y);
+    }
+    bigdivmod(x, y, &amp;z, 0);
+
+    return bignorm(z);
+}
+            </pre> 
+            </div><!-- div-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- div-method -->
+      
+        <div id="divmod-method" class="method-detail ">
+          <a name="method-i-divmod"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">divmod(numeric)   => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>See <code>Numeric#divmod</code>.</p>
+            
+
+            
+            <div class="method-source-code" id="divmod-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_big_divmod(x, y)
+    VALUE x, y;
+{
+    VALUE div, mod;
+
+    switch (TYPE(y)) {
+      case T_FIXNUM:
+        y = rb_int2big(FIX2LONG(y));
+        break;
+
+      case T_BIGNUM:
+        break;
+
+      default:
+        return rb_num_coerce_bin(x, y);
+    }
+    bigdivmod(x, y, &amp;div, &amp;mod);
+
+    return rb_assoc_new(bignorm(div), bignorm(mod));
+}
+            </pre> 
+            </div><!-- divmod-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- divmod-method -->
+      
+        <div id="eql-3F-method" class="method-detail ">
+          <a name="method-i-eql-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">eql?(obj)   => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> only if <em>obj</em> is a <code>Bignum</code>
+with the same value as <em>big</em>. Contrast this with
+<code>Bignum#==</code>, which performs type conversions.</p>
+
+<pre class="ruby"><span class="ruby-value">68719476736</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-value">68719476736.0</span>)   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="eql-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_eql(x, y)
+    VALUE x, y;
+{
+    if (TYPE(y) != T_BIGNUM) return Qfalse;
+    if (RBIGNUM(x)-&gt;sign != RBIGNUM(y)-&gt;sign) return Qfalse;
+    if (RBIGNUM(x)-&gt;len != RBIGNUM(y)-&gt;len) return Qfalse;
+    if (MEMCMP(BDIGITS(x),BDIGITS(y),BDIGIT,RBIGNUM(y)-&gt;len) != 0) return Qfalse;
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- eql-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- eql-3F-method -->
+      
+        <div id="fdiv-method" class="method-detail ">
+          <a name="method-i-fdiv"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">fdiv(numeric) &rarr; float</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the floating point result of dividing <em>big</em> by
+<em>numeric</em>.</p>
+
+<pre class="ruby"><span class="ruby-value">-1234567890987654321</span>.<span class="ruby-identifier">quo</span>(<span class="ruby-value">13731</span>)      <span class="ruby-comment">#=&gt; -89910996357705.5</span>
+<span class="ruby-value">-1234567890987654321</span>.<span class="ruby-identifier">quo</span>(<span class="ruby-value">13731.24</span>)   <span class="ruby-comment">#=&gt; -89909424858035.7</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="fdiv-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_quo(x, y)
+    VALUE x, y;
+{
+    double dx = big2dbl(x);
+    double dy;
+
+    if (isinf(dx)) {
+#define DBL_BIGDIG ((DBL_MANT_DIG + BITSPERDIG) / BITSPERDIG)
+        VALUE z;
+        int ex, ey;
+
+        ex = (RBIGNUM(bigtrunc(x))-&gt;len - 1) * BITSPERDIG;
+        ex += bdigbitsize(BDIGITS(x)[RBIGNUM(x)-&gt;len - 1]);
+        ex -= 2 * DBL_BIGDIG * BITSPERDIG;
+        if (ex) x = big_shift(x, ex);
+
+        switch (TYPE(y)) {
+          case T_FIXNUM:
+            y = rb_int2big(FIX2LONG(y));
+          case T_BIGNUM: {
+            ey = (RBIGNUM(bigtrunc(y))-&gt;len - 1) * BITSPERDIG;
+            ey += bdigbitsize(BDIGITS(y)[RBIGNUM(y)-&gt;len - 1]);
+            ey -= DBL_BIGDIG * BITSPERDIG;
+            if (ey) y = big_shift(y, ey);
+          bignum:
+            bigdivrem(x, y, &amp;z, 0);
+            return rb_float_new(ldexp(big2dbl(z), ex - ey));
+          }
+          case T_FLOAT:
+            y = dbl2big(ldexp(frexp(RFLOAT(y)-&gt;value, &amp;ey), DBL_MANT_DIG));
+            ey -= DBL_MANT_DIG;
+            goto bignum;
+        }
+    }
+    switch (TYPE(y)) {
+      case T_FIXNUM:
+        dy = (double)FIX2LONG(y);
+        break;
+
+      case T_BIGNUM:
+        dy = rb_big2dbl(y);
+        break;
+
+      case T_FLOAT:
+        dy = RFLOAT(y)-&gt;value;
+        break;
+
+      default:
+        return rb_num_coerce_bin(x, y);
+    }
+    return rb_float_new(dx / dy);
+}
+            </pre> 
+            </div><!-- fdiv-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- fdiv-method -->
+      
+        <div id="hash-method" class="method-detail ">
+          <a name="method-i-hash"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">hash   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Compute a hash based on the value of <em>big</em>.</p>
+            
+
+            
+            <div class="method-source-code" id="hash-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_hash(x)
+    VALUE x;
+{
+    long i, len, key;
+    BDIGIT *digits;
+
+    key = 0; digits = BDIGITS(x); len = RBIGNUM(x)-&gt;len;
+    for (i=0; i&lt;len; i++) {
+        key ^= *digits++;
+    }
+    return LONG2FIX(key);
+}
+            </pre> 
+            </div><!-- hash-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- hash-method -->
+      
+        <div id="modulo-method" class="method-detail ">
+          <a name="method-i-modulo"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">modulo(other)   => Numeric</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns big modulo other. See <a
+href="Numeric.html#method-i-divmod">Numeric#divmod</a> for more
+information.</p>
+            
+
+            
+            <div class="method-source-code" id="modulo-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_modulo(x, y)
+    VALUE x, y;
+{
+    VALUE z;
+
+    switch (TYPE(y)) {
+      case T_FIXNUM:
+        y = rb_int2big(FIX2LONG(y));
+        break;
+
+      case T_BIGNUM:
+        break;
+
+      default:
+        return rb_num_coerce_bin(x, y);
+    }
+    bigdivmod(x, y, 0, &amp;z);
+
+    return bignorm(z);
+}
+            </pre> 
+            </div><!-- modulo-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- modulo-method -->
+      
+        <div id="quo-method" class="method-detail ">
+          <a name="method-i-quo"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">quo(numeric) &rarr; float</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the floating point result of dividing <em>big</em> by
+<em>numeric</em>.</p>
+
+<pre class="ruby"><span class="ruby-value">-1234567890987654321</span>.<span class="ruby-identifier">quo</span>(<span class="ruby-value">13731</span>)      <span class="ruby-comment">#=&gt; -89910996357705.5</span>
+<span class="ruby-value">-1234567890987654321</span>.<span class="ruby-identifier">quo</span>(<span class="ruby-value">13731.24</span>)   <span class="ruby-comment">#=&gt; -89909424858035.7</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="quo-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_quo(x, y)
+    VALUE x, y;
+{
+    double dx = big2dbl(x);
+    double dy;
+
+    if (isinf(dx)) {
+#define DBL_BIGDIG ((DBL_MANT_DIG + BITSPERDIG) / BITSPERDIG)
+        VALUE z;
+        int ex, ey;
+
+        ex = (RBIGNUM(bigtrunc(x))-&gt;len - 1) * BITSPERDIG;
+        ex += bdigbitsize(BDIGITS(x)[RBIGNUM(x)-&gt;len - 1]);
+        ex -= 2 * DBL_BIGDIG * BITSPERDIG;
+        if (ex) x = big_shift(x, ex);
+
+        switch (TYPE(y)) {
+          case T_FIXNUM:
+            y = rb_int2big(FIX2LONG(y));
+          case T_BIGNUM: {
+            ey = (RBIGNUM(bigtrunc(y))-&gt;len - 1) * BITSPERDIG;
+            ey += bdigbitsize(BDIGITS(y)[RBIGNUM(y)-&gt;len - 1]);
+            ey -= DBL_BIGDIG * BITSPERDIG;
+            if (ey) y = big_shift(y, ey);
+          bignum:
+            bigdivrem(x, y, &amp;z, 0);
+            return rb_float_new(ldexp(big2dbl(z), ex - ey));
+          }
+          case T_FLOAT:
+            y = dbl2big(ldexp(frexp(RFLOAT(y)-&gt;value, &amp;ey), DBL_MANT_DIG));
+            ey -= DBL_MANT_DIG;
+            goto bignum;
+        }
+    }
+    switch (TYPE(y)) {
+      case T_FIXNUM:
+        dy = (double)FIX2LONG(y);
+        break;
+
+      case T_BIGNUM:
+        dy = rb_big2dbl(y);
+        break;
+
+      case T_FLOAT:
+        dy = RFLOAT(y)-&gt;value;
+        break;
+
+      default:
+        return rb_num_coerce_bin(x, y);
+    }
+    return rb_float_new(dx / dy);
+}
+            </pre> 
+            </div><!-- quo-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- quo-method -->
+      
+        <div id="remainder-method" class="method-detail ">
+          <a name="method-i-remainder"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">remainder(numeric)    => number</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the remainder after dividing <em>big</em> by <em>numeric</em>.</p>
+
+<pre class="ruby"><span class="ruby-value">-1234567890987654321</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">13731</span>)      <span class="ruby-comment">#=&gt; -6966</span>
+<span class="ruby-value">-1234567890987654321</span>.<span class="ruby-identifier">remainder</span>(<span class="ruby-value">13731.24</span>)   <span class="ruby-comment">#=&gt; -9906.22531493148</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="remainder-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_remainder(x, y)
+    VALUE x, y;
+{
+    VALUE z;
+
+    switch (TYPE(y)) {
+      case T_FIXNUM:
+        y = rb_int2big(FIX2LONG(y));
+        break;
+
+      case T_BIGNUM:
+        break;
+
+      default:
+        return rb_num_coerce_bin(x, y);
+    }
+    bigdivrem(x, y, 0, &amp;z);
+
+    return bignorm(z);
+}
+            </pre> 
+            </div><!-- remainder-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- remainder-method -->
+      
+        <div id="size-method" class="method-detail ">
+          <a name="method-i-size"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">size &rarr; integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the number of bytes in the machine representation of <em>big</em>.</p>
+
+<pre class="ruby">(<span class="ruby-value">256</span><span class="ruby-operator">**</span><span class="ruby-value">10</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">size</span>   <span class="ruby-comment">#=&gt; 12</span>
+(<span class="ruby-value">256</span><span class="ruby-operator">**</span><span class="ruby-value">20</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">size</span>   <span class="ruby-comment">#=&gt; 20</span>
+(<span class="ruby-value">256</span><span class="ruby-operator">**</span><span class="ruby-value">40</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">size</span>   <span class="ruby-comment">#=&gt; 40</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="size-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_size(big)
+    VALUE big;
+{
+    return LONG2FIX(RBIGNUM(big)-&gt;len*SIZEOF_BDIGITS);
+}
+            </pre> 
+            </div><!-- size-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- size-method -->
+      
+        <div id="to_f-method" class="method-detail ">
+          <a name="method-i-to_f"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">to_f &rarr; float</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Converts <em>big</em> to a <code>Float</code>. If <em>big</em> doesn’t fit
+in a <code>Float</code>, the result is infinity.</p>
+            
+
+            
+            <div class="method-source-code" id="to_f-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_to_f(x)
+    VALUE x;
+{
+    return rb_float_new(rb_big2dbl(x));
+}
+            </pre> 
+            </div><!-- to_f-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_f-method -->
+      
+        <div id="to_s-method" class="method-detail ">
+          <a name="method-i-to_s"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">to_s(base=10)   =>  string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns a string containing the representation of <em>big</em> radix
+<em>base</em> (2 through 36).</p>
+
+<pre class="ruby"><span class="ruby-value">12345654321</span>.<span class="ruby-identifier">to_s</span>         <span class="ruby-comment">#=&gt; &quot;12345654321&quot;</span>
+<span class="ruby-value">12345654321</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-value">2</span>)      <span class="ruby-comment">#=&gt; &quot;1011011111110110111011110000110001&quot;</span>
+<span class="ruby-value">12345654321</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-value">8</span>)      <span class="ruby-comment">#=&gt; &quot;133766736061&quot;</span>
+<span class="ruby-value">12345654321</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-value">16</span>)     <span class="ruby-comment">#=&gt; &quot;2dfdbbc31&quot;</span>
+<span class="ruby-value">78546939656932</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-value">36</span>)  <span class="ruby-comment">#=&gt; &quot;rubyrules&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="to_s-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_to_s(argc, argv, x)
+    int argc;
+    VALUE *argv;
+    VALUE x;
+{
+    VALUE b;
+    int base;
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;b);
+    if (argc == 0) base = 10;
+    else base = NUM2INT(b);
+    return rb_big2str(x, base);
+}
+            </pre> 
+            </div><!-- to_s-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_s-method -->
+      
+        <div id="7C-method" class="method-detail ">
+          <a name="method-i-7C"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">big | numeric   =>  integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Performs bitwise <code>or</code> between <em>big</em> and <em>numeric</em>.</p>
+            
+
+            
+            <div class="method-source-code" id="7C-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_big_or(xx, yy)
+    VALUE xx, yy;
+{
+    volatile VALUE x, y, z;
+    BDIGIT *ds1, *ds2, *zds;
+    long i, l1, l2;
+    char sign;
+
+    x = xx;
+    y = rb_to_int(yy);
+    if (FIXNUM_P(y)) {
+        y = rb_int2big(FIX2LONG(y));
+    }
+    if (!RBIGNUM(y)-&gt;sign) {
+        y = rb_big_clone(y);
+        get2comp(y);
+    }
+    if (!RBIGNUM(x)-&gt;sign) {
+        x = rb_big_clone(x);
+        get2comp(x);
+    }
+    if (RBIGNUM(x)-&gt;len &gt; RBIGNUM(y)-&gt;len) {
+        l1 = RBIGNUM(y)-&gt;len;
+        l2 = RBIGNUM(x)-&gt;len;
+        ds1 = BDIGITS(y);
+        ds2 = BDIGITS(x);
+        sign = RBIGNUM(y)-&gt;sign;
+    }
+    else {
+        l1 = RBIGNUM(x)-&gt;len;
+        l2 = RBIGNUM(y)-&gt;len;
+        ds1 = BDIGITS(x);
+        ds2 = BDIGITS(y);
+        sign = RBIGNUM(x)-&gt;sign;
+    }
+    z = bignew(l2, RBIGNUM(x)-&gt;sign &amp;&amp; RBIGNUM(y)-&gt;sign);
+    zds = BDIGITS(z);
+
+    for (i=0; i&lt;l1; i++) {
+        zds[i] = ds1[i] | ds2[i];
+    }
+    for (; i&lt;l2; i++) {
+        zds[i] = sign?ds2[i]:(BIGRAD-1);
+    }
+    if (!RBIGNUM(z)-&gt;sign) get2comp(z);
+
+    return bignorm(z);
+}
+            </pre> 
+            </div><!-- 7C-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 7C-method -->
+      
+        <div id="7E-method" class="method-detail ">
+          <a name="method-i-7E"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">~big  =>  integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Inverts the bits in big. As Bignums are conceptually infinite length, the
+result acts as if it had an infinite number of one bits to the left. In hex
+representations, this is displayed as two periods to the left of the
+digits.</p>
+
+<pre class="ruby"><span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&quot;%X&quot;</span>, <span class="ruby-operator">~</span><span class="ruby-value">0x1122334455</span>)    <span class="ruby-comment">#=&gt; &quot;..FEEDDCCBBAA&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="7E-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_big_neg(x)
+    VALUE x;
+{
+    VALUE z = rb_big_clone(x);
+    long i;
+    BDIGIT *ds;
+
+    if (!RBIGNUM(x)-&gt;sign) get2comp(z);
+    ds = BDIGITS(z);
+    i = RBIGNUM(x)-&gt;len;
+    if (!i) return INT2FIX(~0);
+    while (i--) ds[i] = ~ds[i];
+    RBIGNUM(z)-&gt;sign = !RBIGNUM(z)-&gt;sign;
+    if (RBIGNUM(x)-&gt;sign) get2comp(z);
+
+    return bignorm(z);
+}
+            </pre> 
+            </div><!-- 7E-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 7E-method -->
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+  <div id='tx_Bignum_versioned' class='associated_wrapper'></div><script type='text/javascript'>$("#tx_Bignum_versioned").load("/associated/1.8.7/Bignum.html");</script> <div id='tx_Bignum' class='associated_wrapper'></div><script type='text/javascript'>$("#tx_Bignum").load("/associated/Bignum.html");</script> 
+      
+  </div><!-- documentation -->
+  <div id='dynamic'>
+  </div>
+      
+<div class='grids wrapper' id="footer">
+  <p><small>This page was generated for Ruby 1.8.7</small></p> 
+  
+   <p> <a href="http://www.ruby-doc.org">Ruby-doc.org</a> is a service of <a href="http://www.jamesbritt.com">James Britt</a> and <a href="http://www.neurogami.com">Neurogami</a>, an <a href="http://www.neurogami.com"> avant garage application development company in Scottsdale, AZ</a>.  </p>
+ 
+    <p><small>Generated with Ruby-doc Rdoc Generator 0.24.6</small>.</p>
+  </div>
+</div>
+  
+ <script type='text/javascript'>
+$(document).ready(function() {
+      $.ajaxSetup({ cache: false });
+      $("#vulns-alert").load("/associated/vulns.html");
+    });
+
+    </script>
+
+
+ 
+    <script type='text/javascript'>
+
+  function loadPlus(plusdocs){
+    var img_h = $("img.carbonad-image").css('height');
+    //if(img_h != undefined) { //---
+      $(plusdocs).find("div[class='associated_wrapper']").each (function() {
+          $("#" + this.id).append($(plusdocs).find("#" + this.id ));
+          });
+    //} // ---
+  } // end loadPlusdocs
+
+
+$(document).ready(function() {
+    $.ajaxSetup({ cache: false });
+      $.get('/associated/1.8.7/plus_Bignum.html', 
+      function(plusdocs) {
+      setTimeout(function() {
+        loadPlus(plusdocs);
+        }, 2000);
+      }
+      );
+    });
+</script>
+		
+</body>
+</html>
+
+

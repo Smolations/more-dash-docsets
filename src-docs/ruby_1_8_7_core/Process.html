@@ -1,0 +1,3196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <!-- classpage -- >
+    <!-- RD version: 0.24.6  -->
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="2013-08-24 23:20:04 -0700" http-equiv="change-date" />
+  <!-- rel_prefix  = ''  ENV['RDOC_FOR_WEBSITE']   = false-->
+    
+    <!-- WHY? -->
+    
+    
+  <!-- rel_prefix = '.'   asset_rel_prefix = ''  --> 
+  <title>Module: Process (Ruby 1.8.7) </title>
+  <!-- link rel="stylesheet" href=".css/obf.css"  -->
+  <link rel="stylesheet" href="css/inuit.css" >
+  <link rel="stylesheet" href="css/grid.inuit.css" >
+  <link rel="stylesheet" href="css/2011.css" type="text/css" >
+  <link rel="stylesheet" href="css/rdoc.css" type="text/css" >
+
+  <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/rubydoc.js" type="text/javascript" charset="utf-8"></script> 
+
+ 
+<script src="/js/highlight.min.js"></script>
+<script> 
+  hljs.tabReplace = '  ';
+  hljs.initHighlightingOnLoad();
+  </script> 
+
+  <style type='text/css'>
+
+    #vulns-alert #vulns{
+      background-color: #c33 ! important;
+      width: 100%;
+      text-align: center;
+   }
+   
+   #vulns-alert #vulns a {
+    color: #F99 ! important;
+   }
+ </style>
+
+</head>
+
+<body id="top" class="module rdocstar">
+<div id='actionbar' >
+<div class='wrapper'>
+  <ul class='grids g0'></ul>
+</div>
+<span id='vulns-alert'></span>
+</div> <!-- end action bar -->
+ <div class='wrapper'>
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+          
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul id='file-metadata'>
+
+          
+          
+          
+          <li class='in-file'>process.c</li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+
+      
+
+      
+      <!-- Namespace Contents -->
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li><span class="type">MODULE</span> <a href="Process/GID.html">Process::GID</a></li>
+          
+          <li><span class="type">MODULE</span> <a href="Process/Sys.html">Process::Sys</a></li>
+          
+          <li><span class="type">MODULE</span> <a href="Process/UID.html">Process::UID</a></li>
+          
+          <li><span class="type">CLASS</span> <a href="Process/Status.html">Process::Status</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-abort">::abort</a></li>
+          
+          <li><a href="#method-c-detach">::detach</a></li>
+          
+          <li><a href="#method-c-egid">::egid</a></li>
+          
+          <li><a href="#method-c-egid-3D">::egid=</a></li>
+          
+          <li><a href="#method-c-euid">::euid</a></li>
+          
+          <li><a href="#method-c-euid-3D">::euid=</a></li>
+          
+          <li><a href="#method-c-exec">::exec</a></li>
+          
+          <li><a href="#method-c-exit">::exit</a></li>
+          
+          <li><a href="#method-c-exit-21">::exit!</a></li>
+          
+          <li><a href="#method-c-fork">::fork</a></li>
+          
+          <li><a href="#method-c-getpgid">::getpgid</a></li>
+          
+          <li><a href="#method-c-getpgrp">::getpgrp</a></li>
+          
+          <li><a href="#method-c-getpriority">::getpriority</a></li>
+          
+          <li><a href="#method-c-getrlimit">::getrlimit</a></li>
+          
+          <li><a href="#method-c-gid">::gid</a></li>
+          
+          <li><a href="#method-c-gid-3D">::gid=</a></li>
+          
+          <li><a href="#method-c-groups">::groups</a></li>
+          
+          <li><a href="#method-c-groups-3D">::groups=</a></li>
+          
+          <li><a href="#method-c-initgroups">::initgroups</a></li>
+          
+          <li><a href="#method-c-kill">::kill</a></li>
+          
+          <li><a href="#method-c-maxgroups">::maxgroups</a></li>
+          
+          <li><a href="#method-c-maxgroups-3D">::maxgroups=</a></li>
+          
+          <li><a href="#method-c-pid">::pid</a></li>
+          
+          <li><a href="#method-c-ppid">::ppid</a></li>
+          
+          <li><a href="#method-c-setpgid">::setpgid</a></li>
+          
+          <li><a href="#method-c-setpgrp">::setpgrp</a></li>
+          
+          <li><a href="#method-c-setpriority">::setpriority</a></li>
+          
+          <li><a href="#method-c-setrlimit">::setrlimit</a></li>
+          
+          <li><a href="#method-c-setsid">::setsid</a></li>
+          
+          <li><a href="#method-c-times">::times</a></li>
+          
+          <li><a href="#method-c-uid">::uid</a></li>
+          
+          <li><a href="#method-c-uid-3D">::uid=</a></li>
+          
+          <li><a href="#method-c-wait">::wait</a></li>
+          
+          <li><a href="#method-c-wait2">::wait2</a></li>
+          
+          <li><a href="#method-c-waitall">::waitall</a></li>
+          
+          <li><a href="#method-c-waitpid">::waitpid</a></li>
+          
+          <li><a href="#method-c-waitpid2">::waitpid2</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+          
+          
+          
+          <li><a href="./ArgumentError.html">ArgumentError</a></li>
+        
+          
+          
+          <li><a href="./Array.html">Array</a></li>
+        
+          
+          
+          <li><a href="./Bignum.html">Bignum</a></li>
+        
+          
+          
+          <li><a href="./Binding.html">Binding</a></li>
+        
+          
+          
+          <li><a href="./Class.html">Class</a></li>
+        
+          
+          
+          <li><a href="./Comparable.html">Comparable</a></li>
+        
+          
+          
+          <li><a href="./Continuation.html">Continuation</a></li>
+        
+          
+          
+          <li><a href="./Data.html">Data</a></li>
+        
+          
+          
+          <li><a href="./Dir.html">Dir</a></li>
+        
+          
+          
+          <li><a href="./EOFError.html">EOFError</a></li>
+        
+          
+          
+          <li><a href="./Enumerable.html">Enumerable</a></li>
+        
+          
+          
+          <li><a href="./Enumerable/Enumerator.html">Enumerable::Enumerator</a></li>
+        
+          
+          
+          <li><a href="./Errno.html">Errno</a></li>
+        
+          
+          
+          <li><a href="./Exception.html">Exception</a></li>
+        
+          
+          
+          <li><a href="./FalseClass.html">FalseClass</a></li>
+        
+          
+          
+          <li><a href="./File.html">File</a></li>
+        
+          
+          
+          <li><a href="./File/Constants.html">File::Constants</a></li>
+        
+          
+          
+          <li><a href="./File/Stat.html">File::Stat</a></li>
+        
+          
+          
+          <li><a href="./FileTest.html">FileTest</a></li>
+        
+          
+          
+          <li><a href="./Fixnum.html">Fixnum</a></li>
+        
+          
+          
+          <li><a href="./Float.html">Float</a></li>
+        
+          
+          
+          <li><a href="./FloatDomainError.html">FloatDomainError</a></li>
+        
+          
+          
+          <li><a href="./GC.html">GC</a></li>
+        
+          
+          
+          <li><a href="./Hash.html">Hash</a></li>
+        
+          
+          
+          <li><a href="./IO.html">IO</a></li>
+        
+          
+          
+          <li><a href="./IOError.html">IOError</a></li>
+        
+          
+          
+          <li><a href="./IndexError.html">IndexError</a></li>
+        
+          
+          
+          <li><a href="./Integer.html">Integer</a></li>
+        
+          
+          
+          <li><a href="./Interrupt.html">Interrupt</a></li>
+        
+          
+          
+          <li><a href="./Kernel.html">Kernel</a></li>
+        
+          
+          
+          <li><a href="./LoadError.html">LoadError</a></li>
+        
+          
+          
+          <li><a href="./LocalJumpError.html">LocalJumpError</a></li>
+        
+          
+          
+          <li><a href="./Marshal.html">Marshal</a></li>
+        
+          
+          
+          <li><a href="./MatchData.html">MatchData</a></li>
+        
+          
+          
+          <li><a href="./Math.html">Math</a></li>
+        
+          
+          
+          <li><a href="./Method.html">Method</a></li>
+        
+          
+          
+          <li><a href="./Module.html">Module</a></li>
+        
+          
+          
+          <li><a href="./NameError.html">NameError</a></li>
+        
+          
+          
+          <li><a href="./NameError/message.html">NameError::message</a></li>
+        
+          
+          
+          <li><a href="./NilClass.html">NilClass</a></li>
+        
+          
+          
+          <li><a href="./NoMemoryError.html">NoMemoryError</a></li>
+        
+          
+          
+          <li><a href="./NoMethodError.html">NoMethodError</a></li>
+        
+          
+          
+          <li><a href="./NotImplementedError.html">NotImplementedError</a></li>
+        
+          
+          
+          <li><a href="./Numeric.html">Numeric</a></li>
+        
+          
+          
+          <li><a href="./Object.html">Object</a></li>
+        
+          
+          
+          <li><a href="./ObjectSpace.html">ObjectSpace</a></li>
+        
+          
+          
+          <li><a href="./Precision.html">Precision</a></li>
+        
+          
+          
+          <li><a href="./Proc.html">Proc</a></li>
+        
+          
+          
+          <li><a href="./Process.html">Process</a></li>
+        
+          
+          
+          <li><a href="./Process/GID.html">Process::GID</a></li>
+        
+          
+          
+          <li><a href="./Process/Status.html">Process::Status</a></li>
+        
+          
+          
+          <li><a href="./Process/Sys.html">Process::Sys</a></li>
+        
+          
+          
+          <li><a href="./Process/UID.html">Process::UID</a></li>
+        
+          
+          
+          <li><a href="./Range.html">Range</a></li>
+        
+          
+          
+          <li><a href="./RangeError.html">RangeError</a></li>
+        
+          
+          
+          <li><a href="./Regexp.html">Regexp</a></li>
+        
+          
+          
+          <li><a href="./RegexpError.html">RegexpError</a></li>
+        
+          
+          
+          <li><a href="./RuntimeError.html">RuntimeError</a></li>
+        
+          
+          
+          <li><a href="./ScriptError.html">ScriptError</a></li>
+        
+          
+          
+          <li><a href="./SecurityError.html">SecurityError</a></li>
+        
+          
+          
+          <li><a href="./Signal.html">Signal</a></li>
+        
+          
+          
+          <li><a href="./SignalException.html">SignalException</a></li>
+        
+          
+          
+          <li><a href="./StandardError.html">StandardError</a></li>
+        
+          
+          
+          <li><a href="./StopIteration.html">StopIteration</a></li>
+        
+          
+          
+          <li><a href="./String.html">String</a></li>
+        
+          
+          
+          <li><a href="./Struct.html">Struct</a></li>
+        
+          
+          
+          <li><a href="./Symbol.html">Symbol</a></li>
+        
+          
+          
+          <li><a href="./SyntaxError.html">SyntaxError</a></li>
+        
+          
+          
+          <li><a href="./SystemCallError.html">SystemCallError</a></li>
+        
+          
+          
+          <li><a href="./SystemExit.html">SystemExit</a></li>
+        
+          
+          
+          <li><a href="./SystemStackError.html">SystemStackError</a></li>
+        
+          
+          
+          <li><a href="./Thread.html">Thread</a></li>
+        
+          
+          
+          <li><a href="./ThreadError.html">ThreadError</a></li>
+        
+          
+          
+          <li><a href="./ThreadGroup.html">ThreadGroup</a></li>
+        
+          
+          
+          <li><a href="./Time.html">Time</a></li>
+        
+          
+          
+          <li><a href="./TrueClass.html">TrueClass</a></li>
+        
+          
+          
+          <li><a href="./TypeError.html">TypeError</a></li>
+        
+          
+          
+          <li><a href="./UnboundMethod.html">UnboundMethod</a></li>
+        
+          
+          
+          <li><a href="./ZeroDivisionError.html">ZeroDivisionError</a></li>
+        
+          
+          
+          <li><a href="./fatal.html">fatal</a></li>
+        
+          
+          
+          <li><a href="./unknown.html">unknown</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div> <!-- metadata -->
+  <div class='adzbox'  id="azk83167">
+    
+  </div> 
+  <div id="documentation">
+    <h1 class="module">Process</h1>
+
+    <div id="description" class="description">
+      
+<p>The <code>Process</code> module is a collection of methods used to
+manipulate processes.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+      <!-- Constants -->
+      <div id="constants-list" class="section">
+        <h3 class="section-header">Constants</h3>
+        <dl>
+        
+          <dt><a name="PRIO_PGRP">PRIO_PGRP</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="PRIO_PROCESS">PRIO_PROCESS</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="PRIO_USER">PRIO_USER</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIMIT_AS">RLIMIT_AS</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIMIT_CORE">RLIMIT_CORE</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIMIT_CPU">RLIMIT_CPU</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIMIT_DATA">RLIMIT_DATA</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIMIT_FSIZE">RLIMIT_FSIZE</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIMIT_MEMLOCK">RLIMIT_MEMLOCK</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIMIT_NOFILE">RLIMIT_NOFILE</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIMIT_NPROC">RLIMIT_NPROC</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIMIT_RSS">RLIMIT_RSS</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIMIT_SBSIZE">RLIMIT_SBSIZE</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIMIT_STACK">RLIMIT_STACK</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIM_INFINITY">RLIM_INFINITY</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIM_SAVED_CUR">RLIM_SAVED_CUR</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RLIM_SAVED_MAX">RLIM_SAVED_MAX</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="WNOHANG">WNOHANG</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="WUNTRACED">WUNTRACED</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+        </dl>
+      </div>
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="abort-method" class="method-detail ">
+          <a name="method-c-abort"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">abort</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">Kernel::abort</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">Process::abort</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Terminate execution immediately, effectively by calling
+<code>Kernel.exit(1)</code>. If <em>msg</em> is given, it is written to
+STDERR prior to terminating.</p>
+            
+
+            
+            <div class="method-source-code" id="abort-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_f_abort(argc, argv)
+    int argc;
+    VALUE *argv;
+{
+    rb_secure(4);
+    if (argc == 0) {
+	if (!NIL_P(ruby_errinfo)) {
+	    error_print();
+	}
+	rb_exit(EXIT_FAILURE);
+    }
+    else {
+	VALUE mesg;
+
+	rb_scan_args(argc, argv, &quot;1&quot;, &amp;mesg);
+	StringValue(mesg);
+	rb_io_puts(1, &amp;mesg, rb_stderr);
+	terminate_process(EXIT_FAILURE, mesg);
+    }
+    return Qnil;		/* not reached */
+}
+            </pre> 
+            </div><!-- abort-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- abort-method -->
+      
+        <div id="detach-method" class="method-detail ">
+          <a name="method-c-detach"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">detach(pid)   => thread</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Some operating systems retain the status of terminated child processes
+until the parent collects that status (normally using some variant of
+<code>wait()</code>. If the parent never collects this status, the child
+stays around as a <em>zombie</em> process. <code>Process::detach</code>
+prevents this by setting up a separate Ruby thread whose sole job is to
+reap the status of the process <em>pid</em> when it terminates. Use
+<code>detach</code> only when you do not intent to explicitly wait for the
+child to terminate.  <code>detach</code> only checks the status
+periodically (currently once each second).</p>
+
+<p>The waiting thread returns the exit status of the detached process when it
+terminates, so you can use <code>Thread#join</code> to know the result.  If
+specified <em>pid</em> is not a valid child process ID, the thread returns
+<code>nil</code> immediately.</p>
+
+<p>In this first example, we don’t reap the first child process, so it appears
+as a zombie in the process status display.</p>
+
+<pre>p1 = fork { sleep 0.1 }
+p2 = fork { sleep 0.2 }
+Process.waitpid(p2)
+sleep 2
+system(&quot;ps -ho pid,state -p #{p1}&quot;)</pre>
+
+<p><em>produces:</em></p>
+
+<pre>27389 Z</pre>
+
+<p>In the next example, <code>Process::detach</code> is used to reap the child
+automatically.</p>
+
+<pre>p1 = fork { sleep 0.1 }
+p2 = fork { sleep 0.2 }
+Process.detach(p1)
+Process.waitpid(p2)
+sleep 2
+system(&quot;ps -ho pid,state -p #{p1}&quot;)</pre>
+
+<p><em>(produces no output)</em></p>
+            
+
+            
+            <div class="method-source-code" id="detach-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_detach(VALUE obj, VALUE pid)
+{
+    rb_secure(2);
+    return rb_detach_process(NUM2INT(pid));
+}
+            </pre> 
+            </div><!-- detach-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- detach-method -->
+      
+        <div id="egid-method" class="method-detail ">
+          <a name="method-c-egid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">egid          => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">Process::GID.eid      => fixnum</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">Process::Sys.geteid   => fixnum</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the effective group ID for this process. Not available on all
+platforms.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">egid</span>   <span class="ruby-comment">#=&gt; 500</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="egid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_getegid(obj)
+    VALUE obj;
+{
+    int egid = getegid();
+
+    return INT2FIX(egid);
+}
+            </pre> 
+            </div><!-- egid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- egid-method -->
+      
+        <div id="egid-3D-method" class="method-detail ">
+          <a name="method-c-egid-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">egid = fixnum   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Sets the effective group ID for this process. Not available on all
+platforms.</p>
+            
+
+            
+            <div class="method-source-code" id="egid-3D-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_setegid(obj, egid)
+    VALUE obj, egid;
+{
+    check_gid_switch();
+
+#if defined(HAVE_SETRESGID) &amp;&amp; !defined(__CHECKER__)
+    if (setresgid(-1, NUM2INT(egid), -1) &lt; 0) rb_sys_fail(0);
+#elif defined HAVE_SETREGID
+    if (setregid(-1, NUM2INT(egid)) &lt; 0) rb_sys_fail(0);
+#elif defined HAVE_SETEGID
+    if (setegid(NUM2INT(egid)) &lt; 0) rb_sys_fail(0);
+#elif defined HAVE_SETGID
+    egid = NUM2INT(egid);
+    if (egid == getgid()) {
+        if (setgid(egid) &lt; 0) rb_sys_fail(0);
+    }
+    else {
+        rb_notimplement();
+    }
+#else
+    rb_notimplement();
+#endif
+    return egid;
+}
+            </pre> 
+            </div><!-- egid-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- egid-3D-method -->
+      
+        <div id="euid-method" class="method-detail ">
+          <a name="method-c-euid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">euid           => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">Process::UID.eid       => fixnum</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">Process::Sys.geteuid   => fixnum</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the effective user ID for this process.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">euid</span>   <span class="ruby-comment">#=&gt; 501</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="euid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_geteuid(obj)
+    VALUE obj;
+{
+    int euid = geteuid();
+    return INT2FIX(euid);
+}
+            </pre> 
+            </div><!-- euid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- euid-method -->
+      
+        <div id="euid-3D-method" class="method-detail ">
+          <a name="method-c-euid-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">euid= integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Sets the effective user ID for this process. Not available on all
+platforms.</p>
+            
+
+            
+            <div class="method-source-code" id="euid-3D-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_seteuid(obj, euid)
+    VALUE obj, euid;
+{
+    check_uid_switch();
+#if defined(HAVE_SETRESUID) &amp;&amp; !defined(__CHECKER__)
+    if (setresuid(-1, NUM2INT(euid), -1) &lt; 0) rb_sys_fail(0);
+#elif defined HAVE_SETREUID
+    if (setreuid(-1, NUM2INT(euid)) &lt; 0) rb_sys_fail(0);
+#elif defined HAVE_SETEUID
+    if (seteuid(NUM2INT(euid)) &lt; 0) rb_sys_fail(0);
+#elif defined HAVE_SETUID
+    euid = NUM2INT(euid);
+    if (euid == getuid()) {
+        if (setuid(euid) &lt; 0) rb_sys_fail(0);
+    }
+    else {
+        rb_notimplement();
+    }
+#else
+    rb_notimplement();
+#endif
+    return euid;
+}
+            </pre> 
+            </div><!-- euid-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- euid-3D-method -->
+      
+        <div id="exec-method" class="method-detail ">
+          <a name="method-c-exec"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">exec(command [, arg, ...])</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Replaces the current process by running the given external
+<em>command</em>. If <code>exec</code> is given a single argument, that
+argument is taken as a line that is subject to shell expansion before being
+executed. If multiple arguments are given, the second and subsequent
+arguments are passed as parameters to <em>command</em> with no shell
+expansion. If the first argument is a two-element array, the first element
+is the command to be executed, and the second argument is used as the
+<code>argv[0]</code> value, which may show up in process listings. In MSDOS
+environments, the command is executed in a subshell; otherwise, one of the
+<code>exec(2)</code> system calls is used, so the running command may
+inherit some of the environment of the original program (including open
+file descriptors).</p>
+
+<pre>exec &quot;echo *&quot;       # echoes list of files in current directory
+# never get here
+
+exec &quot;echo&quot;, &quot;*&quot;    # echoes an asterisk
+# never get here</pre>
+            
+
+            
+            <div class="method-source-code" id="exec-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_f_exec(argc, argv)
+    int argc;
+    VALUE *argv;
+{
+    VALUE prog = 0;
+    VALUE tmp;
+    struct rb_exec_arg earg;
+
+    if (argc == 0) {
+        rb_last_status = Qnil;
+        rb_raise(rb_eArgError, &quot;wrong number of arguments&quot;);
+    }
+
+    tmp = rb_check_array_type(argv[0]);
+    if (!NIL_P(tmp)) {
+        if (RARRAY(tmp)-&gt;len != 2) {
+            rb_raise(rb_eArgError, &quot;wrong first argument&quot;);
+        }
+        prog = RARRAY(tmp)-&gt;ptr[0];
+        argv[0] = RARRAY(tmp)-&gt;ptr[1];
+        SafeStringValue(prog);
+    }
+    proc_prepare_args(&amp;earg, argc, argv, prog);
+    proc_exec_args((VALUE)&amp;earg);
+    rb_sys_fail(RSTRING(argv[0])-&gt;ptr);
+    return Qnil;                /* dummy */
+}
+            </pre> 
+            </div><!-- exec-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- exec-method -->
+      
+        <div id="exit-method" class="method-detail ">
+          <a name="method-c-exit"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">exit(integer=0)</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">Kernel::exit(integer=0)</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">Process::exit(integer=0)</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Initiates the termination of the Ruby script by raising the
+<code>SystemExit</code> exception. This exception may be caught. The
+optional parameter is used to return a status code to the invoking
+environment.</p>
+
+<pre>begin
+  exit
+  puts &quot;never get here&quot;
+rescue SystemExit
+  puts &quot;rescued a SystemExit exception&quot;
+end
+puts &quot;after begin block&quot;</pre>
+
+<p><em>produces:</em></p>
+
+<pre>rescued a SystemExit exception
+after begin block</pre>
+
+<p>Just prior to termination, Ruby executes any <code>at_exit</code> functions
+(see Kernel::at_exit) and runs any object finalizers (see <a
+href="ObjectSpace.html#method-c-define_finalizer">ObjectSpace.define_finalizer</a>).</p>
+
+<pre>at_exit { puts &quot;at_exit function&quot; }
+ObjectSpace.define_finalizer(&quot;string&quot;,  proc { puts &quot;in finalizer&quot; })
+exit</pre>
+
+<p><em>produces:</em></p>
+
+<pre>at_exit function
+in finalizer</pre>
+            
+
+            
+            <div class="method-source-code" id="exit-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_f_exit(argc, argv)
+    int argc;
+    VALUE *argv;
+{
+    VALUE status;
+    int istatus;
+
+    rb_secure(4);
+    if (rb_scan_args(argc, argv, &quot;01&quot;, &amp;status) == 1) {
+	switch (status) {
+	  case Qtrue:
+	    istatus = EXIT_SUCCESS;
+	    break;
+	  case Qfalse:
+	    istatus = EXIT_FAILURE;
+	    break;
+	  default:
+	    istatus = NUM2INT(status);
+#if EXIT_SUCCESS != 0
+	    if (istatus == 0) istatus = EXIT_SUCCESS;
+#endif
+	    break;
+	}
+    }
+    else {
+	istatus = EXIT_SUCCESS;
+    }
+    rb_exit(istatus);
+    return Qnil;		/* not reached */
+}
+            </pre> 
+            </div><!-- exit-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- exit-method -->
+      
+        <div id="exit-21-method" class="method-detail ">
+          <a name="method-c-exit-21"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">exit!(fixnum=-1)</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Exits the process immediately. No exit handlers are run. <em>fixnum</em> is
+returned to the underlying system as the exit status.</p>
+
+<pre>Process.exit!(0)</pre>
+            
+
+            
+            <div class="method-source-code" id="exit-21-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_f_exit_bang(argc, argv, obj)
+    int argc;
+    VALUE *argv;
+    VALUE obj;
+{
+    VALUE status;
+    int istatus;
+
+    rb_secure(4);
+    if (rb_scan_args(argc, argv, &quot;01&quot;, &amp;status) == 1) {
+        switch (status) {
+          case Qtrue:
+            istatus = EXIT_SUCCESS;
+            break;
+          case Qfalse:
+            istatus = EXIT_FAILURE;
+            break;
+          default:
+            istatus = NUM2INT(status);
+            break;
+        }
+    }
+    else {
+        istatus = EXIT_FAILURE;
+    }
+    _exit(istatus);
+
+    return Qnil;                /* not reached */
+}
+            </pre> 
+            </div><!-- exit-21-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- exit-21-method -->
+      
+        <div id="fork-method" class="method-detail ">
+          <a name="method-c-fork"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">fork  [{ block }]   => fixnum or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">fork [{ block }]   => fixnum or nil</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Creates a subprocess. If a block is specified, that block is run in the
+subprocess, and the subprocess terminates with a status of zero. Otherwise,
+the <code>fork</code> call returns twice, once in the parent, returning the
+process ID of the child, and once in the child, returning <em>nil</em>. The
+child process can exit using <code>Kernel.exit!</code> to avoid running any
+<code>at_exit</code> functions. The parent process should use
+<code>Process.wait</code> to collect the termination statuses of its
+children or use <code>Process.detach</code> to register disinterest in
+their status; otherwise, the operating system may accumulate zombie
+processes.</p>
+
+<p>The thread calling fork is the only thread in the created child process.
+fork doesn’t copy other threads.</p>
+            
+
+            
+            <div class="method-source-code" id="fork-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_f_fork(obj)
+    VALUE obj;
+{
+#if !defined(__human68k__) &amp;&amp; !defined(_WIN32) &amp;&amp; !defined(__MACOS__) &amp;&amp; !defined(__EMX__) &amp;&amp; !defined(__VMS)
+    int pid;
+
+    rb_secure(2);
+
+#ifndef __VMS
+    fflush(stdout);
+    fflush(stderr);
+#endif
+
+    before_exec();
+    pid = fork();
+    after_exec();
+
+    switch (pid) {
+      case 0:
+#ifdef linux
+        after_exec();
+#endif
+        rb_thread_atfork();
+        if (rb_block_given_p()) {
+            int status;
+
+            rb_protect(rb_yield, Qundef, &amp;status);
+            ruby_stop(status);
+        }
+        return Qnil;
+
+      case -1:
+        rb_sys_fail(&quot;fork(2)&quot;);
+        return Qnil;
+
+      default:
+        return INT2FIX(pid);
+    }
+#else
+    rb_notimplement();
+#endif
+}
+            </pre> 
+            </div><!-- fork-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- fork-method -->
+      
+        <div id="getpgid-method" class="method-detail ">
+          <a name="method-c-getpgid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">getpgid(pid)   => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the process group ID for the given process id. Not available on all
+platforms.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">getpgid</span>(<span class="ruby-constant">Process</span>.<span class="ruby-identifier">ppid</span>())   <span class="ruby-comment">#=&gt; 25527</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="getpgid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_getpgid(obj, pid)
+    VALUE obj, pid;
+{
+#if defined(HAVE_GETPGID) &amp;&amp; !defined(__CHECKER__)
+    int i;
+
+    rb_secure(2);
+    i = getpgid(NUM2INT(pid));
+    if (i &lt; 0) rb_sys_fail(0);
+    return INT2NUM(i);
+#else
+    rb_notimplement();
+#endif
+}
+            </pre> 
+            </div><!-- getpgid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- getpgid-method -->
+      
+        <div id="getpgrp-method" class="method-detail ">
+          <a name="method-c-getpgrp"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">getpgrp   => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the process group ID for this process. Not available on all
+platforms.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">getpgid</span>(<span class="ruby-value">0</span>)   <span class="ruby-comment">#=&gt; 25527</span>
+<span class="ruby-constant">Process</span>.<span class="ruby-identifier">getpgrp</span>      <span class="ruby-comment">#=&gt; 25527</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="getpgrp-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_getpgrp()
+{
+#if defined(HAVE_GETPGRP) &amp;&amp; defined(GETPGRP_VOID)
+    int pgrp;
+#endif
+
+    rb_secure(2);
+#if defined(HAVE_GETPGRP) &amp;&amp; defined(GETPGRP_VOID)
+    pgrp = getpgrp();
+    if (pgrp &lt; 0) rb_sys_fail(0);
+    return INT2FIX(pgrp);
+#else
+# ifdef HAVE_GETPGID
+    pgrp = getpgid(0);
+    if (pgrp &lt; 0) rb_sys_fail(0);
+    return INT2FIX(pgrp);
+# else
+    rb_notimplement();
+# endif
+#endif
+}
+            </pre> 
+            </div><!-- getpgrp-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- getpgrp-method -->
+      
+        <div id="getpriority-method" class="method-detail ">
+          <a name="method-c-getpriority"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">getpriority(kind, integer)   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Gets the scheduling priority for specified process, process group, or user.
+<em>kind</em> indicates the kind of entity to find: one of
+<code>Process::PRIO_PGRP</code>, <code>Process::PRIO_USER</code>, or
+<code>Process::PRIO_PROCESS</code>. <em>integer</em> is an id indicating
+the particular process, process group, or user (an id of 0 means
+<em>current</em>). Lower priorities are more favorable for scheduling. Not
+available on all platforms.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">getpriority</span>(<span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIO_USER</span>, <span class="ruby-value">0</span>)      <span class="ruby-comment">#=&gt; 19</span>
+<span class="ruby-constant">Process</span>.<span class="ruby-identifier">getpriority</span>(<span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIO_PROCESS</span>, <span class="ruby-value">0</span>)   <span class="ruby-comment">#=&gt; 19</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="getpriority-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_getpriority(obj, which, who)
+    VALUE obj, which, who;
+{
+#ifdef HAVE_GETPRIORITY
+    int prio, iwhich, iwho;
+
+    rb_secure(2);
+    iwhich = NUM2INT(which);
+    iwho   = NUM2INT(who);
+
+    errno = 0;
+    prio = getpriority(iwhich, iwho);
+    if (errno) rb_sys_fail(0);
+    return INT2FIX(prio);
+#else
+    rb_notimplement();
+#endif
+}
+            </pre> 
+            </div><!-- getpriority-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- getpriority-method -->
+      
+        <div id="getrlimit-method" class="method-detail ">
+          <a name="method-c-getrlimit"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">getrlimit(resource)   => [cur_limit, max_limit]</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Gets the resource limit of the process. <em>cur_limit</em> means current
+(soft) limit and <em>max_limit</em> means maximum (hard) limit.</p>
+
+<p><em>resource</em> indicates the kind of resource to limit: such as
+<code>Process::RLIMIT_CORE</code>, <code>Process::RLIMIT_CPU</code>, etc.
+See <a href="Process.html#method-c-setrlimit">::setrlimit</a> for details.</p>
+
+<p><em>cur_limit</em> and <em>max_limit</em> may be
+<code>Process::RLIM_INFINITY</code>, <code>Process::RLIM_SAVED_MAX</code>
+or <code>Process::RLIM_SAVED_CUR</code>. See <a
+href="Process.html#method-c-setrlimit">::setrlimit</a> and the system
+getrlimit(2) manual for details.</p>
+            
+
+            
+            <div class="method-source-code" id="getrlimit-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_getrlimit(VALUE obj, VALUE resource)
+{
+#if defined(HAVE_GETRLIMIT) &amp;&amp; defined(RLIM2NUM)
+    struct rlimit rlim;
+
+    rb_secure(2);
+
+    if (getrlimit(NUM2INT(resource), &amp;rlim) &lt; 0) {
+        rb_sys_fail(&quot;getrlimit&quot;);
+    }
+    return rb_assoc_new(RLIM2NUM(rlim.rlim_cur), RLIM2NUM(rlim.rlim_max));
+#else
+    rb_notimplement();
+#endif
+}
+            </pre> 
+            </div><!-- getrlimit-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- getrlimit-method -->
+      
+        <div id="gid-method" class="method-detail ">
+          <a name="method-c-gid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">gid           => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">Process::GID.rid      => fixnum</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">Process::Sys.getgid   => fixnum</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the (real) group ID for this process.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">gid</span>   <span class="ruby-comment">#=&gt; 500</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="gid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_getgid(obj)
+    VALUE obj;
+{
+    int gid = getgid();
+    return INT2FIX(gid);
+}
+            </pre> 
+            </div><!-- gid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- gid-method -->
+      
+        <div id="gid-3D-method" class="method-detail ">
+          <a name="method-c-gid-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">gid= fixnum   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Sets the group ID for this process.</p>
+            
+
+            
+            <div class="method-source-code" id="gid-3D-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_setgid(obj, id)
+    VALUE obj, id;
+{
+    int gid = NUM2INT(id);
+
+    check_gid_switch();
+#if defined(HAVE_SETRESGID) &amp;&amp; !defined(__CHECKER__)
+    if (setresgid(gid, -1, -1) &lt; 0) rb_sys_fail(0);
+#elif defined HAVE_SETREGID
+    if (setregid(gid, -1) &lt; 0) rb_sys_fail(0);
+#elif defined HAVE_SETRGID
+    if (setrgid(gid) &lt; 0) rb_sys_fail(0);
+#elif defined HAVE_SETGID
+    {
+        if (getegid() == gid) {
+            if (setgid(gid) &lt; 0) rb_sys_fail(0);
+        }
+        else {
+            rb_notimplement();
+        }
+    }
+#else
+    rb_notimplement();
+#endif
+    return INT2FIX(gid);
+}
+            </pre> 
+            </div><!-- gid-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- gid-3D-method -->
+      
+        <div id="groups-method" class="method-detail ">
+          <a name="method-c-groups"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">groups   => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Get an <code>Array</code> of the gids of groups in the supplemental group
+access list for this process.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">groups</span>   <span class="ruby-comment">#=&gt; [27, 6, 10, 11]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="groups-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_getgroups(VALUE obj)
+{
+#ifdef HAVE_GETGROUPS
+    VALUE ary;
+    size_t ngroups;
+    rb_gid_t *groups;
+    int i;
+
+    groups = ALLOCA_N(rb_gid_t, maxgroups);
+
+    ngroups = getgroups(maxgroups, groups);
+    if (ngroups == -1)
+        rb_sys_fail(0);
+
+    ary = rb_ary_new();
+    for (i = 0; i &lt; ngroups; i++)
+        rb_ary_push(ary, INT2NUM(groups[i]));
+
+    return ary;
+#else
+    rb_notimplement();
+    return Qnil;
+#endif
+}
+            </pre> 
+            </div><!-- groups-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- groups-method -->
+      
+        <div id="groups-3D-method" class="method-detail ">
+          <a name="method-c-groups-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">groups= array   => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Set the supplemental group access list to the given <code>Array</code> of
+group IDs.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">groups</span>   <span class="ruby-comment">#=&gt; [0, 1, 2, 3, 4, 6, 10, 11, 20, 26, 27]</span>
+<span class="ruby-constant">Process</span>.<span class="ruby-identifier">groups</span> = [<span class="ruby-value">27</span>, <span class="ruby-value">6</span>, <span class="ruby-value">10</span>, <span class="ruby-value">11</span>]   <span class="ruby-comment">#=&gt; [27, 6, 10, 11]</span>
+<span class="ruby-constant">Process</span>.<span class="ruby-identifier">groups</span>   <span class="ruby-comment">#=&gt; [27, 6, 10, 11]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="groups-3D-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_setgroups(VALUE obj, VALUE ary)
+{
+#ifdef HAVE_SETGROUPS
+    size_t ngroups;
+    rb_gid_t *groups;
+    int i;
+    struct group *gr;
+
+    Check_Type(ary, T_ARRAY);
+
+    ngroups = RARRAY(ary)-&gt;len;
+    if (ngroups &gt; maxgroups)
+        rb_raise(rb_eArgError, &quot;too many groups, %d max&quot;, maxgroups);
+
+    groups = ALLOCA_N(rb_gid_t, ngroups);
+
+    for (i = 0; i &lt; ngroups &amp;&amp; i &lt; RARRAY(ary)-&gt;len; i++) {
+        VALUE g = RARRAY(ary)-&gt;ptr[i];
+
+        if (FIXNUM_P(g)) {
+            groups[i] = FIX2INT(g);
+        }
+        else {
+            VALUE tmp = rb_check_string_type(g);
+
+            if (NIL_P(tmp)) {
+                groups[i] = NUM2INT(g);
+            }
+            else {
+                gr = getgrnam(RSTRING(tmp)-&gt;ptr);
+                if (gr == NULL)
+                    rb_raise(rb_eArgError,
+                             &quot;can't find group for %s&quot;, RSTRING(tmp)-&gt;ptr);
+                groups[i] = gr-&gt;gr_gid;
+            }
+        }
+    }
+
+    i = setgroups(ngroups, groups);
+    if (i == -1)
+        rb_sys_fail(0);
+
+    return proc_getgroups(obj);
+#else
+    rb_notimplement();
+    return Qnil;
+#endif
+}
+            </pre> 
+            </div><!-- groups-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- groups-3D-method -->
+      
+        <div id="initgroups-method" class="method-detail ">
+          <a name="method-c-initgroups"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">initgroups(username, gid)   => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Initializes the supplemental group access list by reading the system group
+database and using all groups of which the given user is a member. The
+group with the specified <em>gid</em> is also added to the list. Returns
+the resulting <code>Array</code> of the gids of all the groups in the
+supplementary group access list. Not available on all platforms.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">groups</span>   <span class="ruby-comment">#=&gt; [0, 1, 2, 3, 4, 6, 10, 11, 20, 26, 27]</span>
+<span class="ruby-constant">Process</span>.<span class="ruby-identifier">initgroups</span>( <span class="ruby-string">&quot;mgranger&quot;</span>, <span class="ruby-value">30</span> )   <span class="ruby-comment">#=&gt; [30, 6, 10, 11]</span>
+<span class="ruby-constant">Process</span>.<span class="ruby-identifier">groups</span>   <span class="ruby-comment">#=&gt; [30, 6, 10, 11]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="initgroups-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_initgroups(obj, uname, base_grp)
+    VALUE obj, uname, base_grp;
+{
+#ifdef HAVE_INITGROUPS
+    if (initgroups(StringValuePtr(uname), (rb_gid_t)NUM2INT(base_grp)) != 0) {
+        rb_sys_fail(0);
+    }
+    return proc_getgroups(obj);
+#else
+    rb_notimplement();
+    return Qnil;
+#endif
+}
+            </pre> 
+            </div><!-- initgroups-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- initgroups-method -->
+      
+        <div id="kill-method" class="method-detail ">
+          <a name="method-c-kill"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">kill(signal, pid, ...)    => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Sends the given signal to the specified process id(s), or to the current
+process if <em>pid</em> is zero. <em>signal</em> may be an integer signal
+number or a POSIX signal name (either with or without a <code>SIG</code>
+prefix). If <em>signal</em> is negative (or starts with a minus sign),
+kills process groups instead of processes. Not all signals are available on
+all platforms.</p>
+
+<pre>pid = fork do
+   Signal.trap(&quot;HUP&quot;) { puts &quot;Ouch!&quot;; exit }
+   # ... do some work ...
+end
+# ...
+Process.kill(&quot;HUP&quot;, pid)
+Process.wait</pre>
+
+<p><em>produces:</em></p>
+
+<pre>Ouch!</pre>
+            
+
+            
+            <div class="method-source-code" id="kill-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_f_kill(argc, argv)
+    int argc;
+    VALUE *argv;
+{
+    int negative = 0;
+    int sig;
+    int i;
+    const char *s;
+
+    rb_secure(2);
+    if (argc &lt; 2)
+	rb_raise(rb_eArgError, &quot;wrong number of arguments -- kill(sig, pid...)&quot;);
+    switch (TYPE(argv[0])) {
+      case T_FIXNUM:
+	sig = FIX2INT(argv[0]);
+	break;
+
+      case T_SYMBOL:
+	s = rb_id2name(SYM2ID(argv[0]));
+	if (!s) rb_raise(rb_eArgError, &quot;bad signal&quot;);
+	goto str_signal;
+
+      case T_STRING:
+	s = RSTRING(argv[0])-&gt;ptr;
+	if (s[0] == '-') {
+	    negative++;
+	    s++;
+	}
+      str_signal:
+	if (strncmp(&quot;SIG&quot;, s, 3) == 0)
+	    s += 3;
+	if((sig = signm2signo(s)) == 0)
+	    rb_raise(rb_eArgError, &quot;unsupported name `SIG%s'&quot;, s);
+
+	if (negative)
+	    sig = -sig;
+	break;
+
+      default:
+        {
+	    VALUE str;
+
+	    str = rb_check_string_type(argv[0]);
+	    if (!NIL_P(str)) {
+		s = RSTRING(str)-&gt;ptr;
+		goto str_signal;
+	    }
+	    rb_raise(rb_eArgError, &quot;bad signal type %s&quot;,
+		     rb_obj_classname(argv[0]));
+	}
+	break;
+    }
+
+    if (sig &lt; 0) {
+	sig = -sig;
+	for (i=1; i&lt;argc; i++) {
+	    int pid = NUM2INT(argv[i]);
+#ifdef HAS_KILLPG
+	    if (killpg(pid, sig) &lt; 0)
+#else
+	    if (kill(-pid, sig) &lt; 0)
+#endif
+		rb_sys_fail(0);
+	}
+    }
+    else {
+	for (i=1; i&lt;argc; i++) {
+	    Check_Type(argv[i], T_FIXNUM);
+	    if (kill(FIX2INT(argv[i]), sig) &lt; 0)
+		rb_sys_fail(0);
+	}
+    }
+    return INT2FIX(i-1);
+}
+            </pre> 
+            </div><!-- kill-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- kill-method -->
+      
+        <div id="maxgroups-method" class="method-detail ">
+          <a name="method-c-maxgroups"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">maxgroups   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the maximum number of gids allowed in the supplemental group access
+list.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">maxgroups</span>   <span class="ruby-comment">#=&gt; 32</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="maxgroups-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_getmaxgroups(obj)
+    VALUE obj;
+{
+    return INT2FIX(maxgroups);
+}
+            </pre> 
+            </div><!-- maxgroups-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- maxgroups-method -->
+      
+        <div id="maxgroups-3D-method" class="method-detail ">
+          <a name="method-c-maxgroups-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">maxgroups= fixnum   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Sets the maximum number of gids allowed in the supplemental group access
+list.</p>
+            
+
+            
+            <div class="method-source-code" id="maxgroups-3D-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_setmaxgroups(VALUE obj, VALUE val)
+{
+    size_t  ngroups = FIX2INT(val);
+
+    if (ngroups &gt; 4096)
+        ngroups = 4096;
+
+    maxgroups = ngroups;
+
+    return INT2FIX(maxgroups);
+}
+            </pre> 
+            </div><!-- maxgroups-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- maxgroups-3D-method -->
+      
+        <div id="pid-method" class="method-detail ">
+          <a name="method-c-pid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">pid   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the process id of this process. Not available on all platforms.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">pid</span>   <span class="ruby-comment">#=&gt; 27415</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="pid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+get_pid()
+{
+    rb_secure(2);
+    return INT2FIX(getpid());
+}
+            </pre> 
+            </div><!-- pid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- pid-method -->
+      
+        <div id="ppid-method" class="method-detail ">
+          <a name="method-c-ppid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">ppid   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the process id of the parent of this process. Always returns 0 on
+NT. Not available on all platforms.</p>
+
+<pre>puts &quot;I am #{Process.pid}&quot;
+Process.fork { puts &quot;Dad is #{Process.ppid}&quot; }</pre>
+
+<p><em>produces:</em></p>
+
+<pre>I am 27417
+Dad is 27417</pre>
+            
+
+            
+            <div class="method-source-code" id="ppid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+get_ppid()
+{
+    rb_secure(2);
+#ifdef _WIN32
+    return INT2FIX(0);
+#else
+    return INT2FIX(getppid());
+#endif
+}
+            </pre> 
+            </div><!-- ppid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ppid-method -->
+      
+        <div id="setpgid-method" class="method-detail ">
+          <a name="method-c-setpgid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">setpgid(pid, integer)   => 0</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Sets the process group ID of <em>pid</em> (0 indicates this process) to
+<em>integer</em>. Not available on all platforms.</p>
+            
+
+            
+            <div class="method-source-code" id="setpgid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_setpgid(obj, pid, pgrp)
+    VALUE obj, pid, pgrp;
+{
+#ifdef HAVE_SETPGID
+    int ipid, ipgrp;
+
+    rb_secure(2);
+    ipid = NUM2INT(pid);
+    ipgrp = NUM2INT(pgrp);
+
+    if (setpgid(ipid, ipgrp) &lt; 0) rb_sys_fail(0);
+    return INT2FIX(0);
+#else
+    rb_notimplement();
+#endif
+}
+            </pre> 
+            </div><!-- setpgid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- setpgid-method -->
+      
+        <div id="setpgrp-method" class="method-detail ">
+          <a name="method-c-setpgrp"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">setpgrp   => 0</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Equivalent to <code>setpgid(0,0)</code>. Not available on all platforms.</p>
+            
+
+            
+            <div class="method-source-code" id="setpgrp-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_setpgrp()
+{
+    rb_secure(2);
+  /* check for posix setpgid() first; this matches the posix */
+  /* getpgrp() above.  It appears that configure will set SETPGRP_VOID */
+  /* even though setpgrp(0,0) would be prefered. The posix call avoids */
+  /* this confusion. */
+#ifdef HAVE_SETPGID
+    if (setpgid(0,0) &lt; 0) rb_sys_fail(0);
+#elif defined(HAVE_SETPGRP) &amp;&amp; defined(SETPGRP_VOID)
+    if (setpgrp() &lt; 0) rb_sys_fail(0);
+#else
+    rb_notimplement();
+#endif
+    return INT2FIX(0);
+}
+            </pre> 
+            </div><!-- setpgrp-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- setpgrp-method -->
+      
+        <div id="setpriority-method" class="method-detail ">
+          <a name="method-c-setpriority"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">setpriority(kind, integer, priority)   => 0</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>See <code>Process#getpriority</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">setpriority</span>(<span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIO_USER</span>, <span class="ruby-value">0</span>, <span class="ruby-value">19</span>)      <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-constant">Process</span>.<span class="ruby-identifier">setpriority</span>(<span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIO_PROCESS</span>, <span class="ruby-value">0</span>, <span class="ruby-value">19</span>)   <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-constant">Process</span>.<span class="ruby-identifier">getpriority</span>(<span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIO_USER</span>, <span class="ruby-value">0</span>)          <span class="ruby-comment">#=&gt; 19</span>
+<span class="ruby-constant">Process</span>.<span class="ruby-identifier">getpriority</span>(<span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIO_PROCESS</span>, <span class="ruby-value">0</span>)       <span class="ruby-comment">#=&gt; 19</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="setpriority-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_setpriority(obj, which, who, prio)
+    VALUE obj, which, who, prio;
+{
+#ifdef HAVE_GETPRIORITY
+    int iwhich, iwho, iprio;
+
+    rb_secure(2);
+    iwhich = NUM2INT(which);
+    iwho   = NUM2INT(who);
+    iprio  = NUM2INT(prio);
+
+    if (setpriority(iwhich, iwho, iprio) &lt; 0)
+        rb_sys_fail(0);
+    return INT2FIX(0);
+#else
+    rb_notimplement();
+#endif
+}
+            </pre> 
+            </div><!-- setpriority-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- setpriority-method -->
+      
+        <div id="setrlimit-method" class="method-detail ">
+          <a name="method-c-setrlimit"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">setrlimit(resource, cur_limit, max_limit)        => nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">setrlimit(resource, cur_limit)                   => nil</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Sets the resource limit of the process. <em>cur_limit</em> means current
+(soft) limit and <em>max_limit</em> means maximum (hard) limit.</p>
+
+<p>If <em>max_limit</em> is not given, <em>cur_limit</em> is used.</p>
+
+<p><em>resource</em> indicates the kind of resource to limit. The list of
+resources are OS dependent. Ruby may support following resources.</p>
+<dl class="rdoc-list label-list"><dt>Process::RLIMIT_CORE
+<dd>
+<p>core size (bytes) (SUSv3)</p>
+</dd><dt>Process::RLIMIT_CPU
+<dd>
+<p>CPU time (seconds) (SUSv3)</p>
+</dd><dt>Process::RLIMIT_DATA
+<dd>
+<p>data segment (bytes) (SUSv3)</p>
+</dd><dt>Process::RLIMIT_FSIZE
+<dd>
+<p>file size (bytes) (SUSv3)</p>
+</dd><dt>Process::RLIMIT_NOFILE
+<dd>
+<p>file descriptors (number) (SUSv3)</p>
+</dd><dt>Process::RLIMIT_STACK
+<dd>
+<p>stack size (bytes) (SUSv3)</p>
+</dd><dt>Process::RLIMIT_AS
+<dd>
+<p>total available memory (bytes) (SUSv3, NetBSD, FreeBSD, OpenBSD but
+4.4BSD-Lite)</p>
+</dd><dt>Process::RLIMIT_MEMLOCK
+<dd>
+<p>total size for mlock(2) (bytes) (4.4BSD, GNU/Linux)</p>
+</dd><dt>Process::RLIMIT_NPROC
+<dd>
+<p>number of processes for the user (number) (4.4BSD, GNU/Linux)</p>
+</dd><dt>Process::RLIMIT_RSS
+<dd>
+<p>resident memory size (bytes) (4.2BSD, GNU/Linux)</p>
+</dd><dt>Process::RLIMIT_SBSIZE
+<dd>
+<p>all socket buffers (bytes) (NetBSD, FreeBSD)</p>
+</dd></dl>
+
+<p>Other <code>Process::RLIMIT_???</code> constants may be defined.</p>
+
+<p><em>cur_limit</em> and <em>max_limit</em> may be
+<code>Process::RLIM_INFINITY</code>, which means that the resource is not
+limited. They may be <code>Process::RLIM_SAVED_MAX</code> or
+<code>Process::RLIM_SAVED_CUR</code> too. See system setrlimit(2) manual
+for details.</p>
+            
+
+            
+            <div class="method-source-code" id="setrlimit-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_setrlimit(int argc, VALUE *argv, VALUE obj)
+{
+#if defined(HAVE_SETRLIMIT) &amp;&amp; defined(NUM2RLIM)
+    VALUE resource, rlim_cur, rlim_max;
+    struct rlimit rlim;
+
+    rb_secure(2);
+
+    rb_scan_args(argc, argv, &quot;21&quot;, &amp;resource, &amp;rlim_cur, &amp;rlim_max);
+    if (rlim_max == Qnil)
+        rlim_max = rlim_cur;
+
+    rlim.rlim_cur = NUM2RLIM(rlim_cur);
+    rlim.rlim_max = NUM2RLIM(rlim_max);
+
+    if (setrlimit(NUM2INT(resource), &amp;rlim) &lt; 0) {
+        rb_sys_fail(&quot;setrlimit&quot;);
+    }
+    return Qnil;
+#else
+    rb_notimplement();
+#endif
+}
+            </pre> 
+            </div><!-- setrlimit-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- setrlimit-method -->
+      
+        <div id="setsid-method" class="method-detail ">
+          <a name="method-c-setsid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">setsid   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Establishes this process as a new session and process group leader, with no
+controlling tty. Returns the session id. Not available on all platforms.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">setsid</span>   <span class="ruby-comment">#=&gt; 27422</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="setsid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_setsid()
+{
+#if defined(HAVE_SETSID)
+    int pid;
+
+    rb_secure(2);
+    pid = setsid();
+    if (pid &lt; 0) rb_sys_fail(0);
+    return INT2FIX(pid);
+#elif defined(HAVE_SETPGRP) &amp;&amp; defined(TIOCNOTTY)
+  rb_pid_t pid;
+  int ret;
+
+  rb_secure(2);
+  pid = getpid();
+#if defined(SETPGRP_VOID)
+  ret = setpgrp();
+  /* If `pid_t setpgrp(void)' is equivalent to setsid(),
+     `ret' will be the same value as `pid', and following open() will fail.
+     In Linux, `int setpgrp(void)' is equivalent to setpgid(0, 0). */
+#else
+  ret = setpgrp(0, pid);
+#endif
+  if (ret == -1) rb_sys_fail(0);
+
+  if ((fd = open(&quot;/dev/tty&quot;, O_RDWR)) &gt;= 0) {
+    ioctl(fd, TIOCNOTTY, NULL);
+    close(fd);
+  }
+  return INT2FIX(pid);
+#else
+    rb_notimplement();
+#endif
+}
+            </pre> 
+            </div><!-- setsid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- setsid-method -->
+      
+        <div id="times-method" class="method-detail ">
+          <a name="method-c-times"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">times   => aStructTms</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns a <code>Tms</code> structure (see <code>Struct::Tms</code> on page
+388) that contains user and system CPU times for this process.</p>
+
+<pre class="ruby"><span class="ruby-identifier">t</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">times</span>
+[ <span class="ruby-identifier">t</span>.<span class="ruby-identifier">utime</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">stime</span> ]   <span class="ruby-comment">#=&gt; [0.0, 0.02]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="times-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_proc_times(obj)
+    VALUE obj;
+{
+#if defined(HAVE_TIMES) &amp;&amp; !defined(__CHECKER__)
+    const double hertz =
+#ifdef HAVE__SC_CLK_TCK
+        (double)sysconf(_SC_CLK_TCK);
+#else
+#ifndef HZ
+# ifdef CLK_TCK
+#   define HZ CLK_TCK
+# else
+#   define HZ 60
+# endif
+#endif /* HZ */
+        HZ;
+#endif
+    struct tms buf;
+    volatile VALUE utime, stime, cutime, sctime;
+
+    times(&amp;buf);
+    return rb_struct_new(S_Tms,
+                         utime = rb_float_new(buf.tms_utime / hertz),
+                         stime = rb_float_new(buf.tms_stime / hertz),
+                         cutime = rb_float_new(buf.tms_cutime / hertz),
+                         sctime = rb_float_new(buf.tms_cstime / hertz));
+#else
+    rb_notimplement();
+#endif
+}
+            </pre> 
+            </div><!-- times-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- times-method -->
+      
+        <div id="uid-method" class="method-detail ">
+          <a name="method-c-uid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">uid           => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">Process::UID.rid      => fixnum</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">Process::Sys.getuid   => fixnum</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the (real) user ID of this process.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">uid</span>   <span class="ruby-comment">#=&gt; 501</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="uid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_getuid(obj)
+    VALUE obj;
+{
+    int uid = getuid();
+    return INT2FIX(uid);
+}
+            </pre> 
+            </div><!-- uid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- uid-method -->
+      
+        <div id="uid-3D-method" class="method-detail ">
+          <a name="method-c-uid-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">uid= integer   => numeric</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Sets the (integer) user ID for this process. Not available on all
+platforms.</p>
+            
+
+            
+            <div class="method-source-code" id="uid-3D-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_setuid(obj, id)
+    VALUE obj, id;
+{
+    int uid = NUM2INT(id);
+
+    check_uid_switch();
+#if defined(HAVE_SETRESUID) &amp;&amp;  !defined(__CHECKER__)
+    if (setresuid(uid, -1, -1) &lt; 0) rb_sys_fail(0);
+#elif defined HAVE_SETREUID
+    if (setreuid(uid, -1) &lt; 0) rb_sys_fail(0);
+#elif defined HAVE_SETRUID
+    if (setruid(uid) &lt; 0) rb_sys_fail(0);
+#elif defined HAVE_SETUID
+    {
+        if (geteuid() == uid) {
+            if (setuid(uid) &lt; 0) rb_sys_fail(0);
+        }
+        else {
+            rb_notimplement();
+        }
+    }
+#else
+    rb_notimplement();
+#endif
+    return INT2FIX(uid);
+}
+            </pre> 
+            </div><!-- uid-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- uid-3D-method -->
+      
+        <div id="wait-method" class="method-detail ">
+          <a name="method-c-wait"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">wait()                     => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">wait(pid=-1, flags=0)      => fixnum</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">waitpid(pid=-1, flags=0)   => fixnum</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Waits for a child process to exit, returns its process id, and sets
+<code>$?</code> to a <code>Process::Status</code> object containing
+information on that process. Which child it waits on depends on the value
+of <em>pid</em>:</p>
+<dl class="rdoc-list note-list"><dt>&gt; 0
+<dd>
+<p>Waits for the child whose process ID equals <em>pid</em>.</p>
+</dd><dt>0
+<dd>
+<p>Waits for any child whose process group ID equals that of the calling
+process.</p>
+</dd><dt>-1
+<dd>
+<p>Waits for any child process (the default if no <em>pid</em> is given).</p>
+</dd><dt>&lt; -1
+<dd>
+<p>Waits for any child whose process group ID equals the absolute value of
+<em>pid</em>.</p>
+</dd></dl>
+
+<p>The <em>flags</em> argument may be a logical or of the flag values
+<code>Process::WNOHANG</code> (do not block if no child available) or
+<code>Process::WUNTRACED</code> (return stopped children that haven’t been
+reported). Not all flags are available on all platforms, but a flag value
+of zero will work on all platforms.</p>
+
+<p>Calling this method raises a <code>SystemError</code> if there are no child
+processes. Not available on all platforms.</p>
+
+<pre class="ruby"><span class="ruby-identifier">include</span> <span class="ruby-constant">Process</span>
+<span class="ruby-identifier">fork</span> { <span class="ruby-identifier">exit</span> <span class="ruby-value">99</span> }                 <span class="ruby-comment">#=&gt; 27429</span>
+<span class="ruby-identifier">wait</span>                             <span class="ruby-comment">#=&gt; 27429</span>
+<span class="ruby-identifier">$?</span>.<span class="ruby-identifier">exitstatus</span>                    <span class="ruby-comment">#=&gt; 99</span>
+
+<span class="ruby-identifier">pid</span> = <span class="ruby-identifier">fork</span> { <span class="ruby-identifier">sleep</span> <span class="ruby-value">3</span> }           <span class="ruby-comment">#=&gt; 27440</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>                         <span class="ruby-comment">#=&gt; Wed Apr 09 08:57:09 CDT 2003</span>
+<span class="ruby-identifier">waitpid</span>(<span class="ruby-identifier">pid</span>, <span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-constant">WNOHANG</span>)   <span class="ruby-comment">#=&gt; nil</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>                         <span class="ruby-comment">#=&gt; Wed Apr 09 08:57:09 CDT 2003</span>
+<span class="ruby-identifier">waitpid</span>(<span class="ruby-identifier">pid</span>, <span class="ruby-value">0</span>)                  <span class="ruby-comment">#=&gt; 27440</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>                         <span class="ruby-comment">#=&gt; Wed Apr 09 08:57:12 CDT 2003</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="wait-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_wait(argc, argv)
+    int argc;
+    VALUE *argv;
+{
+    VALUE vpid, vflags;
+    int pid, flags, status;
+
+    rb_secure(2);
+    flags = 0;
+    rb_scan_args(argc, argv, &quot;02&quot;, &amp;vpid, &amp;vflags);
+    if (argc == 0) {
+        pid = -1;
+    }
+    else {
+        pid = NUM2INT(vpid);
+        if (argc == 2 &amp;&amp; !NIL_P(vflags)) {
+            flags = NUM2UINT(vflags);
+        }
+    }
+    if ((pid = rb_waitpid(pid, &amp;status, flags)) &lt; 0)
+        rb_sys_fail(0);
+    if (pid == 0) {
+        return rb_last_status = Qnil;
+    }
+    return INT2FIX(pid);
+}
+            </pre> 
+            </div><!-- wait-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- wait-method -->
+      
+        <div id="wait2-method" class="method-detail ">
+          <a name="method-c-wait2"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">wait2(pid=-1, flags=0)      => [pid, status]</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Waits for a child process to exit (see <a
+href="Process.html#method-c-waitpid">::waitpid</a> for exact semantics) and
+returns an array containing the process id and the exit status (a
+<code>Process::Status</code> object) of that child. Raises a
+<code>SystemError</code> if there are no child processes.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">fork</span> { <span class="ruby-identifier">exit</span> <span class="ruby-value">99</span> }   <span class="ruby-comment">#=&gt; 27437</span>
+<span class="ruby-identifier">pid</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">wait2</span>
+<span class="ruby-identifier">pid</span>                        <span class="ruby-comment">#=&gt; 27437</span>
+<span class="ruby-identifier">status</span>.<span class="ruby-identifier">exitstatus</span>          <span class="ruby-comment">#=&gt; 99</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="wait2-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_wait2(argc, argv)
+    int argc;
+    VALUE *argv;
+{
+    VALUE pid = proc_wait(argc, argv);
+    if (NIL_P(pid)) return Qnil;
+    return rb_assoc_new(pid, rb_last_status);
+}
+            </pre> 
+            </div><!-- wait2-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- wait2-method -->
+      
+        <div id="waitall-method" class="method-detail ">
+          <a name="method-c-waitall"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">waitall   => [ [pid1,status1], ...]</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Waits for all children, returning an array of <em>pid</em>/<em>status</em>
+pairs (where <em>status</em> is a <code>Process::Status</code> object).</p>
+
+<pre class="ruby"><span class="ruby-identifier">fork</span> { <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.2</span>; <span class="ruby-identifier">exit</span> <span class="ruby-value">2</span> }   <span class="ruby-comment">#=&gt; 27432</span>
+<span class="ruby-identifier">fork</span> { <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span>; <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span> }   <span class="ruby-comment">#=&gt; 27433</span>
+<span class="ruby-identifier">fork</span> {            <span class="ruby-identifier">exit</span> <span class="ruby-value">0</span> }   <span class="ruby-comment">#=&gt; 27434</span>
+<span class="ruby-identifier">p</span> <span class="ruby-constant">Process</span>.<span class="ruby-identifier">waitall</span>
+</pre>
+
+<p><em>produces</em>:</p>
+
+<pre>[[27434, #&lt;Process::Status: pid=27434,exited(0)&gt;],
+ [27433, #&lt;Process::Status: pid=27433,exited(1)&gt;],
+ [27432, #&lt;Process::Status: pid=27432,exited(2)&gt;]]</pre>
+            
+
+            
+            <div class="method-source-code" id="waitall-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_waitall()
+{
+    VALUE result;
+    int pid, status;
+
+    rb_secure(2);
+    result = rb_ary_new();
+#ifdef NO_WAITPID
+    if (pid_tbl) {
+        st_foreach(pid_tbl, waitall_each, result);
+    }
+
+    for (pid = -1;;) {
+        pid = wait(&amp;status);
+        if (pid == -1) {
+            if (errno == ECHILD)
+                break;
+            if (errno == EINTR) {
+                rb_thread_schedule();
+                continue;
+            }
+            rb_sys_fail(0);
+        }
+        last_status_set(status, pid);
+        rb_ary_push(result, rb_assoc_new(INT2NUM(pid), rb_last_status));
+    }
+#else
+    rb_last_status = Qnil;
+    for (pid = -1;;) {
+        pid = rb_waitpid(-1, &amp;status, 0);
+        if (pid == -1) {
+            if (errno == ECHILD)
+                break;
+            rb_sys_fail(0);
+        }
+        rb_ary_push(result, rb_assoc_new(INT2NUM(pid), rb_last_status));
+    }
+#endif
+    return result;
+}
+            </pre> 
+            </div><!-- waitall-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- waitall-method -->
+      
+        <div id="waitpid-method" class="method-detail ">
+          <a name="method-c-waitpid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">waitpid(pid=-1, flags=0)   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Waits for a child process to exit, returns its process id, and sets
+<code>$?</code> to a <code>Process::Status</code> object containing
+information on that process. Which child it waits on depends on the value
+of <em>pid</em>:</p>
+<dl class="rdoc-list note-list"><dt>&gt; 0
+<dd>
+<p>Waits for the child whose process ID equals <em>pid</em>.</p>
+</dd><dt>0
+<dd>
+<p>Waits for any child whose process group ID equals that of the calling
+process.</p>
+</dd><dt>-1
+<dd>
+<p>Waits for any child process (the default if no <em>pid</em> is given).</p>
+</dd><dt>&lt; -1
+<dd>
+<p>Waits for any child whose process group ID equals the absolute value of
+<em>pid</em>.</p>
+</dd></dl>
+
+<p>The <em>flags</em> argument may be a logical or of the flag values
+<code>Process::WNOHANG</code> (do not block if no child available) or
+<code>Process::WUNTRACED</code> (return stopped children that haven’t been
+reported). Not all flags are available on all platforms, but a flag value
+of zero will work on all platforms.</p>
+
+<p>Calling this method raises a <code>SystemError</code> if there are no child
+processes. Not available on all platforms.</p>
+
+<pre class="ruby"><span class="ruby-identifier">include</span> <span class="ruby-constant">Process</span>
+<span class="ruby-identifier">fork</span> { <span class="ruby-identifier">exit</span> <span class="ruby-value">99</span> }                 <span class="ruby-comment">#=&gt; 27429</span>
+<span class="ruby-identifier">wait</span>                             <span class="ruby-comment">#=&gt; 27429</span>
+<span class="ruby-identifier">$?</span>.<span class="ruby-identifier">exitstatus</span>                    <span class="ruby-comment">#=&gt; 99</span>
+
+<span class="ruby-identifier">pid</span> = <span class="ruby-identifier">fork</span> { <span class="ruby-identifier">sleep</span> <span class="ruby-value">3</span> }           <span class="ruby-comment">#=&gt; 27440</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>                         <span class="ruby-comment">#=&gt; Wed Apr 09 08:57:09 CDT 2003</span>
+<span class="ruby-identifier">waitpid</span>(<span class="ruby-identifier">pid</span>, <span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-constant">WNOHANG</span>)   <span class="ruby-comment">#=&gt; nil</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>                         <span class="ruby-comment">#=&gt; Wed Apr 09 08:57:09 CDT 2003</span>
+<span class="ruby-identifier">waitpid</span>(<span class="ruby-identifier">pid</span>, <span class="ruby-value">0</span>)                  <span class="ruby-comment">#=&gt; 27440</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>                         <span class="ruby-comment">#=&gt; Wed Apr 09 08:57:12 CDT 2003</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="waitpid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_wait(argc, argv)
+    int argc;
+    VALUE *argv;
+{
+    VALUE vpid, vflags;
+    int pid, flags, status;
+
+    rb_secure(2);
+    flags = 0;
+    rb_scan_args(argc, argv, &quot;02&quot;, &amp;vpid, &amp;vflags);
+    if (argc == 0) {
+        pid = -1;
+    }
+    else {
+        pid = NUM2INT(vpid);
+        if (argc == 2 &amp;&amp; !NIL_P(vflags)) {
+            flags = NUM2UINT(vflags);
+        }
+    }
+    if ((pid = rb_waitpid(pid, &amp;status, flags)) &lt; 0)
+        rb_sys_fail(0);
+    if (pid == 0) {
+        return rb_last_status = Qnil;
+    }
+    return INT2FIX(pid);
+}
+            </pre> 
+            </div><!-- waitpid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- waitpid-method -->
+      
+        <div id="waitpid2-method" class="method-detail ">
+          <a name="method-c-waitpid2"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">waitpid2(pid=-1, flags=0)   => [pid, status]</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Waits for a child process to exit (see <a
+href="Process.html#method-c-waitpid">::waitpid</a> for exact semantics) and
+returns an array containing the process id and the exit status (a
+<code>Process::Status</code> object) of that child. Raises a
+<code>SystemError</code> if there are no child processes.</p>
+
+<pre class="ruby"><span class="ruby-constant">Process</span>.<span class="ruby-identifier">fork</span> { <span class="ruby-identifier">exit</span> <span class="ruby-value">99</span> }   <span class="ruby-comment">#=&gt; 27437</span>
+<span class="ruby-identifier">pid</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">wait2</span>
+<span class="ruby-identifier">pid</span>                        <span class="ruby-comment">#=&gt; 27437</span>
+<span class="ruby-identifier">status</span>.<span class="ruby-identifier">exitstatus</span>          <span class="ruby-comment">#=&gt; 99</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="waitpid2-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+proc_wait2(argc, argv)
+    int argc;
+    VALUE *argv;
+{
+    VALUE pid = proc_wait(argc, argv);
+    if (NIL_P(pid)) return Qnil;
+    return rb_assoc_new(pid, rb_last_status);
+}
+            </pre> 
+            </div><!-- waitpid2-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- waitpid2-method -->
+      
+      </div><!-- public-class-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+  <div id='tx_Process_versioned' class='associated_wrapper'></div><script type='text/javascript'>$("#tx_Process_versioned").load("/associated/1.8.7/Process.html");</script> <div id='tx_Process' class='associated_wrapper'></div><script type='text/javascript'>$("#tx_Process").load("/associated/Process.html");</script> 
+      
+  </div><!-- documentation -->
+  <div id='dynamic'>
+  </div>
+      
+<div class='grids wrapper' id="footer">
+  <p><small>This page was generated for Ruby 1.8.7</small></p> 
+  
+   <p> <a href="http://www.ruby-doc.org">Ruby-doc.org</a> is a service of <a href="http://www.jamesbritt.com">James Britt</a> and <a href="http://www.neurogami.com">Neurogami</a>, an <a href="http://www.neurogami.com"> avant garage application development company in Scottsdale, AZ</a>.  </p>
+ 
+    <p><small>Generated with Ruby-doc Rdoc Generator 0.24.6</small>.</p>
+  </div>
+</div>
+  
+ <script type='text/javascript'>
+$(document).ready(function() {
+      $.ajaxSetup({ cache: false });
+      $("#vulns-alert").load("/associated/vulns.html");
+    });
+
+    </script>
+
+
+ 
+    <script type='text/javascript'>
+
+  function loadPlus(plusdocs){
+    var img_h = $("img.carbonad-image").css('height');
+    //if(img_h != undefined) { //---
+      $(plusdocs).find("div[class='associated_wrapper']").each (function() {
+          $("#" + this.id).append($(plusdocs).find("#" + this.id ));
+          });
+    //} // ---
+  } // end loadPlusdocs
+
+
+$(document).ready(function() {
+    $.ajaxSetup({ cache: false });
+      $.get('/associated/1.8.7/plus_Process.html', 
+      function(plusdocs) {
+      setTimeout(function() {
+        loadPlus(plusdocs);
+        }, 2000);
+      }
+      );
+    });
+</script>
+		
+</body>
+</html>
+
+

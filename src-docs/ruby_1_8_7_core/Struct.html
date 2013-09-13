@@ -1,0 +1,1543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <!-- classpage -- >
+    <!-- RD version: 0.24.6  -->
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="2013-08-24 23:20:07 -0700" http-equiv="change-date" />
+  <!-- rel_prefix  = ''  ENV['RDOC_FOR_WEBSITE']   = false-->
+    
+    <!-- WHY? -->
+    
+    
+  <!-- rel_prefix = '.'   asset_rel_prefix = ''  --> 
+  <title>Class: Struct (Ruby 1.8.7) </title>
+  <!-- link rel="stylesheet" href=".css/obf.css"  -->
+  <link rel="stylesheet" href="css/inuit.css" >
+  <link rel="stylesheet" href="css/grid.inuit.css" >
+  <link rel="stylesheet" href="css/2011.css" type="text/css" >
+  <link rel="stylesheet" href="css/rdoc.css" type="text/css" >
+
+  <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/rubydoc.js" type="text/javascript" charset="utf-8"></script> 
+
+ 
+<script src="/js/highlight.min.js"></script>
+<script> 
+  hljs.tabReplace = '  ';
+  hljs.initHighlightingOnLoad();
+  </script> 
+
+  <style type='text/css'>
+
+    #vulns-alert #vulns{
+      background-color: #c33 ! important;
+      width: 100%;
+      text-align: center;
+   }
+   
+   #vulns-alert #vulns a {
+    color: #F99 ! important;
+   }
+ </style>
+
+</head>
+
+<body id="top" class="class rdocstar">
+<div id='actionbar' >
+<div class='wrapper'>
+  <ul class='grids g0'></ul>
+</div>
+<span id='vulns-alert'></span>
+</div> <!-- end action bar -->
+ <div class='wrapper'>
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+          
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul id='file-metadata'>
+
+          
+          
+          
+          <li class='in-file'>struct.c</li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-3D-3D">#==</a></li>
+          
+          <li><a href="#method-i-5B-5D">#[]</a></li>
+          
+          <li><a href="#method-i-5B-5D-3D">#[]=</a></li>
+          
+          <li><a href="#method-i-each">#each</a></li>
+          
+          <li><a href="#method-i-each_pair">#each_pair</a></li>
+          
+          <li><a href="#method-i-eql-3F">#eql?</a></li>
+          
+          <li><a href="#method-i-hash">#hash</a></li>
+          
+          <li><a href="#method-i-inspect">#inspect</a></li>
+          
+          <li><a href="#method-i-length">#length</a></li>
+          
+          <li><a href="#method-i-members">#members</a></li>
+          
+          <li><a href="#method-i-select">#select</a></li>
+          
+          <li><a href="#method-i-size">#size</a></li>
+          
+          <li><a href="#method-i-to_a">#to_a</a></li>
+          
+          <li><a href="#method-i-to_s">#to_s</a></li>
+          
+          <li><a href="#method-i-values">#values</a></li>
+          
+          <li><a href="#method-i-values_at">#values_at</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Included Modules -->
+      <div id="includes-section" class="section">
+        <h3 class="section-header">Included Modules</h3>
+        <ul class="link-list">
+        
+        
+          <li><a class="include" href="Enumerable.html">Enumerable</a></li>
+        
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+          
+          
+          
+          <li><a href="./ArgumentError.html">ArgumentError</a></li>
+        
+          
+          
+          <li><a href="./Array.html">Array</a></li>
+        
+          
+          
+          <li><a href="./Bignum.html">Bignum</a></li>
+        
+          
+          
+          <li><a href="./Binding.html">Binding</a></li>
+        
+          
+          
+          <li><a href="./Class.html">Class</a></li>
+        
+          
+          
+          <li><a href="./Comparable.html">Comparable</a></li>
+        
+          
+          
+          <li><a href="./Continuation.html">Continuation</a></li>
+        
+          
+          
+          <li><a href="./Data.html">Data</a></li>
+        
+          
+          
+          <li><a href="./Dir.html">Dir</a></li>
+        
+          
+          
+          <li><a href="./EOFError.html">EOFError</a></li>
+        
+          
+          
+          <li><a href="./Enumerable.html">Enumerable</a></li>
+        
+          
+          
+          <li><a href="./Enumerable/Enumerator.html">Enumerable::Enumerator</a></li>
+        
+          
+          
+          <li><a href="./Errno.html">Errno</a></li>
+        
+          
+          
+          <li><a href="./Exception.html">Exception</a></li>
+        
+          
+          
+          <li><a href="./FalseClass.html">FalseClass</a></li>
+        
+          
+          
+          <li><a href="./File.html">File</a></li>
+        
+          
+          
+          <li><a href="./File/Constants.html">File::Constants</a></li>
+        
+          
+          
+          <li><a href="./File/Stat.html">File::Stat</a></li>
+        
+          
+          
+          <li><a href="./FileTest.html">FileTest</a></li>
+        
+          
+          
+          <li><a href="./Fixnum.html">Fixnum</a></li>
+        
+          
+          
+          <li><a href="./Float.html">Float</a></li>
+        
+          
+          
+          <li><a href="./FloatDomainError.html">FloatDomainError</a></li>
+        
+          
+          
+          <li><a href="./GC.html">GC</a></li>
+        
+          
+          
+          <li><a href="./Hash.html">Hash</a></li>
+        
+          
+          
+          <li><a href="./IO.html">IO</a></li>
+        
+          
+          
+          <li><a href="./IOError.html">IOError</a></li>
+        
+          
+          
+          <li><a href="./IndexError.html">IndexError</a></li>
+        
+          
+          
+          <li><a href="./Integer.html">Integer</a></li>
+        
+          
+          
+          <li><a href="./Interrupt.html">Interrupt</a></li>
+        
+          
+          
+          <li><a href="./Kernel.html">Kernel</a></li>
+        
+          
+          
+          <li><a href="./LoadError.html">LoadError</a></li>
+        
+          
+          
+          <li><a href="./LocalJumpError.html">LocalJumpError</a></li>
+        
+          
+          
+          <li><a href="./Marshal.html">Marshal</a></li>
+        
+          
+          
+          <li><a href="./MatchData.html">MatchData</a></li>
+        
+          
+          
+          <li><a href="./Math.html">Math</a></li>
+        
+          
+          
+          <li><a href="./Method.html">Method</a></li>
+        
+          
+          
+          <li><a href="./Module.html">Module</a></li>
+        
+          
+          
+          <li><a href="./NameError.html">NameError</a></li>
+        
+          
+          
+          <li><a href="./NameError/message.html">NameError::message</a></li>
+        
+          
+          
+          <li><a href="./NilClass.html">NilClass</a></li>
+        
+          
+          
+          <li><a href="./NoMemoryError.html">NoMemoryError</a></li>
+        
+          
+          
+          <li><a href="./NoMethodError.html">NoMethodError</a></li>
+        
+          
+          
+          <li><a href="./NotImplementedError.html">NotImplementedError</a></li>
+        
+          
+          
+          <li><a href="./Numeric.html">Numeric</a></li>
+        
+          
+          
+          <li><a href="./Object.html">Object</a></li>
+        
+          
+          
+          <li><a href="./ObjectSpace.html">ObjectSpace</a></li>
+        
+          
+          
+          <li><a href="./Precision.html">Precision</a></li>
+        
+          
+          
+          <li><a href="./Proc.html">Proc</a></li>
+        
+          
+          
+          <li><a href="./Process.html">Process</a></li>
+        
+          
+          
+          <li><a href="./Process/GID.html">Process::GID</a></li>
+        
+          
+          
+          <li><a href="./Process/Status.html">Process::Status</a></li>
+        
+          
+          
+          <li><a href="./Process/Sys.html">Process::Sys</a></li>
+        
+          
+          
+          <li><a href="./Process/UID.html">Process::UID</a></li>
+        
+          
+          
+          <li><a href="./Range.html">Range</a></li>
+        
+          
+          
+          <li><a href="./RangeError.html">RangeError</a></li>
+        
+          
+          
+          <li><a href="./Regexp.html">Regexp</a></li>
+        
+          
+          
+          <li><a href="./RegexpError.html">RegexpError</a></li>
+        
+          
+          
+          <li><a href="./RuntimeError.html">RuntimeError</a></li>
+        
+          
+          
+          <li><a href="./ScriptError.html">ScriptError</a></li>
+        
+          
+          
+          <li><a href="./SecurityError.html">SecurityError</a></li>
+        
+          
+          
+          <li><a href="./Signal.html">Signal</a></li>
+        
+          
+          
+          <li><a href="./SignalException.html">SignalException</a></li>
+        
+          
+          
+          <li><a href="./StandardError.html">StandardError</a></li>
+        
+          
+          
+          <li><a href="./StopIteration.html">StopIteration</a></li>
+        
+          
+          
+          <li><a href="./String.html">String</a></li>
+        
+          
+          
+          <li><a href="./Struct.html">Struct</a></li>
+        
+          
+          
+          <li><a href="./Symbol.html">Symbol</a></li>
+        
+          
+          
+          <li><a href="./SyntaxError.html">SyntaxError</a></li>
+        
+          
+          
+          <li><a href="./SystemCallError.html">SystemCallError</a></li>
+        
+          
+          
+          <li><a href="./SystemExit.html">SystemExit</a></li>
+        
+          
+          
+          <li><a href="./SystemStackError.html">SystemStackError</a></li>
+        
+          
+          
+          <li><a href="./Thread.html">Thread</a></li>
+        
+          
+          
+          <li><a href="./ThreadError.html">ThreadError</a></li>
+        
+          
+          
+          <li><a href="./ThreadGroup.html">ThreadGroup</a></li>
+        
+          
+          
+          <li><a href="./Time.html">Time</a></li>
+        
+          
+          
+          <li><a href="./TrueClass.html">TrueClass</a></li>
+        
+          
+          
+          <li><a href="./TypeError.html">TypeError</a></li>
+        
+          
+          
+          <li><a href="./UnboundMethod.html">UnboundMethod</a></li>
+        
+          
+          
+          <li><a href="./ZeroDivisionError.html">ZeroDivisionError</a></li>
+        
+          
+          
+          <li><a href="./fatal.html">fatal</a></li>
+        
+          
+          
+          <li><a href="./unknown.html">unknown</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div> <!-- metadata -->
+  <div class='adzbox'  id="azk83167">
+    
+  </div> 
+  <div id="documentation">
+    <h1 class="class">Struct</h1>
+
+    <div id="description" class="description">
+      
+<p>A <code>Struct</code> is a convenient way to bundle a number of attributes
+together, using accessor methods, without having to write an explicit
+class.</p>
+
+<p>The <code>Struct</code> class is a generator of specific classes, each one
+of which is defined to hold a set of variables and their accessors. In
+these examples, we’ll call the generated class “<em>Customer</em>Class,”
+and we’ll show an example instance of that class as
+“<em>Customer</em>Inst.”</p>
+
+<p>In the descriptions that follow, the parameter <em>symbol</em> refers to a
+symbol, which is either a quoted string or a <code>Symbol</code> (such as
+<code>:name</code>).</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">new( [aString] [, aSym]+> )    => StructClass</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">new(arg, ...)             => obj</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">StructClass[arg, ...]                 => obj</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Creates a new class, named by <em>aString</em>, containing accessor methods
+for the given symbols. If the name <em>aString</em> is omitted, an
+anonymous structure class will be created. Otherwise, the name of this
+struct will appear as a constant in class <code>Struct</code>, so it must
+be unique for all <code>Struct</code>s in the system and should start with
+a capital letter. Assigning a structure class to a constant effectively
+gives the class the name of the constant.</p>
+
+<p><code>Struct::new</code> returns a new <code>Class</code> object, which can
+then be used to create specific instances of the new structure. The number
+of actual parameters must be less than or equal to the number of attributes
+defined for this class; unset parameters default to nil{}.  Passing too
+many parameters will raise an E{ArgumentError}.</p>
+
+<p>The remaining methods listed in this section (class and instance) are
+defined for this generated class.</p>
+
+<pre class="ruby"><span class="ruby-comment"># Create a structure with a name in Struct</span>
+<span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Customer&quot;</span>, :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>)    <span class="ruby-comment">#=&gt; Struct::Customer</span>
+<span class="ruby-constant">Struct</span><span class="ruby-operator">::</span><span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Dave&quot;</span>, <span class="ruby-string">&quot;123 Main&quot;</span>)   <span class="ruby-comment">#=&gt; #&lt;Struct::Customer name=&quot;Dave&quot;, address=&quot;123 Main&quot;&gt;</span>
+
+<span class="ruby-comment"># Create a structure named by its constant</span>
+<span class="ruby-constant">Customer</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>)     <span class="ruby-comment">#=&gt; Customer</span>
+<span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Dave&quot;</span>, <span class="ruby-string">&quot;123 Main&quot;</span>)           <span class="ruby-comment">#=&gt; #&lt;Customer name=&quot;Dave&quot;, address=&quot;123 Main&quot;&gt;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_s_def(argc, argv, klass)
+    int argc;
+    VALUE *argv;
+    VALUE klass;
+{
+    VALUE name, rest;
+    long i;
+    VALUE st;
+    ID id;
+
+    rb_scan_args(argc, argv, &quot;1*&quot;, &amp;name, &amp;rest);
+    if (!NIL_P(name) &amp;&amp; SYMBOL_P(name)) {
+        rb_ary_unshift(rest, name);
+        name = Qnil;
+    }
+    for (i=0; i&lt;RARRAY(rest)-&gt;len; i++) {
+        id = rb_to_id(RARRAY(rest)-&gt;ptr[i]);
+        RARRAY(rest)-&gt;ptr[i] = ID2SYM(id);
+    }
+    st = make_struct(name, rest, klass);
+    if (rb_block_given_p()) {
+        rb_mod_module_eval(0, 0, st);
+    }
+
+    return st;
+}
+            </pre> 
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="3D-3D-method" class="method-detail ">
+          <a name="method-i-3D-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">struct == other_struct     => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Equality—Returns <code>true</code> if <em>other_struct</em> is equal to
+this one: they must be of the same class as generated by
+<code>Struct::new</code>, and the values of all instance variables must be
+equal (according to <code>Object#==</code>).</p>
+
+<pre class="ruby"><span class="ruby-constant">Customer</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">zip</span>)
+<span class="ruby-identifier">joe</span>   = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Joe Smith&quot;</span>, <span class="ruby-string">&quot;123 Maple, Anytown NC&quot;</span>, <span class="ruby-value">12345</span>)
+<span class="ruby-identifier">joejr</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Joe Smith&quot;</span>, <span class="ruby-string">&quot;123 Maple, Anytown NC&quot;</span>, <span class="ruby-value">12345</span>)
+<span class="ruby-identifier">jane</span>  = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Jane Doe&quot;</span>, <span class="ruby-string">&quot;456 Elm, Anytown NC&quot;</span>, <span class="ruby-value">12345</span>)
+<span class="ruby-identifier">joe</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">joejr</span>   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-identifier">joe</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">jane</span>    <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="3D-3D-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_equal(s, s2)
+    VALUE s, s2;
+{
+    long i;
+
+    if (s == s2) return Qtrue;
+    if (TYPE(s2) != T_STRUCT) return Qfalse;
+    if (rb_obj_class(s) != rb_obj_class(s2)) return Qfalse;
+    if (RSTRUCT(s)-&gt;len != RSTRUCT(s2)-&gt;len) {
+        rb_bug(&quot;inconsistent struct&quot;); /* should never happen */
+    }
+
+    for (i=0; i&lt;RSTRUCT(s)-&gt;len; i++) {
+        if (!rb_equal(RSTRUCT(s)-&gt;ptr[i], RSTRUCT(s2)-&gt;ptr[i])) return Qfalse;
+    }
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- 3D-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 3D-3D-method -->
+      
+        <div id="5B-5D-method" class="method-detail ">
+          <a name="method-i-5B-5D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">struct[symbol]    => anObject</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">struct[fixnum]    => anObject</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Attribute Reference—Returns the value of the instance variable named by
+<em>symbol</em>, or indexed (0..length-1) by <em>fixnum</em>. Will raise
+<code>NameError</code> if the named variable does not exist, or
+<code>IndexError</code> if the index is out of range.</p>
+
+<pre class="ruby"><span class="ruby-constant">Customer</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">zip</span>)
+<span class="ruby-identifier">joe</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Joe Smith&quot;</span>, <span class="ruby-string">&quot;123 Maple, Anytown NC&quot;</span>, <span class="ruby-value">12345</span>)
+
+<span class="ruby-identifier">joe</span>[<span class="ruby-string">&quot;name&quot;</span>]   <span class="ruby-comment">#=&gt; &quot;Joe Smith&quot;</span>
+<span class="ruby-identifier">joe</span>[:<span class="ruby-identifier">name</span>]    <span class="ruby-comment">#=&gt; &quot;Joe Smith&quot;</span>
+<span class="ruby-identifier">joe</span>[<span class="ruby-value">0</span>]        <span class="ruby-comment">#=&gt; &quot;Joe Smith&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="5B-5D-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_struct_aref(s, idx)
+    VALUE s, idx;
+{
+    long i;
+
+    if (TYPE(idx) == T_STRING || TYPE(idx) == T_SYMBOL) {
+        return rb_struct_aref_id(s, rb_to_id(idx));
+    }
+
+    i = NUM2LONG(idx);
+    if (i &lt; 0) i = RSTRUCT(s)-&gt;len + i;
+    if (i &lt; 0)
+        rb_raise(rb_eIndexError, &quot;offset %ld too small for struct(size:%ld)&quot;,
+                 i, RSTRUCT(s)-&gt;len);
+    if (RSTRUCT(s)-&gt;len &lt;= i)
+        rb_raise(rb_eIndexError, &quot;offset %ld too large for struct(size:%ld)&quot;,
+                 i, RSTRUCT(s)-&gt;len);
+    return RSTRUCT(s)-&gt;ptr[i];
+}
+            </pre> 
+            </div><!-- 5B-5D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 5B-5D-method -->
+      
+        <div id="5B-5D-3D-method" class="method-detail ">
+          <a name="method-i-5B-5D-3D"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">struct[symbol] = obj    => obj</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">struct[fixnum] = obj    => obj</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Attribute Assignment—Assigns to the instance variable named by
+<em>symbol</em> or <em>fixnum</em> the value <em>obj</em> and returns it.
+Will raise a <code>NameError</code> if the named variable does not exist,
+or an <code>IndexError</code> if the index is out of range.</p>
+
+<pre class="ruby"><span class="ruby-constant">Customer</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">zip</span>)
+<span class="ruby-identifier">joe</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Joe Smith&quot;</span>, <span class="ruby-string">&quot;123 Maple, Anytown NC&quot;</span>, <span class="ruby-value">12345</span>)
+
+<span class="ruby-identifier">joe</span>[<span class="ruby-string">&quot;name&quot;</span>] = <span class="ruby-string">&quot;Luke&quot;</span>
+<span class="ruby-identifier">joe</span>[:<span class="ruby-identifier">zip</span>]   = <span class="ruby-string">&quot;90210&quot;</span>
+
+<span class="ruby-identifier">joe</span>.<span class="ruby-identifier">name</span>   <span class="ruby-comment">#=&gt; &quot;Luke&quot;</span>
+<span class="ruby-identifier">joe</span>.<span class="ruby-identifier">zip</span>    <span class="ruby-comment">#=&gt; &quot;90210&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="5B-5D-3D-source">
+              <pre> <!-- method.markup_code 290 -->
+               VALUE
+rb_struct_aset(s, idx, val)
+    VALUE s, idx, val;
+{
+    long i;
+
+    if (TYPE(idx) == T_STRING || TYPE(idx) == T_SYMBOL) {
+        return rb_struct_aset_id(s, rb_to_id(idx), val);
+    }
+
+    i = NUM2LONG(idx);
+    if (i &lt; 0) i = RSTRUCT(s)-&gt;len + i;
+    if (i &lt; 0) {
+        rb_raise(rb_eIndexError, &quot;offset %ld too small for struct(size:%ld)&quot;,
+                 i, RSTRUCT(s)-&gt;len);
+    }
+    if (RSTRUCT(s)-&gt;len &lt;= i) {
+        rb_raise(rb_eIndexError, &quot;offset %ld too large for struct(size:%ld)&quot;,
+                 i, RSTRUCT(s)-&gt;len);
+    }
+    rb_struct_modify(s);
+    return RSTRUCT(s)-&gt;ptr[i] = val;
+}
+            </pre> 
+            </div><!-- 5B-5D-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 5B-5D-3D-method -->
+      
+        <div id="each-method" class="method-detail ">
+          <a name="method-i-each"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each {|obj| block }  => struct</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Calls <em>block</em> once for each instance variable, passing the value as
+a parameter.</p>
+
+<pre class="ruby"><span class="ruby-constant">Customer</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">zip</span>)
+<span class="ruby-identifier">joe</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Joe Smith&quot;</span>, <span class="ruby-string">&quot;123 Maple, Anytown NC&quot;</span>, <span class="ruby-value">12345</span>)
+<span class="ruby-identifier">joe</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span>(<span class="ruby-identifier">x</span>) }
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>Joe Smith
+123 Maple, Anytown NC
+12345</pre>
+            
+
+            
+            <div class="method-source-code" id="each-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_each(s)
+    VALUE s;
+{
+    long i;
+
+    RETURN_ENUMERATOR(s, 0, 0);
+    for (i=0; i&lt;RSTRUCT(s)-&gt;len; i++) {
+        rb_yield(RSTRUCT(s)-&gt;ptr[i]);
+    }
+    return s;
+}
+            </pre> 
+            </div><!-- each-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each-method -->
+      
+        <div id="each_pair-method" class="method-detail ">
+          <a name="method-i-each_pair"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_pair {|sym, obj| block }     => struct</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Calls <em>block</em> once for each instance variable, passing the name (as
+a symbol) and the value as parameters.</p>
+
+<pre class="ruby"><span class="ruby-constant">Customer</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">zip</span>)
+<span class="ruby-identifier">joe</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Joe Smith&quot;</span>, <span class="ruby-string">&quot;123 Maple, Anytown NC&quot;</span>, <span class="ruby-value">12345</span>)
+<span class="ruby-identifier">joe</span>.<span class="ruby-identifier">each_pair</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;#{name} =&gt; #{value}&quot;</span>) }
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre class="ruby"><span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Joe</span> <span class="ruby-constant">Smith</span>
+<span class="ruby-identifier">address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">123</span> <span class="ruby-constant">Maple</span>, <span class="ruby-constant">Anytown</span> <span class="ruby-constant">NC</span>
+<span class="ruby-identifier">zip</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">12345</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="each_pair-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_each_pair(s)
+    VALUE s;
+{
+    VALUE members;
+    long i;
+
+    RETURN_ENUMERATOR(s, 0, 0);
+    members = rb_struct_members(s);
+    for (i=0; i&lt;RSTRUCT(s)-&gt;len; i++) {
+        rb_yield_values(2, rb_ary_entry(members, i), RSTRUCT(s)-&gt;ptr[i]);
+    }
+    return s;
+}
+            </pre> 
+            </div><!-- each_pair-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each_pair-method -->
+      
+        <div id="eql-3F-method" class="method-detail ">
+          <a name="method-i-eql-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">eql?</span><span
+              class="method-args">(p1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+          <div>
+  
+            
+            <p>code-seq:</p>
+
+<pre class="ruby"><span class="ruby-identifier">struct</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">other</span>)   =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">false</span>
+</pre>
+
+<p>Two structures are equal if they are the same object, or if all their
+fields are equal (using <code>eql?</code>).</p>
+            
+
+            
+            <div class="method-source-code" id="eql-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_eql(s, s2)
+    VALUE s, s2;
+{
+    long i;
+
+    if (s == s2) return Qtrue;
+    if (TYPE(s2) != T_STRUCT) return Qfalse;
+    if (rb_obj_class(s) != rb_obj_class(s2)) return Qfalse;
+    if (RSTRUCT(s)-&gt;len != RSTRUCT(s2)-&gt;len) {
+        rb_bug(&quot;inconsistent struct&quot;); /* should never happen */
+    }
+
+    for (i=0; i&lt;RSTRUCT(s)-&gt;len; i++) {
+        if (!rb_eql(RSTRUCT(s)-&gt;ptr[i], RSTRUCT(s2)-&gt;ptr[i])) return Qfalse;
+    }
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- eql-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- eql-3F-method -->
+      
+        <div id="hash-method" class="method-detail ">
+          <a name="method-i-hash"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">hash   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Return a hash value based on this struct’s contents.</p>
+            
+
+            
+            <div class="method-source-code" id="hash-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_hash(s)
+    VALUE s;
+{
+    long i, h;
+    VALUE n;
+
+    h = rb_hash(rb_obj_class(s));
+    for (i = 0; i &lt; RSTRUCT(s)-&gt;len; i++) {
+        h = (h &lt;&lt; 1) | (h&lt;0 ? 1 : 0);
+        n = rb_hash(RSTRUCT(s)-&gt;ptr[i]);
+        h ^= NUM2LONG(n);
+    }
+    return LONG2FIX(h);
+}
+            </pre> 
+            </div><!-- hash-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- hash-method -->
+      
+        <div id="inspect-method" class="method-detail ">
+          <a name="method-i-inspect"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">inspect   => string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Describe the contents of this struct in a string.</p>
+            
+
+            
+            <div class="method-source-code" id="inspect-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_inspect(s)
+    VALUE s;
+{
+    if (rb_inspecting_p(s)) {
+        const char *cname = rb_class2name(rb_obj_class(s));
+        size_t len = strlen(cname) + 14;
+        VALUE str = rb_str_new(0, len);
+
+        snprintf(RSTRING(str)-&gt;ptr, len+1, &quot;#&lt;struct %s:...&gt;&quot;, cname);
+        RSTRING(str)-&gt;len = strlen(RSTRING(str)-&gt;ptr);
+        return str;
+    }
+    return rb_protect_inspect(inspect_struct, s, 0);
+}
+            </pre> 
+            </div><!-- inspect-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- inspect-method -->
+      
+        <div id="length-method" class="method-detail ">
+          <a name="method-i-length"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">length    => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the number of instance variables.</p>
+
+<pre class="ruby"><span class="ruby-constant">Customer</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">zip</span>)
+<span class="ruby-identifier">joe</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Joe Smith&quot;</span>, <span class="ruby-string">&quot;123 Maple, Anytown NC&quot;</span>, <span class="ruby-value">12345</span>)
+<span class="ruby-identifier">joe</span>.<span class="ruby-identifier">length</span>   <span class="ruby-comment">#=&gt; 3</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="length-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_size(s)
+    VALUE s;
+{
+    return LONG2FIX(RSTRUCT(s)-&gt;len);
+}
+            </pre> 
+            </div><!-- length-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- length-method -->
+      
+        <div id="members-method" class="method-detail ">
+          <a name="method-i-members"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">members    => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an array of strings representing the names of the instance
+variables.</p>
+
+<pre class="ruby"><span class="ruby-constant">Customer</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">zip</span>)
+<span class="ruby-identifier">joe</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Joe Smith&quot;</span>, <span class="ruby-string">&quot;123 Maple, Anytown NC&quot;</span>, <span class="ruby-value">12345</span>)
+<span class="ruby-identifier">joe</span>.<span class="ruby-identifier">members</span>   <span class="ruby-comment">#=&gt; [&quot;name&quot;, &quot;address&quot;, &quot;zip&quot;]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="members-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_members_m(obj)
+    VALUE obj;
+{
+    return rb_struct_s_members_m(rb_obj_class(obj));
+}
+            </pre> 
+            </div><!-- members-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- members-method -->
+      
+        <div id="select-method" class="method-detail ">
+          <a name="method-i-select"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">select {|i| block }    => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Invokes the block passing in successive elements from <em>struct</em>,
+returning an array containing those elements for which the block returns a
+true value (equivalent to <code>Enumerable#select</code>).</p>
+
+<pre class="ruby"><span class="ruby-constant">Lots</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">a</span>, :<span class="ruby-identifier">b</span>, :<span class="ruby-identifier">c</span>, :<span class="ruby-identifier">d</span>, :<span class="ruby-identifier">e</span>, :<span class="ruby-identifier">f</span>)
+<span class="ruby-identifier">l</span> = <span class="ruby-constant">Lots</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">11</span>, <span class="ruby-value">22</span>, <span class="ruby-value">33</span>, <span class="ruby-value">44</span>, <span class="ruby-value">55</span>, <span class="ruby-value">66</span>)
+<span class="ruby-identifier">l</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">v</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span>).<span class="ruby-identifier">zero?</span> }   <span class="ruby-comment">#=&gt; [22, 44, 66]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="select-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_select(argc, argv, s)
+    int argc;
+    VALUE *argv;
+    VALUE s;
+{
+    VALUE result;
+    long i;
+
+    if (argc &gt; 0) {
+        rb_raise(rb_eArgError, &quot;wrong number of arguments (%d for 0)&quot;, argc);
+    }
+    result = rb_ary_new();
+    for (i = 0; i &lt; RSTRUCT(s)-&gt;len; i++) {
+        if (RTEST(rb_yield(RSTRUCT(s)-&gt;ptr[i]))) {
+            rb_ary_push(result, RSTRUCT(s)-&gt;ptr[i]);
+        }
+    }
+
+    return result;
+}
+            </pre> 
+            </div><!-- select-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- select-method -->
+      
+        <div id="size-method" class="method-detail ">
+          <a name="method-i-size"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">size      => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the number of instance variables.</p>
+
+<pre class="ruby"><span class="ruby-constant">Customer</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">zip</span>)
+<span class="ruby-identifier">joe</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Joe Smith&quot;</span>, <span class="ruby-string">&quot;123 Maple, Anytown NC&quot;</span>, <span class="ruby-value">12345</span>)
+<span class="ruby-identifier">joe</span>.<span class="ruby-identifier">length</span>   <span class="ruby-comment">#=&gt; 3</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="size-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_size(s)
+    VALUE s;
+{
+    return LONG2FIX(RSTRUCT(s)-&gt;len);
+}
+            </pre> 
+            </div><!-- size-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- size-method -->
+      
+        <div id="to_a-method" class="method-detail ">
+          <a name="method-i-to_a"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">to_a     => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the values for this instance as an array.</p>
+
+<pre class="ruby"><span class="ruby-constant">Customer</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">zip</span>)
+<span class="ruby-identifier">joe</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Joe Smith&quot;</span>, <span class="ruby-string">&quot;123 Maple, Anytown NC&quot;</span>, <span class="ruby-value">12345</span>)
+<span class="ruby-identifier">joe</span>.<span class="ruby-identifier">to_a</span>[<span class="ruby-value">1</span>]   <span class="ruby-comment">#=&gt; &quot;123 Maple, Anytown NC&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="to_a-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_to_a(s)
+    VALUE s;
+{
+    return rb_ary_new4(RSTRUCT(s)-&gt;len, RSTRUCT(s)-&gt;ptr);
+}
+            </pre> 
+            </div><!-- to_a-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_a-method -->
+      
+        <div id="to_s-method" class="method-detail ">
+          <a name="method-i-to_s"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">to_s      => string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Describe the contents of this struct in a string.</p>
+            
+
+            
+            <div class="method-source-code" id="to_s-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_inspect(s)
+    VALUE s;
+{
+    if (rb_inspecting_p(s)) {
+        const char *cname = rb_class2name(rb_obj_class(s));
+        size_t len = strlen(cname) + 14;
+        VALUE str = rb_str_new(0, len);
+
+        snprintf(RSTRING(str)-&gt;ptr, len+1, &quot;#&lt;struct %s:...&gt;&quot;, cname);
+        RSTRING(str)-&gt;len = strlen(RSTRING(str)-&gt;ptr);
+        return str;
+    }
+    return rb_protect_inspect(inspect_struct, s, 0);
+}
+            </pre> 
+            </div><!-- to_s-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_s-method -->
+      
+        <div id="values-method" class="method-detail ">
+          <a name="method-i-values"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">values   => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the values for this instance as an array.</p>
+
+<pre class="ruby"><span class="ruby-constant">Customer</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, :<span class="ruby-identifier">zip</span>)
+<span class="ruby-identifier">joe</span> = <span class="ruby-constant">Customer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Joe Smith&quot;</span>, <span class="ruby-string">&quot;123 Maple, Anytown NC&quot;</span>, <span class="ruby-value">12345</span>)
+<span class="ruby-identifier">joe</span>.<span class="ruby-identifier">to_a</span>[<span class="ruby-value">1</span>]   <span class="ruby-comment">#=&gt; &quot;123 Maple, Anytown NC&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="values-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_to_a(s)
+    VALUE s;
+{
+    return rb_ary_new4(RSTRUCT(s)-&gt;len, RSTRUCT(s)-&gt;ptr);
+}
+            </pre> 
+            </div><!-- values-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- values-method -->
+      
+        <div id="values_at-method" class="method-detail ">
+          <a name="method-i-values_at"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">values_at(selector,... )  => an_array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an array containing the elements in <em>self</em> corresponding to
+the given selector(s). The selectors may be either integer indices or
+ranges.  See also &lt;/code&gt;.select&lt;code&gt;.</p>
+
+<pre>a = %w{ a b c d e f }
+a.values_at(1, 3, 5)
+a.values_at(1, 3, 5, 7)
+a.values_at(-1, -3, -5, -7)
+a.values_at(1..3, 2...5)</pre>
+            
+
+            
+            <div class="method-source-code" id="values_at-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_struct_values_at(argc, argv, s)
+    int argc;
+    VALUE *argv;
+    VALUE s;
+{
+    return rb_values_at(s, RSTRUCT(s)-&gt;len, argc, argv, struct_entry);
+}
+            </pre> 
+            </div><!-- values_at-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- values_at-method -->
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+  <div id='tx_Struct_versioned' class='associated_wrapper'></div><script type='text/javascript'>$("#tx_Struct_versioned").load("/associated/1.8.7/Struct.html");</script> <div id='tx_Struct' class='associated_wrapper'></div><script type='text/javascript'>$("#tx_Struct").load("/associated/Struct.html");</script> 
+      
+  </div><!-- documentation -->
+  <div id='dynamic'>
+  </div>
+      
+<div class='grids wrapper' id="footer">
+  <p><small>This page was generated for Ruby 1.8.7</small></p> 
+  
+   <p> <a href="http://www.ruby-doc.org">Ruby-doc.org</a> is a service of <a href="http://www.jamesbritt.com">James Britt</a> and <a href="http://www.neurogami.com">Neurogami</a>, an <a href="http://www.neurogami.com"> avant garage application development company in Scottsdale, AZ</a>.  </p>
+ 
+    <p><small>Generated with Ruby-doc Rdoc Generator 0.24.6</small>.</p>
+  </div>
+</div>
+  
+ <script type='text/javascript'>
+$(document).ready(function() {
+      $.ajaxSetup({ cache: false });
+      $("#vulns-alert").load("/associated/vulns.html");
+    });
+
+    </script>
+
+
+ 
+    <script type='text/javascript'>
+
+  function loadPlus(plusdocs){
+    var img_h = $("img.carbonad-image").css('height');
+    //if(img_h != undefined) { //---
+      $(plusdocs).find("div[class='associated_wrapper']").each (function() {
+          $("#" + this.id).append($(plusdocs).find("#" + this.id ));
+          });
+    //} // ---
+  } // end loadPlusdocs
+
+
+$(document).ready(function() {
+    $.ajaxSetup({ cache: false });
+      $.get('/associated/1.8.7/plus_Struct.html', 
+      function(plusdocs) {
+      setTimeout(function() {
+        loadPlus(plusdocs);
+        }, 2000);
+      }
+      );
+    });
+</script>
+		
+</body>
+</html>
+
+

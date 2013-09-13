@@ -1,0 +1,3286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <!-- classpage -- >
+    <!-- RD version: 0.24.6  -->
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="2013-08-24 23:19:58 -0700" http-equiv="change-date" />
+  <!-- rel_prefix  = ''  ENV['RDOC_FOR_WEBSITE']   = false-->
+    
+    <!-- WHY? -->
+    
+    
+  <!-- rel_prefix = '.'   asset_rel_prefix = ''  --> 
+  <title>Module: Enumerable (Ruby 1.8.7) </title>
+  <!-- link rel="stylesheet" href=".css/obf.css"  -->
+  <link rel="stylesheet" href="css/inuit.css" >
+  <link rel="stylesheet" href="css/grid.inuit.css" >
+  <link rel="stylesheet" href="css/2011.css" type="text/css" >
+  <link rel="stylesheet" href="css/rdoc.css" type="text/css" >
+
+  <script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/js/rubydoc.js" type="text/javascript" charset="utf-8"></script> 
+
+ 
+<script src="/js/highlight.min.js"></script>
+<script> 
+  hljs.tabReplace = '  ';
+  hljs.initHighlightingOnLoad();
+  </script> 
+
+  <style type='text/css'>
+
+    #vulns-alert #vulns{
+      background-color: #c33 ! important;
+      width: 100%;
+      text-align: center;
+   }
+   
+   #vulns-alert #vulns a {
+    color: #F99 ! important;
+   }
+ </style>
+
+</head>
+
+<body id="top" class="module rdocstar">
+<div id='actionbar' >
+<div class='wrapper'>
+  <ul class='grids g0'></ul>
+</div>
+<span id='vulns-alert'></span>
+</div> <!-- end action bar -->
+ <div class='wrapper'>
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+          
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul id='file-metadata'>
+
+          
+          
+          
+          <li class='in-file'>enum.c</li>      
+            
+          
+          <li class='in-file'>enumerator.c</li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+
+      
+
+      
+      <!-- Namespace Contents -->
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li><span class="type">CLASS</span> <a href="Enumerable/Enumerator.html">Enumerable::Enumerator</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-all-3F">#all?</a></li>
+          
+          <li><a href="#method-i-any-3F">#any?</a></li>
+          
+          <li><a href="#method-i-collect">#collect</a></li>
+          
+          <li><a href="#method-i-count">#count</a></li>
+          
+          <li><a href="#method-i-cycle">#cycle</a></li>
+          
+          <li><a href="#method-i-detect">#detect</a></li>
+          
+          <li><a href="#method-i-drop">#drop</a></li>
+          
+          <li><a href="#method-i-drop_while">#drop_while</a></li>
+          
+          <li><a href="#method-i-each_cons">#each_cons</a></li>
+          
+          <li><a href="#method-i-each_slice">#each_slice</a></li>
+          
+          <li><a href="#method-i-each_with_index">#each_with_index</a></li>
+          
+          <li><a href="#method-i-entries">#entries</a></li>
+          
+          <li><a href="#method-i-enum_cons">#enum_cons</a></li>
+          
+          <li><a href="#method-i-enum_slice">#enum_slice</a></li>
+          
+          <li><a href="#method-i-enum_with_index">#enum_with_index</a></li>
+          
+          <li><a href="#method-i-find">#find</a></li>
+          
+          <li><a href="#method-i-find_all">#find_all</a></li>
+          
+          <li><a href="#method-i-find_index">#find_index</a></li>
+          
+          <li><a href="#method-i-first">#first</a></li>
+          
+          <li><a href="#method-i-grep">#grep</a></li>
+          
+          <li><a href="#method-i-group_by">#group_by</a></li>
+          
+          <li><a href="#method-i-include-3F">#include?</a></li>
+          
+          <li><a href="#method-i-inject">#inject</a></li>
+          
+          <li><a href="#method-i-map">#map</a></li>
+          
+          <li><a href="#method-i-max">#max</a></li>
+          
+          <li><a href="#method-i-max_by">#max_by</a></li>
+          
+          <li><a href="#method-i-member-3F">#member?</a></li>
+          
+          <li><a href="#method-i-min">#min</a></li>
+          
+          <li><a href="#method-i-min_by">#min_by</a></li>
+          
+          <li><a href="#method-i-minmax">#minmax</a></li>
+          
+          <li><a href="#method-i-minmax_by">#minmax_by</a></li>
+          
+          <li><a href="#method-i-none-3F">#none?</a></li>
+          
+          <li><a href="#method-i-one-3F">#one?</a></li>
+          
+          <li><a href="#method-i-partition">#partition</a></li>
+          
+          <li><a href="#method-i-reduce">#reduce</a></li>
+          
+          <li><a href="#method-i-reject">#reject</a></li>
+          
+          <li><a href="#method-i-reverse_each">#reverse_each</a></li>
+          
+          <li><a href="#method-i-select">#select</a></li>
+          
+          <li><a href="#method-i-sort">#sort</a></li>
+          
+          <li><a href="#method-i-sort_by">#sort_by</a></li>
+          
+          <li><a href="#method-i-take">#take</a></li>
+          
+          <li><a href="#method-i-take_while">#take_while</a></li>
+          
+          <li><a href="#method-i-to_a">#to_a</a></li>
+          
+          <li><a href="#method-i-zip">#zip</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+          
+          
+          
+          <li><a href="./ArgumentError.html">ArgumentError</a></li>
+        
+          
+          
+          <li><a href="./Array.html">Array</a></li>
+        
+          
+          
+          <li><a href="./Bignum.html">Bignum</a></li>
+        
+          
+          
+          <li><a href="./Binding.html">Binding</a></li>
+        
+          
+          
+          <li><a href="./Class.html">Class</a></li>
+        
+          
+          
+          <li><a href="./Comparable.html">Comparable</a></li>
+        
+          
+          
+          <li><a href="./Continuation.html">Continuation</a></li>
+        
+          
+          
+          <li><a href="./Data.html">Data</a></li>
+        
+          
+          
+          <li><a href="./Dir.html">Dir</a></li>
+        
+          
+          
+          <li><a href="./EOFError.html">EOFError</a></li>
+        
+          
+          
+          <li><a href="./Enumerable.html">Enumerable</a></li>
+        
+          
+          
+          <li><a href="./Enumerable/Enumerator.html">Enumerable::Enumerator</a></li>
+        
+          
+          
+          <li><a href="./Errno.html">Errno</a></li>
+        
+          
+          
+          <li><a href="./Exception.html">Exception</a></li>
+        
+          
+          
+          <li><a href="./FalseClass.html">FalseClass</a></li>
+        
+          
+          
+          <li><a href="./File.html">File</a></li>
+        
+          
+          
+          <li><a href="./File/Constants.html">File::Constants</a></li>
+        
+          
+          
+          <li><a href="./File/Stat.html">File::Stat</a></li>
+        
+          
+          
+          <li><a href="./FileTest.html">FileTest</a></li>
+        
+          
+          
+          <li><a href="./Fixnum.html">Fixnum</a></li>
+        
+          
+          
+          <li><a href="./Float.html">Float</a></li>
+        
+          
+          
+          <li><a href="./FloatDomainError.html">FloatDomainError</a></li>
+        
+          
+          
+          <li><a href="./GC.html">GC</a></li>
+        
+          
+          
+          <li><a href="./Hash.html">Hash</a></li>
+        
+          
+          
+          <li><a href="./IO.html">IO</a></li>
+        
+          
+          
+          <li><a href="./IOError.html">IOError</a></li>
+        
+          
+          
+          <li><a href="./IndexError.html">IndexError</a></li>
+        
+          
+          
+          <li><a href="./Integer.html">Integer</a></li>
+        
+          
+          
+          <li><a href="./Interrupt.html">Interrupt</a></li>
+        
+          
+          
+          <li><a href="./Kernel.html">Kernel</a></li>
+        
+          
+          
+          <li><a href="./LoadError.html">LoadError</a></li>
+        
+          
+          
+          <li><a href="./LocalJumpError.html">LocalJumpError</a></li>
+        
+          
+          
+          <li><a href="./Marshal.html">Marshal</a></li>
+        
+          
+          
+          <li><a href="./MatchData.html">MatchData</a></li>
+        
+          
+          
+          <li><a href="./Math.html">Math</a></li>
+        
+          
+          
+          <li><a href="./Method.html">Method</a></li>
+        
+          
+          
+          <li><a href="./Module.html">Module</a></li>
+        
+          
+          
+          <li><a href="./NameError.html">NameError</a></li>
+        
+          
+          
+          <li><a href="./NameError/message.html">NameError::message</a></li>
+        
+          
+          
+          <li><a href="./NilClass.html">NilClass</a></li>
+        
+          
+          
+          <li><a href="./NoMemoryError.html">NoMemoryError</a></li>
+        
+          
+          
+          <li><a href="./NoMethodError.html">NoMethodError</a></li>
+        
+          
+          
+          <li><a href="./NotImplementedError.html">NotImplementedError</a></li>
+        
+          
+          
+          <li><a href="./Numeric.html">Numeric</a></li>
+        
+          
+          
+          <li><a href="./Object.html">Object</a></li>
+        
+          
+          
+          <li><a href="./ObjectSpace.html">ObjectSpace</a></li>
+        
+          
+          
+          <li><a href="./Precision.html">Precision</a></li>
+        
+          
+          
+          <li><a href="./Proc.html">Proc</a></li>
+        
+          
+          
+          <li><a href="./Process.html">Process</a></li>
+        
+          
+          
+          <li><a href="./Process/GID.html">Process::GID</a></li>
+        
+          
+          
+          <li><a href="./Process/Status.html">Process::Status</a></li>
+        
+          
+          
+          <li><a href="./Process/Sys.html">Process::Sys</a></li>
+        
+          
+          
+          <li><a href="./Process/UID.html">Process::UID</a></li>
+        
+          
+          
+          <li><a href="./Range.html">Range</a></li>
+        
+          
+          
+          <li><a href="./RangeError.html">RangeError</a></li>
+        
+          
+          
+          <li><a href="./Regexp.html">Regexp</a></li>
+        
+          
+          
+          <li><a href="./RegexpError.html">RegexpError</a></li>
+        
+          
+          
+          <li><a href="./RuntimeError.html">RuntimeError</a></li>
+        
+          
+          
+          <li><a href="./ScriptError.html">ScriptError</a></li>
+        
+          
+          
+          <li><a href="./SecurityError.html">SecurityError</a></li>
+        
+          
+          
+          <li><a href="./Signal.html">Signal</a></li>
+        
+          
+          
+          <li><a href="./SignalException.html">SignalException</a></li>
+        
+          
+          
+          <li><a href="./StandardError.html">StandardError</a></li>
+        
+          
+          
+          <li><a href="./StopIteration.html">StopIteration</a></li>
+        
+          
+          
+          <li><a href="./String.html">String</a></li>
+        
+          
+          
+          <li><a href="./Struct.html">Struct</a></li>
+        
+          
+          
+          <li><a href="./Symbol.html">Symbol</a></li>
+        
+          
+          
+          <li><a href="./SyntaxError.html">SyntaxError</a></li>
+        
+          
+          
+          <li><a href="./SystemCallError.html">SystemCallError</a></li>
+        
+          
+          
+          <li><a href="./SystemExit.html">SystemExit</a></li>
+        
+          
+          
+          <li><a href="./SystemStackError.html">SystemStackError</a></li>
+        
+          
+          
+          <li><a href="./Thread.html">Thread</a></li>
+        
+          
+          
+          <li><a href="./ThreadError.html">ThreadError</a></li>
+        
+          
+          
+          <li><a href="./ThreadGroup.html">ThreadGroup</a></li>
+        
+          
+          
+          <li><a href="./Time.html">Time</a></li>
+        
+          
+          
+          <li><a href="./TrueClass.html">TrueClass</a></li>
+        
+          
+          
+          <li><a href="./TypeError.html">TypeError</a></li>
+        
+          
+          
+          <li><a href="./UnboundMethod.html">UnboundMethod</a></li>
+        
+          
+          
+          <li><a href="./ZeroDivisionError.html">ZeroDivisionError</a></li>
+        
+          
+          
+          <li><a href="./fatal.html">fatal</a></li>
+        
+          
+          
+          <li><a href="./unknown.html">unknown</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div> <!-- metadata -->
+  <div class='adzbox'  id="azk83167">
+    
+  </div> 
+  <div id="documentation">
+    <h1 class="module">Enumerable</h1>
+
+    <div id="description" class="description">
+      
+<p>The <code>Enumerable</code> mixin provides collection classes with several
+traversal and searching methods, and with the ability to sort. The class
+must provide a method <code>each</code>, which yields successive members of
+the collection. If <code>Enumerable#max</code>, <code>#min</code>, or
+<code>#sort</code> is used, the objects in the collection must also
+implement a meaningful <code>&lt;=&gt;</code> operator, as these methods
+rely on an ordering between members of the collection.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="all-3F-method" class="method-detail ">
+          <a name="method-i-all-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">all? [{|obj| block } ]   => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Passes each element of the collection to the given block. The method
+returns <code>true</code> if the block never returns <code>false</code> or
+<code>nil</code>. If the block is not given, Ruby adds an implicit block of
+<code>{|obj| obj}</code> (that is <code>all?</code> will return
+<code>true</code> only if none of the collection members are
+<code>false</code> or <code>nil</code>.)</p>
+
+<pre class="ruby"><span class="ruby-node">%w{ ant bear cat}</span>.<span class="ruby-identifier">all?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">3</span>}   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-node">%w{ ant bear cat}</span>.<span class="ruby-identifier">all?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">4</span>}   <span class="ruby-comment">#=&gt; false</span>
+[ <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">true</span>, <span class="ruby-value">99</span> ].<span class="ruby-identifier">all?</span>                             <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="all-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_all(obj)
+    VALUE obj;
+{
+    VALUE result = Qtrue;
+
+    rb_iterate(rb_each, obj, rb_block_given_p() ? all_iter_i : all_i, (VALUE)&amp;result);
+    return result;
+}
+            </pre> 
+            </div><!-- all-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- all-3F-method -->
+      
+        <div id="any-3F-method" class="method-detail ">
+          <a name="method-i-any-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">any? [{|obj| block } ]   => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Passes each element of the collection to the given block. The method
+returns <code>true</code> if the block ever returns a value other than
+<code>false</code> or <code>nil</code>. If the block is not given, Ruby
+adds an implicit block of <code>{|obj| obj}</code> (that is
+<code>any?</code> will return <code>true</code> if at least one of the
+collection members is not <code>false</code> or <code>nil</code>.</p>
+
+<pre class="ruby"><span class="ruby-node">%w{ ant bear cat}</span>.<span class="ruby-identifier">any?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">3</span>}   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-node">%w{ ant bear cat}</span>.<span class="ruby-identifier">any?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">4</span>}   <span class="ruby-comment">#=&gt; true</span>
+[ <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">true</span>, <span class="ruby-value">99</span> ].<span class="ruby-identifier">any?</span>                             <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="any-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_any(obj)
+    VALUE obj;
+{
+    VALUE result = Qfalse;
+
+    rb_iterate(rb_each, obj, rb_block_given_p() ? any_iter_i : any_i, (VALUE)&amp;result);
+    return result;
+}
+            </pre> 
+            </div><!-- any-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- any-3F-method -->
+      
+        <div id="collect-method" class="method-detail ">
+          <a name="method-i-collect"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">collect {| obj | block }  => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns a new array with the results of running <em>block</em> once for
+every element in <em>enum</em>.</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">4</span>).<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span> }   <span class="ruby-comment">#=&gt; [1, 4, 9, 16]</span>
+(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">4</span>).<span class="ruby-identifier">collect</span> { <span class="ruby-string">&quot;cat&quot;</span>  }   <span class="ruby-comment">#=&gt; [&quot;cat&quot;, &quot;cat&quot;, &quot;cat&quot;, &quot;cat&quot;]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="collect-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_collect(obj)
+    VALUE obj;
+{
+    VALUE ary = rb_ary_new();
+
+    rb_iterate(rb_each, obj, rb_block_given_p() ? collect_i : collect_all, ary);
+
+    return ary;
+}
+            </pre> 
+            </div><!-- collect-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- collect-method -->
+      
+        <div id="count-method" class="method-detail ">
+          <a name="method-i-count"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">count                   => int</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">count(item)             => int</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">count {| obj | block }  => int</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the number of items in <em>enum</em>, where size is called if it
+responds to it, otherwise the items are counted through enumeration.  If an
+argument is given, counts the number of items in <em>enum</em>, for which
+equals to <em>item</em>.  If a block is given, counts the number of
+elements yielding a true value.</p>
+
+<pre class="ruby"><span class="ruby-identifier">ary</span> = [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">4</span>, <span class="ruby-value">2</span>]
+<span class="ruby-identifier">ary</span>.<span class="ruby-identifier">count</span>             <span class="ruby-comment"># =&gt; 4</span>
+<span class="ruby-identifier">ary</span>.<span class="ruby-identifier">count</span>(<span class="ruby-value">2</span>)          <span class="ruby-comment"># =&gt; 2</span>
+<span class="ruby-identifier">ary</span>.<span class="ruby-identifier">count</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">%</span><span class="ruby-value">2</span><span class="ruby-operator">==</span><span class="ruby-value">0</span>}  <span class="ruby-comment"># =&gt; 3</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="count-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_count(argc, argv, obj)
+    int argc;
+    VALUE *argv;
+    VALUE obj;
+{
+    VALUE memo[2];      /* [count, condition value] */
+    rb_block_call_func *func;
+
+    if (argc == 0) {
+        if (rb_block_given_p()) {
+            func = count_iter_i;
+        }
+        else {
+            if (rb_respond_to(obj, id_size)) {
+                return rb_funcall(obj, id_size, 0, 0);
+            }
+            func = count_all_i;
+        }
+    }
+    else {
+        rb_scan_args(argc, argv, &quot;1&quot;, &amp;memo[1]);
+        if (rb_block_given_p()) {
+            rb_warn(&quot;given block not used&quot;);
+        }
+        func = count_i;
+    }
+
+    memo[0] = 0;
+    rb_block_call(obj, id_each, 0, 0, func, (VALUE)&amp;memo);
+    return INT2NUM(memo[0]);
+}
+            </pre> 
+            </div><!-- count-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- count-method -->
+      
+        <div id="cycle-method" class="method-detail ">
+          <a name="method-i-cycle"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">cycle {|obj| block }</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">cycle(n) {|obj| block }</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Calls <em>block</em> for each element of <em>enum</em> repeatedly
+<em>n</em> times or forever if none or nil is given.  If a non-positive
+number is given or the collection is empty, does nothing.  Returns nil if
+the loop has finished without getting interrupted.</p>
+
+<p><a href="Enumerable.html#method-i-cycle">#cycle</a> saves elements in an
+internal array so changes to <em>enum</em> after the first pass have no
+effect.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = [<span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">cycle</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">x</span> }  <span class="ruby-comment"># print, a, b, c, a, b, c,.. forever.</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">cycle</span>(<span class="ruby-value">2</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">x</span> }  <span class="ruby-comment"># print, a, b, c, a, b, c.</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="cycle-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_cycle(argc, argv, obj)
+    int argc;
+    VALUE *argv;
+    VALUE obj;
+{
+    VALUE ary;
+    VALUE nv = Qnil;
+    long n, i, len;
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;nv);
+
+    RETURN_ENUMERATOR(obj, argc, argv);
+    if (NIL_P(nv)) {
+        n = -1;
+    }
+    else {
+        n = NUM2LONG(nv);
+        if (n &lt;= 0) return Qnil;
+    }
+    ary = rb_ary_new();
+    RBASIC(ary)-&gt;klass = 0;
+    rb_block_call(obj, id_each, 0, 0, cycle_i, ary);
+    len = RARRAY(ary)-&gt;len;
+    if (len == 0) return Qnil;
+    while (n &lt; 0 || 0 &lt; --n) {
+        for (i=0; i&lt;len; i++) {
+            rb_yield(RARRAY(ary)-&gt;ptr[i]);
+        }
+    }
+    return Qnil;                /* not reached */
+}
+            </pre> 
+            </div><!-- cycle-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- cycle-method -->
+      
+        <div id="detect-method" class="method-detail ">
+          <a name="method-i-detect"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">detect(ifnone = nil) {| obj | block }  => obj or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Passes each entry in <em>enum</em> to <em>block</em>. Returns the first for
+which <em>block</em> is not <code>false</code>.  If no object matches,
+calls <em>ifnone</em> and returns its result when it is specified, or
+returns <code>nil</code></p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">detect</span>  {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">5</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">7</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }   <span class="ruby-comment">#=&gt; nil</span>
+(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">100</span>).<span class="ruby-identifier">detect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">5</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">7</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }   <span class="ruby-comment">#=&gt; 35</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="detect-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_find(argc, argv, obj)
+    int argc;
+    VALUE* argv;
+    VALUE obj;
+{
+    VALUE memo = Qundef;
+    VALUE if_none;
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;if_none);
+    RETURN_ENUMERATOR(obj, argc, argv);
+    rb_iterate(rb_each, obj, find_i, (VALUE)&amp;memo);
+    if (memo != Qundef) {
+        return memo;
+    }
+    if (!NIL_P(if_none)) {
+        return rb_funcall(if_none, rb_intern(&quot;call&quot;), 0, 0);
+    }
+    return Qnil;
+}
+            </pre> 
+            </div><!-- detect-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- detect-method -->
+      
+        <div id="drop-method" class="method-detail ">
+          <a name="method-i-drop"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">drop(n)               => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Drops first n elements from <em>enum</em>, and returns rest elements in an
+array.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">0</span>]
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">drop</span>(<span class="ruby-value">3</span>)             <span class="ruby-comment"># =&gt; [4, 5, 0]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="drop-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_drop(obj, n)
+    VALUE obj;
+    VALUE n;
+{
+    VALUE args[2];
+    long len = NUM2LONG(n);
+
+    if (len &lt; 0) {
+        rb_raise(rb_eArgError, &quot;attempt to drop negative size&quot;);
+    }
+
+    args[1] = len;
+    args[0] = rb_ary_new();
+    rb_block_call(obj, id_each, 0, 0, drop_i, (VALUE)args);
+    return args[0];
+}
+            </pre> 
+            </div><!-- drop-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- drop-method -->
+      
+        <div id="drop_while-method" class="method-detail ">
+          <a name="method-i-drop_while"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">drop_while {|arr| block }   => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Drops elements up to, but not including, the first element for which the
+block returns nil or false and returns an array containing the remaining
+elements.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">0</span>]
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">drop_while</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">3</span> }   <span class="ruby-comment"># =&gt; [3, 4, 5, 0]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="drop_while-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_drop_while(obj)
+    VALUE obj;
+{
+    VALUE args[2];
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+    args[0] = rb_ary_new();
+    args[1] = Qfalse;
+    rb_block_call(obj, id_each, 0, 0, drop_while_i, (VALUE)args);
+    return args[0];
+}
+            </pre> 
+            </div><!-- drop_while-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- drop_while-method -->
+      
+        <div id="each_cons-method" class="method-detail ">
+          <a name="method-i-each_cons"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_cons(n) {...}</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_cons(n)</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Iterates the given block for each array of consecutive &lt;n&gt; elements. 
+If no block is given, returns an enumerator.a</p>
+
+<p>e.g.:</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">each_cons</span>(<span class="ruby-value">3</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">a</span>}
+<span class="ruby-comment"># outputs below</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]
+[<span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>]
+[<span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>]
+[<span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span>]
+[<span class="ruby-value">5</span>, <span class="ruby-value">6</span>, <span class="ruby-value">7</span>]
+[<span class="ruby-value">6</span>, <span class="ruby-value">7</span>, <span class="ruby-value">8</span>]
+[<span class="ruby-value">7</span>, <span class="ruby-value">8</span>, <span class="ruby-value">9</span>]
+[<span class="ruby-value">8</span>, <span class="ruby-value">9</span>, <span class="ruby-value">10</span>]
+</pre>
+            
+
+            
+            <div class="method-source-code" id="each_cons-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_each_cons(obj, n)
+    VALUE obj, n;
+{
+    long size = NUM2LONG(n);
+    VALUE args[2];
+
+    if (size &lt;= 0) rb_raise(rb_eArgError, &quot;invalid size&quot;);
+    RETURN_ENUMERATOR(obj, 1, &amp;n);
+    args[0] = rb_ary_new2(size);
+    args[1] = (VALUE)size;
+
+    rb_block_call(obj, SYM2ID(sym_each), 0, 0, each_cons_i, (VALUE)args);
+
+    return Qnil;
+}
+            </pre> 
+            </div><!-- each_cons-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each_cons-method -->
+      
+        <div id="each_slice-method" class="method-detail ">
+          <a name="method-i-each_slice"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_slice(n) {...}</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_slice(n)</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Iterates the given block for each slice of &lt;n&gt; elements.  If no block
+is given, returns an enumerator.</p>
+
+<p>e.g.:</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">each_slice</span>(<span class="ruby-value">3</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">a</span>}
+<span class="ruby-comment"># outputs below</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]
+[<span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span>]
+[<span class="ruby-value">7</span>, <span class="ruby-value">8</span>, <span class="ruby-value">9</span>]
+[<span class="ruby-value">10</span>]
+</pre>
+            
+
+            
+            <div class="method-source-code" id="each_slice-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_each_slice(obj, n)
+    VALUE obj, n;
+{
+    long size = NUM2LONG(n);
+    VALUE args[2], ary;
+
+    if (size &lt;= 0) rb_raise(rb_eArgError, &quot;invalid slice size&quot;);
+    RETURN_ENUMERATOR(obj, 1, &amp;n);
+    args[0] = rb_ary_new2(size);
+    args[1] = (VALUE)size;
+
+    rb_block_call(obj, SYM2ID(sym_each), 0, 0, each_slice_i, (VALUE)args);
+
+    ary = args[0];
+    if (RARRAY_LEN(ary) &gt; 0) rb_yield(ary);
+
+    return Qnil;
+}
+            </pre> 
+            </div><!-- each_slice-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each_slice-method -->
+      
+        <div id="each_with_index-method" class="method-detail ">
+          <a name="method-i-each_with_index"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_with_index {|obj, i| block }  &rarr; enum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Calls <em>block</em> with two arguments, the item and its index, for each
+item in <em>enum</em>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">hash</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-node">%w(cat dog wombat)</span>.<span class="ruby-identifier">each_with_index</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">item</span>] = <span class="ruby-identifier">index</span>
+}
+<span class="ruby-identifier">hash</span>   <span class="ruby-comment">#=&gt; {&quot;cat&quot;=&gt;0, &quot;wombat&quot;=&gt;2, &quot;dog&quot;=&gt;1}</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="each_with_index-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_each_with_index(obj)
+    VALUE obj;
+{
+    VALUE memo;
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+
+    memo = 0;
+    rb_iterate(rb_each, obj, each_with_index_i, (VALUE)&amp;memo);
+    return obj;
+}
+            </pre> 
+            </div><!-- each_with_index-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each_with_index-method -->
+      
+        <div id="entries-method" class="method-detail ">
+          <a name="method-i-entries"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">entries   =>    array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an array containing the items in <em>enum</em>.</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">7</span>).<span class="ruby-identifier">to_a</span>                       <span class="ruby-comment">#=&gt; [1, 2, 3, 4, 5, 6, 7]</span>
+{ <span class="ruby-string">'a'</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">1</span>, <span class="ruby-string">'b'</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">2</span>, <span class="ruby-string">'c'</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">3</span> }.<span class="ruby-identifier">to_a</span>   <span class="ruby-comment">#=&gt; [[&quot;a&quot;, 1], [&quot;b&quot;, 2], [&quot;c&quot;, 3]]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="entries-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_to_a(argc, argv, obj)
+    int argc;
+    VALUE *argv;
+    VALUE obj;
+{
+    VALUE ary = rb_ary_new();
+
+    rb_block_call(obj, id_each, argc, argv, collect_all, ary);
+
+    return ary;
+}
+            </pre> 
+            </div><!-- entries-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- entries-method -->
+      
+        <div id="enum_cons-method" class="method-detail ">
+          <a name="method-i-enum_cons"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_cons(n) {...}</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_cons(n)</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Iterates the given block for each array of consecutive &lt;n&gt; elements. 
+If no block is given, returns an enumerator.a</p>
+
+<p>e.g.:</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">each_cons</span>(<span class="ruby-value">3</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">a</span>}
+<span class="ruby-comment"># outputs below</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]
+[<span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>]
+[<span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>]
+[<span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span>]
+[<span class="ruby-value">5</span>, <span class="ruby-value">6</span>, <span class="ruby-value">7</span>]
+[<span class="ruby-value">6</span>, <span class="ruby-value">7</span>, <span class="ruby-value">8</span>]
+[<span class="ruby-value">7</span>, <span class="ruby-value">8</span>, <span class="ruby-value">9</span>]
+[<span class="ruby-value">8</span>, <span class="ruby-value">9</span>, <span class="ruby-value">10</span>]
+</pre>
+            
+
+            
+            <div class="method-source-code" id="enum_cons-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_each_cons(obj, n)
+    VALUE obj, n;
+{
+    long size = NUM2LONG(n);
+    VALUE args[2];
+
+    if (size &lt;= 0) rb_raise(rb_eArgError, &quot;invalid size&quot;);
+    RETURN_ENUMERATOR(obj, 1, &amp;n);
+    args[0] = rb_ary_new2(size);
+    args[1] = (VALUE)size;
+
+    rb_block_call(obj, SYM2ID(sym_each), 0, 0, each_cons_i, (VALUE)args);
+
+    return Qnil;
+}
+            </pre> 
+            </div><!-- enum_cons-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- enum_cons-method -->
+      
+        <div id="enum_slice-method" class="method-detail ">
+          <a name="method-i-enum_slice"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_slice(n) {...}</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_slice(n)</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Iterates the given block for each slice of &lt;n&gt; elements.  If no block
+is given, returns an enumerator.</p>
+
+<p>e.g.:</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">each_slice</span>(<span class="ruby-value">3</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">a</span>}
+<span class="ruby-comment"># outputs below</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]
+[<span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span>]
+[<span class="ruby-value">7</span>, <span class="ruby-value">8</span>, <span class="ruby-value">9</span>]
+[<span class="ruby-value">10</span>]
+</pre>
+            
+
+            
+            <div class="method-source-code" id="enum_slice-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_each_slice(obj, n)
+    VALUE obj, n;
+{
+    long size = NUM2LONG(n);
+    VALUE args[2], ary;
+
+    if (size &lt;= 0) rb_raise(rb_eArgError, &quot;invalid slice size&quot;);
+    RETURN_ENUMERATOR(obj, 1, &amp;n);
+    args[0] = rb_ary_new2(size);
+    args[1] = (VALUE)size;
+
+    rb_block_call(obj, SYM2ID(sym_each), 0, 0, each_slice_i, (VALUE)args);
+
+    ary = args[0];
+    if (RARRAY_LEN(ary) &gt; 0) rb_yield(ary);
+
+    return Qnil;
+}
+            </pre> 
+            </div><!-- enum_slice-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- enum_slice-method -->
+      
+        <div id="enum_with_index-method" class="method-detail ">
+          <a name="method-i-enum_with_index"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">each_with_index {|obj, i| block }  &rarr; enum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Calls <em>block</em> with two arguments, the item and its index, for each
+item in <em>enum</em>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">hash</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-node">%w(cat dog wombat)</span>.<span class="ruby-identifier">each_with_index</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">item</span>] = <span class="ruby-identifier">index</span>
+}
+<span class="ruby-identifier">hash</span>   <span class="ruby-comment">#=&gt; {&quot;cat&quot;=&gt;0, &quot;wombat&quot;=&gt;2, &quot;dog&quot;=&gt;1}</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="enum_with_index-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_each_with_index(obj)
+    VALUE obj;
+{
+    VALUE memo;
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+
+    memo = 0;
+    rb_iterate(rb_each, obj, each_with_index_i, (VALUE)&amp;memo);
+    return obj;
+}
+            </pre> 
+            </div><!-- enum_with_index-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- enum_with_index-method -->
+      
+        <div id="find-method" class="method-detail ">
+          <a name="method-i-find"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">find(ifnone = nil)   {| obj | block }  => obj or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Passes each entry in <em>enum</em> to <em>block</em>. Returns the first for
+which <em>block</em> is not <code>false</code>.  If no object matches,
+calls <em>ifnone</em> and returns its result when it is specified, or
+returns <code>nil</code></p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">detect</span>  {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">5</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">7</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }   <span class="ruby-comment">#=&gt; nil</span>
+(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">100</span>).<span class="ruby-identifier">detect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">5</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">7</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }   <span class="ruby-comment">#=&gt; 35</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="find-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_find(argc, argv, obj)
+    int argc;
+    VALUE* argv;
+    VALUE obj;
+{
+    VALUE memo = Qundef;
+    VALUE if_none;
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;if_none);
+    RETURN_ENUMERATOR(obj, argc, argv);
+    rb_iterate(rb_each, obj, find_i, (VALUE)&amp;memo);
+    if (memo != Qundef) {
+        return memo;
+    }
+    if (!NIL_P(if_none)) {
+        return rb_funcall(if_none, rb_intern(&quot;call&quot;), 0, 0);
+    }
+    return Qnil;
+}
+            </pre> 
+            </div><!-- find-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- find-method -->
+      
+        <div id="find_all-method" class="method-detail ">
+          <a name="method-i-find_all"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">find_all {| obj | block }  => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an array containing all elements of <em>enum</em> for which
+<em>block</em> is not <code>false</code> (see also
+<code>Enumerable#reject</code>).</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">find_all</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>  <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">3</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }   <span class="ruby-comment">#=&gt; [3, 6, 9]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="find_all-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_find_all(obj)
+    VALUE obj;
+{
+    VALUE ary = rb_ary_new();
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+    rb_iterate(rb_each, obj, find_all_i, ary);
+
+    return ary;
+}
+            </pre> 
+            </div><!-- find_all-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- find_all-method -->
+      
+        <div id="find_index-method" class="method-detail ">
+          <a name="method-i-find_index"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">find_index(value)            => int or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">find_index {| obj | block }  => int or nil</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Compares each entry in <em>enum</em> with <em>value</em> or passes to
+<em>block</em>.  Returns the index for the first for which the evaluated
+value is non-false.  If no object matches, returns <code>nil</code></p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">find_index</span>  {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">5</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">7</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }   <span class="ruby-comment">#=&gt; nil</span>
+(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">100</span>).<span class="ruby-identifier">find_index</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">5</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">7</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }   <span class="ruby-comment">#=&gt; 34</span>
+(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">100</span>).<span class="ruby-identifier">find_index</span>(<span class="ruby-value">50</span>)                                <span class="ruby-comment">#=&gt; 49</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="find_index-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_find_index(argc, argv, obj)
+    int argc;
+    VALUE *argv;
+    VALUE obj;
+{
+    VALUE memo[3];      /* [return value, current index, condition value] */
+    rb_block_call_func *func;
+
+    if (argc == 0) {
+        RETURN_ENUMERATOR(obj, 0, 0);
+        func = find_index_iter_i;
+    }
+    else {
+        rb_scan_args(argc, argv, &quot;1&quot;, &amp;memo[2]);
+        if (rb_block_given_p()) {
+            rb_warn(&quot;given block not used&quot;);
+        }
+        func = find_index_i;
+    }
+
+    memo[0] = Qnil;
+    memo[1] = 0;
+    rb_block_call(obj, id_each, 0, 0, func, (VALUE)memo);
+    return memo[0];
+}
+            </pre> 
+            </div><!-- find_index-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- find_index-method -->
+      
+        <div id="first-method" class="method-detail ">
+          <a name="method-i-first"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">first      &rarr; obj or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">first(n)   &rarr; an_array</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the first element, or the first <code>n</code> elements, of the
+enumerable. If the enumerable is empty, the first form returns
+<code>nil</code>, and the second form returns an empty array.</p>
+            
+
+            
+            <div class="method-source-code" id="first-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_first(argc, argv, obj)
+    int argc;
+    VALUE *argv;
+    VALUE obj;
+{
+    VALUE n, ary[2];
+
+    if (argc == 0) {
+        ary[0] = ary[1] = Qnil;
+    }
+    else {
+        long len;
+        rb_scan_args(argc, argv, &quot;01&quot;, &amp;n);
+        len = NUM2LONG(n);
+        if (len == 0) return rb_ary_new2(0);
+        ary[0] = INT2NUM(len);
+        ary[1] = rb_ary_new2(len);
+    }
+    rb_block_call(obj, id_each, 0, 0, first_i, (VALUE)ary);
+
+    return ary[1];
+}
+            </pre> 
+            </div><!-- first-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- first-method -->
+      
+        <div id="grep-method" class="method-detail ">
+          <a name="method-i-grep"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">grep(pattern)                   => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">grep(pattern) {| obj | block }  => array</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an array of every element in <em>enum</em> for which <code>Pattern
+=== element</code>. If the optional <em>block</em> is supplied, each
+matching element is passed to it, and the block’s result is stored in the
+output array.</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">100</span>).<span class="ruby-identifier">grep</span> <span class="ruby-value">38</span><span class="ruby-operator">..</span><span class="ruby-value">44</span>   <span class="ruby-comment">#=&gt; [38, 39, 40, 41, 42, 43, 44]</span>
+<span class="ruby-identifier">c</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">constants</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp">/SEEK/</span>)         <span class="ruby-comment">#=&gt; [&quot;SEEK_END&quot;, &quot;SEEK_SET&quot;, &quot;SEEK_CUR&quot;]</span>
+<span class="ruby-identifier">res</span> = <span class="ruby-identifier">c</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp">/SEEK/</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-constant">IO</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">v</span>) }
+<span class="ruby-identifier">res</span>                    <span class="ruby-comment">#=&gt; [2, 0, 1]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="grep-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_grep(obj, pat)
+    VALUE obj, pat;
+{
+    VALUE ary = rb_ary_new();
+    VALUE arg[2];
+
+    arg[0] = pat;
+    arg[1] = ary;
+
+    rb_iterate(rb_each, obj, rb_block_given_p() ? grep_iter_i : grep_i, (VALUE)arg);
+
+    return ary;
+}
+            </pre> 
+            </div><!-- grep-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- grep-method -->
+      
+        <div id="group_by-method" class="method-detail ">
+          <a name="method-i-group_by"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">group_by {| obj | block }  => a_hash</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns a hash, which keys are evaluated result from the block, and values
+are arrays of elements in <em>enum</em> corresponding to the key.</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">6</span>).<span class="ruby-identifier">group_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span><span class="ruby-operator">%</span><span class="ruby-value">3</span>}   <span class="ruby-comment">#=&gt; {0=&gt;[3, 6], 1=&gt;[1, 4], 2=&gt;[2, 5]}</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="group_by-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_group_by(obj)
+    VALUE obj;
+{
+    VALUE hash;
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+
+    hash = rb_hash_new();
+    rb_block_call(obj, id_each, 0, 0, group_by_i, hash);
+
+    return hash;
+}
+            </pre> 
+            </div><!-- group_by-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- group_by-method -->
+      
+        <div id="include-3F-method" class="method-detail ">
+          <a name="method-i-include-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">include?(obj)     => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if any member of <em>enum</em> equals
+<em>obj</em>. Equality is tested using <code>==</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">IO</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">include?</span> <span class="ruby-string">&quot;SEEK_SET&quot;</span>          <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">IO</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">include?</span> <span class="ruby-string">&quot;SEEK_NO_FURTHER&quot;</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="include-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_member(obj, val)
+    VALUE obj, val;
+{
+    VALUE memo[2];
+
+    memo[0] = val;
+    memo[1] = Qfalse;
+    rb_iterate(rb_each, obj, member_i, (VALUE)memo);
+    return memo[1];
+}
+            </pre> 
+            </div><!-- include-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- include-3F-method -->
+      
+        <div id="inject-method" class="method-detail ">
+          <a name="method-i-inject"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">inject(initial, sym) => obj</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">inject(sym)          => obj</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">inject(initial) {| memo, obj | block }  => obj</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">inject          {| memo, obj | block }  => obj</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Combines all elements of <em>enum</em> by applying a binary operation,
+specified by a block or a symbol that names a method or operator.</p>
+
+<p>If you specify a block, then for each element in <em>enum&lt;i&gt; the
+block is passed an accumulator value (&lt;i&gt;memo</em>) and the element.
+If you specify a symbol instead, then each element in the collection will
+be passed to the named method of <em>memo</em>. In either case, the result
+becomes the new value for <em>memo</em>. At the end of the iteration, the
+final value of <em>memo</em> is the return value fo the method.</p>
+
+<p>If you do not explicitly specify an <em>initial</em> value for
+<em>memo</em>, then uses the first element of collection is used as the
+initial value of <em>memo</em>.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Sum some numbers</span>
+(<span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">reduce</span>(:<span class="ruby-operator">+</span>)                            <span class="ruby-comment">#=&gt; 45</span>
+<span class="ruby-comment"># Same using a block and inject</span>
+(<span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">inject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">n</span> }            <span class="ruby-comment">#=&gt; 45</span>
+<span class="ruby-comment"># Multiply some numbers</span>
+(<span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">reduce</span>(<span class="ruby-value">1</span>, :<span class="ruby-operator">*</span>)                         <span class="ruby-comment">#=&gt; 151200</span>
+<span class="ruby-comment"># Same using a block</span>
+(<span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">inject</span>(<span class="ruby-value">1</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">product</span>, <span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">product</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">n</span> } <span class="ruby-comment">#=&gt; 151200</span>
+<span class="ruby-comment"># find the longest word</span>
+<span class="ruby-identifier">longest</span> = <span class="ruby-node">%w{ cat sheep bear }</span>.<span class="ruby-identifier">inject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>,<span class="ruby-identifier">word</span><span class="ruby-operator">|</span>
+   <span class="ruby-identifier">memo</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">memo</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">word</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">longest</span>                                       <span class="ruby-comment">#=&gt; &quot;sheep&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="inject-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_inject(argc, argv, obj)
+    int argc;
+    VALUE *argv;
+    VALUE obj;
+{
+    VALUE memo[2];
+    rb_block_call_func *iter = inject_i;
+
+    switch (rb_scan_args(argc, argv, &quot;02&quot;, &amp;memo[0], &amp;memo[1])) {
+      case 0:
+        memo[0] = Qundef;
+        break;
+      case 1:
+        if (rb_block_given_p()) {
+            break;
+        }
+        memo[1] = (VALUE)rb_to_id(memo[0]);
+        memo[0] = Qundef;
+        iter = inject_op_i;
+        break;
+      case 2:
+        if (rb_block_given_p()) {
+            rb_warning(&quot;given block not used&quot;);
+        }
+        memo[1] = (VALUE)rb_to_id(memo[1]);
+        iter = inject_op_i;
+        break;
+    }
+    rb_block_call(obj, id_each, 0, 0, iter, (VALUE)memo);
+    if (memo[0] == Qundef) return Qnil;
+    return memo[0];
+}
+            </pre> 
+            </div><!-- inject-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- inject-method -->
+      
+        <div id="map-method" class="method-detail ">
+          <a name="method-i-map"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">map     {| obj | block }  => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns a new array with the results of running <em>block</em> once for
+every element in <em>enum</em>.</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">4</span>).<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span> }   <span class="ruby-comment">#=&gt; [1, 4, 9, 16]</span>
+(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">4</span>).<span class="ruby-identifier">collect</span> { <span class="ruby-string">&quot;cat&quot;</span>  }   <span class="ruby-comment">#=&gt; [&quot;cat&quot;, &quot;cat&quot;, &quot;cat&quot;, &quot;cat&quot;]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="map-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_collect(obj)
+    VALUE obj;
+{
+    VALUE ary = rb_ary_new();
+
+    rb_iterate(rb_each, obj, rb_block_given_p() ? collect_i : collect_all, ary);
+
+    return ary;
+}
+            </pre> 
+            </div><!-- map-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- map-method -->
+      
+        <div id="max-method" class="method-detail ">
+          <a name="method-i-max"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">max                   => obj</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">max {|a,b| block }    => obj</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the object in <em>enum</em> with the maximum value. The first form
+assumes all objects implement <code>Comparable</code>; the second uses the
+block to return <em>a &lt;=&gt; b</em>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-node">%w(albatross dog horse)</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">max</span>                                  <span class="ruby-comment">#=&gt; &quot;horse&quot;</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">max</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">length</span> }   <span class="ruby-comment">#=&gt; &quot;albatross&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="max-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_max(obj)
+    VALUE obj;
+{
+    VALUE result = Qundef;
+
+    rb_iterate(rb_each, obj, rb_block_given_p() ? max_ii : max_i, (VALUE)&amp;result);
+    if (result == Qundef) return Qnil;
+    return result;
+}
+            </pre> 
+            </div><!-- max-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- max-method -->
+      
+        <div id="max_by-method" class="method-detail ">
+          <a name="method-i-max_by"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">max_by {| obj| block }   => obj</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the object in <em>enum</em> that gives the maximum value from the
+given block.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-node">%w(albatross dog horse)</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">max_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">length</span> }   <span class="ruby-comment">#=&gt; &quot;albatross&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="max_by-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_max_by(obj)
+    VALUE obj;
+{
+    VALUE memo[2];
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+
+    memo[0] = Qundef;
+    memo[1] = Qnil;
+    rb_block_call(obj, id_each, 0, 0, max_by_i, (VALUE)memo);
+    return memo[1];
+}
+            </pre> 
+            </div><!-- max_by-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- max_by-method -->
+      
+        <div id="member-3F-method" class="method-detail ">
+          <a name="method-i-member-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">member?(obj)      => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if any member of <em>enum</em> equals
+<em>obj</em>. Equality is tested using <code>==</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">IO</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">include?</span> <span class="ruby-string">&quot;SEEK_SET&quot;</span>          <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">IO</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">include?</span> <span class="ruby-string">&quot;SEEK_NO_FURTHER&quot;</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="member-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_member(obj, val)
+    VALUE obj, val;
+{
+    VALUE memo[2];
+
+    memo[0] = val;
+    memo[1] = Qfalse;
+    rb_iterate(rb_each, obj, member_i, (VALUE)memo);
+    return memo[1];
+}
+            </pre> 
+            </div><!-- member-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- member-3F-method -->
+      
+        <div id="min-method" class="method-detail ">
+          <a name="method-i-min"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">min                    => obj</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">min {| a,b | block }   => obj</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the object in <em>enum</em> with the minimum value. The first form
+assumes all objects implement <code>Comparable</code>; the second uses the
+block to return <em>a &lt;=&gt; b</em>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-node">%w(albatross dog horse)</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">min</span>                                  <span class="ruby-comment">#=&gt; &quot;albatross&quot;</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">min</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">length</span> }   <span class="ruby-comment">#=&gt; &quot;dog&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="min-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_min(obj)
+    VALUE obj;
+{
+    VALUE result = Qundef;
+
+    rb_iterate(rb_each, obj, rb_block_given_p() ? min_ii : min_i, (VALUE)&amp;result);
+    if (result == Qundef) return Qnil;
+    return result;
+}
+            </pre> 
+            </div><!-- min-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- min-method -->
+      
+        <div id="min_by-method" class="method-detail ">
+          <a name="method-i-min_by"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">min_by {| obj| block }   => obj</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the object in <em>enum</em> that gives the minimum value from the
+given block.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-node">%w(albatross dog horse)</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">min_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">length</span> }   <span class="ruby-comment">#=&gt; &quot;dog&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="min_by-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_min_by(obj)
+    VALUE obj;
+{
+    VALUE memo[2];
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+
+    memo[0] = Qundef;
+    memo[1] = Qnil;
+    rb_block_call(obj, id_each, 0, 0, min_by_i, (VALUE)memo);
+    return memo[1];
+}
+            </pre> 
+            </div><!-- min_by-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- min_by-method -->
+      
+        <div id="minmax-method" class="method-detail ">
+          <a name="method-i-minmax"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">minmax                   => [min,max]</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">minmax {|a,b| block }    => [min,max]</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns two elements array which contains the minimum and the maximum value
+in the enumerable.  The first form assumes all objects implement
+<code>Comparable</code>; the second uses the block to return <em>a
+&lt;=&gt; b</em>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-node">%w(albatross dog horse)</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">minmax</span>                                  <span class="ruby-comment">#=&gt; [&quot;albatross&quot;, &quot;horse&quot;]</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">minmax</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">length</span> }   <span class="ruby-comment">#=&gt; [&quot;dog&quot;, &quot;albatross&quot;]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="minmax-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_minmax(obj)
+    VALUE obj;
+{
+    VALUE result[3];
+    VALUE ary = rb_ary_new3(2, Qnil, Qnil);
+
+    result[0] = Qundef;
+    if (rb_block_given_p()) {
+        result[2] = ary;
+        rb_block_call(obj, id_each, 0, 0, minmax_ii, (VALUE)result);
+    }
+    else {
+        rb_block_call(obj, id_each, 0, 0, minmax_i, (VALUE)result);
+    }
+    if (result[0] != Qundef) {
+        RARRAY(ary)-&gt;ptr[0] = result[0];
+        RARRAY(ary)-&gt;ptr[1] = result[1];
+    }
+    return ary;
+}
+            </pre> 
+            </div><!-- minmax-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- minmax-method -->
+      
+        <div id="minmax_by-method" class="method-detail ">
+          <a name="method-i-minmax_by"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">minmax_by {| obj| block }   => [min, max]</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns two elements array array containing the objects in <em>enum</em>
+that gives the minimum and maximum values respectively from the given
+block.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-node">%w(albatross dog horse)</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">minmax_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">length</span> }   <span class="ruby-comment">#=&gt; [&quot;dog&quot;, &quot;albatross&quot;]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="minmax_by-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_minmax_by(obj)
+    VALUE obj;
+{
+    VALUE memo[4];
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+
+    memo[0] = Qundef;
+    memo[1] = Qundef;
+    memo[2] = Qnil;
+    memo[3] = Qnil;
+    rb_block_call(obj, id_each, 0, 0, minmax_by_i, (VALUE)memo);
+    return rb_assoc_new(memo[2], memo[3]);
+}
+            </pre> 
+            </div><!-- minmax_by-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- minmax_by-method -->
+      
+        <div id="none-3F-method" class="method-detail ">
+          <a name="method-i-none-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">none? [{|obj| block }]   => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Passes each element of the collection to the given block. The method
+returns <code>true</code> if the block never returns <code>true</code> for
+all elements. If the block is not given, <code>none?</code> will return
+<code>true</code> only if none of the collection members is true.</p>
+
+<pre class="ruby"><span class="ruby-node">%w{ant bear cat}</span>.<span class="ruby-identifier">none?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">5</span>}  <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-node">%w{ant bear cat}</span>.<span class="ruby-identifier">none?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">4</span>}  <span class="ruby-comment">#=&gt; false</span>
+[].<span class="ruby-identifier">none?</span>                                          <span class="ruby-comment">#=&gt; true</span>
+[<span class="ruby-keyword">nil</span>].<span class="ruby-identifier">none?</span>                                       <span class="ruby-comment">#=&gt; true</span>
+[<span class="ruby-keyword">nil</span>,<span class="ruby-keyword">false</span>].<span class="ruby-identifier">none?</span>                                 <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="none-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_none(obj)
+    VALUE obj;
+{
+    VALUE result = Qtrue;
+
+    rb_block_call(obj, id_each, 0, 0, rb_block_given_p() ? none_iter_i : none_i, (VALUE)&amp;result);
+    return result;
+}
+            </pre> 
+            </div><!-- none-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- none-3F-method -->
+      
+        <div id="one-3F-method" class="method-detail ">
+          <a name="method-i-one-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">one? [{|obj| block }]   => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Passes each element of the collection to the given block. The method
+returns <code>true</code> if the block returns <code>true</code> exactly
+once. If the block is not given, <code>one?</code> will return
+<code>true</code> only if exactly one of the collection members is true.</p>
+
+<pre class="ruby"><span class="ruby-node">%w{ant bear cat}</span>.<span class="ruby-identifier">one?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">4</span>}   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-node">%w{ant bear cat}</span>.<span class="ruby-identifier">one?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>}    <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-node">%w{ant bear cat}</span>.<span class="ruby-identifier">one?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">4</span>}    <span class="ruby-comment">#=&gt; false</span>
+[ <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">true</span>, <span class="ruby-value">99</span> ].<span class="ruby-identifier">one?</span>                            <span class="ruby-comment">#=&gt; false</span>
+[ <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">true</span>, <span class="ruby-keyword">false</span> ].<span class="ruby-identifier">one?</span>                         <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="one-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_one(obj)
+    VALUE obj;
+{
+    VALUE result = Qundef;
+
+    rb_block_call(obj, id_each, 0, 0, rb_block_given_p() ? one_iter_i : one_i, (VALUE)&amp;result);
+    if (result == Qundef) return Qfalse;
+    return result;
+}
+            </pre> 
+            </div><!-- one-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- one-3F-method -->
+      
+        <div id="partition-method" class="method-detail ">
+          <a name="method-i-partition"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">partition {| obj | block }  => [ true_array, false_array ]</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns two arrays, the first containing the elements of <em>enum</em> for
+which the block evaluates to true, the second containing the rest.</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">6</span>).<span class="ruby-identifier">partition</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">i</span><span class="ruby-operator">&amp;</span><span class="ruby-value">1</span>).<span class="ruby-identifier">zero?</span>}   <span class="ruby-comment">#=&gt; [[2, 4, 6], [1, 3, 5]]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="partition-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_partition(obj)
+    VALUE obj;
+{
+    VALUE ary[2];
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+
+    ary[0] = rb_ary_new();
+    ary[1] = rb_ary_new();
+    rb_iterate(rb_each, obj, partition_i, (VALUE)ary);
+
+    return rb_assoc_new(ary[0], ary[1]);
+}
+            </pre> 
+            </div><!-- partition-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- partition-method -->
+      
+        <div id="reduce-method" class="method-detail ">
+          <a name="method-i-reduce"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">reduce(initial, sym) => obj</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">reduce(sym)          => obj</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">reduce(initial) {| memo, obj | block }  => obj</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">reduce          {| memo, obj | block }  => obj</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Combines all elements of <em>enum</em> by applying a binary operation,
+specified by a block or a symbol that names a method or operator.</p>
+
+<p>If you specify a block, then for each element in <em>enum&lt;i&gt; the
+block is passed an accumulator value (&lt;i&gt;memo</em>) and the element.
+If you specify a symbol instead, then each element in the collection will
+be passed to the named method of <em>memo</em>. In either case, the result
+becomes the new value for <em>memo</em>. At the end of the iteration, the
+final value of <em>memo</em> is the return value fo the method.</p>
+
+<p>If you do not explicitly specify an <em>initial</em> value for
+<em>memo</em>, then uses the first element of collection is used as the
+initial value of <em>memo</em>.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Sum some numbers</span>
+(<span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">reduce</span>(:<span class="ruby-operator">+</span>)                            <span class="ruby-comment">#=&gt; 45</span>
+<span class="ruby-comment"># Same using a block and inject</span>
+(<span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">inject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">n</span> }            <span class="ruby-comment">#=&gt; 45</span>
+<span class="ruby-comment"># Multiply some numbers</span>
+(<span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">reduce</span>(<span class="ruby-value">1</span>, :<span class="ruby-operator">*</span>)                         <span class="ruby-comment">#=&gt; 151200</span>
+<span class="ruby-comment"># Same using a block</span>
+(<span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">inject</span>(<span class="ruby-value">1</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">product</span>, <span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">product</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">n</span> } <span class="ruby-comment">#=&gt; 151200</span>
+<span class="ruby-comment"># find the longest word</span>
+<span class="ruby-identifier">longest</span> = <span class="ruby-node">%w{ cat sheep bear }</span>.<span class="ruby-identifier">inject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>,<span class="ruby-identifier">word</span><span class="ruby-operator">|</span>
+   <span class="ruby-identifier">memo</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">memo</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">word</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">longest</span>                                       <span class="ruby-comment">#=&gt; &quot;sheep&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="reduce-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_inject(argc, argv, obj)
+    int argc;
+    VALUE *argv;
+    VALUE obj;
+{
+    VALUE memo[2];
+    rb_block_call_func *iter = inject_i;
+
+    switch (rb_scan_args(argc, argv, &quot;02&quot;, &amp;memo[0], &amp;memo[1])) {
+      case 0:
+        memo[0] = Qundef;
+        break;
+      case 1:
+        if (rb_block_given_p()) {
+            break;
+        }
+        memo[1] = (VALUE)rb_to_id(memo[0]);
+        memo[0] = Qundef;
+        iter = inject_op_i;
+        break;
+      case 2:
+        if (rb_block_given_p()) {
+            rb_warning(&quot;given block not used&quot;);
+        }
+        memo[1] = (VALUE)rb_to_id(memo[1]);
+        iter = inject_op_i;
+        break;
+    }
+    rb_block_call(obj, id_each, 0, 0, iter, (VALUE)memo);
+    if (memo[0] == Qundef) return Qnil;
+    return memo[0];
+}
+            </pre> 
+            </div><!-- reduce-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- reduce-method -->
+      
+        <div id="reject-method" class="method-detail ">
+          <a name="method-i-reject"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">reject {| obj | block }  => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an array for all elements of <em>enum</em> for which <em>block</em>
+is false (see also <code>Enumerable#find_all</code>).</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>  <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">3</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }   <span class="ruby-comment">#=&gt; [1, 2, 4, 5, 7, 8, 10]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="reject-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_reject(obj)
+    VALUE obj;
+{
+    VALUE ary = rb_ary_new();
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+    rb_iterate(rb_each, obj, reject_i, ary);
+
+    return ary;
+}
+            </pre> 
+            </div><!-- reject-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- reject-method -->
+      
+        <div id="reverse_each-method" class="method-detail ">
+          <a name="method-i-reverse_each"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">reverse_each {|item| block }</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Traverses <em>enum</em> in reverse order.</p>
+            
+
+            
+            <div class="method-source-code" id="reverse_each-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_reverse_each(int argc, VALUE *argv, VALUE obj)
+{
+    VALUE ary;
+    long i;
+
+    RETURN_ENUMERATOR(obj, argc, argv);
+
+    ary = enum_to_a(argc, argv, obj);
+
+    for (i = RARRAY_LEN(ary); --i &gt;= 0; ) {
+        rb_yield(RARRAY_PTR(ary)[i]);
+    }
+
+    return obj;
+}
+            </pre> 
+            </div><!-- reverse_each-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- reverse_each-method -->
+      
+        <div id="select-method" class="method-detail ">
+          <a name="method-i-select"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">select   {| obj | block }  => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an array containing all elements of <em>enum</em> for which
+<em>block</em> is not <code>false</code> (see also
+<code>Enumerable#reject</code>).</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">find_all</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>  <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-value">3</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> }   <span class="ruby-comment">#=&gt; [3, 6, 9]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="select-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_find_all(obj)
+    VALUE obj;
+{
+    VALUE ary = rb_ary_new();
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+    rb_iterate(rb_each, obj, find_all_i, ary);
+
+    return ary;
+}
+            </pre> 
+            </div><!-- select-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- select-method -->
+      
+        <div id="sort-method" class="method-detail ">
+          <a name="method-i-sort"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sort                     => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">sort {| a, b | block }   => array</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an array containing the items in <em>enum</em> sorted, either
+according to their own <code>&lt;=&gt;</code> method, or by using the
+results of the supplied block. The block should return -1, 0, or +1
+depending on the comparison between <em>a</em> and <em>b</em>. As of Ruby
+1.8, the method <code>Enumerable#sort_by</code> implements a built-in
+Schwartzian Transform, useful when key computation or comparison is
+expensive..</p>
+
+<pre class="ruby"><span class="ruby-node">%w(rhea kea flea)</span>.<span class="ruby-identifier">sort</span>         <span class="ruby-comment">#=&gt; [&quot;flea&quot;, &quot;kea&quot;, &quot;rhea&quot;]</span>
+(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">10</span>).<span class="ruby-identifier">sort</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">a</span>}   <span class="ruby-comment">#=&gt; [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="sort-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_sort(obj)
+    VALUE obj;
+{
+    return rb_ary_sort(enum_to_a(0, 0, obj));
+}
+            </pre> 
+            </div><!-- sort-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sort-method -->
+      
+        <div id="sort_by-method" class="method-detail ">
+          <a name="method-i-sort_by"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sort_by {| obj | block }    => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Sorts <em>enum</em> using a set of keys generated by mapping the values in
+<em>enum</em> through the given block.</p>
+
+<pre class="ruby"><span class="ruby-node">%w{ apple pear fig }</span>.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span>}
+             <span class="ruby-comment">#=&gt; [&quot;fig&quot;, &quot;pear&quot;, &quot;apple&quot;]</span>
+</pre>
+
+<p>The current implementation of <code>sort_by</code> generates an array of
+tuples containing the original collection element and the mapped value.
+This makes <code>sort_by</code> fairly expensive when the keysets are
+simple</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'benchmark'</span>
+<span class="ruby-identifier">include</span> <span class="ruby-constant">Benchmark</span>
+
+<span class="ruby-identifier">a</span> = (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">100000</span>).<span class="ruby-identifier">map</span> {<span class="ruby-identifier">rand</span>(<span class="ruby-value">100000</span>)}
+
+<span class="ruby-identifier">bm</span>(<span class="ruby-value">10</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">report</span>(<span class="ruby-string">&quot;Sort&quot;</span>)    { <span class="ruby-identifier">a</span>.<span class="ruby-identifier">sort</span> }
+  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">report</span>(<span class="ruby-string">&quot;Sort by&quot;</span>) { <span class="ruby-identifier">a</span>.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>} }
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>user     system      total        real
+Sort        0.180000   0.000000   0.180000 (  0.175469)
+Sort by     1.980000   0.040000   2.020000 (  2.013586)</pre>
+
+<p>However, consider the case where comparing the keys is a non-trivial
+operation. The following code sorts some files on modification time using
+the basic <code>sort</code> method.</p>
+
+<pre class="ruby"><span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;*&quot;</span>]
+<span class="ruby-identifier">sorted</span> = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">sort</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">a</span>).<span class="ruby-identifier">mtime</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">b</span>).<span class="ruby-identifier">mtime</span>}
+<span class="ruby-identifier">sorted</span>   <span class="ruby-comment">#=&gt; [&quot;mon&quot;, &quot;tues&quot;, &quot;wed&quot;, &quot;thurs&quot;]</span>
+</pre>
+
+<p>This sort is inefficient: it generates two new <code>File</code> objects
+during every comparison. A slightly better technique is to use the
+<code>Kernel#test</code> method to generate the modification times
+directly.</p>
+
+<pre class="ruby"><span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;*&quot;</span>]
+<span class="ruby-identifier">sorted</span> = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">sort</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">test</span>(<span class="ruby-value">?M</span>, <span class="ruby-identifier">a</span>) <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">test</span>(<span class="ruby-value">?M</span>, <span class="ruby-identifier">b</span>)
+}
+<span class="ruby-identifier">sorted</span>   <span class="ruby-comment">#=&gt; [&quot;mon&quot;, &quot;tues&quot;, &quot;wed&quot;, &quot;thurs&quot;]</span>
+</pre>
+
+<p>This still generates many unnecessary <code>Time</code> objects. A more
+efficient technique is to cache the sort keys (modification times in this
+case) before the sort. Perl users often call this approach a Schwartzian
+Transform, after Randal Schwartz. We construct a temporary array, where
+each element is an array containing our sort key along with the filename.
+We sort this array, and then extract the filename from the result.</p>
+
+<pre class="ruby"><span class="ruby-identifier">sorted</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;*&quot;</span>].<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+   [<span class="ruby-identifier">test</span>(<span class="ruby-value">?M</span>, <span class="ruby-identifier">f</span>), <span class="ruby-identifier">f</span>]
+}.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>[<span class="ruby-value">1</span>] }
+<span class="ruby-identifier">sorted</span>   <span class="ruby-comment">#=&gt; [&quot;mon&quot;, &quot;tues&quot;, &quot;wed&quot;, &quot;thurs&quot;]</span>
+</pre>
+
+<p>This is exactly what <code>sort_by</code> does internally.</p>
+
+<pre class="ruby"><span class="ruby-identifier">sorted</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;*&quot;</span>].<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">test</span>(<span class="ruby-value">?M</span>, <span class="ruby-identifier">f</span>)}
+<span class="ruby-identifier">sorted</span>   <span class="ruby-comment">#=&gt; [&quot;mon&quot;, &quot;tues&quot;, &quot;wed&quot;, &quot;thurs&quot;]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="sort_by-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_sort_by(obj)
+    VALUE obj;
+{
+    VALUE ary;
+    long i;
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+
+    if (TYPE(obj) == T_ARRAY) {
+        ary  = rb_ary_new2(RARRAY(obj)-&gt;len);
+    }
+    else {
+        ary = rb_ary_new();
+    }
+    RBASIC(ary)-&gt;klass = 0;
+    rb_iterate(rb_each, obj, sort_by_i, ary);
+    if (RARRAY(ary)-&gt;len &gt; 1) {
+        qsort(RARRAY(ary)-&gt;ptr, RARRAY(ary)-&gt;len, sizeof(VALUE),
+              sort_by_cmp, (void *)ary);
+    }
+    if (RBASIC(ary)-&gt;klass) {
+        rb_raise(rb_eRuntimeError, &quot;sort_by reentered&quot;);
+    }
+    for (i=0; i&lt;RARRAY(ary)-&gt;len; i++) {
+        RARRAY(ary)-&gt;ptr[i] = RNODE(RARRAY(ary)-&gt;ptr[i])-&gt;u2.value;
+    }
+    RBASIC(ary)-&gt;klass = rb_cArray;
+    return ary;
+}
+            </pre> 
+            </div><!-- sort_by-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sort_by-method -->
+      
+        <div id="take-method" class="method-detail ">
+          <a name="method-i-take"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">take(n)               => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns first n elements from <em>enum</em>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">0</span>]
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">take</span>(<span class="ruby-value">3</span>)             <span class="ruby-comment"># =&gt; [1, 2, 3]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="take-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_take(obj, n)
+    VALUE obj;
+    VALUE n;
+{
+    VALUE args[2];
+    long len = NUM2LONG(n);
+
+    if (len &lt; 0) {
+        rb_raise(rb_eArgError, &quot;attempt to take negative size&quot;);
+    }
+
+    if (len == 0) return rb_ary_new2(0);
+    args[1] = len;
+    args[0] = rb_ary_new();
+    rb_block_call(obj, id_each, 0, 0, take_i, (VALUE)args);
+    return args[0];
+}
+            </pre> 
+            </div><!-- take-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- take-method -->
+      
+        <div id="take_while-method" class="method-detail ">
+          <a name="method-i-take_while"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">take_while {|arr| block }   => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Passes elements to the block until the block returns nil or false, then
+stops iterating and returns an array of all prior elements.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">0</span>]
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">take_while</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">3</span> }   <span class="ruby-comment"># =&gt; [1, 2]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="take_while-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_take_while(obj)
+    VALUE obj;
+{
+    VALUE ary;
+
+    RETURN_ENUMERATOR(obj, 0, 0);
+    ary = rb_ary_new();
+    rb_block_call(obj, id_each, 0, 0, take_while_i, (VALUE)&amp;ary);
+    return ary;
+}
+            </pre> 
+            </div><!-- take_while-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- take_while-method -->
+      
+        <div id="to_a-method" class="method-detail ">
+          <a name="method-i-to_a"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">to_a      =>    array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an array containing the items in <em>enum</em>.</p>
+
+<pre class="ruby">(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">7</span>).<span class="ruby-identifier">to_a</span>                       <span class="ruby-comment">#=&gt; [1, 2, 3, 4, 5, 6, 7]</span>
+{ <span class="ruby-string">'a'</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">1</span>, <span class="ruby-string">'b'</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">2</span>, <span class="ruby-string">'c'</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">3</span> }.<span class="ruby-identifier">to_a</span>   <span class="ruby-comment">#=&gt; [[&quot;a&quot;, 1], [&quot;b&quot;, 2], [&quot;c&quot;, 3]]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="to_a-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_to_a(argc, argv, obj)
+    int argc;
+    VALUE *argv;
+    VALUE obj;
+{
+    VALUE ary = rb_ary_new();
+
+    rb_block_call(obj, id_each, argc, argv, collect_all, ary);
+
+    return ary;
+}
+            </pre> 
+            </div><!-- to_a-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_a-method -->
+      
+        <div id="zip-method" class="method-detail ">
+          <a name="method-i-zip"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">zip(arg, ...)                   => array</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          <div class="method-heading">
+            <span class="method-callseq">zip(arg, ...) {|arr| block }    => nil</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Converts any arguments to arrays, then merges elements of <em>enum</em>
+with corresponding elements from each argument. This generates a sequence
+of <code>enum#size</code> <em>n</em>-element arrays, where <em>n</em> is
+one more that the count of arguments. If the size of any argument is less
+than <code>enum#size</code>, <code>nil</code> values are supplied. If a
+block given, it is invoked for each output array, otherwise an array of
+arrays is returned.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = [ <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span> ]
+<span class="ruby-identifier">b</span> = [ <span class="ruby-value">7</span>, <span class="ruby-value">8</span>, <span class="ruby-value">9</span> ]
+
+(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">3</span>).<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>)      <span class="ruby-comment">#=&gt; [[1, 4, 7], [2, 5, 8], [3, 6, 9]]</span>
+<span class="ruby-string">&quot;cat\ndog&quot;</span>.<span class="ruby-identifier">zip</span>([<span class="ruby-value">1</span>])   <span class="ruby-comment">#=&gt; [[&quot;cat\n&quot;, 1], [&quot;dog&quot;, nil]]</span>
+(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">3</span>).<span class="ruby-identifier">zip</span>            <span class="ruby-comment">#=&gt; [[1], [2], [3]]</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="zip-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+enum_zip(argc, argv, obj)
+    int argc;
+    VALUE *argv;
+    VALUE obj;
+{
+    int i;
+    VALUE result;
+    VALUE memo[3];
+
+    for (i=0; i&lt;argc; i++) {
+        argv[i] = rb_convert_type(argv[i], T_ARRAY, &quot;Array&quot;, &quot;to_a&quot;);
+    }
+    result = rb_block_given_p() ? Qnil : rb_ary_new();
+    memo[0] = result;
+    memo[1] = rb_ary_new4(argc, argv);
+    memo[2] = 0;
+    rb_iterate(rb_each, obj, zip_i, (VALUE)memo);
+
+    return result;
+}
+            </pre> 
+            </div><!-- zip-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- zip-method -->
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+  <div id='tx_Enumerable_versioned' class='associated_wrapper'></div><script type='text/javascript'>$("#tx_Enumerable_versioned").load("/associated/1.8.7/Enumerable.html");</script> <div id='tx_Enumerable' class='associated_wrapper'></div><script type='text/javascript'>$("#tx_Enumerable").load("/associated/Enumerable.html");</script> 
+      
+  </div><!-- documentation -->
+  <div id='dynamic'>
+  </div>
+      
+<div class='grids wrapper' id="footer">
+  <p><small>This page was generated for Ruby 1.8.7</small></p> 
+  
+   <p> <a href="http://www.ruby-doc.org">Ruby-doc.org</a> is provided by <a href="http://www.jamesbritt.com">James Britt</a> and <a href="http://www.neurogami.com">Neurogami</a>. <a href="http://www.neurogami.com">Hack your world.  Feed your head.  Live curious</a>.  </p>
+ 
+    <p><small>Generated with Ruby-doc Rdoc Generator 0.24.6</small>.</p>
+  </div>
+</div>
+  
+ <script type='text/javascript'>
+$(document).ready(function() {
+      $.ajaxSetup({ cache: false });
+      $("#vulns-alert").load("/associated/vulns.html");
+    });
+
+    </script>
+
+
+ 
+    <script type='text/javascript'>
+
+  function loadPlus(plusdocs){
+    var img_h = $("img.carbonad-image").css('height');
+    //if(img_h != undefined) { //---
+      $(plusdocs).find("div[class='associated_wrapper']").each (function() {
+          $("#" + this.id).append($(plusdocs).find("#" + this.id ));
+          });
+    //} // ---
+  } // end loadPlusdocs
+
+
+$(document).ready(function() {
+    $.ajaxSetup({ cache: false });
+      $.get('/associated/1.8.7/plus_Enumerable.html', 
+      function(plusdocs) {
+      setTimeout(function() {
+        loadPlus(plusdocs);
+        }, 2000);
+      }
+      );
+    });
+</script>
+		
+</body>
+</html>
+
+

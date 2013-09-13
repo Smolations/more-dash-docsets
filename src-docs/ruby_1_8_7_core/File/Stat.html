@@ -1,0 +1,2645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <!-- classpage -- >
+    <!-- RD version: 0.24.6  -->
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="2013-08-24 23:19:59 -0700" http-equiv="change-date" />
+  <!-- rel_prefix  = '..'  ENV['RDOC_FOR_WEBSITE']   = false-->
+    
+  <!-- rel_prefix = '..'   asset_rel_prefix = '..'  --> 
+  <title>Class: File::Stat (Ruby 1.8.7) </title>
+  <!-- link rel="stylesheet" href="..css/obf.css"  -->
+  <link rel="stylesheet" href="../css/inuit.css" >
+  <link rel="stylesheet" href="../css/grid.inuit.css" >
+  <link rel="stylesheet" href="../css/2011.css" type="text/css" >
+  <link rel="stylesheet" href="../css/rdoc.css" type="text/css" >
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/rubydoc.js" type="text/javascript" charset="utf-8"></script> 
+
+ 
+<script src="../js/highlight.min.js"></script>
+<script> 
+  hljs.tabReplace = '  ';
+  hljs.initHighlightingOnLoad();
+  </script> 
+
+  <style type='text/css'>
+
+    #vulns-alert #vulns{
+      background-color: #c33 ! important;
+      width: 100%;
+      text-align: center;
+   }
+   
+   #vulns-alert #vulns a {
+    color: #F99 ! important;
+   }
+ </style>
+
+</head>
+
+<body id="top" class="class rdocstar">
+<div id='actionbar' >
+<div class='wrapper'>
+  <ul class='grids g0'></ul>
+</div>
+<span id='vulns-alert'></span>
+</div> <!-- end action bar -->
+ <div class='wrapper'>
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+          
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul id='file-metadata'>
+
+          
+          
+          
+          <li class='in-file'>file.c</li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="../Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-3C-3D-3E">#<=></a></li>
+          
+          <li><a href="#method-i-atime">#atime</a></li>
+          
+          <li><a href="#method-i-blksize">#blksize</a></li>
+          
+          <li><a href="#method-i-blockdev-3F">#blockdev?</a></li>
+          
+          <li><a href="#method-i-blocks">#blocks</a></li>
+          
+          <li><a href="#method-i-chardev-3F">#chardev?</a></li>
+          
+          <li><a href="#method-i-ctime">#ctime</a></li>
+          
+          <li><a href="#method-i-dev">#dev</a></li>
+          
+          <li><a href="#method-i-dev_major">#dev_major</a></li>
+          
+          <li><a href="#method-i-dev_minor">#dev_minor</a></li>
+          
+          <li><a href="#method-i-directory-3F">#directory?</a></li>
+          
+          <li><a href="#method-i-executable-3F">#executable?</a></li>
+          
+          <li><a href="#method-i-executable_real-3F">#executable_real?</a></li>
+          
+          <li><a href="#method-i-file-3F">#file?</a></li>
+          
+          <li><a href="#method-i-ftype">#ftype</a></li>
+          
+          <li><a href="#method-i-gid">#gid</a></li>
+          
+          <li><a href="#method-i-grpowned-3F">#grpowned?</a></li>
+          
+          <li><a href="#method-i-ino">#ino</a></li>
+          
+          <li><a href="#method-i-inspect">#inspect</a></li>
+          
+          <li><a href="#method-i-mode">#mode</a></li>
+          
+          <li><a href="#method-i-mtime">#mtime</a></li>
+          
+          <li><a href="#method-i-nlink">#nlink</a></li>
+          
+          <li><a href="#method-i-owned-3F">#owned?</a></li>
+          
+          <li><a href="#method-i-pipe-3F">#pipe?</a></li>
+          
+          <li><a href="#method-i-rdev">#rdev</a></li>
+          
+          <li><a href="#method-i-rdev_major">#rdev_major</a></li>
+          
+          <li><a href="#method-i-rdev_minor">#rdev_minor</a></li>
+          
+          <li><a href="#method-i-readable-3F">#readable?</a></li>
+          
+          <li><a href="#method-i-readable_real-3F">#readable_real?</a></li>
+          
+          <li><a href="#method-i-setgid-3F">#setgid?</a></li>
+          
+          <li><a href="#method-i-setuid-3F">#setuid?</a></li>
+          
+          <li><a href="#method-i-size">#size</a></li>
+          
+          <li><a href="#method-i-size-3F">#size?</a></li>
+          
+          <li><a href="#method-i-socket-3F">#socket?</a></li>
+          
+          <li><a href="#method-i-sticky-3F">#sticky?</a></li>
+          
+          <li><a href="#method-i-symlink-3F">#symlink?</a></li>
+          
+          <li><a href="#method-i-uid">#uid</a></li>
+          
+          <li><a href="#method-i-writable-3F">#writable?</a></li>
+          
+          <li><a href="#method-i-writable_real-3F">#writable_real?</a></li>
+          
+          <li><a href="#method-i-zero-3F">#zero?</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Included Modules -->
+      <div id="includes-section" class="section">
+        <h3 class="section-header">Included Modules</h3>
+        <ul class="link-list">
+        
+        
+          <li><a class="include" href="../Comparable.html">Comparable</a></li>
+        
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+          
+          
+          
+          <li><a href="../ArgumentError.html">ArgumentError</a></li>
+        
+          
+          
+          <li><a href="../Array.html">Array</a></li>
+        
+          
+          
+          <li><a href="../Bignum.html">Bignum</a></li>
+        
+          
+          
+          <li><a href="../Binding.html">Binding</a></li>
+        
+          
+          
+          <li><a href="../Class.html">Class</a></li>
+        
+          
+          
+          <li><a href="../Comparable.html">Comparable</a></li>
+        
+          
+          
+          <li><a href="../Continuation.html">Continuation</a></li>
+        
+          
+          
+          <li><a href="../Data.html">Data</a></li>
+        
+          
+          
+          <li><a href="../Dir.html">Dir</a></li>
+        
+          
+          
+          <li><a href="../EOFError.html">EOFError</a></li>
+        
+          
+          
+          <li><a href="../Enumerable.html">Enumerable</a></li>
+        
+          
+          
+          <li><a href="../Enumerable/Enumerator.html">Enumerable::Enumerator</a></li>
+        
+          
+          
+          <li><a href="../Errno.html">Errno</a></li>
+        
+          
+          
+          <li><a href="../Exception.html">Exception</a></li>
+        
+          
+          
+          <li><a href="../FalseClass.html">FalseClass</a></li>
+        
+          
+          
+          <li><a href="../File.html">File</a></li>
+        
+          
+          
+          <li><a href="../File/Constants.html">File::Constants</a></li>
+        
+          
+          
+          <li><a href="../File/Stat.html">File::Stat</a></li>
+        
+          
+          
+          <li><a href="../FileTest.html">FileTest</a></li>
+        
+          
+          
+          <li><a href="../Fixnum.html">Fixnum</a></li>
+        
+          
+          
+          <li><a href="../Float.html">Float</a></li>
+        
+          
+          
+          <li><a href="../FloatDomainError.html">FloatDomainError</a></li>
+        
+          
+          
+          <li><a href="../GC.html">GC</a></li>
+        
+          
+          
+          <li><a href="../Hash.html">Hash</a></li>
+        
+          
+          
+          <li><a href="../IO.html">IO</a></li>
+        
+          
+          
+          <li><a href="../IOError.html">IOError</a></li>
+        
+          
+          
+          <li><a href="../IndexError.html">IndexError</a></li>
+        
+          
+          
+          <li><a href="../Integer.html">Integer</a></li>
+        
+          
+          
+          <li><a href="../Interrupt.html">Interrupt</a></li>
+        
+          
+          
+          <li><a href="../Kernel.html">Kernel</a></li>
+        
+          
+          
+          <li><a href="../LoadError.html">LoadError</a></li>
+        
+          
+          
+          <li><a href="../LocalJumpError.html">LocalJumpError</a></li>
+        
+          
+          
+          <li><a href="../Marshal.html">Marshal</a></li>
+        
+          
+          
+          <li><a href="../MatchData.html">MatchData</a></li>
+        
+          
+          
+          <li><a href="../Math.html">Math</a></li>
+        
+          
+          
+          <li><a href="../Method.html">Method</a></li>
+        
+          
+          
+          <li><a href="../Module.html">Module</a></li>
+        
+          
+          
+          <li><a href="../NameError.html">NameError</a></li>
+        
+          
+          
+          <li><a href="../NameError/message.html">NameError::message</a></li>
+        
+          
+          
+          <li><a href="../NilClass.html">NilClass</a></li>
+        
+          
+          
+          <li><a href="../NoMemoryError.html">NoMemoryError</a></li>
+        
+          
+          
+          <li><a href="../NoMethodError.html">NoMethodError</a></li>
+        
+          
+          
+          <li><a href="../NotImplementedError.html">NotImplementedError</a></li>
+        
+          
+          
+          <li><a href="../Numeric.html">Numeric</a></li>
+        
+          
+          
+          <li><a href="../Object.html">Object</a></li>
+        
+          
+          
+          <li><a href="../ObjectSpace.html">ObjectSpace</a></li>
+        
+          
+          
+          <li><a href="../Precision.html">Precision</a></li>
+        
+          
+          
+          <li><a href="../Proc.html">Proc</a></li>
+        
+          
+          
+          <li><a href="../Process.html">Process</a></li>
+        
+          
+          
+          <li><a href="../Process/GID.html">Process::GID</a></li>
+        
+          
+          
+          <li><a href="../Process/Status.html">Process::Status</a></li>
+        
+          
+          
+          <li><a href="../Process/Sys.html">Process::Sys</a></li>
+        
+          
+          
+          <li><a href="../Process/UID.html">Process::UID</a></li>
+        
+          
+          
+          <li><a href="../Range.html">Range</a></li>
+        
+          
+          
+          <li><a href="../RangeError.html">RangeError</a></li>
+        
+          
+          
+          <li><a href="../Regexp.html">Regexp</a></li>
+        
+          
+          
+          <li><a href="../RegexpError.html">RegexpError</a></li>
+        
+          
+          
+          <li><a href="../RuntimeError.html">RuntimeError</a></li>
+        
+          
+          
+          <li><a href="../ScriptError.html">ScriptError</a></li>
+        
+          
+          
+          <li><a href="../SecurityError.html">SecurityError</a></li>
+        
+          
+          
+          <li><a href="../Signal.html">Signal</a></li>
+        
+          
+          
+          <li><a href="../SignalException.html">SignalException</a></li>
+        
+          
+          
+          <li><a href="../StandardError.html">StandardError</a></li>
+        
+          
+          
+          <li><a href="../StopIteration.html">StopIteration</a></li>
+        
+          
+          
+          <li><a href="../String.html">String</a></li>
+        
+          
+          
+          <li><a href="../Struct.html">Struct</a></li>
+        
+          
+          
+          <li><a href="../Symbol.html">Symbol</a></li>
+        
+          
+          
+          <li><a href="../SyntaxError.html">SyntaxError</a></li>
+        
+          
+          
+          <li><a href="../SystemCallError.html">SystemCallError</a></li>
+        
+          
+          
+          <li><a href="../SystemExit.html">SystemExit</a></li>
+        
+          
+          
+          <li><a href="../SystemStackError.html">SystemStackError</a></li>
+        
+          
+          
+          <li><a href="../Thread.html">Thread</a></li>
+        
+          
+          
+          <li><a href="../ThreadError.html">ThreadError</a></li>
+        
+          
+          
+          <li><a href="../ThreadGroup.html">ThreadGroup</a></li>
+        
+          
+          
+          <li><a href="../Time.html">Time</a></li>
+        
+          
+          
+          <li><a href="../TrueClass.html">TrueClass</a></li>
+        
+          
+          
+          <li><a href="../TypeError.html">TypeError</a></li>
+        
+          
+          
+          <li><a href="../UnboundMethod.html">UnboundMethod</a></li>
+        
+          
+          
+          <li><a href="../ZeroDivisionError.html">ZeroDivisionError</a></li>
+        
+          
+          
+          <li><a href="../fatal.html">fatal</a></li>
+        
+          
+          
+          <li><a href="../unknown.html">unknown</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div> <!-- metadata -->
+  <div class='adzbox'  id="azk83167">
+    
+  </div> 
+  <div id="documentation">
+    <h1 class="class">File::Stat</h1>
+
+    <div id="description" class="description">
+      
+<p>Objects of class <code>File::Stat</code> encapsulate common status
+information for <code>File</code> objects. The information is recorded at
+the moment the <code>File::Stat</code> object is created; changes made to
+the file after that point will not be reflected. <code>File::Stat</code>
+objects are returned by <code>IO#stat</code>, <code>File::stat</code>,
+<code>File#lstat</code>, and <code>File::lstat</code>. Many of these
+methods return platform-specific values, and not all values are meaningful
+on all systems. See also <code>Kernel#test</code>.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">File::Stat.new(file_name)  => stat</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Create a <a href="Stat.html">File::Stat</a> object for the given file name
+(raising an exception if the file doesn’t exist).</p>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_init(obj, fname)
+    VALUE obj, fname;
+{
+    struct stat st, *nst;
+
+    SafeStringValue(fname);
+
+    if (stat(StringValueCStr(fname), &amp;st) == -1) {
+        rb_sys_fail(RSTRING(fname)-&gt;ptr);
+    }
+    if (DATA_PTR(obj)) {
+        free(DATA_PTR(obj));
+        DATA_PTR(obj) = NULL;
+    }
+    nst = ALLOC(struct stat);
+    *nst = st;
+    DATA_PTR(obj) = nst;
+
+    return Qnil;
+}
+            </pre> 
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="3C-3D-3E-method" class="method-detail ">
+          <a name="method-i-3C-3D-3E"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">stat <=> other_stat    => -1, 0, 1</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Compares <code>File::Stat</code> objects by comparing their respective
+modification times.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f1</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;f1&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>)
+<span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>
+<span class="ruby-identifier">f2</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;f2&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>)
+<span class="ruby-identifier">f1</span>.<span class="ruby-identifier">stat</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">f2</span>.<span class="ruby-identifier">stat</span>   <span class="ruby-comment">#=&gt; -1</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="3C-3D-3E-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_cmp(self, other)
+    VALUE self, other;
+{
+    if (rb_obj_is_kind_of(other, rb_obj_class(self))) {
+        time_t t1 = get_stat(self)-&gt;st_mtime;
+        time_t t2 = get_stat(other)-&gt;st_mtime;
+        if (t1 == t2)
+            return INT2FIX(0);
+        else if (t1 &lt; t2)
+            return INT2FIX(-1);
+        else
+            return INT2FIX(1);
+    }
+    return Qnil;
+}
+            </pre> 
+            </div><!-- 3C-3D-3E-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 3C-3D-3E-method -->
+      
+        <div id="atime-method" class="method-detail ">
+          <a name="method-i-atime"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">atime   => time</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the last access time for this file as an object of class
+<code>Time</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">atime</span>   <span class="ruby-comment">#=&gt; Wed Dec 31 18:00:00 CST 1969</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="atime-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_atime(self)
+    VALUE self;
+{
+    return rb_time_new(get_stat(self)-&gt;st_atime, 0);
+}
+            </pre> 
+            </div><!-- atime-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- atime-method -->
+      
+        <div id="blksize-method" class="method-detail ">
+          <a name="method-i-blksize"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">blksize   => integer or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the native file system’s block size. Will return <code>nil</code>
+on platforms that don’t support this information.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">blksize</span>   <span class="ruby-comment">#=&gt; 4096</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="blksize-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_blksize(self)
+    VALUE self;
+{
+#ifdef HAVE_ST_BLKSIZE
+    return ULONG2NUM(get_stat(self)-&gt;st_blksize);
+#else
+    return Qnil;
+#endif
+}
+            </pre> 
+            </div><!-- blksize-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- blksize-method -->
+      
+        <div id="blockdev-3F-method" class="method-detail ">
+          <a name="method-i-blockdev-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">blockdev?   => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if the file is a block device, <code>false</code>
+if it isn’t or if the operating system doesn’t support this feature.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">blockdev?</span>    <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/hda1&quot;</span>).<span class="ruby-identifier">blockdev?</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="blockdev-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_b(obj)
+    VALUE obj;
+{
+#ifdef S_ISBLK
+    if (S_ISBLK(get_stat(obj)-&gt;st_mode)) return Qtrue;
+
+#endif
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- blockdev-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- blockdev-3F-method -->
+      
+        <div id="blocks-method" class="method-detail ">
+          <a name="method-i-blocks"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">blocks    => integer or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the number of native file system blocks allocated for this file, or
+<code>nil</code> if the operating system doesn’t  support this feature.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">blocks</span>   <span class="ruby-comment">#=&gt; 2</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="blocks-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_blocks(self)
+    VALUE self;
+{
+#ifdef HAVE_ST_BLOCKS
+    return ULONG2NUM(get_stat(self)-&gt;st_blocks);
+#else
+    return Qnil;
+#endif
+}
+            </pre> 
+            </div><!-- blocks-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- blocks-method -->
+      
+        <div id="chardev-3F-method" class="method-detail ">
+          <a name="method-i-chardev-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">chardev?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if the file is a character device,
+<code>false</code> if it isn’t or if the operating system doesn’t support
+this feature.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/tty&quot;</span>).<span class="ruby-identifier">chardev?</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="chardev-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_c(obj)
+    VALUE obj;
+{
+    if (S_ISCHR(get_stat(obj)-&gt;st_mode)) return Qtrue;
+
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- chardev-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- chardev-3F-method -->
+      
+        <div id="ctime-method" class="method-detail ">
+          <a name="method-i-ctime"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">ctime &rarr; aTime</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the change time for <em>stat</em> (that is, the time directory
+information about the file was changed, not the file itself).</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">ctime</span>   <span class="ruby-comment">#=&gt; Wed Apr 09 08:53:14 CDT 2003</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="ctime-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_ctime(self)
+    VALUE self;
+{
+    return rb_time_new(get_stat(self)-&gt;st_ctime, 0);
+}
+            </pre> 
+            </div><!-- ctime-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ctime-method -->
+      
+        <div id="dev-method" class="method-detail ">
+          <a name="method-i-dev"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">dev    => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an integer representing the device on which <em>stat</em> resides.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">dev</span>   <span class="ruby-comment">#=&gt; 774</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="dev-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_dev(self)
+    VALUE self;
+{
+    return INT2NUM(get_stat(self)-&gt;st_dev);
+}
+            </pre> 
+            </div><!-- dev-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- dev-method -->
+      
+        <div id="dev_major-method" class="method-detail ">
+          <a name="method-i-dev_major"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">dev_major   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the major part of <code>File_Stat#dev</code> or <code>nil</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/fd1&quot;</span>).<span class="ruby-identifier">dev_major</span>   <span class="ruby-comment">#=&gt; 2</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/tty&quot;</span>).<span class="ruby-identifier">dev_major</span>   <span class="ruby-comment">#=&gt; 5</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="dev_major-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_dev_major(self)
+    VALUE self;
+{
+#if defined(major)
+    long dev = get_stat(self)-&gt;st_dev;
+    return ULONG2NUM(major(dev));
+#else
+    return Qnil;
+#endif
+}
+            </pre> 
+            </div><!-- dev_major-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- dev_major-method -->
+      
+        <div id="dev_minor-method" class="method-detail ">
+          <a name="method-i-dev_minor"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">dev_minor   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the minor part of <code>File_Stat#dev</code> or <code>nil</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/fd1&quot;</span>).<span class="ruby-identifier">dev_minor</span>   <span class="ruby-comment">#=&gt; 1</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/tty&quot;</span>).<span class="ruby-identifier">dev_minor</span>   <span class="ruby-comment">#=&gt; 0</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="dev_minor-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_dev_minor(self)
+    VALUE self;
+{
+#if defined(minor)
+    long dev = get_stat(self)-&gt;st_dev;
+    return ULONG2NUM(minor(dev));
+#else
+    return Qnil;
+#endif
+}
+            </pre> 
+            </div><!-- dev_minor-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- dev_minor-method -->
+      
+        <div id="directory-3F-method" class="method-detail ">
+          <a name="method-i-directory-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">directory?   => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> is a directory,
+<code>false</code> otherwise.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">directory?</span>   <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;.&quot;</span>).<span class="ruby-identifier">directory?</span>          <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="directory-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_d(obj)
+    VALUE obj;
+{
+    if (S_ISDIR(get_stat(obj)-&gt;st_mode)) return Qtrue;
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- directory-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- directory-3F-method -->
+      
+        <div id="executable-3F-method" class="method-detail ">
+          <a name="method-i-executable-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">executable?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> is executable or if the
+operating system doesn’t distinguish executable files from nonexecutable
+files. The tests are made using the effective owner of the process.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">executable?</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="executable-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_x(obj)
+    VALUE obj;
+{
+    struct stat *st = get_stat(obj);
+
+#ifdef USE_GETEUID
+    if (geteuid() == 0) {
+        return st-&gt;st_mode &amp; S_IXUGO ? Qtrue : Qfalse;
+    }
+#endif
+#ifdef S_IXUSR
+    if (rb_stat_owned(obj))
+        return st-&gt;st_mode &amp; S_IXUSR ? Qtrue : Qfalse;
+#endif
+#ifdef S_IXGRP
+    if (rb_stat_grpowned(obj))
+        return st-&gt;st_mode &amp; S_IXGRP ? Qtrue : Qfalse;
+#endif
+#ifdef S_IXOTH
+    if (!(st-&gt;st_mode &amp; S_IXOTH)) return Qfalse;
+#endif
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- executable-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- executable-3F-method -->
+      
+        <div id="executable_real-3F-method" class="method-detail ">
+          <a name="method-i-executable_real-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">executable_real?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Same as <code>executable?</code>, but tests using the real owner of the
+process.</p>
+            
+
+            
+            <div class="method-source-code" id="executable_real-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_X(obj)
+    VALUE obj;
+{
+    struct stat *st = get_stat(obj);
+
+#ifdef USE_GETEUID
+    if (getuid() == 0) {
+        return st-&gt;st_mode &amp; S_IXUGO ? Qtrue : Qfalse;
+    }
+#endif
+#ifdef S_IXUSR
+    if (rb_stat_rowned(obj))
+        return st-&gt;st_mode &amp; S_IXUSR ? Qtrue : Qfalse;
+#endif
+#ifdef S_IXGRP
+    if (group_member(get_stat(obj)-&gt;st_gid))
+        return st-&gt;st_mode &amp; S_IXGRP ? Qtrue : Qfalse;
+#endif
+#ifdef S_IXOTH
+    if (!(st-&gt;st_mode &amp; S_IXOTH)) return Qfalse;
+#endif
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- executable_real-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- executable_real-3F-method -->
+      
+        <div id="file-3F-method" class="method-detail ">
+          <a name="method-i-file-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">file?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> is a regular file (not a device
+file, pipe, socket, etc.).</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">file?</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="file-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_f(obj)
+    VALUE obj;
+{
+    if (S_ISREG(get_stat(obj)-&gt;st_mode)) return Qtrue;
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- file-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- file-3F-method -->
+      
+        <div id="ftype-method" class="method-detail ">
+          <a name="method-i-ftype"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">ftype   => string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Identifies the type of <em>stat</em>. The return string is one of:
+“<code>file</code>”, “<code>directory</code>”,
+“<code>characterSpecial</code>”, “<code>blockSpecial</code>”,
+“<code>fifo</code>”, “<code>link</code>”, “<code>socket</code>”, or
+“<code>unknown</code>”.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/tty&quot;</span>).<span class="ruby-identifier">ftype</span>   <span class="ruby-comment">#=&gt; &quot;characterSpecial&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="ftype-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_ftype(obj)
+    VALUE obj;
+{
+    return rb_file_ftype(get_stat(obj));
+}
+            </pre> 
+            </div><!-- ftype-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ftype-method -->
+      
+        <div id="gid-method" class="method-detail ">
+          <a name="method-i-gid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">gid   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the numeric group id of the owner of <em>stat</em>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">gid</span>   <span class="ruby-comment">#=&gt; 500</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="gid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_gid(self)
+    VALUE self;
+{
+    return UINT2NUM(get_stat(self)-&gt;st_gid);
+}
+            </pre> 
+            </div><!-- gid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- gid-method -->
+      
+        <div id="grpowned-3F-method" class="method-detail ">
+          <a name="method-i-grpowned-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">grpowned?   => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns true if the effective group id of the process is the same as the
+group id of <em>stat</em>. On Windows NT, returns <code>false</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">grpowned?</span>      <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/etc/passwd&quot;</span>).<span class="ruby-identifier">grpowned?</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="grpowned-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_grpowned(obj)
+    VALUE obj;
+{
+#ifndef _WIN32
+    if (group_member(get_stat(obj)-&gt;st_gid)) return Qtrue;
+#endif
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- grpowned-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- grpowned-3F-method -->
+      
+        <div id="ino-method" class="method-detail ">
+          <a name="method-i-ino"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">ino   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the inode number for <em>stat</em>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">ino</span>   <span class="ruby-comment">#=&gt; 1083669</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="ino-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_ino(self)
+    VALUE self;
+{
+#ifdef HUGE_ST_INO
+    return ULL2NUM(get_stat(self)-&gt;st_ino);
+#else
+    return ULONG2NUM(get_stat(self)-&gt;st_ino);
+#endif
+}
+            </pre> 
+            </div><!-- ino-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ino-method -->
+      
+        <div id="inspect-method" class="method-detail ">
+          <a name="method-i-inspect"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">inspect  =>  string</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Produce a nicely formatted description of <em>stat</em>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/etc/passwd&quot;</span>).<span class="ruby-identifier">inspect</span>
+   <span class="ruby-comment">#=&gt; &quot;#&lt;File::Stat dev=0xe000005, ino=1078078, mode=0100644, </span>
+        <span class="ruby-identifier">nlink</span>=<span class="ruby-value">1</span>, <span class="ruby-identifier">uid</span>=<span class="ruby-value">0</span>, <span class="ruby-identifier">gid</span>=<span class="ruby-value">0</span>, <span class="ruby-identifier">rdev</span>=<span class="ruby-value">0x0</span>, <span class="ruby-identifier">size</span>=<span class="ruby-value">1374</span>, <span class="ruby-identifier">blksize</span>=<span class="ruby-value">4096</span>, 
+        <span class="ruby-identifier">blocks</span>=<span class="ruby-value">8</span>, <span class="ruby-identifier">atime</span>=<span class="ruby-constant">Wed</span> <span class="ruby-constant">Dec</span> <span class="ruby-value">10</span> <span class="ruby-value">10</span><span class="ruby-operator">:</span><span class="ruby-value">16</span><span class="ruby-operator">:</span><span class="ruby-value">12</span> <span class="ruby-constant">CST</span> <span class="ruby-value">2003</span>, 
+        <span class="ruby-identifier">mtime</span>=<span class="ruby-constant">Fri</span> <span class="ruby-constant">Sep</span> <span class="ruby-value">12</span> <span class="ruby-value">15</span><span class="ruby-operator">:</span><span class="ruby-value">41</span><span class="ruby-operator">:</span><span class="ruby-value">41</span> <span class="ruby-constant">CDT</span> <span class="ruby-value">2003</span>, 
+        <span class="ruby-identifier">ctime</span>=<span class="ruby-constant">Mon</span> <span class="ruby-constant">Oct</span> <span class="ruby-value">27</span> <span class="ruby-value">11</span><span class="ruby-operator">:</span><span class="ruby-value">20</span><span class="ruby-operator">:</span><span class="ruby-value">27</span> <span class="ruby-constant">CST</span> <span class="ruby-value">2003</span><span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;
+</span></pre>
+            
+
+            
+            <div class="method-source-code" id="inspect-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_inspect(self)
+    VALUE self;
+{
+    VALUE str;
+    int i;
+    static const struct {
+        const char *name;
+        VALUE (*func)_((VALUE));
+    } member[] = {
+        {&quot;dev&quot;,            rb_stat_dev},
+        {&quot;ino&quot;,            rb_stat_ino},
+        {&quot;mode&quot;,    rb_stat_mode},
+        {&quot;nlink&quot;,   rb_stat_nlink},
+        {&quot;uid&quot;,            rb_stat_uid},
+        {&quot;gid&quot;,            rb_stat_gid},
+        {&quot;rdev&quot;,    rb_stat_rdev},
+        {&quot;size&quot;,    rb_stat_size},
+        {&quot;blksize&quot;, rb_stat_blksize},
+        {&quot;blocks&quot;,  rb_stat_blocks},
+        {&quot;atime&quot;,   rb_stat_atime},
+        {&quot;mtime&quot;,   rb_stat_mtime},
+        {&quot;ctime&quot;,   rb_stat_ctime},
+    };
+
+    str = rb_str_buf_new2(&quot;#&lt;&quot;);
+    rb_str_buf_cat2(str, rb_obj_classname(self));
+    rb_str_buf_cat2(str, &quot; &quot;);
+
+    for (i = 0; i &lt; sizeof(member)/sizeof(member[0]); i++) {
+        VALUE v;
+
+        if (i &gt; 0) {
+            rb_str_buf_cat2(str, &quot;, &quot;);
+        }
+        rb_str_buf_cat2(str, member[i].name);
+        rb_str_buf_cat2(str, &quot;=&quot;);
+        v = (*member[i].func)(self);
+        if (i == 2) {          /* mode */
+            char buf[32];
+
+            sprintf(buf, &quot;0%lo&quot;, NUM2ULONG(v));
+            rb_str_buf_cat2(str, buf);
+        }
+        else if (i == 0 || i == 6) { /* dev/rdev */
+            char buf[32];
+
+            sprintf(buf, &quot;0x%lx&quot;, NUM2ULONG(v));
+            rb_str_buf_cat2(str, buf);
+        }
+        else {
+            rb_str_append(str, rb_inspect(v));
+        }
+    }
+    rb_str_buf_cat2(str, &quot;&gt;&quot;);
+    OBJ_INFECT(str, self);
+
+    return str;
+}
+            </pre> 
+            </div><!-- inspect-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- inspect-method -->
+      
+        <div id="mode-method" class="method-detail ">
+          <a name="method-i-mode"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">mode   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an integer representing the permission bits of <em>stat</em>. The
+meaning of the bits is platform dependent; on Unix systems, see
+<code>stat(2)</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">chmod</span>(<span class="ruby-value">0644</span>, <span class="ruby-string">&quot;testfile&quot;</span>)   <span class="ruby-comment">#=&gt; 1</span>
+<span class="ruby-identifier">s</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>)
+<span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&quot;%o&quot;</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">mode</span>)          <span class="ruby-comment">#=&gt; &quot;100644&quot;</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="mode-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_mode(self)
+    VALUE self;
+{
+#ifdef __BORLANDC__
+    return UINT2NUM((unsigned short)(get_stat(self)-&gt;st_mode));
+#else
+    return UINT2NUM(get_stat(self)-&gt;st_mode);
+#endif
+}
+            </pre> 
+            </div><!-- mode-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- mode-method -->
+      
+        <div id="mtime-method" class="method-detail ">
+          <a name="method-i-mtime"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">mtime &rarr; aTime</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the modification time of <em>stat</em>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">mtime</span>   <span class="ruby-comment">#=&gt; Wed Apr 09 08:53:14 CDT 2003</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="mtime-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_mtime(self)
+    VALUE self;
+{
+    return rb_time_new(get_stat(self)-&gt;st_mtime, 0);
+}
+            </pre> 
+            </div><!-- mtime-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- mtime-method -->
+      
+        <div id="nlink-method" class="method-detail ">
+          <a name="method-i-nlink"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">nlink   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the number of hard links to <em>stat</em>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">nlink</span>             <span class="ruby-comment">#=&gt; 1</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">link</span>(<span class="ruby-string">&quot;testfile&quot;</span>, <span class="ruby-string">&quot;testfile.bak&quot;</span>)   <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">nlink</span>             <span class="ruby-comment">#=&gt; 2</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="nlink-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_nlink(self)
+    VALUE self;
+{
+    return UINT2NUM(get_stat(self)-&gt;st_nlink);
+}
+            </pre> 
+            </div><!-- nlink-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- nlink-method -->
+      
+        <div id="owned-3F-method" class="method-detail ">
+          <a name="method-i-owned-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">owned?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if the effective user id of the process is the
+same as the owner of <em>stat</em>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">owned?</span>      <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/etc/passwd&quot;</span>).<span class="ruby-identifier">owned?</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="owned-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_owned(obj)
+    VALUE obj;
+{
+    if (get_stat(obj)-&gt;st_uid == geteuid()) return Qtrue;
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- owned-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- owned-3F-method -->
+      
+        <div id="pipe-3F-method" class="method-detail ">
+          <a name="method-i-pipe-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">pipe?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if the operating system supports pipes and
+<em>stat</em> is a pipe; <code>false</code> otherwise.</p>
+            
+
+            
+            <div class="method-source-code" id="pipe-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_p(obj)
+    VALUE obj;
+{
+#ifdef S_IFIFO
+    if (S_ISFIFO(get_stat(obj)-&gt;st_mode)) return Qtrue;
+
+#endif
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- pipe-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- pipe-3F-method -->
+      
+        <div id="rdev-method" class="method-detail ">
+          <a name="method-i-rdev"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">rdev   =>  fixnum or nil</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns an integer representing the device type on which <em>stat</em>
+resides. Returns <code>nil</code> if the operating system doesn’t support
+this feature.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/fd1&quot;</span>).<span class="ruby-identifier">rdev</span>   <span class="ruby-comment">#=&gt; 513</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/tty&quot;</span>).<span class="ruby-identifier">rdev</span>   <span class="ruby-comment">#=&gt; 1280</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="rdev-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_rdev(self)
+    VALUE self;
+{
+#ifdef HAVE_ST_RDEV
+    return ULONG2NUM(get_stat(self)-&gt;st_rdev);
+#else
+    return Qnil;
+#endif
+}
+            </pre> 
+            </div><!-- rdev-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- rdev-method -->
+      
+        <div id="rdev_major-method" class="method-detail ">
+          <a name="method-i-rdev_major"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">rdev_major   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the major part of <code>File_Stat#rdev</code> or <code>nil</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/fd1&quot;</span>).<span class="ruby-identifier">rdev_major</span>   <span class="ruby-comment">#=&gt; 2</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/tty&quot;</span>).<span class="ruby-identifier">rdev_major</span>   <span class="ruby-comment">#=&gt; 5</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="rdev_major-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_rdev_major(self)
+    VALUE self;
+{
+#if defined(HAVE_ST_RDEV) &amp;&amp; defined(major)
+    long rdev = get_stat(self)-&gt;st_rdev;
+    return ULONG2NUM(major(rdev));
+#else
+    return Qnil;
+#endif
+}
+            </pre> 
+            </div><!-- rdev_major-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- rdev_major-method -->
+      
+        <div id="rdev_minor-method" class="method-detail ">
+          <a name="method-i-rdev_minor"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">rdev_minor   => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the minor part of <code>File_Stat#rdev</code> or <code>nil</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/fd1&quot;</span>).<span class="ruby-identifier">rdev_minor</span>   <span class="ruby-comment">#=&gt; 1</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/dev/tty&quot;</span>).<span class="ruby-identifier">rdev_minor</span>   <span class="ruby-comment">#=&gt; 0</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="rdev_minor-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_rdev_minor(self)
+    VALUE self;
+{
+#if defined(HAVE_ST_RDEV) &amp;&amp; defined(minor)
+    long rdev = get_stat(self)-&gt;st_rdev;
+    return ULONG2NUM(minor(rdev));
+#else
+    return Qnil;
+#endif
+}
+            </pre> 
+            </div><!-- rdev_minor-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- rdev_minor-method -->
+      
+        <div id="readable-3F-method" class="method-detail ">
+          <a name="method-i-readable-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readable?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> is readable by the effective
+user id of this process.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">readable?</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="readable-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_r(obj)
+    VALUE obj;
+{
+    struct stat *st = get_stat(obj);
+
+#ifdef USE_GETEUID
+    if (geteuid() == 0) return Qtrue;
+#endif
+#ifdef S_IRUSR
+    if (rb_stat_owned(obj))
+        return st-&gt;st_mode &amp; S_IRUSR ? Qtrue : Qfalse;
+#endif
+#ifdef S_IRGRP
+    if (rb_stat_grpowned(obj))
+        return st-&gt;st_mode &amp; S_IRGRP ? Qtrue : Qfalse;
+#endif
+#ifdef S_IROTH
+    if (!(st-&gt;st_mode &amp; S_IROTH)) return Qfalse;
+#endif
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- readable-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readable-3F-method -->
+      
+        <div id="readable_real-3F-method" class="method-detail ">
+          <a name="method-i-readable_real-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">readable_real? &rarr; true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> is readable by the real user id
+of this process.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">readable_real?</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="readable_real-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_R(obj)
+    VALUE obj;
+{
+    struct stat *st = get_stat(obj);
+
+#ifdef USE_GETEUID
+    if (getuid() == 0) return Qtrue;
+#endif
+#ifdef S_IRUSR
+    if (rb_stat_rowned(obj))
+        return st-&gt;st_mode &amp; S_IRUSR ? Qtrue : Qfalse;
+#endif
+#ifdef S_IRGRP
+    if (group_member(get_stat(obj)-&gt;st_gid))
+        return st-&gt;st_mode &amp; S_IRGRP ? Qtrue : Qfalse;
+#endif
+#ifdef S_IROTH
+    if (!(st-&gt;st_mode &amp; S_IROTH)) return Qfalse;
+#endif
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- readable_real-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- readable_real-3F-method -->
+      
+        <div id="setgid-3F-method" class="method-detail ">
+          <a name="method-i-setgid-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">setgid?   => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> has the set-group-id permission
+bit set, <code>false</code> if it doesn’t or if the operating system
+doesn’t support this feature.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/usr/sbin/lpc&quot;</span>).<span class="ruby-identifier">setgid?</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="setgid-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_sgid(obj)
+    VALUE obj;
+{
+#ifdef S_ISGID
+    if (get_stat(obj)-&gt;st_mode &amp; S_ISGID) return Qtrue;
+#endif
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- setgid-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- setgid-3F-method -->
+      
+        <div id="setuid-3F-method" class="method-detail ">
+          <a name="method-i-setuid-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">setuid?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> has the set-user-id permission
+bit set, <code>false</code> if it doesn’t or if the operating system
+doesn’t support this feature.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;/bin/su&quot;</span>).<span class="ruby-identifier">setuid?</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="setuid-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_suid(obj)
+    VALUE obj;
+{
+#ifdef S_ISUID
+    if (get_stat(obj)-&gt;st_mode &amp; S_ISUID) return Qtrue;
+#endif
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- setuid-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- setuid-3F-method -->
+      
+        <div id="size-method" class="method-detail ">
+          <a name="method-i-size"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">size    => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the size of <em>stat</em> in bytes.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">size</span>   <span class="ruby-comment">#=&gt; 66</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="size-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_size(self)
+    VALUE self;
+{
+    return OFFT2NUM(get_stat(self)-&gt;st_size);
+}
+            </pre> 
+            </div><!-- size-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- size-method -->
+      
+        <div id="size-3F-method" class="method-detail ">
+          <a name="method-i-size-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">size    => integer</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the size of <em>stat</em> in bytes.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">size</span>   <span class="ruby-comment">#=&gt; 66</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="size-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_s(obj)
+    VALUE obj;
+{
+    off_t size = get_stat(obj)-&gt;st_size;
+
+    if (size == 0) return Qnil;
+    return OFFT2NUM(size);
+}
+            </pre> 
+            </div><!-- size-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- size-3F-method -->
+      
+        <div id="socket-3F-method" class="method-detail ">
+          <a name="method-i-socket-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">socket?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> is a socket, <code>false</code>
+if it isn’t or if the operating system doesn’t support this feature.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">socket?</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="socket-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_S(obj)
+    VALUE obj;
+{
+#ifdef S_ISSOCK
+    if (S_ISSOCK(get_stat(obj)-&gt;st_mode)) return Qtrue;
+
+#endif
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- socket-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- socket-3F-method -->
+      
+        <div id="sticky-3F-method" class="method-detail ">
+          <a name="method-i-sticky-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">sticky?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> has its sticky bit set,
+<code>false</code> if it doesn’t or if the operating system doesn’t support
+this feature.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">sticky?</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="sticky-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_sticky(obj)
+    VALUE obj;
+{
+#ifdef S_ISVTX
+    if (get_stat(obj)-&gt;st_mode &amp; S_ISVTX) return Qtrue;
+#endif
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- sticky-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sticky-3F-method -->
+      
+        <div id="symlink-3F-method" class="method-detail ">
+          <a name="method-i-symlink-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">symlink?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> is a symbolic link,
+<code>false</code> if it isn’t or if the operating system doesn’t support
+this feature. As <code>File::stat</code> automatically follows symbolic
+links, <code>symlink?</code> will always be <code>false</code> for an
+object returned by <code>File::stat</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">symlink</span>(<span class="ruby-string">&quot;testfile&quot;</span>, <span class="ruby-string">&quot;alink&quot;</span>)   <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;alink&quot;</span>).<span class="ruby-identifier">symlink?</span>         <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">lstat</span>(<span class="ruby-string">&quot;alink&quot;</span>).<span class="ruby-identifier">symlink?</span>        <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="symlink-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_l(obj)
+    VALUE obj;
+{
+#ifdef S_ISLNK
+    if (S_ISLNK(get_stat(obj)-&gt;st_mode)) return Qtrue;
+#endif
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- symlink-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- symlink-3F-method -->
+      
+        <div id="uid-method" class="method-detail ">
+          <a name="method-i-uid"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">uid    => fixnum</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns the numeric user id of the owner of <em>stat</em>.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">uid</span>   <span class="ruby-comment">#=&gt; 501</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="uid-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_uid(self)
+    VALUE self;
+{
+    return UINT2NUM(get_stat(self)-&gt;st_uid);
+}
+            </pre> 
+            </div><!-- uid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- uid-method -->
+      
+        <div id="writable-3F-method" class="method-detail ">
+          <a name="method-i-writable-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">writable? &rarr; true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> is writable by the effective
+user id of this process.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">writable?</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="writable-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_w(obj)
+    VALUE obj;
+{
+    struct stat *st = get_stat(obj);
+
+#ifdef USE_GETEUID
+    if (geteuid() == 0) return Qtrue;
+#endif
+#ifdef S_IWUSR
+    if (rb_stat_owned(obj))
+        return st-&gt;st_mode &amp; S_IWUSR ? Qtrue : Qfalse;
+#endif
+#ifdef S_IWGRP
+    if (rb_stat_grpowned(obj))
+        return st-&gt;st_mode &amp; S_IWGRP ? Qtrue : Qfalse;
+#endif
+#ifdef S_IWOTH
+    if (!(st-&gt;st_mode &amp; S_IWOTH)) return Qfalse;
+#endif
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- writable-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- writable-3F-method -->
+      
+        <div id="writable_real-3F-method" class="method-detail ">
+          <a name="method-i-writable_real-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">writable_real? &rarr; true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> is writable by the real user id
+of this process.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">writable_real?</span>   <span class="ruby-comment">#=&gt; true</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="writable_real-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_W(obj)
+    VALUE obj;
+{
+    struct stat *st = get_stat(obj);
+
+#ifdef USE_GETEUID
+    if (getuid() == 0) return Qtrue;
+#endif
+#ifdef S_IWUSR
+    if (rb_stat_rowned(obj))
+        return st-&gt;st_mode &amp; S_IWUSR ? Qtrue : Qfalse;
+#endif
+#ifdef S_IWGRP
+    if (group_member(get_stat(obj)-&gt;st_gid))
+        return st-&gt;st_mode &amp; S_IWGRP ? Qtrue : Qfalse;
+#endif
+#ifdef S_IWOTH
+    if (!(st-&gt;st_mode &amp; S_IWOTH)) return Qfalse;
+#endif
+    return Qtrue;
+}
+            </pre> 
+            </div><!-- writable_real-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- writable_real-3F-method -->
+      
+        <div id="zero-3F-method" class="method-detail ">
+          <a name="method-i-zero-3F"></a>
+
+          
+          
+          <div class="method-heading">
+            <span class="method-callseq">zero?    => true or false</span>
+            
+            <span class="method-click-advice">click to toggle source</span>
+            
+          </div>
+          
+          
+          <div>
+  
+            
+            <p>Returns <code>true</code> if <em>stat</em> is a zero-length file;
+<code>false</code> otherwise.</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-string">&quot;testfile&quot;</span>).<span class="ruby-identifier">zero?</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+            
+
+            
+            <div class="method-source-code" id="zero-3F-source">
+              <pre> <!-- method.markup_code 290 -->
+               static VALUE
+rb_stat_z(obj)
+    VALUE obj;
+{
+    if (get_stat(obj)-&gt;st_size == 0) return Qtrue;
+    return Qfalse;
+}
+            </pre> 
+            </div><!-- zero-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- zero-3F-method -->
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+  <div id='tx_Stat_versioned' class='associated_wrapper'></div><script type='text/javascript'>$("#tx_Stat_versioned").load("/associated/1.8.7/Stat.html");</script> <div id='tx_Stat' class='associated_wrapper'></div><script type='text/javascript'>$("#tx_Stat").load("/associated/Stat.html");</script> 
+      
+  </div><!-- documentation -->
+  <div id='dynamic'>
+  </div>
+      
+<div class='grids wrapper' id="footer">
+  <p><small>This page was generated for Ruby 1.8.7</small></p> 
+  
+   <p> <a href="http://www.ruby-doc.org">Ruby-doc.org</a> is managed by <a href="http://www.jamesbritt.com">James Britt</a> and <a href="http://www.neurogami.com">Neurogami</a>. <a href="http://www.neurogami.com">Live curious.</a> </p>
+ 
+    <p><small>Generated with Ruby-doc Rdoc Generator 0.24.6</small>.</p>
+  </div>
+</div>
+  
+ <script type='text/javascript'>
+$(document).ready(function() {
+      $.ajaxSetup({ cache: false });
+      $("#vulns-alert").load("/associated/vulns.html");
+    });
+
+    </script>
+
+
+ 
+    <script type='text/javascript'>
+
+  function loadPlus(plusdocs){
+    var img_h = $("img.carbonad-image").css('height');
+    //if(img_h != undefined) { //---
+      $(plusdocs).find("div[class='associated_wrapper']").each (function() {
+          $("#" + this.id).append($(plusdocs).find("#" + this.id ));
+          });
+    //} // ---
+  } // end loadPlusdocs
+
+
+$(document).ready(function() {
+    $.ajaxSetup({ cache: false });
+      $.get('/associated/1.8.7/plus_Stat.html', 
+      function(plusdocs) {
+      setTimeout(function() {
+        loadPlus(plusdocs);
+        }, 2000);
+      }
+      );
+    });
+</script>
+		
+</body>
+</html>
+
+
