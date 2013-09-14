@@ -1,3 +1,4 @@
+require File.join(File.dirname(__FILE__), 'Dash.module.rb')
 
 docs_path = "/Users/cos/Development/workspaces/dash-docs/JSTL1.1.docset/Contents/Resources/Documents"
 
