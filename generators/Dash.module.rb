@@ -6,11 +6,12 @@ require 'git'
 
 class Dash
     # constants
-    DOCSETS_PATH    = File.expand_path(File.join(File.dirname(__FILE__), '..'))
-    GENERATORS_PATH = File.join(DOCSETS_PATH, 'generators')
-    RESOURCES_PATH  = File.join(DOCSETS_PATH, 'resources')
-    SRC_DOCS_PATH   = File.join(DOCSETS_PATH, 'src-docs')
-    LOGS_PATH       = File.join(DOCSETS_PATH, 'logs')
+    ROOT_PATH       = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+    DOCSETS_PATH    = File.join(ROOT_PATH, 'docsets')
+    GENERATORS_PATH = File.join(ROOT_PATH, 'generators')
+    RESOURCES_PATH  = File.join(ROOT_PATH, 'resources')
+    SRC_DOCS_PATH   = File.join(ROOT_PATH, 'src-docs')
+    LOGS_PATH       = File.join(ROOT_PATH, 'logs')
 
     ENTRY_TYPES     = [
         'Attribute',  'Binding',   'Callback',     'Category',   'Class',
@@ -268,6 +269,7 @@ class Dash
         if File.directory?(@docs_root)
             begin
                 repo = Git::open(@docs_root)
+                # puts "Resetting working tree..."
                 repo.reset_hard
 
                 branch = repo.current_branch

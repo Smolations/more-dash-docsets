@@ -9,8 +9,8 @@ require File.join(File.dirname(__FILE__), 'Dash.module.rb')
 #   #right { margin-left: 20px }
 
 dash = Dash.new({
-    :name           => 'AWSPHPSDK2',
-    :display_name   => 'AWSPHPSDK2 Test',
+    :name           => 'AWS-PHP-SDK2',
+    :display_name   => 'AWS PHP SDK2',
     :docs_root      => 'aws-sdk2-php-docs'
 })
 
