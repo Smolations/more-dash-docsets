@@ -1,5 +1,7 @@
+require 'fileutils'
 require 'rubygems'
 require 'nokogiri'
+require 'git'
 
 
 class Dash
@@ -28,13 +30,23 @@ class Dash
     @name
     @display_name
     @docs_root
+    @repo
+    @docs_dev_branch
 
-    attr_reader :docset_path, :docset_contents_path, :docset_resources_path, :docset_documents_path
+    attr_reader :docset_path, :docset_contents_path, :docset_resources_path, :docset_documents_path, :docs_root
 
 
     ##
-    # Constructor: Dash.new
-    ##
+     #  Constructor: Dash.new
+     #  Takes an +options+ hash with the following keys:
+     #
+     #  [+:docs_root+]      Relative from the src-docs folder, the location of the docs which will br processed.
+     #  [+:name+]           This will become the name of the docset (_:name_.docset).
+     #  [+:display_name+]   (optional) This is what displays in Dash. Defaults to :name.
+     #
+     #  Upon initializing, any previous docset with the same path will be moved to a backup (*.docset.bak)
+     #  and the docset will be re-created from scratch.
+     ##
     def initialize(options = {})
         # required params
         if options[:docs_root].nil?
@@ -58,10 +70,29 @@ class Dash
         @docset_contents_path   = File.join(@docset_path, 'Contents')
         @docset_resources_path  = File.join(@docset_contents_path, 'Resources')
         @docset_documents_path  = File.join(@docset_resources_path, 'Documents')
+        @docs_dev_branch        = 'dev'
+
+
+        if File.exists?(@docset_path)
+            backup_path = "#{@docset_path}.bak"
+
+            puts "Dash.new: Backing up current docset..."
+            if File.exists?(backup_path)
+                FileUtils.rm_r(backup_path, { :force => true })
+            end
+
+            FileUtils.mv(@docset_path, backup_path, { :force => true })
+        end
+
+        create_docset
+
+        @repo = get_docs_repo
     end
 
 
-    ## CONVENIENCE METHODS ##
+    ##
+    ## :category: CONVENIENCE METHODS
+    ##
 
     # removes unwanted entries for processing (e.g. '.', '..')
     # returns array on success or nil if not a directory
@@ -95,11 +126,14 @@ class Dash
     end
 
 
-    ## NOKOGIRI-SPECIFIC METHODS ##
+    ##
+    ## :category: NOKOGIRI-SPECIFIC METHODS
+    ##
 
     # file_path is relative to SRC_DOCS_PATH
     def get_noko_doc(file_path)
         full_path = File.join(@docs_root, file_path)
+        # puts "    Getting Nokogiri document: #{full_path}"
         if File.exists?(full_path)
             file  = File.new(full_path, 'r')
             doc   = Nokogiri::HTML(file, nil, 'UTF-8')
@@ -110,7 +144,6 @@ class Dash
         end
         return nil
     end
-
 
     # file_path is relative to SRC_DOCS_PATH
     def save_noko_doc(doc, file_path)
@@ -126,8 +159,32 @@ class Dash
         return false
     end
 
+    # get Nokogiri doc for new anchor. if +anchor_id+ is not passed, it will default to +name+.
+    # if +anchor_id+ is an empty string, no id attribute will be set.
+    def get_dash_anchor(docReference, name, type, anchor_id = nil)
+        if is_valid_entry(type)
+            a = Nokogiri::XML::Node.new('a', docReference)
+            a['name'] = "//apple_ref/cpp/#{type}/#{name}"
+            a['class'] = 'dashAnchor'
 
-    ## DOCSET-SPECIFIC METHODS ##
+            if anchor_id.nil?
+                a['id'] = name
+            elsif anchor_id != ''
+                a['id'] = anchor_id
+            end
+
+            return a
+        else
+            puts "(E) Dash.get_dash_anchor: Invalid entry type [#{type}]."
+        end
+
+        return nil
+    end
+
+
+    ##
+    ## :category: DOCSET-SPECIFIC METHODS
+    ##
 
     # returns the sqlite query for dash entries for given name, [entry] type, path
     def get_sql_insert(name, type, path)
@@ -141,7 +198,7 @@ class Dash
     # runs query in the docset's sqlite database.
     def sql_insert(query)
         if File.directory?(@docset_resources_path)
-            `pushd "#{@docset_resources_path}"; sqlite3 docSet.dsidx '#{q}'; popd`
+            `cd "#{@docset_resources_path}"; sqlite3 docSet.dsidx '#{query}'`
         else
             puts "(E) Dash.sql_insert: Not inserting record. Could not find #{@docset_resources_path}."
         end
@@ -152,7 +209,8 @@ class Dash
         if File.directory?(@docset_resources_path)
             create_table_query = "CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);"
             create_index_query = "CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);"
-            sql_insert
+            sql_insert(create_table_query)
+            sql_insert(create_index_query)
         else
             puts "(E) Dash.setup_sql: Docset Resources path does not exist. The
             sql database was not set up."
@@ -166,7 +224,7 @@ class Dash
             plist_dest_path = File.join(@docset_contents_path,  'Info.plist')
 
             if File.exists?(plist_src_path)
-                FileUtils.cp(plist_src_path, plist_dest_path, :verbose => true)
+                FileUtils.cp(plist_src_path, plist_dest_path)
                 `sed -i '' "s/displayName/#{@display_name}/g" "#{plist_dest_path}"`
 
             else
@@ -182,11 +240,62 @@ class Dash
 
     # creates the docset hierarchy, the docset .plist, and initializes the database.
     def create_docset
-        if !File.directory?(@docset_documents_path)
-            FileUtils.mkdir_p(@docset_documents_path, :verbose => true)
+        if !File.exists?(@docset_path)
+            puts "Dash.create_docset: Creating docset directory structure #{@docset_documents_path}..."
+            FileUtils.mkdir_p(@docset_documents_path)
+
+            puts "Dash.create_docset: Copying .plist file..."
+            copy_plist
+
+            puts "Dash.create_docset: Setting up database..."
+            setup_sql
         else
             puts "(W) Dash.create_docset: Docset path already exists. Skipping..."
         end
+    end
+
+
+    ##
+    ## :category: MISC METHODS
+    ##
+
+    # this method ensures that a git repo exists for the docs_root and that the master
+    # branch contains the original import, and changes go on a dev branch with the
+    # name @docs_dev_branch.
+    def get_docs_repo
+        repo = nil
+
+        if File.directory?(@docs_root)
+            begin
+                repo = Git::open(@docs_root)
+                repo.reset_hard
+
+                branch = repo.current_branch
+                patt = Regexp.new(@docs_dev_branch)
+                if !branch.match(patt)
+                    puts "Checking out #{@docs_dev_branch} branch..."
+                    repo.branch(@docs_dev_branch).checkout
+                end
+
+            rescue ArgumentError => arg_err
+                puts "Create repo at #{@docs_root} (y/n)? "
+                yn = gets
+
+                if yn.match(/^\w*y(es)?\w*$/i)
+                    # initialize repo
+                    repo = Git::init(@docs_root)
+                    # add all files
+                    repo.add( :all => true )
+                    repo.commit('(master) initial import')
+                    repo.branch(@docs_dev_branch).checkout
+                else
+                    puts "Not creating docs repo..."
+                end
+            end
+
+        end
+
+        return repo
     end
 
 end

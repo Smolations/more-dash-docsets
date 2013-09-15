@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>copy_docs (Dash)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File Dash.module.rb, line 94</span>
+ 94:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">copy_docs</span>
+ 95:         <span class="ruby-comment cmt"># make sure that, for some reason, @docs_root != ( '/' | '/one-level' )</span>
+ 96:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@docs_root</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEPARATOR</span>).<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docset_documents_path</span>)
+ 97:             <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_r</span>( <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_documents_path</span>, <span class="ruby-value str">'*'</span>) ) )
+ 98:             <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp_r</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docs_root</span>, <span class="ruby-value str">'.'</span>), <span class="ruby-ivar">@docset_documents_path</span> )
+ 99:         <span class="ruby-keyword kw">else</span>
+100:             <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.copy_docs: Failed to copy docs to #{@docset_documents_path}.&quot;</span>
+101:         <span class="ruby-keyword kw">end</span>
+102:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>clean_dir_entries (Dash)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File Dash.module.rb, line 75</span>
+75:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clean_dir_entries</span>(<span class="ruby-identifier">dir_path</span>)
+76:         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">dir_path</span>)
+77:             <span class="ruby-keyword kw">return</span> (<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-identifier">dir_path</span>) <span class="ruby-operator">-</span> [ <span class="ruby-value str">'.'</span>, <span class="ruby-value str">'..'</span>, <span class="ruby-value str">'.git'</span>, <span class="ruby-value str">'.DS_Store'</span> ])
+78:         <span class="ruby-keyword kw">end</span>
+79:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+80:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

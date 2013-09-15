@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>save_noko_doc (Dash)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File Dash.module.rb, line 125</span>
+125:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save_noko_doc</span>(<span class="ruby-identifier">doc</span>, <span class="ruby-identifier">file_path</span>)
+126:         <span class="ruby-identifier">full_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docs_root</span>, <span class="ruby-identifier">file_path</span>)
+127:         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">full_path</span>)
+128:             <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">full_path</span>, <span class="ruby-value str">'w'</span>)
+129:             <span class="ruby-identifier">file</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">to_xhtml</span>(<span class="ruby-identifier">:encoding</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'US-ASCII'</span>)
+130:             <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+131:             <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>
+132:         <span class="ruby-keyword kw">else</span>
+133:             <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.save_doc: Could not find #{full_path}.&quot;</span>
+134:         <span class="ruby-keyword kw">end</span>
+135:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+136:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>get_noko_doc (Dash)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File Dash.module.rb, line 110</span>
+110:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_noko_doc</span>(<span class="ruby-identifier">file_path</span>)
+111:         <span class="ruby-identifier">full_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docs_root</span>, <span class="ruby-identifier">file_path</span>)
+112:         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">full_path</span>)
+113:             <span class="ruby-identifier">file</span>  = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">full_path</span>, <span class="ruby-value str">'r'</span>)
+114:             <span class="ruby-identifier">doc</span>   = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML</span>(<span class="ruby-identifier">file</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-value str">'UTF-8'</span>)
+115:             <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+116:             <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">doc</span>
+117:         <span class="ruby-keyword kw">else</span>
+118:             <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.get_doc: Could not find #{full_path}.&quot;</span>
+119:         <span class="ruby-keyword kw">end</span>
+120:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+121:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

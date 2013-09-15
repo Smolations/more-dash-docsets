@@ -15,20 +15,17 @@ dash = Dash.new({
 })
 
 
-# $docs_path = File.join(Dash::SRC_DOCS_PATH, 'aws-sdk2-php-docs')
-
-
+# entries to loop through. all docs are in the root directory.
 entries = dash.get_clean_docs_entries - [
     '404.html', 'tree.html', 'index.html',
     'elementlist.js', 'resources'
 ]
 
-# puts entries[0..10]
-# exit
 
 $t = 0
 queries = []
 
+puts "\nBeginning the processing of documents..."
 entries.each do |entry|
     matches = /^(\w+)\-([a-z._0-9]+)\.html$/i.match(entry)
 
@@ -54,10 +51,11 @@ entries.each do |entry|
         doc = dash.get_noko_doc(entry)
 
         # properties
+        properties = doc.css('#properties tr')
         doc.css('#properties tr').each do |proprow|
             type = 'Property'
             propname = proprow['id']
-            proppath = "#{path}\##{propname}"
+            proppath = "#{entry}\##{propname}"
 
             newanchor = dash.get_dash_anchor(proprow, propname, type)
             proprow.at_css('td.name var').before(newanchor)
@@ -69,7 +67,7 @@ entries.each do |entry|
         doc.css('.method-container').each do |methwrap|
             type = 'Method'
             methname = methwrap['id']
-            methpath = "#{path}\##{methname}"
+            methpath = "#{entry}\##{methname}"
 
             newanchor = dash.get_dash_anchor(methwrap, methname, type, '')
             methwrap.before(newanchor)
@@ -89,8 +87,12 @@ entries.each do |entry|
 end
 
 puts "\nRunning #{queries.length} queries..."
-queries.each do |query|
-    dash.sql_insert(query)
-end
+# queries.each do |query|
+# dash.sql_insert(queries.join(' '))
+queries.each { |query| dash.sql_insert(query)}
+# end
 
-puts "\nQueries/Entries: #{queries.length}/#{$t}"
+puts "\nCopying documentation into docsets..."
+dash.copy_docs
+
+puts "\nDone.  Queries/Entries: #{queries.length}/#{$t}"

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>copy_plist (Dash)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File Dash.module.rb, line 174</span>
+174:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">copy_plist</span>
+175:         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docset_contents_path</span>)
+176:             <span class="ruby-identifier">plist_src_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">RESOURCES_PATH</span>, <span class="ruby-value str">'Info.plist'</span>)
+177:             <span class="ruby-identifier">plist_dest_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_contents_path</span>,  <span class="ruby-value str">'Info.plist'</span>)
+178: 
+179:             <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">plist_src_path</span>)
+180:                 <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">plist_src_path</span>, <span class="ruby-identifier">plist_dest_path</span>, <span class="ruby-identifier">:verbose</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+181:                 <span class="ruby-node">`sed -i '' &quot;s/displayName/#{@display_name}/g&quot; &quot;#{plist_dest_path}&quot;`</span>
+182: 
+183:             <span class="ruby-keyword kw">else</span>
+184:                 <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;(E) Dash.copy_plist: Info.plist template does not exist. The
+185:                 .plist file was not copied.&quot;</span>
+186:             <span class="ruby-keyword kw">end</span>
+187: 
+188:         <span class="ruby-keyword kw">else</span>
+189:             <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;(E) Dash.copy_plist: Docset Contents path does not exist. The
+190:             .plist file was not copied.&quot;</span>
+191:         <span class="ruby-keyword kw">end</span>
+192:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>setup_sql (Dash)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File Dash.module.rb, line 162</span>
+162:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setup_sql</span>
+163:         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docset_resources_path</span>)
+164:             <span class="ruby-identifier">create_table_query</span> = <span class="ruby-value str">&quot;CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);&quot;</span>
+165:             <span class="ruby-identifier">create_index_query</span> = <span class="ruby-value str">&quot;CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);&quot;</span>
+166:             <span class="ruby-identifier">sql_insert</span>
+167:         <span class="ruby-keyword kw">else</span>
+168:             <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;(E) Dash.setup_sql: Docset Resources path does not exist. The
+169:             sql database was not set up.&quot;</span>
+170:         <span class="ruby-keyword kw">end</span>
+171:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

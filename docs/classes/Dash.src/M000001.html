@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Dash)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File Dash.module.rb, line 43</span>
+43:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {})
+44:         <span class="ruby-comment cmt"># required params</span>
+45:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:docs_root</span>].<span class="ruby-identifier">nil?</span>
+46:             <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;(E) Dash.new: Must construct with hash containing :docs_root&quot;</span>
+47:             <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+48:         <span class="ruby-keyword kw">end</span>
+49:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:name</span>].<span class="ruby-identifier">nil?</span>
+50:             <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;(E) Dash.new: Must construct with hash containing :name&quot;</span>
+51:             <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+52:         <span class="ruby-keyword kw">end</span>
+53: 
+54:         <span class="ruby-comment cmt"># optional params</span>
+55:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:display_name</span>].<span class="ruby-identifier">nil?</span>
+56:             <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:display_name</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:name</span>]
+57:         <span class="ruby-keyword kw">end</span>
+58: 
+59:         <span class="ruby-ivar">@name</span>                   = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:name</span>]
+60:         <span class="ruby-ivar">@display_name</span>           = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:display_name</span>]
+61:         <span class="ruby-ivar">@docs_root</span>              = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">SRC_DOCS_PATH</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:docs_root</span>])
+62:         <span class="ruby-ivar">@docset_path</span>            = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">DOCSETS_PATH</span>, <span class="ruby-node">&quot;#{@name}.docset&quot;</span>)
+63:         <span class="ruby-ivar">@docset_contents_path</span>   = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_path</span>, <span class="ruby-value str">'Contents'</span>)
+64:         <span class="ruby-ivar">@docset_resources_path</span>  = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_contents_path</span>, <span class="ruby-value str">'Resources'</span>)
+65:         <span class="ruby-ivar">@docset_documents_path</span>  = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_resources_path</span>, <span class="ruby-value str">'Documents'</span>)
+66:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Dash</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Dash</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/Dash_module_rb.html">
+                Dash.module.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000002">clean_dir_entries</a>&nbsp;&nbsp;
+      <a href="#M000005">copy_docs</a>&nbsp;&nbsp;
+      <a href="#M000011">copy_plist</a>&nbsp;&nbsp;
+      <a href="#M000012">create_docset</a>&nbsp;&nbsp;
+      <a href="#M000003">get_clean_docs_entries</a>&nbsp;&nbsp;
+      <a href="#M000006">get_noko_doc</a>&nbsp;&nbsp;
+      <a href="#M000008">get_sql_insert</a>&nbsp;&nbsp;
+      <a href="#M000004">is_valid_entry</a>&nbsp;&nbsp;
+      <a href="#M000001">new</a>&nbsp;&nbsp;
+      <a href="#M000007">save_noko_doc</a>&nbsp;&nbsp;
+      <a href="#M000010">setup_sql</a>&nbsp;&nbsp;
+      <a href="#M000009">sql_insert</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DOCSETS_PATH</td>
+          <td>=</td>
+          <td class="context-item-value">File.expand_path(File.join(File.dirname(__FILE__), '..'))</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+constants
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GENERATORS_PATH</td>
+          <td>=</td>
+          <td class="context-item-value">File.join(DOCSETS_PATH, 'generators')</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">RESOURCES_PATH</td>
+          <td>=</td>
+          <td class="context-item-value">File.join(DOCSETS_PATH, 'resources')</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SRC_DOCS_PATH</td>
+          <td>=</td>
+          <td class="context-item-value">File.join(DOCSETS_PATH, 'src-docs')</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">LOGS_PATH</td>
+          <td>=</td>
+          <td class="context-item-value">File.join(DOCSETS_PATH, 'logs')</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ENTRY_TYPES</td>
+          <td>=</td>
+          <td class="context-item-value">[         'Attribute',  'Binding',   'Callback',     'Category',   'Class',         'Command',    'Constant',  'Constructor',  'Define',     'Directive',         'Element',    'Entry',     'Enum',         'Error',      'Event',         'Exception',  'Field',     'File',         'Filter',     'Framework',         'Function',   'Global',    'Guide',        'Instance',   'Instruction',         'Interface',  'Keyword',   'Library',      'Literal',    'Macro',         'Method',     'Mixin',     'Module',       'Namespace',  'Notation',         'Object',     'Operator',  'Option',       'Package',    'Parameter',         'Property',   'Protocol',  'Record',       'Sample',     'Section',         'Service',    'Struct',    'Style',        'Tag',        'Trait',         'Type',       'Union',     'Value',        'Variable'</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">docset_contents_path</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">docset_documents_path</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">docset_path</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">docset_resources_path</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="Dash.src/M000001.html" target="Code" class="method-signature"
+            onclick="popupCode('Dash.src/M000001.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Constructor: <a href="Dash.html#M000001">Dash.new</a> Takes an
+<tt>options</tt> hash with the following keys:
+</p>
+<pre>
+    :docs_root      - Relative from the src-docs folder, the location of the docs which will br processed.
+    :name           - This will become the name of the docset (_name_.docset).
+    :display_name   - (optional) This is what displays in Dash. Defaults to :name.
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="Dash.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('Dash.src/M000002.html');return false;">
+          <span class="method-name">clean_dir_entries</span><span class="method-args">(dir_path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+removes unwanted entries for processing (e.g. &#8217;.&#8217;,
+&#8217;..&#8217;) returns array on success or nil if not a directory
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="Dash.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('Dash.src/M000005.html');return false;">
+          <span class="method-name">copy_docs</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+copies the files in @docs_root into @docset_documents_path.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="Dash.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('Dash.src/M000011.html');return false;">
+          <span class="method-name">copy_plist</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+copies the plist template into the appripriate docset location
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="Dash.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('Dash.src/M000012.html');return false;">
+          <span class="method-name">create_docset</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+creates the docset hierarchy, the docset .plist, and initializes the
+database.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="Dash.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('Dash.src/M000003.html');return false;">
+          <span class="method-name">get_clean_docs_entries</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+calls <a href="Dash.html#M000002">clean_dir_entries</a> for the @docs_root.
+useful for looping through the root docs directory in generator scripts.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="Dash.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('Dash.src/M000006.html');return false;">
+          <span class="method-name">get_noko_doc</span><span class="method-args">(file_path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+file_path is relative to SRC_DOCS_PATH
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="Dash.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('Dash.src/M000008.html');return false;">
+          <span class="method-name">get_sql_insert</span><span class="method-args">(name, type, path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns the sqlite query for dash entries for given name, [entry] type,
+path
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="Dash.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('Dash.src/M000004.html');return false;">
+          <span class="method-name">is_valid_entry</span><span class="method-args">(entryName)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+check if entryName is a <a href="Dash.html">Dash</a>-supported Entry Type
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="Dash.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('Dash.src/M000007.html');return false;">
+          <span class="method-name">save_noko_doc</span><span class="method-args">(doc, file_path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+file_path is relative to SRC_DOCS_PATH
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="Dash.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('Dash.src/M000010.html');return false;">
+          <span class="method-name">setup_sql</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create the sqlite database at the appropriate docset location.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="Dash.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('Dash.src/M000009.html');return false;">
+          <span class="method-name">sql_insert</span><span class="method-args">(query)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+runs query in the docset&#8216;s sqlite database.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
