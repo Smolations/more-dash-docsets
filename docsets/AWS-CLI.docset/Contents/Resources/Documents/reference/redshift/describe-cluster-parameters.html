@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>describe-cluster-parameters &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="redshift" href="index.html" />
+    <link rel="next" title="describe-cluster-security-groups" href="describe-cluster-security-groups.html" />
+    <link rel="prev" title="describe-cluster-parameter-groups" href="describe-cluster-parameter-groups.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="describe-cluster-security-groups.html" title="describe-cluster-security-groups" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="describe-cluster-parameter-groups.html" title="describe-cluster-parameter-groups" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">redshift</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-cluster-parameter-groups.html" title="previous chapter (use the left arrow)">&#8592; describe-cluster-parameter-groups</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-cluster-security-groups.html" title="next chapter (use the right arrow)">describe-cluster-security-groups &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-cluster-parameters</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#retrieve-the-parameters-for-a-specified-cluster-parameter-group">Retrieve the Parameters for a Specified Cluster Parameter Group</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/redshift/describe-cluster-parameters">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>redshift</em></a> ]</p>
+<div class="section" id="describe-cluster-parameters">
+<h1>describe-cluster-parameters<a class="headerlink" href="#describe-cluster-parameters" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Returns a detailed list of parameters contained within the specified Amazon Redshift parameter group. For each parameter the response includes information such as parameter name, description, data type, value, whether the parameter value is modifiable, and so on.</p>
+<p>You can specify <em>source</em> filter to retrieve parameters of only specific type. For example, to retrieve parameters that were modified by a user action such as from  modify-cluster-parameter-group , you can specify <em>source</em> equal to <em>user</em> .</p>
+<p>For more information about managing parameter groups, go to <a class="reference external" href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a> in the <em>Amazon Redshift Management Guide</em> .</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  describe-cluster-parameters
+--parameter-group-name &lt;value&gt;
+[--source &lt;value&gt;]
+[--max-records &lt;value&gt;]
+[--marker &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--parameter-group-name" class="dashAnchor" id="parameter-group-name"></a><span class="pre">--parameter-group-name</span></tt> (string)</p>
+<blockquote>
+<div>The name of a cluster parameter group for which to return details.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--source" class="dashAnchor" id="source"></a><span class="pre">--source</span></tt> (string)</p>
+<blockquote>
+<div><p>The parameter types to return. Specify <tt class="docutils literal"><span class="pre">user</span></tt>  to show parameters that are different form the default. Similarly, specify <tt class="docutils literal"><span class="pre">engine-default</span></tt>  to show parameters that are the same as the default parameter group.</p>
+<p>Default: All parameter types returned.</p>
+<p>Valid Values: <tt class="docutils literal"><span class="pre">user</span></tt>  | <tt class="docutils literal"><span class="pre">engine-default</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--max-records" class="dashAnchor" id="max-records"></a><span class="pre">--max-records</span></tt> (integer)</p>
+<blockquote>
+<div><p>The maximum number of records to include in the response. If more records exist than the specified <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--max-records" class="dashAnchor" id="max-records"></a><span class="pre">--max-records</span></tt>  value, response includes a marker that you can specify in your subsequent request to retrieve remaining result.</p>
+<p>Default: <tt class="docutils literal"><span class="pre">100</span></tt></p>
+<p>Constraints: Value must be at least 20 and no more than 100.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--marker" class="dashAnchor" id="marker"></a><span class="pre">--marker</span></tt> (string)</p>
+<blockquote>
+<div>An optional marker returned from a previous <strong>describe-cluster-parameters</strong> request. If this parameter is specified, the response includes only records beyond the specified marker, up to the value specified by <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--max-records" class="dashAnchor" id="max-records"></a><span class="pre">--max-records</span></tt>  .</div></blockquote>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="retrieve-the-parameters-for-a-specified-cluster-parameter-group">
+<h3>Retrieve the Parameters for a Specified Cluster Parameter Group<a class="headerlink" href="#retrieve-the-parameters-for-a-specified-cluster-parameter-group" title="Permalink to this headline">&#182;</a></h3>
+<p>This example retrieves the parameters for the named parameter group.  By default, the output is in JSON format.</p>
+<p>Command:</p>
+<div class="highlight-python"><pre>aws redshift describe-cluster-parameters --parameter-group-name myclusterparametergroup</pre>
+</div>
+<p>Result:</p>
+<div class="highlight-python"><pre>{
+   "Parameters": [
+      {
+         "Description": "Sets the display format for date and time values.",
+         "DataType": "string",
+         "IsModifiable": true,
+         "Source": "engine-default",
+         "ParameterValue": "ISO, MDY",
+         "ParameterName": "datestyle"
+      },
+      {
+         "Description": "Sets the number of digits displayed for floating-point values",
+         "DataType": "integer",
+         "IsModifiable": true,
+         "AllowedValues": "-15-2",
+         "Source": "engine-default",
+         "ParameterValue": "0",
+         "ParameterName": "extra_float_digits"
+      },
+      (...remaining output omitted...)
+   ]
+}</pre>
+</div>
+<p>You can also obtain the same information in text format using the <tt class="docutils literal"><span class="pre">--output</span> <span class="pre">text</span></tt> option.</p>
+<p>Command:</p>
+<div class="highlight-python"><pre>aws redshift describe-cluster-parameters --parameter-group-name myclusterparametergroup --output text</pre>
+</div>
+<p>Result:</p>
+<div class="highlight-python"><pre>RESPONSEMETADATA    cdac40aa-64cc-11e2-9e70-918437dd236d
+Sets the display format for date and time values.   string  True    engine-default  ISO, MDY        datestyle
+Sets the number of digits displayed for floating-point values       integer True    -15-2   engine-default  0       extra_float_digits
+This parameter applies a user-defined label to a group of queries that are run during the same session..    string  True    engine-default  default query_group
+require ssl for all databaseconnections     boolean True    true,false      engine-default  false   require_ssl
+Sets the schema search order for names that are not schema-qualified.       string  True    engine-default  $user, public   search_path
+Aborts any statement that takes over the specified number of milliseconds.  integer True    engine-default  0       statement_timeout
+wlm json configuration      string  True    engine-default  \[{"query_concurrency":5}]      wlm_json_configuration</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-cluster-parameter-groups.html" title="previous chapter (use the left arrow)">&#8592; describe-cluster-parameter-groups</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-cluster-security-groups.html" title="next chapter (use the right arrow)">describe-cluster-security-groups &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="describe-cluster-security-groups.html" title="describe-cluster-security-groups">next</a> |</li>
+        <li class="right">
+          <a href="describe-cluster-parameter-groups.html" title="describe-cluster-parameter-groups">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">redshift</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'describe-cluster-parameter-groups.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'describe-cluster-security-groups.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

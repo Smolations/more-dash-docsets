@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>request-spot-instances &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="ec2" href="index.html" />
+    <link rel="next" title="reset-image-attribute" href="reset-image-attribute.html" />
+    <link rel="prev" title="report-instance-status" href="report-instance-status.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="reset-image-attribute.html" title="reset-image-attribute" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="report-instance-status.html" title="report-instance-status" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">ec2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="report-instance-status.html" title="previous chapter (use the left arrow)">&#8592; report-instance-status</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="reset-image-attribute.html" title="next chapter (use the right arrow)">reset-image-attribute &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">request-spot-instances</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/ec2/request-spot-instances">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>ec2</em></a> ]</p>
+<div class="section" id="request-spot-instances">
+<h1>request-spot-instances<a class="headerlink" href="#request-spot-instances" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Creates a Spot Instance request.</p>
+<p>Spot Instances are instances that Amazon EC2 starts on your behalf when the maximum price that you specify exceeds the current Spot Price. Amazon EC2 periodically sets the Spot Price based on available Spot Instance capacity and current spot instance requests.</p>
+<p>For conceptual information about Spot Instances, refer to the Amazon Elastic Compute Cloud Developer Guide  or Amazon Elastic Compute Cloud User Guide.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  request-spot-instances
+[--dry-run | --no-dry-run]
+--spot-price &lt;value&gt;
+[--instance-count &lt;value&gt;]
+[--type &lt;value&gt;]
+[--valid-from &lt;value&gt;]
+[--valid-until &lt;value&gt;]
+[--launch-group &lt;value&gt;]
+[--availability-zone-group &lt;value&gt;]
+[--launch-specification &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--dry-run" class="dashAnchor" id="dry-run"></a><span class="pre">--dry-run</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-dry-run" class="dashAnchor" id="no-dry-run"></a><span class="pre">--no-dry-run</span></tt> (boolean)</p>
+<p>Checks whether you have the required permissions for the action, without actually making the request. Using this option will result in one of two possible errorresponses. If you have the required permissions, the error response will be <tt class="docutils literal"><span class="pre">DryRunOperation</span></tt>  . Otherwise it will be <tt class="docutils literal"><span class="pre">UnauthorizedOperation</span></tt>  .</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--spot-price" class="dashAnchor" id="spot-price"></a><span class="pre">--spot-price</span></tt> (string)</p>
+<blockquote>
+<div>Specifies the maximum hourly price for any Spot Instance launched to fulfill the request.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--instance-count" class="dashAnchor" id="instance-count"></a><span class="pre">--instance-count</span></tt> (integer)</p>
+<blockquote>
+<div>Specifies the maximum number of Spot Instances to launch.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--type" class="dashAnchor" id="type"></a><span class="pre">--type</span></tt> (string)</p>
+<blockquote>
+<div>Specifies the Spot Instance type.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--valid-from" class="dashAnchor" id="valid-from"></a><span class="pre">--valid-from</span></tt> (timestamp)</p>
+<blockquote>
+<div><p>Defines the start date of the request.</p>
+<p>If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--valid-until" class="dashAnchor" id="valid-until"></a><span class="pre">--valid-until</span></tt> (timestamp)</p>
+<blockquote>
+<div><p>End date of the request.</p>
+<p>If this is a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--launch-group" class="dashAnchor" id="launch-group"></a><span class="pre">--launch-group</span></tt> (string)</p>
+<blockquote>
+<div>Specifies the instance launch group. Launch groups are Spot Instances that launch and terminate together.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--availability-zone-group" class="dashAnchor" id="availability-zone-group"></a><span class="pre">--availability-zone-group</span></tt> (string)</p>
+<blockquote>
+<div><p>Specifies the Availability Zone group.</p>
+<p>When specifying the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--launch-specification" class="dashAnchor" id="launch-specification"></a><span class="pre">--launch-specification</span></tt> (structure)</p>
+<blockquote>
+<div>Specifies additional launch instance information.</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>{
+  "ImageId": "string",
+  "KeyName": "string",
+  "UserData": "string",
+  "AddressingType": "string",
+  "InstanceType": "t1.micro"|"m1.small"|"m1.medium"|"m1.large"|"m1.xlarge"|"m2.xlarge"|"m2.2xlarge"|"m2.4xlarge"|"m3.xlarge"|"m3.2xlarge"|"c1.medium"|"c1.xlarge"|"hi1.4xlarge"|"hs1.8xlarge"|"cc1.4xlarge"|"cc2.8xlarge"|"cg1.4xlarge"|"cr1.8xlarge",
+  "Placement": {
+    "AvailabilityZone": "string",
+    "GroupName": "string"
+  },
+  "KernelId": "string",
+  "RamdiskId": "string",
+  "BlockDeviceMappings": [
+    {
+      "VirtualName": "string",
+      "DeviceName": "string",
+      "Ebs": {
+        "SnapshotId": "string",
+        "VolumeSize": integer,
+        "DeleteOnTermination": true|false,
+        "VolumeType": "standard"|"io1",
+        "Iops": integer
+      },
+      "NoDevice": "string"
+    }
+    ...
+  ],
+  "MonitoringEnabled": true|false,
+  "SubnetId": "string",
+  "NetworkInterfaces": [
+    {
+      "NetworkInterfaceId": "string",
+      "DeviceIndex": integer,
+      "SubnetId": "string",
+      "Description": "string",
+      "PrivateIpAddress": "string",
+      "Groups": ["string", ...],
+      "DeleteOnTermination": true|false,
+      "PrivateIpAddresses": [
+        {
+          "PrivateIpAddress": "string",
+          "Primary": true|false
+        }
+        ...
+      ],
+      "SecondaryPrivateIpAddressCount": integer,
+      "AssociatePublicIpAddress": true|false
+    }
+    ...
+  ],
+  "IamInstanceProfile": {
+    "Arn": "string",
+    "Name": "string"
+  },
+  "EbsOptimized": true|false,
+  "SecurityGroupIds": ["string", ...],
+  "SecurityGroups": ["string", ...]
+}</pre>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="report-instance-status.html" title="previous chapter (use the left arrow)">&#8592; report-instance-status</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="reset-image-attribute.html" title="next chapter (use the right arrow)">reset-image-attribute &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="reset-image-attribute.html" title="reset-image-attribute">next</a> |</li>
+        <li class="right">
+          <a href="report-instance-status.html" title="report-instance-status">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">ec2</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'report-instance-status.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'reset-image-attribute.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

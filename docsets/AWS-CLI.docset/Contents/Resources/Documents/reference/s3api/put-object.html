@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>put-object &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="s3api" href="index.html" />
+    <link rel="next" title="put-object-acl" href="put-object-acl.html" />
+    <link rel="prev" title="put-bucket-website" href="put-bucket-website.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="put-object-acl.html" title="put-object-acl" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="put-bucket-website.html" title="put-bucket-website" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">s3api</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="put-bucket-website.html" title="previous chapter (use the left arrow)">&#8592; put-bucket-website</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="put-object-acl.html" title="next chapter (use the right arrow)">put-object-acl &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">put-object</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#upload-an-object">Upload an object</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/s3api/put-object">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>s3api</em></a> ]</p>
+<div class="section" id="put-object">
+<h1>put-object<a class="headerlink" href="#put-object" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Adds an object to a bucket.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  put-object
+[--acl &lt;value&gt;]
+[--body &lt;value&gt;]
+--bucket &lt;value&gt;
+[--cache-control &lt;value&gt;]
+[--content-disposition &lt;value&gt;]
+[--content-encoding &lt;value&gt;]
+[--content-language &lt;value&gt;]
+[--content-length &lt;value&gt;]
+[--content-md5 &lt;value&gt;]
+[--content-type &lt;value&gt;]
+[--expires &lt;value&gt;]
+[--grant-full-control &lt;value&gt;]
+[--grant-read &lt;value&gt;]
+[--grant-read-acp &lt;value&gt;]
+[--grant-write-acp &lt;value&gt;]
+--key &lt;value&gt;
+[--metadata &lt;value&gt;]
+[--server-side-encryption &lt;value&gt;]
+[--storage-class &lt;value&gt;]
+[--website-redirect-location &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--acl" class="dashAnchor" id="acl"></a><span class="pre">--acl</span></tt> (string)
+The canned --acl to apply to the object.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--body" class="dashAnchor" id="body"></a><span class="pre">--body</span></tt> (blob)</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--bucket" class="dashAnchor" id="bucket"></a><span class="pre">--bucket</span></tt> (string)</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--cache-control" class="dashAnchor" id="cache-control"></a><span class="pre">--cache-control</span></tt> (string)
+Specifies caching behavior along the request/reply chain.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--content-disposition" class="dashAnchor" id="content-disposition"></a><span class="pre">--content-disposition</span></tt> (string)
+Specifies presentational information for the object.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--content-encoding" class="dashAnchor" id="content-encoding"></a><span class="pre">--content-encoding</span></tt> (string)
+Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--content-language" class="dashAnchor" id="content-language"></a><span class="pre">--content-language</span></tt> (string)
+The language the content is in.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--content-length" class="dashAnchor" id="content-length"></a><span class="pre">--content-length</span></tt> (integer)
+Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--content-md5" class="dashAnchor" id="content-md5"></a><span class="pre">--content-md5</span></tt> (string)</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--content-type" class="dashAnchor" id="content-type"></a><span class="pre">--content-type</span></tt> (string)
+A standard MIME type describing the format of the object data.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--expires" class="dashAnchor" id="expires"></a><span class="pre">--expires</span></tt> (timestamp)
+The date and time at which the object is no longer cacheable.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--grant-full-control" class="dashAnchor" id="grant-full-control"></a><span class="pre">--grant-full-control</span></tt> (string)
+Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--grant-read" class="dashAnchor" id="grant-read"></a><span class="pre">--grant-read</span></tt> (string)
+Allows grantee to read the object data and its metadata.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--grant-read-acp" class="dashAnchor" id="grant-read-acp"></a><span class="pre">--grant-read-acp</span></tt> (string)
+Allows grantee to read the object ACL.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--grant-write-acp" class="dashAnchor" id="grant-write-acp"></a><span class="pre">--grant-write-acp</span></tt> (string)
+Allows grantee to write the --acl for the applicable object.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--key" class="dashAnchor" id="key"></a><span class="pre">--key</span></tt> (string)</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--metadata" class="dashAnchor" id="metadata"></a><span class="pre">--metadata</span></tt> (map)
+A map of metadata to store with the object in S3.</p>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>--metadata key_name=string,key_name2=string</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>{"string": "string"
+  ...}</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--server-side-encryption" class="dashAnchor" id="server-side-encryption"></a><span class="pre">--server-side-encryption</span></tt> (string)
+The Server-side encryption algorithm used when storing this object in S3.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--storage-class" class="dashAnchor" id="storage-class"></a><span class="pre">--storage-class</span></tt> (string)
+The type of storage to use for the object. Defaults to 'STANDARD'.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--website-redirect-location" class="dashAnchor" id="website-redirect-location"></a><span class="pre">--website-redirect-location</span></tt> (string)
+If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="upload-an-object">
+<h3>Upload an object<a class="headerlink" href="#upload-an-object" title="Permalink to this headline">&#182;</a></h3>
+<p>The following example uses the <tt class="docutils literal"><span class="pre">put-object</span></tt> command to upload an object to Amazon S3:</p>
+<div class="highlight-python"><pre>aws s3api put-object --bucket text-content --key dir-1/my_images.tar.bz2 --body my_images.tar.bz2</pre>
+</div>
+<p>The put-object command automatically uses multipart upload for large files.  The following example shows an upload of a
+video file (The video file is specified using Windows file system syntax.):</p>
+<div class="highlight-python"><pre>aws s3api put-object --bucket text-content --key dir-1/big-video-file.mp4 --body e:\media\videos\f-sharp-3-data-services.mp4</pre>
+</div>
+<p>For more information about uploading objects, see <a class="reference external" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading Objects</a> in the <em>Amazon S3 Developer Guide</em>.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="put-bucket-website.html" title="previous chapter (use the left arrow)">&#8592; put-bucket-website</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="put-object-acl.html" title="next chapter (use the right arrow)">put-object-acl &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="put-object-acl.html" title="put-object-acl">next</a> |</li>
+        <li class="right">
+          <a href="put-bucket-website.html" title="put-bucket-website">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">s3api</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'put-bucket-website.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'put-object-acl.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

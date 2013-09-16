@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>describe-cluster-snapshots &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="redshift" href="index.html" />
+    <link rel="next" title="describe-cluster-subnet-groups" href="describe-cluster-subnet-groups.html" />
+    <link rel="prev" title="describe-cluster-security-groups" href="describe-cluster-security-groups.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="describe-cluster-subnet-groups.html" title="describe-cluster-subnet-groups" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="describe-cluster-security-groups.html" title="describe-cluster-security-groups" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">redshift</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-cluster-security-groups.html" title="previous chapter (use the left arrow)">&#8592; describe-cluster-security-groups</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-cluster-subnet-groups.html" title="next chapter (use the right arrow)">describe-cluster-subnet-groups &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-cluster-snapshots</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#get-a-description-of-all-cluster-snapshots">Get a Description of All Cluster Snapshots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/redshift/describe-cluster-snapshots">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>redshift</em></a> ]</p>
+<div class="section" id="describe-cluster-snapshots">
+<h1>describe-cluster-snapshots<a class="headerlink" href="#describe-cluster-snapshots" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Returns one or more snapshot objects, which contain metadata about your cluster snapshots. By default, this operation returns information about all snapshots of all clusters that are owned by you AWS customer account. No information is returned for snapshots owned by inactive AWS customer accounts.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  describe-cluster-snapshots
+[--cluster-identifier &lt;value&gt;]
+[--snapshot-identifier &lt;value&gt;]
+[--snapshot-type &lt;value&gt;]
+[--start-time &lt;value&gt;]
+[--end-time &lt;value&gt;]
+[--max-records &lt;value&gt;]
+[--marker &lt;value&gt;]
+[--owner-account &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--cluster-identifier" class="dashAnchor" id="cluster-identifier"></a><span class="pre">--cluster-identifier</span></tt> (string)</p>
+<blockquote>
+<div>The identifier of the cluster for which information about snapshots is requested.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--snapshot-identifier" class="dashAnchor" id="snapshot-identifier"></a><span class="pre">--snapshot-identifier</span></tt> (string)</p>
+<blockquote>
+<div>The snapshot identifier of the snapshot about which to return information.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--snapshot-type" class="dashAnchor" id="snapshot-type"></a><span class="pre">--snapshot-type</span></tt> (string)</p>
+<blockquote>
+<div><p>The type of snapshots for which you are requesting information. By default, snapshots of all types are returned.</p>
+<p>Valid Values: <tt class="docutils literal"><span class="pre">automated</span></tt>  | <tt class="docutils literal"><span class="pre">manual</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--start-time" class="dashAnchor" id="start-time"></a><span class="pre">--start-time</span></tt> (timestamp)</p>
+<blockquote>
+<div><p>A value that requests only snapshots created at or after the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <a class="reference external" href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a></p>
+<p>Example: <tt class="docutils literal"><span class="pre">2012-07-16T18:00:00Z</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--end-time" class="dashAnchor" id="end-time"></a><span class="pre">--end-time</span></tt> (timestamp)</p>
+<blockquote>
+<div><p>A time value that requests only snapshots created at or before the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <a class="reference external" href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a></p>
+<p>Example: <tt class="docutils literal"><span class="pre">2012-07-16T18:00:00Z</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--max-records" class="dashAnchor" id="max-records"></a><span class="pre">--max-records</span></tt> (integer)</p>
+<blockquote>
+<div><p>The maximum number of snapshot records to include in the response. If more records exist than the specified <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--max-records" class="dashAnchor" id="max-records"></a><span class="pre">--max-records</span></tt>  value, the response returns a marker that you can use in a subsequent  describe-cluster-snapshots request in order to retrieve the next set of snapshot records.</p>
+<p>Default: <tt class="docutils literal"><span class="pre">100</span></tt></p>
+<p>Constraints: Must be at least 20 and no more than 100.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--marker" class="dashAnchor" id="marker"></a><span class="pre">--marker</span></tt> (string)</p>
+<blockquote>
+<div>An optional marker returned by a previous  describe-cluster-snapshots request to indicate the first snapshot that the request will return.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--owner-account" class="dashAnchor" id="owner-account"></a><span class="pre">--owner-account</span></tt> (string)</p>
+<blockquote>
+<div>The AWS customer account used to create or copy the snapshot. Use this field to filter the results to snapshots owned by a particular account. To describe snapshots you own, either specify your AWS customer account, or do not specify the parameter.</div></blockquote>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="get-a-description-of-all-cluster-snapshots">
+<h3>Get a Description of All Cluster Snapshots<a class="headerlink" href="#get-a-description-of-all-cluster-snapshots" title="Permalink to this headline">&#182;</a></h3>
+<p>This example returns a description of all cluster snapshots for the
+account.  By default, the output is in JSON format.</p>
+<p>Command:</p>
+<div class="highlight-python"><pre>aws redshift describe-cluster-snapshots</pre>
+</div>
+<p>Result:</p>
+<div class="highlight-python"><pre>{
+   "Snapshots": [
+      {
+         "Status": "available",
+         "SnapshotCreateTime": "2013-07-17T22:02:22.852Z",
+         "EstimatedSecondsToCompletion": -1,
+         "AvailabilityZone": "us-east-1a",
+         "ClusterVersion": "1.0",
+         "MasterUsername": "adminuser",
+         "Encrypted": false,
+         "OwnerAccount": "111122223333",
+         "BackupProgressInMegabytes": 20.0,
+         "ElapsedTimeInSeconds": 0,
+         "DBName": "dev",
+         "CurrentBackupRateInMegabytesPerSecond: 0.0,
+         "ClusterCreateTime": "2013-01-22T21:59:29.559Z",
+         "ActualIncrementalBackupSizeInMegabytes"; 20.0
+         "SnapshotType": "automated",
+         "NodeType": "dw.hs1.xlarge",
+         "ClusterIdentifier": "mycluster",
+         "Port": 5439,
+         "TotalBackupSizeInMegabytes": 20.0,
+         "NumberOfNodes": "2",
+         "SnapshotIdentifier": "cm:mycluster-2013-01-22-22-04-18"
+      },
+      {
+         "EstimatedSecondsToCompletion": 0,
+         "OwnerAccount": "111122223333",
+         "CurrentBackupRateInMegabytesPerSecond: 0.1534,
+         "ActualIncrementalBackupSizeInMegabytes"; 11.0,
+         "NumberOfNodes": "2",
+         "Status": "available",
+         "ClusterVersion": "1.0",
+         "MasterUsername": "adminuser",
+         "AccountsWithRestoreAccess": [
+            {
+               "AccountID": "444455556666"
+            } ],
+         "TotalBackupSizeInMegabytes": 20.0,
+         "DBName": "dev",
+         "BackupProgressInMegabytes": 11.0,
+         "ClusterCreateTime": "2013-01-22T21:59:29.559Z",
+         "ElapsedTimeInSeconds": 0,
+         "ClusterIdentifier": "mycluster",
+         "SnapshotCreateTime": "2013-07-17T22:04:18.947Z",
+         "AvailabilityZone": "us-east-1a",
+         "NodeType": "dw.hs1.xlarge",
+         "Encrypted": false,
+         "SnapshotType": "manual",
+         "Port": 5439,
+         "SnapshotIdentifier": "my-snapshot-id"
+      } ]
+   }
+   (...remaining output omitted...)</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-cluster-security-groups.html" title="previous chapter (use the left arrow)">&#8592; describe-cluster-security-groups</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-cluster-subnet-groups.html" title="next chapter (use the right arrow)">describe-cluster-subnet-groups &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="describe-cluster-subnet-groups.html" title="describe-cluster-subnet-groups">next</a> |</li>
+        <li class="right">
+          <a href="describe-cluster-security-groups.html" title="describe-cluster-security-groups">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">redshift</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'describe-cluster-security-groups.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'describe-cluster-subnet-groups.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

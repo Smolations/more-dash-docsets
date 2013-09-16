@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>describe-key-pairs &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="ec2" href="index.html" />
+    <link rel="next" title="describe-licenses" href="describe-licenses.html" />
+    <link rel="prev" title="describe-internet-gateways" href="describe-internet-gateways.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="describe-licenses.html" title="describe-licenses" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="describe-internet-gateways.html" title="describe-internet-gateways" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">ec2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-internet-gateways.html" title="previous chapter (use the left arrow)">&#8592; describe-internet-gateways</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-licenses.html" title="next chapter (use the right arrow)">describe-licenses &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-key-pairs</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#filters">Filters</a><ul>
+<li><a class="reference internal" href="#fingerprint">fingerprint</a></li>
+<li><a class="reference internal" href="#key-name">key-name</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/ec2/describe-key-pairs">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>ec2</em></a> ]</p>
+<div class="section" id="describe-key-pairs">
+<h1>describe-key-pairs<a class="headerlink" href="#describe-key-pairs" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>The describe-key-pairs operation returns information about key pairs available to you. If you specify key pairs, information about those key pairs is returned. Otherwise, information for all registered key pairs is returned.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  describe-key-pairs
+[--dry-run | --no-dry-run]
+[--key-names &lt;value&gt;]
+[--filters &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--dry-run" class="dashAnchor" id="dry-run"></a><span class="pre">--dry-run</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-dry-run" class="dashAnchor" id="no-dry-run"></a><span class="pre">--no-dry-run</span></tt> (boolean)</p>
+<p>Checks whether you have the required permissions for the action, without actually making the request. Using this option will result in one of two possible errorresponses. If you have the required permissions, the error response will be <tt class="docutils literal"><span class="pre">DryRunOperation</span></tt>  . Otherwise it will be <tt class="docutils literal"><span class="pre">UnauthorizedOperation</span></tt>  .</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--key-names" class="dashAnchor" id="key-names"></a><span class="pre">--key-names</span></tt> (list)</p>
+<blockquote>
+<div>The optional list of key pair names to describe.</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"string" "string" ...</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--filters" class="dashAnchor" id="filters"></a><span class="pre">--filters</span></tt> (list)</p>
+<blockquote>
+<div>A list of filters used to match properties for KeyPairs. For a complete reference to the available filter keys for this operation, see the <a class="reference external" href="http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/">Amazon EC2 API reference</a> .</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>  Key value pairs, where values are separated by commas.
+--filters Name=string1,Values=string1,string2</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "Name": "string",
+    "Values": ["string", ...]
+  }
+  ...
+]</pre>
+</div>
+</div>
+<div class="section" id="filters">
+<h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="fingerprint">
+<h3>fingerprint<a class="headerlink" href="#fingerprint" title="Permalink to this headline">&#182;</a></h3>
+<p>The fingerprint of the key pair.</p>
+</div>
+<div class="section" id="key-name">
+<h3>key-name<a class="headerlink" href="#key-name" title="Permalink to this headline">&#182;</a></h3>
+<p>The name of the key pair.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<p><strong>To display a key pair</strong></p>
+<p>This example displays the fingerprint for the key pair named MyKeyPair.</p>
+<p>Command:</p>
+<div class="highlight-python"><pre>aws ec2 describe-key-pairs --key-name MyKeyPair</pre>
+</div>
+<p>Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">"KeyPairs"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"KeyName"</span><span class="p">:</span> <span class="s">"MyKeyPair"</span><span class="p">,</span>
+            <span class="s">"KeyFingerprint"</span><span class="p">:</span> <span class="s">"1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For more information, see <a class="reference external" href="http://docs.aws.amazon.com/cli/latest/userguide/cli-ec2-keypairs.html">Using Key Pairs</a> in the <em>AWS Command Line Interface User Guide</em>.</p>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-internet-gateways.html" title="previous chapter (use the left arrow)">&#8592; describe-internet-gateways</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-licenses.html" title="next chapter (use the right arrow)">describe-licenses &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="describe-licenses.html" title="describe-licenses">next</a> |</li>
+        <li class="right">
+          <a href="describe-internet-gateways.html" title="describe-internet-gateways">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">ec2</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'describe-internet-gateways.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'describe-licenses.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

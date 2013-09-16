@@ -11,7 +11,8 @@ require File.join(File.dirname(__FILE__), 'Dash.module.rb')
 dash = Dash.new({
     :name           => 'AWS-PHP-SDK2',
     :display_name   => 'AWS PHP SDK2',
-    :docs_root      => 'aws-sdk2-php-docs'
+    :docs_root      => 'aws-sdk2-php-docs',
+    :icon           => File.join('icon-images', 'aws.png')
 })
 
 
@@ -41,11 +42,11 @@ entries.each do |entry|
         end
 
         # the class/namespace query
-        queries.push(dash.get_sql_insert(name, type, entry))
+        dash.sql_insert(name, type, entry)
 
         # look for exceptions/interfaces (class name ends with Exception/Interface)
         if type == "Class" && /(Exception|Interface)$/.match(name)
-            queries.push(dash.get_sql_insert(name, Regexp.last_match(1), entry))
+            dash.sql_insert(name, Regexp.last_match(1), entry)
         end
 
         doc = dash.get_noko_doc(entry)
@@ -60,7 +61,7 @@ entries.each do |entry|
             newanchor = dash.get_dash_anchor(proprow, propname, type)
             proprow.at_css('td.name var').before(newanchor)
 
-            queries.push(dash.get_sql_insert(propname, type, proppath))
+            dash.sql_insert(propname, type, proppath)
         end
 
         # methods
@@ -69,30 +70,30 @@ entries.each do |entry|
             methname = methwrap['id']
             methpath = "#{entry}\##{methname}"
 
+            # puts "n: #{methname}, t: #{type}"
             newanchor = dash.get_dash_anchor(methwrap, methname, type, '')
             methwrap.before(newanchor)
 
-            queries.push(dash.get_sql_insert(methname, type, methpath))
+            dash.sql_insert(methname, type, methpath)
         end
 
         dash.save_noko_doc(doc, entry)
-        # puts doc.to_html
-        # file = File.new(file_name, 'w')
-        # file = File.new(path, 'w')
-        # file << doc.to_html.gsub('%24', '$')
-        # file.close
 
     end
     $t = $t + 1
 end
 
-puts "\nRunning #{queries.length} queries..."
-# queries.each do |query|
-# dash.sql_insert(queries.join(' '))
-queries.each { |query| dash.sql_insert(query)}
-# end
+# dash.sql_execute({
+#     :noop => true,
+#     :filter => {
+#         :limit => 5,
+#         :type => 'Class',
+#         :name => 'Exception'
+#     }
+# })
+dash.sql_execute
 
-puts "\nCopying documentation into docsets..."
-dash.copy_docs
+# dash.copy_docs(:noop => true)
+dash.copy_docs()
 
-puts "\nDone.  Queries/Entries: #{queries.length}/#{$t}"
+puts "\nDone.  Queries/Entries: #{dash.queries.length}/#{$t}"

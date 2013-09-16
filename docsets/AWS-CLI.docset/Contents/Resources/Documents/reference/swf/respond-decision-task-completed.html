@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>respond-decision-task-completed &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="swf" href="index.html" />
+    <link rel="next" title="signal-workflow-execution" href="signal-workflow-execution.html" />
+    <link rel="prev" title="respond-activity-task-failed" href="respond-activity-task-failed.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="signal-workflow-execution.html" title="signal-workflow-execution" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="respond-activity-task-failed.html" title="respond-activity-task-failed" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">swf</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="respond-activity-task-failed.html" title="previous chapter (use the left arrow)">&#8592; respond-activity-task-failed</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="signal-workflow-execution.html" title="next chapter (use the right arrow)">signal-workflow-execution &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">respond-decision-task-completed</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/swf/respond-decision-task-completed">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>swf</em></a> ]</p>
+<div class="section" id="respond-decision-task-completed">
+<h1>respond-decision-task-completed<a class="headerlink" href="#respond-decision-task-completed" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Used by deciders to tell the service that the  DecisionTask identified by the <tt class="docutils literal"><span class="pre">--task-token</span></tt>  has successfully completed. The <tt class="docutils literal"><span class="pre">--decisions</span></tt>  argument specifies the list of --decisions made while processing the task.</p>
+<p>A <tt class="docutils literal"><span class="pre">DecisionTaskCompleted</span></tt>  event is added to the workflow history. The <tt class="docutils literal"><span class="pre">--execution-context</span></tt>  specified is attached to the event in the workflow execution history.</p>
+<p><strong>Access Control</strong></p>
+<p>If an IAM policy grants permission to use <tt class="docutils literal"><span class="pre">respond-decision-task-completed</span></tt>  , it can express permissions for the list of --decisions in the <tt class="docutils literal"><span class="pre">--decisions</span></tt>  parameter. Each of the --decisions has one or more parameters, much like a regular API call. To allow for policies to be as readable as possible, you can express permissions on --decisions as if they were actual API calls, including applying conditions to some parameters. For more information, see <a class="reference external" href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> .</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  respond-decision-task-completed
+--task-token &lt;value&gt;
+[--decisions &lt;value&gt;]
+[--execution-context &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--task-token" class="dashAnchor" id="task-token"></a><span class="pre">--task-token</span></tt> (string)</p>
+<blockquote>
+<div><p>The <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--task-token" class="dashAnchor" id="task-token"></a><span class="pre">--task-token</span></tt>  from the  DecisionTask .</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--task-token" class="dashAnchor" id="task-token"></a><span class="pre">--task-token</span></tt>  is generated by the service and should be treated as an opaque value. If the task is passed to another process, its <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--task-token" class="dashAnchor" id="task-token"></a><span class="pre">--task-token</span></tt>  must also be passed. This enables it to provide its progress and respond with results.</p>
+</div>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--decisions" class="dashAnchor" id="decisions"></a><span class="pre">--decisions</span></tt> (list)</p>
+<blockquote>
+<div>The list of --decisions (possibly empty) made by the decider while processing this decision task. See the docs for the  Decision structure for details.</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "decisionType": "ScheduleActivityTask"|"RequestCancelActivityTask"|"CompleteWorkflowExecution"|"FailWorkflowExecution"|"CancelWorkflowExecution"|"ContinueAsNewWorkflowExecution"|"RecordMarker"|"StartTimer"|"CancelTimer"|"SignalExternalWorkflowExecution"|"RequestCancelExternalWorkflowExecution"|"StartChildWorkflowExecution",
+    "scheduleActivityTaskDecisionAttributes": {
+      "activityType": {
+        "name": "string",
+        "version": "string"
+      },
+      "activityId": "string",
+      "control": "string",
+      "input": "string",
+      "scheduleToCloseTimeout": "string",
+      "taskList": {
+        "name": "string"
+      },
+      "scheduleToStartTimeout": "string",
+      "startToCloseTimeout": "string",
+      "heartbeatTimeout": "string"
+    },
+    "requestCancelActivityTaskDecisionAttributes": {
+      "activityId": "string"
+    },
+    "completeWorkflowExecutionDecisionAttributes": {
+      "result": "string"
+    },
+    "failWorkflowExecutionDecisionAttributes": {
+      "reason": "string",
+      "details": "string"
+    },
+    "cancelWorkflowExecutionDecisionAttributes": {
+      "details": "string"
+    },
+    "continueAsNewWorkflowExecutionDecisionAttributes": {
+      "input": "string",
+      "executionStartToCloseTimeout": "string",
+      "taskList": {
+        "name": "string"
+      },
+      "taskStartToCloseTimeout": "string",
+      "childPolicy": "TERMINATE"|"REQUEST_CANCEL"|"ABANDON",
+      "tagList": ["string", ...],
+      "workflowTypeVersion": "string"
+    },
+    "recordMarkerDecisionAttributes": {
+      "markerName": "string",
+      "details": "string"
+    },
+    "startTimerDecisionAttributes": {
+      "timerId": "string",
+      "control": "string",
+      "startToFireTimeout": "string"
+    },
+    "cancelTimerDecisionAttributes": {
+      "timerId": "string"
+    },
+    "signalExternalWorkflowExecutionDecisionAttributes": {
+      "workflowId": "string",
+      "runId": "string",
+      "signalName": "string",
+      "input": "string",
+      "control": "string"
+    },
+    "requestCancelExternalWorkflowExecutionDecisionAttributes": {
+      "workflowId": "string",
+      "runId": "string",
+      "control": "string"
+    },
+    "startChildWorkflowExecutionDecisionAttributes": {
+      "workflowType": {
+        "name": "string",
+        "version": "string"
+      },
+      "workflowId": "string",
+      "control": "string",
+      "input": "string",
+      "executionStartToCloseTimeout": "string",
+      "taskList": {
+        "name": "string"
+      },
+      "taskStartToCloseTimeout": "string",
+      "childPolicy": "TERMINATE"|"REQUEST_CANCEL"|"ABANDON",
+      "tagList": ["string", ...]
+    }
+  }
+  ...
+]</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--execution-context" class="dashAnchor" id="execution-context"></a><span class="pre">--execution-context</span></tt> (string)</p>
+<blockquote>
+<div>User defined context to add to workflow execution.</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="respond-activity-task-failed.html" title="previous chapter (use the left arrow)">&#8592; respond-activity-task-failed</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="signal-workflow-execution.html" title="next chapter (use the right arrow)">signal-workflow-execution &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="signal-workflow-execution.html" title="signal-workflow-execution">next</a> |</li>
+        <li class="right">
+          <a href="respond-activity-task-failed.html" title="respond-activity-task-failed">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">swf</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'respond-activity-task-failed.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'signal-workflow-execution.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>describe-dhcp-options &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="ec2" href="index.html" />
+    <link rel="next" title="describe-export-tasks" href="describe-export-tasks.html" />
+    <link rel="prev" title="describe-customer-gateways" href="describe-customer-gateways.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="describe-export-tasks.html" title="describe-export-tasks" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="describe-customer-gateways.html" title="describe-customer-gateways" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">ec2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-customer-gateways.html" title="previous chapter (use the left arrow)">&#8592; describe-customer-gateways</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-export-tasks.html" title="next chapter (use the right arrow)">describe-export-tasks &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-dhcp-options</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#filters">Filters</a><ul>
+<li><a class="reference internal" href="#dhcp-options-id">dhcp-options-id</a></li>
+<li><a class="reference internal" href="#key">key</a></li>
+<li><a class="reference internal" href="#tag-key">tag-key</a></li>
+<li><a class="reference internal" href="#tag-value">tag-value</a></li>
+<li><a class="reference internal" href="#tag">tag:</a></li>
+<li><a class="reference internal" href="#value">value</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/ec2/describe-dhcp-options">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>ec2</em></a> ]</p>
+<div class="section" id="describe-dhcp-options">
+<h1>describe-dhcp-options<a class="headerlink" href="#describe-dhcp-options" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Gives you information about one or more sets of DHCP options. You can specify one or more DHCP options set IDs, or no IDs (to describe all your sets of DHCP options). The returned information consists of:</p>
+<ul class="simple">
+<li>The DHCP options set ID</li>
+<li>The options</li>
+</ul>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  describe-dhcp-options
+[--dry-run | --no-dry-run]
+[--dhcp-options-ids &lt;value&gt;]
+[--filters &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--dry-run" class="dashAnchor" id="dry-run"></a><span class="pre">--dry-run</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-dry-run" class="dashAnchor" id="no-dry-run"></a><span class="pre">--no-dry-run</span></tt> (boolean)</p>
+<p>Checks whether you have the required permissions for the action, without actually making the request. Using this option will result in one of two possible errorresponses. If you have the required permissions, the error response will be <tt class="docutils literal"><span class="pre">DryRunOperation</span></tt>  . Otherwise it will be <tt class="docutils literal"><span class="pre">UnauthorizedOperation</span></tt>  .</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--dhcp-options-ids" class="dashAnchor" id="dhcp-options-ids"></a><span class="pre">--dhcp-options-ids</span></tt> (list)</p>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"string" "string" ...</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--filters" class="dashAnchor" id="filters"></a><span class="pre">--filters</span></tt> (list)</p>
+<blockquote>
+<div>A list of filters used to match properties for DhcpOptions. For a complete reference to the available filter keys for this operation, see the <a class="reference external" href="http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/">Amazon EC2 API reference</a> .</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>  Key value pairs, where values are separated by commas.
+--filters Name=string1,Values=string1,string2</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "Name": "string",
+    "Values": ["string", ...]
+  }
+  ...
+]</pre>
+</div>
+</div>
+<div class="section" id="filters">
+<h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="dhcp-options-id">
+<h3>dhcp-options-id<a class="headerlink" href="#dhcp-options-id" title="Permalink to this headline">&#182;</a></h3>
+<p>The ID of a set of DHCP options.</p>
+</div>
+<div class="section" id="key">
+<h3>key<a class="headerlink" href="#key" title="Permalink to this headline">&#182;</a></h3>
+<p>The key for one of the options (for example, domain-name ).</p>
+</div>
+<div class="section" id="tag-key">
+<h3>tag-key<a class="headerlink" href="#tag-key" title="Permalink to this headline">&#182;</a></h3>
+<p>The key of a tag assigned to the resource. This filter is independent of the tag-value filter. For example, if you use both the filter " tag-key=Purpose " and the filter " tag-value=X ", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the key filter later in this table.</p>
+</div>
+<div class="section" id="tag-value">
+<h3>tag-value<a class="headerlink" href="#tag-value" title="Permalink to this headline">&#182;</a></h3>
+<p>The value of a tag assigned to the resource. This filter is independent of the tag-key filter.</p>
+</div>
+<div class="section" id="tag">
+<h3>tag:<a class="headerlink" href="#tag" title="Permalink to this headline">&#182;</a></h3>
+<p>--filters the response based on a specific tag/value combination.</p>
+</div>
+<div class="section" id="value">
+<h3>value<a class="headerlink" href="#value" title="Permalink to this headline">&#182;</a></h3>
+<p>The value for one of the options.</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-customer-gateways.html" title="previous chapter (use the left arrow)">&#8592; describe-customer-gateways</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-export-tasks.html" title="next chapter (use the right arrow)">describe-export-tasks &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="describe-export-tasks.html" title="describe-export-tasks">next</a> |</li>
+        <li class="right">
+          <a href="describe-customer-gateways.html" title="describe-customer-gateways">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">ec2</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'describe-customer-gateways.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'describe-export-tasks.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

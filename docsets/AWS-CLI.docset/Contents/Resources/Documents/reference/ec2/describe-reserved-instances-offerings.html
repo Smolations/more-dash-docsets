@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>describe-reserved-instances-offerings &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="ec2" href="index.html" />
+    <link rel="next" title="describe-route-tables" href="describe-route-tables.html" />
+    <link rel="prev" title="describe-reserved-instances-listings" href="describe-reserved-instances-listings.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="describe-route-tables.html" title="describe-route-tables" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="describe-reserved-instances-listings.html" title="describe-reserved-instances-listings" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">ec2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-reserved-instances-listings.html" title="previous chapter (use the left arrow)">&#8592; describe-reserved-instances-listings</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-route-tables.html" title="next chapter (use the right arrow)">describe-route-tables &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-reserved-instances-offerings</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#filters">Filters</a><ul>
+<li><a class="reference internal" href="#availability-zone">availability-zone</a></li>
+<li><a class="reference internal" href="#duration">duration</a></li>
+<li><a class="reference internal" href="#fixed-price">fixed-price</a></li>
+<li><a class="reference internal" href="#instance-type">instance-type</a></li>
+<li><a class="reference internal" href="#product-description">product-description</a></li>
+<li><a class="reference internal" href="#reserved-instances-offering-id">reserved-instances-offering-id</a></li>
+<li><a class="reference internal" href="#usage-price">usage-price</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/ec2/describe-reserved-instances-offerings">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>ec2</em></a> ]</p>
+<div class="section" id="describe-reserved-instances-offerings">
+<h1>describe-reserved-instances-offerings<a class="headerlink" href="#describe-reserved-instances-offerings" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>The describe-reserved-instances-offerings operation describes Reserved Instance offerings that are available for purchase. With Amazon EC2 Reserved Instances, you purchase the right to launch Amazon EC2 instances for a period of time (without getting insufficient capacity errors) and pay a lower usage rate for the actual time used.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  describe-reserved-instances-offerings
+[--dry-run | --no-dry-run]
+[--reserved-instances-offering-ids &lt;value&gt;]
+[--instance-type &lt;value&gt;]
+[--availability-zone &lt;value&gt;]
+[--product-description &lt;value&gt;]
+[--filters &lt;value&gt;]
+[--instance-tenancy &lt;value&gt;]
+[--offering-type &lt;value&gt;]
+[--include-marketplace | --no-include-marketplace]
+[--min-duration &lt;value&gt;]
+[--max-duration &lt;value&gt;]
+[--max-instance-count &lt;value&gt;]
+[--starting-token &lt;value&gt;]
+[--max-items &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--dry-run" class="dashAnchor" id="dry-run"></a><span class="pre">--dry-run</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-dry-run" class="dashAnchor" id="no-dry-run"></a><span class="pre">--no-dry-run</span></tt> (boolean)</p>
+<p>Checks whether you have the required permissions for the action, without actually making the request. Using this option will result in one of two possible errorresponses. If you have the required permissions, the error response will be <tt class="docutils literal"><span class="pre">DryRunOperation</span></tt>  . Otherwise it will be <tt class="docutils literal"><span class="pre">UnauthorizedOperation</span></tt>  .</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--reserved-instances-offering-ids" class="dashAnchor" id="reserved-instances-offering-ids"></a><span class="pre">--reserved-instances-offering-ids</span></tt> (list)</p>
+<blockquote>
+<div>An optional list of the unique IDs of the Reserved Instance offerings to describe.</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"string" "string" ...</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--instance-type" class="dashAnchor" id="instance-type"></a><span class="pre">--instance-type</span></tt> (string)</p>
+<blockquote>
+<div>The instance type on which the Reserved Instance can be used.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--availability-zone" class="dashAnchor" id="availability-zone"></a><span class="pre">--availability-zone</span></tt> (string)</p>
+<blockquote>
+<div>The Availability Zone in which the Reserved Instance can be used.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--product-description" class="dashAnchor" id="product-description"></a><span class="pre">--product-description</span></tt> (string)</p>
+<blockquote>
+<div>The Reserved Instance product description.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--filters" class="dashAnchor" id="filters"></a><span class="pre">--filters</span></tt> (list)</p>
+<blockquote>
+<div>A list of filters used to match properties for ReservedInstancesOfferings. For a complete reference to the available filter keys for this operation, see the <a class="reference external" href="http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/">Amazon EC2 API reference</a> .</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>  Key value pairs, where values are separated by commas.
+--filters Name=string1,Values=string1,string2</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "Name": "string",
+    "Values": ["string", ...]
+  }
+  ...
+]</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--instance-tenancy" class="dashAnchor" id="instance-tenancy"></a><span class="pre">--instance-tenancy</span></tt> (string)</p>
+<blockquote>
+<div>The tenancy of the Reserved Instance offering. A Reserved Instance with tenancy of dedicated will run on single-tenant hardware and can only be launched within a VPC.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--offering-type" class="dashAnchor" id="offering-type"></a><span class="pre">--offering-type</span></tt> (string)
+The Reserved Instance offering type.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--include-marketplace" class="dashAnchor" id="include-marketplace"></a><span class="pre">--include-marketplace</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-include-marketplace" class="dashAnchor" id="no-include-marketplace"></a><span class="pre">--no-include-marketplace</span></tt> (boolean)</p>
+<blockquote>
+<div>Include Marketplace offerings in the response.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--min-duration" class="dashAnchor" id="min-duration"></a><span class="pre">--min-duration</span></tt> (long)</p>
+<blockquote>
+<div>Minimum duration (in seconds) to filter when searching for offerings.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--max-duration" class="dashAnchor" id="max-duration"></a><span class="pre">--max-duration</span></tt> (long)</p>
+<blockquote>
+<div>Maximum duration (in seconds) to filter when searching for offerings.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--max-instance-count" class="dashAnchor" id="max-instance-count"></a><span class="pre">--max-instance-count</span></tt> (integer)</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--starting-token" class="dashAnchor" id="starting-token"></a><span class="pre">--starting-token</span></tt> (string)</p>
+<blockquote>
+<div>A token to specify where to start paginating. This is the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--next-token" class="dashAnchor" id="next-token"></a><span class="pre">--next-token</span></tt>  from a previously truncated response.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--max-items" class="dashAnchor" id="max-items"></a><span class="pre">--max-items</span></tt> (integer)</p>
+<blockquote>
+<div>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <tt class="docutils literal"><span class="pre">NextMarker</span></tt>  will be provided in the output that you can use to resume pagination.</div></blockquote>
+</div>
+<div class="section" id="filters">
+<h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="availability-zone">
+<h3>availability-zone<a class="headerlink" href="#availability-zone" title="Permalink to this headline">&#182;</a></h3>
+<p>The Availability Zone where the Reserved Instance can be used.</p>
+</div>
+<div class="section" id="duration">
+<h3>duration<a class="headerlink" href="#duration" title="Permalink to this headline">&#182;</a></h3>
+<p>The duration of the Reserved Instance (for example, one year or three years), in seconds.</p>
+<p>Valid Values: 31536000|94608000</p>
+</div>
+<div class="section" id="fixed-price">
+<h3>fixed-price<a class="headerlink" href="#fixed-price" title="Permalink to this headline">&#182;</a></h3>
+<p>The purchase price of the Reserved Instance (for example, 9800.0 )</p>
+</div>
+<div class="section" id="instance-type">
+<h3>instance-type<a class="headerlink" href="#instance-type" title="Permalink to this headline">&#182;</a></h3>
+<p>The Amazon EC2 instance type on which the Reserved Instance can be used.</p>
+</div>
+<div class="section" id="product-description">
+<h3>product-description<a class="headerlink" href="#product-description" title="Permalink to this headline">&#182;</a></h3>
+<p>The description of the Reserved Instance.</p>
+<p>Valid Values: Linux/UNIX|Linux/UNIX (Amazon VPC)|Windows|Windows (Amazon VPC)</p>
+</div>
+<div class="section" id="reserved-instances-offering-id">
+<h3>reserved-instances-offering-id<a class="headerlink" href="#reserved-instances-offering-id" title="Permalink to this headline">&#182;</a></h3>
+<p>The Reserved Instances offering ID.</p>
+</div>
+<div class="section" id="usage-price">
+<h3>usage-price<a class="headerlink" href="#usage-price" title="Permalink to this headline">&#182;</a></h3>
+<p>The usage price of the Reserved Instance, per hour (for example, 0.84 )</p>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-reserved-instances-listings.html" title="previous chapter (use the left arrow)">&#8592; describe-reserved-instances-listings</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-route-tables.html" title="next chapter (use the right arrow)">describe-route-tables &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="describe-route-tables.html" title="describe-route-tables">next</a> |</li>
+        <li class="right">
+          <a href="describe-reserved-instances-listings.html" title="describe-reserved-instances-listings">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">ec2</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'describe-reserved-instances-listings.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'describe-route-tables.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

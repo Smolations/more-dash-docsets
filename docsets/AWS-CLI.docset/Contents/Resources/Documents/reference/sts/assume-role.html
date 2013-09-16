@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>assume-role &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="sts" href="index.html" />
+    <link rel="next" title="assume-role-with-web-identity" href="assume-role-with-web-identity.html" />
+    <link rel="prev" title="sts" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="assume-role-with-web-identity.html" title="assume-role-with-web-identity" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="index.html" title="sts" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">sts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="index.html" title="previous chapter (use the left arrow)">&#8592; sts</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="assume-role-with-web-identity.html" title="next chapter (use the right arrow)">assume-role-with-web-identity &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">assume-role</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/sts/assume-role">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>sts</em></a> ]</p>
+<div class="section" id="assume-role">
+<h1>assume-role<a class="headerlink" href="#assume-role" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Returns a set of temporary security credentials (consisting of an access key ID, a secret access key, and a security token) that you can use to access AWS resources that you might not normally have access to. Typically, you use <tt class="docutils literal"><span class="pre">assume-role</span></tt>  for cross-account access or federation.</p>
+<p>For cross-account access, imagine that you own multiple accounts and need to access resources in each account. You could create long-term credentials in each account to access those resources. However, managing all those credentials and remembering which one can access which account can be time consuming. Instead, you can create one set of long-term credentials in one account and then use temporary security credentials to access all the other accounts by assuming roles in those accounts. For more information about roles, see <a class="reference external" href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Roles</a> in <em>Using IAM</em> .</p>
+<p>For federation, you can, for example, grant single sign-on access to the AWS Management Console. If you already have an identity and authentication system in your corporate network, you don't have to recreate user identities in AWS in order to grant those user identities access to AWS. Instead, after a user has been authenticated, you call <tt class="docutils literal"><span class="pre">assume-role</span></tt>  (and specify the role with the appropriate permissions) to get temporary security credentials for that user. With those temporary security credentials, you construct a sign-in URL that users can use to access the console. For more information, see <a class="reference external" href="http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html">Scenarios for Granting Temporary Access</a> in <em>AWS Security Token Service</em> .</p>
+<p>The temporary security credentials are valid for the duration that you specified when calling <tt class="docutils literal"><span class="pre">assume-role</span></tt>  , which can be from 900 seconds (15 minutes) to 3600 seconds (1 hour). The default is 1 hour.</p>
+<p>The temporary security credentials that are returned from the <tt class="docutils literal"><span class="pre">assume-role-with-web-identity</span></tt>  response have the permissions that are associated with the access policy of the role being assumed and any policies that are associated with the AWS resource being accessed. You can further restrict the permissions of the temporary security credentials by passing a policy in the request. The resulting permissions are an intersection of the role's access policy and the policy that you passed. These policies and any applicable resource-based policies are evaluated when calls to AWS service APIs are made using the temporary security credentials.</p>
+<p>To assume a role, your AWS account must be trusted by the role. The trust relationship is defined in the role's trust policy when the IAM role is created. You must also have a policy that allows you to call <tt class="docutils literal"><span class="pre">sts:AssumeRole</span></tt>  .</p>
+<blockquote>
+<div><strong>Important:</strong> You cannot call <tt class="docutils literal"><span class="pre">Assumerole</span></tt>  by using AWS account credentials; access will be denied. You must use IAM user credentials or temporary security credentials to call <tt class="docutils literal"><span class="pre">assume-role</span></tt>  .</div></blockquote>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  assume-role
+--role-arn &lt;value&gt;
+--role-session-name &lt;value&gt;
+[--policy &lt;value&gt;]
+[--duration-seconds &lt;value&gt;]
+[--external-id &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--role-arn" class="dashAnchor" id="role-arn"></a><span class="pre">--role-arn</span></tt> (string)</p>
+<blockquote>
+<div>The Amazon Resource Name (ARN) of the role that the caller is assuming.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--role-session-name" class="dashAnchor" id="role-session-name"></a><span class="pre">--role-session-name</span></tt> (string)</p>
+<blockquote>
+<div>An identifier for the assumed role session. The session name is included as part of the <tt class="docutils literal"><span class="pre">AssumedRoleUser</span></tt>  .</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--policy" class="dashAnchor" id="policy"></a><span class="pre">--policy</span></tt> (string)</p>
+<blockquote>
+<div>A supplemental policy that is associated with the temporary security credentials from the <tt class="docutils literal"><span class="pre">assume-role</span></tt>  call. The resulting permissions of the temporary security credentials are an intersection of this policy and the access policy that is associated with the role. Use this policy to further restrict the permissions of the temporary security credentials.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--duration-seconds" class="dashAnchor" id="duration-seconds"></a><span class="pre">--duration-seconds</span></tt> (integer)</p>
+<blockquote>
+<div>The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--external-id" class="dashAnchor" id="external-id"></a><span class="pre">--external-id</span></tt> (string)</p>
+<blockquote>
+<div>A unique identifier that is used by third parties to assume a role in their customers' accounts. For each role that the third party can assume, they should instruct their customers to create a role with the external ID that the third party generated. Each time the third party assumes the role, they must pass the customer's external ID. The external ID is useful in order to help third parties bind a role to the customer who created it. For more information about the external ID, see <a class="reference external" href="http://docs.aws.amazon.com/STS/latest/UsingSTS/sts-delegating-externalid.html">About the External ID</a> in <em>Using Temporary Security Credentials</em> .</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="index.html" title="previous chapter (use the left arrow)">&#8592; sts</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="assume-role-with-web-identity.html" title="next chapter (use the right arrow)">assume-role-with-web-identity &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="assume-role-with-web-identity.html" title="assume-role-with-web-identity">next</a> |</li>
+        <li class="right">
+          <a href="index.html" title="sts">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">sts</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'index.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'assume-role-with-web-identity.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

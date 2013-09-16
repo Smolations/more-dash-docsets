@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>register-image &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="ec2" href="index.html" />
+    <link rel="next" title="release-address" href="release-address.html" />
+    <link rel="prev" title="reboot-instances" href="reboot-instances.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="release-address.html" title="release-address" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="reboot-instances.html" title="reboot-instances" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">ec2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="reboot-instances.html" title="previous chapter (use the left arrow)">&#8592; reboot-instances</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="release-address.html" title="next chapter (use the right arrow)">release-address &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">register-image</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/ec2/register-image">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>ec2</em></a> ]</p>
+<div class="section" id="register-image">
+<h1>register-image<a class="headerlink" href="#register-image" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>The register-image operation registers an AMI with Amazon EC2. Images must be registered before they can be launched. For more information, see RunInstances.</p>
+<p>Each AMI is associated with an unique ID which is provided by the Amazon EC2 service through the register-image operation. During registration, Amazon EC2 retrieves the specified image manifest from Amazon S3 and verifies that the image is owned by the user registering the image.</p>
+<p>The image manifest is retrieved once and stored within the Amazon EC2. Any modifications to an image in Amazon S3 invalidates this registration. If you make changes to an image, deregister the previous image and register the new image. For more information, see DeregisterImage.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  register-image
+[--dry-run | --no-dry-run]
+[--image-location &lt;value&gt;]
+[--name &lt;value&gt;]
+[--description &lt;value&gt;]
+[--architecture &lt;value&gt;]
+[--kernel-id &lt;value&gt;]
+[--ramdisk-id &lt;value&gt;]
+[--root-device-name &lt;value&gt;]
+[--block-device-mappings &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--dry-run" class="dashAnchor" id="dry-run"></a><span class="pre">--dry-run</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-dry-run" class="dashAnchor" id="no-dry-run"></a><span class="pre">--no-dry-run</span></tt> (boolean)</p>
+<p>Checks whether you have the required permissions for the action, without actually making the request. Using this option will result in one of two possible errorresponses. If you have the required permissions, the error response will be <tt class="docutils literal"><span class="pre">DryRunOperation</span></tt>  . Otherwise it will be <tt class="docutils literal"><span class="pre">UnauthorizedOperation</span></tt>  .</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--image-location" class="dashAnchor" id="image-location"></a><span class="pre">--image-location</span></tt> (string)
+The full path to your AMI manifest in Amazon S3 storage.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--name" class="dashAnchor" id="name"></a><span class="pre">--name</span></tt> (string)</p>
+<blockquote>
+<div><p>The name to give the new Amazon Machine Image.</p>
+<p>Constraints: 3-128 alphanumeric characters, parenthesis (<tt class="docutils literal"><span class="pre">()</span></tt>  ), commas (<tt class="docutils literal"><span class="pre">,</span></tt>  ), slashes (<tt class="docutils literal"><span class="pre">/</span></tt>  ), dashes (<tt class="docutils literal"><span class="pre">-</span></tt>  ), or underscores(<tt class="docutils literal"><span class="pre">_</span></tt>  )</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--description" class="dashAnchor" id="description"></a><span class="pre">--description</span></tt> (string)
+The description describing the new AMI.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--architecture" class="dashAnchor" id="architecture"></a><span class="pre">--architecture</span></tt> (string)
+The architecture of the image.</p>
+<blockquote>
+<div>Valid Values: <tt class="docutils literal"><span class="pre">i386</span></tt>  , <tt class="docutils literal"><span class="pre">x86_64</span></tt></div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--kernel-id" class="dashAnchor" id="kernel-id"></a><span class="pre">--kernel-id</span></tt> (string)
+The optional ID of a specific kernel to register with the new AMI.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--ramdisk-id" class="dashAnchor" id="ramdisk-id"></a><span class="pre">--ramdisk-id</span></tt> (string)</p>
+<blockquote>
+<div><p>The optional ID of a specific ramdisk to register with the new AMI.</p>
+<p>Some kernels require additional drivers at launch. Check the kernel requirements for information on whether you need to specify a RAM disk.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--root-device-name" class="dashAnchor" id="root-device-name"></a><span class="pre">--root-device-name</span></tt> (string)</p>
+<blockquote>
+<div>The root device name (e.g., <tt class="docutils literal"><span class="pre">/dev/sda1</span></tt>  ).</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--block-device-mappings" class="dashAnchor" id="block-device-mappings"></a><span class="pre">--block-device-mappings</span></tt> (list)</p>
+<blockquote>
+<div>The block device mappings for the new AMI, which specify how different block devices (ex: EBS volumes and ephemeral drives) will be exposed on instances launched from the new image.</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    "VirtualName": "string",
+    "DeviceName": "string",
+    "Ebs": {
+      "SnapshotId": "string",
+      "VolumeSize": integer,
+      "DeleteOnTermination": true|false,
+      "VolumeType": "standard"|"io1",
+      "Iops": integer
+    },
+    "NoDevice": "string"
+  }
+  ...
+]</pre>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="reboot-instances.html" title="previous chapter (use the left arrow)">&#8592; reboot-instances</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="release-address.html" title="next chapter (use the right arrow)">release-address &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="release-address.html" title="release-address">next</a> |</li>
+        <li class="right">
+          <a href="reboot-instances.html" title="reboot-instances">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">ec2</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'reboot-instances.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'release-address.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

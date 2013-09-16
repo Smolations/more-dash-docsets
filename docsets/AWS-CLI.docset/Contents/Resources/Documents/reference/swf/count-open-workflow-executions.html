@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>count-open-workflow-executions &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="swf" href="index.html" />
+    <link rel="next" title="count-pending-activity-tasks" href="count-pending-activity-tasks.html" />
+    <link rel="prev" title="count-closed-workflow-executions" href="count-closed-workflow-executions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="count-pending-activity-tasks.html" title="count-pending-activity-tasks" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="count-closed-workflow-executions.html" title="count-closed-workflow-executions" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">swf</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="count-closed-workflow-executions.html" title="previous chapter (use the left arrow)">&#8592; count-closed-workflow-executions</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="count-pending-activity-tasks.html" title="next chapter (use the right arrow)">count-pending-activity-tasks &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">count-open-workflow-executions</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#counting-open-workflow-executions">Counting Open Workflow Executions</a></li>
+<li><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/swf/count-open-workflow-executions">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>swf</em></a> ]</p>
+<div class="section" id="count-open-workflow-executions">
+<h1>count-open-workflow-executions<a class="headerlink" href="#count-open-workflow-executions" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Returns the number of open workflow executions within the given --domain that meet the specified filtering criteria.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This operation is eventually consistent. The results are best effort and may not exactly reflect recent updates and changes.</p>
+</div>
+<p><strong>Access Control</strong></p>
+<p>You can use IAM policies to control this action's access to Amazon SWF resources as follows:</p>
+<ul class="simple">
+<li>Use a <tt class="docutils literal"><span class="pre">Resource</span></tt>  element with the --domain name to limit the action to only specified domains.</li>
+<li>Use an <tt class="docutils literal"><span class="pre">Action</span></tt>  element to allow or deny permission to call this action.</li>
+<li>Constrain the following parameters by using a <tt class="docutils literal"><span class="pre">Condition</span></tt>  element with the appropriate keys.  *  <tt class="docutils literal"><span class="pre">tagFilter.tag</span></tt>  : String constraint. The key is <tt class="docutils literal"><span class="pre">swf:tagFilter.tag</span></tt>  .</li>
+<li><tt class="docutils literal"><span class="pre">typeFilter.name</span></tt>  : String constraint. The key is <tt class="docutils literal"><span class="pre">swf:typeFilter.name</span></tt>  .</li>
+<li><tt class="docutils literal"><span class="pre">typeFilter.version</span></tt>  : String constraint. The key is <tt class="docutils literal"><span class="pre">swf:typeFilter.version</span></tt>  .</li>
+</ul>
+<p>If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails by throwing <tt class="docutils literal"><span class="pre">OperationNotPermitted</span></tt>  . For details and example IAM policies, see <a class="reference external" href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> .</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  count-open-workflow-executions
+--domain &lt;value&gt;
+--start-time-filter &lt;value&gt;
+[--type-filter &lt;value&gt;]
+[--tag-filter &lt;value&gt;]
+[--execution-filter &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--domain" class="dashAnchor" id="domain"></a><span class="pre">--domain</span></tt> (string)</p>
+<blockquote>
+<div>The name of the --domain containing the workflow executions to count.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--start-time-filter" class="dashAnchor" id="start-time-filter"></a><span class="pre">--start-time-filter</span></tt> (structure)</p>
+<blockquote>
+<div>Specifies the start time criteria that workflow executions must meet in order to be counted.</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>--start-time-filter oldestDate=value,latestDate=value</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"oldestDate"</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
+  <span class="s">"latestDate"</span><span class="p">:</span> <span class="n">timestamp</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--type-filter" class="dashAnchor" id="type-filter"></a><span class="pre">--type-filter</span></tt> (structure)</p>
+<blockquote>
+<div><p>Specifies the type of the workflow executions to be counted.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--execution-filter" class="dashAnchor" id="execution-filter"></a><span class="pre">--execution-filter</span></tt>  , <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--type-filter" class="dashAnchor" id="type-filter"></a><span class="pre">--type-filter</span></tt>  and <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--tag-filter" class="dashAnchor" id="tag-filter"></a><span class="pre">--tag-filter</span></tt>  are mutually exclusive. You can specify at most one of these in a request.</p>
+</div>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>--type-filter name=value,version=value</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"string"</span><span class="p">,</span>
+  <span class="s">"version"</span><span class="p">:</span> <span class="s">"string"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--tag-filter" class="dashAnchor" id="tag-filter"></a><span class="pre">--tag-filter</span></tt> (structure)</p>
+<blockquote>
+<div><p>If specified, only executions that have a tag that matches the filter are counted.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--execution-filter" class="dashAnchor" id="execution-filter"></a><span class="pre">--execution-filter</span></tt>  , <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--type-filter" class="dashAnchor" id="type-filter"></a><span class="pre">--type-filter</span></tt>  and <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--tag-filter" class="dashAnchor" id="tag-filter"></a><span class="pre">--tag-filter</span></tt>  are mutually exclusive. You can specify at most one of these in a request.</p>
+</div>
+</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"tag"</span><span class="p">:</span> <span class="s">"string"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--execution-filter" class="dashAnchor" id="execution-filter"></a><span class="pre">--execution-filter</span></tt> (structure)</p>
+<blockquote>
+<div><p>If specified, only workflow executions matching the <tt class="docutils literal"><span class="pre">WorkflowId</span></tt>  in the filter are counted.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--execution-filter" class="dashAnchor" id="execution-filter"></a><span class="pre">--execution-filter</span></tt>  , <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--type-filter" class="dashAnchor" id="type-filter"></a><span class="pre">--type-filter</span></tt>  and <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--tag-filter" class="dashAnchor" id="tag-filter"></a><span class="pre">--tag-filter</span></tt>  are mutually exclusive. You can specify at most one of these in a request.</p>
+</div>
+</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s">"workflowId"</span><span class="p">:</span> <span class="s">"string"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<div class="section" id="counting-open-workflow-executions">
+<h3>Counting Open Workflow Executions<a class="headerlink" href="#counting-open-workflow-executions" title="Permalink to this headline">&#182;</a></h3>
+<p>You can use <tt class="docutils literal"><span class="pre">swf</span> <span class="pre">count-open-workflow-executions</span></tt> to retrieve the number of open workflow executions for a given
+domain. You can specify filters to count specific classes of executions.</p>
+<p>The <tt class="docutils literal"><span class="pre">--domain</span></tt> and <tt class="docutils literal"><span class="pre">--start-time-filter</span></tt> arguments are required. All other arguments are optional.</p>
+<p>Here is a basic example:</p>
+<div class="highlight-python"><pre>aws swf count-open-workflow-executions --domain DataFrobtzz --start-time-filter "{ \"latestDate\" : 1377129600, \"oldestDate\" : 1370044800 }"</pre>
+</div>
+<p>Result:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">"count"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s">"truncated"</span><span class="p">:</span> <span class="n">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If "truncated" is <tt class="docutils literal"><span class="pre">true</span></tt>, then "count" represents the maximum number that can be returned by Amazon SWF. Any further
+results are truncated.</p>
+<p>To reduce the number of results returned, you can:</p>
+<ul>
+<li><p class="first">modify the <tt class="docutils literal"><span class="pre">--start-time-filter</span></tt> values to narrow the time range that is searched.</p>
+</li>
+<li><dl class="first docutils">
+<dt>use the <tt class="docutils literal"><span class="pre">--close-status-filter</span></tt>, <tt class="docutils literal"><span class="pre">--execution-filter</span></tt>, <tt class="docutils literal"><span class="pre">--tag-filter</span></tt> or <tt class="docutils literal"><span class="pre">--type-filter</span></tt> arguments to further</dt>
+<dd><p class="first last">filter the results. Each of these is mutually exclusive: You can specify <em>only one of these</em> in a request.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="see-also">
+<h3>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">&#182;</a></h3>
+<ul>
+<li><dl class="first docutils">
+<dt><a href="#id1"><span class="problematic" id="id2">`</span></a>CountOpenWorkflowExecutions</dt>
+<dd><p class="first last">&lt;<a class="reference external" href="http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountOpenWorkflowExecutions.html">http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountOpenWorkflowExecutions.html</a>&gt;`_ in the <em>Amazon
+Simple Workflow Service API Reference</em></p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="count-closed-workflow-executions.html" title="previous chapter (use the left arrow)">&#8592; count-closed-workflow-executions</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="count-pending-activity-tasks.html" title="next chapter (use the right arrow)">count-pending-activity-tasks &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="count-pending-activity-tasks.html" title="count-pending-activity-tasks">next</a> |</li>
+        <li class="right">
+          <a href="count-closed-workflow-executions.html" title="count-closed-workflow-executions">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">swf</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'count-closed-workflow-executions.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'count-pending-activity-tasks.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

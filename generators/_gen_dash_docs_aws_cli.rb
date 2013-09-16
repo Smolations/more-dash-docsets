@@ -23,12 +23,15 @@ require File.join(File.dirname(__FILE__), 'Dash.module.rb')
 dash = Dash.new({
     :name           => 'AWS-CLI',
     :display_name   => 'AWS CLI',
-    :docs_root      => File.join('docs.aws.amazon.com', 'cli', 'latest')
+    :docs_root      => File.join('docs.aws.amazon.com', 'cli', 'latest'),
+    :icon           => File.join('icon-images', 'aws.png')
 })
+
+puts "Beginning the generation of AWS CLI docset..."
 
 
 # register the Getting Started link as a guide
-dash.sql_insert('Getting Started', 'Guide', 'tutorial/getting_started.html')
+dash.sql_insert( 'Getting Started', 'Guide', 'tutorial/getting_started.html' )
 
 
 # most of the top level links we need are in the root index.html file
@@ -44,14 +47,14 @@ docAwsCmd.css('#options span.pre').each do |span|
     newanchor   = dash.get_dash_anchor(docAwsCmd, option, 'Option', newanchorid)
     span.before(newanchor)
 
-    dash.sql_insert(option, 'Option', [awsCmdFilePath, newanchorid].join('#'))
+    dash.sql_insert( option, 'Option', [awsCmdFilePath, newanchorid].join('#') )
 end
 
 # rewrite the file, free up the memory
 dash.save_noko_doc(docAwsCmd, awsCmdFilePath)
 
 # insert record for general aws command
-dash.sql_insert('aws', 'Command', awsCmdFilePath)
+dash.sql_insert( 'aws', 'Command', awsCmdFilePath )
 
 
 # register categories
@@ -60,7 +63,7 @@ docIndex.css('li.toctree-l2').each do |li|
     catHref = li.at_css('a')['href']
     catPath = (catHref.split('/') - ['index.html']).join('/')
     cat     = catHref.split('/')[1]
-    dash.sql_insert(cat, 'Category', catHref)
+    dash.sql_insert( cat, 'Category', catHref )
 
     # file containing links to each category
     docCatIndex = dash.get_noko_doc(catHref)
@@ -71,7 +74,7 @@ docIndex.css('li.toctree-l2').each do |li|
         # register command
         cmd     = anchor.content
         cmdPath = [ catPath, '/', cmd, '.html' ].join
-        dash.sql_insert(cmd, 'Command', cmdPath)
+        dash.sql_insert( cmd, 'Command', cmdPath )
 
         docOptions = dash.get_noko_doc(cmdPath)
 
@@ -89,7 +92,7 @@ docIndex.css('li.toctree-l2').each do |li|
                 newanchor   = dash.get_dash_anchor(docOptions, option, 'Option', newanchorid)
                 span.before(newanchor)
 
-                dash.sql_insert(option, 'Option', [cmdPath, newanchorid].join('#'))
+                dash.sql_insert( option, 'Option', [cmdPath, newanchorid].join('#') )
             end
         end
 
@@ -101,3 +104,19 @@ docIndex.css('li.toctree-l2').each do |li|
 
     docCatIndex = nil
 end
+
+
+# dash.sql_execute({
+#     :noop => true,
+#     :filter => {
+#         :limit => 5,
+#         :type => 'Class',
+#         :name => 'Exception'
+#     }
+# })
+dash.sql_execute
+
+# dash.copy_docs(:noop => true)
+dash.copy_docs()
+
+puts "\nDone."

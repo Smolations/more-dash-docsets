@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>describe-auto-scaling-groups &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="autoscaling" href="index.html" />
+    <link rel="next" title="describe-auto-scaling-instances" href="describe-auto-scaling-instances.html" />
+    <link rel="prev" title="describe-adjustment-types" href="describe-adjustment-types.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="describe-auto-scaling-instances.html" title="describe-auto-scaling-instances" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="describe-adjustment-types.html" title="describe-adjustment-types" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">autoscaling</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-adjustment-types.html" title="previous chapter (use the left arrow)">&#8592; describe-adjustment-types</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-auto-scaling-instances.html" title="next chapter (use the right arrow)">describe-auto-scaling-instances &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-auto-scaling-groups</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/autoscaling/describe-auto-scaling-groups">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>autoscaling</em></a> ]</p>
+<div class="section" id="describe-auto-scaling-groups">
+<h1>describe-auto-scaling-groups<a class="headerlink" href="#describe-auto-scaling-groups" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Returns a full description of each Auto Scaling group in the given list. This includes all Amazon EC2 instances that are members of the group. If a list of names is not provided, the service returns the full details of all Auto Scaling groups.</p>
+<p>This action supports pagination by returning a token if there are more pages to retrieve. To get the next page, call this action again with the returned token as the <tt class="docutils literal"><span class="pre">--next-token</span></tt>  parameter.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  describe-auto-scaling-groups
+[--auto-scaling-group-names &lt;value&gt;]
+[--starting-token &lt;value&gt;]
+[--max-items &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--auto-scaling-group-names" class="dashAnchor" id="auto-scaling-group-names"></a><span class="pre">--auto-scaling-group-names</span></tt> (list)</p>
+<blockquote>
+<div>A list of Auto Scaling group names.</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"string" "string" ...</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--starting-token" class="dashAnchor" id="starting-token"></a><span class="pre">--starting-token</span></tt> (string)</p>
+<blockquote>
+<div>A token to specify where to start paginating. This is the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--next-token" class="dashAnchor" id="next-token"></a><span class="pre">--next-token</span></tt>  from a previously truncated response.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--max-items" class="dashAnchor" id="max-items"></a><span class="pre">--max-items</span></tt> (integer)</p>
+<blockquote>
+<div>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <tt class="docutils literal"><span class="pre">NextMarker</span></tt>  will be provided in the output that you can use to resume pagination.</div></blockquote>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<p><strong>To get description of an Auto Scaling group</strong></p>
+<p>The following <tt class="docutils literal"><span class="pre">describe-auto-scaling-group</span></tt> command describes the specified Auto Scaling group:</p>
+<div class="highlight-python"><pre>aws autoscaling describe-auto-scaling-group --auto-scaling-group-name my-test-asg</pre>
+</div>
+<p>The output of this command is a JSON block that describes the Auto Scaling group, similar to the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">"AutoScalingGroups"</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+          <span class="s">"AutoScalingGroupARN"</span><span class="p">:</span> <span class="s">"arn:aws:autoscaling:us-west-2:803981987763:autoScalingGroup:930d940e-891e-4781-a11a-7b0acd480f03:autoScalingGroupName/my-test-windows-asg"</span><span class="p">,</span>
+          <span class="s">"HealthCheckGracePeriod"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="s">"SuspendedProcesses"</span><span class="p">:</span> <span class="p">[],</span>
+          <span class="s">"DesiredCapacity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s">"Tags"</span><span class="p">:</span> <span class="p">[],</span>
+          <span class="s">"EnabledMetrics"</span><span class="p">:</span> <span class="p">[],</span>
+          <span class="s">"LoadBalancerNames"</span><span class="p">:</span> <span class="p">[],</span>
+          <span class="s">"AutoScalingGroupName"</span><span class="p">:</span> <span class="s">"my-test-windows-asg"</span><span class="p">,</span>
+          <span class="s">"DefaultCooldown"</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+          <span class="s">"MinSize"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="s">"Instances"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                  <span class="s">"InstanceId"</span><span class="p">:</span> <span class="s">"i-4ba0837f"</span><span class="p">,</span>
+                  <span class="s">"AvailabilityZone"</span><span class="p">:</span> <span class="s">"us-west-2c"</span><span class="p">,</span>
+                  <span class="s">"HealthStatus"</span><span class="p">:</span> <span class="s">"Healthy"</span><span class="p">,</span>
+                  <span class="s">"LifecycleState"</span><span class="p">:</span> <span class="s">"InService"</span><span class="p">,</span>
+                  <span class="s">"LaunchConfigurationName"</span><span class="p">:</span> <span class="s">"my-test-windows-lc"</span>
+               <span class="p">}</span>
+           <span class="p">],</span>
+           <span class="s">"MaxSize"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+           <span class="s">"VPCZoneIdentifier"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+           <span class="s">"TerminationPolicies"</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="s">"Default"</span>
+           <span class="p">],</span>
+           <span class="s">"LaunchConfigurationName"</span><span class="p">:</span> <span class="s">"my-test-windows-lc"</span><span class="p">,</span>
+           <span class="s">"CreatedTime"</span><span class="p">:</span> <span class="s">"2013-08-19T20:53:25.584Z"</span><span class="p">,</span>
+           <span class="s">"AvailabilityZones"</span><span class="p">:</span> <span class="p">[</span>
+               <span class="s">"us-west-2c"</span>
+           <span class="p">],</span>
+           <span class="s">"HealthCheckType"</span><span class="p">:</span> <span class="s">"EC2"</span>
+       <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For more information, see <a class="reference external" href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_BasicSetup.html">Basic Auto Scaling Configuration</a> in the <em>Auto Scaling Developer Guide</em>.</p>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="describe-adjustment-types.html" title="previous chapter (use the left arrow)">&#8592; describe-adjustment-types</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="describe-auto-scaling-instances.html" title="next chapter (use the right arrow)">describe-auto-scaling-instances &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="describe-auto-scaling-instances.html" title="describe-auto-scaling-instances">next</a> |</li>
+        <li class="right">
+          <a href="describe-adjustment-types.html" title="describe-adjustment-types">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">autoscaling</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'describe-adjustment-types.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'describe-auto-scaling-instances.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

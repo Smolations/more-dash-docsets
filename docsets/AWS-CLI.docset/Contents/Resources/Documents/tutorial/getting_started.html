@@ -1,0 +1,365 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>Getting Started With AWS CLI &mdash; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../index.html" />
+    <link rel="next" title="aws" href="../reference/index.html" />
+    <link rel="prev" title="AWS CLI" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&repo=aws-cli&type=watch&count=true&size=small"
+                  allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../reference/index.html" title="aws"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="AWS CLI"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">AWS CLI 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../index.html" title="previous chapter (use the left arrow)">&larr; AWS CLI</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../reference/index.html" title="next chapter (use the right arrow)">aws &rarr;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting Started With AWS CLI</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#command-completion">Command Completion</a></li>
+<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li><a class="reference internal" href="#other-important-environment-variables">Other Important Environment Variables</a></li>
+<li><a class="reference internal" href="#accessing-services-with-global-endpoints">Accessing Services With Global Endpoints</a><ul>
+<li><a class="reference internal" href="#json-parameter-input">JSON Parameter Input</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#file-based-parameter-input">File-based Parameter Input</a></li>
+<li><a class="reference internal" href="#uri-based-parameter-input">URI-based Parameter Input</a></li>
+<li><a class="reference internal" href="#command-output">Command Output</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&guide_name=Guide&api_version=1.0&file_name=tutorial/getting_started">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <div class="section" id="getting-started-with-aws-cli">
+<h1>Getting Started With AWS CLI<a class="headerlink" href="#getting-started-with-aws-cli" title="Permalink to this headline">¶</a></h1>
+<p>This package provides a unified command line interface to many
+Amazon Web Services.</p>
+<p>The aws-cli package should work on Python versions 2.6.x - 3.3.x.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to install aws-cli is to use <tt class="docutils literal"><span class="pre">easy_install</span></tt> or <tt class="docutils literal"><span class="pre">pip</span></tt>:</p>
+<div class="highlight-python"><pre>$ easy_install awscli</pre>
+</div>
+<p>or, if you are not installing in a <tt class="docutils literal"><span class="pre">virtualenv</span></tt>:</p>
+<div class="highlight-python"><pre>$ sudo easy_install awscli</pre>
+</div>
+<p>Using <tt class="docutils literal"><span class="pre">pip</span></tt>, it would simply be:</p>
+<div class="highlight-python"><pre>$ pip install awscli</pre>
+</div>
+<p>or:</p>
+<div class="highlight-python"><pre>$ sudo pip install awscli</pre>
+</div>
+<p>This will install the aws-cli package as well as all dependencies.  You can
+also just clone the git repo or download the tarball.  Once you have the
+awscli directory structure on your workstation, you can just:</p>
+<div class="highlight-python"><pre>$ cd &lt;path_to_awscli&gt;
+$ python setup.py install</pre>
+</div>
+</div>
+<div class="section" id="command-completion">
+<h2>Command Completion<a class="headerlink" href="#command-completion" title="Permalink to this headline">¶</a></h2>
+<p>The aws-cli package includes a very useful command completion feature.
+This feature is not automatically installed so you need to configure
+it manually.  To enable tab completion for bash use the built-in
+command <tt class="docutils literal"><span class="pre">complete</span></tt>:</p>
+<div class="highlight-python"><pre>$ complete -C aws_completer aws</pre>
+</div>
+<p>For tcsh:</p>
+<div class="highlight-python"><pre>$ complete aws 'p/*/`aws_completer`/'</pre>
+</div>
+<p>You should add this to your startup scripts to enable it for future sessions.</p>
+<p>For zsh please refer to bin/aws_zsh_completer.sh.  Source that file:</p>
+<div class="highlight-python"><pre>$ source bin/aws_zsh_completer.sh</pre>
+</div>
+<p>For now the bash compatibility auto completion (bashcompinit) is used.
+For further details please refer to the top of bin/aws_zsh_completer.sh.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Before using aws-cli, you need to tell it about your AWS credentials.  You
+can do this in several ways:</p>
+<ul class="simple">
+<li>Environment variables</li>
+<li>Config file</li>
+<li>IAM Role</li>
+</ul>
+<p>To use environment variables, do the following:</p>
+<div class="highlight-python"><pre>$ export AWS_ACCESS_KEY_ID=&lt;access_key&gt;
+$ export AWS_SECRET_ACCESS_KEY=&lt;secret_key&gt;</pre>
+</div>
+<p>To use a config file, create a configuration file like this:</p>
+<div class="highlight-python"><pre>[default]
+aws_access_key_id=&lt;default access key&gt;
+aws_secret_access_key=&lt;default secret key&gt;
+region=us-west-1  # optional, to define default region for this profile
+
+[testing]
+aws_access_key_id=&lt;testing access key&gt;
+aws_secret_access_key=&lt;testing secret key&gt;
+region=us-west-2</pre>
+</div>
+<p>As you can see, you can have multiple <tt class="docutils literal"><span class="pre">profiles</span></tt> defined in this
+configuration file and specify which profile to use by using the
+<tt class="docutils literal"><span class="pre">--profile</span></tt> option.  If no profile is specified the <tt class="docutils literal"><span class="pre">default</span></tt>
+profile is used.  Once you have created the config file, you need to
+tell aws-cli where to find it.  Do this by setting the appropriate
+environment variable:</p>
+<div class="highlight-python"><pre>$ export AWS_CONFIG_FILE=/path/to/config_file</pre>
+</div>
+<p>The final option for credentials is highly recommended if you are
+using aws-cli on an EC2 instance.  IAM Roles are
+a great way to have credentials installed automatically on your
+instance.  If you are using IAM Roles, aws-cli will find them and use
+them automatically.</p>
+</div>
+<div class="section" id="other-important-environment-variables">
+<h2>Other Important Environment Variables<a class="headerlink" href="#other-important-environment-variables" title="Permalink to this headline">¶</a></h2>
+<p>The following additional environment variables can be useful in
+configuring and customizing your environment.</p>
+<p>AWS_DEFAULT_REGION can be used to specify a default region to use
+if one is not provided explicitly on the command line with the
+<tt class="docutils literal"><span class="pre">--region</span></tt> option or in a config file:</p>
+<div class="highlight-python"><pre>$ export AWS_DEFAULT_REGION=us-west-2</pre>
+</div>
+<p>AWS_DEFAULT_PROFILE can be used to specify which profile to use
+if one is not explicitly specified on the command line via the
+<tt class="docutils literal"><span class="pre">--profile</span></tt> option:</p>
+<div class="highlight-python"><pre>$ export AWS_DEFAULT_PROFILE=testing</pre>
+</div>
+</div>
+<div class="section" id="accessing-services-with-global-endpoints">
+<h2>Accessing Services With Global Endpoints<a class="headerlink" href="#accessing-services-with-global-endpoints" title="Permalink to this headline">¶</a></h2>
+<p>Some services, such as AWS Identity and Access Management (IAM),
+AWS Security Token Service (STS), and Amazon Simple Email Service (SES)
+have a single, global endpoint rather than different endpoints for
+each region.</p>
+<p>To make access to these services simpler, aws-cli will automatically
+use the global endpoint unless you explicitly supply a region (using
+the <tt class="docutils literal"><span class="pre">--region</span></tt> option) or a profile (using the <tt class="docutils literal"><span class="pre">--profile</span></tt> option).
+Therefore, the following:</p>
+<div class="highlight-python"><pre>$ aws iam list-users</pre>
+</div>
+<p>Will automatically use the global endpoint for the IAM service
+regardless of the value of the <tt class="docutils literal"><span class="pre">AWS_DEFAULT_REGION</span></tt> environment
+variable or the <tt class="docutils literal"><span class="pre">region</span></tt> variable specified in your profile.</p>
+<div class="section" id="json-parameter-input">
+<h3>JSON Parameter Input<a class="headerlink" href="#json-parameter-input" title="Permalink to this headline">¶</a></h3>
+<p>Many options that need to be provided are simple string or numeric
+values.  However, some operations require JSON data structures
+as input parameters, either on the command line or in files.</p>
+<p>For example, consider the command to authorize access to an EC2
+security group.  In this case, we will add ingress access to port 22
+for all IP addresses:</p>
+<div class="highlight-python"><pre>$ aws ec2 authorize-security-group-ingress --group-name MySecurityGroup \
+    --ip-permissions '{"from_port":22,"to_port":22,"ip_protocol":"tcp","ip_ranges":["0.0.0.0/0"]}'</pre>
+</div>
+<p>You could also place the JSON in a file, called port22.json for example,
+and use this:</p>
+<div class="highlight-python"><pre>$ aws ec2 authorize-security-group-ingress --group-name MySecurityGroup \
+    --ip-permissions /path/to/port22.json</pre>
+</div>
+</div>
+</div>
+<div class="section" id="file-based-parameter-input">
+<h2>File-based Parameter Input<a class="headerlink" href="#file-based-parameter-input" title="Permalink to this headline">¶</a></h2>
+<p>Some parameter values are so large or so complex that it would be easier
+to place the parameter value in a file and refer to that file rather than
+entering the value directly on the command line.</p>
+<p>Let's use the <tt class="docutils literal"><span class="pre">authorize-security-group-ingress</span></tt> command shown above.
+Rather than provide the value of the <tt class="docutils literal"><span class="pre">--ip-permissions</span></tt> parameter directly
+in the command, you could first store the values in a file.  Let's call
+the file ip_perms.json:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;from_port&quot;</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span>
+ <span class="s">&quot;to_port&quot;</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span>
+ <span class="s">&quot;ip_protocol&quot;</span><span class="p">:</span><span class="s">&quot;tcp&quot;</span><span class="p">,</span>
+ <span class="s">&quot;ip_ranges&quot;</span><span class="p">:[</span><span class="s">&quot;0.0.0.0/0&quot;</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>Then, we could make the same call as above like this:</p>
+<div class="highlight-python"><pre>$ aws ec2 authorize-security-group-ingress --group-name MySecurityGroup \
+    --ip-permissions file://ip_perms.json</pre>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">file://</span></tt> prefix on the parameter value signals that the parameter value
+is actually a reference to a file that contains the actual parameter value.
+aws-cli will open the file, read the value and pass use that value as the
+parameter value.</p>
+<p>This is also useful when the parameter is really referring to file-based
+data.  For example, the <tt class="docutils literal"><span class="pre">--user-data</span></tt> option of the <tt class="docutils literal"><span class="pre">aws</span> <span class="pre">ec2</span> <span class="pre">run-instances</span></tt>
+command or the <tt class="docutils literal"><span class="pre">--public-key-material</span></tt> parameter of the
+<tt class="docutils literal"><span class="pre">aws</span> <span class="pre">ec2</span> <span class="pre">import-key-pair</span></tt> command.</p>
+</div>
+<div class="section" id="uri-based-parameter-input">
+<h2>URI-based Parameter Input<a class="headerlink" href="#uri-based-parameter-input" title="Permalink to this headline">¶</a></h2>
+<p>Similar to the file-based input described above, aws-cli also includes a
+way to use data from a URI as the value of a parameter.  The idea is exactly
+the same except the prefix used is <tt class="docutils literal"><span class="pre">https:</span></tt> or <tt class="docutils literal"><span class="pre">http:</span></tt>:</p>
+<div class="highlight-python"><pre>$ aws ec2 authorize-security-group-ingress --group-name MySecurityGroup \
+    --ip-permissions http://mybucket.s3.amazonaws.com/ip_perms.json</pre>
+</div>
+</div>
+<div class="section" id="command-output">
+<h2>Command Output<a class="headerlink" href="#command-output" title="Permalink to this headline">¶</a></h2>
+<p>The default output for commands is currently JSON.  This may change in the
+future but for now it provides the most complete output.  You may find the
+[jq](<a class="reference external" href="http://stedolan.github.com/jq/">http://stedolan.github.com/jq/</a>) tool useful in processing the JSON
+output for other uses.</p>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../index.html" title="previous chapter (use the left arrow)">&larr; AWS CLI</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../reference/index.html" title="next chapter (use the right arrow)">aws &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../reference/index.html" title="aws"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="AWS CLI"
+             >previous</a> |</li>
+        <li><a href="../index.html">AWS CLI 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &copy; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript">
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = '../index.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = '../reference/index.html';
+            return false;
+            
+          }
+        });
+      </script>
+    
+  
+  </body>
+</html>

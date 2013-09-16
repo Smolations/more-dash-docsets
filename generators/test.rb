@@ -1,6 +1,13 @@
 require File.join(File.dirname(__FILE__), 'Dash.module.rb')
 
+def sql_insert(*args)
+    if args.length == 3
+        puts args.join(' | ')
 
-puts 'DOCSETS path: ' + Dash::DOCSETS_PATH
-puts 'GENERATORS path: ' + Dash::GENERATORS_PATH
-puts 'SRC_DOCS path: ' + Dash::SRC_DOCS_PATH
+    elsif args.length == 1
+        puts "its a query"
+    end
+end
+
+
+sql_insert('ui ama query')

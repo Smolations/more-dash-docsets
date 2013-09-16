@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>modify-db-instance &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="rds" href="index.html" />
+    <link rel="next" title="modify-db-parameter-group" href="modify-db-parameter-group.html" />
+    <link rel="prev" title="list-tags-for-resource" href="list-tags-for-resource.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="modify-db-parameter-group.html" title="modify-db-parameter-group" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="list-tags-for-resource.html" title="list-tags-for-resource" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">rds</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="list-tags-for-resource.html" title="previous chapter (use the left arrow)">&#8592; list-tags-for-resource</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="modify-db-parameter-group.html" title="next chapter (use the right arrow)">modify-db-parameter-group &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">modify-db-instance</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/rds/modify-db-instance">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>rds</em></a> ]</p>
+<div class="section" id="modify-db-instance">
+<h1>modify-db-instance<a class="headerlink" href="#modify-db-instance" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Modify settings for a DB Instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  modify-db-instance
+--db-instance-identifier &lt;value&gt;
+[--allocated-storage &lt;value&gt;]
+[--db-instance-class &lt;value&gt;]
+[--db-security-groups &lt;value&gt;]
+[--vpc-security-group-ids &lt;value&gt;]
+[--apply-immediately | --no-apply-immediately]
+[--master-user-password &lt;value&gt;]
+[--db-parameter-group-name &lt;value&gt;]
+[--backup-retention-period &lt;value&gt;]
+[--preferred-backup-window &lt;value&gt;]
+[--preferred-maintenance-window &lt;value&gt;]
+[--multi-az | --no-multi-az]
+[--engine-version &lt;value&gt;]
+[--allow-major-version-upgrade | --no-allow-major-version-upgrade]
+[--auto-minor-version-upgrade | --no-auto-minor-version-upgrade]
+[--iops &lt;value&gt;]
+[--option-group-name &lt;value&gt;]
+[--new-db-instance-identifier &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--db-instance-identifier" class="dashAnchor" id="db-instance-identifier"></a><span class="pre">--db-instance-identifier</span></tt> (string)</p>
+<blockquote>
+<div><p>The DB Instance identifier. This value is stored as a lowercase string.</p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must be the identifier for an existing DB Instance</li>
+<li>Must contain from 1 to 63 alphanumeric characters or hyphens</li>
+<li>First character must be a letter</li>
+<li>Cannot end with a hyphen or contain two consecutive hyphens</li>
+</ul>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--allocated-storage" class="dashAnchor" id="allocated-storage"></a><span class="pre">--allocated-storage</span></tt> (integer)</p>
+<blockquote>
+<div><p>The new storage capacity of the RDS instance. Changing this parameter does not result in an outage and the change is applied during the next maintenance window unless the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--apply-immediately" class="dashAnchor" id="apply-immediately"></a><span class="pre">--apply-immediately</span></tt>  parameter is set to <tt class="docutils literal"><span class="pre">true</span></tt>  for this request.</p>
+<p><strong>MySQL</strong></p>
+<p>Default: Uses existing setting</p>
+<p>Valid Values: 5-1024</p>
+<p>Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value.</p>
+<p>Type: Integer</p>
+<p><strong>Oracle</strong></p>
+<p>Default: Uses existing setting</p>
+<p>Valid Values: 10-1024</p>
+<p>Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value.</p>
+<p><strong>SQL Server</strong></p>
+<p>Cannot be modified.</p>
+<p>If you choose to migrate your DB instance from using standard storage to using Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process can take time. The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations. Typical migration times are under 24 hours, but the process can take up to several days in some cases. During the migration, the DB instance will be available for use, but may experience performance degradation. While the migration takes place, nightly backups for the instance will be suspended. No other Amazon RDS operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a read replica for the instance, and creating a DB snapshot of the instance.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--db-instance-class" class="dashAnchor" id="db-instance-class"></a><span class="pre">--db-instance-class</span></tt> (string)</p>
+<blockquote>
+<div><p>The new compute and memory capacity of the DB Instance. To determine the instance classes that are available for a particular DB engine, use the  describe-orderable-db-instance-options action.</p>
+<p>Passing a value for this parameter causes an outage during the change and is applied during the next maintenance window, unless the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--apply-immediately" class="dashAnchor" id="apply-immediately"></a><span class="pre">--apply-immediately</span></tt>  parameter is specified as <tt class="docutils literal"><span class="pre">true</span></tt>  for this request.</p>
+<p>Default: Uses existing setting</p>
+<p>Valid Values: <tt class="docutils literal"><span class="pre">db.t1.micro</span> <span class="pre">|</span> <span class="pre">db.m1.small</span> <span class="pre">|</span> <span class="pre">db.m1.medium</span> <span class="pre">|</span> <span class="pre">db.m1.large</span> <span class="pre">|</span> <span class="pre">db.m1.xlarge</span> <span class="pre">|</span> <span class="pre">db.m2.xlarge</span> <span class="pre">|</span> <span class="pre">db.m2.2xlarge</span> <span class="pre">|</span> <span class="pre">db.m2.4xlarge</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--db-security-groups" class="dashAnchor" id="db-security-groups"></a><span class="pre">--db-security-groups</span></tt> (list)</p>
+<blockquote>
+<div><p>A list of DB Security Groups to authorize on this DB Instance. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.</p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must be 1 to 255 alphanumeric characters</li>
+<li>First character must be a letter</li>
+<li>Cannot end with a hyphen or contain two consecutive hyphens</li>
+</ul>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"string" "string" ...</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--vpc-security-group-ids" class="dashAnchor" id="vpc-security-group-ids"></a><span class="pre">--vpc-security-group-ids</span></tt> (list)</p>
+<blockquote>
+<div><p>A list of EC2 VPC Security Groups to authorize on this DB Instance. This change is asynchronously applied as soon as possible.</p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must be 1 to 255 alphanumeric characters</li>
+<li>First character must be a letter</li>
+<li>Cannot end with a hyphen or contain two consecutive hyphens</li>
+</ul>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"string" "string" ...</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--apply-immediately" class="dashAnchor" id="apply-immediately"></a><span class="pre">--apply-immediately</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-apply-immediately" class="dashAnchor" id="no-apply-immediately"></a><span class="pre">--no-apply-immediately</span></tt> (boolean)</p>
+<blockquote>
+<div><p>Specifies whether or not the modifications in this request and any pending modifications are asynchronously applied as soon as possible, regardless of the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--preferred-maintenance-window" class="dashAnchor" id="preferred-maintenance-window"></a><span class="pre">--preferred-maintenance-window</span></tt>  setting for the DB Instance.</p>
+<p>If this parameter is passed as <tt class="docutils literal"><span class="pre">false</span></tt>  , changes to the DB Instance are applied on the next call to  reboot-db-instance , the next maintenance reboot, or the next failure reboot, whichever occurs first. See each parameter to determine when a change is applied.</p>
+<p>Default: <tt class="docutils literal"><span class="pre">false</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--master-user-password" class="dashAnchor" id="master-user-password"></a><span class="pre">--master-user-password</span></tt> (string)</p>
+<blockquote>
+<div><p>The new password for the DB Instance master user. Can be any printable ASCII character except "/", "", or "@".</p>
+<p>Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible. Between the time of the request and the completion of the request, the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--master-user-password" class="dashAnchor" id="master-user-password"></a><span class="pre">--master-user-password</span></tt>  element exists in the <tt class="docutils literal"><span class="pre">PendingModifiedValues</span></tt>  element of the operation response.</p>
+<p>Default: Uses existing setting</p>
+<p>Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8 to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL Server).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Amazon RDS API actions never return the password, so this action provides a way to regain access to a master instance user if the password is lost.</p>
+</div>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--db-parameter-group-name" class="dashAnchor" id="db-parameter-group-name"></a><span class="pre">--db-parameter-group-name</span></tt> (string)</p>
+<blockquote>
+<div><p>The name of the DB Parameter Group to apply to this DB Instance. Changing this parameter does not result in an outage and the change is applied during the next maintenance window unless the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--apply-immediately" class="dashAnchor" id="apply-immediately"></a><span class="pre">--apply-immediately</span></tt>  parameter is set to <tt class="docutils literal"><span class="pre">true</span></tt>  for this request.</p>
+<p>Default: Uses existing setting</p>
+<p>Constraints: The DB Parameter Group must be in the same DB Parameter Group family as this DB Instance.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--backup-retention-period" class="dashAnchor" id="backup-retention-period"></a><span class="pre">--backup-retention-period</span></tt> (integer)</p>
+<blockquote>
+<div><p>The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.</p>
+<p>Changing this parameter can result in an outage if you change from 0 to a non-zero value or from a non-zero value to 0. These changes are applied during the next maintenance window unless the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--apply-immediately" class="dashAnchor" id="apply-immediately"></a><span class="pre">--apply-immediately</span></tt>  parameter is set to <tt class="docutils literal"><span class="pre">true</span></tt>  for this request. If you change the parameter from one non-zero value to another non-zero value, the change is asynchronously applied as soon as possible.</p>
+<p>Default: Uses existing setting</p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must be a value from 0 to 8</li>
+<li>Cannot be set to 0 if the DB Instance is a master instance with read replicas or if the DB Instance is a read replica</li>
+</ul>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--preferred-backup-window" class="dashAnchor" id="preferred-backup-window"></a><span class="pre">--preferred-backup-window</span></tt> (string)</p>
+<blockquote>
+<div><p>The daily time range during which automated backups are created if automated backups are enabled, as determined by the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--backup-retention-period" class="dashAnchor" id="backup-retention-period"></a><span class="pre">--backup-retention-period</span></tt>  . Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.</p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must be in the format hh24:mi-hh24:mi</li>
+<li>Times should be Universal Time Coordinated (UTC)</li>
+<li>Must not conflict with the preferred maintenance window</li>
+<li>Must be at least 30 minutes</li>
+</ul>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--preferred-maintenance-window" class="dashAnchor" id="preferred-maintenance-window"></a><span class="pre">--preferred-maintenance-window</span></tt> (string)</p>
+<blockquote>
+<div><p>The weekly time range (in UTC) during which system maintenance can occur, which may result in an outage. Changing this parameter does not result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If there are pending actions that cause a reboot, and the maintenance window is changed to include the current time, then changing this parameter will cause a reboot of the DB Instance. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied.</p>
+<p>Default: Uses existing setting</p>
+<p>Format: ddd:hh24:mi-ddd:hh24:mi</p>
+<p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
+<p>Constraints: Must be at least 30 minutes</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--multi-az" class="dashAnchor" id="multi-az"></a><span class="pre">--multi-az</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-multi-az" class="dashAnchor" id="no-multi-az"></a><span class="pre">--no-multi-az</span></tt> (boolean)</p>
+<blockquote>
+<div><p>Specifies if the DB Instance is a Multi-AZ deployment. Changing this parameter does not result in an outage and the change is applied during the next maintenance window unless the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--apply-immediately" class="dashAnchor" id="apply-immediately"></a><span class="pre">--apply-immediately</span></tt>  parameter is set to <tt class="docutils literal"><span class="pre">true</span></tt>  for this request.</p>
+<p>Constraints: Cannot be specified if the DB Instance is a read replica.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--engine-version" class="dashAnchor" id="engine-version"></a><span class="pre">--engine-version</span></tt> (string)</p>
+<blockquote>
+<div><p>The version number of the database engine to upgrade to. Changing this parameter results in an outage and the change is applied during the next maintenance window unless the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--apply-immediately" class="dashAnchor" id="apply-immediately"></a><span class="pre">--apply-immediately</span></tt>  parameter is set to <tt class="docutils literal"><span class="pre">true</span></tt>  for this request.</p>
+<p>For major version upgrades, if a nondefault DB Parameter Group is currently in use, a new DB Parameter Group in the DB Parameter Group Family for the new engine version must be specified. The new DB Parameter Group can be the default for that DB Parameter Group Family.</p>
+<p>Example: <tt class="docutils literal"><span class="pre">5.1.42</span></tt></p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--allow-major-version-upgrade" class="dashAnchor" id="allow-major-version-upgrade"></a><span class="pre">--allow-major-version-upgrade</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-allow-major-version-upgrade" class="dashAnchor" id="no-allow-major-version-upgrade"></a><span class="pre">--no-allow-major-version-upgrade</span></tt> (boolean)</p>
+<blockquote>
+<div><p>Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.</p>
+<p>Constraints: This parameter must be set to true when specifying a value for the --engine-version parameter that is a different major version than the DB Instance's current version.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--auto-minor-version-upgrade" class="dashAnchor" id="auto-minor-version-upgrade"></a><span class="pre">--auto-minor-version-upgrade</span></tt> | <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--no-auto-minor-version-upgrade" class="dashAnchor" id="no-auto-minor-version-upgrade"></a><span class="pre">--no-auto-minor-version-upgrade</span></tt> (boolean)</p>
+<blockquote>
+<div>Indicates that minor version upgrades will be applied automatically to the DB Instance during the maintenance window. Changing this parameter does not result in an outage except in the following case and the change is asynchronously applied as soon as possible. An outage will result if this parameter is set to <tt class="docutils literal"><span class="pre">true</span></tt>  during the maintenance window, and a newer minor version is available, and RDS has enabled auto patching for that engine version.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--iops" class="dashAnchor" id="iops"></a><span class="pre">--iops</span></tt> (integer)</p>
+<blockquote>
+<div><p>The new Provisioned IOPS (I/O operations per second) value for the RDS instance. Changing this parameter does not result in an outage and the change is applied during the next maintenance window unless the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--apply-immediately" class="dashAnchor" id="apply-immediately"></a><span class="pre">--apply-immediately</span></tt>  parameter is set to <tt class="docutils literal"><span class="pre">true</span></tt>  for this request.</p>
+<p>Default: Uses existing setting</p>
+<p>Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value.</p>
+<p>Type: Integer</p>
+<p>If you choose to migrate your DB instance from using standard storage to using Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process can take time. The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations. Typical migration times are under 24 hours, but the process can take up to several days in some cases. During the migration, the DB instance will be available for use, but may experience performance degradation. While the migration takes place, nightly backups for the instance will be suspended. No other Amazon RDS operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a read replica for the instance, and creating a DB snapshot of the instance.</p>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--option-group-name" class="dashAnchor" id="option-group-name"></a><span class="pre">--option-group-name</span></tt> (string)</p>
+<blockquote>
+<div><p>Indicates that the DB Instance should be associated with the specified option group. Changing this parameter does not result in an outage except in the following case and the change is applied during the next maintenance window unless the <tt class="docutils literal"><a name="//apple_ref/cpp/Option/--apply-immediately" class="dashAnchor" id="apply-immediately"></a><span class="pre">--apply-immediately</span></tt>  parameter is set to <tt class="docutils literal"><span class="pre">true</span></tt>  for this request. If the parameter change results in an option group that enables OEM, this change can cause a brief (sub-second) period during which new connections are rejected but existing connections are not interrupted.</p>
+<blockquote>
+<div>Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance</div></blockquote>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--new-db-instance-identifier" class="dashAnchor" id="new-db-instance-identifier"></a><span class="pre">--new-db-instance-identifier</span></tt> (string)</p>
+<blockquote>
+<div><p>The new DB Instance identifier for the DB Instance when renaming a DB Instance. This value is stored as a lowercase string.</p>
+<p>Constraints:</p>
+<ul class="simple">
+<li>Must contain from 1 to 63 alphanumeric characters or hyphens</li>
+<li>First character must be a letter</li>
+<li>Cannot end with a hyphen or contain two consecutive hyphens</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="list-tags-for-resource.html" title="previous chapter (use the left arrow)">&#8592; list-tags-for-resource</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="modify-db-parameter-group.html" title="next chapter (use the right arrow)">modify-db-parameter-group &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="modify-db-parameter-group.html" title="modify-db-parameter-group">next</a> |</li>
+        <li class="right">
+          <a href="list-tags-for-resource.html" title="list-tags-for-resource">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">rds</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'list-tags-for-resource.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'modify-db-parameter-group.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

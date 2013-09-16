@@ -1,0 +1,248 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>s3api &mdash; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="aws" href="../index.html" />
+    <link rel="next" title="abort-multipart-upload" href="abort-multipart-upload.html" />
+    <link rel="prev" title="sync" href="../s3/sync.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&repo=aws-cli&type=watch&count=true&size=small"
+                  allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="abort-multipart-upload.html" title="abort-multipart-upload"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../s3/sync.html" title="sync"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">aws</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../s3/sync.html" title="previous chapter (use the left arrow)">&larr; sync</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="abort-multipart-upload.html" title="next chapter (use the right arrow)">abort-multipart-upload &rarr;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">s3api</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#available-commands">Available Commands</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&guide_name=Guide&api_version=1.0&file_name=reference/s3api/index">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <div class="section" id="s3api">
+<h1>s3api<a class="headerlink" href="#s3api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="available-commands">
+<h2>Available Commands<a class="headerlink" href="#available-commands" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abort-multipart-upload.html">abort-multipart-upload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complete-multipart-upload.html">complete-multipart-upload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy-object.html">copy-object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-bucket.html">create-bucket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-multipart-upload.html">create-multipart-upload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-bucket.html">delete-bucket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-bucket-cors.html">delete-bucket-cors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-bucket-lifecycle.html">delete-bucket-lifecycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-bucket-policy.html">delete-bucket-policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-bucket-tagging.html">delete-bucket-tagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-bucket-website.html">delete-bucket-website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-object.html">delete-object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delete-objects.html">delete-objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-bucket-acl.html">get-bucket-acl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-bucket-cors.html">get-bucket-cors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-bucket-lifecycle.html">get-bucket-lifecycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-bucket-location.html">get-bucket-location</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-bucket-logging.html">get-bucket-logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-bucket-notification.html">get-bucket-notification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-bucket-policy.html">get-bucket-policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-bucket-request-payment.html">get-bucket-request-payment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-bucket-tagging.html">get-bucket-tagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-bucket-versioning.html">get-bucket-versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-bucket-website.html">get-bucket-website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-object.html">get-object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-object-acl.html">get-object-acl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-object-torrent.html">get-object-torrent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="head-bucket.html">head-bucket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="head-object.html">head-object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list-buckets.html">list-buckets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list-multipart-uploads.html">list-multipart-uploads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list-object-versions.html">list-object-versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list-objects.html">list-objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list-parts.html">list-parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="put-bucket-acl.html">put-bucket-acl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="put-bucket-cors.html">put-bucket-cors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="put-bucket-lifecycle.html">put-bucket-lifecycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="put-bucket-logging.html">put-bucket-logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="put-bucket-notification.html">put-bucket-notification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="put-bucket-policy.html">put-bucket-policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="put-bucket-request-payment.html">put-bucket-request-payment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="put-bucket-tagging.html">put-bucket-tagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="put-bucket-versioning.html">put-bucket-versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="put-bucket-website.html">put-bucket-website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="put-object.html">put-object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="put-object-acl.html">put-object-acl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore-object.html">restore-object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upload-part.html">upload-part</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upload-part-copy.html">upload-part-copy</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../s3/sync.html" title="previous chapter (use the left arrow)">&larr; sync</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="abort-multipart-upload.html" title="next chapter (use the right arrow)">abort-multipart-upload &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="abort-multipart-upload.html" title="abort-multipart-upload"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../s3/sync.html" title="sync"
+             >previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &copy; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript">
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = '../s3/sync.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'abort-multipart-upload.html';
+            return false;
+            
+          }
+        });
+      </script>
+    
+  
+  </body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>get-queue-attributes &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="sqs" href="index.html" />
+    <link rel="next" title="get-queue-url" href="get-queue-url.html" />
+    <link rel="prev" title="delete-queue" href="delete-queue.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="get-queue-url.html" title="get-queue-url" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="delete-queue.html" title="delete-queue" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">sqs</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="delete-queue.html" title="previous chapter (use the left arrow)">&#8592; delete-queue</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="get-queue-url.html" title="next chapter (use the right arrow)">get-queue-url &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get-queue-attributes</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/sqs/get-queue-attributes">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>sqs</em></a> ]</p>
+<div class="section" id="get-queue-attributes">
+<h1>get-queue-attributes<a class="headerlink" href="#get-queue-attributes" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Gets attributes for the specified queue. The following attributes are supported:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">All</span></tt>  - returns all values.</li>
+<li><tt class="docutils literal"><span class="pre">ApproximateNumberOfMessages</span></tt>  - returns the approximate number of visible messages in a queue. For more information, see Resources Required to Process Messages in the Amazon SQS Developer Guide.</li>
+<li><tt class="docutils literal"><span class="pre">ApproximateNumberOfMessagesNotVisible</span></tt>  - returns the approximate number of messages that are not timed-out and not deleted. For more information, see Resources Required to Process Messages in the Amazon SQS Developer Guide.</li>
+<li><tt class="docutils literal"><span class="pre">VisibilityTimeout</span></tt>  - returns the visibility timeout for the queue. For more information about visibility timeout, see Visibility Timeout in the Amazon SQS Developer Guide.</li>
+<li><tt class="docutils literal"><span class="pre">CreatedTimestamp</span></tt>  - returns the time when the queue was created (epoch time in seconds).</li>
+<li><tt class="docutils literal"><span class="pre">LastModifiedTimestamp</span></tt>  - returns the time when the queue was last changed (epoch time in seconds).</li>
+<li><tt class="docutils literal"><span class="pre">Policy</span></tt>  - returns the queue's policy.</li>
+<li><tt class="docutils literal"><span class="pre">MaximumMessageSize</span></tt>  - returns the limit of how many bytes a message can contain before Amazon SQS rejects it.</li>
+<li><tt class="docutils literal"><span class="pre">MessageRetentionPeriod</span></tt>  - returns the number of seconds Amazon SQS retains a message.</li>
+<li><tt class="docutils literal"><span class="pre">QueueArn</span></tt>  - returns the queue's Amazon resource name (ARN).</li>
+<li><tt class="docutils literal"><span class="pre">ApproximateNumberOfMessagesDelayed</span></tt>  - returns the approximate number of messages that are pending to be added to the queue.</li>
+<li><tt class="docutils literal"><span class="pre">DelaySeconds</span></tt>  - returns the default delay on the queue in seconds.</li>
+<li><tt class="docutils literal"><span class="pre">ReceiveMessageWaitTimeSeconds</span></tt>  - returns the time for which a receive-message call will wait for a message to arrive.</li>
+</ul>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  get-queue-attributes
+--queue-url &lt;value&gt;
+[--attribute-names &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--queue-url" class="dashAnchor" id="queue-url"></a><span class="pre">--queue-url</span></tt> (string)</p>
+<blockquote>
+<div>The URL of the SQS queue to take action on.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--attribute-names" class="dashAnchor" id="attribute-names"></a><span class="pre">--attribute-names</span></tt> (list)</p>
+<blockquote>
+<div>A list of attributes to retrieve information for.</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>"Policy"|"VisibilityTimeout"|"MaximumMessageSize"|"MessageRetentionPeriod"|"ApproximateNumberOfMessages"|"ApproximateNumberOfMessagesNotVisible"|"CreatedTimestamp"|"LastModifiedTimestamp"|"QueueArn"|"ApproximateNumberOfMessagesDelayed"|"DelaySeconds"|"ReceiveMessageWaitTimeSeconds" "Policy"|"VisibilityTimeout"|"MaximumMessageSize"|"MessageRetentionPeriod"|"ApproximateNumberOfMessages"|"ApproximateNumberOfMessagesNotVisible"|"CreatedTimestamp"|"LastModifiedTimestamp"|"QueueArn"|"ApproximateNumberOfMessagesDelayed"|"DelaySeconds"|"ReceiveMessageWaitTimeSeconds" ...</pre>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&#182;</a></h2>
+<p><strong>To retrieve queue attributes from an SQS queue</strong></p>
+<p>The following <tt class="docutils literal"><span class="pre">get-queue-attributes</span></tt> command retrieves the queue ARN:</p>
+<div class="highlight-python"><pre>aws sqs get-queue-attributes --queue-url https://queue.amazonaws.com/803981987763/MyQueue --attribute-names QueueArn</pre>
+</div>
+<p>The following <tt class="docutils literal"><span class="pre">get-queue-attributes</span></tt> command retrieves multiple attributes from the specified SQS queue:</p>
+<div class="highlight-python"><pre>aws sqs get-queue-attributes --queue-url https://queue.amazonaws.com/803981987763/MyQueue --attribute-names QueueArn MaximumMessageSize VisibilityTimeout</pre>
+</div>
+<p>For more information, see <a class="reference external" href="http://docs.aws.amazon.com/cli/latest/userguide/cli-sqs-queue-sns-topic.html">Using the AWS Command Line Interface with Amazon SQS and Amazon SNS</a> in the <em>AWS Command Line Interface User Guide</em>.</p>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="delete-queue.html" title="previous chapter (use the left arrow)">&#8592; delete-queue</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="get-queue-url.html" title="next chapter (use the right arrow)">get-queue-url &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="get-queue-url.html" title="get-queue-url">next</a> |</li>
+        <li class="right">
+          <a href="delete-queue.html" title="delete-queue">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">sqs</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'delete-queue.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'get-queue-url.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>

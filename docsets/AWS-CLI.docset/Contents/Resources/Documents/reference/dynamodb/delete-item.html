@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>delete-item &#8212; AWS CLI 1.0.0 documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js.html"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript"><![CDATA[
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    ]]></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="dynamodb" href="index.html" />
+    <link rel="next" title="delete-table" href="delete-table.html" />
+    <link rel="prev" title="create-table" href="create-table.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://aws.amazon.com/documentation/cli/">Documentation</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="http://ghbtns.com/github-btn.html?user=aws&amp;repo=aws-cli&amp;type=watch&amp;count=true&amp;size=small" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="delete-table.html" title="delete-table" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="create-table.html" title="create-table" accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html" accesskey="U">dynamodb</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="create-table.html" title="previous chapter (use the left arrow)">&#8592; create-table</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="delete-table.html" title="next chapter (use the right arrow)">delete-table &#8594;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">delete-item</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript"><![CDATA[$('#searchbox').show(0);]]></script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_02?service_name=AWSCLI&amp;guide_name=Guide&amp;api_version=1.0&amp;file_name=reference/dynamodb/delete-item">Give us feedback</a> or
+  send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+              
+  <p>[ <a class="reference internal" href="../index.html"><em>aws</em></a> . <a class="reference internal" href="index.html"><em>dynamodb</em></a> ]</p>
+<div class="section" id="delete-item">
+<h1>delete-item<a class="headerlink" href="#delete-item" title="Permalink to this headline">&#182;</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">&#182;</a></h2>
+<p>Deletes a single item in a table by primary key. You can perform a conditional delete operation that deletes the item if it exists, or if it has an expected attribute value.</p>
+<p>In addition to deleting an item, you can also return the item's attribute values in the same operation, using the <em>--return-values</em> parameter.</p>
+<p>Unless you specify conditions, the <em>delete-item</em> is an idempotent operation; running it multiple times on the same item or attribute does <em>not</em> result in an error response.</p>
+<p>Conditional deletes are useful for only deleting items if specific conditions are met. If those conditions are met, Amazon DynamoDB performs the delete. Otherwise, the item is not deleted.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">&#182;</a></h2>
+<div class="highlight-python"><pre>  delete-item
+--table-name &lt;value&gt;
+--key &lt;value&gt;
+[--expected &lt;value&gt;]
+[--return-values &lt;value&gt;]
+[--return-consumed-capacity &lt;value&gt;]
+[--return-item-collection-metrics &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--table-name" class="dashAnchor" id="table-name"></a><span class="pre">--table-name</span></tt> (string)</p>
+<blockquote>
+<div>The name of the table from which to delete the item.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--key" class="dashAnchor" id="key"></a><span class="pre">--key</span></tt> (map)</p>
+<blockquote>
+<div>A map of attribute names to <em>AttributeValue</em> objects, representing the primary key of the item to delete.</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>{"string": {
+      "S": "string",
+      "N": "string",
+      "B": blob,
+      "SS": ["string", ...],
+      "NS": ["string", ...],
+      "BS": [blob, ...]
+    }
+  ...}</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--expected" class="dashAnchor" id="expected"></a><span class="pre">--expected</span></tt> (map)</p>
+<blockquote>
+<div><p>A map of attribute/condition pairs. This is the conditional block for the <em>delete-item</em> operation. All the conditions must be met for the operation to succeed.</p>
+<p><em>--expected</em> allows you to provide an attribute name, and whether or not Amazon DynamoDB should check to see if the attribute value already exists; or if the attribute value exists and has a particular value before changing it.</p>
+<p>Each item in <em>--expected</em> represents an attribute name for Amazon DynamoDB to check, along with the following:</p>
+<ul class="simple">
+<li><em>Value</em> - The attribute value for Amazon DynamoDB to check.</li>
+<li><em>Exists</em> - Causes Amazon DynamoDB to evaluate the value before attempting a conditional operation:  *  If <em>Exists</em> is <tt class="docutils literal"><span class="pre">true</span></tt>  , Amazon DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a <em>ConditionalCheckFailedException</em> .</li>
+<li>If <em>Exists</em> is <tt class="docutils literal"><span class="pre">false</span></tt>  , Amazon DynamoDB assumes that the attribute value does <em>not</em> exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a <em>ConditionalCheckFailedException</em> .</li>
+</ul>
+<p>The default setting for <em>Exists</em> is <tt class="docutils literal"><span class="pre">true</span></tt>  . If you supply a <em>Value</em> all by itself, Amazon DynamoDB assumes the attribute exists: You don't have to set <em>Exists</em> to <tt class="docutils literal"><span class="pre">true</span></tt>  , because it is implied.</p>
+<p>Amazon DynamoDB returns a <em>ValidationException</em> if:</p>
+<ul class="simple">
+<li><em>Exists</em> is <tt class="docutils literal"><span class="pre">true</span></tt>  but there is no <em>Value</em> to check. (You expect a value to exist, but don't specify what that value is.)</li>
+<li><em>Exists</em> is <tt class="docutils literal"><span class="pre">false</span></tt>  but you also specify a <em>Value</em> . (You cannot expect an attribute to have a value, while also expecting it not to exist.)</li>
+</ul>
+<p>If you specify more than one condition for <em>Exists</em> , then all of the conditions must evaluate to true. (In other words, the conditions are ANDed together.) Otherwise, the conditional operation will fail.</p>
+</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>{"string": {
+      "Value": {
+        "S": "string",
+        "N": "string",
+        "B": blob,
+        "SS": ["string", ...],
+        "NS": ["string", ...],
+        "BS": [blob, ...]
+      },
+      "Exists": true|false
+    }
+  ...}</pre>
+</div>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--return-values" class="dashAnchor" id="return-values"></a><span class="pre">--return-values</span></tt> (string)</p>
+<blockquote>
+<div><p>Use <em>--return-values</em> if you want to get the item attributes as they appeared before they were deleted. For <em>delete-item</em> , the valid values are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">NONE</span></tt>  - If <em>--return-values</em> is not specified, or if its value is <tt class="docutils literal"><span class="pre">NONE</span></tt>  , then nothing is returned. (This is the default for <em>--return-values</em> .)</li>
+<li><tt class="docutils literal"><span class="pre">ALL_OLD</span></tt>  - The content of the old item is returned.</li>
+</ul>
+</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--return-consumed-capacity" class="dashAnchor" id="return-consumed-capacity"></a><span class="pre">--return-consumed-capacity</span></tt> (string)</p>
+<blockquote>
+<div>If set to <tt class="docutils literal"><span class="pre">TOTAL</span></tt>  , <em>ConsumedCapacity</em> is included in the response; if set to <tt class="docutils literal"><span class="pre">NONE</span></tt>  (the default), <em>ConsumedCapacity</em> is not included.</div></blockquote>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--return-item-collection-metrics" class="dashAnchor" id="return-item-collection-metrics"></a><span class="pre">--return-item-collection-metrics</span></tt> (string)</p>
+<blockquote>
+<div>If set to <tt class="docutils literal"><span class="pre">SIZE</span></tt>  , statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <tt class="docutils literal"><span class="pre">NONE</span></tt>  (the default), no statistics are returned..</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="create-table.html" title="previous chapter (use the left arrow)">&#8592; create-table</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="delete-table.html" title="next chapter (use the right arrow)">delete-table &#8594;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="delete-table.html" title="delete-table">next</a> |</li>
+        <li class="right">
+          <a href="create-table.html" title="create-table">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.0.0 documentation</a> &#187;</li>
+          <li><a href="../index.html">aws</a> &#187;</li>
+          <li><a href="index.html">dynamodb</a> &#187;</li> 
+      </ul>
+    </div>
+  <div class="footer container">
+    &#169; Copyright 2013, Amazon Web Services. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+
+
+
+  
+    
+      <script type="text/javascript"><![CDATA[
+        $(document).keydown(function(e){
+          if (e.keyCode == 37) {
+            
+            window.location = 'create-table.html';
+            return false;
+            
+          } else if (e.keyCode == 39) {
+            
+            window.location = 'delete-table.html';
+            return false;
+            
+          }
+        });
+      ]]></script>
+    
+  
+  </body>
+</html>
