@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta charset="utf-8" />
 <title>Puppet Module Cheat Sheet</title>
-<style type="text/css">
+<style type="text/css"><![CDATA[
 
 section.column {
   width : 49.5%;
@@ -118,7 +118,7 @@ td:first-child {
   background-color: #D4D4D4
 }
 
-</style>
+]]></style>
 </head>
 
 <body>
@@ -198,8 +198,8 @@ class apache::config::ssl {
             <p>To fetch this file:</p>
             <code><pre>
 file {'/etc/apache2/httpd.conf':
-  ensure => file,
-  source => <strong>'puppet:///modules/apache/httpd.conf'</strong>,
+  ensure =&gt; file,
+  source =&gt; <strong>'puppet:///modules/apache/httpd.conf'</strong>,
 }</pre></code>
         </div>
         <div class="file">
@@ -207,8 +207,8 @@ file {'/etc/apache2/httpd.conf':
             <p>Puppet's file server can navigate any subdirectories:</p>
             <code><pre>
 file {'/etc/apache2/httpd-ssl.conf':
-  ensure => file,
-  source => <strong>'puppet:///modules/apache/extra/ssl'</strong>,
+  ensure =&gt; file,
+  source =&gt; <strong>'puppet:///modules/apache/extra/ssl'</strong>,
 }</pre></code>
         </div>
     </div>
@@ -225,8 +225,8 @@ file {'/etc/apache2/httpd-ssl.conf':
             <p>To use this template:</p>
             <code><pre>
 file {'/etc/apache2/sites-enabled/wordpress.conf':
-  ensure  => file,
-  content => <strong>template('apache/vhost.erb')</strong>,
+  ensure  =&gt; file,
+  content =&gt; <strong>template('apache/vhost.erb')</strong>,
 }</pre></code>
         </div>
     </div>

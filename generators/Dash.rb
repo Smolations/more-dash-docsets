@@ -107,19 +107,26 @@ class Dash
     ## :category: CONVENIENCE METHODS
     ##
 
-    # removes unwanted entries for processing (e.g. '.', '..')
+    # removes unwanted entries for processing (e.g. '.', '..'). You can remove additional
+    # entries by passing them as an array for the second parameter. +dir_path+ should be absolute.
     # returns array on success or nil if not a directory
-    def clean_dir_entries(dir_path)
+    def clean_dir_entries(dir_path, more = [])
+        omit = [ '.', '..', '.git', '.DS_Store' ]
+        if more.length
+            omit = omit + more
+        end
+        # puts "--Cleaning #{dir_path}"
+        # puts "--Removing #{more.join(',')}"
         if File.directory?(dir_path)
-            return (Dir.entries(dir_path) - [ '.', '..', '.git', '.DS_Store' ])
+            return (Dir.entries(dir_path) - omit)
         end
         return nil
     end
 
     # calls clean_dir_entries for the @docs_root. useful for looping through
     # the root docs directory in generator scripts.
-    def get_clean_docs_entries
-        return clean_dir_entries(@docs_root)
+    def get_clean_docs_entries(more = [])
+        return clean_dir_entries(@docs_root, more)
     end
 
     # check if +entryName+ is a Dash-supported Entry Type
@@ -155,9 +162,12 @@ class Dash
     ## :category: NOKOGIRI-SPECIFIC METHODS
     ##
 
-    # file_path is relative to SRC_DOCS_PATH
+    # file_path is relative to SRC_DOCS_PATH or can be absolute
     def get_noko_doc(file_path)
         full_path = File.join(@docs_root, file_path)
+        if File.exists?(file_path)
+            full_path = file_path
+        end
         # puts "    Getting Nokogiri document: #{full_path}"
         if File.exists?(full_path)
             file  = File.new(full_path, 'r')
@@ -170,9 +180,12 @@ class Dash
         return nil
     end
 
-    # file_path is relative to SRC_DOCS_PATH
+    # file_path is relative to SRC_DOCS_PATH or can be absolute
     def save_noko_doc(doc, file_path)
         full_path = File.join(@docs_root, file_path)
+        if File.exists?(file_path)
+            full_path = file_path
+        end
         if File.exists?(full_path)
             file = File.new(full_path, 'w')
             file << doc.to_xhtml(:encoding => 'US-ASCII')
@@ -266,7 +279,7 @@ class Dash
                 if options[:noop] == true
                     do_queries = false
                     queries.slice!(0..1)
-                    puts "Total of #{queries.length} queries."
+                    puts "\nTotal of #{queries.length} queries."
                     if options[:filter].is_a?(Hash)
                         filters = options[:filter]
                         if filters[:type]
@@ -290,9 +303,9 @@ class Dash
                         end
                         queries.compact!
                     end
-                    hr = '-' * 50
-                    puts "\n#{hr}"
-                    puts 'Staged SQL statements:'
+                    hr = '-' * 100
+                    puts "#{hr}"
+                    puts "Staged SQL statements (#{queries.length}):"
                     puts hr
                     puts queries.join("\n")
                     puts hr

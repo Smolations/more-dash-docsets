@@ -1,12 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xml:lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=c" />
 <title>
   Class: Puppet::Parameter
   
-    &mdash; Documentation by YARD 0.8.4.1
+    &#8212; Documentation by YARD 0.8.4.1
   
 </title>
 
@@ -14,11 +13,11 @@
 
   <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript" charset="utf-8"><![CDATA[
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
   framesUrl = "../frames.html#!" + escape(window.location.href);
-</script>
+]]></script>
 
 
   <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
@@ -31,9 +30,9 @@
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (P)</a> &raquo;
-    <span class='title'><span class='object_link'>Puppet</span></span>
-     &raquo; 
+    <a href="../_index.html">Index (P)</a> &#187;
+    <span class="title"><span class="object_link">Puppet</span></span>
+     &#187; 
     <span class="title">Parameter</span>
   
 
@@ -42,18 +41,15 @@
 
       <div id="search">
   
-    <a class="full_list_link" id="class_list_link"
-        href="../class_list.html">
+    <a class="full_list_link" id="class_list_link" href="../class_list.html">
       Class List
     </a>
   
-    <a class="full_list_link" id="method_list_link"
-        href="../method_list.html">
+    <a class="full_list_link" id="method_list_link" href="../method_list.html">
       Method List
     </a>
   
-    <a class="full_list_link" id="file_list_link"
-        href="../file_list.html">
+    <a class="full_list_link" id="file_list_link" href="../file_list.html">
       File List
     </a>
   
@@ -73,10 +69,10 @@
   
     <dt class="r1">Inherits:</dt>
     <dd class="r1">
-      <span class="inheritName"><span class='object_link'>Object</span></span>
+      <span class="inheritName"><span class="object_link">Object</span></span>
       
         <ul class="fullTree">
-          <li><span class='object_link'>Object</span></li>
+          <li><span class="object_link">Object</span></li>
           
             <li class="next">Puppet::Parameter</li>
           
@@ -91,7 +87,7 @@
   
     
       <dt class="r2">Includes:</dt>
-      <dd class="r2"><span class='object_link'><a href="Util/Errors.html" title="Puppet::Util::Errors (module)">Util::Errors</a></span></dd>
+      <dd class="r2"><span class="object_link"><a href="Util/Errors.html" title="Puppet::Util::Errors (module)">Util::Errors</a></span></dd>
       
     
   
@@ -106,16 +102,16 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>The Parameter class is the implementation of a resource&#8217;s attributes of <em>parameter</em> kind.
-The Parameter class is also the base class for <span class='object_link'><a href="Property.html" title="Puppet::Property (class)">Property</a></span>, and is used to describe meta-parameters
+The Parameter class is also the base class for <span class="object_link"><a href="Property.html" title="Puppet::Property (class)">Property</a></span>, and is used to describe meta-parameters
 (parameters that apply to all resource types).
 A Parameter (in contrast to a Property) has a single value where a property has both a current and a wanted value.
 The Parameter class methods are used to configure and create an instance of Parameter that represents
 one particular attribute data type; its valid value(s), and conversion to/from internal form.</p>
 
-<p>The intention is that a new parameter is created by using the DSL method <span class='object_link'><a href="Type.html#newparam-class_method" title="Puppet::Type.newparam (method)">Type.newparam</a></span>, or
-<span class='object_link'><a href="Type.html#newmetaparam-class_method" title="Puppet::Type.newmetaparam (method)">Type.newmetaparam</a></span> if the parameter should be applicable to all resource types.</p>
+<p>The intention is that a new parameter is created by using the DSL method <span class="object_link"><a href="Type.html#newparam-class_method" title="Puppet::Type.newparam (method)">Type.newparam</a></span>, or
+<span class="object_link"><a href="Type.html#newmetaparam-class_method" title="Puppet::Type.newmetaparam (method)">Type.newmetaparam</a></span> if the parameter should be applicable to all resource types.</p>
 
-<p>A Parameter that does not specify and valid values (via <span class='object_link'><a href="#newvalues-class_method" title="Puppet::Parameter.newvalues (method)">Parameter.newvalues</a></span>) accepts any value.</p>
+<p>A Parameter that does not specify and valid values (via <span class="object_link"><a href="#newvalues-class_method" title="Puppet::Parameter.newvalues (method)">Parameter.newvalues</a></span>) accepts any value.</p>
 
 
   </div>
@@ -126,15 +122,15 @@ one particular attribute data type; its valid value(s), and conversion to/from i
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li><span class='object_link'><a href="Type.html" title="Puppet::Type (class)">Type</a></span></li>
+      <li><span class="object_link"><a href="Type.html" title="Puppet::Type (class)">Type</a></span></li>
     
-      <li><span class='object_link'><a href="Property.html" title="Puppet::Property (class)">Property</a></span></li>
+      <li><span class="object_link"><a href="Property.html" title="Puppet::Property (class)">Property</a></span></li>
     
   </ul>
 
 </div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="Property.html" title="Puppet::Property (class)">Property</a></span></p>
+  <p class="children"><span class="object_link"><a href="Property.html" title="Puppet::Property (class)">Property</a></span></p>
 </div>
 <h2>Defined Under Namespace</h2>
 <p class="children">
@@ -142,7 +138,7 @@ one particular attribute data type; its valid value(s), and conversion to/from i
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Parameter/Value.html" title="Puppet::Parameter::Value (class)">Value</a></span>, <span class='object_link'><a href="Parameter/ValueCollection.html" title="Puppet::Parameter::ValueCollection (class)">ValueCollection</a></span>
+      <strong class="classes">Classes:</strong> <span class="object_link"><a href="Parameter/Value.html" title="Puppet::Parameter::Value (class)">Value</a></span>, <span class="object_link"><a href="Parameter/ValueCollection.html" title="Puppet::Parameter::ValueCollection (class)">ValueCollection</a></span>
     
   
 </p>
@@ -180,7 +176,7 @@ one particular attribute data type; its valid value(s), and conversion to/from i
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Unused?.</p>
+    <span class="summary_desc"><div class="inline"><p>Unused?.</p>
 </div></span>
   
 </li>
@@ -212,7 +208,7 @@ one particular attribute data type; its valid value(s), and conversion to/from i
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The names of the <em>provider features</em> required for this parameter to work.</p>
+    <span class="summary_desc"><div class="inline"><p>The names of the <em>provider features</em> required for this parameter to work.</p>
 </div></span>
   
 </li>
@@ -242,7 +238,7 @@ one particular attribute data type; its valid value(s), and conversion to/from i
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Unused?.</p>
+    <span class="summary_desc"><div class="inline"><p>Unused?.</p>
 </div></span>
   
 </li>
@@ -272,7 +268,7 @@ one particular attribute data type; its valid value(s), and conversion to/from i
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>The set of valid values (or an empty set that accepts any value).</p>
+    <span class="summary_desc"><div class="inline"><p>The set of valid values (or an empty set that accepts any value).</p>
 </div></span>
   
 </li>
@@ -305,7 +301,7 @@ one particular attribute data type; its valid value(s), and conversion to/from i
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>A reference to the parameter&#8217;s parent kept for backwards compatibility.</p>
+    <span class="summary_desc"><div class="inline"><p>A reference to the parameter&#8217;s parent kept for backwards compatibility.</p>
 </div></span>
   
 </li>
@@ -345,7 +341,7 @@ one particular attribute data type; its valid value(s), and conversion to/from i
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Makes the given <code>name</code> an alias for the given <code>other</code> name.</p>
+    <span class="summary_desc"><div class="inline"><p>Makes the given <code>name</code> an alias for the given <code>other</code> name.</p>
 </div></span>
   
 </li>
@@ -372,7 +368,7 @@ one particular attribute data type; its valid value(s), and conversion to/from i
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Defines how the <code>default</code> value of a parameter is computed.</p>
+    <span class="summary_desc"><div class="inline"><p>Defines how the <code>default</code> value of a parameter is computed.</p>
 </div></span>
   
 </li>
@@ -399,7 +395,7 @@ one particular attribute data type; its valid value(s), and conversion to/from i
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Sets the documentation for this parameter.</p>
+    <span class="summary_desc"><div class="inline"><p>Sets the documentation for this parameter.</p>
 </div></span>
   
 </li>
@@ -424,7 +420,7 @@ one particular attribute data type; its valid value(s), and conversion to/from i
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Produces a documentation string.</p>
+    <span class="summary_desc"><div class="inline"><p>Produces a documentation string.</p>
 </div></span>
   
 </li>
@@ -449,7 +445,7 @@ one particular attribute data type; its valid value(s), and conversion to/from i
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Initializes the instance variables.</p>
+    <span class="summary_desc"><div class="inline"><p>Initializes the instance variables.</p>
 </div></span>
   
 </li>
@@ -476,7 +472,7 @@ one particular attribute data type; its valid value(s), and conversion to/from i
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Sets a marker indicating that this parameter is the <em>namevar</em> (unique identifier) of the type
+    <span class="summary_desc"><div class="inline"><p>Sets a marker indicating that this parameter is the <em>namevar</em> (unique identifier) of the type
 where the parameter is contained.</p>
 </div></span>
   
@@ -502,7 +498,7 @@ where the parameter is contained.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns whether this parameter is the <em>namevar</em> or not.</p>
+    <span class="summary_desc"><div class="inline"><p>Returns whether this parameter is the <em>namevar</em> or not.</p>
 </div></span>
   
 </li>
@@ -529,7 +525,7 @@ where the parameter is contained.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Sets a marker indicating that this parameter is required.</p>
+    <span class="summary_desc"><div class="inline"><p>Sets a marker indicating that this parameter is required.</p>
 </div></span>
   
 </li>
@@ -556,7 +552,7 @@ where the parameter is contained.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Defines an optional method used to convert the parameter value from DSL/string form to an internal form.</p>
+    <span class="summary_desc"><div class="inline"><p>Defines an optional method used to convert the parameter value from DSL/string form to an internal form.</p>
 </div></span>
   
 </li>
@@ -583,7 +579,7 @@ where the parameter is contained.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Defines valid values for the parameter (enumeration or regular expressions).</p>
+    <span class="summary_desc"><div class="inline"><p>Defines valid values for the parameter (enumeration or regular expressions).</p>
 </div></span>
   
 </li>
@@ -610,7 +606,7 @@ where the parameter is contained.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Removes the <code>default</code> method if defined.</p>
+    <span class="summary_desc"><div class="inline"><p>Removes the <code>default</code> method if defined.</p>
 </div></span>
   
 </li>
@@ -635,7 +631,7 @@ where the parameter is contained.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Creates instance (proxy) methods that delegates to a class method with the same name.</p>
+    <span class="summary_desc"><div class="inline"><p>Creates instance (proxy) methods that delegates to a class method with the same name.</p>
 </div></span>
   
 </li>
@@ -660,7 +656,7 @@ where the parameter is contained.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns whether this parameter is required or not.</p>
+    <span class="summary_desc"><div class="inline"><p>Returns whether this parameter is required or not.</p>
 </div></span>
   
 </li>
@@ -687,7 +683,7 @@ where the parameter is contained.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Defines an optional method used to convert the parameter value to DSL/string form from an internal form.</p>
+    <span class="summary_desc"><div class="inline"><p>Defines an optional method used to convert the parameter value to DSL/string form from an internal form.</p>
 </div></span>
   
 </li>
@@ -714,7 +710,7 @@ where the parameter is contained.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Defines an optional method that is used to validate the parameter&#8217;s value.</p>
+    <span class="summary_desc"><div class="inline"><p>Defines an optional method that is used to validate the parameter&#8217;s value.</p>
 </div></span>
   
 </li>
@@ -750,7 +746,7 @@ where the parameter is contained.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Initializes the parameter with a required resource reference and optional attribute settings.</p>
+    <span class="summary_desc"><div class="inline"><p>Initializes the parameter with a required resource reference and optional attribute settings.</p>
 </div></span>
   
 </li>
@@ -775,7 +771,7 @@ where the parameter is contained.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Writes the given <code>msg</code> to the log with the loglevel indicated by the associated resource&#8217;s
+    <span class="summary_desc"><div class="inline"><p>Writes the given <code>msg</code> to the log with the loglevel indicated by the associated resource&#8217;s
 <code>loglevel</code> parameter.</p>
 </div></span>
   
@@ -801,7 +797,7 @@ where the parameter is contained.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
+    <span class="summary_desc"><div class="inline">
 </div></span>
   
 </li>
@@ -826,7 +822,7 @@ where the parameter is contained.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>This is the default implementation of <code>munge</code> that simply produces the value (if it is valid).</p>
+    <span class="summary_desc"><div class="inline"><p>This is the default implementation of <code>munge</code> that simply produces the value (if it is valid).</p>
 </div></span>
   
 </li>
@@ -851,7 +847,7 @@ where the parameter is contained.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>This is the default implementation of <code>validate</code> that may be overridden by the DSL method <span class='object_link'><a href="#validate-class_method" title="Puppet::Parameter.validate (method)">Parameter.validate</a></span>.</p>
+    <span class="summary_desc"><div class="inline"><p>This is the default implementation of <code>validate</code> that may be overridden by the DSL method <span class="object_link"><a href="#validate-class_method" title="Puppet::Parameter.validate (method)">Parameter.validate</a></span>.</p>
 </div></span>
   
 </li>
@@ -876,7 +872,7 @@ where the parameter is contained.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Performs validation of the given value against the rules defined by this parameter.</p>
+    <span class="summary_desc"><div class="inline"><p>Performs validation of the given value against the rules defined by this parameter.</p>
 </div></span>
   
 </li>
@@ -900,8 +896,8 @@ where the parameter is contained.</p>
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'>Util</span></h3>
-  <p class="inherited"><span class='object_link'><a href="Util.html#exit_on_fail-class_method" title="Puppet::Util.exit_on_fail (method)">exit_on_fail</a></span>, <span class='object_link'><a href="Util.html#exit_on_fail-instance_method" title="Puppet::Util#exit_on_fail (method)">exit_on_fail</a></span>, <span class='object_link'><a href="Util.html#which-class_method" title="Puppet::Util.which (method)">which</a></span>, <span class='object_link'><a href="Util.html#which-instance_method" title="Puppet::Util#which (method)">which</a></span></p>
+  <h3 class="inherited">Methods included from <span class="object_link">Util</span></h3>
+  <p class="inherited"><span class="object_link"><a href="Util.html#exit_on_fail-class_method" title="Puppet::Util.exit_on_fail (method)">exit_on_fail</a></span>, <span class="object_link"><a href="Util.html#exit_on_fail-instance_method" title="Puppet::Util#exit_on_fail (method)">exit_on_fail</a></span>, <span class="object_link"><a href="Util.html#which-class_method" title="Puppet::Util.which (method)">which</a></span>, <span class="object_link"><a href="Util.html#which-instance_method" title="Puppet::Util#which (method)">which</a></span></p>
 
   
   
@@ -938,7 +934,7 @@ where the parameter is contained.</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Puppet::Parameter (class)">Parameter</a></span></tt>) <strong>initialize</strong>(options = {}) 
+    - (<tt><span class="object_link"><a href="" title="Puppet::Parameter (class)">Parameter</a></span></tt>) <strong>initialize</strong>(options = {}) 
   
 
   
@@ -949,7 +945,7 @@ where the parameter is contained.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>A parameter should be created via the DSL method Type::newparam</p>
+    <div class="inline"><p>A parameter should be created via the DSL method Type::newparam</p>
 </div>
   </div>
 
@@ -967,17 +963,17 @@ the name of the attribute to set, and the value as the value to set.</p>
   
     <li>
       
-        <span class='name'>options</span>
+        <span class="name">options</span>
       
       
-        <span class='type'>(<tt><span class='object_link'>Hash</span>{<span class='object_link'>Symbol</span> =&gt; <span class='object_link'>Object</span>]</tt>)</span>
+        <span class="type">(<tt><span class="object_link">Hash</span>{<span class="object_link">Symbol</span> =&gt; <span class="object_link">Object</span>]</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>{}</tt>)</em>
       
       
-        &mdash;
-        <div class='inline'><p>Options, where <code>resource</code> is required</p>
+        &#8212;
+        <div class="inline"><p>Options, where <code>resource</code> is required</p>
 </div>
       
     </li>
@@ -992,12 +988,12 @@ the name of the attribute to set, and the value as the value to set.</p>
       
         <li>
           <span class="name">:resource</span>
-          <span class="type">(<tt><span class='object_link'>Puppet::Resource</span></tt>)</span>
+          <span class="type">(<tt><span class="object_link">Puppet::Resource</span></tt>)</span>
           <span class="default">
             
           </span>
           
-            &mdash; <div class='inline'><p>The resource this parameter holds a value for. Required.</p>
+            &#8212; <div class="inline"><p>The resource this parameter holds a value for. Required.</p>
 </div>
           
         </li>
@@ -1011,12 +1007,12 @@ the name of the attribute to set, and the value as the value to set.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'>Puppet::DevError</span></tt>)</span>
+        <span class="type">(<tt><span class="object_link">Puppet::DevError</span></tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>If resource is not specified in the options hash.</p>
+        &#8212;
+        <div class="inline"><p>If resource is not specified in the options hash.</p>
 </div>
       
     </li>
@@ -1044,17 +1040,17 @@ the name of the attribute to set, and the value as the value to set.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 332</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='rubyid_options identifier id'>options</span> <span class='assign token'>=</span> <span class='rubyid_symbolize_options identifier id'>symbolize_options</span><span class='lparen token'>(</span><span class='rubyid_options identifier id'>options</span><span class='rparen token'>)</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_resource identifier id'>resource</span> <span class='assign token'>=</span> <span class='rubyid_options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:resource</span><span class='rbrack token'>]</span>
-    <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_resource identifier id'>resource</span> <span class='assign token'>=</span> <span class='rubyid_resource identifier id'>resource</span>
-    <span class='rubyid_options identifier id'>options</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:resource</span><span class='rparen token'>)</span>
-  <span class='rubyid_else else kw'>else</span>
-    <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Puppet constant id'>Puppet</span><span class='colon2 op'>::</span><span class='rubyid_DevError constant id'>DevError</span><span class='comma token'>,</span> <span class='dstring node'>&quot;No resource set for #{self.class.name}&quot;</span>
-  <span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_initialize identifier id">initialize</span><span class="lparen token">(</span><span class="rubyid_options identifier id">options</span> <span class="assign token">=</span> <span class="lbrace token">{</span><span class="rbrace token">}</span><span class="rparen token">)</span>
+  <span class="rubyid_options identifier id">options</span> <span class="assign token">=</span> <span class="rubyid_symbolize_options identifier id">symbolize_options</span><span class="lparen token">(</span><span class="rubyid_options identifier id">options</span><span class="rparen token">)</span>
+  <span class="rubyid_if if kw">if</span> <span class="rubyid_resource identifier id">resource</span> <span class="assign token">=</span> <span class="rubyid_options identifier id">options</span><span class="lbrack token">[</span><span class="symbol val">:resource</span><span class="rbrack token">]</span>
+    <span class="rubyid_self self kw">self</span><span class="dot token">.</span><span class="rubyid_resource identifier id">resource</span> <span class="assign token">=</span> <span class="rubyid_resource identifier id">resource</span>
+    <span class="rubyid_options identifier id">options</span><span class="dot token">.</span><span class="rubyid_delete identifier id">delete</span><span class="lparen token">(</span><span class="symbol val">:resource</span><span class="rparen token">)</span>
+  <span class="rubyid_else else kw">else</span>
+    <span class="rubyid_raise identifier id">raise</span> <span class="rubyid_Puppet constant id">Puppet</span><span class="colon2 op">::</span><span class="rubyid_DevError constant id">DevError</span><span class="comma token">,</span> <span class="dstring node">"No resource set for #{self.class.name}"</span>
+  <span class="rubyid_end end kw">end</span>
 
-  <span class='rubyid_set_options identifier id'>set_options</span><span class='lparen token'>(</span><span class='rubyid_options identifier id'>options</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
+  <span class="rubyid_set_options identifier id">set_options</span><span class="lparen token">(</span><span class="rubyid_options identifier id">options</span><span class="rparen token">)</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -1071,7 +1067,7 @@ the name of the attribute to set, and the value as the value to set.</p>
       <div class="method_details first">
   <h3 class="signature first" id="munger-class_method">
   
-    + (<tt><span class='object_link'>Object</span></tt>) <strong>munger</strong>  <span class="extras">(readonly)</span>&nbsp;<span class="private note title">private</span>
+    + (<tt><span class="object_link">Object</span></tt>) <strong>munger</strong>  <span class="extras">(readonly)</span>&#160;<span class="private note title">private</span>
   
 
   
@@ -1086,7 +1082,7 @@ the name of the attribute to set, and the value as the value to set.</p>
 
   <div class="note todo">
     <strong>TODO:</strong>
-    <div class='inline'><p>The term &#8220;munger&#8221; only appears in this location in the Puppet code base. There is munge and unmunge
+    <div class="inline"><p>The term &#8220;munger&#8221; only appears in this location in the Puppet code base. There is munge and unmunge
 and they seem to work perfectly fine without this attribute declaration.</p>
 </div>
   </div>
@@ -1112,9 +1108,9 @@ and they seem to work perfectly fine without this attribute declaration.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 46</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_munger identifier id'>munger</span>
-  <span class='rubyid_@munger ivar id'>@munger</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_munger identifier id">munger</span>
+  <span class="rubyid_@munger ivar id">@munger</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -1127,9 +1123,9 @@ and they seem to work perfectly fine without this attribute declaration.</p>
   <h3 class="signature " id="required_features-class_method">
   
     
-      <span class="overload">+ (<tt><span class='object_link'>Array</span>&lt;<span class='object_link'>Symbol</span>&gt;</tt>) <strong>required_features</strong> &nbsp;<span class="note title readonly">DSL</span></span>
+      <span class="overload">+ (<tt><span class="object_link">Array</span>&lt;<span class="object_link">Symbol</span>&gt;</tt>) <strong>required_features</strong> &#160;<span class="note title readonly">DSL</span></span>
     
-      <span class="overload">+ (<tt><span class='object_link'>Array</span>&lt;<span class='object_link'>Symbol</span>&gt;</tt>) <strong>required_features=</strong>(*args) &nbsp;<span class="note title readonly">DSL</span></span>
+      <span class="overload">+ (<tt><span class="object_link">Array</span>&lt;<span class="object_link">Symbol</span>&gt;</tt>) <strong>required_features=</strong>(*args) &#160;<span class="note title readonly">DSL</span></span>
     
   
 
@@ -1151,7 +1147,7 @@ the returned names are always all lower case symbols.</p>
     
       
       <li class="overload_item">
-        <span class="signature">+ (<tt><span class='object_link'>Array</span>&lt;<span class='object_link'>Symbol</span>&gt;</tt>) <strong>required_features</strong> </span>
+        <span class="signature">+ (<tt><span class="object_link">Array</span>&lt;<span class="object_link">Symbol</span>&gt;</tt>) <strong>required_features</strong> </span>
         <div class="docstring">
   <div class="discussion">
     <p>Returns the required <em>provider features</em> as an array of lower case symbols</p>
@@ -1167,7 +1163,7 @@ the returned names are always all lower case symbols.</p>
     
       
       <li class="overload_item">
-        <span class="signature">+ (<tt><span class='object_link'>Array</span>&lt;<span class='object_link'>Symbol</span>&gt;</tt>) <strong>required_features=</strong>(*args) </span>
+        <span class="signature">+ (<tt><span class="object_link">Array</span>&lt;<span class="object_link">Symbol</span>&gt;</tt>) <strong>required_features=</strong>(*args) </span>
         <div class="docstring">
   <div class="discussion">
     <p>Sets the required_provider_features_ from one or more values, or array. The given arguments
@@ -1182,15 +1178,15 @@ are flattened, and internalized.</p>
   
     <li>
       
-        <span class='name'>*args</span>
+        <span class="name">*args</span>
       
       
-        <span class='type'>(<tt><span class='object_link'>Symbol</span></tt>)</span>
+        <span class="type">(<tt><span class="object_link">Symbol</span></tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>one or more names of required provider features</p>
+        &#8212;
+        <div class="inline"><p>one or more names of required provider features</p>
 </div>
       
     </li>
@@ -1209,12 +1205,12 @@ are flattened, and internalized.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'>Array</span>&lt;<span class='object_link'>Symbol</span>&gt;</tt>)</span>
+        <span class="type">(<tt><span class="object_link">Array</span>&lt;<span class="object_link">Symbol</span>&gt;</tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>The names of the <em>provider features</em> required for this parameter to work.
+        &#8212;
+        <div class="inline"><p>The names of the <em>provider features</em> required for this parameter to work.
 the returned names are always all lower case symbols.</p>
 </div>
       
@@ -1230,7 +1226,7 @@ the returned names are always all lower case symbols.</p>
       
       
         
-        <div class='inline'><p>type</p>
+        <div class="inline"><p>type</p>
 </div>
       
     </li>
@@ -1250,9 +1246,9 @@ the returned names are always all lower case symbols.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 74</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_required_features identifier id'>required_features</span>
-  <span class='rubyid_@required_features ivar id'>@required_features</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_required_features identifier id">required_features</span>
+  <span class="rubyid_@required_features ivar id">@required_features</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -1264,7 +1260,7 @@ the returned names are always all lower case symbols.</p>
       <div class="method_details ">
   <h3 class="signature " id="validater-class_method">
   
-    + (<tt><span class='object_link'>Object</span></tt>) <strong>validater</strong>  <span class="extras">(readonly)</span>&nbsp;<span class="private note title">private</span>
+    + (<tt><span class="object_link">Object</span></tt>) <strong>validater</strong>  <span class="extras">(readonly)</span>&#160;<span class="private note title">private</span>
   
 
   
@@ -1279,7 +1275,7 @@ the returned names are always all lower case symbols.</p>
 
   <div class="note todo">
     <strong>TODO:</strong>
-    <div class='inline'><p>The term &#8220;validater&#8221; only appears in this location in the Puppet code base. There is <code>validate</code>
+    <div class="inline"><p>The term &#8220;validater&#8221; only appears in this location in the Puppet code base. There is <code>validate</code>
 which seems to works fine without this attribute declaration.</p>
 </div>
   </div>
@@ -1305,9 +1301,9 @@ which seems to works fine without this attribute declaration.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 39</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_validater identifier id'>validater</span>
-  <span class='rubyid_@validater ivar id'>@validater</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_validater identifier id">validater</span>
+  <span class="rubyid_@validater ivar id">@validater</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -1319,7 +1315,7 @@ which seems to works fine without this attribute declaration.</p>
       <div class="method_details ">
   <h3 class="signature " id="value_collection-class_method">
   
-    + (<tt><span class='object_link'><a href="Parameter/ValueCollection.html" title="Puppet::Parameter::ValueCollection (class)">Puppet::Parameter::ValueCollection</a></span></tt>) <strong>value_collection</strong>  <span class="extras">(readonly)</span>&nbsp;<span class="private note title">private</span>
+    + (<tt><span class="object_link"><a href="Parameter/ValueCollection.html" title="Puppet::Parameter::ValueCollection (class)">Puppet::Parameter::ValueCollection</a></span></tt>) <strong>value_collection</strong>  <span class="extras">(readonly)</span>&#160;<span class="private note title">private</span>
   
 
   
@@ -1344,12 +1340,12 @@ which seems to works fine without this attribute declaration.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Parameter/ValueCollection.html" title="Puppet::Parameter::ValueCollection (class)">Puppet::Parameter::ValueCollection</a></span></tt>)</span>
+        <span class="type">(<tt><span class="object_link"><a href="Parameter/ValueCollection.html" title="Puppet::Parameter::ValueCollection (class)">Puppet::Parameter::ValueCollection</a></span></tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>The set of valid values (or an empty set that accepts any value).</p>
+        &#8212;
+        <div class="inline"><p>The set of valid values (or an empty set that accepts any value).</p>
 </div>
       
     </li>
@@ -1369,9 +1365,9 @@ which seems to works fine without this attribute declaration.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 79</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_value_collection identifier id'>value_collection</span>
-  <span class='rubyid_@value_collection ivar id'>@value_collection</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_value_collection identifier id">value_collection</span>
+  <span class="rubyid_@value_collection ivar id">@value_collection</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -1388,7 +1384,7 @@ which seems to works fine without this attribute declaration.</p>
       <div class="method_details first">
   <h3 class="signature first" id="parent-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Puppet::Parameter (class)">Puppet::Parameter</a></span></tt>) <strong>parent</strong> &nbsp;<span class="private note title">private</span>
+    - (<tt><span class="object_link"><a href="" title="Puppet::Parameter (class)">Puppet::Parameter</a></span></tt>) <strong>parent</strong> &#160;<span class="private note title">private</span>
   
 
   
@@ -1413,12 +1409,12 @@ which seems to works fine without this attribute declaration.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="" title="Puppet::Parameter (class)">Puppet::Parameter</a></span></tt>)</span>
+        <span class="type">(<tt><span class="object_link"><a href="" title="Puppet::Parameter (class)">Puppet::Parameter</a></span></tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>A reference to the parameter&#8217;s parent kept for backwards compatibility.</p>
+        &#8212;
+        <div class="inline"><p>A reference to the parameter&#8217;s parent kept for backwards compatibility.</p>
 </div>
       
     </li>
@@ -1438,9 +1434,9 @@ which seems to works fine without this attribute declaration.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 307</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_parent identifier id'>parent</span>
-  <span class='rubyid_@parent ivar id'>@parent</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_parent identifier id">parent</span>
+  <span class="rubyid_@parent ivar id">@parent</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -1457,7 +1453,7 @@ which seems to works fine without this attribute declaration.</p>
       <div class="method_details first">
   <h3 class="signature first" id="aliasvalue-class_method">
   
-    + (<tt><span class='object_link'>Object</span></tt>) <strong>aliasvalue</strong>(name, other) &nbsp;<span class="note title readonly">DSL</span>
+    + (<tt><span class="object_link">Object</span></tt>) <strong>aliasvalue</strong>(name, other) &#160;<span class="note title readonly">DSL</span>
   
 
   
@@ -1484,7 +1480,7 @@ instead of the alias).</p>
       
       
         
-        <div class='inline'><p>type</p>
+        <div class="inline"><p>type</p>
 </div>
       
     </li>
@@ -1504,9 +1500,9 @@ instead of the alias).</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 277</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_aliasvalue identifier id'>aliasvalue</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_other identifier id'>other</span><span class='rparen token'>)</span>
-  <span class='rubyid_@value_collection ivar id'>@value_collection</span><span class='dot token'>.</span><span class='rubyid_aliasvalue identifier id'>aliasvalue</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_other identifier id'>other</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_aliasvalue identifier id">aliasvalue</span><span class="lparen token">(</span><span class="rubyid_name identifier id">name</span><span class="comma token">,</span> <span class="rubyid_other identifier id">other</span><span class="rparen token">)</span>
+  <span class="rubyid_@value_collection ivar id">@value_collection</span><span class="dot token">.</span><span class="rubyid_aliasvalue identifier id">aliasvalue</span><span class="lparen token">(</span><span class="rubyid_name identifier id">name</span><span class="comma token">,</span> <span class="rubyid_other identifier id">other</span><span class="rparen token">)</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -1517,9 +1513,9 @@ instead of the alias).</p>
   <h3 class="signature " id="defaultto-class_method">
   
     
-      <span class="overload">+ <strong>defaultto</strong>(value) &nbsp;<span class="note title readonly">DSL</span></span>
+      <span class="overload">+ <strong>defaultto</strong>(value) &#160;<span class="note title readonly">DSL</span></span>
     
-      <span class="overload">+ <strong>defaultto</strong>({|| ... }) &nbsp;<span class="note title readonly">DSL</span></span>
+      <span class="overload">+ <strong>defaultto</strong>({|| ... }) &#160;<span class="note title readonly">DSL</span></span>
     
   
 
@@ -1556,15 +1552,15 @@ A default of <code>nil</code> can not be used.</p>
   
     <li>
       
-        <span class='name'>value</span>
+        <span class="name">value</span>
       
       
-        <span class='type'>(<tt><span class='object_link'>Object</span></tt>)</span>
+        <span class="type">(<tt><span class="object_link">Object</span></tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>the literal value to use as the default value</p>
+        &#8212;
+        <div class="inline"><p>the literal value to use as the default value</p>
 </div>
       
     </li>
@@ -1600,12 +1596,12 @@ should produce the default value.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'>Puppet::DevError</span></tt>)</span>
+        <span class="type">(<tt><span class="object_link">Puppet::DevError</span></tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>if value is nil, and no block is given.</p>
+        &#8212;
+        <div class="inline"><p>if value is nil, and no block is given.</p>
 </div>
       
     </li>
@@ -1615,7 +1611,7 @@ should produce the default value.</p>
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li><span class='object_link'>default</span></li>
+      <li><span class="object_link">default</span></li>
     
   </ul>
 <p class="tag_title">DSL:</p>
@@ -1627,7 +1623,7 @@ should produce the default value.</p>
       
       
         
-        <div class='inline'><p>type</p>
+        <div class="inline"><p>type</p>
 </div>
       
     </li>
@@ -1655,17 +1651,17 @@ should produce the default value.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 99</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_defaultto identifier id'>defaultto</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_block identifier id'>block</span>
-    <span class='rubyid_define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='symbol val'>:default</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
-  <span class='rubyid_else else kw'>else</span>
-    <span class='rubyid_if if kw'>if</span> <span class='rubyid_value identifier id'>value</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span>
-      <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Puppet constant id'>Puppet</span><span class='colon2 op'>::</span><span class='rubyid_DevError constant id'>DevError</span><span class='comma token'>,</span>
-        <span class='string val'>&quot;Either a default value or block must be provided&quot;</span>
-    <span class='rubyid_end end kw'>end</span>
-    <span class='rubyid_define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='symbol val'>:default</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span> <span class='rubyid_value identifier id'>value</span> <span class='rubyid_end end kw'>end</span>
-  <span class='rubyid_end end kw'>end</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_defaultto identifier id">defaultto</span><span class="lparen token">(</span><span class="rubyid_value identifier id">value</span> <span class="assign token">=</span> <span class="rubyid_nil nil kw">nil</span><span class="comma token">,</span> <span class="bitand op">&amp;</span><span class="rubyid_block identifier id">block</span><span class="rparen token">)</span>
+  <span class="rubyid_if if kw">if</span> <span class="rubyid_block identifier id">block</span>
+    <span class="rubyid_define_method identifier id">define_method</span><span class="lparen token">(</span><span class="symbol val">:default</span><span class="comma token">,</span> <span class="bitand op">&amp;</span><span class="rubyid_block identifier id">block</span><span class="rparen token">)</span>
+  <span class="rubyid_else else kw">else</span>
+    <span class="rubyid_if if kw">if</span> <span class="rubyid_value identifier id">value</span><span class="dot token">.</span><span class="rubyid_nil? fid id">nil?</span>
+      <span class="rubyid_raise identifier id">raise</span> <span class="rubyid_Puppet constant id">Puppet</span><span class="colon2 op">::</span><span class="rubyid_DevError constant id">DevError</span><span class="comma token">,</span>
+        <span class="string val">"Either a default value or block must be provided"</span>
+    <span class="rubyid_end end kw">end</span>
+    <span class="rubyid_define_method identifier id">define_method</span><span class="lparen token">(</span><span class="symbol val">:default</span><span class="rparen token">)</span> <span class="rubyid_do do kw">do</span> <span class="rubyid_value identifier id">value</span> <span class="rubyid_end end kw">end</span>
+  <span class="rubyid_end end kw">end</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -1675,7 +1671,7 @@ should produce the default value.</p>
       <div class="method_details ">
   <h3 class="signature " id="desc-class_method">
   
-    + (<tt><span class='object_link'>String</span></tt>) <strong>desc</strong>(str) &nbsp;<span class="note title readonly">DSL</span>
+    + (<tt><span class="object_link">String</span></tt>) <strong>desc</strong>(str) &#160;<span class="note title readonly">DSL</span>
   
 
   
@@ -1694,15 +1690,15 @@ should produce the default value.</p>
   
     <li>
       
-        <span class='name'>str</span>
+        <span class="name">str</span>
       
       
-        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+        <span class="type">(<tt><span class="object_link">String</span></tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>The documentation string to set</p>
+        &#8212;
+        <div class="inline"><p>The documentation string to set</p>
 </div>
       
     </li>
@@ -1715,12 +1711,12 @@ should produce the default value.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+        <span class="type">(<tt><span class="object_link">String</span></tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>the given <code>str</code> parameter</p>
+        &#8212;
+        <div class="inline"><p>the given <code>str</code> parameter</p>
 </div>
       
     </li>
@@ -1730,7 +1726,7 @@ should produce the default value.</p>
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li><span class='object_link'><a href="#doc-class_method" title="Puppet::Parameter.doc (method)">doc</a></span></li>
+      <li><span class="object_link"><a href="#doc-class_method" title="Puppet::Parameter.doc (method)">doc</a></span></li>
     
   </ul>
 <p class="tag_title">DSL:</p>
@@ -1742,7 +1738,7 @@ should produce the default value.</p>
       
       
         
-        <div class='inline'><p>type</p>
+        <div class="inline"><p>type</p>
 </div>
       
     </li>
@@ -1762,9 +1758,9 @@ should produce the default value.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 154</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_desc identifier id'>desc</span><span class='lparen token'>(</span><span class='rubyid_str identifier id'>str</span><span class='rparen token'>)</span>
-  <span class='rubyid_@doc ivar id'>@doc</span> <span class='assign token'>=</span> <span class='rubyid_str identifier id'>str</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_desc identifier id">desc</span><span class="lparen token">(</span><span class="rubyid_str identifier id">str</span><span class="rparen token">)</span>
+  <span class="rubyid_@doc ivar id">@doc</span> <span class="assign token">=</span> <span class="rubyid_str identifier id">str</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -1774,7 +1770,7 @@ should produce the default value.</p>
       <div class="method_details ">
   <h3 class="signature " id="doc-class_method">
   
-    + (<tt><span class='object_link'>String</span></tt>) <strong>doc</strong> 
+    + (<tt><span class="object_link">String</span></tt>) <strong>doc</strong> 
   
 
   
@@ -1784,7 +1780,7 @@ should produce the default value.</p>
   <div class="discussion">
     <p>Produces a documentation string.
 If an enumeration of <em>valid values</em> has been defined, it is appended to the documentation
-for this parameter specified with the <span class='object_link'><a href="#desc-class_method" title="Puppet::Parameter.desc (method)">desc</a></span> method.</p>
+for this parameter specified with the <span class="object_link"><a href="#desc-class_method" title="Puppet::Parameter.desc (method)">desc</a></span> method.</p>
 
 
   </div>
@@ -1797,12 +1793,12 @@ for this parameter specified with the <span class='object_link'><a href="#desc-c
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+        <span class="type">(<tt><span class="object_link">String</span></tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>Returns a documentation string.</p>
+        &#8212;
+        <div class="inline"><p>Returns a documentation string.</p>
 </div>
       
     </li>
@@ -1833,20 +1829,20 @@ for this parameter specified with the <span class='object_link'><a href="#desc-c
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 117</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_doc identifier id'>doc</span>
-  <span class='rubyid_@doc ivar id'>@doc</span> <span class='opasgn op'>||=</span> <span class='string val'>&quot;&quot;</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_doc identifier id">doc</span>
+  <span class="rubyid_@doc ivar id">@doc</span> <span class="opasgn op">||=</span> <span class="string val">""</span>
 
-  <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='rubyid_@addeddocvals ivar id'>@addeddocvals</span><span class='rparen token'>)</span>
-    <span class='rubyid_@doc ivar id'>@doc</span> <span class='opasgn op'>+=</span> <span class='rubyid_value_collection identifier id'>value_collection</span><span class='dot token'>.</span><span class='rubyid_doc identifier id'>doc</span>
+  <span class="rubyid_unless unless kw">unless</span> <span class="rubyid_defined? defined kw">defined?</span><span class="lparen token">(</span><span class="rubyid_@addeddocvals ivar id">@addeddocvals</span><span class="rparen token">)</span>
+    <span class="rubyid_@doc ivar id">@doc</span> <span class="opasgn op">+=</span> <span class="rubyid_value_collection identifier id">value_collection</span><span class="dot token">.</span><span class="rubyid_doc identifier id">doc</span>
 
-    <span class='rubyid_if if kw'>if</span> <span class='rubyid_f identifier id'>f</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_required_features identifier id'>required_features</span>
-      <span class='rubyid_@doc ivar id'>@doc</span> <span class='opasgn op'>+=</span> <span class='dstring node'>&quot;  Requires features #{f.flatten.collect { |f| f.to_s }.join(&quot; &quot;)}.&quot;</span>
-    <span class='rubyid_end end kw'>end</span>
-    <span class='rubyid_@addeddocvals ivar id'>@addeddocvals</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
-  <span class='rubyid_end end kw'>end</span>
+    <span class="rubyid_if if kw">if</span> <span class="rubyid_f identifier id">f</span> <span class="assign token">=</span> <span class="rubyid_self self kw">self</span><span class="dot token">.</span><span class="rubyid_required_features identifier id">required_features</span>
+      <span class="rubyid_@doc ivar id">@doc</span> <span class="opasgn op">+=</span> <span class="dstring node">"  Requires features #{f.flatten.collect { |f| f.to_s }.join(" ")}."</span>
+    <span class="rubyid_end end kw">end</span>
+    <span class="rubyid_@addeddocvals ivar id">@addeddocvals</span> <span class="assign token">=</span> <span class="rubyid_true true kw">true</span>
+  <span class="rubyid_end end kw">end</span>
 
-  <span class='rubyid_@doc ivar id'>@doc</span>
-<span class='rubyid_end end kw'>end</span>
+  <span class="rubyid_@doc ivar id">@doc</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -1856,7 +1852,7 @@ for this parameter specified with the <span class='object_link'><a href="#desc-c
       <div class="method_details ">
   <h3 class="signature " id="initvars-class_method">
   
-    + <strong>initvars</strong> &nbsp;<span class="private note title">private</span>
+    + <strong>initvars</strong> &#160;<span class="private note title">private</span>
   
 
   
@@ -1890,9 +1886,9 @@ Clears the internal value collection (set of allowed values).</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 163</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_initvars identifier id'>initvars</span>
-  <span class='rubyid_@value_collection ivar id'>@value_collection</span> <span class='assign token'>=</span> <span class='rubyid_ValueCollection constant id'>ValueCollection</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_initvars identifier id">initvars</span>
+  <span class="rubyid_@value_collection ivar id">@value_collection</span> <span class="assign token">=</span> <span class="rubyid_ValueCollection constant id">ValueCollection</span><span class="dot token">.</span><span class="rubyid_new identifier id">new</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -1902,7 +1898,7 @@ Clears the internal value collection (set of allowed values).</p>
       <div class="method_details ">
   <h3 class="signature " id="isnamevar-class_method">
   
-    + <strong>isnamevar</strong> &nbsp;<span class="note title readonly">DSL</span>
+    + <strong>isnamevar</strong> &#160;<span class="note title readonly">DSL</span>
   
 
   
@@ -1928,7 +1924,7 @@ This also makes the parameter a required value. The marker can not be unset once
       
       
         
-        <div class='inline'><p>type</p>
+        <div class="inline"><p>type</p>
 </div>
       
     </li>
@@ -1949,10 +1945,10 @@ This also makes the parameter a required value. The marker can not be unset once
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 202</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_isnamevar identifier id'>isnamevar</span>
-  <span class='rubyid_@isnamevar ivar id'>@isnamevar</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
-  <span class='rubyid_@required ivar id'>@required</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_isnamevar identifier id">isnamevar</span>
+  <span class="rubyid_@isnamevar ivar id">@isnamevar</span> <span class="assign token">=</span> <span class="rubyid_true true kw">true</span>
+  <span class="rubyid_@required ivar id">@required</span> <span class="assign token">=</span> <span class="rubyid_true true kw">true</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -1983,12 +1979,12 @@ This also makes the parameter a required value. The marker can not be unset once
     <li>
       
       
-        <span class='type'>(<tt>Boolean</tt>)</span>
+        <span class="type">(<tt>Boolean</tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>Returns whether this parameter is the <em>namevar</em> or not.</p>
+        &#8212;
+        <div class="inline"><p>Returns whether this parameter is the <em>namevar</em> or not.</p>
 </div>
       
     </li>
@@ -2008,9 +2004,9 @@ This also makes the parameter a required value. The marker can not be unset once
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 210</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_isnamevar? fid id'>isnamevar?</span>
-  <span class='rubyid_@isnamevar ivar id'>@isnamevar</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_isnamevar? fid id">isnamevar?</span>
+  <span class="rubyid_@isnamevar ivar id">@isnamevar</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2020,7 +2016,7 @@ This also makes the parameter a required value. The marker can not be unset once
       <div class="method_details ">
   <h3 class="signature " id="isrequired-class_method">
   
-    + <strong>isrequired</strong> &nbsp;<span class="note title readonly">DSL</span>
+    + <strong>isrequired</strong> &#160;<span class="note title readonly">DSL</span>
   
 
   
@@ -2045,7 +2041,7 @@ Once set, it is not possible to make a parameter optional.</p>
       
       
         
-        <div class='inline'><p>type</p>
+        <div class="inline"><p>type</p>
 </div>
       
     </li>
@@ -2065,9 +2061,9 @@ Once set, it is not possible to make a parameter optional.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 220</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_isrequired identifier id'>isrequired</span>
-  <span class='rubyid_@required ivar id'>@required</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_isrequired identifier id">isrequired</span>
+  <span class="rubyid_@required ivar id">@required</span> <span class="assign token">=</span> <span class="rubyid_true true kw">true</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2077,7 +2073,7 @@ Once set, it is not possible to make a parameter optional.</p>
       <div class="method_details ">
   <h3 class="signature " id="munge-class_method">
   
-    + (<tt><span class='object_link'>Object</span></tt>) <strong>munge</strong>({|| ... }) &nbsp;<span class="note title readonly">DSL</span>
+    + (<tt><span class="object_link">Object</span></tt>) <strong>munge</strong>({|| ... }) &#160;<span class="note title readonly">DSL</span>
   
 
   
@@ -2088,7 +2084,7 @@ Once set, it is not possible to make a parameter optional.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This adds a method with the name <code>unsafe_munge</code> in the created parameter class. Later this method is
+    <div class="inline"><p>This adds a method with the name <code>unsafe_munge</code> in the created parameter class. Later this method is
 called in a context where exceptions will be rescued and handled.</p>
 </div>
   </div>
@@ -2112,7 +2108,7 @@ If a munge method is not defined, the DSL/string value is used as is.</p>
       
       
         
-        <div class='inline'><p>type</p>
+        <div class="inline"><p>type</p>
 </div>
       
     </li>
@@ -2136,13 +2132,13 @@ If a munge method is not defined, the DSL/string value is used as is.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 175</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_munge identifier id'>munge</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
-  <span class='comment val'># I need to wrap the unsafe version in begin/rescue parameterments,</span>
-  <span class='comment val'># but if I directly call the block then it gets bound to the</span>
-  <span class='comment val'># class's context, not the instance's, thus the two methods,</span>
-  <span class='comment val'># instead of just one.</span>
-  <span class='rubyid_define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='symbol val'>:unsafe_munge</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_munge identifier id">munge</span><span class="lparen token">(</span><span class="bitand op">&amp;</span><span class="rubyid_block identifier id">block</span><span class="rparen token">)</span>
+  <span class="comment val"># I need to wrap the unsafe version in begin/rescue parameterments,</span>
+  <span class="comment val"># but if I directly call the block then it gets bound to the</span>
+  <span class="comment val"># class's context, not the instance's, thus the two methods,</span>
+  <span class="comment val"># instead of just one.</span>
+  <span class="rubyid_define_method identifier id">define_method</span><span class="lparen token">(</span><span class="symbol val">:unsafe_munge</span><span class="comma token">,</span> <span class="bitand op">&amp;</span><span class="rubyid_block identifier id">block</span><span class="rparen token">)</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2152,7 +2148,7 @@ If a munge method is not defined, the DSL/string value is used as is.</p>
       <div class="method_details ">
   <h3 class="signature " id="newvalues-class_method">
   
-    + <strong>newvalues</strong>(*names) &nbsp;<span class="note title readonly">DSL</span>
+    + <strong>newvalues</strong>(*names) &#160;<span class="note title readonly">DSL</span>
   
 
   
@@ -2163,7 +2159,7 @@ If a munge method is not defined, the DSL/string value is used as is.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>Each call to this method adds to the set of valid values</p>
+    <div class="inline"><p>Each call to this method adds to the set of valid values</p>
 </div>
   </div>
 
@@ -2180,15 +2176,15 @@ regular expression patterns.</p>
   
     <li>
       
-        <span class='name'>names</span>
+        <span class="name">names</span>
       
       
-        <span class='type'>(<tt><span class='object_link'>Symbol</span></tt>, <tt><span class='object_link'>Regexp</span></tt>)</span>
+        <span class="type">(<tt><span class="object_link">Symbol</span></tt>, <tt><span class="object_link">Regexp</span></tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>The set of valid literal values and/or patterns for the parameter.</p>
+        &#8212;
+        <div class="inline"><p>The set of valid literal values and/or patterns for the parameter.</p>
 </div>
       
     </li>
@@ -2204,7 +2200,7 @@ regular expression patterns.</p>
       
       
         
-        <div class='inline'><p>type</p>
+        <div class="inline"><p>type</p>
 </div>
       
     </li>
@@ -2224,9 +2220,9 @@ regular expression patterns.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 266</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_newvalues identifier id'>newvalues</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_names identifier id'>names</span><span class='rparen token'>)</span>
-  <span class='rubyid_@value_collection ivar id'>@value_collection</span><span class='dot token'>.</span><span class='rubyid_newvalues identifier id'>newvalues</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_names identifier id'>names</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_newvalues identifier id">newvalues</span><span class="lparen token">(</span><span class="mult op">*</span><span class="rubyid_names identifier id">names</span><span class="rparen token">)</span>
+  <span class="rubyid_@value_collection ivar id">@value_collection</span><span class="dot token">.</span><span class="rubyid_newvalues identifier id">newvalues</span><span class="lparen token">(</span><span class="mult op">*</span><span class="rubyid_names identifier id">names</span><span class="rparen token">)</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2236,7 +2232,7 @@ regular expression patterns.</p>
       <div class="method_details ">
   <h3 class="signature " id="nodefault-class_method">
   
-    + <strong>nodefault</strong> &nbsp;<span class="note title readonly">DSL</span>
+    + <strong>nodefault</strong> &#160;<span class="note title readonly">DSL</span>
   
 
   
@@ -2259,7 +2255,7 @@ a default value method).</p>
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li><span class='object_link'><a href="#desc-class_method" title="Puppet::Parameter.desc (method)">desc</a></span></li>
+      <li><span class="object_link"><a href="#desc-class_method" title="Puppet::Parameter.desc (method)">desc</a></span></li>
     
   </ul>
 <p class="tag_title">DSL:</p>
@@ -2271,7 +2267,7 @@ a default value method).</p>
       
       
         
-        <div class='inline'><p>type</p>
+        <div class="inline"><p>type</p>
 </div>
       
     </li>
@@ -2291,9 +2287,9 @@ a default value method).</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 143</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_nodefault identifier id'>nodefault</span>
-  <span class='rubyid_undef_method identifier id'>undef_method</span> <span class='symbol val'>:default</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_public_method_defined? fid id'>public_method_defined?</span> <span class='symbol val'>:default</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_nodefault identifier id">nodefault</span>
+  <span class="rubyid_undef_method identifier id">undef_method</span> <span class="symbol val">:default</span> <span class="rubyid_if if_mod kw">if</span> <span class="rubyid_public_method_defined? fid id">public_method_defined?</span> <span class="symbol val">:default</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2303,7 +2299,7 @@ a default value method).</p>
       <div class="method_details ">
   <h3 class="signature " id="proxymethods-class_method">
   
-    + (<tt><span class='object_link'>Object</span></tt>) <strong>proxymethods</strong>(*values) &nbsp;<span class="private note title">private</span>
+    + (<tt><span class="object_link">Object</span></tt>) <strong>proxymethods</strong>(*values) &#160;<span class="private note title">private</span>
   
 
   
@@ -2340,13 +2336,13 @@ a default value method).</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 285</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_proxymethods identifier id'>proxymethods</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_values identifier id'>values</span><span class='rparen token'>)</span>
-  <span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_val identifier id'>val</span><span class='bitor op'>|</span>
-    <span class='rubyid_define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='rubyid_val identifier id'>val</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span>
-      <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_val identifier id'>val</span><span class='rparen token'>)</span>
-    <span class='rubyid_end end kw'>end</span>
-  <span class='rbrace token'>}</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_self self kw">self</span><span class="dot token">.</span><span class="rubyid_proxymethods identifier id">proxymethods</span><span class="lparen token">(</span><span class="mult op">*</span><span class="rubyid_values identifier id">values</span><span class="rparen token">)</span>
+  <span class="rubyid_values identifier id">values</span><span class="dot token">.</span><span class="rubyid_each identifier id">each</span> <span class="lbrace token">{</span> <span class="bitor op">|</span><span class="rubyid_val identifier id">val</span><span class="bitor op">|</span>
+    <span class="rubyid_define_method identifier id">define_method</span><span class="lparen token">(</span><span class="rubyid_val identifier id">val</span><span class="rparen token">)</span> <span class="rubyid_do do kw">do</span>
+      <span class="rubyid_self self kw">self</span><span class="dot token">.</span><span class="rubyid_class identifier id">class</span><span class="dot token">.</span><span class="rubyid_send identifier id">send</span><span class="lparen token">(</span><span class="rubyid_val identifier id">val</span><span class="rparen token">)</span>
+    <span class="rubyid_end end kw">end</span>
+  <span class="rbrace token">}</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2365,7 +2361,7 @@ a default value method).</p>
 </h3><div class="docstring">
   <div class="discussion">
     <p>Returns whether this parameter is required or not.
-A parameter is required if a call has been made to the DSL method <span class='object_link'><a href="#isrequired-class_method" title="Puppet::Parameter.isrequired (method)">isrequired</a></span>.</p>
+A parameter is required if a call has been made to the DSL method <span class="object_link"><a href="#isrequired-class_method" title="Puppet::Parameter.isrequired (method)">isrequired</a></span>.</p>
 
 
   </div>
@@ -2378,12 +2374,12 @@ A parameter is required if a call has been made to the DSL method <span class='o
     <li>
       
       
-        <span class='type'>(<tt>Boolean</tt>)</span>
+        <span class="type">(<tt>Boolean</tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>Returns whether this parameter is required or not.</p>
+        &#8212;
+        <div class="inline"><p>Returns whether this parameter is required or not.</p>
 </div>
       
     </li>
@@ -2403,9 +2399,9 @@ A parameter is required if a call has been made to the DSL method <span class='o
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 239</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_required? fid id'>required?</span>
-  <span class='rubyid_@required ivar id'>@required</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_required? fid id">required?</span>
+  <span class="rubyid_@required ivar id">@required</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2415,7 +2411,7 @@ A parameter is required if a call has been made to the DSL method <span class='o
       <div class="method_details ">
   <h3 class="signature " id="unmunge-class_method">
   
-    + (<tt><span class='object_link'>Object</span></tt>) <strong>unmunge</strong>({|| ... }) &nbsp;<span class="note title readonly">DSL</span>
+    + (<tt><span class="object_link">Object</span></tt>) <strong>unmunge</strong>({|| ... }) &#160;<span class="note title readonly">DSL</span>
   
 
   
@@ -2426,7 +2422,7 @@ A parameter is required if a call has been made to the DSL method <span class='o
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This adds a method with the name <code>unmunge</code> in the created parameter class.</p>
+    <div class="inline"><p>This adds a method with the name <code>unmunge</code> in the created parameter class.</p>
 </div>
   </div>
 
@@ -2444,7 +2440,7 @@ If an <code>unmunge</code> method is not defined, the internal form is used.</p>
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li><span class='object_link'><a href="#munge-class_method" title="Puppet::Parameter.munge (method)">munge</a></span></li>
+      <li><span class="object_link"><a href="#munge-class_method" title="Puppet::Parameter.munge (method)">munge</a></span></li>
     
   </ul>
 <p class="tag_title">DSL:</p>
@@ -2456,7 +2452,7 @@ If an <code>unmunge</code> method is not defined, the internal form is used.</p>
       
       
         
-        <div class='inline'><p>type</p>
+        <div class="inline"><p>type</p>
 </div>
       
     </li>
@@ -2476,9 +2472,9 @@ If an <code>unmunge</code> method is not defined, the internal form is used.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 191</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_unmunge identifier id'>unmunge</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
-  <span class='rubyid_define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='symbol val'>:unmunge</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_unmunge identifier id">unmunge</span><span class="lparen token">(</span><span class="bitand op">&amp;</span><span class="rubyid_block identifier id">block</span><span class="rparen token">)</span>
+  <span class="rubyid_define_method identifier id">define_method</span><span class="lparen token">(</span><span class="symbol val">:unmunge</span><span class="comma token">,</span> <span class="bitand op">&amp;</span><span class="rubyid_block identifier id">block</span><span class="rparen token">)</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2488,7 +2484,7 @@ If an <code>unmunge</code> method is not defined, the internal form is used.</p>
       <div class="method_details ">
   <h3 class="signature " id="validate-class_method">
   
-    + <strong>validate</strong>({|| ... }) &nbsp;<span class="note title readonly">DSL</span>
+    + <strong>validate</strong>({|| ... }) &#160;<span class="note title readonly">DSL</span>
   
 
   
@@ -2517,7 +2513,7 @@ the message as an argument.</p>
       
       
         
-        <div class='inline'><p>type</p>
+        <div class="inline"><p>type</p>
 </div>
       
     </li>
@@ -2537,9 +2533,9 @@ the message as an argument.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 253</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_validate identifier id'>validate</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
-  <span class='rubyid_define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='symbol val'>:unsafe_validate</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_validate identifier id">validate</span><span class="lparen token">(</span><span class="bitand op">&amp;</span><span class="rubyid_block identifier id">block</span><span class="rparen token">)</span>
+  <span class="rubyid_define_method identifier id">define_method</span><span class="lparen token">(</span><span class="symbol val">:unsafe_validate</span><span class="comma token">,</span> <span class="bitand op">&amp;</span><span class="rubyid_block identifier id">block</span><span class="rparen token">)</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2566,7 +2562,7 @@ the message as an argument.</p>
     
   <div class="note todo">
     <strong>TODO:</strong>
-    <div class='inline'><p>is loglevel a metaparameter? it is looked up with <code>resource[:loglevel]</code></p>
+    <div class="inline"><p>is loglevel a metaparameter? it is looked up with <code>resource[:loglevel]</code></p>
 </div>
   </div>
 
@@ -2592,9 +2588,9 @@ the message as an argument.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 349</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_log identifier id'>log</span><span class='lparen token'>(</span><span class='rubyid_msg identifier id'>msg</span><span class='rparen token'>)</span>
-  <span class='rubyid_send_log identifier id'>send_log</span><span class='lparen token'>(</span><span class='rubyid_resource identifier id'>resource</span><span class='lbrack token'>[</span><span class='symbol val'>:loglevel</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_msg identifier id'>msg</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_log identifier id">log</span><span class="lparen token">(</span><span class="rubyid_msg identifier id">msg</span><span class="rparen token">)</span>
+  <span class="rubyid_send_log identifier id">send_log</span><span class="lparen token">(</span><span class="rubyid_resource identifier id">resource</span><span class="lbrack token">[</span><span class="symbol val">:loglevel</span><span class="rbrack token">]</span><span class="comma token">,</span> <span class="rubyid_msg identifier id">msg</span><span class="rparen token">)</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2604,7 +2600,7 @@ the message as an argument.</p>
       <div class="method_details ">
   <h3 class="signature " id="pathbuilder-instance_method">
   
-    - (<tt><span class='object_link'>Object</span></tt>) <strong>pathbuilder</strong> &nbsp;<span class="private note title">private</span>
+    - (<tt><span class="object_link">Object</span></tt>) <strong>pathbuilder</strong> &#160;<span class="private note title">private</span>
   
 
   
@@ -2619,7 +2615,7 @@ the message as an argument.</p>
 
   <div class="note todo">
     <strong>TODO:</strong>
-    <div class='inline'><p>Original comment = <em>return the full path to us, for logging and rollback; not currently
+    <div class="inline"><p>Original comment = <em>return the full path to us, for logging and rollback; not currently
 used</em> This is difficult to figure out (if it is used or not as calls are certainly made to &#8220;pathbuilder&#8221;
 method is several places, not just sure if it is this implementation or not.</p>
 </div>
@@ -2650,13 +2646,13 @@ method is several places, not just sure if it is this implementation or not.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 385</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_pathbuilder identifier id'>pathbuilder</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_@resource ivar id'>@resource</span>
-    <span class='rubyid_return return kw'>return</span> <span class='lbrack token'>[</span><span class='rubyid_@resource ivar id'>@resource</span><span class='dot token'>.</span><span class='rubyid_pathbuilder identifier id'>pathbuilder</span><span class='comma token'>,</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span><span class='rbrack token'>]</span>
-  <span class='rubyid_else else kw'>else</span>
-    <span class='rubyid_return return kw'>return</span> <span class='lbrack token'>[</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span><span class='rbrack token'>]</span>
-  <span class='rubyid_end end kw'>end</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_pathbuilder identifier id">pathbuilder</span>
+  <span class="rubyid_if if kw">if</span> <span class="rubyid_@resource ivar id">@resource</span>
+    <span class="rubyid_return return kw">return</span> <span class="lbrack token">[</span><span class="rubyid_@resource ivar id">@resource</span><span class="dot token">.</span><span class="rubyid_pathbuilder identifier id">pathbuilder</span><span class="comma token">,</span> <span class="rubyid_self self kw">self</span><span class="dot token">.</span><span class="rubyid_name identifier id">name</span><span class="rbrack token">]</span>
+  <span class="rubyid_else else kw">else</span>
+    <span class="rubyid_return return kw">return</span> <span class="lbrack token">[</span><span class="rubyid_self self kw">self</span><span class="dot token">.</span><span class="rubyid_name identifier id">name</span><span class="rbrack token">]</span>
+  <span class="rubyid_end end kw">end</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2666,7 +2662,7 @@ method is several places, not just sure if it is this implementation or not.</p>
       <div class="method_details ">
   <h3 class="signature " id="unsafe_munge-instance_method">
   
-    - (<tt><span class='object_link'>Object</span></tt>) <strong>unsafe_munge</strong>(value) &nbsp;<span class="private note title">private</span>
+    - (<tt><span class="object_link">Object</span></tt>) <strong>unsafe_munge</strong>(value) &#160;<span class="private note title">private</span>
   
 
   
@@ -2679,7 +2675,7 @@ method is several places, not just sure if it is this implementation or not.</p>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
 <p>This is the default implementation of <code>munge</code> that simply produces the value (if it is valid).
-The DSL method <span class='object_link'><a href="#munge-class_method" title="Puppet::Parameter.munge (method)">munge</a></span> should be used to define an overriding method if munging is required.</p>
+The DSL method <span class="object_link"><a href="#munge-class_method" title="Puppet::Parameter.munge (method)">munge</a></span> should be used to define an overriding method if munging is required.</p>
 
 
   </div>
@@ -2700,9 +2696,9 @@ The DSL method <span class='object_link'><a href="#munge-class_method" title="Pu
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 398</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_unsafe_munge identifier id'>unsafe_munge</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>
-  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_value_collection identifier id'>value_collection</span><span class='dot token'>.</span><span class='rubyid_munge identifier id'>munge</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_unsafe_munge identifier id">unsafe_munge</span><span class="lparen token">(</span><span class="rubyid_value identifier id">value</span><span class="rparen token">)</span>
+  <span class="rubyid_self self kw">self</span><span class="dot token">.</span><span class="rubyid_class identifier id">class</span><span class="dot token">.</span><span class="rubyid_value_collection identifier id">value_collection</span><span class="dot token">.</span><span class="rubyid_munge identifier id">munge</span><span class="lparen token">(</span><span class="rubyid_value identifier id">value</span><span class="rparen token">)</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2712,7 +2708,7 @@ The DSL method <span class='object_link'><a href="#munge-class_method" title="Pu
       <div class="method_details ">
   <h3 class="signature " id="unsafe_validate-instance_method">
   
-    - <strong>unsafe_validate</strong>(value) &nbsp;<span class="private note title">private</span>
+    - <strong>unsafe_validate</strong>(value) &#160;<span class="private note title">private</span>
   
 
   
@@ -2724,9 +2720,9 @@ The DSL method <span class='object_link'><a href="#munge-class_method" title="Pu
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p class="note returns_void">This method returns an undefined value.</p><p>This is the default implementation of <code>validate</code> that may be overridden by the DSL method <span class='object_link'><a href="#validate-class_method" title="Puppet::Parameter.validate (method)">validate</a></span>.
+<p class="note returns_void">This method returns an undefined value.</p><p>This is the default implementation of <code>validate</code> that may be overridden by the DSL method <span class="object_link"><a href="#validate-class_method" title="Puppet::Parameter.validate (method)">validate</a></span>.
 If no valid values have been defined, the given value is accepted, else it is validated against
-the literal values (enumerator) and/or patterns defined by calling <span class='object_link'><a href="#newvalues-class_method" title="Puppet::Parameter.newvalues (method)">newvalues</a></span>.</p>
+the literal values (enumerator) and/or patterns defined by calling <span class="object_link"><a href="#newvalues-class_method" title="Puppet::Parameter.newvalues (method)">newvalues</a></span>.</p>
 
 
   </div>
@@ -2737,15 +2733,15 @@ the literal values (enumerator) and/or patterns defined by calling <span class='
   
     <li>
       
-        <span class='name'>value</span>
+        <span class="name">value</span>
       
       
-        <span class='type'>(<tt><span class='object_link'>Object</span></tt>)</span>
+        <span class="type">(<tt><span class="object_link">Object</span></tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>the value to check for validity</p>
+        &#8212;
+        <div class="inline"><p>the value to check for validity</p>
 </div>
       
     </li>
@@ -2758,12 +2754,12 @@ the literal values (enumerator) and/or patterns defined by calling <span class='
     <li>
       
       
-        <span class='type'>(<tt>ArgumentError</tt>)</span>
+        <span class="type">(<tt>ArgumentError</tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>if the value is not valid</p>
+        &#8212;
+        <div class="inline"><p>if the value is not valid</p>
 </div>
       
     </li>
@@ -2783,9 +2779,9 @@ the literal values (enumerator) and/or patterns defined by calling <span class='
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 439</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_unsafe_validate identifier id'>unsafe_validate</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>
-  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_value_collection identifier id'>value_collection</span><span class='dot token'>.</span><span class='rubyid_validate identifier id'>validate</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_unsafe_validate identifier id">unsafe_validate</span><span class="lparen token">(</span><span class="rubyid_value identifier id">value</span><span class="rparen token">)</span>
+  <span class="rubyid_self self kw">self</span><span class="dot token">.</span><span class="rubyid_class identifier id">class</span><span class="dot token">.</span><span class="rubyid_value_collection identifier id">value_collection</span><span class="dot token">.</span><span class="rubyid_validate identifier id">validate</span><span class="lparen token">(</span><span class="rubyid_value identifier id">value</span><span class="rparen token">)</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>
@@ -2806,7 +2802,7 @@ the literal values (enumerator) and/or patterns defined by calling <span class='
     
   <div class="note todo">
     <strong>TODO:</strong>
-    <div class='inline'><p>Better description of when the various exceptions are raised.ArgumentError is rescued and
+    <div class="inline"><p>Better description of when the various exceptions are raised.ArgumentError is rescued and
 changed into Puppet::Error.</p>
 </div>
   </div>
@@ -2825,12 +2821,12 @@ A protected validation method that only ever raises useful exceptions.</p>
     <li>
       
       
-        <span class='type'>(<tt>ArgumentError</tt>, <tt>TypeError</tt>, <tt><span class='object_link'>Puppet::DevError</span></tt>, <tt><span class='object_link'>Puppet::Error</span></tt>)</span>
+        <span class="type">(<tt>ArgumentError</tt>, <tt>TypeError</tt>, <tt><span class="object_link">Puppet::DevError</span></tt>, <tt><span class="object_link">Puppet::Error</span></tt>)</span>
       
       
       
-        &mdash;
-        <div class='inline'><p>under various conditions</p>
+        &#8212;
+        <div class="inline"><p>under various conditions</p>
 </div>
       
     </li>
@@ -2858,17 +2854,17 @@ A protected validation method that only ever raises useful exceptions.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/puppet/parameter.rb', line 451</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_validate identifier id'>validate</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>
-  <span class='rubyid_begin begin kw'>begin</span>
-    <span class='rubyid_unsafe_validate identifier id'>unsafe_validate</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>
-  <span class='rubyid_rescue rescue kw'>rescue</span> <span class='rubyid_ArgumentError constant id'>ArgumentError</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_detail identifier id'>detail</span>
-    <span class='rubyid_fail identifier id'>fail</span> <span class='rubyid_detail identifier id'>detail</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span>
-  <span class='rubyid_rescue rescue kw'>rescue</span> <span class='rubyid_Puppet constant id'>Puppet</span><span class='colon2 op'>::</span><span class='rubyid_Error constant id'>Error</span><span class='comma token'>,</span> <span class='rubyid_TypeError constant id'>TypeError</span>
-    <span class='rubyid_raise identifier id'>raise</span>
-  <span class='rubyid_rescue rescue kw'>rescue</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_detail identifier id'>detail</span>
-    <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Puppet constant id'>Puppet</span><span class='colon2 op'>::</span><span class='rubyid_DevError constant id'>DevError</span><span class='comma token'>,</span> <span class='dstring node'>&quot;Validate method failed for class #{self.name}: #{detail}&quot;</span><span class='comma token'>,</span> <span class='rubyid_detail identifier id'>detail</span><span class='dot token'>.</span><span class='rubyid_backtrace identifier id'>backtrace</span>
-  <span class='rubyid_end end kw'>end</span>
-<span class='rubyid_end end kw'>end</span>
+<span class="rubyid_def def kw">def</span> <span class="rubyid_validate identifier id">validate</span><span class="lparen token">(</span><span class="rubyid_value identifier id">value</span><span class="rparen token">)</span>
+  <span class="rubyid_begin begin kw">begin</span>
+    <span class="rubyid_unsafe_validate identifier id">unsafe_validate</span><span class="lparen token">(</span><span class="rubyid_value identifier id">value</span><span class="rparen token">)</span>
+  <span class="rubyid_rescue rescue kw">rescue</span> <span class="rubyid_ArgumentError constant id">ArgumentError</span> <span class="assign token">=</span><span class="gt op">&gt;</span> <span class="rubyid_detail identifier id">detail</span>
+    <span class="rubyid_fail identifier id">fail</span> <span class="rubyid_detail identifier id">detail</span><span class="dot token">.</span><span class="rubyid_to_s identifier id">to_s</span>
+  <span class="rubyid_rescue rescue kw">rescue</span> <span class="rubyid_Puppet constant id">Puppet</span><span class="colon2 op">::</span><span class="rubyid_Error constant id">Error</span><span class="comma token">,</span> <span class="rubyid_TypeError constant id">TypeError</span>
+    <span class="rubyid_raise identifier id">raise</span>
+  <span class="rubyid_rescue rescue kw">rescue</span> <span class="assign token">=</span><span class="gt op">&gt;</span> <span class="rubyid_detail identifier id">detail</span>
+    <span class="rubyid_raise identifier id">raise</span> <span class="rubyid_Puppet constant id">Puppet</span><span class="colon2 op">::</span><span class="rubyid_DevError constant id">DevError</span><span class="comma token">,</span> <span class="dstring node">"Validate method failed for class #{self.name}: #{detail}"</span><span class="comma token">,</span> <span class="rubyid_detail identifier id">detail</span><span class="dot token">.</span><span class="rubyid_backtrace identifier id">backtrace</span>
+  <span class="rubyid_end end kw">end</span>
+<span class="rubyid_end end kw">end</span>
 </pre>
     </td>
   </tr>

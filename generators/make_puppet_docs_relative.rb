@@ -1,29 +1,56 @@
+require File.join(File.dirname(__FILE__), 'Dash.rb')
 
-$docs_path = 'puppetdocs-latest'
+dash = Dash.new({
+    :name           => 'Puppet',
+    :display_name   => 'Puppet 3.2',
+    :docs_root      => 'puppetdocs-latest',
+    :icon           => File.join('icon-images', 'puppetlabs.png')
+})
+# so dive can get at it recursively..
+$dash = dash
 
-entries = Dir.entries($docs_path) - [ '.', '..' ]
+
+# won't need to touch these files
+entries = dash.get_clean_docs_entries([
+    'config.ru', 'favicon.ico', 'module_cheat_sheet.pdf', 'puppet_core_types_cheatsheet.pdf',
+    'README.txt', 'sitemap.xml', 'images'
+])
+# this is how we'll keep track of how deep in the directory structure we are as we make paths
+# relative. this array is joined with the system file separator and prepended to absolute paths.
 $levels = [ '.' ]
 
-def levelup
+# shortcut method to increase/decrease levels.
+def level_up
     $levels.push('/..')
 end
-def leveldown
+def level_down
     $levels.pop
 end
 
 $c = true
+$fileCount = 0
 def dive(path)
-    entries = Dir.entries(path) - [ '.', '..', '.git', 'latest' ]
+    # puts "#{path}"
+    entries = $dash.clean_dir_entries(path, ['latest', 'images', 'assets', 'fonts'])
+
 
     entries.each do |entry|
         entry_path = File.join(path, entry)
 
+        # if we're looking at a directory and not a file [to parse], increase the directory
+        # depth, pass the path to this function, then decrease the level back to where it was.
         if File.directory?(entry_path)
-            levelup
+            level_up
             dive(entry_path)
-            leveldown
+            level_down
 
+        # now that we know it's a file, let's get into it.
         elsif !entry.match(/\.html$/).nil?
+            $fileCount = $fileCount + 1
+            doc = $dash.get_noko_doc(entry_path)
+            doc.css('[href]').each {|element| element['href'].match(/^\//) && element['href'] = $levels.join + element['href'] }
+            doc.css('[src]').each {|element| element['src'].match(/^\//) && element['src'] = $levels.join + element['src'] }
+            $dash.save_noko_doc(doc, entry_path)
             # if $c
                 # fix relative paths for src="" and href="" attributes
                 # `sed -i '' -e 's: href="/: href="#{$levels.join}/:' #{entry_path}`
@@ -46,165 +73,141 @@ def dive(path)
 end
 
 
-# dive($docs_path)
+# kick off the function to make href and src paths relative
+puts "Relative-izing src/href attributes and removing analytics..."
+dive(dash::docs_root)
+puts " \`-Done processing #{$fileCount} files."
+
+
 
 # load up guides
-# guides_path = File.join($docs_path, 'guides')
-# guides = Dir.entries(guides_path) - [ '.', '..' ]
+puts "Processing guides..."
+guides_path = File.join(dash::docs_root, 'guides')
+guides      = dash.clean_dir_entries(guides_path)
+cnt         = 0
 
-# cnt = 0
-# guides.each do |entry|
-#     entry_path = File.join(guides_path, entry)
-#     sqlpath = File.join('guides', entry)
-#     if !File.directory?(entry_path)
-#         File.open(entry_path) do |file|
-#             file.each_line do |line|
-#                 title = /<title>(.+)(?= — Documentation)/i.match(line)
-#                 if !title.nil?
-#                     # puts "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('#{title[1]}', 'Guide', '#{sqlpath}');"
-#                     query = "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"#{title[1]}\", \"Guide\", \"#{sqlpath}\");"
-#                     `cd Puppet.docset/Contents/Resources/; sqlite3 docSet.dsidx '#{query}'; cd ../../..`
-#                 end
-#             end
-#         end
-#         cnt = cnt + 1
-#     end
-# end
-# puts "\n#{cnt} files"
-# puts (dirs - ).join("\n")
+guides.each do |entry|
+    entry_path  = File.join(guides_path, entry)
+    sql_path    = File.join('guides', entry)
 
-
-# Types
-# refs_version = '3.2.3'
-# refs_page = 'type.html'
-# refs_path = File.join($docs_path, 'references', refs_version)
-# refs_file = File.join(refs_path, refs_page)
-# sqlpath = File.join('references', refs_version, refs_page)
-
-# cnt = 0
-# File.open(refs_file) do |file|
-#     file.each_line do |line|
-#         matches = /<li class="toc\-lv3"><a href="(#([a-z]+))">/.match(line)
-#         if !matches.nil?
-#             # puts "#{matches[2]}: #{sqlfile}#{matches[1]}"
-#             query = "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"#{matches[2]}\", \"Type\", \"#{sqlpath}#{matches[1]}\");"
-#             # puts query
-#             `cd Puppet.docset/Contents/Resources/; sqlite3 docSet.dsidx '#{query}'; cd ../../..`
-#             cnt = cnt + 1
-#         end
-#     end
-# end
-# puts "\n#{cnt} lines"
-
-
-# Functions
-# refs_version = '3.2.3'
-# refs_page = 'function.html'
-# refs_path = File.join($docs_path, 'references', refs_version)
-# refs_file = File.join(refs_path, refs_page)
-# sqlpath = File.join('references', refs_version, refs_page)
-
-# cnt = 0
-# File.open(refs_file) do |file|
-#     file.each_line do |line|
-#         matches = /<li class="toc\-lv2"><a href="(#([a-z]+))">/.match(line)
-#         if !matches.nil?
-#             # puts "#{matches[2]}: #{sqlfile}#{matches[1]}"
-#             query = "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"#{matches[2]}\", \"Function\", \"#{sqlpath}#{matches[1]}\");"
-#             # puts query
-#             `cd Puppet.docset/Contents/Resources/; sqlite3 docSet.dsidx '#{query}'; cd ../../..`
-#             cnt = cnt + 1
-#         end
-#     end
-# end
-# puts "\n#{cnt} lines"
-
-
-# Metaparameters
-# refs_version = '3.2.3'
-# refs_page = 'metaparameter.html'
-# refs_path = File.join($docs_path, 'references', refs_version)
-# refs_file = File.join(refs_path, refs_page)
-# sqlpath = File.join('references', refs_version, refs_page)
-
-# cnt = 0
-# File.open(refs_file) do |file|
-#     file.each_line do |line|
-#         matches = /<li class="toc\-lv3"><a href="(#([a-z]+))">/.match(line)
-#         if !matches.nil?
-#             # puts "#{matches[2]}: #{sqlfile}#{matches[1]}"
-#             query = "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"#{matches[2]}\", \"Parameter\", \"#{sqlpath}#{matches[1]}\");"
-#             # puts query
-#             `cd Puppet.docset/Contents/Resources/; sqlite3 docSet.dsidx '#{query}'; cd ../../..`
-#             cnt = cnt + 1
-#         end
-#     end
-# end
-# puts "\n#{cnt} lines"
-
-
-# Commands with the `puppet` binary
-# refs_path = File.join($docs_path, 'man')
-# entries = Dir.entries(refs_path) - [ '.', '..' ]
-
-# cnt = 0
-# entries.each do |entry|
-#     tool = entry.split('.').shift
-#     refs_file = File.join('man', entry)
-
-#     query = "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"puppet #{tool}\", \"Command\", \"#{refs_file}\");"
-#     # puts query
-#     `cd Puppet.docset/Contents/Resources/; sqlite3 docSet.dsidx '#{query}'; cd ../../..`
-
-#     cnt = cnt + 1
-# end
-# puts "\n#{cnt} lines"
-
-
-
-# Facter: Core Facts
-refs_version = '1.7'
-refs_page = 'core_facts.html'
-refs_name = 'facter'
-
-refs_path = File.join($docs_path, refs_name, refs_version)
-refs_file = File.join(refs_path, refs_page)
-sqlpath   = File.join(refs_name, refs_version, refs_page)
-
-cnt = 0
-File.open(refs_file) do |file|
-    file.each_line do |line|
-        matches = /<li class="toc\-lv2"><a href="(#([a-z]+))">/.match(line)
-        if !matches.nil?
-            # puts "#{matches[2]}: #{sqlfile}#{matches[1]}"
-            if matches[1] != '#summary'
-                query = "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"$#{matches[2]}\", \"Global\", \"#{sqlpath}#{matches[1]}\");"
-                # puts query
-                `cd Puppet.docset/Contents/Resources/; sqlite3 docSet.dsidx '#{query}'; cd ../../..`
-                cnt = cnt + 1
-            end
+    if !File.directory?(entry_path)
+        doc     = $dash.get_noko_doc(sql_path)
+        # the split character had to be copied and pasted from one of the docs. it is &#8212;
+        name    = doc.at_css('title').content.split('—').shift.strip
+        type    = 'Guide'
+        if !name.nil?
+            cnt = cnt + 1
+            $dash.sql_insert(name, type, sql_path)
         end
     end
 end
-puts "\n#{cnt} lines"
+puts " \`- Done processing #{cnt} files."
 
 
-# File.open(classes_list, 'r') do |file|
-#     count   = 0
-#     queries = []
+# the following pages are all versioned. we sync versions here.
+refs_version    = 'latest'
+# refs_version = '3.2.3'    # if a specific version is desired
 
-#     file.each_line do |line|
+# Types
+puts "Processing types reference..."
+cnt         = 0
+refs_page   = 'type.html'
+sql_path    = File.join('references', refs_version, refs_page)
 
-#         line = line.chomp
-#         matches = /^s\d+dsp([a-z]+)01$/.match(line)
+docRef      = dash.get_noko_doc(sql_path)
+# e.g. <li class="toc-lv2"><a href="#type">
+docRef.css('.toc-lv3 a').each do |a|
+    cnt     = cnt + 1
+    path    = sql_path + a['href']
+    name    = path.split('#').pop
+    type    = 'Type'
+    dash.sql_insert(name, type, path)
+end
+puts " \`- Done processing #{cnt} Type anchors."
 
-#         end
 
-#         # html_file.close
-#         count = count + 1
+# Functions
+puts "Processing Function reference..."
+cnt         = 0
+refs_page   = 'function.html'
+sql_path    = File.join('references', refs_version, refs_page)
 
-#     # /file.each_line
-#     end
+docRef    = dash.get_noko_doc(sql_path)
+# e.g. <li class="toc-lv2"><a href="#function">
+docRef.css('.toc-lv2 a').each do |a|
+    cnt   = cnt + 1
+    path  = sql_path + a['href']
+    name  = path.split('#').pop
+    type  = 'Function'
+    dash.sql_insert(name, type, path)
+end
+puts " \`- Done processing #{cnt} Function anchors."
 
-# # close classes_list
-# end
+
+# Metaparameters
+puts "Processing Metaparameter reference..."
+cnt         = 0
+refs_page   = 'metaparameter.html'
+sql_path    = File.join('references', refs_version, refs_page)
+
+docRef    = dash.get_noko_doc(sql_path)
+# e.g. <li class="toc-lv3"><a href="#metaparam">
+docRef.css('.toc-lv3 a').each do |a|
+    cnt   = cnt + 1
+    path  = sql_path + a['href']
+    name  = path.split('#').pop
+    type  = 'Parameter'
+    dash.sql_insert(name, type, path)
+end
+puts " \`- Done processing #{cnt} Metaparameter anchors."
+
+
+# Commands with the `puppet` binary
+puts "Processing \`puppet\` binary commands..."
+cnt     = 0
+entries = dash.clean_dir_entries( File.join(dash::docs_root, 'man') )
+
+# each command has its own html page. notice that this collection of commands
+# is simple enough to only use one Dash feature.
+entries.each do |entry|
+    cnt = cnt + 1
+    name = entry.split('.').shift
+    type = 'Command'
+    path = File.join('man', entry)
+    $dash.sql_insert(name, type, path)
+end
+puts " \`- Done processing #{cnt} Commands."
+
+
+# Facter: Core Facts
+cnt             = 0
+refs_version    = '1.7'
+refs_page       = 'core_facts.html'
+refs_name       = 'facter'
+sql_path        = File.join(refs_name, refs_version, refs_page)
+
+docRef          = dash.get_noko_doc(sql_path)
+# e.g. <li class="toc-lv2"><a href="#fact">
+docRef.css('.toc-lv2 a').each do |a|
+    cnt         = cnt + 1
+    path        = sql_path + a['href']
+    name        = path.split('#').pop
+    type        = 'Global'
+    dash.sql_insert(name, type, path)
+end
+puts " \`- Done processing #{cnt} Facter facts."
+
+# dash.sql_execute({
+#     :noop => true,
+#     :filter => {
+#         :limit => 5,
+#         :type => 'Class',
+#         :name => 'Exception'
+#     }
+# })
+dash.sql_execute
+
+# dash.copy_docs(:noop => true)
+dash.copy_docs()
+
+puts "\nDone."

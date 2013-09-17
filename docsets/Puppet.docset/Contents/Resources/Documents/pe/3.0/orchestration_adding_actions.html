@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en-US">
   <head>
-  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  	<title>PE 3.0 » Orchestration » Adding New Actions — Documentation — Puppet Labs</title>
-  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom">
-    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/">
-    <link rel='index' title='Puppet Labs Documentation' href='http://docs.puppetlabs.com' />
-    <link rel='icon' href='./../../favicon.ico' />
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  	<title>PE 3.0 &#187; Orchestration &#187; Adding New Actions &#8212; Documentation &#8212; Puppet Labs</title>
+  	<link rel="alternate" type="application/atom+xml" title="Puppet Labs Documentation Updates" href="https://github.com/puppetlabs/puppet-docs/commits/master.atom" />
+    <link rel="alternate" type="application/atom+xml" title="Puppet Labs Blog Feed" href="http://puppetlabs.com/feed/atom/" />
+    <link rel="index" title="Puppet Labs Documentation" href="http://docs.puppetlabs.com" />
+    <link rel="icon" href="./../../favicon.ico" />
 
 
-  <meta name="description" content="Actions and PluginsYou can extend Puppet Enterprise (PE)&#8217;s orchestration engine by adding new actions. Actions are distributed in MCollective...">
+  <meta name="description" content="Actions and PluginsYou can extend Puppet Enterprise (PE)&#8217;s orchestration engine by adding new actions. Actions are distributed in MCollective..." />
 
 
 
     <!-- FIXME: absolute paths -->
 
-    <script type='text/javascript' src='./../../files/javascripts/html5.js'></script>
-    <script type='text/javascript' src='./../../files/javascripts/jquery-1.3.2.min.js'></script>
-    <script type='text/javascript' src='./../../files/javascripts/drop_down.js'></script>
-    <script type='text/javascript' src='./../../files/javascripts/cufon-yui.js'></script>
-    <script type='text/javascript' src='./../../files/fonts/Klavika_400-Klavika_600.font.js'></script>
-    <script type='text/javascript' src='./../../files/javascripts/ampersands.js'></script>
-    <script type='text/javascript' src='./../../files/javascripts/navigation-accordion.js'></script>
+    <script type="text/javascript" src="./../../files/javascripts/html5.js"></script>
+    <script type="text/javascript" src="./../../files/javascripts/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="./../../files/javascripts/drop_down.js"></script>
+    <script type="text/javascript" src="./../../files/javascripts/cufon-yui.js"></script>
+    <script type="text/javascript" src="./../../files/fonts/Klavika_400-Klavika_600.font.js"></script>
+    <script type="text/javascript" src="./../../files/javascripts/ampersands.js"></script>
+    <script type="text/javascript" src="./../../files/javascripts/navigation-accordion.js"></script>
 
     <script type="text/javascript" src="http://puppetlabs.com/wp-content/themes/puppetlabs/javascripts/leadcapture.js"></script>
 
@@ -34,28 +34,28 @@
 
     <!-- FIXME: absolute paths -->
 
-    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen"> <!-- index -->
-    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/syntax.css" media="screen" /> <!-- index -->
+    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/adbanner.css" media="screen" />
 
     <!--[if IE 7]>
-	  <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_7.css" media="screen"> <!-- index -->
-    <![endif]-->
+	  <link rel="stylesheet" type="text/css" href="/files/stylesheets/ie_7.css" media="screen"> <!-- index -->
+    
 
     <!--[if IE 8]>
-	    <link rel="stylesheet" type="text/css" href="./../../files/stylesheets/ie_8.css" media="screen"> <!-- index -->
-    <![endif]-->
+	    <link rel="stylesheet" type="text/css" href="/files/stylesheets/ie_8.css" media="screen"> <!-- index -->
+    
 
-  	<script type="text/javascript">
+  	<script type="text/javascript"><![CDATA[
       Cufon.replace('h1, h2', { fontWeight: '600' });
-  	</script>
+  	]]></script>
 </head>
 
 
 
 
   <body id="puppetlabsdocs" class="docs">
-  <style type="text/css">h1, h2{ visibility : hidden }</style>
+  <style type="text/css"><![CDATA[h1, h2{ visibility : hidden }]]></style>
   <!--[if IE 8]>
     <style type="text/css">h1, h2{ visibility : visible }</style>
   <![endif]-->
@@ -219,7 +219,7 @@
               </li>
 			  <li>
                 <ul>
-                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups & DevOps Groups</a>
+                  <a href="http://puppetlabs.com/community/user-groups-and-devops-groups/">Puppet User Groups &amp; DevOps Groups</a>
                 </ul>
               </li>
 	          <li>
@@ -234,7 +234,7 @@
               </li>
             </ul>
 
-          <li id="company-tab" class="with-submenu">
+          </li><li id="company-tab" class="with-submenu">
             <a href="http://puppetlabs.com/company/">
               <span>Company</span>
               <span class="drop-down-trigger"></span>
@@ -242,7 +242,7 @@
             <ul>
               <li class="page_item page-item-2316"><a href="http://puppetlabs.com/company/overview/">Overview</a></li>
 <li class="page_item page-item-2179"><a href="http://puppetlabs.com/company/news/">News</a>
-<ul class='children'>
+<ul class="children">
 	<li class="page_item page-item-2338"><a href="http://puppetlabs.com/company/news/press-releases/">Press Releases</a></li>
 	<li class="page_item page-item-2383"><a href="http://puppetlabs.com/company/news/media-kit/">Media Kit</a></li>
 </ul>
@@ -273,7 +273,7 @@
 				<input type="submit" name="sa" class="searchbtn" value="Search" />
 			  </div>
 			</form>
-			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
           </div>
       </nav>
     	</div>
@@ -281,7 +281,7 @@
 
       <section id="masthead">
         <div class="site-width">
-          <h1>Docs: <span class="section-name">PE 3.0 » Orchestration » Adding New Actions</span></h1>
+          <h1>Docs: <span class="section-name">PE 3.0 &#187; Orchestration &#187; Adding New Actions</span></h1>
           <ul id="doc-navigation">
             <li><a href="./../../index.html">Docs Home</a></li>
             <li class="with-submenu">
@@ -431,7 +431,7 @@
 <blockquote>
   <h3 id="in-the-mcollective-documentation">In the MCollective Documentation</h3>
 
-  <p>The MCollective documentation <a href="./../../mcollective/deploy/plugins.html">includes a guide to installing plugins</a>. Puppet Enterprise users must use the <a href="/mcollective/deploy/plugins.html#method-2-copying-plugins-into-the-libdir">&#8220;copy into libdir&#8221; installation method</a>. The remainder of this page goes into more detail about using this method with Puppet Enterprise.</p>
+  <p>The MCollective documentation <a href="./../../mcollective/deploy/plugins.html">includes a guide to installing plugins</a>. Puppet Enterprise users must use the <a href="./../../mcollective/deploy/plugins.html#method-2-copying-plugins-into-the-libdir">&#8220;copy into libdir&#8221; installation method</a>. The remainder of this page goes into more detail about using this method with Puppet Enterprise.</p>
 </blockquote>
 
 <h3 id="overview-of-plugin-installation-process">Overview of Plugin Installation Process</h3>
@@ -463,7 +463,7 @@
 
 <p>For any class that will be installing plugins <strong>on agent nodes,</strong> you should put the following four lines near the top of the class definition:</p>
 
-<div class="highlight"><pre><code class="ruby">    <span class="no">Class</span><span class="o">[</span><span class="s1">&#39;pe_mcollective::server::plugins&#39;</span><span class="o">]</span> <span class="o">-&gt;</span> <span class="no">Class</span><span class="o">[</span><span class="vg">$title</span><span class="o">]</span> <span class="o">~&gt;</span> <span class="no">Service</span><span class="o">[</span><span class="s1">&#39;pe-mcollective&#39;</span><span class="o">]</span>
+<div class="highlight"><pre><code class="ruby">    <span class="no">Class</span><span class="o">[</span><span class="s1">'pe_mcollective::server::plugins'</span><span class="o">]</span> <span class="o">-&gt;</span> <span class="no">Class</span><span class="o">[</span><span class="vg">$title</span><span class="o">]</span> <span class="o">~&gt;</span> <span class="no">Service</span><span class="o">[</span><span class="s1">'pe-mcollective'</span><span class="o">]</span>
     <span class="kp">include</span> <span class="n">pe_mcollective</span>
     <span class="vg">$plugin_basedir</span> <span class="o">=</span> <span class="vg">$pe_mcollective</span><span class="o">::</span><span class="n">server</span><span class="o">::</span><span class="n">plugins</span><span class="o">::</span><span class="n">plugin_basedir</span>
     <span class="vg">$mco_etc</span>        <span class="o">=</span> <span class="vg">$pe_mcollective</span><span class="o">::</span><span class="n">params</span><span class="o">::</span><span class="n">mco_etc</span>
@@ -523,14 +523,14 @@ If these promises change, we need a notification in pre-docs. Docs team will:
 
 <p>Next, put all relevant plugin files into place, using the <code>$plugin_basedir</code> variable we set above:</p>
 
-<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;${plugin_basedir}/agent/nrpe.ddl&quot;</span><span class="p">:</span>
+<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span><span class="s2">"${plugin_basedir}/agent/nrpe.ddl"</span><span class="p">:</span>
       <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
-      <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">&#39;puppet:///modules/mco_plugins/mcollective-nrpe-agent/agent/nrpe.ddl&#39;</span><span class="p">,</span>
+      <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">'puppet:///modules/mco_plugins/mcollective-nrpe-agent/agent/nrpe.ddl'</span><span class="p">,</span>
     <span class="p">}</span>
 
-    <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;${plugin_basedir}/agent/nrpe.rb&quot;</span><span class="p">:</span>
+    <span class="n">file</span> <span class="p">{</span><span class="s2">"${plugin_basedir}/agent/nrpe.rb"</span><span class="p">:</span>
       <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
-      <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">&#39;puppet:///modules/mco_plugins/mcollective-nrpe-agent/agent/nrpe.rb&#39;</span><span class="p">,</span>
+      <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">'puppet:///modules/mco_plugins/mcollective-nrpe-agent/agent/nrpe.rb'</span><span class="p">,</span>
     <span class="p">}</span>
 </code></pre>
 </div>
@@ -563,9 +563,9 @@ If these promises change, we need a notification in pre-docs. Docs team will:
 
 <p>You can use a normal file resource to create these config files with the appropriate values. For simple configs, you can set the content directly in the manifest; for complex ones, you can use a template.</p>
 
-<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;${mco_etc}/plugin.d/nrpe.cfg&quot;</span><span class="p">:</span>
+<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span><span class="s2">"${mco_etc}/plugin.d/nrpe.cfg"</span><span class="p">:</span>
       <span class="k">ensure</span>  <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
-      <span class="n">content</span> <span class="o">=&gt;</span> <span class="s2">&quot;conf_dir = /etc/nagios/nrpe</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+      <span class="n">content</span> <span class="o">=&gt;</span> <span class="s2">"conf_dir = /etc/nagios/nrpe</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
     <span class="p">}</span>
 </code></pre>
 </div>
@@ -589,13 +589,13 @@ If these promises change, we need a notification in pre-docs. Docs team will:
 
 <p>Example: This code would completely disable the package plugin&#8217;s <code>update</code> option, to force users to do package upgrades through your centralized Puppet code:</p>
 
-<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;${mco_etc}/policies&quot;</span><span class="p">:</span> <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">directory</span><span class="p">,}</span>
+<div class="highlight"><pre><code class="ruby">    <span class="n">file</span> <span class="p">{</span><span class="s2">"${mco_etc}/policies"</span><span class="p">:</span> <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">directory</span><span class="p">,}</span>
 
-    <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;${mco_etc}/policies/package.policy&quot;</span><span class="p">:</span>
+    <span class="n">file</span> <span class="p">{</span><span class="s2">"${mco_etc}/policies/package.policy"</span><span class="p">:</span>
       <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
-      <span class="n">content</span> <span class="o">=&gt;</span> <span class="s2">&quot;policy default allow</span>
+      <span class="n">content</span> <span class="o">=&gt;</span> <span class="s2">"policy default allow</span>
 <span class="s2">    deny	*	update	*	*</span>
-<span class="s2">    &quot;</span><span class="p">,</span>
+<span class="s2">    "</span><span class="p">,</span>
     <span class="p">}</span>
 </code></pre>
 </div>
@@ -630,7 +630,7 @@ If these promises change, we need a notification in pre-docs. Docs team will:
 
 <div class="highlight"><pre><code class="ruby">    <span class="c1"># /etc/puppetlabs/puppet/modules/mco_plugins/manifests/nrpe.pp</span>
     <span class="k">class</span> <span class="n">mco_plugins</span><span class="o">::</span><span class="n">nrpe</span> <span class="p">{</span>
-      <span class="no">Class</span><span class="o">[</span><span class="s1">&#39;pe_mcollective::server::plugins&#39;</span><span class="o">]</span> <span class="o">-&gt;</span> <span class="no">Class</span><span class="o">[</span><span class="vg">$title</span><span class="o">]</span> <span class="o">~&gt;</span> <span class="no">Service</span><span class="o">[</span><span class="s1">&#39;pe-mcollective&#39;</span><span class="o">]</span>
+      <span class="no">Class</span><span class="o">[</span><span class="s1">'pe_mcollective::server::plugins'</span><span class="o">]</span> <span class="o">-&gt;</span> <span class="no">Class</span><span class="o">[</span><span class="vg">$title</span><span class="o">]</span> <span class="o">~&gt;</span> <span class="no">Service</span><span class="o">[</span><span class="s1">'pe-mcollective'</span><span class="o">]</span>
       <span class="kp">include</span> <span class="n">pe_mcollective</span>
       <span class="vg">$plugin_basedir</span> <span class="o">=</span> <span class="vg">$pe_mcollective</span><span class="o">::</span><span class="n">server</span><span class="o">::</span><span class="n">plugins</span><span class="o">::</span><span class="n">plugin_basedir</span>
       <span class="vg">$mco_etc</span>        <span class="o">=</span> <span class="vg">$pe_mcollective</span><span class="o">::</span><span class="n">params</span><span class="o">::</span><span class="n">mco_etc</span>
@@ -641,41 +641,41 @@ If these promises change, we need a notification in pre-docs. Docs team will:
         <span class="n">mode</span>  <span class="o">=&gt;</span> <span class="vg">$pe_mcollective</span><span class="o">::</span><span class="n">params</span><span class="o">::</span><span class="n">root_mode</span><span class="p">,</span>
       <span class="p">}</span>
 
-      <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;${plugin_basedir}/agent/nrpe.ddl&quot;</span><span class="p">:</span>
+      <span class="n">file</span> <span class="p">{</span><span class="s2">"${plugin_basedir}/agent/nrpe.ddl"</span><span class="p">:</span>
         <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
-        <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">&#39;puppet:///modules/mco_plugins/mcollective-nrpe-agent/agent/nrpe.ddl&#39;</span><span class="p">,</span>
+        <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">'puppet:///modules/mco_plugins/mcollective-nrpe-agent/agent/nrpe.ddl'</span><span class="p">,</span>
       <span class="p">}</span>
 
-      <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;${plugin_basedir}/agent/nrpe.rb&quot;</span><span class="p">:</span>
+      <span class="n">file</span> <span class="p">{</span><span class="s2">"${plugin_basedir}/agent/nrpe.rb"</span><span class="p">:</span>
         <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
-        <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">&#39;puppet:///modules/mco_plugins/mcollective-nrpe-agent/agent/nrpe.rb&#39;</span><span class="p">,</span>
+        <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">'puppet:///modules/mco_plugins/mcollective-nrpe-agent/agent/nrpe.rb'</span><span class="p">,</span>
       <span class="p">}</span>
 
-      <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;${plugin_basedir}/aggregate/nagios_states.rb&quot;</span><span class="p">:</span>
+      <span class="n">file</span> <span class="p">{</span><span class="s2">"${plugin_basedir}/aggregate/nagios_states.rb"</span><span class="p">:</span>
         <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
-        <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">&#39;puppet:///modules/mco_plugins/mcollective-nrpe-agent/aggregate/nagios_states.rb&#39;</span><span class="p">,</span>
+        <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">'puppet:///modules/mco_plugins/mcollective-nrpe-agent/aggregate/nagios_states.rb'</span><span class="p">,</span>
       <span class="p">}</span>
 
-      <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;${plugin_basedir}/application/nrpe.rb&quot;</span><span class="p">:</span>
+      <span class="n">file</span> <span class="p">{</span><span class="s2">"${plugin_basedir}/application/nrpe.rb"</span><span class="p">:</span>
         <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
-        <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">&#39;puppet:///modules/mco_plugins/mcollective-nrpe-agent/application/nrpe.rb&#39;</span><span class="p">,</span>
+        <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">'puppet:///modules/mco_plugins/mcollective-nrpe-agent/application/nrpe.rb'</span><span class="p">,</span>
       <span class="p">}</span>
 
-      <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;${plugin_basedir}/data/nrpe_data.ddl&quot;</span><span class="p">:</span>
+      <span class="n">file</span> <span class="p">{</span><span class="s2">"${plugin_basedir}/data/nrpe_data.ddl"</span><span class="p">:</span>
         <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
-        <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">&#39;puppet:///modules/mco_plugins/mcollective-nrpe-agent/data/nrpe_data.ddl&#39;</span><span class="p">,</span>
+        <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">'puppet:///modules/mco_plugins/mcollective-nrpe-agent/data/nrpe_data.ddl'</span><span class="p">,</span>
       <span class="p">}</span>
 
-      <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;${plugin_basedir}/data/nrpe_data.rb&quot;</span><span class="p">:</span>
+      <span class="n">file</span> <span class="p">{</span><span class="s2">"${plugin_basedir}/data/nrpe_data.rb"</span><span class="p">:</span>
         <span class="k">ensure</span> <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
-        <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">&#39;puppet:///modules/mco_plugins/mcollective-nrpe-agent/data/nrpe_data.rb&#39;</span><span class="p">,</span>
+        <span class="n">source</span> <span class="o">=&gt;</span> <span class="s1">'puppet:///modules/mco_plugins/mcollective-nrpe-agent/data/nrpe_data.rb'</span><span class="p">,</span>
       <span class="p">}</span>
 
       <span class="c1"># Set config: If this setting were in the usual server.cfg file, its name would</span>
       <span class="c1"># be plugin.nrpe.conf_dir</span>
-      <span class="n">file</span> <span class="p">{</span><span class="s2">&quot;${mco_etc}/plugin.d/nrpe.cfg&quot;</span><span class="p">:</span>
+      <span class="n">file</span> <span class="p">{</span><span class="s2">"${mco_etc}/plugin.d/nrpe.cfg"</span><span class="p">:</span>
         <span class="k">ensure</span>  <span class="o">=&gt;</span> <span class="n">file</span><span class="p">,</span>
-        <span class="n">content</span> <span class="o">=&gt;</span> <span class="s2">&quot;conf_dir = /etc/nagios/nrpe</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">content</span> <span class="o">=&gt;</span> <span class="s2">"conf_dir = /etc/nagios/nrpe</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
       <span class="p">}</span>
 
     <span class="p">}</span>
@@ -689,7 +689,7 @@ If these promises change, we need a notification in pre-docs. Docs team will:
 </ul>
 
 
-              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">↑ Back to top</a></p></blockquote>
+              <blockquote><p style="font-size: 1.3em; text-align: center;"><a href="#content">&#8593; Back to top</a></p></blockquote>
             </div>
             <nav class="main">
                   <div id="subCol">
@@ -729,8 +729,8 @@ If these promises change, we need a notification in pre-docs. Docs team will:
       <li><a href="./console_navigating.html">Navigating the Console</a></li>
       <li><a href="./console_navigating_live_mgmt.html">Navigating the Live Management Page</a></li>
       <li><a href="./console_cert_mgmt.html">Managing Node Requests</a></li>
-      <li><a href="./console_classes_groups.html">Grouping & Classifying Nodes</a></li>
-      <li><a href="./console_reports.html">Viewing Reports & Inventory Data</a></li>
+      <li><a href="./console_classes_groups.html">Grouping &amp; Classifying Nodes</a></li>
+      <li><a href="./console_reports.html">Viewing Reports &amp; Inventory Data</a></li>
       <li><a href="./console_auth.html">Managing Users</a></li>
       <li><a href="./console_inventory_search.html">Inventory Search</a></li>
       <li><a href="./console_rake_api.html">Rake API and List of Tasks</a></li>
@@ -741,7 +741,7 @@ If these promises change, we need a notification in pre-docs. Docs team will:
   <li><strong>Puppet Core</strong>
     <ul>
       <li><a href="./puppet_overview.html">Overview</a></li>
-      <li><a href="./puppet_modules_manifests.html">Modules & Manifests</a></li>
+      <li><a href="./puppet_modules_manifests.html">Modules &amp; Manifests</a></li>
       <li><a href="./puppet_assign_configurations.html">Assigning Configurations to Nodes</a></li>
       <li><a href="./puppet_tools.html">Tools</a></li>
       <li><a href="./puppet_data_library.html">Puppet Data Library</a></li>
@@ -764,8 +764,8 @@ If these promises change, we need a notification in pre-docs. Docs team will:
   <li><strong>Cloud Provisioning</strong>
     <ul>
       <li><a href="./cloudprovisioner_overview.html">Overview</a></li>
-      <li><a href="./cloudprovisioner_configuring.html">Installing & Configuring Cloud Provisioner</a></li>
-      <li><a href="./cloudprovisioner_classifying_installing.html">Classifying Nodes & Remotely Installing Puppet</a></li>
+      <li><a href="./cloudprovisioner_configuring.html">Installing &amp; Configuring Cloud Provisioner</a></li>
+      <li><a href="./cloudprovisioner_classifying_installing.html">Classifying Nodes &amp; Remotely Installing Puppet</a></li>
       <li><a href="./cloudprovisioner_vmware.html">Provisioning with VMware</a></li>
       <li><a href="./cloudprovisioner_aws.html">Provisioning with AWS</a></li>
       <li><a href="./cloudprovisioner_workflow.html">Sample Workflow</a></li>
@@ -779,7 +779,7 @@ If these promises change, we need a notification in pre-docs. Docs team will:
   </li>
    <li><strong>Maintenance</strong>
     <ul>
-      <li> <a href="./maintain_console-db.html">Console & Database Maintenance</a></li>
+      <li> <a href="./maintain_console-db.html">Console &amp; Database Maintenance</a></li>
       <!--
 <li> <a href="./maintain_puppet.html">Puppet Core Maintenance</a></li>
       <li> <a href="./maintain_orchestration.html">Orchestration Maintenance</a></li>
@@ -789,8 +789,8 @@ If these promises change, we need a notification in pre-docs. Docs team will:
   <li><strong>Troubleshooting</strong>
     <ul>
      <li> <a href="./trouble_install.html">Troubleshooting the Installer</a></li>
-     <li> <a href="./trouble_comms.html">Troubleshooting Connections & Communications</a></li>
-     <li> <a href="./trouble_console-db.html">Troubleshooting the Console & Database</a></li>
+     <li> <a href="./trouble_comms.html">Troubleshooting Connections &amp; Communications</a></li>
+     <li> <a href="./trouble_console-db.html">Troubleshooting the Console &amp; Database</a></li>
      <li> <a href="./trouble_puppet.html">Troubleshooting the Puppet Core</a></li>
      <li> <a href="./trouble_orchestration.html">Troubleshooting Orchestration</a></li>
      <li> <a href="./trouble_cloudprovisioner.html">Troubleshooting Cloud Provisioner</a></li>
@@ -809,11 +809,11 @@ If these promises change, we need a notification in pre-docs. Docs team will:
 
                       <div style="margin-top: 1.5em; padding-bottom: 10px;">
                           <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download the Docs</p>
-                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download"></a>
+                          <a href="http://info.puppetlabs.com/download-pdfs.html"><img src="./../../images/smallbits_small_docs.png" alt="Puppet docs download" /></a>
                       </div>
                       <div style="margin-top: 0; padding-bottom: 10px;">
                           <p style="font-family: 'Lucida Grande',Lucida,Verdana,sans-serif;font-size: 16px; font-weight: bold; line-height: 22px; margin-bottom: 10px;">Download Puppet Enterprise</p>
-                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo"></a>
+                          <a href="http://info.puppetlabs.com/download-pe.html"><img src="./../../images/puppet_cert_home.jpg" alt="Puppet Enterprise promo" /></a>
                       </div>
                   </div>
             </nav>
@@ -828,19 +828,19 @@ If these promises change, we need a notification in pre-docs. Docs team will:
           <div class="primary-content">
             <section id="newsletter">
                  <h4>Puppet Labs is Hiring</h4>
-                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers & consultants</a>
-                  <p>
-		<h4>Newsletter</h4>
+                 <p><a href="http://www.puppetlabs.com/company/jobs/">Engineers, developers &amp; consultants</a>
+                  </p><p>
+		</p><h4>Newsletter</h4>
 
               <p>Stay up to date on all things puppet</p>
 
-				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save"; id="mktForm_1013" name="mktForm_1013">
+				<form class="lpeRegForm formNotEmpty" method="post" enctype="application/x-www-form-urlencoded" action="http://info.puppetlabs.com/index.php/leadCapture/save" id="mktForm_1013" name="mktForm_1013">
 
-				<label>Email Address:</label><span class='mktInput'><input class='mktFormText mktFormEmail' name="Email" id="Email" type='text' value="" maxlength='255'  /><span class='mktFormMsg'></span></span>
+				<label>Email Address:</label><span class="mktInput"><input class="mktFormText mktFormEmail" name="Email" id="Email" type="text" value="" maxlength="255" /><span class="mktFormMsg"></span></span>
 
-				<input id='mktFrmSubmit' type='submit' class='btn' style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value='Subscribe' name='submitButton' onclick='formSubmit(document.getElementById("mktForm_1013")); return false;' />
+				<input id="mktFrmSubmit" type="submit" class="btn" style="width: auto; overflow: visible; padding-left: .25em; padding-right: .25em;" value="Subscribe" name="submitButton" onclick="formSubmit(document.getElementById(&quot;mktForm_1013&quot;)); return false;" />
 
-				<input style='display: none;' id='mktFrmReset' type='reset' value='Clear' name='resetButton' onclick='formReset(document.getElementById("mktForm_1013")); return false;' />
+				<input style="display: none;" id="mktFrmReset" type="reset" value="Clear" name="resetButton" onclick="formReset(document.getElementById(&quot;mktForm_1013&quot;)); return false;" />
 
 				<span style="display:none;"><input type="text" name="_marketo_comments" value="" /></span>
 				<input type="hidden" name="lpId" value="-1" />
@@ -850,24 +850,24 @@ If these promises change, we need a notification in pre-docs. Docs team will:
 				<input type="hidden" name="cr" value="" />
 
 				<input type="hidden" name="searchstr" value="" />
-				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&kw={keyword}"; />
+				<input type="hidden" name="lpurl" value="http://info.puppetlabs.com/testsubscription.html?cr={creative}&amp;kw={keyword}" />
 				<input type="hidden" name="formid" value="1013" />
-				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
-				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/"; />
+				<input type="hidden" name="returnURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/" />
+				<input type="hidden" name="retURL" value="http://www.puppetlabs.com/misc/subscription-thank-you/" />
 				<input type="hidden" name="_mkt_disp" value="return" />
 				<input type="hidden" name="_mkt_trk" value="" />
 
 				</form>
 				<script type="text/javascript" src="http://info.puppetlabs.com/js/mktFormSupport.js"></script>
 
-				<script type="text/javascript">
+				<script type="text/javascript"><![CDATA[
 				function formSubmit(elt) {
 				return Mkto.formSubmit(elt);
 				}
 				function formReset(elt) {
 				return Mkto.formReset(elt);
 				}
-				</script>
+				]]></script>
 
 <a href="http://info.puppetlabs.com/puppet-enterprise" class="fbtn">Try Puppet Enterprise FREE</a>
 
@@ -880,23 +880,23 @@ If these promises change, we need a notification in pre-docs. Docs team will:
 		<li class="discussion"><a href="http://groups.google.com/group/puppet-dev" rel="external"><span class="indicator"></span><span>Join the Puppet Developer List</span></a></li>
                 <li class="discussion"><a href="http://groups.google.com/group/puppet-users?pli=1" rel="external"><span class="indicator"></span><span>Join the Puppet User List</span></a></li>
 
-                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&gid=696467&trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
+                <li class="linkedin"><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" rel="external"><span class="indicator"></span><span>Join the Puppet Users LinkedIn group</span></a></li>
 
               </ul>
 		<p>
-		              		<h4>Follow us&#8230;</h4>
+		              		</p><h4>Follow us&#8230;</h4>
 
               		<ul class="followus">
 
 
-			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0"></a></li>
-			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0"></a></li>
-			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0"></a></li>
-			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0"></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0"></a></li>
-			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0"></a></li>
+			<li><a href="http://feeds.feedburner.com/PuppetLabs" target="_blank"><img src="http://www.puppetlabs.com/wp-content/plugins/my-profiles/images/rss.png" border="0" /></a></li>
+			<li><a href="http://www.facebook.com/pages/Puppet-Labs/219089920711" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/facebook.png" border="0" /></a></li>
+			<li><a href="http://www.twitter.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/plugins/my-profiles/images/twitter.png" border="0" /></a></li>
+			<li><a href="http://www.linkedin.com/groups?about=&amp;gid=696467&amp;trk=anet_ug_grppro" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/LinkedIn_IN_Icon_32px.png" border="0" /></a></li>    <li><a href="https://github.com/puppetlabs" target="_blank"><img src="http://www.puppetlabs.com//wp-content/uploads/2011/01/github_icon.png" border="0" /></a></li>
+			<li><a href="https://plus.google.com/112682055028218091774?rel=author" target="_blank"><img src="https://puppetlabs.com/wp-content/uploads/2013/05/google_plus32x32.png" alt="Find Us on Google+" border="0" /></a></li>
 					</ul>
 
-              	</p>
+              	
 
             </section>
           </div>
@@ -914,7 +914,7 @@ If these promises change, we need a notification in pre-docs. Docs team will:
 
     <div id="copyright">
       <div class="site-width">
-        &copy; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
+        &#169; 2011 <a href="http://www.puppetlabs.com/" title="Puppet Labs">Puppet Labs</a>
         <span class="vcard">
          <span class="org"></span>
          <a class="email" href="mailto:info@puppetlabs.com">info@puppetlabs.com</a>
@@ -933,8 +933,8 @@ If these promises change, we need a notification in pre-docs. Docs team will:
       </div>
     </div>
 
-  	<script type="text/javascript">Cufon.now();</script>
-  	<style type="text/css">h1, h2, .btn { visibility : visible; }</style>
+  	<script type="text/javascript"><![CDATA[Cufon.now();]]></script>
+  	<style type="text/css"><![CDATA[h1, h2, .btn { visibility : visible; }]]></style>
 
 
 	</body>
