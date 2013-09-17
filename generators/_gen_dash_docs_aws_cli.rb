@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'Dash.module.rb')
+require File.join(File.dirname(__FILE__), 'Dash.rb')
 
 # directions below are relative to $docs_path
     # had to download jquery 1.9.1, even though the link is also broken on the site

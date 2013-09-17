@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'Dash.module.rb')
+require File.join(File.dirname(__FILE__), 'Dash.rb')
 
 
 # first thing, go into resources/style.css and add the following

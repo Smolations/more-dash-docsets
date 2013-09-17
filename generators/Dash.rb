@@ -5,14 +5,21 @@ require 'git'
 
 
 class Dash
-    # constants
+    # Absolute path to the root of this project
     ROOT_PATH       = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+
+    # path to the docsets folder
     DOCSETS_PATH    = File.join(ROOT_PATH, 'docsets')
+    # path to the generators folder
     GENERATORS_PATH = File.join(ROOT_PATH, 'generators')
+    # path to the resources folder
     RESOURCES_PATH  = File.join(ROOT_PATH, 'resources')
+    # path to the source docs folder (in the .gitignore for size considerations)
     SRC_DOCS_PATH   = File.join(ROOT_PATH, 'src-docs')
+    # path to the logs folder
     LOGS_PATH       = File.join(ROOT_PATH, 'logs')
 
+    # accepted Dash entry types
     ENTRY_TYPES     = [
         'Attribute',  'Binding',   'Callback',     'Category',   'Class',
         'Command',    'Constant',  'Constructor',  'Define',     'Directive',
@@ -27,15 +34,6 @@ class Dash
         'Type',       'Union',     'Value',        'Variable'
     ]
 
-    # instance attributes
-    @name
-    @display_name
-    @docs_root
-    @repo
-    @docs_dev_branch
-    @icon
-    @queries
-
     attr_reader :docset_path, :docset_contents_path, :docset_resources_path, :docset_documents_path, :docs_root, :queries
 
 
@@ -46,8 +44,10 @@ class Dash
      #  [+:docs_root+]      Relative from the src-docs folder, the location of the docs which will br processed.
      #  [+:name+]           This will become the name of the docset (_:name_.docset).
      #  [+:display_name+]   (optional) This is what displays in Dash. Defaults to :name.
+     #  [+:icon+]           (optional) A path to a user-supplied icon for the docset. It can be absolute or
+     #                      relative to the root of this project.
      #
-     #  Upon initializing, any previous docset with the same path will be moved to a backup (*.docset.bak)
+     #  Upon initializing, any previous docset with the same path will be moved to a non-tracked backup (*.docset.bak)
      #  and the docset will be re-created from scratch.
      ##
     def initialize(options = {})
@@ -122,12 +122,13 @@ class Dash
         return clean_dir_entries(@docs_root)
     end
 
-    # check if entryName is a Dash-supported Entry Type
+    # check if +entryName+ is a Dash-supported Entry Type
     def is_valid_entry(entryName)
         return ENTRY_TYPES.include?(entryName)
     end
 
     # copies the files in @docs_root into @docset_documents_path.
+    # Can pass +:noop => true+ to skip the actual file copy.
     def copy_docs(options = {})
         if options[:noop]
             return
@@ -184,7 +185,8 @@ class Dash
     end
 
     # get Nokogiri doc for new anchor. if +anchor_id+ is not passed, it will default to +name+.
-    # if +anchor_id+ is an empty string, no id attribute will be set.
+    # if +anchor_id+ is an empty string, no id attribute will be set. +type+ is an accepted
+    # Dash entry type.
     def get_dash_anchor(docReference, name, type, anchor_id = nil)
         if is_valid_entry(type)
             a = Nokogiri::XML::Node.new('a', docReference)
@@ -221,7 +223,8 @@ class Dash
         return "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"#{name}\", \"#{type}\", \"#{path}\");"
     end
 
-    # runs query in the docset's sqlite database.
+    # Runs query in the docset's sqlite database. Accepts either the query itself or you
+    # can pass the same +name+, +type+, +path+ that ypu'd pass in get_sql_insert.
     def sql_insert(*args)
         if args.length == 3
             sql_insert(get_sql_insert(*args))
@@ -249,7 +252,11 @@ class Dash
         end
     end
 
-    # execute sql statements in the +@queries+ array
+    # Execute sql statements in the @queries array. To output the queries instead of execute
+    # them, pass +:noop => true+. You can also filter by passing something like:
+    #   :filter => { :limit => 5, :name => '__construct', :type => 'Class' }
+    #
+    # All filters are optional.
     def sql_execute(options = {})
         if @queries.length > 0
             do_queries = true
@@ -376,6 +383,8 @@ class Dash
     # this method ensures that a git repo exists for the docs_root and that the master
     # branch contains the original import, and changes go on a dev branch with the
     # name @docs_dev_branch.
+    # @see http://rubydoc.info/github/schacon/ruby-git/Git
+    # @see https://github.com/schacon/ruby-git (examples)
     def get_docs_repo
         repo = nil
 
