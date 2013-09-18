@@ -1,7 +1,143 @@
-<!DOCTYPE html><html><head><title> Ansible - Provisioning - Vagrant Documentation</title><meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link href="./../../stylesheets/bootstrap-2bdef9a2.css" media=screen rel=stylesheet /><link href="./../../stylesheets/vagrantup-d5d54c59.css" media=screen rel=stylesheet /><script src="./../../javascripts/jquery-08c11650.js"></script><script src="./../../javascripts/modernizr-84c0465a.js"></script><script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script><script src="./../../javascripts/backstretch-3d1212ad.js"></script><script src="./../../javascripts/vagrantup-03aae2a8.js"></script><link href='//fonts.googleapis.com/css?family=Inconsolata' rel=stylesheet><script src="//use.typekit.net/xfs6zus.js"></script><script>try{Typekit.load();}catch(e){}</script></head><body><div class=wrapper><nav class=docs><a class=vagrant-docs-logo href="/">Vagrant Documentation</a><ul class="pull-right unstyled"><li><a href="//www.vagrantup.com/">Home</a></li></ul></nav><div class="page docs docs-home"><div class=container><div class=row><div class="sidebar span3"><aside class=sidebar-nav><div class="toggle hidden-desktop"><div class="open-close open"></div><a href="#">Contents</a></div><ul class=unstyled><li><a href="./../../v2/">Overview</a></li><li><a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a></li><li><a href="./../../v2/installation/index.html">Installation</a></li><li><a href="./../../v2/getting-started/index.html">Getting Started</a></li><li><a href="./../../v2/cli/index.html">Command-Line Interface</a></li><li><a href="./../../v2/vagrantfile/index.html">Vagrantfile</a></li><li><a href="./../../v2/boxes.html">Boxes</a></li><li class=current><a href="./../../v2/provisioning/index.html">Provisioning</a></li><ul class="sub unstyled"><li><a href="./../../v2/provisioning/basic_usage.html">Basic Usage</a></li><li><a href="./../../v2/provisioning/shell.html">Shell</a></li><li class=current><a href="./../../v2/provisioning/ansible.html">Ansible</a></li><li><a href="./../../v2/provisioning/chef_solo.html">Chef Solo</a></li><li><a href="./../../v2/provisioning/chef_client.html">Chef Client</a></li><li><a href="./../../v2/provisioning/puppet_apply.html">Puppet Apply</a></li><li><a href="./../../v2/provisioning/puppet_agent.html">Puppet Agent</a></li></ul><li><a href="./../../v2/networking/index.html">Networking</a></li><li><a href="./../../v2/synced-folders/index.html">Synced Folders</a></li><li><a href="./../../v2/multi-machine/index.html">Multi-Machine</a></li><li><a href="./../../v2/providers/index.html">Providers</a></li><li><a href="./../../v2/virtualbox/index.html">VirtualBox</a></li><li><a href="./../../v2/vmware/index.html">VMware</a></li><li><a href="./../../v2/plugins/index.html">Plugins</a></li><li><a href="./../../v2/debugging.html">Debugging</a></li></ul></aside></div><div class="page-contents span9"><div class=page-background></div><div class=row><div class="span8 offset1"><h1>Ansible Provisioner</h1><p><strong>Provisioner name: <code>&quot;ansible&quot;</code></strong></p><p>The ansible provisioner allows you to provision the guest using <a href="//ansible.cc">Ansible</a> playbooks.</p><p>Ansible playbooks are <a href="//en.wikipedia.org/wiki/YAML">YAML</a> documents that comprise the set of steps to be orchestrated on one or more machines. This documentation page will not go into how to use Ansible or how to write Ansible playbooks, since Ansible is a complete deployment and configuration management system that is beyond the scope of a single page of documentation.</p><h2>Inventory File</h2><p>When using Ansible, it needs to know on which machines a given playbook should run. It does this by way of an inventory file which lists those machines. In the context of Vagrant, there are two ways to approach working with inventory files. The first and simplest option is to not provide one to Vagrant at all. Vagrant will generate inventory files for each virtual machine it manages, and use them for provisioning machines. Generated inventory files are created adjacent to your Vagrantfile, named using the machine names set in your Vagrantfile.</p><p>The second option is for situations where you&#39;d like to have more than one virtual machine in a single inventory file, perhaps leveraging more complex playbooks or inventory grouping. If you provide the <code>ansible.inventory_path</code> option referencing a specific inventory file dedicated to your Vagrant project, that one will be used instead of generating them. Such an inventory file for use with Vagrant might look like:</p><pre><code>[vagrant]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <title> Ansible - Provisioning - Vagrant Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="./../../stylesheets/bootstrap-2bdef9a2.css" media="screen" rel="stylesheet" />
+    <link href="./../../stylesheets/vagrantup-d5d54c59.css" media="screen" rel="stylesheet" />
+    <script src="./../../javascripts/jquery-08c11650.js"></script>
+    <script src="./../../javascripts/modernizr-84c0465a.js"></script>
+    <script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script>
+    <script src="./../../javascripts/backstretch-3d1212ad.js"></script>
+    <script src="./../../javascripts/vagrantup-03aae2a8.js"></script>
+    <link href="./../..//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+    <script src="./../..//use.typekit.net/xfs6zus.js"></script>
+    <script>
+<![CDATA[try{Typekit.load();}catch(e){}]]>
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="docs">
+        <a class="vagrant-docs-logo" href="./../../">Vagrant Documentation</a>
+        <ul class="pull-right unstyled">
+          <li>
+            <a href="./../..//www.vagrantup.com/">Home</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="page docs docs-home">
+        <div class="container">
+          <div class="row">
+            <div class="sidebar span3">
+              <aside class="sidebar-nav">
+                <div class="toggle hidden-desktop">
+                  <div class="open-close open"></div>
+                  <a href="#">Contents</a>
+                </div>
+                <ul class="unstyled">
+                  <li>
+                    <a href="./../../v2/">Overview</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/installation/index.html">Installation</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/getting-started/index.html">Getting Started</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/cli/index.html">Command-Line Interface</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/vagrantfile/index.html">Vagrantfile</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/boxes.html">Boxes</a>
+                  </li>
+                  <li class="current">
+                    <a href="./../../v2/provisioning/index.html">Provisioning</a>
+                  </li>
+                  <ul class="sub unstyled">
+                    <li>
+                      <a href="./../../v2/provisioning/basic_usage.html">Basic Usage</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/provisioning/shell.html">Shell</a>
+                    </li>
+                    <li class="current">
+                      <a href="./../../v2/provisioning/ansible.html">Ansible</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/provisioning/chef_solo.html">Chef Solo</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/provisioning/chef_client.html">Chef Client</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/provisioning/puppet_apply.html">Puppet Apply</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/provisioning/puppet_agent.html">Puppet Agent</a>
+                    </li>
+                  </ul>
+                  <li>
+                    <a href="./../../v2/networking/index.html">Networking</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/synced-folders/index.html">Synced Folders</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/multi-machine/index.html">Multi-Machine</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/providers/index.html">Providers</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/virtualbox/index.html">VirtualBox</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/vmware/index.html">VMware</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/plugins/index.html">Plugins</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/debugging.html">Debugging</a>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+            <div class="page-contents span9">
+              <div class="page-background"></div>
+              <div class="row">
+                <div class="span8 offset1">
+                  <h1>Ansible Provisioner</h1>
+                  <p>
+                    <strong>Provisioner name: <code>"ansible"</code></strong>
+                  </p>
+                  <p>The ansible provisioner allows you to provision the guest using <a href="./../..//ansible.cc">Ansible</a> playbooks.</p>
+                  <p>Ansible playbooks are <a href="./../..//en.wikipedia.org/wiki/YAML">YAML</a> documents that comprise the set of steps to be orchestrated on one or more machines. This documentation page will not go into how to use Ansible or how to write Ansible playbooks, since Ansible is a complete deployment and configuration management system that is beyond the scope of a single page of documentation.</p>
+                  <h2>Inventory File</h2>
+                  <p>When using Ansible, it needs to know on which machines a given playbook should run. It does this by way of an inventory file which lists those machines. In the context of Vagrant, there are two ways to approach working with inventory files. The first and simplest option is to not provide one to Vagrant at all. Vagrant will generate inventory files for each virtual machine it manages, and use them for provisioning machines. Generated inventory files are created adjacent to your Vagrantfile, named using the machine names set in your Vagrantfile.</p>
+                  <p>The second option is for situations where you'd like to have more than one virtual machine in a single inventory file, perhaps leveraging more complex playbooks or inventory grouping. If you provide the <code>ansible.inventory_path</code> option referencing a specific inventory file dedicated to your Vagrant project, that one will be used instead of generating them. Such an inventory file for use with Vagrant might look like:</p>
+                  <pre>
+                    <code>[vagrant]
 192.168.111.222
-</code></pre><p>Where the above IP address is one set in your Vagrantfile:</p><pre><code>config.vm.network :private_network, ip: &quot;192.168.111.222&quot;
-</code></pre><h2>Playbook</h2><p>The second component of a successful Ansible provisioner setup is the Ansible playbook which contains the steps that should be run on the guest. Ansible&#39;s <a href="//ansible.cc/docs/playbooks.html">playbook documentation</a> goes into great detail on how to author playbooks, and there are a number of <a href="//ansible.cc/docs/bestpractices.html">best practices</a> that can be applied to use Ansible&#39;s powerful features effectively. A playbook that installs and starts (or restarts if it was updated) the NTP daemon via YUM looks like:</p><pre><code>---
+</code>
+                  </pre>
+                  <p>Where the above IP address is one set in your Vagrantfile:</p>
+                  <pre>
+                    <code>config.vm.network :private_network, ip: "192.168.111.222"
+</code>
+                  </pre>
+                  <h2>Playbook</h2>
+                  <p>The second component of a successful Ansible provisioner setup is the Ansible playbook which contains the steps that should be run on the guest. Ansible's <a href="./../..//ansible.cc/docs/playbooks.html">playbook documentation</a> goes into great detail on how to author playbooks, and there are a number of <a href="./../..//ansible.cc/docs/bestpractices.html">best practices</a> that can be applied to use Ansible's powerful features effectively. A playbook that installs and starts (or restarts if it was updated) the NTP daemon via YUM looks like:</p>
+                  <pre>
+                    <code>---
 - hosts: all
   tasks:
     - name: ensure ntpd is at the latest version
@@ -11,23 +147,96 @@
   handlers:
     - name: restart ntpd
       service: name=ntpd state=restarted
-</code></pre><p>You can of course target other operating systems that don&#39;t have YUM by changing the playbook tasks. Ansible ships with a number of <a href="//ansible.cc/docs/modules.html">modules</a> that make running otherwise tedious tasks dead simple.</p><h2>Running Ansible</h2><p>To run Ansible against your Vagrant guest, the basic Vagrantfile configuration looks like:</p><pre><code class="ruby">Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.provision &quot;ansible&quot; do |ansible|
-    ansible.playbook = &quot;playbook.yml&quot;
+</code>
+                  </pre>
+                  <p>You can of course target other operating systems that don't have YUM by changing the playbook tasks. Ansible ships with a number of <a href="./../..//ansible.cc/docs/modules.html">modules</a> that make running otherwise tedious tasks dead simple.</p>
+                  <h2>Running Ansible</h2>
+                  <p>To run Ansible against your Vagrant guest, the basic Vagrantfile configuration looks like:</p>
+                  <pre>
+                    <code class="ruby">Vagrant.configure("2") do |config|
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
   end
 end
-</code></pre><p>This causes Vagrant to run the <code>playbook.yml</code> playbook against all hosts in the inventory file. Since an Ansible playbook can include many files, you may also collect the related files in a directory structure like this:</p><pre><code>$ tree
+</code>
+                  </pre>
+                  <p>This causes Vagrant to run the <code>playbook.yml</code> playbook against all hosts in the inventory file. Since an Ansible playbook can include many files, you may also collect the related files in a directory structure like this:</p>
+                  <pre>
+                    <code>$ tree
 .
 |-- Vagrantfile
 |-- provisioning
 |   |-- group_vars
 |           |-- all
 |   |-- playbook.yml
-</code></pre><p>In such an arrangement, the <code>ansible.playbook</code> path should be adjusted accordingly:</p><pre><code class="ruby">Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.provision &quot;ansible&quot; do |ansible|
-    ansible.playbook = &quot;provisioning/playbook.yml&quot;
+</code>
+                  </pre>
+                  <p>In such an arrangement, the <code>ansible.playbook</code> path should be adjusted accordingly:</p>
+                  <pre>
+                    <code class="ruby">Vagrant.configure("2") do |config|
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/playbook.yml"
   end
 end
-</code></pre><h2>Additional Options</h2><p>The Ansible provisioner also includes a number of additional options that can be set, all of which get passed to the <code>ansible-playbook</code> command that ships with Ansible.</p><ul><li><code>ansible.extra_vars</code> can be used to pass a hash of additional variables to the playbook. For example: <code> ansible.extra_vars = { ntp_server: &quot;pool.ntp.org&quot;, nginx_workers: 4 } </code> These variables take the highest precedence over any other variables.</li><li><code>ansible.sudo</code> can be set to <code>true</code> to cause Ansible to perform commands using sudo.</li><li><code>ansible.sudo_user</code> can be set to a string containing a username on the guest who should be used by the sudo command.</li><li><code>ansible.ask_sudo_pass</code> can be set to <code>true</code> to require Ansible to prompt for a sudo password.</li><li><code>ansible.limit</code> can be set to a string or an array of machines or groups from the inventory file to further narrow down which hosts are affected.</li><li><code>ansible.verbose</code> can be set to <code>true</code> to increase Ansible&#39;s verbosity to obtain more detailed logging during playbook execution.</li></ul></div></div></div></div></div></div><footer><div class=container><div class=row><div class=span12><ul class="unstyled footer-nav"><li><a href="//docs.vagrantup.com/">Documentation</a></li><li><a href="//www.vagrantup.com/about">About</a></li><li><a href="//www.vagrantup.com/support">Support</a></li><a href="//downloads.vagrantup.com/"><li class="button inline-button">Download</li></a></ul><ul class="unstyled logos"><a href="//www.vagrantup.com"><li class=vagrant-logo-monochrome></li></a><li><span>by</span></li><a href="//www.hashicorp.com"><li class="hashi-logo-monochrome "></li></a></ul></div></div><div class=row><h6 class=legal> &#169; 2013 HashiCorp </h6></div></div></footer></div><script>
+</code>
+                  </pre>
+                  <h2>Additional Options</h2>
+                  <p>The Ansible provisioner also includes a number of additional options that can be set, all of which get passed to the <code>ansible-playbook</code> command that ships with Ansible.</p>
+                  <ul>
+                    <li><code>ansible.extra_vars</code> can be used to pass a hash of additional variables to the playbook. For example: <code> ansible.extra_vars = { ntp_server: "pool.ntp.org", nginx_workers: 4 } </code> These variables take the highest precedence over any other variables.</li>
+                    <li><code>ansible.sudo</code> can be set to <code>true</code> to cause Ansible to perform commands using sudo.</li>
+                    <li><code>ansible.sudo_user</code> can be set to a string containing a username on the guest who should be used by the sudo command.</li>
+                    <li><code>ansible.ask_sudo_pass</code> can be set to <code>true</code> to require Ansible to prompt for a sudo password.</li>
+                    <li><code>ansible.limit</code> can be set to a string or an array of machines or groups from the inventory file to further narrow down which hosts are affected.</li>
+                    <li><code>ansible.verbose</code> can be set to <code>true</code> to increase Ansible's verbosity to obtain more detailed logging during playbook execution.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="span12">
+              <ul class="unstyled footer-nav">
+                <li>
+                  <a href="./../..//docs.vagrantup.com/">Documentation</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/about">About</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/support">Support</a>
+                </li>
+                <a href="./../..//downloads.vagrantup.com/">
+                  <li class="button inline-button">Download</li>
+                </a>
+              </ul>
+              <ul class="unstyled logos">
+                <a href="./../..//www.vagrantup.com">
+                  <li class="vagrant-logo-monochrome"></li>
+                </a>
+                <li>
+                  <span>by</span>
+                </li>
+                <a href="./../..//www.hashicorp.com">
+                  <li class="hashi-logo-monochrome "></li>
+                </a>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <h6 class="legal"> &#169; 2013 HashiCorp </h6>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+<![CDATA[
 			$(".big-background").backstretch("assets/photos/full_width.jpg");
-		</script></body></html>
+		]]>
+    </script>
+  </body>
+</html>

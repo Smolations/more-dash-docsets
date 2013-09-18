@@ -10,16 +10,11 @@ dash = Dash.new({
 $dash = dash
 
 
-# won't need to touch these files
-entries = dash.get_clean_docs_entries([
-    'config.ru', 'favicon.ico', 'module_cheat_sheet.pdf', 'puppet_core_types_cheatsheet.pdf',
-    'README.txt', 'sitemap.xml', 'images'
-])
 # this is how we'll keep track of how deep in the directory structure we are as we make paths
 # relative. this array is joined with the system file separator and prepended to absolute paths.
 $levels = [ '.' ]
 
-# shortcut method to increase/decrease levels.
+# shortcut methods to increase/decrease levels.
 def level_up
     $levels.push('/..')
 end
@@ -27,11 +22,13 @@ def level_down
     $levels.pop
 end
 
-$c = true
 $fileCount = 0
 def dive(path)
     # puts "#{path}"
-    entries = $dash.clean_dir_entries(path, ['latest', 'images', 'assets', 'fonts'])
+    entries = $dash.clean_dir_entries(path, [
+        'config.ru', 'favicon.ico', 'module_cheat_sheet.pdf', 'puppet_core_types_cheatsheet.pdf',
+        'README.txt', 'sitemap.xml', 'images', 'latest', 'images', 'assets', 'fonts'
+    ])
 
 
     entries.each do |entry|
@@ -51,25 +48,12 @@ def dive(path)
             doc.css('[href]').each {|element| element['href'].match(/^\//) && element['href'] = $levels.join + element['href'] }
             doc.css('[src]').each {|element| element['src'].match(/^\//) && element['src'] = $levels.join + element['src'] }
             $dash.save_noko_doc(doc, entry_path)
-            # if $c
-                # fix relative paths for src="" and href="" attributes
-                # `sed -i '' -e 's: href="/: href="#{$levels.join}/:' #{entry_path}`
-                # `sed -i '' -e "s: href='/: href='#{$levels.join}/:" #{entry_path}`
-                # `sed -i '' -e 's: src="/: src="#{$levels.join}/:' #{entry_path}`
-                # `sed -i '' -e "s: src='/: src='#{$levels.join}/:" #{entry_path}`
 
-                # remove google analytics and tracking
-                `sed -i '' -e '/<!-- Google analytics -->/,/<!-- End Google analytics -->/d' #{entry_path}`
-                `sed -i '' -e '/<!-- BEGIN: MARKETO TRACKING -->/,/<!-- END: MARKETO TRACKING -->/d' #{entry_path}`
-                # $c = false
-            # end
-            # puts "in (#{entry_path})  href=\"#{$levels.join}/files/css....."
-            # `echo "in (#{entry_path})  href=\"#{$levels.join}/files/css....."`
-            # parse html
-
+            # remove google analytics and tracking
+            `sed -i '' -e '/<!-- Google analytics -->/,/<!-- End Google analytics -->/d' #{entry_path}`
+            `sed -i '' -e '/<!-- BEGIN: MARKETO TRACKING -->/,/<!-- END: MARKETO TRACKING -->/d' #{entry_path}`
         end
     end
-
 end
 
 

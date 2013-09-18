@@ -1,3 +1,186 @@
-<!DOCTYPE html><html><head><title> config.vm - Vagrantfile - Vagrant Documentation</title><meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link href="./../../stylesheets/bootstrap-2bdef9a2.css" media=screen rel=stylesheet /><link href="./../../stylesheets/vagrantup-d5d54c59.css" media=screen rel=stylesheet /><script src="./../../javascripts/jquery-08c11650.js"></script><script src="./../../javascripts/modernizr-84c0465a.js"></script><script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script><script src="./../../javascripts/backstretch-3d1212ad.js"></script><script src="./../../javascripts/vagrantup-03aae2a8.js"></script><link href='//fonts.googleapis.com/css?family=Inconsolata' rel=stylesheet><script src="//use.typekit.net/xfs6zus.js"></script><script>try{Typekit.load();}catch(e){}</script></head><body><div class=wrapper><nav class=docs><a class=vagrant-docs-logo href="/">Vagrant Documentation</a><ul class="pull-right unstyled"><li><a href="//www.vagrantup.com/">Home</a></li></ul></nav><div class="page docs docs-home"><div class=container><div class=row><div class="sidebar span3"><aside class=sidebar-nav><div class="toggle hidden-desktop"><div class="open-close open"></div><a href="#">Contents</a></div><ul class=unstyled><li><a href="./../../v2/">Overview</a></li><li><a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a></li><li><a href="./../../v2/installation/index.html">Installation</a></li><li><a href="./../../v2/getting-started/index.html">Getting Started</a></li><li><a href="./../../v2/cli/index.html">Command-Line Interface</a></li><li class=current><a href="./../../v2/vagrantfile/index.html">Vagrantfile</a></li><ul class="sub unstyled"><li><a href="./../../v2/vagrantfile/version.html">Configuration Version</a></li><li class=current><a href="./../../v2/vagrantfile/machine_settings.html">Machine Settings</a></li><li><a href="./../../v2/vagrantfile/ssh_settings.html">SSH Settings</a></li><li><a href="./../../v2/vagrantfile/vagrant_settings.html">Vagrant Settings</a></li></ul><li><a href="./../../v2/boxes.html">Boxes</a></li><li><a href="./../../v2/provisioning/index.html">Provisioning</a></li><li><a href="./../../v2/networking/index.html">Networking</a></li><li><a href="./../../v2/synced-folders/index.html">Synced Folders</a></li><li><a href="./../../v2/multi-machine/index.html">Multi-Machine</a></li><li><a href="./../../v2/providers/index.html">Providers</a></li><li><a href="./../../v2/virtualbox/index.html">VirtualBox</a></li><li><a href="./../../v2/vmware/index.html">VMware</a></li><li><a href="./../../v2/plugins/index.html">Plugins</a></li><li><a href="./../../v2/debugging.html">Debugging</a></li></ul></aside></div><div class="page-contents span9"><div class=page-background></div><div class=row><div class="span8 offset1"><h1>Machine Settings</h1><p><strong>Config namespace: <code>config.vm</code></strong></p><p>The settings within <code>config.vm</code> modify the configuration of the machine that Vagrant manages.</p><h2>Available Settings</h2><p><code>config.vm.boot_timeout</code> - The time in seconds that Vagrant will wait for the machine to boot and be accessible. By default this is 300 seconds.</p><hr><p><code>config.vm.box</code> - This configures what <a href="./../../v2/boxes/index.html">box</a> the machine will be brought up against. The value here should match one of the installed boxes on the system.</p><hr><p><code>config.vm.box_url</code> - The URL that the configured box can be found at. If the box is not installed on the system, it will be retrieved from this URL when <code>vagrant up</code> is run.</p><hr><p><code>config.vm.graceful_halt_timeout</code> - The time in seconds that Vagrant will wait for the machine to gracefully halt when <code>vagrant halt</code> is called. Defaults to 300 seconds.</p><hr><p><code>config.vm.guest</code> - The guest OS that will be running within this machine. This defaults to <code>:linux</code>, and Vagrant will auto-detect the proper distro. Vagrant needs to know this information to perform some guest OS-specific things such as mounting folders and configuring networks.</p><hr><p><code>config.vm.hostname</code> - The hostname the machine should have. Defaults to nil. If nil, Vagrant won&#39;t manage the hostname. If set to a string, the hostname will be set on boot.</p><hr><p><code>config.vm.network</code> - Configures <a href="./../../v2/networking/">networks</a> on the machine. Please see the networking page for more information.</p><hr><p><code>config.vm.provider</code> - Configures <a href="./../../v2/providers/configuration.html">provider-specific configuration</a>, which is used to modify settings which are specific to a certain <a href="./../../v2/providers/">provider</a>. If the provider you&#39;re configuring doesn&#39;t exist or is not setup on the system of the person who runs <code>vagrant up</code>, Vagrant will ignore this configuration block. This allows a Vagrantfile that is configured for many providers to be shared among a group of people who may not have all the same providers installed.</p><hr><p><code>config.vm.provision</code> - Configures <a href="./../../v2/provisioning/">provisioners</a> on the machine, so that software can be automatically installed and configured when the machine is created. Please see the page on provisioners for more information on how this setting works.</p><hr><p><code>config.vm.synced_folder</code> - Configures <a href="./../../v2/synced-folders/">synced folders</a> on the machine, so that folders on your host machine can be synced to and from the guest machine. Please see the page on synced folders for more information on how this setting works.</p><hr><p><code>config.vm.usable_port_range</code> - A range of ports Vagrant can use for handling port collisions and such. Defaults to <code>2200..2250</code>.</p><hr></div></div></div></div></div></div><footer><div class=container><div class=row><div class=span12><ul class="unstyled footer-nav"><li><a href="//docs.vagrantup.com/">Documentation</a></li><li><a href="//www.vagrantup.com/about">About</a></li><li><a href="//www.vagrantup.com/support">Support</a></li><a href="//downloads.vagrantup.com/"><li class="button inline-button">Download</li></a></ul><ul class="unstyled logos"><a href="//www.vagrantup.com"><li class=vagrant-logo-monochrome></li></a><li><span>by</span></li><a href="//www.hashicorp.com"><li class="hashi-logo-monochrome "></li></a></ul></div></div><div class=row><h6 class=legal> &#169; 2013 HashiCorp </h6></div></div></footer></div><script>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <title> config.vm - Vagrantfile - Vagrant Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="./../../stylesheets/bootstrap-2bdef9a2.css" media="screen" rel="stylesheet" />
+    <link href="./../../stylesheets/vagrantup-d5d54c59.css" media="screen" rel="stylesheet" />
+    <script src="./../../javascripts/jquery-08c11650.js"></script>
+    <script src="./../../javascripts/modernizr-84c0465a.js"></script>
+    <script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script>
+    <script src="./../../javascripts/backstretch-3d1212ad.js"></script>
+    <script src="./../../javascripts/vagrantup-03aae2a8.js"></script>
+    <link href="./../..//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+    <script src="./../..//use.typekit.net/xfs6zus.js"></script>
+    <script>
+<![CDATA[try{Typekit.load();}catch(e){}]]>
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="docs">
+        <a class="vagrant-docs-logo" href="./../../">Vagrant Documentation</a>
+        <ul class="pull-right unstyled">
+          <li>
+            <a href="./../..//www.vagrantup.com/">Home</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="page docs docs-home">
+        <div class="container">
+          <div class="row">
+            <div class="sidebar span3">
+              <aside class="sidebar-nav">
+                <div class="toggle hidden-desktop">
+                  <div class="open-close open"></div>
+                  <a href="#">Contents</a>
+                </div>
+                <ul class="unstyled">
+                  <li>
+                    <a href="./../../v2/">Overview</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/installation/index.html">Installation</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/getting-started/index.html">Getting Started</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/cli/index.html">Command-Line Interface</a>
+                  </li>
+                  <li class="current">
+                    <a href="./../../v2/vagrantfile/index.html">Vagrantfile</a>
+                  </li>
+                  <ul class="sub unstyled">
+                    <li>
+                      <a href="./../../v2/vagrantfile/version.html">Configuration Version</a>
+                    </li>
+                    <li class="current">
+                      <a href="./../../v2/vagrantfile/machine_settings.html">Machine Settings</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/vagrantfile/ssh_settings.html">SSH Settings</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/vagrantfile/vagrant_settings.html">Vagrant Settings</a>
+                    </li>
+                  </ul>
+                  <li>
+                    <a href="./../../v2/boxes.html">Boxes</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/provisioning/index.html">Provisioning</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/networking/index.html">Networking</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/synced-folders/index.html">Synced Folders</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/multi-machine/index.html">Multi-Machine</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/providers/index.html">Providers</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/virtualbox/index.html">VirtualBox</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/vmware/index.html">VMware</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/plugins/index.html">Plugins</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/debugging.html">Debugging</a>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+            <div class="page-contents span9">
+              <div class="page-background"></div>
+              <div class="row">
+                <div class="span8 offset1">
+                  <h1>Machine Settings</h1>
+                  <p>
+                    <strong>Config namespace: <code>config.vm</code></strong>
+                  </p>
+                  <p>The settings within <code>config.vm</code> modify the configuration of the machine that Vagrant manages.</p>
+                  <h2>Available Settings</h2>
+                  <p><code>config.vm.boot_timeout</code> - The time in seconds that Vagrant will wait for the machine to boot and be accessible. By default this is 300 seconds.</p>
+                  <hr />
+                  <p><code>config.vm.box</code> - This configures what <a href="./../../v2/boxes/index.html">box</a> the machine will be brought up against. The value here should match one of the installed boxes on the system.</p>
+                  <hr />
+                  <p><code>config.vm.box_url</code> - The URL that the configured box can be found at. If the box is not installed on the system, it will be retrieved from this URL when <code>vagrant up</code> is run.</p>
+                  <hr />
+                  <p><code>config.vm.graceful_halt_timeout</code> - The time in seconds that Vagrant will wait for the machine to gracefully halt when <code>vagrant halt</code> is called. Defaults to 300 seconds.</p>
+                  <hr />
+                  <p><code>config.vm.guest</code> - The guest OS that will be running within this machine. This defaults to <code>:linux</code>, and Vagrant will auto-detect the proper distro. Vagrant needs to know this information to perform some guest OS-specific things such as mounting folders and configuring networks.</p>
+                  <hr />
+                  <p><code>config.vm.hostname</code> - The hostname the machine should have. Defaults to nil. If nil, Vagrant won't manage the hostname. If set to a string, the hostname will be set on boot.</p>
+                  <hr />
+                  <p><code>config.vm.network</code> - Configures <a href="./../../v2/networking/">networks</a> on the machine. Please see the networking page for more information.</p>
+                  <hr />
+                  <p><code>config.vm.provider</code> - Configures <a href="./../../v2/providers/configuration.html">provider-specific configuration</a>, which is used to modify settings which are specific to a certain <a href="./../../v2/providers/">provider</a>. If the provider you're configuring doesn't exist or is not setup on the system of the person who runs <code>vagrant up</code>, Vagrant will ignore this configuration block. This allows a Vagrantfile that is configured for many providers to be shared among a group of people who may not have all the same providers installed.</p>
+                  <hr />
+                  <p><code>config.vm.provision</code> - Configures <a href="./../../v2/provisioning/">provisioners</a> on the machine, so that software can be automatically installed and configured when the machine is created. Please see the page on provisioners for more information on how this setting works.</p>
+                  <hr />
+                  <p><code>config.vm.synced_folder</code> - Configures <a href="./../../v2/synced-folders/">synced folders</a> on the machine, so that folders on your host machine can be synced to and from the guest machine. Please see the page on synced folders for more information on how this setting works.</p>
+                  <hr />
+                  <p><code>config.vm.usable_port_range</code> - A range of ports Vagrant can use for handling port collisions and such. Defaults to <code>2200..2250</code>.</p>
+                  <hr />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="span12">
+              <ul class="unstyled footer-nav">
+                <li>
+                  <a href="./../..//docs.vagrantup.com/">Documentation</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/about">About</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/support">Support</a>
+                </li>
+                <a href="./../..//downloads.vagrantup.com/">
+                  <li class="button inline-button">Download</li>
+                </a>
+              </ul>
+              <ul class="unstyled logos">
+                <a href="./../..//www.vagrantup.com">
+                  <li class="vagrant-logo-monochrome"></li>
+                </a>
+                <li>
+                  <span>by</span>
+                </li>
+                <a href="./../..//www.hashicorp.com">
+                  <li class="hashi-logo-monochrome "></li>
+                </a>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <h6 class="legal"> &#169; 2013 HashiCorp </h6>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+<![CDATA[
 			$(".big-background").backstretch("assets/photos/full_width.jpg");
-		</script></body></html>
+		]]>
+    </script>
+  </body>
+</html>

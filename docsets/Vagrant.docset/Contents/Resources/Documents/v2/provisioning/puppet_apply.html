@@ -1,34 +1,238 @@
-<!DOCTYPE html><html><head><title> Puppet Apply - Provisioning - Vagrant Documentation</title><meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link href="./../../stylesheets/bootstrap-2bdef9a2.css" media=screen rel=stylesheet /><link href="./../../stylesheets/vagrantup-d5d54c59.css" media=screen rel=stylesheet /><script src="./../../javascripts/jquery-08c11650.js"></script><script src="./../../javascripts/modernizr-84c0465a.js"></script><script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script><script src="./../../javascripts/backstretch-3d1212ad.js"></script><script src="./../../javascripts/vagrantup-03aae2a8.js"></script><link href='//fonts.googleapis.com/css?family=Inconsolata' rel=stylesheet><script src="//use.typekit.net/xfs6zus.js"></script><script>try{Typekit.load();}catch(e){}</script></head><body><div class=wrapper><nav class=docs><a class=vagrant-docs-logo href="/">Vagrant Documentation</a><ul class="pull-right unstyled"><li><a href="//www.vagrantup.com/">Home</a></li></ul></nav><div class="page docs docs-home"><div class=container><div class=row><div class="sidebar span3"><aside class=sidebar-nav><div class="toggle hidden-desktop"><div class="open-close open"></div><a href="#">Contents</a></div><ul class=unstyled><li><a href="./../../v2/">Overview</a></li><li><a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a></li><li><a href="./../../v2/installation/index.html">Installation</a></li><li><a href="./../../v2/getting-started/index.html">Getting Started</a></li><li><a href="./../../v2/cli/index.html">Command-Line Interface</a></li><li><a href="./../../v2/vagrantfile/index.html">Vagrantfile</a></li><li><a href="./../../v2/boxes.html">Boxes</a></li><li class=current><a href="./../../v2/provisioning/index.html">Provisioning</a></li><ul class="sub unstyled"><li><a href="./../../v2/provisioning/basic_usage.html">Basic Usage</a></li><li><a href="./../../v2/provisioning/shell.html">Shell</a></li><li><a href="./../../v2/provisioning/ansible.html">Ansible</a></li><li><a href="./../../v2/provisioning/chef_solo.html">Chef Solo</a></li><li><a href="./../../v2/provisioning/chef_client.html">Chef Client</a></li><li class=current><a href="./../../v2/provisioning/puppet_apply.html">Puppet Apply</a></li><li><a href="./../../v2/provisioning/puppet_agent.html">Puppet Agent</a></li></ul><li><a href="./../../v2/networking/index.html">Networking</a></li><li><a href="./../../v2/synced-folders/index.html">Synced Folders</a></li><li><a href="./../../v2/multi-machine/index.html">Multi-Machine</a></li><li><a href="./../../v2/providers/index.html">Providers</a></li><li><a href="./../../v2/virtualbox/index.html">VirtualBox</a></li><li><a href="./../../v2/vmware/index.html">VMware</a></li><li><a href="./../../v2/plugins/index.html">Plugins</a></li><li><a href="./../../v2/debugging.html">Debugging</a></li></ul></aside></div><div class="page-contents span9"><div class=page-background></div><div class=row><div class="span8 offset1"><h1>Puppet Apply Provisioner</h1><p><strong>Provisioner name: <code>puppet</code></strong></p><p>The Puppet provisioner allows you to provision the guest using <a href="//www.puppetlabs.com/puppet">Puppet</a>, specifically by calling <code>puppet apply</code>, without a Puppet Master.</p><div class="alert alert-warn"><p><strong>Warning:</strong> If you're not familiar with Puppet and Vagrant already, I recommend starting with the <a href="./../../v2/provisioning/shell.html">shell provisioner</a>. However, if you're comfortable with Vagrant already, Vagrant is the best way to learn Puppet. </p></div><h2>Bare Minimum</h2><p>The quickest way to get started with the Puppet provisioner is to just enable it:</p><pre><code class="ruby">Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.provision &quot;puppet&quot;
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <title> Puppet Apply - Provisioning - Vagrant Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="./../../stylesheets/bootstrap-2bdef9a2.css" media="screen" rel="stylesheet" />
+    <link href="./../../stylesheets/vagrantup-d5d54c59.css" media="screen" rel="stylesheet" />
+    <script src="./../../javascripts/jquery-08c11650.js"></script>
+    <script src="./../../javascripts/modernizr-84c0465a.js"></script>
+    <script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script>
+    <script src="./../../javascripts/backstretch-3d1212ad.js"></script>
+    <script src="./../../javascripts/vagrantup-03aae2a8.js"></script>
+    <link href="./../..//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+    <script src="./../..//use.typekit.net/xfs6zus.js"></script>
+    <script>
+<![CDATA[try{Typekit.load();}catch(e){}]]>
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="docs">
+        <a class="vagrant-docs-logo" href="./../../">Vagrant Documentation</a>
+        <ul class="pull-right unstyled">
+          <li>
+            <a href="./../..//www.vagrantup.com/">Home</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="page docs docs-home">
+        <div class="container">
+          <div class="row">
+            <div class="sidebar span3">
+              <aside class="sidebar-nav">
+                <div class="toggle hidden-desktop">
+                  <div class="open-close open"></div>
+                  <a href="#">Contents</a>
+                </div>
+                <ul class="unstyled">
+                  <li>
+                    <a href="./../../v2/">Overview</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/installation/index.html">Installation</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/getting-started/index.html">Getting Started</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/cli/index.html">Command-Line Interface</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/vagrantfile/index.html">Vagrantfile</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/boxes.html">Boxes</a>
+                  </li>
+                  <li class="current">
+                    <a href="./../../v2/provisioning/index.html">Provisioning</a>
+                  </li>
+                  <ul class="sub unstyled">
+                    <li>
+                      <a href="./../../v2/provisioning/basic_usage.html">Basic Usage</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/provisioning/shell.html">Shell</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/provisioning/ansible.html">Ansible</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/provisioning/chef_solo.html">Chef Solo</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/provisioning/chef_client.html">Chef Client</a>
+                    </li>
+                    <li class="current">
+                      <a href="./../../v2/provisioning/puppet_apply.html">Puppet Apply</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/provisioning/puppet_agent.html">Puppet Agent</a>
+                    </li>
+                  </ul>
+                  <li>
+                    <a href="./../../v2/networking/index.html">Networking</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/synced-folders/index.html">Synced Folders</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/multi-machine/index.html">Multi-Machine</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/providers/index.html">Providers</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/virtualbox/index.html">VirtualBox</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/vmware/index.html">VMware</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/plugins/index.html">Plugins</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/debugging.html">Debugging</a>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+            <div class="page-contents span9">
+              <div class="page-background"></div>
+              <div class="row">
+                <div class="span8 offset1">
+                  <h1>Puppet Apply Provisioner</h1>
+                  <p>
+                    <strong>Provisioner name: <code>puppet</code></strong>
+                  </p>
+                  <p>The Puppet provisioner allows you to provision the guest using <a href="./../..//www.puppetlabs.com/puppet">Puppet</a>, specifically by calling <code>puppet apply</code>, without a Puppet Master.</p>
+                  <div class="alert alert-warn">
+                    <p><strong>Warning:</strong> If you're not familiar with Puppet and Vagrant already, I recommend starting with the <a href="./../../v2/provisioning/shell.html">shell provisioner</a>. However, if you're comfortable with Vagrant already, Vagrant is the best way to learn Puppet. </p>
+                  </div>
+                  <h2>Bare Minimum</h2>
+                  <p>The quickest way to get started with the Puppet provisioner is to just enable it:</p>
+                  <pre>
+                    <code class="ruby">Vagrant.configure("2") do |config|
+  config.vm.provision "puppet"
 end
-</code></pre><p>By default, Vagrant will configure Puppet to look for manifests in the &quot;manifests&quot; folder relative to the project root, and will use the &quot;default.pp&quot; manifest as an entry-point. This means, if your directory tree looks like the one below, you can get started with Puppet with just that one line in your Vagrantfile.</p><pre><code>$ tree
+</code>
+                  </pre>
+                  <p>By default, Vagrant will configure Puppet to look for manifests in the "manifests" folder relative to the project root, and will use the "default.pp" manifest as an entry-point. This means, if your directory tree looks like the one below, you can get started with Puppet with just that one line in your Vagrantfile.</p>
+                  <pre>
+                    <code>$ tree
 .
 |-- Vagrantfile
 |-- manifests
-|   |-- default.pp
-</code></pre><h2>Custom Manifest Settings</h2><p>Of course, you&#39;re able to put and name your manifests whatever you&#39;d like. You can override both the directory where Puppet looks for manifests with <code>manifests_path</code>, and the manifest file used as the entry-point with <code>manifest_file</code>:</p><pre><code class="ruby">Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.provision &quot;puppet&quot; do |puppet|
-    puppet.manifests_path = &quot;my_manifests&quot;
-    puppet.manifest_file = &quot;default.pp&quot;
+|&#160;&#160; |-- default.pp
+</code>
+                  </pre>
+                  <h2>Custom Manifest Settings</h2>
+                  <p>Of course, you're able to put and name your manifests whatever you'd like. You can override both the directory where Puppet looks for manifests with <code>manifests_path</code>, and the manifest file used as the entry-point with <code>manifest_file</code>:</p>
+                  <pre>
+                    <code class="ruby">Vagrant.configure("2") do |config|
+  config.vm.provision "puppet" do |puppet|
+    puppet.manifests_path = "my_manifests"
+    puppet.manifest_file = "default.pp"
   end
 end
-</code></pre><p>The path can be relative or absolute. If it is relative, it is relative to the project root.</p><h2>Modules</h2><p>Vagrant also supports provisioning with <a href="//docs.puppetlabs.com/guides/modules.html">Puppet modules</a>. This is done by specifying a path to a modules folder where modules are located. The manifest file is still used as an entry-point.</p><pre><code class="ruby">Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.provision &quot;puppet&quot; do |puppet|
-    puppet.module_path = &quot;modules&quot;
+</code>
+                  </pre>
+                  <p>The path can be relative or absolute. If it is relative, it is relative to the project root.</p>
+                  <h2>Modules</h2>
+                  <p>Vagrant also supports provisioning with <a href="./../..//docs.puppetlabs.com/guides/modules.html">Puppet modules</a>. This is done by specifying a path to a modules folder where modules are located. The manifest file is still used as an entry-point.</p>
+                  <pre>
+                    <code class="ruby">Vagrant.configure("2") do |config|
+  config.vm.provision "puppet" do |puppet|
+    puppet.module_path = "modules"
   end
 end
-</code></pre><p>Just like the manifests path, the modules path is relative to the project root if a relative path is given.</p><h2>Custom Facts</h2><p>Custom facts to be exposed by <a href="//puppetlabs.com/puppet/related-projects/facter/">Facter</a> can be specified as well:</p><pre><code class="ruby">Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.provision &quot;puppet&quot; do |puppet|
+</code>
+                  </pre>
+                  <p>Just like the manifests path, the modules path is relative to the project root if a relative path is given.</p>
+                  <h2>Custom Facts</h2>
+                  <p>Custom facts to be exposed by <a href="./../..//puppetlabs.com/puppet/related-projects/facter/">Facter</a> can be specified as well:</p>
+                  <pre>
+                    <code class="ruby">Vagrant.configure("2") do |config|
+  config.vm.provision "puppet" do |puppet|
     puppet.facter = {
-      &quot;vagrant&quot; =&gt; &quot;1&quot;
+      "vagrant" =&gt; "1"
     }
   end
 end
-</code></pre><p>Now, the <code>$vagrant</code> variable in your Puppet manifests will equal &quot;1&quot;.</p><h2>Additional Options</h2><p>Puppet supports a lot of command-line flags. Basically any setting can be overriden on the command line. To give you the most power and flexibility possible with Puppet, Vagrant allows you to specify custom command line flags to use:</p><pre><code class="ruby">Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.provision &quot;puppet&quot; do |puppet|
-    puppet.options = &quot;--verbose --debug&quot;
+</code>
+                  </pre>
+                  <p>Now, the <code>$vagrant</code> variable in your Puppet manifests will equal "1".</p>
+                  <h2>Additional Options</h2>
+                  <p>Puppet supports a lot of command-line flags. Basically any setting can be overriden on the command line. To give you the most power and flexibility possible with Puppet, Vagrant allows you to specify custom command line flags to use:</p>
+                  <pre>
+                    <code class="ruby">Vagrant.configure("2") do |config|
+  config.vm.provision "puppet" do |puppet|
+    puppet.options = "--verbose --debug"
   end
 end
-</code></pre></div></div></div></div></div></div><footer><div class=container><div class=row><div class=span12><ul class="unstyled footer-nav"><li><a href="//docs.vagrantup.com/">Documentation</a></li><li><a href="//www.vagrantup.com/about">About</a></li><li><a href="//www.vagrantup.com/support">Support</a></li><a href="//downloads.vagrantup.com/"><li class="button inline-button">Download</li></a></ul><ul class="unstyled logos"><a href="//www.vagrantup.com"><li class=vagrant-logo-monochrome></li></a><li><span>by</span></li><a href="//www.hashicorp.com"><li class="hashi-logo-monochrome "></li></a></ul></div></div><div class=row><h6 class=legal> &#169; 2013 HashiCorp </h6></div></div></footer></div><script>
+</code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="span12">
+              <ul class="unstyled footer-nav">
+                <li>
+                  <a href="./../..//docs.vagrantup.com/">Documentation</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/about">About</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/support">Support</a>
+                </li>
+                <a href="./../..//downloads.vagrantup.com/">
+                  <li class="button inline-button">Download</li>
+                </a>
+              </ul>
+              <ul class="unstyled logos">
+                <a href="./../..//www.vagrantup.com">
+                  <li class="vagrant-logo-monochrome"></li>
+                </a>
+                <li>
+                  <span>by</span>
+                </li>
+                <a href="./../..//www.hashicorp.com">
+                  <li class="hashi-logo-monochrome "></li>
+                </a>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <h6 class="legal"> &#169; 2013 HashiCorp </h6>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+<![CDATA[
 			$(".big-background").backstretch("assets/photos/full_width.jpg");
-		</script></body></html>
+		]]>
+    </script>
+  </body>
+</html>

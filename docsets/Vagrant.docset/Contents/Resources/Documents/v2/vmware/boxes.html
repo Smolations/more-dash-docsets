@@ -1,4 +1,125 @@
-<!DOCTYPE html><html><head><title> Box Format - VMware Provider - Vagrant Documentation</title><meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link href="./../../stylesheets/bootstrap-2bdef9a2.css" media=screen rel=stylesheet /><link href="./../../stylesheets/vagrantup-d5d54c59.css" media=screen rel=stylesheet /><script src="./../../javascripts/jquery-08c11650.js"></script><script src="./../../javascripts/modernizr-84c0465a.js"></script><script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script><script src="./../../javascripts/backstretch-3d1212ad.js"></script><script src="./../../javascripts/vagrantup-03aae2a8.js"></script><link href='//fonts.googleapis.com/css?family=Inconsolata' rel=stylesheet><script src="//use.typekit.net/xfs6zus.js"></script><script>try{Typekit.load();}catch(e){}</script></head><body><div class=wrapper><nav class=docs><a class=vagrant-docs-logo href="/">Vagrant Documentation</a><ul class="pull-right unstyled"><li><a href="//www.vagrantup.com/">Home</a></li></ul></nav><div class="page docs docs-home"><div class=container><div class=row><div class="sidebar span3"><aside class=sidebar-nav><div class="toggle hidden-desktop"><div class="open-close open"></div><a href="#">Contents</a></div><ul class=unstyled><li><a href="./../../v2/">Overview</a></li><li><a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a></li><li><a href="./../../v2/installation/index.html">Installation</a></li><li><a href="./../../v2/getting-started/index.html">Getting Started</a></li><li><a href="./../../v2/cli/index.html">Command-Line Interface</a></li><li><a href="./../../v2/vagrantfile/index.html">Vagrantfile</a></li><li><a href="./../../v2/boxes.html">Boxes</a></li><li><a href="./../../v2/provisioning/index.html">Provisioning</a></li><li><a href="./../../v2/networking/index.html">Networking</a></li><li><a href="./../../v2/synced-folders/index.html">Synced Folders</a></li><li><a href="./../../v2/multi-machine/index.html">Multi-Machine</a></li><li><a href="./../../v2/providers/index.html">Providers</a></li><li><a href="./../../v2/virtualbox/index.html">VirtualBox</a></li><li class=current><a href="./../../v2/vmware/index.html">VMware</a></li><ul class="sub unstyled"><li><a href="./../../v2/vmware/installation.html">Installation</a></li><li><a href="./../../v2/vmware/usage.html">Usage</a></li><li class=current><a href="./../../v2/vmware/boxes.html">Boxes</a></li><li><a href="./../../v2/vmware/configuration.html">Configuration</a></li><li><a href="./../../v2/vmware/known-issues.html">Known Issues</a></li></ul><li><a href="./../../v2/plugins/index.html">Plugins</a></li><li><a href="./../../v2/debugging.html">Debugging</a></li></ul></aside></div><div class="page-contents span9"><div class=page-background></div><div class=row><div class="span8 offset1"><h1>Boxes</h1><p>As with <a href="./../../v2/providers/boxes.html">every provider</a>, the VMware providers have a custom box format.</p><p>This page documents the format so that you can create your own base boxes. Note that currently you must make these base boxes by hand. A future release of Vagrant will provide additional mechanisms for automatically creating such images.</p><div class="alert alert-info"><p><strong>Note:</strong> This is a reasonably advanced topic that a beginning user of Vagrant doesn't need to understand. If you're just getting started with Vagrant, skip this and use an available box. If you're an experienced user of Vagrant and want to create your own custom boxes, this is for you. </p></div><p>Prior to reading this page, please understand the <a href="./../../v2/boxes/format.html">basics of the box file format</a>.</p><h2>Contents</h2><p>A VMware base box is a compressed archive of the necessary contents of a VMware &quot;vmwarevm&quot; file. Here is an example of what is contained in such a box:</p><pre><code>$ tree
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <title> Box Format - VMware Provider - Vagrant Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="./../../stylesheets/bootstrap-2bdef9a2.css" media="screen" rel="stylesheet" />
+    <link href="./../../stylesheets/vagrantup-d5d54c59.css" media="screen" rel="stylesheet" />
+    <script src="./../../javascripts/jquery-08c11650.js"></script>
+    <script src="./../../javascripts/modernizr-84c0465a.js"></script>
+    <script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script>
+    <script src="./../../javascripts/backstretch-3d1212ad.js"></script>
+    <script src="./../../javascripts/vagrantup-03aae2a8.js"></script>
+    <link href="./../..//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+    <script src="./../..//use.typekit.net/xfs6zus.js"></script>
+    <script>
+<![CDATA[try{Typekit.load();}catch(e){}]]>
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="docs">
+        <a class="vagrant-docs-logo" href="./../../">Vagrant Documentation</a>
+        <ul class="pull-right unstyled">
+          <li>
+            <a href="./../..//www.vagrantup.com/">Home</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="page docs docs-home">
+        <div class="container">
+          <div class="row">
+            <div class="sidebar span3">
+              <aside class="sidebar-nav">
+                <div class="toggle hidden-desktop">
+                  <div class="open-close open"></div>
+                  <a href="#">Contents</a>
+                </div>
+                <ul class="unstyled">
+                  <li>
+                    <a href="./../../v2/">Overview</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/installation/index.html">Installation</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/getting-started/index.html">Getting Started</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/cli/index.html">Command-Line Interface</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/vagrantfile/index.html">Vagrantfile</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/boxes.html">Boxes</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/provisioning/index.html">Provisioning</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/networking/index.html">Networking</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/synced-folders/index.html">Synced Folders</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/multi-machine/index.html">Multi-Machine</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/providers/index.html">Providers</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/virtualbox/index.html">VirtualBox</a>
+                  </li>
+                  <li class="current">
+                    <a href="./../../v2/vmware/index.html">VMware</a>
+                  </li>
+                  <ul class="sub unstyled">
+                    <li>
+                      <a href="./../../v2/vmware/installation.html">Installation</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/vmware/usage.html">Usage</a>
+                    </li>
+                    <li class="current">
+                      <a href="./../../v2/vmware/boxes.html">Boxes</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/vmware/configuration.html">Configuration</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/vmware/known-issues.html">Known Issues</a>
+                    </li>
+                  </ul>
+                  <li>
+                    <a href="./../../v2/plugins/index.html">Plugins</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/debugging.html">Debugging</a>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+            <div class="page-contents span9">
+              <div class="page-background"></div>
+              <div class="row">
+                <div class="span8 offset1">
+                  <h1>Boxes</h1>
+                  <p>As with <a href="./../../v2/providers/boxes.html">every provider</a>, the VMware providers have a custom box format.</p>
+                  <p>This page documents the format so that you can create your own base boxes. Note that currently you must make these base boxes by hand. A future release of Vagrant will provide additional mechanisms for automatically creating such images.</p>
+                  <div class="alert alert-info">
+                    <p><strong>Note:</strong> This is a reasonably advanced topic that a beginning user of Vagrant doesn't need to understand. If you're just getting started with Vagrant, skip this and use an available box. If you're an experienced user of Vagrant and want to create your own custom boxes, this is for you. </p>
+                  </div>
+                  <p>Prior to reading this page, please understand the <a href="./../../v2/boxes/format.html">basics of the box file format</a>.</p>
+                  <h2>Contents</h2>
+                  <p>A VMware base box is a compressed archive of the necessary contents of a VMware "vmwarevm" file. Here is an example of what is contained in such a box:</p>
+                  <pre>
+                    <code>$ tree
 .
 |-- disk-s001.vmdk
 |-- disk-s002.vmdk
@@ -11,12 +132,88 @@
 |-- precise64.vmxf
 
 0 directories, 17 files
-</code></pre><p>The files that are strictly required for a VMware machine to function are: nvram, vmsd, vmx, vmxf, and vmdk files.</p><p>There is also the &quot;metadata.json&quot; file used by Vagrant itself. This file contains nothing but the defaults which are documented on the <a href="./../../v2/boxes/format.html">box format</a> page.</p><p>When bringing up a VMware backed machine, Vagrant copies all of the contents in the box into a privately managed &quot;vmwarevm&quot; folder, and uses the first &quot;vmx&quot; file found to control the machine.</p><div class="alert alert-info"><h3>Linked Clones</h3><p> A future version of the VMware provider will implement linked cloning. </p></div><h2>Installed Software</h2><p>Base boxes for VMware should have the following software installed, as a bare minimum:</p><ul><li><p>SSH server with key-based authentication setup. If you want the box to work with default Vagrant settings, the SSH user must be set to accept the <a href="https://github.com/mitchellh/vagrant/blob/master/keys/vagrant.pub">insecure keypair</a> that ships with Vagrant.</p></li><li><p><a href="//kb.vmware.com/kb/340">VMware Tools</a> so that things such as shared folders can function. There are many other benefits to installing the tools, such as improved networking performance.</p></li></ul><h2>Optimizing Box Size</h2><p>Prior to packaging up a box, you should shrink the hard drives as much as possible. This can be done with <code>vmware-vdiskmanager</code> which is usually found in <code>/Applications/VMware Fusion.app/Contents/Library</code> for VMware Fusion. You first want to defragment then shrink the drive. Usage shown below:</p><pre><code>$ vmware-vdiskmanager -d /path/to/main.vmdk
+</code>
+                  </pre>
+                  <p>The files that are strictly required for a VMware machine to function are: nvram, vmsd, vmx, vmxf, and vmdk files.</p>
+                  <p>There is also the "metadata.json" file used by Vagrant itself. This file contains nothing but the defaults which are documented on the <a href="./../../v2/boxes/format.html">box format</a> page.</p>
+                  <p>When bringing up a VMware backed machine, Vagrant copies all of the contents in the box into a privately managed "vmwarevm" folder, and uses the first "vmx" file found to control the machine.</p>
+                  <div class="alert alert-info">
+                    <h3>Linked Clones</h3>
+                    <p> A future version of the VMware provider will implement linked cloning. </p>
+                  </div>
+                  <h2>Installed Software</h2>
+                  <p>Base boxes for VMware should have the following software installed, as a bare minimum:</p>
+                  <ul>
+                    <li>
+                      <p>SSH server with key-based authentication setup. If you want the box to work with default Vagrant settings, the SSH user must be set to accept the <a href="https://github.com/mitchellh/vagrant/blob/master/keys/vagrant.pub">insecure keypair</a> that ships with Vagrant.</p>
+                    </li>
+                    <li>
+                      <p><a href="./../..//kb.vmware.com/kb/340">VMware Tools</a> so that things such as shared folders can function. There are many other benefits to installing the tools, such as improved networking performance.</p>
+                    </li>
+                  </ul>
+                  <h2>Optimizing Box Size</h2>
+                  <p>Prior to packaging up a box, you should shrink the hard drives as much as possible. This can be done with <code>vmware-vdiskmanager</code> which is usually found in <code>/Applications/VMware Fusion.app/Contents/Library</code> for VMware Fusion. You first want to defragment then shrink the drive. Usage shown below:</p>
+                  <pre>
+                    <code>$ vmware-vdiskmanager -d /path/to/main.vmdk
 ...
 $ vmware-vdiskmanager -k /path/to/main.vmdk
 ...
-</code></pre><h2>Packaging</h2><p>Remove any extraneous files from the &quot;vmwarevm&quot; folder and package it. Be sure to compress the tar with gzip (done below in a single command) since VMware hard disks are not compressed by default.</p><pre><code>$ cd /path/to/my/vm.vmwarevm
+</code>
+                  </pre>
+                  <h2>Packaging</h2>
+                  <p>Remove any extraneous files from the "vmwarevm" folder and package it. Be sure to compress the tar with gzip (done below in a single command) since VMware hard disks are not compressed by default.</p>
+                  <pre>
+                    <code>$ cd /path/to/my/vm.vmwarevm
 $ tar cvzf custom.box ./*
-</code></pre></div></div></div></div></div></div><footer><div class=container><div class=row><div class=span12><ul class="unstyled footer-nav"><li><a href="//docs.vagrantup.com/">Documentation</a></li><li><a href="//www.vagrantup.com/about">About</a></li><li><a href="//www.vagrantup.com/support">Support</a></li><a href="//downloads.vagrantup.com/"><li class="button inline-button">Download</li></a></ul><ul class="unstyled logos"><a href="//www.vagrantup.com"><li class=vagrant-logo-monochrome></li></a><li><span>by</span></li><a href="//www.hashicorp.com"><li class="hashi-logo-monochrome "></li></a></ul></div></div><div class=row><h6 class=legal> &#169; 2013 HashiCorp </h6></div></div></footer></div><script>
+</code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="span12">
+              <ul class="unstyled footer-nav">
+                <li>
+                  <a href="./../..//docs.vagrantup.com/">Documentation</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/about">About</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/support">Support</a>
+                </li>
+                <a href="./../..//downloads.vagrantup.com/">
+                  <li class="button inline-button">Download</li>
+                </a>
+              </ul>
+              <ul class="unstyled logos">
+                <a href="./../..//www.vagrantup.com">
+                  <li class="vagrant-logo-monochrome"></li>
+                </a>
+                <li>
+                  <span>by</span>
+                </li>
+                <a href="./../..//www.hashicorp.com">
+                  <li class="hashi-logo-monochrome "></li>
+                </a>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <h6 class="legal"> &#169; 2013 HashiCorp </h6>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+<![CDATA[
 			$(".big-background").backstretch("assets/photos/full_width.jpg");
-		</script></body></html>
+		]]>
+    </script>
+  </body>
+</html>

@@ -1,111 +1,104 @@
+require File.join(File.dirname(__FILE__), 'Dash.rb')
 
-$docs_path = 'vagrant-docs'
+dash = Dash.new({
+    :name           => 'Vagrant',
+    :display_name   => 'Vagrant 2',
+    :docs_root      => 'vagrant-docs',
+    :icon           => File.join('icon-images', 'vagrant-logo.small.png')
+})
+# so dive can get at it recursively..
+$dash = dash
 
-entries = Dir.entries($docs_path) - [ '.', '..' ]
+
+# this is how we'll keep track of how deep in the directory structure we are as we make paths
+# relative. this array is joined with the system file separator and prepended to absolute paths.
 $levels = [ '.' ]
 
-def levelup
+# shortcut methods to increase/decrease levels.
+def level_up
     $levels.push('/..')
 end
-def leveldown
+def level_down
     $levels.pop
 end
 
-$c = 0
+$fileCount = 0
 def dive(path)
-    entries = Dir.entries(path) - [ '.', '..' ]
+    # puts "#{path}"
+    entries = $dash.clean_dir_entries(path, ['images', 'javascripts', 'stylesheets'])
 
     entries.each do |entry|
         entry_path = File.join(path, entry)
 
+        # if we're looking at a directory and not a file [to parse], increase the directory
+        # depth, pass the path to this function, then decrease the level back to where it was.
         if File.directory?(entry_path)
-            levelup
+            level_up
             dive(entry_path)
-            leveldown
+            level_down
 
+        # now that we know it's a file, let's get into it.
         elsif !entry.match(/\.html$/).nil?
-            # if $c < 2
-            #     puts entry_path
-                # fix relative paths for src="" and href="" attributes
-                `sed -E -i '' -e 's; href="/([a-z]); href="#{$levels.join}/\\1;g' #{entry_path}`
-                `sed -E -i '' -e "s: href='/([a-z]): href='#{$levels.join}/\\1:g" #{entry_path}`
-                `sed -E -i '' -e 's: src="/([a-z]): src="#{$levels.join}/\\1:g' #{entry_path}`
-                `sed -E -i '' -e "s: src='/([a-z]): src='#{$levels.join}/\\1:g" #{entry_path}`
-
-                # remove google analytics and tracking
-                # `sed -i '' -e '/<!-- Google analytics -->/,/<!-- End Google analytics -->/d' #{entry_path}`
-                # `sed -i '' -e '/<!-- BEGIN: MARKETO TRACKING -->/,/<!-- END: MARKETO TRACKING -->/d' #{entry_path}`
-                $c = $c + 1
-            # end
-            # puts "in (#{entry_path})  href=\"#{$levels.join}/files/css....."
-            # parse html
-
+            $fileCount = $fileCount + 1
+            doc = $dash.get_noko_doc(entry_path)
+            doc.css('[href]').each {|element| element['href'].match(/^\//) && element['href'] = $levels.join + element['href'] }
+            doc.css('[src]').each {|element| element['src'].match(/^\//) && element['src'] = $levels.join + element['src'] }
+            $dash.save_noko_doc(doc, entry_path)
         end
     end
-
 end
 
-
-# dive($docs_path)
-# puts "#{$c} files"
+# kick off the function to make href and src paths relative
+puts "Relative-izing src/href attributes..."
+dive(dash::docs_root)
+puts " \`-Done processing #{$fileCount} files."
 
 
 # CLI commands
-# refs_path = File.join($docs_path, 'v2', 'cli')
-# entries = Dir.entries(refs_path) - [ '.', '..' ]
+puts "Processing commands..."
+cnt         = 0
+refs_path   = File.join(dash::docs_root, 'v2', 'cli')
+entries     = dash.clean_dir_entries(refs_path)
 
-# cnt = 0
-# entries.each do |entry|
-#     tool = entry.split('.').shift
-#     refs_file = File.join('v2', 'cli', entry)
-
-#     query = "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"vagrant #{tool}\", \"Command\", \"#{refs_file}\");"
-#     # puts query
-#     `cd Vagrant.docset/Contents/Resources/; sqlite3 docSet.dsidx '#{query}'; cd ../../..`
-
-#     cnt = cnt + 1
-# end
-# puts "\n#{cnt} lines"
+entries.each do |entry|
+    cnt  = cnt + 1
+    name = 'vagrant ' + entry.split('.').shift
+    type = 'Command'
+    path = File.join('v2', 'cli', entry)
+    dash.sql_insert(name, type, path)
+end
+puts " \`- Done processing #{cnt} files."
 
 
+# load up guides (i just did it manually...it was easier)
+dash.sql_insert("Overview",                 "Guide", "v2/index.html");
+dash.sql_insert("Boxes",                    "Guide", "v2/boxes.html");
+dash.sql_insert("Command-Line Interface",   "Guide", "v2/cli/index.html");
+dash.sql_insert("Getting Started",          "Guide", "v2/getting-started/index.html");
+dash.sql_insert("Installation",             "Guide", "v2/installation/index.html");
+dash.sql_insert("Multi-Machine",            "Guide", "v2/multi-machine/index.html");
+dash.sql_insert("Networking",               "Guide", "v2/networking/index.html");
+dash.sql_insert("Plugins",                  "Guide", "v2/plugins/index.html");
+dash.sql_insert("Providers",                "Guide", "v2/providers/index.html");
+dash.sql_insert("Provisioning",             "Guide", "v2/provisioning/index.html");
+dash.sql_insert("Synced Folders",           "Guide", "v2/synced-folders/index.html");
+dash.sql_insert("Vagrantfile",              "Guide", "v2/vagrantfile/index.html");
+dash.sql_insert("Virtualbox",               "Guide", "v2/virtualbox/index.html");
+dash.sql_insert("VMware",                   "Guide", "v2/vmware/index.html");
+dash.sql_insert("Why Vagrant?",             "Guide", "v2/why-vagrant/index.html");
+dash.sql_insert("Debugging",                "Guide", "v2/debugging.html");
 
-# load up guides
-    # guides_path = File.join($docs_path, 'v2')
-    # guides = Dir.entries(guides_path) - [ '.', '..' ]
 
-    # cnt = 0
-    # guides.each do |entry|
-    #     entry_path = File.join(guides_path, entry)
-    #     sqlpath = File.join('guides', entry)
-    #     if !File.directory?(entry_path)
-    #         File.open(entry_path) do |file|
-    #             file.each_line do |line|
-    #                 title = /<title>(.+)(?= — Documentation)/i.match(line)
-    #                 if !title.nil?
-    #                     # puts "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('#{title[1]}', 'Guide', '#{sqlpath}');"
-    #                     query = "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"#{title[1]}\", \"Guide\", \"#{sqlpath}\");"
-    #                     `cd Puppet.docset/Contents/Resources/; sqlite3 docSet.dsidx '#{query}'; cd ../../..`
-    #                 end
-    #             end
-    #         end
-    #         cnt = cnt + 1
-    #     end
-    # end
-    # puts "\n#{cnt} files"
-# i just did it manually...
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Overview", "Guide", "v2/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Boxes", "Guide", "v2/boxes.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Command-Line Interface", "Guide", "v2/cli/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Getting Started", "Guide", "v2/getting-started/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Installation", "Guide", "v2/installation/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Multi-Machine", "Guide", "v2/multi-machine/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Networking", "Guide", "v2/networking/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Plugins", "Guide", "v2/plugins/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Providers", "Guide", "v2/providers/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Provisioning", "Guide", "v2/provisioning/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Synced Folders", "Guide", "v2/synced-folders/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Vagrantfile", "Guide", "v2/vagrantfile/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Virtualbox", "Guide", "v2/virtualbox/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("VMware", "Guide", "v2/vmware/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Why Vagrant?", "Guide", "v2/why-vagrant/index.html");
-# INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ("Debugging", "Guide", "v2/debugging.html");
+# dash.sql_execute({
+#     :noop => true,
+#     :filter => {
+#         :limit => 5,
+#         :type => 'Guide',
+#         :name => 'Exception'
+#     }
+# })
+dash.sql_execute
+
+dash.copy_docs()
+
+puts "\nDone."

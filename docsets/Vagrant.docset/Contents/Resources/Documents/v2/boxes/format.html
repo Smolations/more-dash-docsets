@@ -1,6 +1,161 @@
-<!DOCTYPE html><html><head><title> Box File Format - Vagrant Documentation</title><meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link href="./../../stylesheets/bootstrap-2bdef9a2.css" media=screen rel=stylesheet /><link href="./../../stylesheets/vagrantup-d5d54c59.css" media=screen rel=stylesheet /><script src="./../../javascripts/jquery-08c11650.js"></script><script src="./../../javascripts/modernizr-84c0465a.js"></script><script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script><script src="./../../javascripts/backstretch-3d1212ad.js"></script><script src="./../../javascripts/vagrantup-03aae2a8.js"></script><link href='//fonts.googleapis.com/css?family=Inconsolata' rel=stylesheet><script src="//use.typekit.net/xfs6zus.js"></script><script>try{Typekit.load();}catch(e){}</script></head><body><div class=wrapper><nav class=docs><a class=vagrant-docs-logo href="/">Vagrant Documentation</a><ul class="pull-right unstyled"><li><a href="//www.vagrantup.com/">Home</a></li></ul></nav><div class="page docs docs-home"><div class=container><div class=row><div class="sidebar span3"><aside class=sidebar-nav><div class="toggle hidden-desktop"><div class="open-close open"></div><a href="#">Contents</a></div><ul class=unstyled><li><a href="./../../v2/">Overview</a></li><li><a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a></li><li><a href="./../../v2/installation/index.html">Installation</a></li><li><a href="./../../v2/getting-started/index.html">Getting Started</a></li><li><a href="./../../v2/cli/index.html">Command-Line Interface</a></li><li><a href="./../../v2/vagrantfile/index.html">Vagrantfile</a></li><li class=current><a href="./../../v2/boxes.html">Boxes</a></li><ul class="sub unstyled"><li class=current><a href="./../../v2/boxes/format.html">Box File Format</a></li></ul><li><a href="./../../v2/provisioning/index.html">Provisioning</a></li><li><a href="./../../v2/networking/index.html">Networking</a></li><li><a href="./../../v2/synced-folders/index.html">Synced Folders</a></li><li><a href="./../../v2/multi-machine/index.html">Multi-Machine</a></li><li><a href="./../../v2/providers/index.html">Providers</a></li><li><a href="./../../v2/virtualbox/index.html">VirtualBox</a></li><li><a href="./../../v2/vmware/index.html">VMware</a></li><li><a href="./../../v2/plugins/index.html">Plugins</a></li><li><a href="./../../v2/debugging.html">Debugging</a></li></ul></aside></div><div class="page-contents span9"><div class=page-background></div><div class=row><div class="span8 offset1"><h1>Box File Format</h1><p>In the past, boxes were just <a href="//en.wikipedia.org/wiki/Tar_(computing)">tar files</a> of VirtualBox exports. With Vagrant supporting multiple providers, box files are now tar files where the contents differ for each provider. They are still tar files, but they may now optionally be <a href="//en.wikipedia.org/wiki/Gzip">gzipped</a> as well.</p><p>Box files made for Vagrant 1.0.x and VirtualBox continue to work with Vagrant 1.1+ and the VirtualBox provider.</p><p>The only file required within a box is a &quot;metadata.json&quot; file. This is a <a href="//www.json.org/">JSON</a> file that has a top-level object that can contain any metadata about the box. Vagrant requires that a &quot;provider&quot; key exists in this metadata with the name of the provider the box is made for.</p><p>The &quot;metadata.json&quot; file for a VirtualBox box:</p><pre><code class="json">{
-  &quot;provider&quot;: &quot;virtualbox&quot;
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <title> Box File Format - Vagrant Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="./../../stylesheets/bootstrap-2bdef9a2.css" media="screen" rel="stylesheet" />
+    <link href="./../../stylesheets/vagrantup-d5d54c59.css" media="screen" rel="stylesheet" />
+    <script src="./../../javascripts/jquery-08c11650.js"></script>
+    <script src="./../../javascripts/modernizr-84c0465a.js"></script>
+    <script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script>
+    <script src="./../../javascripts/backstretch-3d1212ad.js"></script>
+    <script src="./../../javascripts/vagrantup-03aae2a8.js"></script>
+    <link href="./../..//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+    <script src="./../..//use.typekit.net/xfs6zus.js"></script>
+    <script>
+<![CDATA[try{Typekit.load();}catch(e){}]]>
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="docs">
+        <a class="vagrant-docs-logo" href="./../../">Vagrant Documentation</a>
+        <ul class="pull-right unstyled">
+          <li>
+            <a href="./../..//www.vagrantup.com/">Home</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="page docs docs-home">
+        <div class="container">
+          <div class="row">
+            <div class="sidebar span3">
+              <aside class="sidebar-nav">
+                <div class="toggle hidden-desktop">
+                  <div class="open-close open"></div>
+                  <a href="#">Contents</a>
+                </div>
+                <ul class="unstyled">
+                  <li>
+                    <a href="./../../v2/">Overview</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/installation/index.html">Installation</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/getting-started/index.html">Getting Started</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/cli/index.html">Command-Line Interface</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/vagrantfile/index.html">Vagrantfile</a>
+                  </li>
+                  <li class="current">
+                    <a href="./../../v2/boxes.html">Boxes</a>
+                  </li>
+                  <ul class="sub unstyled">
+                    <li class="current">
+                      <a href="./../../v2/boxes/format.html">Box File Format</a>
+                    </li>
+                  </ul>
+                  <li>
+                    <a href="./../../v2/provisioning/index.html">Provisioning</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/networking/index.html">Networking</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/synced-folders/index.html">Synced Folders</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/multi-machine/index.html">Multi-Machine</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/providers/index.html">Providers</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/virtualbox/index.html">VirtualBox</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/vmware/index.html">VMware</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/plugins/index.html">Plugins</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/debugging.html">Debugging</a>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+            <div class="page-contents span9">
+              <div class="page-background"></div>
+              <div class="row">
+                <div class="span8 offset1">
+                  <h1>Box File Format</h1>
+                  <p>In the past, boxes were just <a href="./../..//en.wikipedia.org/wiki/Tar_(computing)">tar files</a> of VirtualBox exports. With Vagrant supporting multiple providers, box files are now tar files where the contents differ for each provider. They are still tar files, but they may now optionally be <a href="./../..//en.wikipedia.org/wiki/Gzip">gzipped</a> as well.</p>
+                  <p>Box files made for Vagrant 1.0.x and VirtualBox continue to work with Vagrant 1.1+ and the VirtualBox provider.</p>
+                  <p>The only file required within a box is a "metadata.json" file. This is a <a href="./../..//www.json.org/">JSON</a> file that has a top-level object that can contain any metadata about the box. Vagrant requires that a "provider" key exists in this metadata with the name of the provider the box is made for.</p>
+                  <p>The "metadata.json" file for a VirtualBox box:</p>
+                  <pre>
+                    <code class="json">{
+  "provider": "virtualbox"
 }
-</code></pre><p>If there is no metadata.json file or the file does not contain valid JSON with at least a &quot;provider&quot; key, then Vagrant will error when adding the box.</p></div></div></div></div></div></div><footer><div class=container><div class=row><div class=span12><ul class="unstyled footer-nav"><li><a href="//docs.vagrantup.com/">Documentation</a></li><li><a href="//www.vagrantup.com/about">About</a></li><li><a href="//www.vagrantup.com/support">Support</a></li><a href="//downloads.vagrantup.com/"><li class="button inline-button">Download</li></a></ul><ul class="unstyled logos"><a href="//www.vagrantup.com"><li class=vagrant-logo-monochrome></li></a><li><span>by</span></li><a href="//www.hashicorp.com"><li class="hashi-logo-monochrome "></li></a></ul></div></div><div class=row><h6 class=legal> &#169; 2013 HashiCorp </h6></div></div></footer></div><script>
+</code>
+                  </pre>
+                  <p>If there is no metadata.json file or the file does not contain valid JSON with at least a "provider" key, then Vagrant will error when adding the box.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="span12">
+              <ul class="unstyled footer-nav">
+                <li>
+                  <a href="./../..//docs.vagrantup.com/">Documentation</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/about">About</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/support">Support</a>
+                </li>
+                <a href="./../..//downloads.vagrantup.com/">
+                  <li class="button inline-button">Download</li>
+                </a>
+              </ul>
+              <ul class="unstyled logos">
+                <a href="./../..//www.vagrantup.com">
+                  <li class="vagrant-logo-monochrome"></li>
+                </a>
+                <li>
+                  <span>by</span>
+                </li>
+                <a href="./../..//www.hashicorp.com">
+                  <li class="hashi-logo-monochrome "></li>
+                </a>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <h6 class="legal"> &#169; 2013 HashiCorp </h6>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+<![CDATA[
 			$(".big-background").backstretch("assets/photos/full_width.jpg");
-		</script></body></html>
+		]]>
+    </script>
+  </body>
+</html>

@@ -1,3 +1,179 @@
-<!DOCTYPE html><html><head><title> config.ssh - Vagrantfile - Vagrant Documentation</title><meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link href="./../../stylesheets/bootstrap-2bdef9a2.css" media=screen rel=stylesheet /><link href="./../../stylesheets/vagrantup-d5d54c59.css" media=screen rel=stylesheet /><script src="./../../javascripts/jquery-08c11650.js"></script><script src="./../../javascripts/modernizr-84c0465a.js"></script><script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script><script src="./../../javascripts/backstretch-3d1212ad.js"></script><script src="./../../javascripts/vagrantup-03aae2a8.js"></script><link href='//fonts.googleapis.com/css?family=Inconsolata' rel=stylesheet><script src="//use.typekit.net/xfs6zus.js"></script><script>try{Typekit.load();}catch(e){}</script></head><body><div class=wrapper><nav class=docs><a class=vagrant-docs-logo href="/">Vagrant Documentation</a><ul class="pull-right unstyled"><li><a href="//www.vagrantup.com/">Home</a></li></ul></nav><div class="page docs docs-home"><div class=container><div class=row><div class="sidebar span3"><aside class=sidebar-nav><div class="toggle hidden-desktop"><div class="open-close open"></div><a href="#">Contents</a></div><ul class=unstyled><li><a href="./../../v2/">Overview</a></li><li><a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a></li><li><a href="./../../v2/installation/index.html">Installation</a></li><li><a href="./../../v2/getting-started/index.html">Getting Started</a></li><li><a href="./../../v2/cli/index.html">Command-Line Interface</a></li><li class=current><a href="./../../v2/vagrantfile/index.html">Vagrantfile</a></li><ul class="sub unstyled"><li><a href="./../../v2/vagrantfile/version.html">Configuration Version</a></li><li><a href="./../../v2/vagrantfile/machine_settings.html">Machine Settings</a></li><li class=current><a href="./../../v2/vagrantfile/ssh_settings.html">SSH Settings</a></li><li><a href="./../../v2/vagrantfile/vagrant_settings.html">Vagrant Settings</a></li></ul><li><a href="./../../v2/boxes.html">Boxes</a></li><li><a href="./../../v2/provisioning/index.html">Provisioning</a></li><li><a href="./../../v2/networking/index.html">Networking</a></li><li><a href="./../../v2/synced-folders/index.html">Synced Folders</a></li><li><a href="./../../v2/multi-machine/index.html">Multi-Machine</a></li><li><a href="./../../v2/providers/index.html">Providers</a></li><li><a href="./../../v2/virtualbox/index.html">VirtualBox</a></li><li><a href="./../../v2/vmware/index.html">VMware</a></li><li><a href="./../../v2/plugins/index.html">Plugins</a></li><li><a href="./../../v2/debugging.html">Debugging</a></li></ul></aside></div><div class="page-contents span9"><div class=page-background></div><div class=row><div class="span8 offset1"><h1>SSH Settings</h1><p><strong>Config namespace: <code>config.ssh</code></strong></p><p>The settings within <code>config.ssh</code> relate to configuring how Vagrant will access your machine over SSH. As with most Vagrant settings, the defaults are typically fine, but you can fine tune whatever you&#39;d like.</p><h2>Available Settings</h2><p><code>config.ssh.username</code> - This sets the username that Vagrant will SSH as by default. Providers are free to override this if they detect a more appropriate user. By default this is &quot;vagrant,&quot; since that is what most public boxes are made as.</p><hr><p><code>config.ssh.host</code> - The hostname or IP to SSH into. By default this is empty, because the provider usually figures this out for you.</p><hr><p><code>config.ssh.port</code> - The port to SSH into. By default this is port 22.</p><hr><p><code>config.ssh.guest_port</code> - The port on the guest that SSH is running on. This is used by some providers to detect forwarded ports for SSH. For example, if this is set to 22 (the default), and Vagrant detects a forwarded port to port 22 on the guest from port 4567 on the host, Vagrant will attempt to use port 4567 to talk to the guest if there is no other option.</p><hr><p><code>config.ssh.private_key_path</code> - The path to the private key to use to SSH into the guest machine. By default this is the insecure private key that ships with Vagrant, since that is what public boxes use. If you make your own custom box with a custom SSH key, this should point to that private key.</p><hr><p><code>config.ssh.forward_agent</code> - If <code>true</code>, agent forwarding over SSH connections is enabled. Defaults to false.</p><hr><p><code>config.ssh.forward_x11</code> - If <code>true</code>, X11 forwarding over SSH connections is enabled. Defaults to false.</p><hr><p><code>config.ssh.shell</code> - The shell to use when executing SSH commands from Vagrant. By default this is <code>bash -l</code>. Note that this has no effect on the shell you get when you run <code>vagrant ssh</code>. This configuration option only affects the shell to use when executing commands internally in Vagrant.</p></div></div></div></div></div></div><footer><div class=container><div class=row><div class=span12><ul class="unstyled footer-nav"><li><a href="//docs.vagrantup.com/">Documentation</a></li><li><a href="//www.vagrantup.com/about">About</a></li><li><a href="//www.vagrantup.com/support">Support</a></li><a href="//downloads.vagrantup.com/"><li class="button inline-button">Download</li></a></ul><ul class="unstyled logos"><a href="//www.vagrantup.com"><li class=vagrant-logo-monochrome></li></a><li><span>by</span></li><a href="//www.hashicorp.com"><li class="hashi-logo-monochrome "></li></a></ul></div></div><div class=row><h6 class=legal> &#169; 2013 HashiCorp </h6></div></div></footer></div><script>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <title> config.ssh - Vagrantfile - Vagrant Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="./../../stylesheets/bootstrap-2bdef9a2.css" media="screen" rel="stylesheet" />
+    <link href="./../../stylesheets/vagrantup-d5d54c59.css" media="screen" rel="stylesheet" />
+    <script src="./../../javascripts/jquery-08c11650.js"></script>
+    <script src="./../../javascripts/modernizr-84c0465a.js"></script>
+    <script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script>
+    <script src="./../../javascripts/backstretch-3d1212ad.js"></script>
+    <script src="./../../javascripts/vagrantup-03aae2a8.js"></script>
+    <link href="./../..//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+    <script src="./../..//use.typekit.net/xfs6zus.js"></script>
+    <script>
+<![CDATA[try{Typekit.load();}catch(e){}]]>
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="docs">
+        <a class="vagrant-docs-logo" href="./../../">Vagrant Documentation</a>
+        <ul class="pull-right unstyled">
+          <li>
+            <a href="./../..//www.vagrantup.com/">Home</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="page docs docs-home">
+        <div class="container">
+          <div class="row">
+            <div class="sidebar span3">
+              <aside class="sidebar-nav">
+                <div class="toggle hidden-desktop">
+                  <div class="open-close open"></div>
+                  <a href="#">Contents</a>
+                </div>
+                <ul class="unstyled">
+                  <li>
+                    <a href="./../../v2/">Overview</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/installation/index.html">Installation</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/getting-started/index.html">Getting Started</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/cli/index.html">Command-Line Interface</a>
+                  </li>
+                  <li class="current">
+                    <a href="./../../v2/vagrantfile/index.html">Vagrantfile</a>
+                  </li>
+                  <ul class="sub unstyled">
+                    <li>
+                      <a href="./../../v2/vagrantfile/version.html">Configuration Version</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/vagrantfile/machine_settings.html">Machine Settings</a>
+                    </li>
+                    <li class="current">
+                      <a href="./../../v2/vagrantfile/ssh_settings.html">SSH Settings</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/vagrantfile/vagrant_settings.html">Vagrant Settings</a>
+                    </li>
+                  </ul>
+                  <li>
+                    <a href="./../../v2/boxes.html">Boxes</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/provisioning/index.html">Provisioning</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/networking/index.html">Networking</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/synced-folders/index.html">Synced Folders</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/multi-machine/index.html">Multi-Machine</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/providers/index.html">Providers</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/virtualbox/index.html">VirtualBox</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/vmware/index.html">VMware</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/plugins/index.html">Plugins</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/debugging.html">Debugging</a>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+            <div class="page-contents span9">
+              <div class="page-background"></div>
+              <div class="row">
+                <div class="span8 offset1">
+                  <h1>SSH Settings</h1>
+                  <p>
+                    <strong>Config namespace: <code>config.ssh</code></strong>
+                  </p>
+                  <p>The settings within <code>config.ssh</code> relate to configuring how Vagrant will access your machine over SSH. As with most Vagrant settings, the defaults are typically fine, but you can fine tune whatever you'd like.</p>
+                  <h2>Available Settings</h2>
+                  <p><code>config.ssh.username</code> - This sets the username that Vagrant will SSH as by default. Providers are free to override this if they detect a more appropriate user. By default this is "vagrant," since that is what most public boxes are made as.</p>
+                  <hr />
+                  <p><code>config.ssh.host</code> - The hostname or IP to SSH into. By default this is empty, because the provider usually figures this out for you.</p>
+                  <hr />
+                  <p><code>config.ssh.port</code> - The port to SSH into. By default this is port 22.</p>
+                  <hr />
+                  <p><code>config.ssh.guest_port</code> - The port on the guest that SSH is running on. This is used by some providers to detect forwarded ports for SSH. For example, if this is set to 22 (the default), and Vagrant detects a forwarded port to port 22 on the guest from port 4567 on the host, Vagrant will attempt to use port 4567 to talk to the guest if there is no other option.</p>
+                  <hr />
+                  <p><code>config.ssh.private_key_path</code> - The path to the private key to use to SSH into the guest machine. By default this is the insecure private key that ships with Vagrant, since that is what public boxes use. If you make your own custom box with a custom SSH key, this should point to that private key.</p>
+                  <hr />
+                  <p><code>config.ssh.forward_agent</code> - If <code>true</code>, agent forwarding over SSH connections is enabled. Defaults to false.</p>
+                  <hr />
+                  <p><code>config.ssh.forward_x11</code> - If <code>true</code>, X11 forwarding over SSH connections is enabled. Defaults to false.</p>
+                  <hr />
+                  <p><code>config.ssh.shell</code> - The shell to use when executing SSH commands from Vagrant. By default this is <code>bash -l</code>. Note that this has no effect on the shell you get when you run <code>vagrant ssh</code>. This configuration option only affects the shell to use when executing commands internally in Vagrant.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="span12">
+              <ul class="unstyled footer-nav">
+                <li>
+                  <a href="./../..//docs.vagrantup.com/">Documentation</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/about">About</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/support">Support</a>
+                </li>
+                <a href="./../..//downloads.vagrantup.com/">
+                  <li class="button inline-button">Download</li>
+                </a>
+              </ul>
+              <ul class="unstyled logos">
+                <a href="./../..//www.vagrantup.com">
+                  <li class="vagrant-logo-monochrome"></li>
+                </a>
+                <li>
+                  <span>by</span>
+                </li>
+                <a href="./../..//www.hashicorp.com">
+                  <li class="hashi-logo-monochrome "></li>
+                </a>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <h6 class="legal"> &#169; 2013 HashiCorp </h6>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+<![CDATA[
 			$(".big-background").backstretch("assets/photos/full_width.jpg");
-		</script></body></html>
+		]]>
+    </script>
+  </body>
+</html>

@@ -1,8 +1,188 @@
-<!DOCTYPE html><html><head><title> Vagrantfile - Vagrant Documentation</title><meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link href="./../../stylesheets/bootstrap-2bdef9a2.css" media=screen rel=stylesheet /><link href="./../../stylesheets/vagrantup-d5d54c59.css" media=screen rel=stylesheet /><script src="./../../javascripts/jquery-08c11650.js"></script><script src="./../../javascripts/modernizr-84c0465a.js"></script><script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script><script src="./../../javascripts/backstretch-3d1212ad.js"></script><script src="./../../javascripts/vagrantup-03aae2a8.js"></script><link href='//fonts.googleapis.com/css?family=Inconsolata' rel=stylesheet><script src="//use.typekit.net/xfs6zus.js"></script><script>try{Typekit.load();}catch(e){}</script></head><body><div class=wrapper><nav class=docs><a class=vagrant-docs-logo href="/">Vagrant Documentation</a><ul class="pull-right unstyled"><li><a href="//www.vagrantup.com/">Home</a></li></ul></nav><div class="page docs docs-home"><div class=container><div class=row><div class="sidebar span3"><aside class=sidebar-nav><div class="toggle hidden-desktop"><div class="open-close open"></div><a href="#">Contents</a></div><ul class=unstyled><li><a href="./../../v2/">Overview</a></li><li><a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a></li><li><a href="./../../v2/installation/index.html">Installation</a></li><li><a href="./../../v2/getting-started/index.html">Getting Started</a></li><li><a href="./../../v2/cli/index.html">Command-Line Interface</a></li><li class=current><a href="./../../v2/vagrantfile/index.html">Vagrantfile</a></li><ul class="sub unstyled"><li><a href="./../../v2/vagrantfile/version.html">Configuration Version</a></li><li><a href="./../../v2/vagrantfile/machine_settings.html">Machine Settings</a></li><li><a href="./../../v2/vagrantfile/ssh_settings.html">SSH Settings</a></li><li><a href="./../../v2/vagrantfile/vagrant_settings.html">Vagrant Settings</a></li></ul><li><a href="./../../v2/boxes.html">Boxes</a></li><li><a href="./../../v2/provisioning/index.html">Provisioning</a></li><li><a href="./../../v2/networking/index.html">Networking</a></li><li><a href="./../../v2/synced-folders/index.html">Synced Folders</a></li><li><a href="./../../v2/multi-machine/index.html">Multi-Machine</a></li><li><a href="./../../v2/providers/index.html">Providers</a></li><li><a href="./../../v2/virtualbox/index.html">VirtualBox</a></li><li><a href="./../../v2/vmware/index.html">VMware</a></li><li><a href="./../../v2/plugins/index.html">Plugins</a></li><li><a href="./../../v2/debugging.html">Debugging</a></li></ul></aside></div><div class="page-contents span9"><div class=page-background></div><div class=row><div class="span8 offset1"><h1>Vagrantfile</h1><p>The primary function of the Vagrantfile is to describe the type of machine required for a project, and how to configure and provision these machines. Vagrantfiles are called Vagrantfiles because the actual literal filename for the file is <code>Vagrantfile</code> (casing doesn&#39;t matter).</p><p>Vagrant is meant to run with one Vagrantfile per project, and the Vagrantfile is supposed to be committed to version control. This allows other developers involved in the project to check out the code, run <code>vagrant up</code>, and be on their way. Vagrantfiles are portable across every platform Vagrant supports.</p><p>The syntax of Vagrantfiles is <a href="//www.ruby-lang.org">Ruby</a>, but knowledge of the Ruby programming language is not necessary to make modifications to the Vagrantfile, since it is mostly simple variable assignment. In fact, Ruby isn&#39;t even the most popular community Vagrant is used within, which should help show you that despite not having Ruby knowledge, people are very successful with Vagrant.</p><h2>Lookup Path</h2><p>When you run any <code>vagrant</code> command, Vagrant climbs up the directory tree looking for the first Vagrantfile it can find, starting first in the current directory. So if you run <code>vagrant</code> in <code>/home/mitchellh/projects/foo</code>, it will search the following paths in order for a Vagrantfile, until it finds one:</p><pre><code>/home/mitchellh/projects/foo/Vagrantfile
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <title> Vagrantfile - Vagrant Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="./../../stylesheets/bootstrap-2bdef9a2.css" media="screen" rel="stylesheet" />
+    <link href="./../../stylesheets/vagrantup-d5d54c59.css" media="screen" rel="stylesheet" />
+    <script src="./../../javascripts/jquery-08c11650.js"></script>
+    <script src="./../../javascripts/modernizr-84c0465a.js"></script>
+    <script src="./../../javascripts/bootstrap.min-98cc7a22.js"></script>
+    <script src="./../../javascripts/backstretch-3d1212ad.js"></script>
+    <script src="./../../javascripts/vagrantup-03aae2a8.js"></script>
+    <link href="./../..//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+    <script src="./../..//use.typekit.net/xfs6zus.js"></script>
+    <script>
+<![CDATA[try{Typekit.load();}catch(e){}]]>
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="docs">
+        <a class="vagrant-docs-logo" href="./../../">Vagrant Documentation</a>
+        <ul class="pull-right unstyled">
+          <li>
+            <a href="./../..//www.vagrantup.com/">Home</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="page docs docs-home">
+        <div class="container">
+          <div class="row">
+            <div class="sidebar span3">
+              <aside class="sidebar-nav">
+                <div class="toggle hidden-desktop">
+                  <div class="open-close open"></div>
+                  <a href="#">Contents</a>
+                </div>
+                <ul class="unstyled">
+                  <li>
+                    <a href="./../../v2/">Overview</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/why-vagrant/index.html">Why Vagrant?</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/installation/index.html">Installation</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/getting-started/index.html">Getting Started</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/cli/index.html">Command-Line Interface</a>
+                  </li>
+                  <li class="current">
+                    <a href="./../../v2/vagrantfile/index.html">Vagrantfile</a>
+                  </li>
+                  <ul class="sub unstyled">
+                    <li>
+                      <a href="./../../v2/vagrantfile/version.html">Configuration Version</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/vagrantfile/machine_settings.html">Machine Settings</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/vagrantfile/ssh_settings.html">SSH Settings</a>
+                    </li>
+                    <li>
+                      <a href="./../../v2/vagrantfile/vagrant_settings.html">Vagrant Settings</a>
+                    </li>
+                  </ul>
+                  <li>
+                    <a href="./../../v2/boxes.html">Boxes</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/provisioning/index.html">Provisioning</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/networking/index.html">Networking</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/synced-folders/index.html">Synced Folders</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/multi-machine/index.html">Multi-Machine</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/providers/index.html">Providers</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/virtualbox/index.html">VirtualBox</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/vmware/index.html">VMware</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/plugins/index.html">Plugins</a>
+                  </li>
+                  <li>
+                    <a href="./../../v2/debugging.html">Debugging</a>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+            <div class="page-contents span9">
+              <div class="page-background"></div>
+              <div class="row">
+                <div class="span8 offset1">
+                  <h1>Vagrantfile</h1>
+                  <p>The primary function of the Vagrantfile is to describe the type of machine required for a project, and how to configure and provision these machines. Vagrantfiles are called Vagrantfiles because the actual literal filename for the file is <code>Vagrantfile</code> (casing doesn't matter).</p>
+                  <p>Vagrant is meant to run with one Vagrantfile per project, and the Vagrantfile is supposed to be committed to version control. This allows other developers involved in the project to check out the code, run <code>vagrant up</code>, and be on their way. Vagrantfiles are portable across every platform Vagrant supports.</p>
+                  <p>The syntax of Vagrantfiles is <a href="./../..//www.ruby-lang.org">Ruby</a>, but knowledge of the Ruby programming language is not necessary to make modifications to the Vagrantfile, since it is mostly simple variable assignment. In fact, Ruby isn't even the most popular community Vagrant is used within, which should help show you that despite not having Ruby knowledge, people are very successful with Vagrant.</p>
+                  <h2>Lookup Path</h2>
+                  <p>When you run any <code>vagrant</code> command, Vagrant climbs up the directory tree looking for the first Vagrantfile it can find, starting first in the current directory. So if you run <code>vagrant</code> in <code>/home/mitchellh/projects/foo</code>, it will search the following paths in order for a Vagrantfile, until it finds one:</p>
+                  <pre>
+                    <code>/home/mitchellh/projects/foo/Vagrantfile
 /home/mitchellh/projects/Vagrantfile
 /home/mitchellh/Vagrantfile
 /home/Vagrantfile
 /Vagrantfile
-</code></pre><p>This feature lets you run <code>vagrant</code> from any directory in your project.</p><p>You can change the starting directory where Vagrant looks for a Vagrantfile by setting the <code>VAGRANT_CWD</code> environmental variable to some other path.</p><p><a name=load-order></a></p><h2>Load Order and Merging</h2><p>An important concept to understand is how Vagrant loads Vagrantfiles. Vagrant actually loads a series of Vagrantfiles, merging the settings as it goes. This allows Vagrantfiles of varying level of specificity to override prior settings. Vagrantfiles are loaded in the order shown below. Note that if a Vagrantfile is not found at any step, Vagrant continues with the next step.</p><ol><li>Built-in default Vagrantfile that ships with Vagrant. This has default settings and should never be changed by any user of Vagrant.</li><li>Vagrantfile packaged with the <a href="./../../v2/boxes.html">box</a> that is to be used for a given machine.</li><li>Vagrantfile in your Vagrant home directory (defaults to <code>~/.vagrant.d</code>). This lets you specify some defaults for your system user.</li><li>Vagrantfile from the project directory. This is the Vagrantfile that you&#39;ll be modifying most of the time.</li></ol><p>At each level, settings set will be merged with previous values. What this exactly means depends on the setting. For most settings, this means that the newer setting overrides the older one. However, for things such as defining networks, the networks are actually appended to each other. By default, you should assume that settings will override each other. If the behavior is different, it will be noted in the relevant documentation section.</p><h2>Available Configuration Options</h2><p>You can learn more about the available configuration options by clicking the relevant section in the left navigational area.</p></div></div></div></div></div></div><footer><div class=container><div class=row><div class=span12><ul class="unstyled footer-nav"><li><a href="//docs.vagrantup.com/">Documentation</a></li><li><a href="//www.vagrantup.com/about">About</a></li><li><a href="//www.vagrantup.com/support">Support</a></li><a href="//downloads.vagrantup.com/"><li class="button inline-button">Download</li></a></ul><ul class="unstyled logos"><a href="//www.vagrantup.com"><li class=vagrant-logo-monochrome></li></a><li><span>by</span></li><a href="//www.hashicorp.com"><li class="hashi-logo-monochrome "></li></a></ul></div></div><div class=row><h6 class=legal> &#169; 2013 HashiCorp </h6></div></div></footer></div><script>
+</code>
+                  </pre>
+                  <p>This feature lets you run <code>vagrant</code> from any directory in your project.</p>
+                  <p>You can change the starting directory where Vagrant looks for a Vagrantfile by setting the <code>VAGRANT_CWD</code> environmental variable to some other path.</p>
+                  <p>
+                    <a name="load-order" id="load-order"></a>
+                  </p>
+                  <h2>Load Order and Merging</h2>
+                  <p>An important concept to understand is how Vagrant loads Vagrantfiles. Vagrant actually loads a series of Vagrantfiles, merging the settings as it goes. This allows Vagrantfiles of varying level of specificity to override prior settings. Vagrantfiles are loaded in the order shown below. Note that if a Vagrantfile is not found at any step, Vagrant continues with the next step.</p>
+                  <ol>
+                    <li>Built-in default Vagrantfile that ships with Vagrant. This has default settings and should never be changed by any user of Vagrant.</li>
+                    <li>Vagrantfile packaged with the <a href="./../../v2/boxes.html">box</a> that is to be used for a given machine.</li>
+                    <li>Vagrantfile in your Vagrant home directory (defaults to <code>~/.vagrant.d</code>). This lets you specify some defaults for your system user.</li>
+                    <li>Vagrantfile from the project directory. This is the Vagrantfile that you'll be modifying most of the time.</li>
+                  </ol>
+                  <p>At each level, settings set will be merged with previous values. What this exactly means depends on the setting. For most settings, this means that the newer setting overrides the older one. However, for things such as defining networks, the networks are actually appended to each other. By default, you should assume that settings will override each other. If the behavior is different, it will be noted in the relevant documentation section.</p>
+                  <h2>Available Configuration Options</h2>
+                  <p>You can learn more about the available configuration options by clicking the relevant section in the left navigational area.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="span12">
+              <ul class="unstyled footer-nav">
+                <li>
+                  <a href="./../..//docs.vagrantup.com/">Documentation</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/about">About</a>
+                </li>
+                <li>
+                  <a href="./../..//www.vagrantup.com/support">Support</a>
+                </li>
+                <a href="./../..//downloads.vagrantup.com/">
+                  <li class="button inline-button">Download</li>
+                </a>
+              </ul>
+              <ul class="unstyled logos">
+                <a href="./../..//www.vagrantup.com">
+                  <li class="vagrant-logo-monochrome"></li>
+                </a>
+                <li>
+                  <span>by</span>
+                </li>
+                <a href="./../..//www.hashicorp.com">
+                  <li class="hashi-logo-monochrome "></li>
+                </a>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <h6 class="legal"> &#169; 2013 HashiCorp </h6>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+<![CDATA[
 			$(".big-background").backstretch("assets/photos/full_width.jpg");
-		</script></body></html>
+		]]>
+    </script>
+  </body>
+</html>
