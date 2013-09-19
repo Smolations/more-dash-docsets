@@ -382,7 +382,7 @@ All that is required to implement this feature are two things:
 <a class="dashAnchor" name="//apple_ref/cpp/ENTRY_TYPE/ENTRY_NAME"></a>
 ```
 
-These dash anchors are generally inserted nearby an element which has an id attribute value which is included in the `path` field in the sqlite database (e.g. `reference/functions.html#ENTRY_ID). This allows Dash to scroll to a specific area on the page to display the entry. If no element nearby has a suitable id, then one can be added the the Dash anchor. This anchor is created with the `Dash::get_dash_anchor` method.
+These dash anchors are generally inserted nearby an element which has an id attribute value which is included in the `path` field in the sqlite database (e.g. `reference/functions.html#ENTRY_ID`). This allows Dash to scroll to a specific area on the page to display the entry. If no element nearby has a suitable id, then one can be added the the Dash anchor. This anchor is created with the `Dash::get_dash_anchor` method.
 
 Take, for example, this excerpt from the AWS CLI generator:
 
