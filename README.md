@@ -98,7 +98,9 @@ Since specifying relative paths makes the script fairly brittle depending on wha
 
 The dash constructor takes 2 required parameters and allows for two optional parameters:
 
-* `:name` (required) This becomes the file name of the docset (e.g. `Puppet.docset`).
-* `:docs_root` (required) This is the name of the folder that is dropped into the `src-docs` directory. It is the _documentation root_. This value can be accessed later in the script, as an absolute path, with `dash::docs_root` (notice that it's an attribute on the instance, not the class).
-* `:display_name` (optional) What Dash will display in it's sidebar. If this parameter is omitted, it defaults to the value for `:name`.
-* `:icon` (optional) A path to a 32x32 image which will be renamed and copied into the docset. The path can be relative to the `more-dash-docsets/` root or an absolute path.
+| Key             | Required? | Description
+|-----------------|:---------:|------------
+| `:name`         |    Yes    | This becomes the file name of the docset (e.g. `Puppet.docset`).
+| `:docs_root`    |    Yes    | This is the name of the folder that is dropped into the `src-docs` directory. It is the _documentation root_. This value can be accessed later in the script, as an absolute path, with `dash::docs_root` (notice that it's an attribute on the instance, not the class).
+| `:display_name` |    No     | What Dash will display in it's sidebar. If this parameter is omitted, it defaults to the value for `:name`.
+| `:icon`         |    No     | A path to a 32x32 image which will be renamed and copied into the docset. The path can be relative to the `more-dash-docsets/` root or an absolute path.
