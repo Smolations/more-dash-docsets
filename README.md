@@ -3,7 +3,8 @@ more-dash-docsets
 
 Greetings. I found myself excited about Dash and the prospect of creating my own docsets, so I set out to create a loose framework to do just that. I didn't build it for anyone but myself, but if you'd like to use it, feel free. In case I forget, and I guess for anyone interested, I shall spend some time explaining how I've gone about creating my docsets. For this project, I chose Ruby (1.8.7).
 
-I suppose the NEXT best place to start is to outline the requirements for using the Dash class:
+
+### Requirements
 
 * Ruby 1.8+
 * [Nokogiri 1.5.10](http://nokogiri.org/) - I am running OS X 10.8 which is bundled with Ruby 1.8.7. I choose not to manage multiple Ruby versions on my machine. As a result, 1.5.10 is the version of Nokogiri I had to install. Version 1.6+ requires Ruby 1.9+, so it was not an option. These scripts should definitely work with the newer versions of both software, however.
@@ -11,7 +12,7 @@ I suppose the NEXT best place to start is to outline the requirements for using 
 * [ruby-git](https://github.com/schacon/ruby-git) - A Ruby implementation for Git
 
 
-I suppose the NEXT best place to start is the file structure:
+### File Structure
 
     more-dash-docsets
         `- bin
