@@ -25,7 +25,7 @@ I suppose the best place to start is the file structure:
 
 **icon-images** - A folder where I keep 32x32 as well as source images to be used as (or used for generating) icons in the docsets.
 
-**resources** - Project templates and other random resources that are used to generate the docsets.
+**resources** - Project templates and other random resources that are used to generate the docsets. The most notable of which is the Info.plist template which is required for all docsets.
 
 **src** - This folder is hidden and isn't referenced in any generator. It is only a place where compressed files of the src-docs live. I only mention it because it exists in the .gitignore file.
 
@@ -38,7 +38,7 @@ PuppetDocs - A Practical Example
 
 The easiest way to explain the framework is to run through an example.
 
-### Step 1
+### Go Get The Docs
 
 The first thing to do is to acquire the HTML documentation. If you are lucky, the documentation you seek will be available as a standalone, compressed file filled with structured HTML. If you are unlucky, you will have to use `wget` to crawl a URL and download everything it finds. The obvious drawback to the `wget` method is getting a whole bunch of stuff you don't need. Also, since it follows links it finds in pages when downloading files, you are never sure if you have gotten every file you need for complete documentation.
 
@@ -53,9 +53,51 @@ In case you have to resort to using `wget` to retrieve your documentation, here 
 * `-nc` No-clobber. If the file has already been downloaded, don't download it again. This is important because usually every HTML file references the same CSS, Javascript, and even some images. You definitely don't want to waste time downloading the same resources over and over. This is also useful in case your download is halted for some reason and you want to start it back up again.
 * `-p` Page requisites. Tell wget to download stylesheets, scripts, images, and anything else necessary to display the page correctly offline.
 
-Once you have the documentation, you will need to copy it into the `src-docs` folder. Let's use Puppet as an example. The docs for Puppet were available as a standalone, compressed file (hooray!). It's basically the entire docs.puppetlabs.com site. I copied the documentation folder into `more-dash-docsets/src-docs/puppetdocs-latest`. The `puppetdocs-latest` folder contains the index.html that is the starting point for all docs, and each module in it's own folder.
+Once you have the documentation, you will need to copy it into the `src-docs` folder. Let's use Puppet as an example. The docs for Puppet were available as a standalone, compressed file (hooray!). It's basically the entire docs.puppetlabs.com site. I copied the documentation folder into `more-dash-docsets/src-docs/puppetdocs-latest`. The `puppetdocs-latest` folder contains the index.html that is the starting point for all docs, and each module in it's own folder. I chose to take the time at this point to go find a suitable icon (and resize it to 32x32) for the docset as well. Our folder hierarchy (only relavant files shown) now looks like this:
+
+    more-dash-docsets/
+        `- docsets/
+        `- generators/
+        `- icon-images/
+            `- puppetlabs.png
+        `- resources/
+            `- Info.plist
+        `- src-docs/
+            `- puppetdocs-latest/
 
 
-### Step 2
+### Spin Up A Generator
 
-The next step is to create the generator script.
+The next step is to create the generator script. The naming convention has no significance here.
+
+    more-dash-docsets/
+        `- docsets/
+        `- generators/
+            `- _gen_puppet.rb
+        `- icon-images/
+            `- puppetlabs.png
+        `- resources/
+            `- Info.plist
+        `- src-docs/
+            `- puppetdocs-latest/
+
+The first thing to do in a generator file is to import the Dash helper class and instantiate a Dash object with a few required parameters.
+
+    :::ruby
+    require File.join(File.dirname(__FILE__), 'Dash.rb')
+
+    dash = Dash.new({
+        :name           => 'Puppet',
+        :display_name   => 'Puppet 3.2',
+        :docs_root      => 'puppetdocs-latest',
+        :icon           => File.join('icon-images', 'puppetlabs.png')
+    })
+
+Since specifying relative paths makes the script fairly brittle depending on what directory you run the generator from, I chose to go with a more explicit way of importing the Dash class, which happens to be in the same directory.
+
+The dash constructor takes 2 required parameters and allows for two optional parameters:
+
+* `:name` (required) This becomes the file name of the docset (e.g. `Puppet.docset`).
+* `:docs_root` (required) This is the name of the folder that is dropped into the `src-docs` directory. It is the _documentation root_. This value can be accessed later in the script, as an absolute path, with `dash::docs_root` (notice that it's an attribute on the instance, not the class).
+* `:display_name` (optional) What Dash will display in it's sidebar. If this parameter is omitted, it defaults to the value for `:name`.
+* `:icon` (optional) A path to a 32x32 image which will be renamed and copied into the docset. The path can be relative to the `more-dash-docsets/` root or an absolute path.
