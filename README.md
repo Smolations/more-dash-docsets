@@ -1,7 +1,7 @@
 more-dash-docsets
 =================
 
-Greetings. I found myself excited about Dash and the prospect of creating my own docsets, so I set out to create a loose framework to do just that. I didn't build it for anyone but myself, but if you'd like to use it, feel free. In case I forget, and I guess for anyone interested, I shall spend some time explaining how I've gone about creating my docsets. For this project, I chose Ruby (1.8.7).
+Greetings, [Dash](http://kapeli.com) enthusiasts! I found myself excited about Dash and the prospect of creating my own docsets, so I set out to create a loose framework to do just that. I didn't build it for anyone but myself, but if you'd like to use it, feel free. In case I forget some time down the line, and I guess for anyone interested, I shall spend some time explaining how I've gone about creating my docsets. For this project, I chose Ruby (1.8.7).
 
 
 ### Requirements
@@ -34,11 +34,11 @@ Greetings. I found myself excited about Dash and the prospect of creating my own
 
 **icon-images** - A folder where I keep 32x32 as well as source images to be used as (or used for generating) icons in the docsets.
 
-**resources** - Project templates and other random resources that are used to generate the docsets. The most notable of which is the Info.plist template which is required for all docsets.
+**resources** - Project templates and other random resources that are used to generate some of the docsets. The most notable of which is the `Info.plist` template which is required for all docsets.
 
-**src** - This folder is hidden and isn't referenced in any generator. It is only a place where compressed files of the src-docs live. I only mention it because it exists in the .gitignore file.
+**src** - This folder is .git-ignore-d and isn't referenced in any generator. It is only a place where compressed files of the src-docs live. I only mention it because it exists in the .gitignore file.
 
-**src-docs** - Each project has source documentation in the form of a single folder containing a collection of HTML, CSS, Javascript, and images. When you specify a docs_root in each generator script, that path is relative to this directory.
+**src-docs** - This folder is also .gitignore-d. Each project has source documentation in the form of a single folder containing a collection of HTML, CSS, Javascript, and images. When you specify a docs_root in each generator script, that path is relative to this directory.
 
 ------------------------------------------------------------------------------------
 
@@ -64,7 +64,9 @@ In case you have to resort to using `wget` to retrieve your documentation, here 
 | `-nc`           | No-clobber. If the file has already been downloaded, don't download it again. This is important because usually every HTML file references the same CSS, Javascript, and even some images. You definitely don't want to waste time downloading the same resources over and over. This is also useful in case your download is halted for some reason and you want to start it back up again.
 | `-p`            | Page requisites. Tell wget to download stylesheets, scripts, images, and anything else necessary to display the page correctly offline.
 
-Once you have the documentation, you will need to copy it into the `src-docs` folder. Let's use Puppet as an example. The docs for Puppet were available as a standalone, compressed file (hooray!). It's basically the entire docs.puppetlabs.com site. I copied the documentation folder into `more-dash-docsets/src-docs/puppetdocs-latest`. The `puppetdocs-latest` folder contains the index.html that is the starting point for all docs, and each module in it's own folder. I chose to take the time at this point to go find a suitable icon (and resize it to 32x32) for the docset as well. Our folder hierarchy (only relavant files shown) now looks like this:
+Once you have the documentation, you will need to copy it into the `src-docs` folder. The docs for Puppet were available as a standalone, compressed file (hooray!). It's basically the entire [docs.puppetlabs.com](http://docs.puppetlabs.com) site. I copied the documentation folder into `more-dash-docsets/src-docs/puppetdocs-latest`. The `puppetdocs-latest` folder contains the index.html that is the starting point for all docs, and separates each module by putting the docs for a module in it's own, unique folder. I chose to take the time at this point to go find a suitable icon (and resize it to 32x32) for the docset as well. The quickest solution for me was Google Images.
+
+Our folder hierarchy (only relavant files shown) now looks like this:
 
     more-dash-docsets/
         `- docsets/
@@ -105,7 +107,7 @@ dash = Dash.new({
 })
 ```
 
-Since specifying relative paths makes the script fairly brittle depending on what directory you run the generator from, I chose to go with a more explicit way of importing the Dash class, which happens to be in the same directory.
+Since specifying relative paths makes the script fairly brittle depending on what directory you run the generator from, I chose to go with a more explicit way of `require`ing the Dash class, which happens to be in the same directory.
 
 The dash constructor takes 2 required parameters and allows for two optional parameters:
 
@@ -128,28 +130,36 @@ As soon as a Dash object is created, many magical things happen:
 
 #### A word about the docs repo...
 
-As I wrote each generator script, I found that there was quite a bit of trial and error. I also found that I would insert redundant elements if I ran my scripts repeatedly. It is also important to me that I retain an original copy of the documentation so that I could start over whenever I needed to. When the Dash constructor reaches the Git repository code, it ensures that:
+As I wrote each generator script, I found that there was quite a bit of trial and error. It is important to me that I retain an original copy of the documentation so that I can start over if I ever need to. I also found that I would insert redundant elements if I ran my scripts repeatedly.  When the Dash constructor reaches the Git repository code, it ensures that:
 
-1. A repo is created. If one isn't already, it is created for you and an initial import of all the docs is completed.
-2. A "dev" branch exists. The master branch is intended to reference the original, pristine documentation. The dev branch is where all of the generator script changes take place.
-3. The current HEAD points to a _clean_ dev branch. A `git reset --hard HEAD` is run to ensure a clean working tree.
+1. A repo is created. If one isn't already, it is created for you and an initial import of all the docs is committed.
+2. A `dev` branch exists. The `master` branch is intended to reference the original, pristine documentation. The `dev` branch is where all of the generator script changes take place.
+3. The current `HEAD` points to a _clean_ `dev` branch. A `$ git reset --hard HEAD` is run to ensure a clean working tree.
 
-It should be clear that each time the script is run, the previous changes made by the script are erased. That's OK! Borrowing a strategy from Puppet, this entire framework was created so that the changes made by the generator are _idempotent_. You should expect the same results each time you run the generator (unless you made changes to the generator of course). This is why the entire docset hierarchy, along with the sqlite database, is re-created on each run of the generator.
+It should be clear that each time the generator is run, the previous changes made by the generator are erased. That's OK! Borrowing a strategy from Puppet, this entire framework was created so that the changes made by the generator are _idempotent_. You should expect the same results each time you run the generator (unless you made changes to the generator of course). This is why the entire docset hierarchy, along with the sqlite database, is re-created on each run of the generator.
+
+You can access the repo (created by ruby-git) object at any time in your script thusly:
+
+```ruby
+dash = Dash.new({ ... })
+dash::repo.status
+dash::repo.stash('brb with this')
+```
 
 
 ### What's So Special about YOUR Docs?
 
-Every generator has the class require statement and needs a Dash object to be created. Once that is out of the way, you will need to analyze the structure of the documentation to determine what processing is required for the Dash entries you want. Do you want Dash to know about Guides? Do you want to document options as well as the commands they are associated with? All of that, and more, is up to you. Let's continue with the Puppet use case.
+Every generator has the class `require` statement and needs a Dash object to be created. Once that is out of the way, you will need to analyze the structure of the documentation to determine what processing is required for the Dash entries you want. Do you want Dash to know about Guides? Do you want to document options as well as the commands they are associated with? All of that, and more, is up to you. Let's continue with the Puppet use case.
 
 
 #### Trim the fat
 
-Many of the documentation folders in the puppetdocs include documentation for earlier versions of the software. Since I only needed the latest documentation for the Puppet docset, it made sense to remove these folders before doing any processing. Since there is no reason for the older docs to ever be parsed, there is no reason for them to exist in this project. Remember that the master branch contains the original documentation. My first step was to make sure I was on the dev branch before going through and deleting all of these extraneous directories. I then **committed** these changes to the dev branch. This cleaner state acts as a starting point for documentation, and ensures that I won't need to worry about those extra files during multiple generator runs in the future.
+Many of the documentation folders in the puppetdocs include documentation for earlier versions of the software. Since I only needed the latest documentation for the Puppet docset, it made sense to remove these folders before doing any processing. Since there is no reason for the older docs to ever be parsed, there is no reason for them to exist in this project. Remember that the `master` branch contains the original documentation. My first step was to make sure I was on the `dev` branch before going through and deleting all of these extraneous directories. I then **committed** these changes to the `dev` branch. This cleaner state acts as a starting point for documentation alteration, and ensures that I won't need to worry about those extra files during multiple generator runs as I test code changes.
 
 
 #### Making src and href paths relative
 
-It turns out that the puppetdocs are intended to be run by a web server. All of the paths to resources and pages are relative to the site root, so they begin with a forward slash. This is a problem for Dash as it does not use a web server to serve up its documentation (I think at least). Therefore, our first task will be to change all of the paths so that they are relative to the documentation root. If your docs paths are already relative, then you've won half the battle already!
+It turns out that the puppetdocs are intended to be served up by an actual web server. All of the paths to resources and pages are relative to the site root, so they begin with a forward slash (e.g. `href="/cli/latest/references"`). This is a problem for Dash as it does not use a web server to serve up its documentation (I think). Therefore, our first task will be to change all of the paths so that they are relative to the documentation root. If your docs paths are already relative, then you've won half the battle already!
 
 Perhaps in future versions of this class I will integrate this process into the class definition itself, so that it can be executed with a single command. Since I only needed this functionality for 2 docsets I have generated (Puppet and Vagrant), I simply copied and pasted the code I needed. That code is a collection of functions and global variables:
 
@@ -211,20 +221,20 @@ puts " \`-Done processing #{$fileCount} files."
 
 I hope that the comments make most of the processing clear. I want to discuss just a couple of things that might _not_ be so clear.
 
-The `$fileCount` variable is included only so I get a little bit of information in stdout. You will see much of this in the generators. There is _some_ automatic output from the Dash object, but statistics for document processing differ from project to project, so the onus is on the author to get acquire that feedback.
+The `$fileCount` variable is included only so I get a little bit of information in stdout. You will see much of this in the generators. There is _some_ automatic output from the Dash object, but statistics for document processing differ from project to project, so the onus is on the author to define that feedback.
 
-You'll notice that I use Nokogiri to replace all of the src and href attributes with relative URLs which utilize `$levels`. However, each doc also had scripts for Google Analytics as well as MARKETO TRACKING (whatever that is). Luckily for me, each of these blocks was surrounded by comments to identify them. I chose to go with `sed` to replace the markup in-place because it was the easiest to use. This method demonstrates that you can utilize any command-line tool that makes your task(s) easier.
+You'll notice that I use Nokogiri to replace all of the src and href attributes with the relative URLs (which take advtange of `$levels`). However, each doc also had scripts for Google Analytics as well as MARKETO TRACKING (whatever that is). Luckily for me, each of these blocks was surrounded by comments to identify them. I chose to go with `sed` to replace the markup in-place because it was the easiest to use. This solution demonstrates that you can utilize any command-line tool that makes your task(s) easier.
 
 
 #### Creating Guides entries
 
-Puppetdocs include not only a reference to the syntax and command-line tools, but also a collection of Guides. This was easy enough to find since there's a folder in the docs root named `guides`. So how do we process them? Well, an ideal situation is that a link to each one of them is in a list on some HTML page. We could then just loop through that list, grab the title and file path from the anchor (<a></a>) element, and insert the entries into the database. Unfortunately, there is no page that I found quickly that has that list. I got a bit creative.
+Puppetdocs include not only a reference to the syntax and command-line tools, but also a collection of Guides. This was easy enough to find since there's a folder in the docs_root named `guides`. So how do we process them? Well, an ideal situation is that a link to each one of them is in a list on some HTML page. We could then just loop through that list, grab the title and file path from the anchor (`<a></a>`) element, and insert the entries into the database. Unfortunately, there is no page that I found quickly that has that list. I got a bit creative.
 
-Within the `guides` folder, each guide appeared to have it's own page. I opened up a few of the files in a text editor and saw a pattern with the <title></title> elements:
+Within the `guides` folder, each guide appeared to have it's own page. I opened up a few of the files in a text editor and saw a pattern with the `<title></title>` elements:
 
     <title>Getting Started With Cloud Provisioner — Documentation — Puppet Labs</title>
 
-Each title element had the name of the guide followed by the same " — Documentation — Puppet Labs" suffix. My solution here was to loop through each file and parse the title to get what I needed. It's important to note at this point that you need three values for every Dash entry: `name`, `type`, and `path`. The `path` value should always be relative to the documentation root:
+Each title element had the name of the guide followed by the same " — Documentation — Puppet Labs" suffix. My solution here was to loop through each file and parse the title to get what I needed. It's important to note at this point that you need three values for every Dash entry: `name`, `type`, and `path`. The `path` value should always be relative to the documentation root (docs_root):
 
 ```ruby
 # load up guides
@@ -251,14 +261,14 @@ end
 puts " \`- Done processing #{cnt} files."
 ```
 
-You can see that the first thing I do is to get an array of all the files in the `guides` directory. Keep in mind that the `Dash::clean_dir_entries` only returns entries in the path that is passed to it. It is not recursive. This method basically gets all entries in the path and then takes out entries that would be problematic when processing (e.g. '.', '..', '.git'). I then loop through the entries, ensure that I'm looking at a file and not a directory, and then use Nokogiri to get the value I need to parse. Once we have the name from the title element, 'Guide' is the `type` and the `path` is constructed from each entry file name. It should also be clear that I only insert a database entry if the file being parsed returns a name.
+You can see that the first thing I do is to get an array of all the files in the `guides` directory. Keep in mind that the `Dash::clean_dir_entries` method only returns entries in the path that is passed to it. It is not recursive. This method basically gets all entries in the path and then takes out entries that would be problematic when processing (e.g. `['.', '..', '.git']`). I then loop through the entries, ensure that I'm looking at a file and not a directory, and then use Nokogiri to get the value I need to parse. Once we have the `name` from the title element, 'Guide' is the `type` and the `path` is constructed from each entry file name. It should also be clear that I only insert a database entry if the file being parsed returns a `name`.
 
 The final step is to tell the Dash object to insert the sql entries. It doesn't actually insert them at this time, it only creates the query and stores it. More on this later.
 
 
 #### Generating Types entries
 
-Puppet syntax uses defined types for resources. These are used so often in Puppet scripts that it makes having them in Dash a necessity. All of the docs which are versioned also include a symlink named `latest` that points to the latest documentation. This made it easy to set a variable for a common version that other processing code blocks can use.
+Puppet syntax uses defined types for resources. These are used so often in Puppet scripts that it makes having them in Dash a necessity. All of the docs which are versioned also include a symlink named `latest` that points to the latest documentation for that module. This made it easy to set a variable for a common version that other processing code blocks can use.
 
 Fortunately, every type is listed in `references/latest/type.html` using an unordered list of anchors. That's all that is needed to insert the necessary queries for Dash to be aware of each type:
 
@@ -285,12 +295,12 @@ end
 puts " \`- Done processing #{cnt} Type anchors."
 ```
 
-There is similar processing for functions, metaparameters, and Facter facts, so I'm omitting those code blocks. If you are curious, you can peruse the Puppet generator (`generators/_gen_puppet.rb`).
+There are similar code blocks to process Dash entries for functions, metaparameters, and Facter facts, so I'm omitting those code blocks. If you are curious, you can peruse the Puppet generator (`generators/_gen_puppet.rb`).
 
 
 #### Puppet binary commands
 
-Puppet also has command line tools. This structure was slightly different, but didn't require me to inspect the content of any pages! Each command had it's own HTML page, in the format _command_.html. Since I can get the name AND path simply from the directory entries, it made the process quite simple:
+Puppet also has a command line tool. This structure was slightly different, but didn't require me to inspect the content of any pages! Each command had it's own HTML page, named using the format _command_.html. Since I can get the `name` AND `path` simply from the directory entries, it made the process quite simple:
 
 ```ruby
 # Commands with the `puppet` binary
@@ -310,9 +320,9 @@ end
 puts " \`- Done processing #{cnt} Commands."
 ```
 
-#### Concluding the script
+#### Concluding the generator file
 
-There are two things you'll want to do at the end of each script:
+There are two things you'll want to do at the end of each generator file:
 
 1. Inspect and/or execute the SQL queries that have been stored during processing
 2. Copy the documentation into the docset structure so Dash can actually display the pages referenced by each entry's `path` value in the database
@@ -331,16 +341,25 @@ I wanted to be able to inspect queries in a fairly flexible way, so I implemente
 dash.sql_execute
 ```
 
-Once I'm satisfied with the SQL and the state of the documents after processing, I then copy the docs:
+If you only want to insert _some_ of the stored queries, simply use the `:filter` option but omit the `:noop => true` option.
+
+Once I'm satisfied with the SQL and the state of the documents after processing, I copy the docs into the docset:
 
 ```ruby
 # dash.copy_docs(:noop => true)
-dash.copy_docs()
+dash.copy_docs
 
 puts "\nDone."
 ```
 
-I ran the generator after each code block was written, and tested the docset in Dash each time. This is where the idempotence shines. I didn't have to worry about the docs getting cluttered because any changes from the last generation were wiped out with the current one. I didn't need to worry about errant sqlite records for the same reason. Wonderful!
+I ran the generator after each code block was written, and tested the docset in Dash each time. This is where the idempotence shines. I didn't have to worry about the documents file content getting cluttered because all changes from the last generation were wiped out with the current generation. I didn't need to worry about errant sqlite records for the same reason. Wonderful!
+
+All you need to do to run your generator is use ruby on the command line. It doesn't matter what directory you are in when executing the command:
+
+    ~/more-dash-docsets $ ruby generators/_gen_puppet.rb
+    ~/more-dash-docsets/src-docs/puppetdocs-latest $ ruby ../../generators/_gen_puppet.rb
+
+-------------------------------------------------------------------------
 
 
 The Dash TOC
@@ -415,6 +434,8 @@ All I wanted out of this project was to have a structured, flexible, reusable fr
 
 In the future, I'd like to create built-in pieces to the Dash class which process common frameworks like Javadoc (the kapeli tool isn't perfect, just convenient), RDoc, and JSDoc. That would make generating docsets for documentation created via those generators much easier.
 
+I am also thinking about making the Git implementation optional. It is EXTREMELY useful, but some might not prefer to use it.
+
 I hope SOMEONE found this information useful, even if that person doesn't end up using any of the code in this project.  =]
 
 
@@ -422,3 +443,5 @@ Resources
 ---------
 
 * [kapeli.com - Generating Dash Docsets](http://kapeli.com/docsets) The offical Dash documentation for creating docsets. This documentation gives all of the basic information needed to create your own docsets.
+* [ruby-git Primer](https://github.com/schacon/ruby-git)
+* [ruby-git API docs](http://rubydoc.info/github/schacon/ruby-git/index)

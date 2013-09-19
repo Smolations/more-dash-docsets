@@ -189,6 +189,6 @@ puts " \`- Done processing #{cnt} Facter facts."
 dash.sql_execute
 
 # dash.copy_docs(:noop => true)
-dash.copy_docs()
+dash.copy_docs
 
 puts "\nDone."
