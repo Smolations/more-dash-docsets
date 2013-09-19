@@ -23,10 +23,25 @@ I suppose the best place to start is the file structure:
 
 **generators** - The home of the Dash class and each generation script.
 
-**icon-images** - A folder where I keep 32x32 images to be used as icons in the docsets.
+**icon-images** - A folder where I keep 32x32 as well as source images to be used as (or used for generating) icons in the docsets.
 
 **resources** - Project templates and other random resources that are used to generate the docsets.
 
 **src** - This folder is hidden and isn't referenced in any generator. It is only a place where compressed files of the src-docs live. I only mention it because it exists in the .gitignore file.
 
 **src-docs** - Each project has source documentation in the form of a single folder containing a collection of HTML, CSS, Javascript, and images. When you specify a docs_root in each generator script, that path is relative to this directory.
+
+------------------------------------------------------------------------------------
+
+The easiest way to explain the framework is to run through an example.
+
+The first thing to do is to acquire the HTML documentation. If you are lucky, the documentation you seek will be available as a standalone, compressed file filled with structured HTML. If you are unlucky, you will have to use `wget` to crawl a URL and download everything it finds. The obvious drawback to the `wget` method is getting a whole bunch of stuff you don't need. Also, since it follows links it finds in pages when downloading files, you are never sure if you have gotten every file you need for complete documentation. In case you have to resort to that, here is the command I have been using:
+
+    wget -nv -e robots=off -o wget.nv.log -r -nc
+
+`-nv` No verbose. This makes the output a bit cleaner. You will be downloading quite a few files after all.
+`-e robots=off` Execute command. Commands are whatever you can put in `~/.wgetrc`. In this case, we are ignoring the robots.txt file.
+`-o` Output file. Duh. ;]
+`-r` Recursive. Gotta make sure you can move through the directory hierarchy.
+`-nc` No-clobber. If the file has already been downloaded, don't download it again. This is important because usually every HTML file references the same CSS, Javascript, and even some images. You definitely don't want to waste time downloading the same resources over and over. This is also useful in case your download is halted for some reason and you want to start it back up again.
+
