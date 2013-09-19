@@ -356,8 +356,8 @@ I ran the generator after each code block was written, and tested the docset in 
 
 All you need to do to run your generator is use ruby on the command line. It doesn't matter what directory you are in when executing the command:
 
-    ~/more-dash-docsets $ ruby generators/_gen_puppet.rb
-    ~/more-dash-docsets/src-docs/puppetdocs-latest $ ruby ../../generators/_gen_puppet.rb
+    [~/more-dash-docsets]-$ ruby generators/_gen_puppet.rb
+    [~/more-dash-docsets/src-docs/puppetdocs-latest]-$ ruby ../../generators/_gen_puppet.rb
 
 -------------------------------------------------------------------------
 
@@ -365,18 +365,22 @@ All you need to do to run your generator is use ruby on the command line. It doe
 The Dash TOC
 ------------
 
-There is no current documentation on the Dash website which tells users how to create a table of contents for entries. I resorted to contacting Dash to ask for some direction on how to do so. The table of contents allows for the functions/methods/properties/etc. to show up in the left pane, in the bottom partition. This gives a bird's eye view to all of the connected pieces of a given entry (e.g. a Class). This TOC is produced for most of the documentation that comes with Dash.
+There is no current documentation on the Dash website that demonstrates to users how to create a table of contents for entries. I resorted to contacting Dash directly to ask for some direction on how to do so.
 
-All that is required for this to occur are two things:
+The TOC allows for the functions/methods/properties/etc. to show up in the left pane, in the bottom partition. This gives Dash users a bird's eye view to all of the connected pieces of a given entry (e.g. methods for a selected Class). This TOC is produced for most of the documentation that comes with Dash.
+
+All that is required to implement this feature are two things:
 
 1. Create a key/value pair in the `Info.plist` file. This is included in the .plist template that the Dash class uses, so that part is taken care of automatically.
-
-    <key>DashDocSetFamily</key>
-    <string>dashtoc</string>
+```xml
+<key>DashDocSetFamily</key>
+<string>dashtoc</string>
+```
 
 2. Insert a special Dash anchor that allows Dash to "see" what you want in the TOC, and doubles as the location that Dash shows when you click an entry in the TOC.
-
-    <a class="dashAnchor" name="//apple_ref/cpp/ENTRY_TYPE/ENTRY_NAME"></a>
+```html
+<a class="dashAnchor" name="//apple_ref/cpp/ENTRY_TYPE/ENTRY_NAME"></a>
+```
 
 These dash anchors are generally inserted nearby an element which has an id attribute value which is included in the `path` field in the sqlite database (e.g. `reference/functions.html#ENTRY_ID). This allows Dash to scroll to a specific area on the page to display the entry. If no element nearby has a suitable id, then one can be added the the Dash anchor. This anchor is created with the `Dash::get_dash_anchor` method.
 
