@@ -46,12 +46,14 @@ In case you have to resort to using `wget` to retrieve your documentation, here 
 
     wget -nv -e robots=off -o wget.nv.log -r -nc -p http://docs.domain.com/latest
 
-* `-nv` No verbose. This makes the output a bit cleaner. You will be downloading quite a few files after all.
-* `-e robots=off` Execute command. Commands are whatever you can put in `~/.wgetrc`. In this case, we are ignoring the robots.txt file.
-* `-o` Output file. Duh. ;]
-* `-r` Recursive. Gotta make sure you can move through the directory hierarchy.
-* `-nc` No-clobber. If the file has already been downloaded, don't download it again. This is important because usually every HTML file references the same CSS, Javascript, and even some images. You definitely don't want to waste time downloading the same resources over and over. This is also useful in case your download is halted for some reason and you want to start it back up again.
-* `-p` Page requisites. Tell wget to download stylesheets, scripts, images, and anything else necessary to display the page correctly offline.
+| Command         | Description
+| --------------- | -----------
+| `-nv`           | No verbose. This makes the output a bit cleaner. You will be downloading quite a few files after all.
+| `-e robots=off` | Execute command. Commands are whatever you can put in `~/.wgetrc`. In this case, we are ignoring the robots.txt file.
+| `-o`            | Output file. Duh. ;]
+| `-r`            | Recursive. Gotta make sure you can move through the directory hierarchy.
+| `-nc`           | No-clobber. If the file has already been downloaded, don't download it again. This is important because usually every HTML file references the same CSS, Javascript, and even some images. You definitely don't want to waste time downloading the same resources over and over. This is also useful in case your download is halted for some reason and you want to start it back up again.
+| `-p`            | Page requisites. Tell wget to download stylesheets, scripts, images, and anything else necessary to display the page correctly offline.
 
 Once you have the documentation, you will need to copy it into the `src-docs` folder. Let's use Puppet as an example. The docs for Puppet were available as a standalone, compressed file (hooray!). It's basically the entire docs.puppetlabs.com site. I copied the documentation folder into `more-dash-docsets/src-docs/puppetdocs-latest`. The `puppetdocs-latest` folder contains the index.html that is the starting point for all docs, and each module in it's own folder. I chose to take the time at this point to go find a suitable icon (and resize it to 32x32) for the docset as well. Our folder hierarchy (only relavant files shown) now looks like this:
 
