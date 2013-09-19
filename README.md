@@ -83,15 +83,16 @@ The next step is to create the generator script. The naming convention has no si
 
 The first thing to do in a generator file is to import the Dash helper class and instantiate a Dash object with a few required parameters.
 
-    :::ruby
-    require File.join(File.dirname(__FILE__), 'Dash.rb')
+```ruby
+require File.join(File.dirname(__FILE__), 'Dash.rb')
 
-    dash = Dash.new({
-        :name           => 'Puppet',
-        :display_name   => 'Puppet 3.2',
-        :docs_root      => 'puppetdocs-latest',
-        :icon           => File.join('icon-images', 'puppetlabs.png')
-    })
+dash = Dash.new({
+    :name           => 'Puppet',
+    :display_name   => 'Puppet 3.2',
+    :docs_root      => 'puppetdocs-latest',
+    :icon           => File.join('icon-images', 'puppetlabs.png')
+})
+```
 
 Since specifying relative paths makes the script fairly brittle depending on what directory you run the generator from, I chose to go with a more explicit way of importing the Dash class, which happens to be in the same directory.
 
