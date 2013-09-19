@@ -49,7 +49,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>Dash.module.rb
+    <li>Dash.rb
   </ul>
 </nav>
 
@@ -274,6 +274,759 @@
 
     <!-- Methods -->
     
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-clean_dir_entries" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clean_dir_entries</span><span
+            class="method-args">(dir_path, more = [])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>removes unwanted entries for processing (e.g. ‘.’, ‘..’). You can
+remove additional entries by passing them as an array for the second
+parameter. <code>dir_path</code> should be absolute. returns array on
+success or nil if not a directory</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clean_dir_entries-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clean_dir_entries</span>(<span class="ruby-identifier">dir_path</span>, <span class="ruby-identifier">more</span> = [])
+    <span class="ruby-identifier">omit</span> = [ <span class="ruby-string">'.'</span>, <span class="ruby-string">'..'</span>, <span class="ruby-string">'.git'</span>, <span class="ruby-string">'.DS_Store'</span> ]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">more</span>.<span class="ruby-identifier">length</span>
+        <span class="ruby-identifier">omit</span> = <span class="ruby-identifier">omit</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">more</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># puts &quot;--Cleaning #{dir_path}&quot;</span>
+    <span class="ruby-comment"># puts &quot;--Removing #{more.join(',')}&quot;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">dir_path</span>)
+        <span class="ruby-keyword">return</span> (<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-identifier">dir_path</span>) <span class="ruby-operator">-</span> <span class="ruby-identifier">omit</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clean_dir_entries-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clean_dir_entries-method -->
+
+    
+      <div id="method-i-copy_docs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_docs</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>copies the files in @docs_root into @docset_documents_path. Can pass +:noop
+=&gt; true+ to skip the actual file copy.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="copy_docs-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_docs</span>(<span class="ruby-identifier">options</span> = {})
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:noop</span>]
+        <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># make sure that, for some reason, @docs_root != ( '/' | '/one-level' )</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@docs_root</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEPARATOR</span>).<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docset_documents_path</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Copying documentation into docsets...&quot;</span>
+
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_r</span>( <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_documents_path</span>, <span class="ruby-string">'*'</span>) ) )
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp_r</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docs_root</span>, <span class="ruby-string">'.'</span>), <span class="ruby-ivar">@docset_documents_path</span> )
+
+        <span class="ruby-comment"># remove .git directory if there was one (which there should be)</span>
+        <span class="ruby-identifier">git_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_documents_path</span>, <span class="ruby-string">'.git'</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">git_path</span>)
+            <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_r</span>(<span class="ruby-identifier">git_path</span>, <span class="ruby-value">:force</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.copy_docs: Failed to copy docs to #{@docset_documents_path}.&quot;</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- copy_docs-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- copy_docs-method -->
+
+    
+      <div id="method-i-copy_icon" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_icon</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>copies a user-supplied icon into the appropriate docset location</p>
+          
+          
+
+          
+          <div class="method-source-code" id="copy_icon-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 355</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_icon</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@icon</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-ivar">@icon</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@icon</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\.png$/</span>)
+            <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-ivar">@icon</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_path</span>, <span class="ruby-string">'icon.png'</span>))
+        <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.copy_icon: Bad (not PNG) or missing filename given: #{@icon}&quot;</span>
+        <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;(E) Dash.copy_icon: No icon to copy.&quot;</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- copy_icon-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- copy_icon-method -->
+
+    
+      <div id="method-i-copy_plist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_plist</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>copies the plist template into the appropriate docset location</p>
+          
+          
+
+          
+          <div class="method-source-code" id="copy_plist-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 334</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_plist</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docset_contents_path</span>)
+        <span class="ruby-identifier">plist_src_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">RESOURCES_PATH</span>, <span class="ruby-string">'Info.plist'</span>)
+        <span class="ruby-identifier">plist_dest_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_contents_path</span>,  <span class="ruby-string">'Info.plist'</span>)
+
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">plist_src_path</span>)
+            <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">plist_src_path</span>, <span class="ruby-identifier">plist_dest_path</span>)
+            <span class="ruby-node">%xsed -i '' &quot;s/displayName/#{@display_name}/g&quot; &quot;#{plist_dest_path}&quot;`</span>
+
+        <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;(E) Dash.copy_plist: Info.plist template does not exist. The
+            .plist file was not copied.&quot;</span>
+        <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;(E) Dash.copy_plist: Docset Contents path does not exist. The
+        .plist file was not copied.&quot;</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- copy_plist-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- copy_plist-method -->
+
+    
+      <div id="method-i-create_docset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_docset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>creates the docset hierarchy, the docset .plist, and initializes the
+database.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_docset-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 369</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_docset</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-ivar">@docset_path</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Dash.create_docset: Creating docset directory structure #{@docset_documents_path}...&quot;</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-ivar">@docset_documents_path</span>)
+
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Dash.create_docset: Copying .plist file...&quot;</span>
+        <span class="ruby-identifier">copy_plist</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@icon</span>.<span class="ruby-identifier">nil?</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Dash.create_docset: Copying icon image...&quot;</span>
+            <span class="ruby-identifier">copy_icon</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Dash.create_docset: Setting up database...&quot;</span>
+        <span class="ruby-identifier">setup_sql</span>
+
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Dash.create_docset: Docset set-up complete!&quot;</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;(W) Dash.create_docset: Docset path already exists. Skipping...&quot;</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create_docset-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create_docset-method -->
+
+    
+      <div id="method-i-get_clean_docs_entries" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_clean_docs_entries</span><span
+            class="method-args">(more = [])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>calls <a href="Dash.html#method-i-clean_dir_entries">#clean_dir_entries</a>
+for the @docs_root. useful for looping through the root docs directory in
+generator scripts.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_clean_docs_entries-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_clean_docs_entries</span>(<span class="ruby-identifier">more</span> = [])
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">clean_dir_entries</span>(<span class="ruby-ivar">@docs_root</span>, <span class="ruby-identifier">more</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_clean_docs_entries-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_clean_docs_entries-method -->
+
+    
+      <div id="method-i-get_dash_anchor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_dash_anchor</span><span
+            class="method-args">(docReference, name, type, anchor_id = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>get Nokogiri doc for new anchor. if <code>anchor_id</code> is not passed,
+it will default to <code>name</code>. if <code>anchor_id</code> is an empty
+string, no id attribute will be set. <code>type</code> is an accepted <a
+href="Dash.html">Dash</a> entry type.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_dash_anchor-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_dash_anchor</span>(<span class="ruby-identifier">docReference</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">anchor_id</span> = <span class="ruby-keyword">nil</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_valid_entry</span>(<span class="ruby-identifier">type</span>)
+        <span class="ruby-identifier">a</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'a'</span>, <span class="ruby-identifier">docReference</span>)
+        <span class="ruby-identifier">a</span>[<span class="ruby-string">'name'</span>] = <span class="ruby-node">&quot;//apple_ref/cpp/#{type}/#{name}&quot;</span>
+        <span class="ruby-identifier">a</span>[<span class="ruby-string">'class'</span>] = <span class="ruby-string">'dashAnchor'</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">anchor_id</span>.<span class="ruby-identifier">nil?</span>
+            <span class="ruby-identifier">a</span>[<span class="ruby-string">'id'</span>] = <span class="ruby-identifier">name</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">anchor_id</span> <span class="ruby-operator">!=</span> <span class="ruby-string">''</span>
+            <span class="ruby-identifier">a</span>[<span class="ruby-string">'id'</span>] = <span class="ruby-identifier">anchor_id</span>
+        <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">a</span>[<span class="ruby-string">'id'</span>] = <span class="ruby-string">''</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">a</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.get_dash_anchor: Invalid entry type [#{type}].&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_dash_anchor-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_dash_anchor-method -->
+
+    
+      <div id="method-i-get_docs_repo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_docs_repo</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>this method ensures that a git repo exists for the <a
+href="Dash.html#attribute-i-docs_root">#docs_root</a> and that the master
+branch contains the original import, and changes go on a dev branch with
+the name @docs_dev_branch. @see <a
+href="http://rubydoc.info/github/schacon/ruby-git/Git">rubydoc.info/github/schacon/ruby-git/Git</a>
+@see <a
+href="https://github.com/schacon/ruby-git">github.com/schacon/ruby-git</a>
+(examples)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_docs_repo-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 401</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_docs_repo</span>
+    <span class="ruby-identifier">repo</span> = <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docs_root</span>)
+        <span class="ruby-keyword">begin</span>
+            <span class="ruby-identifier">repo</span> = <span class="ruby-constant">Git</span><span class="ruby-operator">::</span><span class="ruby-identifier">open</span>(<span class="ruby-ivar">@docs_root</span>)
+            <span class="ruby-comment"># puts &quot;Resetting working tree...&quot;</span>
+            <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">reset_hard</span>
+
+            <span class="ruby-identifier">branch</span> = <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">current_branch</span>
+            <span class="ruby-identifier">patt</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@docs_dev_branch</span>)
+            <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">branch</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">patt</span>)
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Checking out #{@docs_dev_branch} branch...&quot;</span>
+                <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">branch</span>(<span class="ruby-ivar">@docs_dev_branch</span>).<span class="ruby-identifier">checkout</span>
+            <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">arg_err</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Create repo at #{@docs_root} (y/n)? &quot;</span>
+            <span class="ruby-identifier">yn</span> = <span class="ruby-identifier">gets</span>
+
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">yn</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/^\w*y(es)?\w*$/</span>)
+                <span class="ruby-comment"># initialize repo</span>
+                <span class="ruby-identifier">repo</span> = <span class="ruby-constant">Git</span><span class="ruby-operator">::</span><span class="ruby-identifier">init</span>(<span class="ruby-ivar">@docs_root</span>)
+                <span class="ruby-comment"># add all files</span>
+                <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">add</span>( <span class="ruby-value">:all</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> )
+                <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">commit</span>(<span class="ruby-string">'(master) initial import from Dash generator'</span>)
+                <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">branch</span>(<span class="ruby-ivar">@docs_dev_branch</span>).<span class="ruby-identifier">checkout</span>
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Not creating docs repo...&quot;</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">repo</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_docs_repo-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_docs_repo-method -->
+
+    
+      <div id="method-i-get_noko_doc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_noko_doc</span><span
+            class="method-args">(file_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>file_path is relative to <a
+href="Dash.html#SRC_DOCS_PATH">SRC_DOCS_PATH</a> or can be absolute</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_noko_doc-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_noko_doc</span>(<span class="ruby-identifier">file_path</span>)
+    <span class="ruby-identifier">full_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docs_root</span>, <span class="ruby-identifier">file_path</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">file_path</span>)
+        <span class="ruby-identifier">full_path</span> = <span class="ruby-identifier">file_path</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># puts &quot;    Getting Nokogiri document: #{full_path}&quot;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">full_path</span>)
+        <span class="ruby-identifier">file</span>  = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">full_path</span>, <span class="ruby-string">'r'</span>)
+        <span class="ruby-identifier">doc</span>   = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML</span>(<span class="ruby-identifier">file</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-string">'UTF-8'</span>)
+        <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">doc</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.get_doc: Could not find #{full_path}.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_noko_doc-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_noko_doc-method -->
+
+    
+      <div id="method-i-get_sql_insert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_sql_insert</span><span
+            class="method-args">(name, type, path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>returns the sqlite query for dash entries for given name, [entry] type,
+path</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_sql_insert-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 231</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_sql_insert</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">path</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">is_valid_entry</span>(<span class="ruby-identifier">type</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.get_sql_insert: Invalid type '#{type}'.&quot;</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\&quot;#{name}\&quot;, \&quot;#{type}\&quot;, \&quot;#{path}\&quot;);&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_sql_insert-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_sql_insert-method -->
+
+    
+      <div id="method-i-is_valid_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_valid_entry</span><span
+            class="method-args">(entryName)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>check if <code>entryName</code> is a Dash-supported Entry Type</p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_valid_entry-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_valid_entry</span>(<span class="ruby-identifier">entryName</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">ENTRY_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entryName</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- is_valid_entry-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- is_valid_entry-method -->
+
+    
+      <div id="method-i-save_noko_doc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save_noko_doc</span><span
+            class="method-args">(doc, file_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>file_path is relative to <a
+href="Dash.html#SRC_DOCS_PATH">SRC_DOCS_PATH</a> or can be absolute</p>
+          
+          
+
+          
+          <div class="method-source-code" id="save_noko_doc-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save_noko_doc</span>(<span class="ruby-identifier">doc</span>, <span class="ruby-identifier">file_path</span>)
+    <span class="ruby-identifier">full_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docs_root</span>, <span class="ruby-identifier">file_path</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">file_path</span>)
+        <span class="ruby-identifier">full_path</span> = <span class="ruby-identifier">file_path</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">full_path</span>)
+        <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">full_path</span>, <span class="ruby-string">'w'</span>)
+        <span class="ruby-identifier">file</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">to_xhtml</span>(<span class="ruby-value">:encoding</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'US-ASCII'</span>)
+        <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.save_doc: Could not find #{full_path}.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save_noko_doc-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save_noko_doc-method -->
+
+    
+      <div id="method-i-setup_sql" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_sql</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create the sqlite database at the appropriate docset location.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="setup_sql-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 256</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_sql</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docset_resources_path</span>)
+        <span class="ruby-identifier">create_table_query</span> = <span class="ruby-string">&quot;CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);&quot;</span>
+        <span class="ruby-identifier">create_index_query</span> = <span class="ruby-string">&quot;CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);&quot;</span>
+        <span class="ruby-identifier">sql_insert</span>(<span class="ruby-identifier">create_table_query</span>)
+        <span class="ruby-identifier">sql_insert</span>(<span class="ruby-identifier">create_index_query</span>)
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;(E) Dash.setup_sql: Docset Resources path does not exist. The
+        sql database was not set up.&quot;</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- setup_sql-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- setup_sql-method -->
+
+    
+      <div id="method-i-sql_execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sql_execute</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Execute sql statements in the @queries array. To output the queries instead
+of execute them, pass +:noop =&gt; true+. You can also filter by passing
+something like:</p>
+
+<pre class="ruby">:<span class="ruby-identifier">filter</span> =<span class="ruby-operator">&gt;</span> { :<span class="ruby-identifier">limit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>, :<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'__construct'</span>, :<span class="ruby-identifier">type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'Class'</span> }
+</pre>
+
+<p>All filters are optional.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sql_execute-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 273</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sql_execute</span>(<span class="ruby-identifier">options</span> = {})
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@queries</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">do_queries</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">queries</span> = <span class="ruby-ivar">@queries</span>.<span class="ruby-identifier">clone</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">length</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:noop</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+                <span class="ruby-identifier">do_queries</span> = <span class="ruby-keyword">false</span>
+                <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>)
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\nTotal of #{queries.length} queries.&quot;</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:filter</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+                    <span class="ruby-identifier">filters</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:filter</span>]
+                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">filters</span>[<span class="ruby-value">:type</span>]
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Filtering by type: #{filters[:type]}&quot;</span>
+                        <span class="ruby-identifier">patt</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">', &quot;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">filters</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">+</span> <span class="ruby-string">'&quot;,'</span>, <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">IGNORECASE</span>)
+                        <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">map!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">query</span><span class="ruby-operator">|</span> <span class="ruby-identifier">query</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">patt</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">query</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span> }
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">compact!</span>
+                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">filters</span>[<span class="ruby-value">:name</span>]
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Filtering by name: #{filters[:name]}&quot;</span>
+                        <span class="ruby-identifier">patt</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'\(&quot;[^&quot;]*'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">filters</span>[<span class="ruby-value">:name</span>] <span class="ruby-operator">+</span> <span class="ruby-string">'[^&quot;]*&quot;,'</span>, <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">IGNORECASE</span> <span class="ruby-operator">|</span> <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">EXTENDED</span>)
+                        <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">map!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">query</span><span class="ruby-operator">|</span> <span class="ruby-identifier">query</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">patt</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">query</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span> }
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">compact!</span>
+                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">filters</span>[<span class="ruby-value">:limit</span>]
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Limiting results to: #{filters[:limit]}&quot;</span>
+                        <span class="ruby-identifier">start</span> = <span class="ruby-value">0</span>
+                        <span class="ruby-identifier">finish</span> = <span class="ruby-identifier">start</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">filters</span>[<span class="ruby-value">:limit</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">range</span> = <span class="ruby-identifier">start</span><span class="ruby-operator">..</span><span class="ruby-identifier">finish</span>
+                        <span class="ruby-identifier">queries</span> = <span class="ruby-identifier">queries</span>[<span class="ruby-identifier">range</span>]
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">compact!</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-identifier">hr</span> = <span class="ruby-string">'-'</span> <span class="ruby-operator">*</span> <span class="ruby-value">100</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{hr}&quot;</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Staged SQL statements (#{queries.length}):&quot;</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-identifier">hr</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+                <span class="ruby-identifier">puts</span> <span class="ruby-identifier">hr</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">do_queries</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Executing #{queries.length} queries...&quot;</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docset_resources_path</span>)
+                <span class="ruby-identifier">query_file_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">RESOURCES_PATH</span>, <span class="ruby-string">'sqlite3.queries'</span>)
+                <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">query_file_path</span>, <span class="ruby-string">'w'</span>)
+                <span class="ruby-identifier">file</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@queries</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+                <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+
+                <span class="ruby-node">%xcd &quot;#{@docset_resources_path}&quot;; sqlite3 docSet.dsidx &lt; '#{query_file_path}'`</span>
+
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.sql_execute: Not executing query. Could not find #{@docset_resources_path}.&quot;</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sql_execute-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sql_execute-method -->
+
+    
+      <div id="method-i-sql_insert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sql_insert</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Runs query in the docset’s sqlite database. Accepts either the query
+itself or you can pass the same <code>name</code>, <code>type</code>,
+<code>path</code> that ypu’d pass in get_sql_insert.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sql_insert-source">
+            <pre><span class="ruby-comment"># File Dash.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sql_insert</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>
+        <span class="ruby-identifier">sql_insert</span>(<span class="ruby-identifier">get_sql_insert</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>))
+
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+        <span class="ruby-ivar">@queries</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>])
+        <span class="ruby-comment"># if File.directory?(@docset_resources_path)</span>
+        <span class="ruby-comment">#     `cd &quot;#{@docset_resources_path}&quot;; sqlite3 docSet.dsidx '#{args[0]}'`</span>
+        <span class="ruby-comment"># else</span>
+        <span class="ruby-comment">#     puts &quot;(E) Dash.sql_insert: Not inserting record. Could not find #{@docset_resources_path}.&quot;</span>
+        <span class="ruby-comment"># end</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sql_insert-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sql_insert-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
      <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
       <h3 class="section-header">Public Class Methods</h3>
 
@@ -318,7 +1071,7 @@ scratch.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 53</span>
+            <pre><span class="ruby-comment"># File Dash.rb, line 53</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {})
     <span class="ruby-comment"># required params</span>
     <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:docs_root</span>].<span class="ruby-identifier">nil?</span>
@@ -381,741 +1134,6 @@ scratch.</p>
 
     
     </section><!-- public-class-method-details -->
-  
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Instance Methods</h3>
-
-    
-      <div id="method-i-clean_dir_entries" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">clean_dir_entries</span><span
-            class="method-args">(dir_path)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>removes unwanted entries for processing (e.g. ‘.’, ‘..’) returns
-array on success or nil if not a directory</p>
-          
-          
-
-          
-          <div class="method-source-code" id="clean_dir_entries-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 112</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">clean_dir_entries</span>(<span class="ruby-identifier">dir_path</span>)
-    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">dir_path</span>)
-        <span class="ruby-keyword">return</span> (<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-identifier">dir_path</span>) <span class="ruby-operator">-</span> [ <span class="ruby-string">'.'</span>, <span class="ruby-string">'..'</span>, <span class="ruby-string">'.git'</span>, <span class="ruby-string">'.DS_Store'</span> ])
-    <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- clean_dir_entries-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- clean_dir_entries-method -->
-
-    
-      <div id="method-i-copy_docs" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">copy_docs</span><span
-            class="method-args">(options = {})</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>copies the files in @docs_root into @docset_documents_path. Can pass +:noop
-=&gt; true+ to skip the actual file copy.</p>
-          
-          
-
-          
-          <div class="method-source-code" id="copy_docs-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 132</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_docs</span>(<span class="ruby-identifier">options</span> = {})
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:noop</span>]
-        <span class="ruby-keyword">return</span>
-    <span class="ruby-keyword">end</span>
-    <span class="ruby-comment"># make sure that, for some reason, @docs_root != ( '/' | '/one-level' )</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@docs_root</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEPARATOR</span>).<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docset_documents_path</span>)
-        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Copying documentation into docsets...&quot;</span>
-
-        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_r</span>( <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_documents_path</span>, <span class="ruby-string">'*'</span>) ) )
-        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp_r</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docs_root</span>, <span class="ruby-string">'.'</span>), <span class="ruby-ivar">@docset_documents_path</span> )
-
-        <span class="ruby-comment"># remove .git directory if there was one (which there should be)</span>
-        <span class="ruby-identifier">git_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_documents_path</span>, <span class="ruby-string">'.git'</span>)
-        <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">git_path</span>)
-            <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_r</span>(<span class="ruby-identifier">git_path</span>, <span class="ruby-value">:force</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
-        <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.copy_docs: Failed to copy docs to #{@docset_documents_path}.&quot;</span>
-    <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- copy_docs-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- copy_docs-method -->
-
-    
-      <div id="method-i-copy_icon" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">copy_icon</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>copies a user-supplied icon into the appropriate docset location</p>
-          
-          
-
-          
-          <div class="method-source-code" id="copy_icon-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 342</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_icon</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@icon</span>.<span class="ruby-identifier">nil?</span>
-        <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-ivar">@icon</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@icon</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\.png$/</span>)
-            <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-ivar">@icon</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_path</span>, <span class="ruby-string">'icon.png'</span>))
-        <span class="ruby-keyword">else</span>
-            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.copy_icon: Bad (not PNG) or missing filename given: #{@icon}&quot;</span>
-        <span class="ruby-keyword">end</span>
-
-    <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;(E) Dash.copy_icon: No icon to copy.&quot;</span>
-    <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- copy_icon-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- copy_icon-method -->
-
-    
-      <div id="method-i-copy_plist" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">copy_plist</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>copies the plist template into the appropriate docset location</p>
-          
-          
-
-          
-          <div class="method-source-code" id="copy_plist-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 321</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_plist</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docset_contents_path</span>)
-        <span class="ruby-identifier">plist_src_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">RESOURCES_PATH</span>, <span class="ruby-string">'Info.plist'</span>)
-        <span class="ruby-identifier">plist_dest_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docset_contents_path</span>,  <span class="ruby-string">'Info.plist'</span>)
-
-        <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">plist_src_path</span>)
-            <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">plist_src_path</span>, <span class="ruby-identifier">plist_dest_path</span>)
-            <span class="ruby-node">%xsed -i '' &quot;s/displayName/#{@display_name}/g&quot; &quot;#{plist_dest_path}&quot;`</span>
-
-        <span class="ruby-keyword">else</span>
-            <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;(E) Dash.copy_plist: Info.plist template does not exist. The
-            .plist file was not copied.&quot;</span>
-        <span class="ruby-keyword">end</span>
-
-    <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;(E) Dash.copy_plist: Docset Contents path does not exist. The
-        .plist file was not copied.&quot;</span>
-    <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- copy_plist-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- copy_plist-method -->
-
-    
-      <div id="method-i-create_docset" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">create_docset</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>creates the docset hierarchy, the docset .plist, and initializes the
-database.</p>
-          
-          
-
-          
-          <div class="method-source-code" id="create_docset-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 356</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_docset</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-ivar">@docset_path</span>)
-        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Dash.create_docset: Creating docset directory structure #{@docset_documents_path}...&quot;</span>
-        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-ivar">@docset_documents_path</span>)
-
-        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Dash.create_docset: Copying .plist file...&quot;</span>
-        <span class="ruby-identifier">copy_plist</span>
-
-        <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@icon</span>.<span class="ruby-identifier">nil?</span>
-            <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Dash.create_docset: Copying icon image...&quot;</span>
-            <span class="ruby-identifier">copy_icon</span>
-        <span class="ruby-keyword">end</span>
-
-        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Dash.create_docset: Setting up database...&quot;</span>
-        <span class="ruby-identifier">setup_sql</span>
-
-        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Dash.create_docset: Docset set-up complete!&quot;</span>
-    <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;(W) Dash.create_docset: Docset path already exists. Skipping...&quot;</span>
-    <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- create_docset-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- create_docset-method -->
-
-    
-      <div id="method-i-get_clean_docs_entries" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_clean_docs_entries</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>calls <a href="Dash.html#method-i-clean_dir_entries">#clean_dir_entries</a>
-for the @docs_root. useful for looping through the root docs directory in
-generator scripts.</p>
-          
-          
-
-          
-          <div class="method-source-code" id="get_clean_docs_entries-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 121</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_clean_docs_entries</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-identifier">clean_dir_entries</span>(<span class="ruby-ivar">@docs_root</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_clean_docs_entries-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_clean_docs_entries-method -->
-
-    
-      <div id="method-i-get_dash_anchor" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_dash_anchor</span><span
-            class="method-args">(docReference, name, type, anchor_id = nil)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>get Nokogiri doc for new anchor. if <code>anchor_id</code> is not passed,
-it will default to <code>name</code>. if <code>anchor_id</code> is an empty
-string, no id attribute will be set. <code>type</code> is an accepted <a
-href="Dash.html">Dash</a> entry type.</p>
-          
-          
-
-          
-          <div class="method-source-code" id="get_dash_anchor-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 190</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_dash_anchor</span>(<span class="ruby-identifier">docReference</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">anchor_id</span> = <span class="ruby-keyword">nil</span>)
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_valid_entry</span>(<span class="ruby-identifier">type</span>)
-        <span class="ruby-identifier">a</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'a'</span>, <span class="ruby-identifier">docReference</span>)
-        <span class="ruby-identifier">a</span>[<span class="ruby-string">'name'</span>] = <span class="ruby-node">&quot;//apple_ref/cpp/#{type}/#{name}&quot;</span>
-        <span class="ruby-identifier">a</span>[<span class="ruby-string">'class'</span>] = <span class="ruby-string">'dashAnchor'</span>
-
-        <span class="ruby-keyword">if</span> <span class="ruby-identifier">anchor_id</span>.<span class="ruby-identifier">nil?</span>
-            <span class="ruby-identifier">a</span>[<span class="ruby-string">'id'</span>] = <span class="ruby-identifier">name</span>
-        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">anchor_id</span> <span class="ruby-operator">!=</span> <span class="ruby-string">''</span>
-            <span class="ruby-identifier">a</span>[<span class="ruby-string">'id'</span>] = <span class="ruby-identifier">anchor_id</span>
-        <span class="ruby-keyword">else</span>
-            <span class="ruby-identifier">a</span>[<span class="ruby-string">'id'</span>] = <span class="ruby-string">''</span>
-        <span class="ruby-keyword">end</span>
-
-        <span class="ruby-keyword">return</span> <span class="ruby-identifier">a</span>
-    <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.get_dash_anchor: Invalid entry type [#{type}].&quot;</span>
-    <span class="ruby-keyword">end</span>
-
-    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_dash_anchor-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_dash_anchor-method -->
-
-    
-      <div id="method-i-get_docs_repo" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_docs_repo</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>this method ensures that a git repo exists for the <a
-href="Dash.html#attribute-i-docs_root">#docs_root</a> and that the master
-branch contains the original import, and changes go on a dev branch with
-the name @docs_dev_branch.</p>
-          
-          
-
-          
-          <div class="method-source-code" id="get_docs_repo-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 386</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_docs_repo</span>
-    <span class="ruby-identifier">repo</span> = <span class="ruby-keyword">nil</span>
-
-    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docs_root</span>)
-        <span class="ruby-keyword">begin</span>
-            <span class="ruby-identifier">repo</span> = <span class="ruby-constant">Git</span><span class="ruby-operator">::</span><span class="ruby-identifier">open</span>(<span class="ruby-ivar">@docs_root</span>)
-            <span class="ruby-comment"># puts &quot;Resetting working tree...&quot;</span>
-            <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">reset_hard</span>
-
-            <span class="ruby-identifier">branch</span> = <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">current_branch</span>
-            <span class="ruby-identifier">patt</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@docs_dev_branch</span>)
-            <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">branch</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">patt</span>)
-                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Checking out #{@docs_dev_branch} branch...&quot;</span>
-                <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">branch</span>(<span class="ruby-ivar">@docs_dev_branch</span>).<span class="ruby-identifier">checkout</span>
-            <span class="ruby-keyword">end</span>
-
-        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">arg_err</span>
-            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Create repo at #{@docs_root} (y/n)? &quot;</span>
-            <span class="ruby-identifier">yn</span> = <span class="ruby-identifier">gets</span>
-
-            <span class="ruby-keyword">if</span> <span class="ruby-identifier">yn</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/^\w*y(es)?\w*$/</span>)
-                <span class="ruby-comment"># initialize repo</span>
-                <span class="ruby-identifier">repo</span> = <span class="ruby-constant">Git</span><span class="ruby-operator">::</span><span class="ruby-identifier">init</span>(<span class="ruby-ivar">@docs_root</span>)
-                <span class="ruby-comment"># add all files</span>
-                <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">add</span>( <span class="ruby-value">:all</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> )
-                <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">commit</span>(<span class="ruby-string">'(master) initial import from Dash generator'</span>)
-                <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">branch</span>(<span class="ruby-ivar">@docs_dev_branch</span>).<span class="ruby-identifier">checkout</span>
-            <span class="ruby-keyword">else</span>
-                <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Not creating docs repo...&quot;</span>
-            <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">end</span>
-
-    <span class="ruby-keyword">end</span>
-
-    <span class="ruby-keyword">return</span> <span class="ruby-identifier">repo</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_docs_repo-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_docs_repo-method -->
-
-    
-      <div id="method-i-get_noko_doc" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_noko_doc</span><span
-            class="method-args">(file_path)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>file_path is relative to <a
-href="Dash.html#SRC_DOCS_PATH">SRC_DOCS_PATH</a></p>
-          
-          
-
-          
-          <div class="method-source-code" id="get_noko_doc-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 159</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_noko_doc</span>(<span class="ruby-identifier">file_path</span>)
-    <span class="ruby-identifier">full_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docs_root</span>, <span class="ruby-identifier">file_path</span>)
-    <span class="ruby-comment"># puts &quot;    Getting Nokogiri document: #{full_path}&quot;</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">full_path</span>)
-        <span class="ruby-identifier">file</span>  = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">full_path</span>, <span class="ruby-string">'r'</span>)
-        <span class="ruby-identifier">doc</span>   = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML</span>(<span class="ruby-identifier">file</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-string">'UTF-8'</span>)
-        <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
-        <span class="ruby-keyword">return</span> <span class="ruby-identifier">doc</span>
-    <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.get_doc: Could not find #{full_path}.&quot;</span>
-    <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_noko_doc-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_noko_doc-method -->
-
-    
-      <div id="method-i-get_sql_insert" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_sql_insert</span><span
-            class="method-args">(name, type, path)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>returns the sqlite query for dash entries for given name, [entry] type,
-path</p>
-          
-          
-
-          
-          <div class="method-source-code" id="get_sql_insert-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 218</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_sql_insert</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">path</span>)
-    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">is_valid_entry</span>(<span class="ruby-identifier">type</span>)
-        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.get_sql_insert: Invalid type '#{type}'.&quot;</span>
-        <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
-    <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\&quot;#{name}\&quot;, \&quot;#{type}\&quot;, \&quot;#{path}\&quot;);&quot;</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_sql_insert-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_sql_insert-method -->
-
-    
-      <div id="method-i-is_valid_entry" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">is_valid_entry</span><span
-            class="method-args">(entryName)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>check if <code>entryName</code> is a Dash-supported Entry Type</p>
-          
-          
-
-          
-          <div class="method-source-code" id="is_valid_entry-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 126</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_valid_entry</span>(<span class="ruby-identifier">entryName</span>)
-    <span class="ruby-keyword">return</span> <span class="ruby-constant">ENTRY_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entryName</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- is_valid_entry-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- is_valid_entry-method -->
-
-    
-      <div id="method-i-save_noko_doc" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">save_noko_doc</span><span
-            class="method-args">(doc, file_path)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>file_path is relative to <a
-href="Dash.html#SRC_DOCS_PATH">SRC_DOCS_PATH</a></p>
-          
-          
-
-          
-          <div class="method-source-code" id="save_noko_doc-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 174</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">save_noko_doc</span>(<span class="ruby-identifier">doc</span>, <span class="ruby-identifier">file_path</span>)
-    <span class="ruby-identifier">full_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@docs_root</span>, <span class="ruby-identifier">file_path</span>)
-    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">full_path</span>)
-        <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">full_path</span>, <span class="ruby-string">'w'</span>)
-        <span class="ruby-identifier">file</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">to_xhtml</span>(<span class="ruby-value">:encoding</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'US-ASCII'</span>)
-        <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
-        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
-    <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.save_doc: Could not find #{full_path}.&quot;</span>
-    <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- save_noko_doc-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- save_noko_doc-method -->
-
-    
-      <div id="method-i-setup_sql" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">setup_sql</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Create the sqlite database at the appropriate docset location.</p>
-          
-          
-
-          
-          <div class="method-source-code" id="setup_sql-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 243</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_sql</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docset_resources_path</span>)
-        <span class="ruby-identifier">create_table_query</span> = <span class="ruby-string">&quot;CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);&quot;</span>
-        <span class="ruby-identifier">create_index_query</span> = <span class="ruby-string">&quot;CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);&quot;</span>
-        <span class="ruby-identifier">sql_insert</span>(<span class="ruby-identifier">create_table_query</span>)
-        <span class="ruby-identifier">sql_insert</span>(<span class="ruby-identifier">create_index_query</span>)
-    <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;(E) Dash.setup_sql: Docset Resources path does not exist. The
-        sql database was not set up.&quot;</span>
-    <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- setup_sql-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- setup_sql-method -->
-
-    
-      <div id="method-i-sql_execute" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">sql_execute</span><span
-            class="method-args">(options = {})</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Execute sql statements in the @queries array. To output the queries instead
-of execute them, pass +:noop =&gt; true+. You can also filter by passing
-something like:</p>
-
-<pre class="ruby">:<span class="ruby-identifier">filter</span> =<span class="ruby-operator">&gt;</span> { :<span class="ruby-identifier">limit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>, :<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'__construct'</span>, :<span class="ruby-identifier">type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'Class'</span> }
-</pre>
-
-<p>All filters are optional.</p>
-          
-          
-
-          
-          <div class="method-source-code" id="sql_execute-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 260</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">sql_execute</span>(<span class="ruby-identifier">options</span> = {})
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@queries</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
-        <span class="ruby-identifier">do_queries</span> = <span class="ruby-keyword">true</span>
-        <span class="ruby-identifier">queries</span> = <span class="ruby-ivar">@queries</span>.<span class="ruby-identifier">clone</span>
-
-        <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">length</span>
-            <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:noop</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
-                <span class="ruby-identifier">do_queries</span> = <span class="ruby-keyword">false</span>
-                <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>)
-                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Total of #{queries.length} queries.&quot;</span>
-                <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:filter</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
-                    <span class="ruby-identifier">filters</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:filter</span>]
-                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">filters</span>[<span class="ruby-value">:type</span>]
-                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Filtering by type: #{filters[:type]}&quot;</span>
-                        <span class="ruby-identifier">patt</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">', &quot;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">filters</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">+</span> <span class="ruby-string">'&quot;,'</span>, <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">IGNORECASE</span>)
-                        <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">map!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">query</span><span class="ruby-operator">|</span> <span class="ruby-identifier">query</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">patt</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">query</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span> }
-                    <span class="ruby-keyword">end</span>
-                    <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">compact!</span>
-                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">filters</span>[<span class="ruby-value">:name</span>]
-                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Filtering by name: #{filters[:name]}&quot;</span>
-                        <span class="ruby-identifier">patt</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'\(&quot;[^&quot;]*'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">filters</span>[<span class="ruby-value">:name</span>] <span class="ruby-operator">+</span> <span class="ruby-string">'[^&quot;]*&quot;,'</span>, <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">IGNORECASE</span> <span class="ruby-operator">|</span> <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">EXTENDED</span>)
-                        <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">map!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">query</span><span class="ruby-operator">|</span> <span class="ruby-identifier">query</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">patt</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">query</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span> }
-                    <span class="ruby-keyword">end</span>
-                    <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">compact!</span>
-                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">filters</span>[<span class="ruby-value">:limit</span>]
-                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Limiting results to: #{filters[:limit]}&quot;</span>
-                        <span class="ruby-identifier">start</span> = <span class="ruby-value">0</span>
-                        <span class="ruby-identifier">finish</span> = <span class="ruby-identifier">start</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">filters</span>[<span class="ruby-value">:limit</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
-                        <span class="ruby-identifier">range</span> = <span class="ruby-identifier">start</span><span class="ruby-operator">..</span><span class="ruby-identifier">finish</span>
-                        <span class="ruby-identifier">queries</span> = <span class="ruby-identifier">queries</span>[<span class="ruby-identifier">range</span>]
-                    <span class="ruby-keyword">end</span>
-                    <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">compact!</span>
-                <span class="ruby-keyword">end</span>
-                <span class="ruby-identifier">hr</span> = <span class="ruby-string">'-'</span> <span class="ruby-operator">*</span> <span class="ruby-value">50</span>
-                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n#{hr}&quot;</span>
-                <span class="ruby-identifier">puts</span> <span class="ruby-string">'Staged SQL statements:'</span>
-                <span class="ruby-identifier">puts</span> <span class="ruby-identifier">hr</span>
-                <span class="ruby-identifier">puts</span> <span class="ruby-identifier">queries</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
-                <span class="ruby-identifier">puts</span> <span class="ruby-identifier">hr</span>
-            <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">end</span>
-
-        <span class="ruby-keyword">if</span> <span class="ruby-identifier">do_queries</span>
-            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Executing #{queries.length} queries...&quot;</span>
-            <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-ivar">@docset_resources_path</span>)
-                <span class="ruby-identifier">query_file_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">RESOURCES_PATH</span>, <span class="ruby-string">'sqlite3.queries'</span>)
-                <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">query_file_path</span>, <span class="ruby-string">'w'</span>)
-                <span class="ruby-identifier">file</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@queries</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
-                <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
-
-                <span class="ruby-node">%xcd &quot;#{@docset_resources_path}&quot;; sqlite3 docSet.dsidx &lt; '#{query_file_path}'`</span>
-
-            <span class="ruby-keyword">else</span>
-                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(E) Dash.sql_execute: Not executing query. Could not find #{@docset_resources_path}.&quot;</span>
-            <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">end</span>
-
-    <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- sql_execute-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- sql_execute-method -->
-
-    
-      <div id="method-i-sql_insert" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">sql_insert</span><span
-            class="method-args">(*args)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Runs query in the docset’s sqlite database. Accepts either the query
-itself or you can pass the same <code>name</code>, <code>type</code>,
-<code>path</code> that ypu’d pass in get_sql_insert.</p>
-          
-          
-
-          
-          <div class="method-source-code" id="sql_insert-source">
-            <pre><span class="ruby-comment"># File Dash.module.rb, line 228</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">sql_insert</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>
-        <span class="ruby-identifier">sql_insert</span>(<span class="ruby-identifier">get_sql_insert</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>))
-
-    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
-        <span class="ruby-ivar">@queries</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>])
-        <span class="ruby-comment"># if File.directory?(@docset_resources_path)</span>
-        <span class="ruby-comment">#     `cd &quot;#{@docset_resources_path}&quot;; sqlite3 docSet.dsidx '#{args[0]}'`</span>
-        <span class="ruby-comment"># else</span>
-        <span class="ruby-comment">#     puts &quot;(E) Dash.sql_insert: Not inserting record. Could not find #{@docset_resources_path}.&quot;</span>
-        <span class="ruby-comment"># end</span>
-    <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- sql_insert-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- sql_insert-method -->
-
-    
-    </section><!-- public-instance-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 

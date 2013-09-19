@@ -36,7 +36,7 @@ Greetings, [Dash](http://kapeli.com) enthusiasts! I found myself excited about D
 
 **resources** - Project templates and other random resources that are used to generate some of the docsets. The most notable of which is the `Info.plist` template which is required for all docsets.
 
-**src** - This folder is .git-ignore-d and isn't referenced in any generator. It is only a place where compressed files of the src-docs live. I only mention it because it exists in the .gitignore file.
+**src** - This folder is .gitignore-d and isn't referenced in any generator. It is only a place where compressed files of the src-docs live. I only mention it because it exists in the .gitignore file.
 
 **src-docs** - This folder is also .gitignore-d. Each project has source documentation in the form of a single folder containing a collection of HTML, CSS, Javascript, and images. When you specify a docs_root in each generator script, that path is relative to this directory.
 
@@ -107,14 +107,14 @@ dash = Dash.new({
 })
 ```
 
-Since specifying relative paths makes the script fairly brittle depending on what directory you run the generator from, I chose to go with a more explicit way of `require`ing the Dash class, which happens to be in the same directory.
+Since specifying relative paths makes the script fairly brittle depending on what directory you run the generator from, I chose to go with a more explicit way of `require`-ing the Dash class, which happens to be in the same directory.
 
 The dash constructor takes 2 required parameters and allows for two optional parameters:
 
 | Key             | Required? | Description
 |-----------------|:---------:|------------
 | `:name`         |    Yes    | This becomes the file name of the docset (e.g. `Puppet.docset`).
-| `:docs_root`    |    Yes    | This is the name of the folder that is dropped into the `src-docs` directory. It is the _documentation root_. This value can be accessed later in the script, as an absolute path, with `dash::docs_root` (notice that it's an attribute on the instance, not the class).
+| `:docs_root`    |    Yes    | This is the name of the folder that is dropped into the `src-docs` directory. It is the _documentation root_. This value can be accessed later in the script, as an absolute path, with `dash::docs_root` (notice that it's an attribute on the instance, not the class). I'll be referencing this value several more times throughout this README.
 | `:display_name` |    No     | What Dash will display in it's sidebar. If this parameter is omitted, it defaults to the value for `:name`.
 | `:icon`         |    No     | A path to a 32x32 image which will be renamed and copied into the docset. The path can be relative to the `more-dash-docsets/` root or an absolute path.
 
@@ -270,7 +270,7 @@ The final step is to tell the Dash object to insert the sql entries. It doesn't 
 
 Puppet syntax uses defined types for resources. These are used so often in Puppet scripts that it makes having them in Dash a necessity. All of the docs which are versioned also include a symlink named `latest` that points to the latest documentation for that module. This made it easy to set a variable for a common version that other processing code blocks can use.
 
-Fortunately, every type is listed in `references/latest/type.html` using an unordered list of anchors. That's all that is needed to insert the necessary queries for Dash to be aware of each type:
+Fortunately, every type is listed in `<docs_root>/references/latest/type.html` using an unordered list of anchors. That's all that is needed to insert the necessary queries for Dash to be aware of each type:
 
 ```ruby
 # the following pages are all versioned. we sync versions here.
@@ -295,7 +295,7 @@ end
 puts " \`- Done processing #{cnt} Type anchors."
 ```
 
-There are similar code blocks to process Dash entries for functions, metaparameters, and Facter facts, so I'm omitting those code blocks. If you are curious, you can peruse the Puppet generator (`generators/_gen_puppet.rb`).
+There are similar code blocks to process Dash entries for functions, metaparameters, and Facter facts, so I'm omitting those code blocks. If you are curious, you can peruse the Puppet generator (`<docs_root>/generators/_gen_puppet.rb`).
 
 
 #### Puppet binary commands
@@ -382,7 +382,7 @@ All that is required to implement this feature are two things:
 <a class="dashAnchor" name="//apple_ref/cpp/ENTRY_TYPE/ENTRY_NAME"></a>
 ```
 
-These dash anchors are generally inserted nearby an element which has an id attribute value which is included in the `path` field in the sqlite database (e.g. `reference/functions.html#ENTRY_ID`). This allows Dash to scroll to a specific area on the page to display the entry. If no element nearby has a suitable id, then one can be added the the Dash anchor. This anchor is created with the `Dash::get_dash_anchor` method.
+These dash anchors are generally inserted nearby an element which has an id attribute value which is included in the `path` field in the sqlite database (e.g. `<docs_root>/reference/functions.html#ENTRY_ID`). This allows Dash to scroll to a specific area on the page to display the entry. If no element nearby has a suitable id, then one can be added the the Dash anchor. This anchor is created with the `Dash::get_dash_anchor` method.
 
 Take, for example, this excerpt from the AWS CLI generator:
 

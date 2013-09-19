@@ -123,16 +123,19 @@ class Dash
         return nil
     end
 
+
     # calls clean_dir_entries for the @docs_root. useful for looping through
     # the root docs directory in generator scripts.
     def get_clean_docs_entries(more = [])
         return clean_dir_entries(@docs_root, more)
     end
 
+
     # check if +entryName+ is a Dash-supported Entry Type
     def is_valid_entry(entryName)
         return ENTRY_TYPES.include?(entryName)
     end
+
 
     # copies the files in @docs_root into @docset_documents_path.
     # Can pass +:noop => true+ to skip the actual file copy.
@@ -180,6 +183,7 @@ class Dash
         return nil
     end
 
+
     # file_path is relative to SRC_DOCS_PATH or can be absolute
     def save_noko_doc(doc, file_path)
         full_path = File.join(@docs_root, file_path)
@@ -197,9 +201,11 @@ class Dash
         return false
     end
 
+
     # get Nokogiri doc for new anchor. if +anchor_id+ is not passed, it will default to +name+.
     # if +anchor_id+ is an empty string, no id attribute will be set. +type+ is an accepted
     # Dash entry type.
+    # returns the Nokogiri anchor on success, nil on failure.
     def get_dash_anchor(docReference, name, type, anchor_id = nil)
         if is_valid_entry(type)
             a = Nokogiri::XML::Node.new('a', docReference)
@@ -228,6 +234,7 @@ class Dash
     ##
 
     # returns the sqlite query for dash entries for given name, [entry] type, path
+    # or nil on failure.
     def get_sql_insert(name, type, path)
         if !is_valid_entry(type)
             puts "(E) Dash.get_sql_insert: Invalid type '#{type}'."
@@ -235,6 +242,7 @@ class Dash
         end
         return "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"#{name}\", \"#{type}\", \"#{path}\");"
     end
+
 
     # Runs query in the docset's sqlite database. Accepts either the query itself or you
     # can pass the same +name+, +type+, +path+ that ypu'd pass in get_sql_insert.
@@ -244,13 +252,9 @@ class Dash
 
         elsif args.length == 1
             @queries.push(args[0])
-            # if File.directory?(@docset_resources_path)
-            #     `cd "#{@docset_resources_path}"; sqlite3 docSet.dsidx '#{args[0]}'`
-            # else
-            #     puts "(E) Dash.sql_insert: Not inserting record. Could not find #{@docset_resources_path}."
-            # end
         end
     end
+
 
     # Create the sqlite database at the appropriate docset location.
     def setup_sql
@@ -264,6 +268,7 @@ class Dash
             sql database was not set up."
         end
     end
+
 
     # Execute sql statements in the @queries array. To output the queries instead of execute
     # them, pass +:noop => true+. You can also filter by passing something like:
@@ -330,6 +335,7 @@ class Dash
         end
     end
 
+
     # copies the plist template into the appropriate docset location
     def copy_plist
         if File.directory?(@docset_contents_path)
@@ -351,6 +357,7 @@ class Dash
         end
     end
 
+
     # copies a user-supplied icon into the appropriate docset location
     def copy_icon
         if !@icon.nil?
@@ -364,6 +371,7 @@ class Dash
             puts "(E) Dash.copy_icon: No icon to copy."
         end
     end
+
 
     # creates the docset hierarchy, the docset .plist, and initializes the database.
     def create_docset
@@ -434,5 +442,4 @@ class Dash
 
         return repo
     end
-
 end
