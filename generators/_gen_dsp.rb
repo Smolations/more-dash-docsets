@@ -1,35 +1,36 @@
+require File.join(File.dirname(__FILE__), 'Dash.rb')
 
-classes_list = "index.dsp"
+dash = Dash.new({
+    :name           => 'DSP',
+    :docs_root      => 'dsptags',
+    :icon           => File.join('icon-images', 'icon_oracle.png')
+})
 
-File.open(classes_list, 'r') do |file|
-    count   = 0
-    queries = []
 
-    file.each_line do |line|
+entries = dash.get_clean_docs_entries
+entries.shift
 
-        line = line.chomp
-        matches = /^s\d+dsp([a-z]+)01$/.match(line)
-
-        if !matches.nil?
-            tag_name = "dsp:#{matches[1]}"
-            html_path = "#{line}.html"
-
-            queries << "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"#{tag_name}\", \"Tag\", \"#{html_path}\");"
-        end
-
-        # html_file.close
-        count = count + 1
-
-    # /file.each_line
-    end
-
-    puts "\nProcessed a total of #{count} lines."
-    puts "There are #{queries.length} queries to perform.\n"
-    qs = queries.join("\n")
-    # puts "\n#{qs}"
-    queries.each {|query| `cd DSP.docset/Contents/Resources/; sqlite3 docSet.dsidx '#{query}'`}
-
-    # puts queries.join("\n")
-
-# close classes_list
+cnt  = 0
+entries.each do |entry|
+    name = /^s\d+dsp([a-z]+)01\.html$/.match(entry)[1]
+    type = 'Tag'
+    path = entry
+    dash.sql_insert(name, type, path)
+    cnt = cnt + 1
 end
+
+puts "\nProcessed a total of #{cnt} files."
+
+# dash.sql_execute({
+#     :noop => true,
+#     :filter => {
+#         :limit => 5,
+#         :type => 'Guide',
+#         :name => 'Exception'
+#     }
+# })
+dash.sql_execute
+
+dash.copy_docs()
+
+puts "\nDone."
