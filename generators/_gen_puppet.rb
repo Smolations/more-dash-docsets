@@ -6,9 +6,9 @@ dash = Dash.new({
     :docs_root      => 'puppetdocs-latest',
     :icon           => File.join('icon-images', 'puppetlabs.png')
 })
+
 # so dive can get at it recursively..
 $dash = dash
-
 
 # this is how we'll keep track of how deep in the directory structure we are as we make paths
 # relative. this array is joined with the system file separator and prepended to absolute paths.
@@ -24,12 +24,10 @@ end
 
 $fileCount = 0
 def dive(path)
-    # puts "#{path}"
     entries = $dash.clean_dir_entries(path, [
         'config.ru', 'favicon.ico', 'module_cheat_sheet.pdf', 'puppet_core_types_cheatsheet.pdf',
         'README.txt', 'sitemap.xml', 'images', 'latest', 'images', 'assets', 'fonts'
     ])
-
 
     entries.each do |entry|
         entry_path = File.join(path, entry)
@@ -55,7 +53,6 @@ def dive(path)
         end
     end
 end
-
 
 # kick off the function to make href and src paths relative
 puts "Relative-izing src/href attributes and removing analytics..."
