@@ -342,7 +342,8 @@ puts "\nDone."
 I ran the generator after each code block was written, and tested the docset in Dash each time. This is where the idempotence shines. I didn't have to worry about the docs getting cluttered because any changes from the last generation were wiped out with the current one. I didn't need to worry about errant sqlite records for the same reason. Wonderful!
 
 
-### The Dash TOC
+The Dash TOC
+------------
 
 There is no current documentation on the Dash website which tells users how to create a table of contents for entries. I resorted to contacting Dash to ask for some direction on how to do so. The table of contents allows for the functions/methods/properties/etc. to show up in the left pane, in the bottom partition. This gives a bird's eye view to all of the connected pieces of a given entry (e.g. a Class). This TOC is produced for most of the documentation that comes with Dash.
 
@@ -362,7 +363,7 @@ These dash anchors are generally inserted nearby an element which has an id attr
 Take, for example, this excerpt from the AWS CLI generator:
 
 ```ruby
-# full relative path from docs_root: cli/latest/reference/
+# full relative path from docs_root: cli/latest/reference/index.html
 awsCmdFilePath = File.join('reference', 'index.html')
 docAwsCmd = dash.get_noko_doc(awsCmdFilePath)
 
@@ -379,9 +380,41 @@ end
 dash.save_noko_doc(docAwsCmd, awsCmdFilePath)
 ```
 
-This "command file" contains a list of links to each CLI command. In addition, this index.html page is also the complete documentation for the `aws` command, which includes the command-line options that can be passed to it. It turns out that these options sections are not wrapped with any elements which have id attributes. That means that Dash would be unable to automatically scroll to each option when selected in Dash's side panel. Therefore, I had to add an id attribute to eash _Dash anchor_. I based it off of the option name, stripping the leading "--". You can see that I made sure to use that same `newanchorid` as the hash on the end of the `path` value when inserting the entry into the database.
+This "command file" contains a list of links to each CLI command. In addition, this index.html page is also the complete documentation for the `aws` command, which includes the command-line options that can be passed to it. It turns out that these options sections are not wrapped with any elements which have id attributes:
+
+```html
+<!-- excerpt (cli/latest/reference/index.html) -->
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"></a><span class="pre">--debug</span></tt> (boolean)</p>
+<p>Turn on debug logging.</p>
+<p><tt class="docutils literal"></a><span class="pre">--endpoint-url</span></tt> (string)</p>
+<p>Override command's default URL with the given URL.</p>
+<!-- /excerpt -->
+```
+
+This means that Dash would be unable to automatically scroll to each option when selected in Dash's side panel. Therefore, I had to add an id attribute to each _Dash anchor_. I based it off of the option name, stripping the leading "--". You can see that I made sure to use that same `newanchorid` as the hash on the end of the `path` value when inserting the entry into the database. The resulting document:
+
+```html
+<!-- excerpt (cli/latest/reference/index.html) -->
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">&#182;</a></h2>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--debug" class="dashAnchor" id="debug"></a><span class="pre">--debug</span></tt> (boolean)</p>
+<p>Turn on debug logging.</p>
+<p><tt class="docutils literal"><a name="//apple_ref/cpp/Option/--endpoint-url" class="dashAnchor" id="endpoint-url"></a><span class="pre">--endpoint-url</span></tt> (string)</p>
+<p>Override command's default URL with the given URL.</p>
+<!-- /excerpt -->
+```
 
 When inserting Dash anchors, you must be sure to overwrite the contents of the document. Nokogiri allows you to manipulate the DOM structure of the document at will, but changes are not automatically saved into the opened file. That's why `dash.save_noko_doc` is run at the conclusion of the loop.
+
+
+Conclusion
+----------
+
+All I wanted out of this project was to have a structured, flexible, reusable framework I could use to create and test multiple docsets which were created from HTML documentation. There are many different documentation generators that create documentation structures, and some people end up writing their docs in a custom way. I believe this framework achieves those goals.
+
+In the future, I'd like to create built-in pieces to the Dash class which process common frameworks like Javadoc (the kapeli tool isn't perfect, just convenient), RDoc, and JSDoc. That would make generating docsets for documentation created via those generators much easier.
+
+I hope SOMEONE found this information useful, even if that person doesn't end up using any of the code in this project.  =]
 
 
 Resources
