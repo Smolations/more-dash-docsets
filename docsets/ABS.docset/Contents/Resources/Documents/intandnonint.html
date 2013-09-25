@@ -1,0 +1,413 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Interactive and non-interactive shells and scripts</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Advanced Bash-Scripting Guide"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Miscellany"
+HREF="miscellany.html"><LINK
+REL="PREVIOUS"
+TITLE="Miscellany"
+HREF="miscellany.html"><LINK
+REL="NEXT"
+TITLE="Shell Wrappers"
+HREF="wrapper.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Advanced Bash-Scripting Guide: </TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="miscellany.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 36. Miscellany</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="wrapper.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="INTANDNONINT"
+></A
+>36.1. Interactive and non-interactive shells and scripts</H1
+><P
+>An <I
+CLASS="FIRSTTERM"
+>interactive</I
+> shell reads
+	   commands from user input on a <TT
+CLASS="FILENAME"
+>tty</TT
+>. Among
+	   other things, such a shell reads startup files on activation,
+	   displays a prompt, and enables job control by default. The
+	   user can <I
+CLASS="FIRSTTERM"
+>interact</I
+> with the shell.</P
+><P
+>A shell running a script is always a non-interactive
+	   shell. All the same, the script can still access its
+	   <TT
+CLASS="FILENAME"
+>tty</TT
+>. It is even possible to emulate an
+	   interactive shell in a script.
+
+	   <TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>#!/bin/bash
+MY_PROMPT='$ '
+while :
+do
+  echo -n "$MY_PROMPT"
+  read line
+  eval "$line"
+  done
+
+exit 0
+
+# This example script, and much of the above explanation supplied by
+# Stéphane Chazelas (thanks again).</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+><P
+>Let us consider an <I
+CLASS="FIRSTTERM"
+>interactive</I
+>
+	   script to be one that requires input from the user, usually
+	   with <A
+HREF="internal.html#READREF"
+>read</A
+> statements (see <A
+HREF="internal.html#EX36"
+>Example 15-3</A
+>). <SPAN
+CLASS="QUOTE"
+>"Real life"</SPAN
+> is actually a
+	   bit messier than that. For now, assume an interactive script
+	   is bound to a tty, a script that a user has invoked from the
+	   console or an <I
+CLASS="FIRSTTERM"
+>xterm</I
+>.</P
+><P
+>Init and startup scripts are necessarily non-interactive,
+	   since they must run without human intervention. Many
+	   administrative and system maintenance scripts are likewise
+	   non-interactive.  Unvarying repetitive tasks cry out for
+	   automation by non-interactive scripts.</P
+><P
+>Non-interactive scripts can run in the background, but
+	   interactive ones hang, waiting for input that never comes.
+	   Handle that difficulty by having an <B
+CLASS="COMMAND"
+>expect</B
+>
+	   script or embedded <A
+HREF="here-docs.html#HEREDOCREF"
+>here
+	   document</A
+> feed input to an interactive script running
+	   as a background job.  In the simplest case, redirect a
+	   file to supply input to a <B
+CLASS="COMMAND"
+>read</B
+> statement
+	   (<B
+CLASS="COMMAND"
+>read variable &#60;file</B
+>).  These particular
+	   workarounds make possible general purpose scripts that run
+	   in either interactive or non-interactive modes.</P
+><P
+>If a script needs to test whether it is running in an
+	   interactive shell, it is simply a matter of finding
+	   whether the <I
+CLASS="FIRSTTERM"
+>prompt</I
+> variable, <A
+HREF="internalvariables.html#PS1REF"
+>$PS1</A
+> is set. (If the user is being
+	   prompted for input, then the script needs to display a
+	   prompt.)</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>if [ -z $PS1 ] # no prompt?
+### if [ -v PS1 ]   # On Bash 4.2+ ...
+then
+  # non-interactive
+  ...
+else
+  # interactive
+  ...
+fi</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+><P
+><A
+NAME="IITEST"
+></A
+>Alternatively, the script can test
+	   for the presence of option <SPAN
+CLASS="QUOTE"
+>"i"</SPAN
+> in the <A
+HREF="internalvariables.html#FLPREF"
+>$-</A
+> flag.</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>case $- in
+*i*)    # interactive shell
+;;
+*)      # non-interactive shell
+;;
+# (Courtesy of "UNIX F.A.Q.," 1993)</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+><P
+><A
+NAME="II2TEST"
+></A
+>However, John Lange describes
+             an alternative method, using the <A
+HREF="fto.html#TERMTEST"
+><SPAN
+CLASS="TOKEN"
+>-t</SPAN
+>
+	     <I
+CLASS="FIRSTTERM"
+>test</I
+> operator</A
+>.</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+># Test for a terminal!
+
+fd=0   # stdin
+
+#  As we recall, the -t test option checks whether the stdin, [ -t 0 ],
+#+ or stdout, [ -t 1 ], in a given script is running in a terminal.
+if [ -t "$fd" ]
+then
+  echo interactive
+else
+  echo non-interactive
+fi
+
+
+#  But, as John points out:
+#    if [ -t 0 ] works ... when you're logged in locally
+#    but fails when you invoke the command remotely via ssh.
+#    So for a true test you also have to test for a socket.
+
+if [[ -t "$fd" || -p /dev/stdin ]]
+then
+  echo interactive
+else
+  echo non-interactive
+fi</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Scripts may be forced to run in interactive
+	   mode with the <SPAN
+CLASS="TOKEN"
+>-i</SPAN
+> option or with a
+	   <TT
+CLASS="USERINPUT"
+><B
+>#!/bin/bash -i</B
+></TT
+> header. Be aware that
+	   this can cause erratic script behavior or show error messages
+	   even when no error is present.</P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="miscellany.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="wrapper.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Miscellany</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="miscellany.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Shell Wrappers</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

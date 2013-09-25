@@ -318,7 +318,7 @@ class Dash
             end
 
             if do_queries
-                puts "Executing #{queries.length} queries..."
+                puts "Executing #{queries.length} queries (inserting #{queries.length - 2} rows)..."
                 if File.directory?(@docset_resources_path)
                     query_file_path = File.join(RESOURCES_PATH, 'sqlite3.queries')
                     file = File.new(query_file_path, 'w')
@@ -326,6 +326,8 @@ class Dash
                     file.close
 
                     `cd "#{@docset_resources_path}"; sqlite3 docSet.dsidx < '#{query_file_path}'`
+                    row_nums = `cd "#{@docset_resources_path}"; sqlite3 docSet.dsidx 'select count(*) from searchIndex;'`
+                    puts "Database now contains #{row_nums.gsub(/^\s+|\s+$/, '')} rows."
 
                 else
                     puts "(E) Dash.sql_execute: Not executing query. Could not find #{@docset_resources_path}."

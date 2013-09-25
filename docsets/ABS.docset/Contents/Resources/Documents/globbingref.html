@@ -1,0 +1,671 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Globbing</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Advanced Bash-Scripting Guide"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Regular Expressions"
+HREF="regexp.html"><LINK
+REL="PREVIOUS"
+TITLE="A Brief Introduction to Regular Expressions"
+HREF="x17046.html"><LINK
+REL="NEXT"
+TITLE="Here Documents"
+HREF="here-docs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Advanced Bash-Scripting Guide: </TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x17046.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 18. Regular Expressions</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="here-docs.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="GLOBBINGREF"
+></A
+>18.2. Globbing</H1
+><P
+><A
+NAME="GLOBBINGREF2"
+></A
+></P
+><P
+>Bash itself cannot recognize Regular Expressions. Inside
+	  scripts, it is commands and utilities -- such as
+	  <A
+HREF="sedawk.html#SEDREF"
+>sed</A
+> and <A
+HREF="awk.html#AWKREF"
+>awk</A
+> -- that interpret RE's.</P
+><P
+>Bash <EM
+>does</EM
+> carry out <I
+CLASS="FIRSTTERM"
+>filename
+	  expansion</I
+>
+
+            <A
+NAME="AEN17489"
+HREF="#FTN.AEN17489"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+>
+	  
+	  -- a process known as <I
+CLASS="FIRSTTERM"
+>globbing</I
+> -- but
+	  this does <EM
+>not</EM
+> use the standard RE set.
+	  Instead, globbing recognizes and expands <I
+CLASS="FIRSTTERM"
+>wild
+	  cards</I
+>. Globbing interprets the standard wild
+	  card characters
+	      <A
+NAME="AEN17498"
+HREF="#FTN.AEN17498"
+><SPAN
+CLASS="footnote"
+>[2]</SPAN
+></A
+>
+	  -- <A
+HREF="special-chars.html#ASTERISKREF"
+>*</A
+> and
+	  <A
+HREF="special-chars.html#WILDCARDQU"
+>?</A
+>, character lists in
+	  square brackets, and certain other special characters (such
+	  as <SPAN
+CLASS="TOKEN"
+>^</SPAN
+> for negating the sense of a match).
+          <A
+NAME="WDOTFILEWC"
+></A
+>There are important limitations on wild
+	  card characters in globbing, however. Strings containing
+	  <TT
+CLASS="REPLACEABLE"
+><I
+>*</I
+></TT
+> will not match filenames that
+	  start with a dot, as, for example, <A
+HREF="sample-bashrc.html"
+><TT
+CLASS="FILENAME"
+>.bashrc</TT
+></A
+>.
+
+	    <A
+NAME="AEN17509"
+HREF="#FTN.AEN17509"
+><SPAN
+CLASS="footnote"
+>[3]</SPAN
+></A
+>
+	  
+	  Likewise, the <TT
+CLASS="REPLACEABLE"
+><I
+>?</I
+></TT
+> has a different
+	  meaning in globbing than as part of an RE.</P
+><P
+>	      <TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>ls -l</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>total 2
+ -rw-rw-r--    1 bozo  bozo         0 Aug  6 18:42 a.1
+ -rw-rw-r--    1 bozo  bozo         0 Aug  6 18:42 b.1
+ -rw-rw-r--    1 bozo  bozo         0 Aug  6 18:42 c.1
+ -rw-rw-r--    1 bozo  bozo       466 Aug  6 17:48 t2.sh
+ -rw-rw-r--    1 bozo  bozo       758 Jul 30 09:02 test1.txt</TT
+>
+
+<TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>ls -l t?.sh</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>-rw-rw-r--    1 bozo  bozo       466 Aug  6 17:48 t2.sh</TT
+>
+
+<TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>ls -l [ab]*</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>-rw-rw-r--    1 bozo  bozo         0 Aug  6 18:42 a.1
+ -rw-rw-r--    1 bozo  bozo         0 Aug  6 18:42 b.1</TT
+>
+
+<TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>ls -l [a-c]*</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>-rw-rw-r--    1 bozo  bozo         0 Aug  6 18:42 a.1
+ -rw-rw-r--    1 bozo  bozo         0 Aug  6 18:42 b.1
+ -rw-rw-r--    1 bozo  bozo         0 Aug  6 18:42 c.1</TT
+>
+
+<TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>ls -l [^ab]*</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>-rw-rw-r--    1 bozo  bozo         0 Aug  6 18:42 c.1
+ -rw-rw-r--    1 bozo  bozo       466 Aug  6 17:48 t2.sh
+ -rw-rw-r--    1 bozo  bozo       758 Jul 30 09:02 test1.txt</TT
+>
+
+<TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>ls -l {b*,c*,*est*}</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>-rw-rw-r--    1 bozo  bozo         0 Aug  6 18:42 b.1
+ -rw-rw-r--    1 bozo  bozo         0 Aug  6 18:42 c.1
+ -rw-rw-r--    1 bozo  bozo       758 Jul 30 09:02 test1.txt</TT
+>
+	      </PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	      </P
+><P
+>Bash performs filename expansion on unquoted command-line
+	    arguments. The <A
+HREF="internal.html#ECHOREF"
+>echo</A
+> command
+	    demonstrates this.</P
+><P
+>	      <TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>echo *</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>a.1 b.1 c.1 t2.sh test1.txt</TT
+>
+
+<TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>echo t*</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>t2.sh test1.txt</TT
+>
+
+<TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>echo t?.sh</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>t2.sh</TT
+>
+	      </PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	   </P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>It is possible to modify the way Bash interprets
+	    special characters in globbing. A <B
+CLASS="COMMAND"
+>set -f</B
+>
+	    command disables globbing, and the
+	    <TT
+CLASS="OPTION"
+>nocaseglob</TT
+> and <TT
+CLASS="OPTION"
+>nullglob</TT
+>
+	    options to <A
+HREF="internal.html#SHOPTREF"
+>shopt</A
+> change
+	    globbing behavior.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>See also <A
+HREF="loops1.html#LISTGLOB"
+>Example 11-4</A
+>.</P
+><DIV
+CLASS="CAUTION"
+><P
+></P
+><TABLE
+CLASS="CAUTION"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/caution.gif"
+HSPACE="5"
+ALT="Caution"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+><A
+NAME="HANDLINGFNAMES"
+></A
+>Filenames with
+          embedded <A
+HREF="special-chars.html#WHITESPACEREF"
+>whitespace</A
+>
+	  can cause <I
+CLASS="FIRSTTERM"
+>globbing</I
+> to choke.
+	  <A
+HREF="http://www.dwheeler.com/essays/filenames-in-shell.html"
+TARGET="_top"
+>David
+	  Wheeler</A
+> shows how to avoid many such pitfalls.</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>IFS="$(printf '\n\t')"   # Remove space.
+
+#  Correct glob use:
+#  Always use for-loop, prefix glob, check if exists file.
+for file in ./* ; do         # Use ./* ... NEVER bare *
+  if [ -e "$file" ] ; then   # Check whether file exists.
+     COMMAND ... "$file" ...
+  fi
+done
+
+# This example taken from David Wheeler's site, with permission.</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN17489"
+HREF="globbingref.html#AEN17489"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+><I
+CLASS="FIRSTTERM"
+>Filename expansion</I
+>
+            means expanding filename patterns or templates
+            containing special characters. For example,
+            <TT
+CLASS="FILENAME"
+>example.???</TT
+> might expand
+            to <TT
+CLASS="FILENAME"
+>example.001</TT
+> and/or
+            <TT
+CLASS="FILENAME"
+>example.txt</TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN17498"
+HREF="globbingref.html#AEN17498"
+><SPAN
+CLASS="footnote"
+>[2]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+><A
+NAME="WILDCARDDEF"
+></A
+>A <I
+CLASS="FIRSTTERM"
+>wild
+	      card</I
+> character, analogous to a wild card in poker,
+	      can represent (almost) any other character.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN17509"
+HREF="globbingref.html#AEN17509"
+><SPAN
+CLASS="footnote"
+>[3]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>	    Filename expansion <EM
+>can</EM
+>
+	    match dotfiles, but only if the pattern explicitly includes the dot
+	    as a literal character.
+	        <TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>~/[.]bashrc    #  Will not expand to ~/.bashrc
+~/?bashrc      #  Neither will this.
+               #  Wild cards and metacharacters will NOT
+               #+ expand to a dot in globbing.
+
+~/.[b]ashrc    #  Will expand to ~/.bashrc
+~/.ba?hrc      #  Likewise.
+~/.bashr*      #  Likewise.
+
+# Setting the "dotglob" option turns this off.
+
+# Thanks, S.C.</PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	    </P
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x17046.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="here-docs.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>A Brief Introduction to Regular Expressions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="regexp.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Here Documents</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

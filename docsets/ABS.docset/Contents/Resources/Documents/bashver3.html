@@ -1,0 +1,750 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Bash, version 3</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Advanced Bash-Scripting Guide"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Bash, versions 2, 3, and 4"
+HREF="bash2.html"><LINK
+REL="PREVIOUS"
+TITLE="Bash, version 2"
+HREF="bashver2.html"><LINK
+REL="NEXT"
+TITLE="Bash, version 4"
+HREF="bashver4.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Advanced Bash-Scripting Guide: </TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="bashver2.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 37. Bash, versions 2, 3, and 4</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="bashver4.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="BASHVER3"
+></A
+>37.2. Bash, version 3</H1
+><P
+><A
+NAME="BASH3REF"
+></A
+></P
+><P
+>On July 27, 2004, Chet Ramey released version 3 of Bash.
+        This update fixed quite a number of bugs and added new
+        features.</P
+><P
+>Some of the more important added features:
+
+      <P
+></P
+><UL
+><LI
+><P
+><A
+NAME="BRACEEXPREF3"
+></A
+></P
+><P
+>A new, more generalized <B
+CLASS="COMMAND"
+>{a..z}</B
+> <A
+HREF="special-chars.html#BRACEEXPREF"
+>brace expansion</A
+> operator.</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>#!/bin/bash
+
+for i in {1..10}
+#  Simpler and more straightforward than
+#+ for i in $(seq 10)
+do
+  echo -n "$i "
+done
+
+echo
+
+# 1 2 3 4 5 6 7 8 9 10
+
+
+
+# Or just . . .
+
+echo {a..z}    #  a b c d e f g h i j k l m n o p q r s t u v w x y z
+echo {e..m}    #  e f g h i j k l m
+echo {z..a}    #  z y x w v u t s r q p o n m l k j i h g f e d c b a
+               #  Works backwards, too.
+echo {25..30}  #  25 26 27 28 29 30
+echo {3..-2}   #  3 2 1 0 -1 -2
+echo {X..d}    #  X Y Z [  ] ^ _ ` a b c d
+               #  Shows (some of) the ASCII characters between Z and a,
+               #+ but don't rely on this type of behavior because . . .
+echo {]..a}    #  {]..a}
+               #  Why?
+
+
+# You can tack on prefixes and suffixes.
+echo "Number #"{1..4}, "..."
+     # Number #1, Number #2, Number #3, Number #4, ...
+
+
+# You can concatenate brace-expansion sets.
+echo {1..3}{x..z}" +" "..."
+     # 1x + 1y + 1z + 2x + 2y + 2z + 3x + 3y + 3z + ...
+     # Generates an algebraic expression.
+     # This could be used to find permutations.
+
+# You can nest brace-expansion sets.
+echo {{a..c},{1..3}}
+     # a b c 1 2 3
+     # The "comma operator" splices together strings.
+
+# ########## ######### ############ ########### ######### ###############
+# Unfortunately, brace expansion does not lend itself to parameterization.
+var1=1
+var2=5
+echo {$var1..$var2}   # {1..5}
+
+
+# Yet, as Emiliano G. points out, using "eval" overcomes this limitation.
+
+start=0
+end=10
+for index in $(eval echo {$start..$end})
+do
+  echo -n "$index "   # 0 1 2 3 4 5 6 7 8 9 10 
+done
+
+echo</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+></LI
+><LI
+><P
+>The <B
+CLASS="COMMAND"
+>${!array[@]}</B
+> operator, which
+	    expands to all the indices of a given <A
+HREF="arrays.html#ARRAYREF"
+>array</A
+>.</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>#!/bin/bash
+
+Array=(element-zero element-one element-two element-three)
+
+echo ${Array[0]}   # element-zero
+                   # First element of array.
+
+echo ${!Array[@]}  # 0 1 2 3
+                   # All the indices of Array.
+
+for i in ${!Array[@]}
+do
+  echo ${Array[i]} # element-zero
+                   # element-one
+                   # element-two
+                   # element-three
+                   #
+                   # All the elements in Array.
+done</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+></LI
+><LI
+><P
+><A
+NAME="REGEXMATCHREF"
+></A
+></P
+><P
+>The <B
+CLASS="COMMAND"
+>=~</B
+> <A
+HREF="regexp.html#REGEXREF"
+>Regular
+	    Expression</A
+> matching operator within a <A
+HREF="testconstructs.html#DBLBRACKETS"
+>double brackets</A
+> test expression.
+	    (Perl has a similar operator.)</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>#!/bin/bash
+
+variable="This is a fine mess."
+
+echo "$variable"
+
+# Regex matching with =~ operator within [[ double brackets ]].
+if [[ "$variable" =~ T.........fin*es* ]]
+# NOTE: As of version 3.2 of Bash, expression to match no longer quoted.
+then
+  echo "match found"
+      # match found
+fi</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+><P
+>Or, more usefully:</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>#!/bin/bash
+
+input=$1
+
+
+if [[ "$input" =~ "[0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9]" ]]
+#                 ^ NOTE: Quoting not necessary, as of version 3.2 of Bash.
+# NNN-NN-NNNN (where each N is a digit).
+then
+  echo "Social Security number."
+  # Process SSN.
+else
+  echo "Not a Social Security number!"
+  # Or, ask for corrected input.
+fi</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+><P
+>For additional examples of using the
+                <B
+CLASS="COMMAND"
+>=~</B
+> operator, see <A
+HREF="contributed-scripts.html#WHX"
+>Example A-29</A
+>,
+                <A
+HREF="x17754.html#MAILBOXGREP"
+>Example 19-14</A
+>, <A
+HREF="contributed-scripts.html#FINDSPLIT"
+>Example A-35</A
+>, and <A
+HREF="contributed-scripts.html#TOHTML"
+>Example A-24</A
+>.</P
+></LI
+><LI
+><P
+><A
+NAME="PIPEFAILREF"
+></A
+></P
+><P
+>The new <TT
+CLASS="OPTION"
+>set -o pipefail</TT
+> option is
+	    useful for debugging <A
+HREF="special-chars.html#PIPEREF"
+>pipes</A
+>. If
+	    this option is set, then the <A
+HREF="exit-status.html#EXITSTATUSREF"
+>exit status</A
+> of a pipe
+	    is the exit status of the last command in the pipe to
+	    <EM
+>fail</EM
+> (return a non-zero value), rather
+	    than the actual final command in the pipe.</P
+><P
+>See <A
+HREF="communications.html#FC4UPD"
+>Example 16-43</A
+>.</P
+></LI
+></UL
+>
+      </P
+><DIV
+CLASS="CAUTION"
+><P
+></P
+><TABLE
+CLASS="CAUTION"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/caution.gif"
+HSPACE="5"
+ALT="Caution"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The update to version 3 of Bash breaks a few scripts
+        that worked under earlier versions. <EM
+>Test critical legacy
+	scripts to make sure they still work!</EM
+></P
+><P
+>As it happens, a couple of the scripts in the
+        <EM
+>Advanced Bash Scripting Guide</EM
+> had to be
+        fixed up (see <A
+HREF="internalvariables.html#TOUT"
+>Example 9-4</A
+>, for instance).</P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN20825"
+></A
+>37.2.1. Bash, version 3.1</H2
+><P
+>The version 3.1 update of Bash introduces a number of bugfixes
+	   and a few minor changes.</P
+><P
+></P
+><UL
+><LI
+><P
+>The <SPAN
+CLASS="TOKEN"
+>+=</SPAN
+> operator is now permitted in
+	        in places where previously only the <SPAN
+CLASS="TOKEN"
+>=</SPAN
+>
+		assignment operator was recognized.</P
+><P
+><A
+NAME="PLUSEQSTR"
+></A
+></P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>a=1
+echo $a        # 1
+
+a+=5           # Won't work under versions of Bash earlier than 3.1.
+echo $a        # 15
+
+a+=Hello
+echo $a        # 15Hello</PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	      </P
+><P
+>Here, <SPAN
+CLASS="TOKEN"
+>+=</SPAN
+> functions as a <I
+CLASS="FIRSTTERM"
+>string
+		concatenation</I
+> operator. Note that its behavior
+		in this particular context is different than within a
+		<A
+HREF="internal.html#LETREF"
+>let</A
+> construct.</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>a=1
+echo $a        # 1
+
+let a+=5       # Integer arithmetic, rather than string concatenation.
+echo $a        # 6
+
+let a+=Hello   # Doesn't "add" anything to a.
+echo $a        # 6</PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	      </P
+><P
+><A
+NAME="PATHAPPEND"
+></A
+>Jeffrey Haemer points out
+		that this concatenation operator can be quite
+		useful. In this instance, we append a directory to the
+		<TT
+CLASS="VARNAME"
+>$PATH</TT
+>.</P
+><P
+>&#13;      <TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>echo $PATH</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>/usr/bin:/bin:/usr/local/bin:/usr/X11R6/bin/:/usr/games</TT
+>
+
+
+<TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>PATH+=:/opt/bin</B
+></TT
+>
+
+<TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>echo $PATH</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>/usr/bin:/bin:/usr/local/bin:/usr/X11R6/bin/:/usr/games:/opt/bin</TT
+>
+      </PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+
+	      </P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN20856"
+></A
+>37.2.2. Bash, version 3.2</H2
+><P
+>This is pretty much a bugfix update.</P
+><P
+></P
+><UL
+><LI
+><P
+>In <A
+HREF="parameter-substitution.html#PSGLOB"
+><I
+CLASS="FIRSTTERM"
+>global</I
+>
+	        parameter substitutions</A
+>, the pattern no longer anchors
+		at the start of the string.</P
+></LI
+><LI
+><P
+>The <TT
+CLASS="OPTION"
+>--wordexp</TT
+> option disables
+	        <A
+HREF="process-sub.html#PROCESSSUBREF"
+>process substitution</A
+>.</P
+></LI
+><LI
+><P
+>The <B
+CLASS="COMMAND"
+>=~</B
+> <A
+HREF="bashver3.html#REGEXMATCHREF"
+>Regular Expression
+                match operator</A
+> no longer requires
+                <A
+HREF="quoting.html#QUOTINGREF"
+>quoting</A
+> of the
+                <I
+CLASS="FIRSTTERM"
+>pattern</I
+> within <A
+HREF="testconstructs.html#DBLBRACKETS"
+>[[ ... ]]</A
+>.</P
+><DIV
+CLASS="CAUTION"
+><P
+></P
+><TABLE
+CLASS="CAUTION"
+WIDTH="90%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/caution.gif"
+HSPACE="5"
+ALT="Caution"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>In fact, quoting in this context is
+		<EM
+>not</EM
+> advisable as it may
+		cause <I
+CLASS="FIRSTTERM"
+>regex</I
+> evaluation to fail.
+		Chet Ramey states in the <A
+HREF="biblio.html#BASHFAQ"
+>Bash
+		FAQ</A
+> that quoting explicitly disables regex evaluation.
+		See also the <A
+HREF="https://bugs.launchpad.net/ubuntu-website/+bug/109931"
+TARGET="_top"
+>		Ubuntu Bug List</A
+> and <A
+HREF="http://en.wikinerds.org/index.php/Bash_syntax_and_semantics"
+TARGET="_top"
+>		Wikinerds on Bash syntax</A
+>.</P
+><P
+>Setting <EM
+>shopt -s compat31</EM
+>
+                  in a script causes reversion to the original
+                  behavior.</P
+></TD
+></TR
+></TABLE
+></DIV
+></LI
+></UL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="bashver2.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="bashver4.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Bash, version 2</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="bash2.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Bash, version 4</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

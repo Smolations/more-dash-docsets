@@ -1,0 +1,504 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Terminal Control Commands</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Advanced Bash-Scripting Guide"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="External Filters, Programs and Commands"
+HREF="external.html"><LINK
+REL="PREVIOUS"
+TITLE="Communications Commands"
+HREF="communications.html"><LINK
+REL="NEXT"
+TITLE="Math Commands"
+HREF="mathc.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Advanced Bash-Scripting Guide: </TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="communications.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 16. External Filters, Programs and Commands</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="mathc.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="TERMINALCCMDS"
+></A
+>16.7. Terminal Control Commands</H1
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><P
+><B
+><A
+NAME="TERMCOMMANDLISTING1"
+></A
+>Command affecting the console
+	   or terminal</B
+></P
+><DL
+><DT
+><A
+NAME="TPUTREF"
+></A
+><B
+CLASS="COMMAND"
+>tput</B
+></DT
+><DD
+><P
+>Initialize terminal and/or fetch information about it from
+	      <SPAN
+CLASS="DATABASE"
+>terminfo</SPAN
+> data. Various options permit
+	      certain terminal operations:  <B
+CLASS="COMMAND"
+>tput clear</B
+>
+	      is the equivalent of <A
+HREF="terminalccmds.html#CLEARREF"
+>clear</A
+>;
+	      <B
+CLASS="COMMAND"
+>tput reset</B
+> is the equivalent
+	      of <A
+HREF="terminalccmds.html#RESETREF"
+>reset</A
+>.</P
+><P
+>	      <TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>tput longname</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>xterm terminal emulator (X Window System)</TT
+>
+	      </PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	    </P
+><P
+>Issuing a <B
+CLASS="COMMAND"
+>tput cup X Y</B
+> moves
+	      the cursor to the (X,Y) coordinates in the current
+	      terminal. A <B
+CLASS="COMMAND"
+>clear</B
+> to erase the terminal
+	      screen would normally precede this.</P
+><P
+>&#13;	      Some interesting options to <I
+CLASS="FIRSTTERM"
+>tput</I
+> are:
+
+	  <P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="OPTION"
+>bold</TT
+>, for high-intensity
+	      text</P
+></LI
+><LI
+><P
+><TT
+CLASS="OPTION"
+>smul</TT
+>, to underline text
+	      in the terminal</P
+></LI
+><LI
+><P
+><TT
+CLASS="OPTION"
+>smso</TT
+>, to render text in
+	      reverse</P
+></LI
+><LI
+><P
+><TT
+CLASS="OPTION"
+>sgr0</TT
+>, to reset the terminal
+	      parameters (to normal), without clearing the
+	      screen</P
+></LI
+></UL
+>
+
+	    </P
+><P
+>Example scripts using <I
+CLASS="FIRSTTERM"
+>tput</I
+>:
+            <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+><A
+HREF="colorizing.html#COLORECHO"
+>Example 36-13</A
+></P
+></LI
+><LI
+><P
+><A
+HREF="colorizing.html#EX30A"
+>Example 36-11</A
+></P
+></LI
+><LI
+><P
+><A
+HREF="contributed-scripts.html#HOMEWORK"
+>Example A-44</A
+></P
+></LI
+><LI
+><P
+><A
+HREF="contributed-scripts.html#NIM"
+>Example A-42</A
+></P
+></LI
+><LI
+><P
+><A
+HREF="arrays.html#POEM"
+>Example 27-2</A
+></P
+></LI
+></OL
+>
+	    </P
+><P
+>Note that <A
+HREF="system.html#STTYREF"
+>stty</A
+> offers
+	      a more powerful command set for controlling a terminal.</P
+></DD
+><DT
+><A
+NAME="INFOCMPREF"
+></A
+><B
+CLASS="COMMAND"
+>infocmp</B
+></DT
+><DD
+><P
+>This command prints out extensive information about the
+	      current terminal. It references the
+	      <I
+CLASS="FIRSTTERM"
+>terminfo</I
+> database.</P
+><P
+>	      <TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>infocmp</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>#       Reconstructed via infocmp from file:
+ /usr/share/terminfo/r/rxvt
+ rxvt|rxvt terminal emulator (X Window System), 
+         am, bce, eo, km, mir, msgr, xenl, xon, 
+         colors#8, cols#80, it#8, lines#24, pairs#64, 
+         acsc=``aaffggjjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~, 
+         bel=^G, blink=\E[5m, bold=\E[1m,
+         civis=\E[?25l, 
+         clear=\E[H\E[2J, cnorm=\E[?25h, cr=^M, 
+         ...</TT
+>
+	      </PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	    </P
+></DD
+><DT
+><A
+NAME="RESETREF"
+></A
+><B
+CLASS="COMMAND"
+>reset</B
+></DT
+><DD
+><P
+>Reset terminal parameters and clear text screen. As with
+	    <B
+CLASS="COMMAND"
+>clear</B
+>, the cursor and prompt reappear in the
+	    upper lefthand corner of the terminal.</P
+></DD
+><DT
+><A
+NAME="CLEARREF"
+></A
+><B
+CLASS="COMMAND"
+>clear</B
+></DT
+><DD
+><P
+>The <B
+CLASS="COMMAND"
+>clear</B
+> command simply clears
+	      the text screen at the console or in an
+	      <I
+CLASS="FIRSTTERM"
+>xterm</I
+>. The prompt and cursor
+	      reappear at the upper lefthand corner of the screen or
+	      xterm window. This command may be used either at the command
+	      line or in a script. See <A
+HREF="testbranch.html#EX30"
+>Example 11-25</A
+>.</P
+></DD
+><DT
+><A
+NAME="RESIZEREF"
+></A
+><B
+CLASS="COMMAND"
+>resize</B
+></DT
+><DD
+><P
+>Echoes commands necessary to set <TT
+CLASS="VARNAME"
+>$TERM</TT
+>
+	      and <TT
+CLASS="VARNAME"
+>$TERMCAP</TT
+> to duplicate the
+	      <I
+CLASS="FIRSTTERM"
+>size</I
+> (dimensions) of the current
+	      terminal.</P
+><P
+>	        <TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>resize</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>set noglob;
+ setenv COLUMNS '80';
+ setenv LINES '24';
+ unset noglob;</TT
+>
+	        </PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	      </P
+></DD
+><DT
+><A
+NAME="SCRIPTREF"
+></A
+><B
+CLASS="COMMAND"
+>script</B
+></DT
+><DD
+><P
+>This utility records (saves to a file) all the user keystrokes at
+	      the command-line in a console or an xterm window. This, in effect,
+	      creates a record of a session.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="communications.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="mathc.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Communications Commands</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="external.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Math Commands</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

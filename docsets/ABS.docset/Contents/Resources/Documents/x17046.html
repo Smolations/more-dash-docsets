@@ -1,0 +1,1568 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>A Brief Introduction to Regular Expressions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Advanced Bash-Scripting Guide"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Regular Expressions"
+HREF="regexp.html"><LINK
+REL="PREVIOUS"
+TITLE="Regular Expressions"
+HREF="regexp.html"><LINK
+REL="NEXT"
+TITLE="Globbing"
+HREF="globbingref.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Advanced Bash-Scripting Guide: </TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="regexp.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 18. Regular Expressions</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="globbingref.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN17046"
+></A
+>18.1. A Brief Introduction to Regular Expressions</H1
+><P
+>An expression is a string of characters. Those characters
+	  having an interpretation above and beyond their literal
+	  meaning are called <I
+CLASS="FIRSTTERM"
+>metacharacters</I
+>.
+	  A quote symbol, for example, may denote speech by a person,
+	  <I
+CLASS="FIRSTTERM"
+>ditto</I
+>, or a meta-meaning
+
+	    <A
+NAME="AEN17051"
+HREF="#FTN.AEN17051"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+>
+
+	  for the symbols that follow. Regular Expressions are sets
+	  of characters and/or metacharacters that match (or specify)
+	  patterns.</P
+><P
+>A Regular Expression contains one or more of the
+	following:</P
+><P
+></P
+><UL
+><LI
+><P
+><I
+CLASS="FIRSTTERM"
+>A character set</I
+>. These are the
+	      characters retaining their literal meaning. The
+	      simplest type of Regular Expression consists
+	      <EM
+>only</EM
+> of a character set, with no
+	      metacharacters.</P
+></LI
+><LI
+><P
+><A
+NAME="ANCHORREF"
+></A
+></P
+><P
+><I
+CLASS="FIRSTTERM"
+>An anchor</I
+>. These designate
+	      (<I
+CLASS="FIRSTTERM"
+>anchor</I
+>) the position in the line of
+	      text that the RE is to match. For example, <SPAN
+CLASS="TOKEN"
+>^</SPAN
+>,
+	      and <SPAN
+CLASS="TOKEN"
+>$</SPAN
+> are anchors.</P
+></LI
+><LI
+><P
+><I
+CLASS="FIRSTTERM"
+>Modifiers</I
+>. These expand or narrow
+	      (<I
+CLASS="FIRSTTERM"
+>modify</I
+>) the range of text the RE is
+	      to match. Modifiers include the asterisk, brackets, and
+	      the backslash.</P
+></LI
+></UL
+><P
+>The main uses for Regular Expressions
+	  (<I
+CLASS="FIRSTTERM"
+>RE</I
+>s) are text searches and string
+	  manipulation. An RE <I
+CLASS="FIRSTTERM"
+>matches</I
+> a single
+	  character or a set of characters -- a string or a part of
+	  a string.</P
+><P
+></P
+><UL
+><LI
+><P
+><A
+NAME="ASTERISKREG"
+></A
+>The asterisk --
+	    <SPAN
+CLASS="TOKEN"
+>*</SPAN
+> -- matches any number of
+	      repeats of the character string or RE preceding it,
+	      including <EM
+>zero</EM
+> instances.</P
+><P
+><SPAN
+CLASS="QUOTE"
+>"1133*"</SPAN
+> matches <TT
+CLASS="REPLACEABLE"
+><I
+>11 +
+	      one or more 3's</I
+></TT
+>:
+	      <TT
+CLASS="REPLACEABLE"
+><I
+>113</I
+></TT
+>, <TT
+CLASS="REPLACEABLE"
+><I
+>1133</I
+></TT
+>,
+	      <TT
+CLASS="REPLACEABLE"
+><I
+>1133333</I
+></TT
+>, and so forth.</P
+></LI
+><LI
+><P
+><A
+NAME="REGEXDOT"
+></A
+>The <I
+CLASS="FIRSTTERM"
+>dot</I
+>
+	    -- <SPAN
+CLASS="TOKEN"
+>.</SPAN
+> -- matches
+	      any one character, except a newline.
+	        <A
+NAME="AEN17106"
+HREF="#FTN.AEN17106"
+><SPAN
+CLASS="footnote"
+>[2]</SPAN
+></A
+>  
+	    </P
+><P
+><SPAN
+CLASS="QUOTE"
+>"13."</SPAN
+> matches <TT
+CLASS="REPLACEABLE"
+><I
+>13 + at
+	     least one of any character (including a
+	     space)</I
+></TT
+>: <TT
+CLASS="REPLACEABLE"
+><I
+>1133</I
+></TT
+>,
+	     <TT
+CLASS="REPLACEABLE"
+><I
+>11333</I
+></TT
+>, but not
+	     <TT
+CLASS="REPLACEABLE"
+><I
+>13</I
+></TT
+> (additional character
+	     missing).</P
+><P
+>See <A
+HREF="textproc.html#CWSOLVER"
+>Example 16-18</A
+> for a demonstration
+	       of <I
+CLASS="FIRSTTERM"
+>dot single-character</I
+>
+	       matching.</P
+></LI
+><LI
+><P
+><A
+NAME="CARETREF"
+></A
+>The caret -- <SPAN
+CLASS="TOKEN"
+>^</SPAN
+>
+	      -- matches the beginning of a line, but sometimes, depending
+	      on context, negates the meaning of a set of characters in
+	      an RE.</P
+></LI
+><LI
+><P
+><A
+NAME="DOLLARSIGNREF"
+></A
+></P
+><P
+>The dollar sign -- <SPAN
+CLASS="TOKEN"
+>$</SPAN
+> -- at the end of an
+	      RE matches the end of a line.</P
+><P
+><SPAN
+CLASS="QUOTE"
+>"XXX$"</SPAN
+> matches <SPAN
+CLASS="TOKEN"
+>XXX</SPAN
+> at the
+	      end of a line.</P
+><P
+><SPAN
+CLASS="QUOTE"
+>"^$"</SPAN
+> matches blank lines.</P
+></LI
+><LI
+><P
+><A
+NAME="BRACKETSREF"
+></A
+></P
+><P
+>Brackets -- <SPAN
+CLASS="TOKEN"
+>[...]</SPAN
+> -- enclose a set of characters
+	      to match in a single RE.</P
+><P
+><SPAN
+CLASS="QUOTE"
+>"[xyz]"</SPAN
+> matches any one of the characters
+	      <TT
+CLASS="REPLACEABLE"
+><I
+>x</I
+></TT
+>, <TT
+CLASS="REPLACEABLE"
+><I
+>y</I
+></TT
+>,
+	      or <TT
+CLASS="REPLACEABLE"
+><I
+>z</I
+></TT
+>.</P
+><P
+><SPAN
+CLASS="QUOTE"
+>"[c-n]"</SPAN
+> matches any one of the
+	      characters in the range <TT
+CLASS="REPLACEABLE"
+><I
+>c</I
+></TT
+>
+	      to <TT
+CLASS="REPLACEABLE"
+><I
+>n</I
+></TT
+>.</P
+><P
+><SPAN
+CLASS="QUOTE"
+>"[B-Pk-y]"</SPAN
+> matches any one of the
+	      characters in the ranges <TT
+CLASS="REPLACEABLE"
+><I
+>B</I
+></TT
+>
+	      to <TT
+CLASS="REPLACEABLE"
+><I
+>P</I
+></TT
+>
+	      and <TT
+CLASS="REPLACEABLE"
+><I
+>k</I
+></TT
+> to
+	      <TT
+CLASS="REPLACEABLE"
+><I
+>y</I
+></TT
+>.</P
+><P
+><SPAN
+CLASS="QUOTE"
+>"[a-z0-9]"</SPAN
+> matches any single lowercase
+	      letter or any digit.</P
+><P
+><SPAN
+CLASS="QUOTE"
+>"[^b-d]"</SPAN
+> matches any character
+	      <EM
+>except</EM
+> those in
+	      the range <TT
+CLASS="REPLACEABLE"
+><I
+>b</I
+></TT
+> to
+	      <TT
+CLASS="REPLACEABLE"
+><I
+>d</I
+></TT
+>. This is an instance of
+	      <SPAN
+CLASS="TOKEN"
+>^</SPAN
+> negating or inverting the meaning
+	      of the following RE (taking on a role similar to
+	      <SPAN
+CLASS="TOKEN"
+>!</SPAN
+> in a different context).</P
+><P
+>Combined sequences of bracketed characters match  
+	      common word patterns. <SPAN
+CLASS="QUOTE"
+>"[Yy][Ee][Ss]"</SPAN
+> matches
+	      <TT
+CLASS="REPLACEABLE"
+><I
+>yes</I
+></TT
+>, <TT
+CLASS="REPLACEABLE"
+><I
+>Yes</I
+></TT
+>,
+	      <TT
+CLASS="REPLACEABLE"
+><I
+>YES</I
+></TT
+>, <TT
+CLASS="REPLACEABLE"
+><I
+>yEs</I
+></TT
+>,
+	      and so forth.
+	      <SPAN
+CLASS="QUOTE"
+>"[0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9]"</SPAN
+>
+	      matches any Social Security number.</P
+></LI
+><LI
+><P
+><A
+NAME="REGEXBS"
+></A
+></P
+><P
+>The backslash -- <SPAN
+CLASS="TOKEN"
+>\</SPAN
+> -- <A
+HREF="escapingsection.html#ESCP"
+>escapes</A
+> a special character, which
+              means that character gets interpreted literally (and is
+              therefore no longer <I
+CLASS="FIRSTTERM"
+>special</I
+>).</P
+><P
+>A <SPAN
+CLASS="QUOTE"
+>"\$"</SPAN
+> reverts back to its
+	       literal meaning of <SPAN
+CLASS="QUOTE"
+>"$"</SPAN
+>, rather than its
+	       RE meaning of end-of-line. Likewise a <SPAN
+CLASS="QUOTE"
+>"\\"</SPAN
+>
+	       has the literal meaning of <SPAN
+CLASS="QUOTE"
+>"\"</SPAN
+>.</P
+></LI
+><LI
+><P
+><A
+NAME="ANGLEBRAC"
+></A
+></P
+><P
+><A
+HREF="escapingsection.html#ESCP"
+>Escaped</A
+> <SPAN
+CLASS="QUOTE"
+>"angle
+	      brackets"</SPAN
+> -- <SPAN
+CLASS="TOKEN"
+>\&#60;...\&#62;</SPAN
+> -- mark word
+	      boundaries.</P
+><P
+>The angle brackets must be escaped, since otherwise
+	      they have only their literal character meaning.</P
+><P
+><SPAN
+CLASS="QUOTE"
+>"\&#60;the\&#62;"</SPAN
+> matches the word
+	      <SPAN
+CLASS="QUOTE"
+>"the,"</SPAN
+> but not the words <SPAN
+CLASS="QUOTE"
+>"them,"</SPAN
+>
+	      <SPAN
+CLASS="QUOTE"
+>"there,"</SPAN
+> <SPAN
+CLASS="QUOTE"
+>"other,"</SPAN
+> etc.</P
+><P
+>	      <TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>cat textfile</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>This is line 1, of which there is only one instance.
+ This is the only instance of line 2.
+ This is line 3, another line.
+ This is line 4.</TT
+>
+
+
+<TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>grep 'the' textfile</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>This is line 1, of which there is only one instance.
+ This is the only instance of line 2.
+ This is line 3, another line.</TT
+>
+
+
+<TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>grep '\&#60;the\&#62;' textfile</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>This is the only instance of line 2.</TT
+>
+	      </PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	    </P
+></LI
+></UL
+><TABLE
+CLASS="SIDEBAR"
+BORDER="1"
+CELLPADDING="5"
+><TR
+><TD
+><DIV
+CLASS="SIDEBAR"
+><A
+NAME="AEN17233"
+></A
+><P
+></P
+><P
+>The only way to be certain that a particular RE works is to
+	    test it.</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>TEST FILE: tstfile                          # No match.
+                                            # No match.
+Run   grep "1133*"  on this file.           # Match.
+                                            # No match.
+                                            # No match.
+This line contains the number 113.          # Match.
+This line contains the number 13.           # No match.
+This line contains the number 133.          # No match.
+This line contains the number 1133.         # Match.
+This line contains the number 113312.       # Match.
+This line contains the number 1112.         # No match.
+This line contains the number 113312312.    # Match.
+This line contains no numbers at all.       # No match.</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>grep "1133*" tstfile</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>Run   grep "1133*"  on this file.           # Match.
+ This line contains the number 113.          # Match.
+ This line contains the number 1133.         # Match.
+ This line contains the number 113312.       # Match.
+ This line contains the number 113312312.    # Match.</TT
+>
+	      </PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></TD
+></TR
+></TABLE
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: square"
+><DIV
+CLASS="FORMALPARA"
+><P
+><B
+><A
+NAME="EXTREGEX"
+></A
+>Extended REs. </B
+>Additional metacharacters added to the basic set. Used
+		in <A
+HREF="textproc.html#EGREPREF"
+>egrep</A
+>,
+		<A
+HREF="awk.html#AWKREF"
+>awk</A
+>, and <A
+HREF="wrapper.html#PERLREF"
+>Perl</A
+>.</P
+></DIV
+></LI
+><LI
+><P
+><A
+NAME="QUEXREGEX"
+></A
+></P
+><P
+>The question mark -- <SPAN
+CLASS="TOKEN"
+>?</SPAN
+> -- matches zero or
+	      one of the previous RE. It is generally used for matching
+	      single characters.</P
+></LI
+><LI
+><P
+><A
+NAME="PLUSREF"
+></A
+></P
+><P
+>The plus -- <SPAN
+CLASS="TOKEN"
+>+</SPAN
+> -- matches one or more of the
+	    previous RE. It serves a role similar to the <SPAN
+CLASS="TOKEN"
+>*</SPAN
+>, but
+	    does <EM
+>not</EM
+> match zero occurrences.</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+># GNU versions of sed and awk can use "+",
+# but it needs to be escaped.
+
+echo a111b | sed -ne '/a1\+b/p'
+echo a111b | grep 'a1\+b'
+echo a111b | gawk '/a1+b/'
+# All of above are equivalent.
+
+# Thanks, S.C.</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+><P
+><A
+NAME="ESCPCB"
+></A
+></P
+></LI
+><LI
+><P
+><A
+HREF="escapingsection.html#ESCP"
+>Escaped</A
+> <SPAN
+CLASS="QUOTE"
+>"curly
+	      brackets"</SPAN
+> -- <SPAN
+CLASS="TOKEN"
+>\{ \}</SPAN
+> -- indicate the number
+	      of occurrences of a preceding RE to match.</P
+><P
+>It is necessary to escape the curly brackets since
+	      they have only their literal character meaning
+	      otherwise. This usage is technically not part of the basic
+	      RE set.</P
+><P
+><SPAN
+CLASS="QUOTE"
+>"[0-9]\{5\}"</SPAN
+> matches exactly five digits
+	      (characters in the range of 0 to 9).</P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="90%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Curly brackets are not available as an RE in the
+	      <SPAN
+CLASS="QUOTE"
+>"classic"</SPAN
+> (non-POSIX compliant) version
+	      of <A
+HREF="awk.html#AWKREF"
+>awk</A
+>.
+	      <A
+NAME="GNUGAWK"
+></A
+>However, the GNU extended version
+	      of <I
+CLASS="FIRSTTERM"
+>awk</I
+>, <B
+CLASS="COMMAND"
+>gawk</B
+>,
+	      has the <TT
+CLASS="OPTION"
+>--re-interval</TT
+> option that permits
+	      them (without being escaped).</P
+><P
+>	      <TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>echo 2222 | gawk --re-interval '/2{3}/'</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>2222</TT
+>
+	      </PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	    </P
+><P
+><B
+CLASS="COMMAND"
+>Perl</B
+> and some
+	      <B
+CLASS="COMMAND"
+>egrep</B
+> versions do not require escaping
+	      the curly brackets.</P
+></TD
+></TR
+></TABLE
+></DIV
+></LI
+><LI
+><P
+><A
+NAME="PARENGRPS"
+></A
+></P
+><P
+>Parentheses -- <B
+CLASS="COMMAND"
+>( )</B
+> -- enclose a group of
+	      REs. They are useful with the following
+	      <SPAN
+CLASS="QUOTE"
+>"<SPAN
+CLASS="TOKEN"
+>|</SPAN
+>"</SPAN
+> operator and in <A
+HREF="string-manipulation.html#EXPRPAREN"
+>substring extraction</A
+> using <A
+HREF="moreadv.html#EXPRREF"
+>expr</A
+>.</P
+></LI
+><LI
+><P
+>The -- <B
+CLASS="COMMAND"
+>|</B
+> -- <SPAN
+CLASS="QUOTE"
+>"or"</SPAN
+> RE operator
+	      matches any of a set of alternate characters.</P
+><P
+>	      <TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>egrep 're(a|e)d' misc.txt</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>People who read seem to be better informed than those who do not.
+ The clarinet produces sound by the vibration of its reed.</TT
+>
+	      </PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	      </P
+></LI
+></UL
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Some versions of <B
+CLASS="COMMAND"
+>sed</B
+>,
+	      <B
+CLASS="COMMAND"
+>ed</B
+>, and <B
+CLASS="COMMAND"
+>ex</B
+> support
+	      escaped versions of the extended Regular Expressions
+	      described above, as do the GNU utilities.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: square"
+><DIV
+CLASS="FORMALPARA"
+><P
+><B
+><A
+NAME="POSIXREF"
+></A
+>POSIX Character Classes. </B
+><TT
+CLASS="USERINPUT"
+><B
+>[:class:]</B
+></TT
+></P
+></DIV
+><P
+>This is an alternate method of specifying a range of
+	      characters to match.</P
+></LI
+><LI
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>[:alnum:]</B
+></TT
+> matches alphabetic or
+	      numeric characters. This is equivalent to
+	      <TT
+CLASS="USERINPUT"
+><B
+>A-Za-z0-9</B
+></TT
+>.</P
+></LI
+><LI
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>[:alpha:]</B
+></TT
+> matches alphabetic
+	      characters. This is equivalent to
+	      <TT
+CLASS="USERINPUT"
+><B
+>A-Za-z</B
+></TT
+>.</P
+></LI
+><LI
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>[:blank:]</B
+></TT
+> matches a space or a
+	      tab.</P
+></LI
+><LI
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>[:cntrl:]</B
+></TT
+> matches control
+	      characters.</P
+></LI
+><LI
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>[:digit:]</B
+></TT
+> matches (decimal)
+	      digits. This is equivalent to
+	      <TT
+CLASS="USERINPUT"
+><B
+>0-9</B
+></TT
+>.</P
+></LI
+><LI
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>[:graph:]</B
+></TT
+> (graphic printable
+		    characters). Matches characters in the range of <A
+HREF="special-chars.html#ASCIIDEF"
+>ASCII</A
+> 33 - 126. This is
+		    the same as <TT
+CLASS="USERINPUT"
+><B
+>[:print:]</B
+></TT
+>, below,
+		    but excluding the space character.</P
+></LI
+><LI
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>[:lower:]</B
+></TT
+> matches lowercase
+	      alphabetic characters. This is equivalent to
+	      <TT
+CLASS="USERINPUT"
+><B
+>a-z</B
+></TT
+>.</P
+></LI
+><LI
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>[:print:]</B
+></TT
+> (printable
+	      characters). Matches characters in the range of ASCII 32 -
+	      126. This is the same as <TT
+CLASS="USERINPUT"
+><B
+>[:graph:]</B
+></TT
+>,
+	      above, but adding the space character.</P
+></LI
+><LI
+><P
+><A
+NAME="WSPOSIX"
+></A
+><TT
+CLASS="USERINPUT"
+><B
+>[:space:]</B
+></TT
+>
+	      matches whitespace characters (space and horizontal
+	      tab).</P
+></LI
+><LI
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>[:upper:]</B
+></TT
+> matches uppercase
+	      alphabetic characters. This is equivalent to
+	      <TT
+CLASS="USERINPUT"
+><B
+>A-Z</B
+></TT
+>.</P
+></LI
+><LI
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>[:xdigit:]</B
+></TT
+> matches hexadecimal
+	      digits. This is equivalent to
+	      <TT
+CLASS="USERINPUT"
+><B
+>0-9A-Fa-f</B
+></TT
+>.</P
+><DIV
+CLASS="IMPORTANT"
+><P
+></P
+><TABLE
+CLASS="IMPORTANT"
+WIDTH="90%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/important.gif"
+HSPACE="5"
+ALT="Important"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>POSIX character classes generally require quoting
+	      or <A
+HREF="testconstructs.html#DBLBRACKETS"
+>double brackets</A
+>
+	      ([[ ]]).</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>	      <TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>grep [[:digit:]] test.file</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>abc=723</TT
+>
+	      </PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	    </P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+># ...
+if [[ $arow =~ [[:digit:]] ]]   #  Numerical input?
+then       #  POSIX char class
+  if [[ $acol =~ [[:alpha:]] ]] # Number followed by a letter? Illegal!
+# ...
+# From ktour.sh example script.</PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	    </P
+><P
+>These character classes may even be used with <A
+HREF="globbingref.html"
+>globbing</A
+>, to a limited
+	      extent.</P
+><P
+>	      <TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>bash$ </TT
+><TT
+CLASS="USERINPUT"
+><B
+>ls -l ?[[:digit:]][[:digit:]]?</B
+></TT
+>
+<TT
+CLASS="COMPUTEROUTPUT"
+>-rw-rw-r--    1 bozo  bozo         0 Aug 21 14:47 a33b</TT
+>
+	      </PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	    </P
+><P
+>POSIX character classes are used in
+	      <A
+HREF="textproc.html#EX49"
+>Example 16-21</A
+> and <A
+HREF="textproc.html#LOWERCASE"
+>Example 16-22</A
+>.</P
+></LI
+></UL
+><P
+><A
+HREF="sedawk.html#SEDREF"
+>Sed</A
+>, <A
+HREF="awk.html#AWKREF"
+>awk</A
+>, and <A
+HREF="wrapper.html#PERLREF"
+>Perl</A
+>, used as filters in scripts, take
+	  REs as arguments when "sifting" or transforming files or I/O
+	  streams. See <A
+HREF="contributed-scripts.html#BEHEAD"
+>Example A-12</A
+> and <A
+HREF="contributed-scripts.html#TREE"
+>Example A-16</A
+>
+	  for illustrations of this.</P
+><P
+>The standard reference on this complex topic is Friedl's
+	  <I
+CLASS="CITETITLE"
+>Mastering Regular
+	  Expressions</I
+>. <I
+CLASS="CITETITLE"
+>Sed &#38;
+	  Awk</I
+>, by Dougherty and Robbins, also gives a very
+	  lucid treatment of REs. See the <A
+HREF="biblio.html"
+><I
+>Bibliography</I
+></A
+> for
+	  more information on these books.</P
+></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN17051"
+HREF="x17046.html#AEN17051"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+><A
+NAME="METAMEANINGREF"
+></A
+>A
+	    <I
+CLASS="FIRSTTERM"
+>meta-meaning</I
+> is the meaning of a
+	    term or expression on a higher level of abstraction. For
+	    example, the <I
+CLASS="FIRSTTERM"
+>literal</I
+> meaning
+	    of <I
+CLASS="FIRSTTERM"
+>regular expression</I
+> is an
+	    ordinary expression that conforms to accepted usage. The
+	    <I
+CLASS="FIRSTTERM"
+>meta-meaning</I
+> is drastically different,
+	    as discussed at length in this chapter.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN17106"
+HREF="x17046.html#AEN17106"
+><SPAN
+CLASS="footnote"
+>[2]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>Since <A
+HREF="sedawk.html#SEDREF"
+>sed</A
+>, <A
+HREF="awk.html#AWKREF"
+>awk</A
+>, and <A
+HREF="textproc.html#GREPREF"
+>grep</A
+> process single lines, there
+		  will usually not be a newline to match. In those cases where
+		  there is a newline in a multiple line expression, the dot
+		  will match the newline.
+	            <TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>#!/bin/bash
+
+sed -e 'N;s/.*/[&#38;]/' &#60;&#60; EOF   # Here Document
+line1
+line2
+EOF
+# OUTPUT:
+# [line1
+# line2]
+
+
+
+echo
+
+awk '{ $0=$1 "\n" $2; if (/line.1/) {print}}' &#60;&#60; EOF
+line 1
+line 2
+EOF
+# OUTPUT:
+# line
+# 1
+
+
+# Thanks, S.C.
+
+exit 0</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="regexp.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="globbingref.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Regular Expressions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="regexp.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Globbing</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,399 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Invoking the script</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Advanced Bash-Scripting Guide"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Starting Off With a Sha-Bang"
+HREF="sha-bang.html"><LINK
+REL="PREVIOUS"
+TITLE="Starting Off With a Sha-Bang"
+HREF="sha-bang.html"><LINK
+REL="NEXT"
+TITLE="Preliminary Exercises"
+HREF="prelimexer.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Advanced Bash-Scripting Guide: </TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="sha-bang.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 2. Starting Off With a Sha-Bang</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="prelimexer.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="INVOKING"
+></A
+>2.1. Invoking the script</H1
+><P
+>Having written the script, you can invoke it by <TT
+CLASS="USERINPUT"
+><B
+>sh
+	scriptname</B
+></TT
+>,
+
+	  <A
+NAME="AEN298"
+HREF="#FTN.AEN298"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+>
+
+	or alternatively <TT
+CLASS="USERINPUT"
+><B
+>bash scriptname</B
+></TT
+>. (Not
+	recommended is using <TT
+CLASS="USERINPUT"
+><B
+>sh &#60;scriptname</B
+></TT
+>,
+	since this effectively disables reading from
+	<A
+HREF="ioredirintro.html#STDINOUTDEF"
+><TT
+CLASS="FILENAME"
+>stdin</TT
+></A
+>
+	within the script.) Much more convenient is to make
+	the script itself directly executable with a <A
+HREF="basic.html#CHMODREF"
+>chmod</A
+>.
+
+	<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Either:</DT
+><DD
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>chmod 555 scriptname</B
+></TT
+> (gives
+	      everyone read/execute permission)
+	        <A
+NAME="AEN313"
+HREF="#FTN.AEN313"
+><SPAN
+CLASS="footnote"
+>[2]</SPAN
+></A
+>
+	      </P
+></DD
+><DT
+>or</DT
+><DD
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>chmod +rx scriptname</B
+></TT
+> (gives
+	      everyone read/execute permission)</P
+><P
+><TT
+CLASS="USERINPUT"
+><B
+>chmod
+	      u+rx scriptname</B
+></TT
+> (gives only the
+		script owner read/execute permission)</P
+></DD
+></DL
+></DIV
+>
+      </P
+><P
+>Having made the script executable, you may now test it by
+	<TT
+CLASS="USERINPUT"
+><B
+>./scriptname</B
+></TT
+>.
+	
+	  <A
+NAME="AEN325"
+HREF="#FTN.AEN325"
+><SPAN
+CLASS="footnote"
+>[3]</SPAN
+></A
+>
+
+	If it begins with a <SPAN
+CLASS="QUOTE"
+>"sha-bang"</SPAN
+> line, invoking the
+	script calls the correct command interpreter to run it.</P
+><P
+>As a final step, after testing and debugging,
+	you would likely want to move it to <TT
+CLASS="FILENAME"
+>/usr/local/bin</TT
+> (as
+	<I
+CLASS="FIRSTTERM"
+>root</I
+>, of course), to make the script
+	available to yourself and all other users as a systemwide
+	executable.  The script could then be invoked by simply typing
+	<B
+CLASS="COMMAND"
+>scriptname</B
+> <B
+CLASS="KEYCAP"
+>[ENTER]</B
+> from the
+	command-line.</P
+></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN298"
+HREF="invoking.html#AEN298"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>Caution: invoking a <I
+CLASS="FIRSTTERM"
+>Bash</I
+>
+	  script by <TT
+CLASS="USERINPUT"
+><B
+>sh scriptname</B
+></TT
+> turns off
+	  Bash-specific extensions, and the script may therefore fail
+	  to execute.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN313"
+HREF="invoking.html#AEN313"
+><SPAN
+CLASS="footnote"
+>[2]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>A script needs <I
+CLASS="FIRSTTERM"
+>read</I
+>, as
+		well as execute permission for it to run, since the shell
+		needs to be able to read it.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN325"
+HREF="invoking.html#AEN325"
+><SPAN
+CLASS="footnote"
+>[3]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>Why not simply invoke the script with
+	  <TT
+CLASS="USERINPUT"
+><B
+>scriptname</B
+></TT
+>? If the directory you
+	  are in (<A
+HREF="internalvariables.html#PWDREF"
+>$PWD</A
+>) is where
+	  <TT
+CLASS="FILENAME"
+>scriptname</TT
+> is located, why doesn't
+	  this work? This fails because, for security reasons, the
+	  current directory (<TT
+CLASS="FILENAME"
+>./</TT
+>)
+	  is not by default included in a user's <A
+HREF="internalvariables.html#PATHREF"
+>$PATH</A
+>. It is therefore necessary to
+	  explicitly invoke the script in the current directory with
+	  a <TT
+CLASS="USERINPUT"
+><B
+>./scriptname</B
+></TT
+>.</P
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="sha-bang.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="prelimexer.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Starting Off With a Sha-Bang</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="sha-bang.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Preliminary Exercises</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

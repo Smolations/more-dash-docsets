@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Tests and Comparisons: Alternatives</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Advanced Bash-Scripting Guide"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Miscellany"
+HREF="miscellany.html"><LINK
+REL="PREVIOUS"
+TITLE="Shell Wrappers"
+HREF="wrapper.html"><LINK
+REL="NEXT"
+TITLE="Recursion: a script calling itself"
+HREF="recursionsct.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Advanced Bash-Scripting Guide: </TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="wrapper.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 36. Miscellany</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="recursionsct.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="TESTSANDCOMPARISONS"
+></A
+>36.3. Tests and Comparisons: Alternatives</H1
+><P
+>For tests, the <A
+HREF="testconstructs.html#DBLBRACKETS"
+>[[    ]]</A
+>
+	  construct may be more appropriate than <TT
+CLASS="USERINPUT"
+><B
+>[
+	  ]</B
+></TT
+>. Likewise, <A
+HREF="comparison-ops.html#ICOMPARISON1"
+>arithmetic
+	  comparisons</A
+> might benefit from the <A
+HREF="dblparens.html"
+>((    ))</A
+> construct.
+
+	  <TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>a=8
+
+# All of the comparisons below are equivalent.
+test "$a" -lt 16 &#38;&#38; echo "yes, $a &#60; 16"         # "and list"
+/bin/test "$a" -lt 16 &#38;&#38; echo "yes, $a &#60; 16" 
+[ "$a" -lt 16 ] &#38;&#38; echo "yes, $a &#60; 16" 
+[[ $a -lt 16 ]] &#38;&#38; echo "yes, $a &#60; 16"          # Quoting variables within
+(( a &#60; 16 )) &#38;&#38; echo "yes, $a &#60; 16"             # [[ ]] and (( )) not necessary.
+
+city="New York"
+# Again, all of the comparisons below are equivalent.
+test "$city" \&#60; Paris &#38;&#38; echo "Yes, Paris is greater than $city"
+                                  # Greater ASCII order.
+/bin/test "$city" \&#60; Paris &#38;&#38; echo "Yes, Paris is greater than $city" 
+[ "$city" \&#60; Paris ] &#38;&#38; echo "Yes, Paris is greater than $city" 
+[[ $city &#60; Paris ]] &#38;&#38; echo "Yes, Paris is greater than $city"
+                                  # Need not quote $city.
+
+# Thank you, S.C.</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="wrapper.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="recursionsct.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Shell Wrappers</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="miscellany.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Recursion: a script calling itself</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

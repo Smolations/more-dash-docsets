@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Testing Your Knowledge of Tests</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Advanced Bash-Scripting Guide"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Tests"
+HREF="tests.html"><LINK
+REL="PREVIOUS"
+TITLE="Nested if/then Condition Tests"
+HREF="nestedifthen.html"><LINK
+REL="NEXT"
+TITLE="Operations and Related Topics"
+HREF="operations.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Advanced Bash-Scripting Guide: </TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="nestedifthen.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 7. Tests</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="operations.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="TESTTEST"
+></A
+>7.5. Testing Your Knowledge of Tests</H1
+><P
+>The systemwide <TT
+CLASS="FILENAME"
+>xinitrc</TT
+> file can be used
+	to launch the X server. This file contains quite a number
+	of <I
+CLASS="FIRSTTERM"
+>if/then</I
+> tests. The following
+	is excerpted from an <SPAN
+CLASS="QUOTE"
+>"ancient"</SPAN
+> version of
+	<TT
+CLASS="FILENAME"
+>xinitrc</TT
+> (<I
+CLASS="FIRSTTERM"
+>Red Hat 7.1</I
+>,
+	or thereabouts).</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>if [ -f $HOME/.Xclients ]; then
+  exec $HOME/.Xclients
+elif [ -f /etc/X11/xinit/Xclients ]; then
+  exec /etc/X11/xinit/Xclients
+else
+     # failsafe settings.  Although we should never get here
+     # (we provide fallbacks in Xclients as well) it can't hurt.
+     xclock -geometry 100x100-5+5 &#38;
+     xterm -geometry 80x50-50+150 &#38;
+     if [ -f /usr/bin/netscape -a -f /usr/share/doc/HTML/index.html ]; then
+             netscape /usr/share/doc/HTML/index.html &#38;
+     fi
+fi</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+><P
+>Explain the <I
+CLASS="FIRSTTERM"
+>test</I
+> constructs in the
+       above snippet, then examine an updated version of the
+       file, <TT
+CLASS="FILENAME"
+>/etc/X11/xinit/xinitrc</TT
+>, and
+       analyze the <I
+CLASS="FIRSTTERM"
+>if/then</I
+> test constructs
+       there. You may need to refer ahead to the discussions of <A
+HREF="textproc.html#GREPREF"
+>grep</A
+>, <A
+HREF="sedawk.html#SEDREF"
+>sed</A
+>,
+       and <A
+HREF="regexp.html#REGEXREF"
+>regular expressions</A
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="nestedifthen.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="operations.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Nested <TT
+CLASS="REPLACEABLE"
+><I
+>if/then</I
+></TT
+> Condition Tests</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tests.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Operations and Related Topics</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

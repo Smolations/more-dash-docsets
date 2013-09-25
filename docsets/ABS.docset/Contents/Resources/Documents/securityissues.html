@@ -1,0 +1,347 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Security Issues</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Advanced Bash-Scripting Guide"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Miscellany"
+HREF="miscellany.html"><LINK
+REL="PREVIOUS"
+TITLE="Assorted Tips"
+HREF="assortedtips.html"><LINK
+REL="NEXT"
+TITLE="Portability Issues"
+HREF="portabilityissues.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Advanced Bash-Scripting Guide: </TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="assortedtips.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 36. Miscellany</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="portabilityissues.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="SECURITYISSUES"
+></A
+>36.8. Security Issues</H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="INFECTEDSCRIPTS"
+></A
+>36.8.1. Infected Shell Scripts</H2
+><P
+><A
+NAME="INFECTEDSCRIPTS1"
+></A
+></P
+><P
+>A brief warning about script security is indicated.
+	  A shell script may contain a <I
+CLASS="FIRSTTERM"
+>worm</I
+>,
+	  <I
+CLASS="FIRSTTERM"
+>trojan</I
+>, or even a
+	  <I
+CLASS="FIRSTTERM"
+>virus</I
+>. For that reason, never run
+	  as <I
+CLASS="FIRSTTERM"
+>root</I
+> a script (or permit it to
+	  be inserted into the system startup scripts in <TT
+CLASS="FILENAME"
+>/etc/rc.d</TT
+>) unless you have obtained
+	  said script from a trusted source or you have carefully analyzed
+	  it to make certain it does nothing harmful.</P
+><P
+>Various researchers at Bell Labs and other sites, including M.
+	  Douglas McIlroy, Tom Duff, and Fred Cohen have investigated the
+	  implications of shell script viruses. They conclude that it is
+	  all too easy for even a novice, a <SPAN
+CLASS="QUOTE"
+>"script kiddie,"</SPAN
+>
+	  to write one.
+	    <A
+NAME="AEN20617"
+HREF="#FTN.AEN20617"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+>
+	  </P
+><P
+>Here is yet another reason to learn scripting. Being able to
+	  look at and understand scripts may protect your system from
+	  being compromised by a rogue script.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="HIDINGSOURCE"
+></A
+>36.8.2. Hiding Shell Script Source</H2
+><P
+>For security purposes, it may be necessary to render a script
+	  unreadable. If only there were a utility to create a stripped
+	  binary executable from a script. Francisco Rosales' <A
+HREF="http://www.datsi.fi.upm.es/~frosal/sources/"
+TARGET="_top"
+>shc --
+	  generic shell script compiler</A
+> does exactly that.</P
+><P
+>Unfortunately, according to <A
+HREF="http://www.linuxjournal.com/article/8256"
+TARGET="_top"
+>an article</A
+> in
+	 the October, 2005 <EM
+>Linux Journal</EM
+>,
+	 the binary can, in at least some cases, be decrypted to recover
+	 the original script source. Still, this could be a useful
+	 method of keeping scripts secure from all but the most skilled
+	 hackers.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SECURITYTIPS"
+></A
+>36.8.3. Writing Secure Shell Scripts</H2
+><P
+><A
+NAME="SECURITYTIPS1"
+></A
+></P
+><P
+><EM
+>Dan Stromberg</EM
+> suggests the following
+	  guidelines for writing (relatively) secure shell scripts.</P
+><P
+>         <P
+></P
+><UL
+><LI
+><P
+>Don't put secret data in <A
+HREF="othertypesv.html#ENVREF"
+>environment variables</A
+>.</P
+></LI
+><LI
+><P
+>Don't pass secret data in an external
+	      command's arguments (pass them in via a <A
+HREF="special-chars.html#PIPEREF"
+>pipe</A
+> or <A
+HREF="io-redirection.html#IOREDIRREF"
+>redirection</A
+> instead).</P
+></LI
+><LI
+><P
+>Set your <A
+HREF="internalvariables.html#PATHREF"
+>$PATH</A
+>
+	      carefully. Don't just trust whatever path you
+	      inherit from the caller if your script is running as
+	      <I
+CLASS="FIRSTTERM"
+>root</I
+>. In fact, whenever you use
+	      an environment variable inherited from the caller, think
+	      about what could happen if the caller put something
+	      misleading in the variable, e.g., if the caller set
+	      <A
+HREF="internalvariables.html#HOMEDIRREF"
+>$HOME</A
+> to <TT
+CLASS="FILENAME"
+>/etc</TT
+>.</P
+></LI
+></UL
+>
+        </P
+></DIV
+></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN20617"
+HREF="securityissues.html#AEN20617"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>See Marius van Oers' article, <A
+HREF="http://www.virusbtn.com/magazine/archives/200204/malshell.xml"
+TARGET="_top"
+>Unix
+	      Shell Scripting Malware</A
+>, and also the
+	      <A
+HREF="biblio.html#DENNINGREF"
+><EM
+>Denning</EM
+>
+	      reference</A
+> in the
+	      <I
+CLASS="FIRSTTERM"
+>bibliography</I
+>.</P
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="assortedtips.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="portabilityissues.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Assorted Tips</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="miscellany.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Portability Issues</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

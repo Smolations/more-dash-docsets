@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Optimizations</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Advanced Bash-Scripting Guide"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Miscellany"
+HREF="miscellany.html"><LINK
+REL="PREVIOUS"
+TITLE="Colorizing Scripts"
+HREF="colorizing.html"><LINK
+REL="NEXT"
+TITLE="Assorted Tips"
+HREF="assortedtips.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Advanced Bash-Scripting Guide: </TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="colorizing.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 36. Miscellany</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="assortedtips.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="OPTIMIZATIONS"
+></A
+>36.6. Optimizations</H1
+><P
+>Most shell scripts are quick 'n dirty solutions to non-complex
+	  problems. As such, optimizing them for speed is not much of an
+	  issue.  Consider the case, though, where a script carries out
+	  an important task, does it well, but runs too slowly. Rewriting
+	  it in a compiled language may not be a palatable option. The
+	  simplest fix would be to rewrite the parts of the script
+	  that slow it down. Is it possible to apply principles of code
+	  optimization even to a lowly shell script?</P
+><P
+>Check the loops in the script. Time consumed by repetitive
+	  operations adds up quickly. If at all possible, remove
+	  time-consuming operations from within loops.</P
+><P
+>Use <A
+HREF="internal.html#BUILTINREF"
+>builtin</A
+> commands in
+	  preference to system commands. Builtins execute faster and
+	  usually do not launch a subshell when invoked.</P
+><P
+><A
+NAME="CATABUSE"
+></A
+></P
+><P
+>Avoid unnecessary commands, particularly in a <A
+HREF="special-chars.html#PIPEREF"
+>pipe</A
+>.
+	    <TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>cat "$file" | grep "$word"
+
+grep "$word" "$file"
+
+#  The above command-lines have an identical effect,
+#+ but the second runs faster since it launches one fewer subprocess.</PRE
+></FONT
+></TD
+></TR
+></TABLE
+>
+	  The <A
+HREF="basic.html#CATREF"
+>cat</A
+> command seems especially
+	  prone to overuse in scripts.</P
+><P
+>Use the <A
+HREF="timedate.html#TIMREF"
+>time</A
+> and <A
+HREF="x9612.html#TIMESREF"
+>times</A
+> tools to profile
+	  computation-intensive commands. Consider rewriting time-critical
+	  code sections in C, or even in assembler.</P
+><P
+>Try to minimize file I/O. Bash is not particularly
+	   efficient at handling files, so consider using
+	   more appropriate tools for this within the script,
+	   such as <A
+HREF="awk.html#AWKREF"
+>awk</A
+> or <A
+HREF="wrapper.html#PERLREF"
+>Perl</A
+>.</P
+><P
+>Write your scripts in a modular and coherent form,
+	   <A
+NAME="AEN20321"
+HREF="#FTN.AEN20321"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+>
+	   so they can be reorganized and tightened up as necessary. Some
+	   of the optimization techniques applicable to high-level
+	   languages may work for scripts, but others, such as
+	   <I
+CLASS="FIRSTTERM"
+>loop unrolling</I
+>, are mostly
+	   irrelevant. Above all, use common sense.</P
+><P
+>For an excellent demonstration of how optimization can
+	   dramatically reduce the  execution time of a script, see <A
+HREF="mathc.html#MONTHLYPMT"
+>Example 16-47</A
+>.</P
+></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN20321"
+HREF="optimizations.html#AEN20321"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>This usually means liberal use of
+	   <A
+HREF="functions.html#FUNCTIONREF"
+>functions</A
+>.</P
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="colorizing.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="assortedtips.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><SPAN
+CLASS="QUOTE"
+>"Colorizing"</SPAN
+> Scripts</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="miscellany.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Assorted Tips</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

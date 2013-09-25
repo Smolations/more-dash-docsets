@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Nested if/then Condition Tests</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Advanced Bash-Scripting Guide"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Tests"
+HREF="tests.html"><LINK
+REL="PREVIOUS"
+TITLE="Other Comparison Operators"
+HREF="comparison-ops.html"><LINK
+REL="NEXT"
+TITLE="Testing Your Knowledge of Tests"
+HREF="testtest.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Advanced Bash-Scripting Guide: </TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="comparison-ops.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 7. Tests</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="testtest.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="NESTEDIFTHEN"
+></A
+>7.4. Nested <TT
+CLASS="REPLACEABLE"
+><I
+>if/then</I
+></TT
+> Condition Tests</H1
+><P
+>Condition tests using the <TT
+CLASS="REPLACEABLE"
+><I
+>if/then</I
+></TT
+>
+	 construct may be nested. The net result is equivalent to using the
+	 <A
+HREF="ops.html#LOGOPS1"
+><I
+CLASS="FIRSTTERM"
+>&#38;&#38;</I
+></A
+> compound
+	 comparison operator.</P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>a=3
+
+if [ "$a" -gt 0 ]
+then
+  if [ "$a" -lt 5 ]
+  then
+    echo "The value of \"a\" lies somewhere between 0 and 5."
+  fi
+fi
+
+# Same result as:
+
+if [ "$a" -gt 0 ] &#38;&#38; [ "$a" -lt 5 ]
+then
+  echo "The value of \"a\" lies somewhere between 0 and 5."
+fi</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></P
+><P
+><A
+HREF="bashver2.html#CARDS"
+>Example 37-4</A
+> and <A
+HREF="system.html#BACKLIGHT"
+>Example 17-11</A
+>
+         demonstrate nested <TT
+CLASS="REPLACEABLE"
+><I
+>if/then</I
+></TT
+> condition
+         tests.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="comparison-ops.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="testtest.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Other Comparison Operators</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tests.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Testing Your Knowledge of Tests</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
