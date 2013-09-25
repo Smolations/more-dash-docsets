@@ -3,7 +3,8 @@ require File.join(File.dirname(__FILE__), 'Dash.rb')
 dash = Dash.new({
     :name           => 'ABS',
     :display_name   => 'Advanced Bash Scripting Guide',
-    :docs_root      => 'advanced-bash-scripting-guide'
+    :docs_root      => 'advanced-bash-scripting-guide',
+    :icon           => File.join('icon-images', 'terminal_icon_32x32.png')
 })
 
 
