@@ -8,7 +8,7 @@ Greetings, [Dash](http://kapeli.com) enthusiasts! I found myself excited about D
 
 * Ruby 1.8+
 * [Nokogiri 1.5.10](http://nokogiri.org/) - I am running OS X 10.8 which is bundled with Ruby 1.8.7. I choose not to manage multiple Ruby versions on my machine. As a result, 1.5.10 is the version of Nokogiri I had to install. Version 1.6+ requires Ruby 1.9+, so it was not an option. These scripts should definitely work with the newer versions of both software, however.
-* Git
+* Git - I am currently running `git version 1.7.12.4 (Apple Git-37)`
 * [ruby-git](https://github.com/schacon/ruby-git) - A Ruby implementation for Git. Currently used version is 1.2.6.
 
 
