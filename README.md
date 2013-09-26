@@ -9,7 +9,7 @@ Greetings, [Dash](http://kapeli.com) enthusiasts! I found myself excited about D
 * Ruby 1.8+
 * [Nokogiri 1.5.10](http://nokogiri.org/) - I am running OS X 10.8 which is bundled with Ruby 1.8.7. I choose not to manage multiple Ruby versions on my machine. As a result, 1.5.10 is the version of Nokogiri I had to install. Version 1.6+ requires Ruby 1.9+, so it was not an option. These scripts should definitely work with the newer versions of both software, however.
 * Git
-* [ruby-git](https://github.com/schacon/ruby-git) - A Ruby implementation for Git
+* [ruby-git](https://github.com/schacon/ruby-git) - A Ruby implementation for Git. Currently used version is 1.2.6.
 
 
 ### File Structure
@@ -28,7 +28,7 @@ Greetings, [Dash](http://kapeli.com) enthusiasts! I found myself excited about D
 
 **docs** - This is the RDoc-generated documentation for the Dash class.
 
-**docsets** - This is where each docset is created. I add them to Dash directly from this folder. The benefit here is that Dash seems to hold a reference to each docset in near-real-time, so as new docsets overwrite old ones, Dash updates automatically.
+**docsets** - This is where each docset is created. I add them to Dash directly from this folder. The benefit here is that Dash seems to hold a reference to each docset in near-real-time, so as new docsets overwrite old ones, Dash updates automatically. The icon is unfortunately not updated if one is added after you've already imported an icon-less docset. You should also be sure to un-disclose the docset in Dash and choose another before re-generation. Otherwise, it's very possible that sqlite will complain that the database is locked when the generator attempts to insert entries.
 
 **generators** - The home of the Dash class and each generation script.
 
