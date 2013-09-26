@@ -408,21 +408,23 @@ class Dash
     # delete it. This method also copies the icon into the docset if one is provided via
     # the generator.
     def create_javadocset
+        puts "Starting javadocset generation..."
+
         if File.directory?(@docset_path)
             # instantiation already created the backup, so this is simply removing the
             # docset skeleton structure.
             FileUtils.rm_r(@docset_path, { :force => true })
-
-            binary = File.join(BIN_PATH, 'javadocset')
-            puts `cd "#{DOCSETS_PATH}"; #{binary} "#{@name}" "#{@docs_root}"`
-
-            if !@icon.nil?
-                puts "Dash.create_docset: Copying icon image..."
-                copy_icon
-            end
-
-            puts "\nDone!"
         end
+
+        binary = File.join(BIN_PATH, 'javadocset')
+        puts `cd "#{DOCSETS_PATH}"; #{binary} "#{@name}" "#{@docs_root}"`
+
+        if !@icon.nil?
+            puts "Dash.create_docset: Copying icon image..."
+            copy_icon
+        end
+
+        puts "\nDone!"
     end
 
 
