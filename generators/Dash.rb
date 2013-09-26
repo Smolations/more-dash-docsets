@@ -1,6 +1,8 @@
 require 'fileutils'
 require 'rubygems'
+# this is nokogiri 1.5.10
 require 'nokogiri'
+# this is 1.2.6
 require 'git'
 
 
@@ -8,6 +10,8 @@ class Dash
     # Absolute path to the root of this project
     ROOT_PATH       = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 
+    # path to the bin folder
+    BIN_PATH        = File.join(ROOT_PATH, 'bin')
     # path to the docsets folder
     DOCSETS_PATH    = File.join(ROOT_PATH, 'docsets')
     # path to the generators folder
@@ -19,7 +23,7 @@ class Dash
     # path to the logs folder
     LOGS_PATH       = File.join(ROOT_PATH, 'logs')
 
-    # accepted Dash entry types
+    # Accepted Dash entry types. View source to see this list.
     ENTRY_TYPES     = [
         'Attribute',  'Binding',   'Callback',     'Category',   'Class',
         'Command',    'Constant',  'Constructor',  'Define',     'Directive',
@@ -395,6 +399,29 @@ class Dash
             puts "Dash.create_docset: Docset set-up complete!"
         else
             puts "(W) Dash.create_docset: Docset path already exists. Skipping..."
+        end
+    end
+
+
+    # uses kapeli.com's javadocset binary to generate a docset from javadoc-generated documentation.
+    # Since instantiation of a Dash object creates a docset by default, we will need to first
+    # delete it. This method also copies the icon into the docset if one is provided via
+    # the generator.
+    def create_javadocset
+        if File.directory?(@docset_path)
+            # instantiation already created the backup, so this is simply removing the
+            # docset skeleton structure.
+            FileUtils.rm_r(@docset_path, { :force => true })
+
+            binary = File.join(BIN_PATH, 'javadocset')
+            puts `cd "#{DOCSETS_PATH}"; #{binary} "#{@name}" "#{@docs_root}"`
+
+            if !@icon.nil?
+                puts "Dash.create_docset: Copying icon image..."
+                copy_icon
+            end
+
+            puts "\nDone!"
         end
     end
 
