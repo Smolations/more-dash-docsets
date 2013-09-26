@@ -24,11 +24,11 @@ Greetings, [Dash](http://kapeli.com) enthusiasts! I found myself excited about D
         `- src
         `- src-docs
 
-**bin** - This is just a folder for the `javadocset` binary that the Dash team already provides. I hope they don't mind.
+**bin** - This is just a folder for the `javadocset` binary that the Dash team already provides.
 
 **docs** - This is the RDoc-generated documentation for the Dash class.
 
-**docsets** - This is where each docset is created. I add them to Dash directly from this folder. The benefit here is that Dash seems to hold a reference to each docset in near-real-time, so as new docsets overwrite old ones, Dash updates automatically. The icon is unfortunately not updated if one is added after you've already imported an icon-less docset. You should also be sure to un-disclose the docset in Dash and choose another before re-generation. Otherwise, it's very possible that sqlite will complain that the database is locked when the generator attempts to insert entries.
+**docsets** - This is where each docset is created. I add them to Dash directly from this folder. The benefit here is that Dash seems to hold a reference to each docset in near-real-time, so as new docsets overwrite old ones, Dash updates automatically. The icon is unfortunately not updated if one is added after you've already imported an icon-less docset.
 
 **generators** - The home of the Dash class and each generation script.
 
