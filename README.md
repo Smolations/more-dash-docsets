@@ -24,7 +24,7 @@ Greetings, [Dash](http://kapeli.com) enthusiasts! I found myself excited about D
         `- src
         `- src-docs
 
-**bin** - This is just a folder for the `javadocset` binary that the Dash team already provides. I hope they don't mind.
+**bin** - This is just a folder for the `javadocset` binary that the Dash team already provides.
 
 **docs** - This is the RDoc-generated documentation for the Dash class.
 
