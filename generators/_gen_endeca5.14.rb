@@ -9,3 +9,5 @@ dash = Dash.new({
 # The Endeca API is generated with javadoc, so all we need here is to kickoff the
 # javadocset binary and make sure the docset is spit out into the correct location.
 dash.create_javadocset
+
+puts "\nAll done!"

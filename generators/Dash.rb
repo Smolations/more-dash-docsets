@@ -55,6 +55,9 @@ class Dash
      #  and the docset will be re-created from scratch.
      ##
     def initialize(options = {})
+        # space status output from command
+        puts
+
         # required params
         if options[:docs_root].nil?
             puts "(E) Dash.new: Must construct with hash containing :docs_root"
@@ -99,6 +102,7 @@ class Dash
             end
 
             FileUtils.mv(@docset_path, backup_path, { :force => true })
+            puts " \`- done!"
         end
 
         create_docset
@@ -149,7 +153,7 @@ class Dash
         end
         # make sure that, for some reason, @docs_root != ( '/' | '/one-level' )
         if @docs_root.split(File::SEPARATOR).length > 2 && File.directory?(@docset_documents_path)
-            puts "Copying documentation into docsets..."
+            puts "Dash.copy_docs: Copying documentation into docsets..."
 
             FileUtils.rm_r( Dir.glob( File.join(@docset_documents_path, '*') ) )
             FileUtils.cp_r( File.join(@docs_root, '.'), @docset_documents_path )
@@ -157,8 +161,12 @@ class Dash
             # remove .git directory if there was one (which there should be)
             git_path = File.join(@docset_documents_path, '.git')
             if File.directory?(git_path)
+                puts " \`- Removing .git directory from docset..."
                 FileUtils.rm_r(git_path, :force => true)
             end
+
+            puts " \`- done!"
+
         else
             puts "(E) Dash.copy_docs: Failed to copy docs to #{@docset_documents_path}."
         end
@@ -349,8 +357,10 @@ class Dash
             plist_dest_path = File.join(@docset_contents_path,  'Info.plist')
 
             if File.exists?(plist_src_path)
+                puts "Dash.copy_plist: Copying .plist..."
                 FileUtils.cp(plist_src_path, plist_dest_path)
                 `sed -i '' "s/displayName/#{@display_name}/g" "#{plist_dest_path}"`
+                puts " \`- done!"
 
             else
                 puts "(E) Dash.copy_plist: Info.plist template does not exist. The
@@ -368,7 +378,9 @@ class Dash
     def copy_icon
         if !@icon.nil?
             if File.exists?(@icon) && @icon.match(/\.png$/)
+                puts "Dash.copy_icon: Copying icon image..."
                 FileUtils.cp(@icon, File.join(@docset_path, 'icon.png'))
+                puts " \`- done!"
             else
                 puts "(E) Dash.copy_icon: Bad (not PNG) or missing filename given: #{@icon}"
             end
@@ -384,17 +396,17 @@ class Dash
         if !File.exists?(@docset_path)
             puts "Dash.create_docset: Creating docset directory structure #{@docset_documents_path}..."
             FileUtils.mkdir_p(@docset_documents_path)
+            puts " \`- done!"
 
-            puts "Dash.create_docset: Copying .plist file..."
             copy_plist
 
             if !@icon.nil?
-                puts "Dash.create_docset: Copying icon image..."
                 copy_icon
             end
 
             puts "Dash.create_docset: Setting up database..."
             setup_sql
+            puts " \`- done!"
 
             puts "Dash.create_docset: Docset set-up complete!"
         else
@@ -408,7 +420,8 @@ class Dash
     # delete it. This method also copies the icon into the docset if one is provided via
     # the generator.
     def create_javadocset
-        puts "Starting javadocset generation..."
+        puts "\nStarting javadocset generation..."
+        puts
 
         if File.directory?(@docset_path)
             # instantiation already created the backup, so this is simply removing the
@@ -420,11 +433,10 @@ class Dash
         puts `cd "#{DOCSETS_PATH}"; #{binary} "#{@name}" "#{@docs_root}"`
 
         if !@icon.nil?
-            puts "Dash.create_docset: Copying icon image..."
             copy_icon
         end
 
-        puts "\nDone!"
+        puts "\nJavadocset generation complete!"
     end
 
 
@@ -451,21 +463,26 @@ class Dash
                 if !branch.match(patt)
                     puts "Checking out #{@docs_dev_branch} branch..."
                     repo.branch(@docs_dev_branch).checkout
+                    puts " \`- done!"
                 end
 
             rescue ArgumentError => arg_err
-                puts "Create repo at #{@docs_root} (y/n)? "
+                print "Create repo at #{@docs_root} (y/n)? "
                 yn = gets
 
                 if yn.match(/^\w*y(es)?\w*$/i)
+                    puts "Creating docs repo..."
+
                     # initialize repo
                     repo = Git::init(@docs_root)
                     # add all files
                     repo.add( :all => true )
                     repo.commit('(master) initial import from Dash generator')
                     repo.branch(@docs_dev_branch).checkout
+
+                    puts " \`- done!"
                 else
-                    puts "Not creating docs repo..."
+                    puts "Not creating docs repo."
                 end
             end
 
