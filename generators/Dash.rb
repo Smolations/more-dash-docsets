@@ -78,6 +78,7 @@ class Dash
             elsif File.exists?( File.join(ROOT_PATH, options[:icon]) )
                 @icon = File.join(ROOT_PATH, options[:icon])
             else
+                puts "(E) Dash.new: Icon not found (#{options[:icon]})"
                 @icon = nil
             end
         end
