@@ -30,7 +30,7 @@ For a complete list of the docsets I have already generated, take a look in the 
 
 (Optional - CLI Tools for getting mirrors of sites)
 `wget`
-`httrack`
+`httrack` - I had to use homebrew to acquire this tool. It is not a native OS X *nix tool.
 
 
 ### File Structure
