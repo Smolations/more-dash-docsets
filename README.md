@@ -5,18 +5,18 @@ Greetings, [Dash](http://kapeli.com) enthusiasts! I found myself excited about D
 
 Here are some of the docsets I have already created:
 - ABS.docset (Advanced Bash Scripting Guide)
-- AWS-CLI.docset
-- Endeca-5.14.docset
-- JSTL1.1.docset
-- Puppet.docset
-- ATG 10.2.docset
-- AWS-PHP-SDK2.docset
-- JSDoc.docset
-- Java 5.docset
-- Vagrant.docset
 - ATG 2007.1.docset
+- ATG 10.2.docset
+- AWS-CLI.docset
+- AWS-PHP-SDK2.docset
 - DSP.docset
+- Endeca-5.14.docset
+- Java 5.docset
+- JSDoc.docset
+- JSTL1.1.docset
 - Modernizr.docset
+- Puppet.docset
+- Vagrant.docset
 
 For a complete list of the docsets I have already generated, take a look in the [docsets folder](https://github.com/Smolations/more-dash-docsets/tree/master/docsets).
 
