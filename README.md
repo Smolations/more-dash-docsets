@@ -13,6 +13,10 @@ For a complete list of the docsets I have already generated, take a look in the 
 * Git - I am currently running `git version 1.7.12.4 (Apple Git-37)`
 * [ruby-git](https://github.com/schacon/ruby-git) - A Ruby implementation for Git. Currently used version is 1.2.6.
 
+(Optional - CLI Tools for getting mirrors of sites)
+`wget`
+`httrack`
+
 
 ### File Structure
 
@@ -66,9 +70,15 @@ In case you have to resort to using `wget` to retrieve your documentation, here 
 | `-nc`           | No-clobber. If the file has already been downloaded, don't download it again. This is important because usually every HTML file references the same CSS, Javascript, and even some images. You definitely don't want to waste time downloading the same resources over and over. This is also useful in case your download is halted for some reason and you want to start it back up again.
 | `-p`            | Page requisites. Tell wget to download stylesheets, scripts, images, and anything else necessary to display the page correctly offline.
 
+Fortunately, the creator of Dash has given me the lowdown on `httrack`. I now use it for all HTML documentation that I need to acquire before generating a docset. This tool is intended for the same purpose as `wget`, only it makes all links and references to images relative by default! It saves tons of time trying to write that logic in the generator. Not only that, but it's pretty simple to use:
+
+    httrack http://docs.domain.com/latest
+
+I will leave my current generators as they are so that users can see how to generate documentation from sites acquired with `wget`. Doesn't hurt to have an extra reference, right?
+
 Once you have the documentation, you will need to copy it into the `src-docs` folder. The docs for Puppet were available as a standalone, compressed file (hooray!). It's basically the entire [docs.puppetlabs.com](http://docs.puppetlabs.com) site. I copied the documentation folder into `more-dash-docsets/src-docs/puppetdocs-latest`. The `puppetdocs-latest` folder contains the index.html that is the starting point for all docs, and separates each module by putting the docs for a module in it's own, unique folder. I chose to take the time at this point to go find a suitable icon (and resize it to 32x32) for the docset as well. The quickest solution for me was Google Images.
 
-Our folder hierarchy (only relavant files shown) now looks like this:
+Our folder hierarchy (only relevant files shown) now looks like this:
 
     more-dash-docsets/
         `- docsets/
