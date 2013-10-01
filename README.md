@@ -17,6 +17,7 @@ Here are some of the docsets I have already created:
 - Modernizr.docset
 - Puppet.docset
 - Vagrant.docset
+- yepnope.docset
 
 For a complete list of the docsets I have already generated, take a look in the [docsets folder](https://github.com/Smolations/more-dash-docsets/tree/master/docsets).
 
