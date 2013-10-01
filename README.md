@@ -29,8 +29,8 @@ For a complete list of the docsets I have already generated, take a look in the 
 * [ruby-git](https://github.com/schacon/ruby-git) - A Ruby implementation for Git. Currently used version is 1.2.6.
 
 (Optional - CLI Tools for getting mirrors of sites)
-`wget`
-`httrack` - I had to use homebrew to acquire this tool. It is not a native OS X *nix tool.
+- `wget`
+- `httrack` - I had to use homebrew to acquire this tool. It is not a native OS X *nix tool.
 
 
 ### File Structure
