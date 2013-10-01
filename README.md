@@ -3,6 +3,21 @@ more-dash-docsets
 
 Greetings, [Dash](http://kapeli.com) enthusiasts! I found myself excited about Dash and the prospect of creating my own docsets, so I set out to create a loose framework to do just that. I didn't build it for anyone but myself, but if you'd like to use it, feel free. In case I forget some time down the line, and I guess for anyone interested, I shall spend some time explaining how I've gone about creating my docsets. For this project, I chose Ruby (1.8.7).
 
+Here are some of the docsets I have already created:
+- ABS.docset (Advanced Bash Scripting Guide)
+- AWS-CLI.docset
+- Endeca-5.14.docset
+- JSTL1.1.docset
+- Puppet.docset
+- ATG 10.2.docset
+- AWS-PHP-SDK2.docset
+- JSDoc.docset
+- Java 5.docset
+- Vagrant.docset
+- ATG 2007.1.docset
+- DSP.docset
+- Modernizr.docset
+
 For a complete list of the docsets I have already generated, take a look in the [docsets folder](https://github.com/Smolations/more-dash-docsets/tree/master/docsets).
 
 
