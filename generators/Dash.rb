@@ -276,6 +276,7 @@ class Dash
             create_index_query = "CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);"
             sql_insert(create_table_query)
             sql_insert(create_index_query)
+            sql_execute
         else
             puts "(E) Dash.setup_sql: Docset Resources path does not exist. The
             sql database was not set up."
@@ -331,7 +332,7 @@ class Dash
             end
 
             if do_queries
-                puts "Executing #{queries.length} queries (inserting #{queries.length - 2} rows)..."
+                puts "Executing #{queries.length} queries..."
                 if File.directory?(@docset_resources_path)
                     query_file_path = File.join(RESOURCES_PATH, 'sqlite3.queries')
                     file = File.new(query_file_path, 'w')
@@ -341,6 +342,7 @@ class Dash
                     `cd "#{@docset_resources_path}"; sqlite3 docSet.dsidx < '#{query_file_path}'`
                     row_nums = `cd "#{@docset_resources_path}"; sqlite3 docSet.dsidx 'select count(*) from searchIndex;'`
                     puts "Database now contains #{row_nums.gsub(/^\s+|\s+$/, '')} rows."
+                    @queries = []
 
                 else
                     puts "(E) Dash.sql_execute: Not executing query. Could not find #{@docset_resources_path}."
