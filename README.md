@@ -51,7 +51,7 @@ For a complete list of the docsets I have already generated, take a look in the 
 
 **docsets** - This is where each docset is created. I add them to Dash directly from this folder. The benefit here is that Dash seems to hold a reference to each docset in near-real-time, so as new docsets overwrite old ones, Dash updates automatically. The icon is unfortunately not updated if one is added after you've already imported an icon-less docset.
 
-**generators** - The home of the Dash class and each generation script.
+**generators** - The home of the Dash class and each generator script.
 
 **icon-images** - A folder where I keep 32x32 as well as source images to be used as (or used for generating) icons in the docsets.
 
