@@ -83,6 +83,9 @@ class Dash
             end
         end
 
+        @enable_js  = (!options[:enable_js].nil?)  ? options[:enable_js]  : false
+        @index_page = (!options[:index_page].nil?) ? options[:index_page] : 'index.html'
+
         @name                   = options[:name]
         @display_name           = options[:display_name]
         @docs_root              = File.join(SRC_DOCS_PATH, options[:docs_root])
@@ -363,6 +366,8 @@ class Dash
                 puts "Dash.copy_plist: Copying .plist..."
                 FileUtils.cp(plist_src_path, plist_dest_path)
                 `sed -i '' "s/displayName/#{@display_name}/g" "#{plist_dest_path}"`
+                `sed -i '' "s/indexPageName/#{@index_page}/g" "#{plist_dest_path}"`
+                `sed -i '' "s/jsenable/#{@enable_js.to_s}/g" "#{plist_dest_path}"`
                 puts " \`- done!"
 
             else

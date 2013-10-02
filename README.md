@@ -9,6 +9,7 @@ Here are some of the docsets I have already created:
 - ATG 10.2.docset
 - AWS-CLI.docset
 - AWS-PHP-SDK2.docset
+- CSS 2.1 Spec.docset
 - DSP.docset
 - Endeca-5.14.docset
 - Java 5.docset
