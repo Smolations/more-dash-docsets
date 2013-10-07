@@ -300,7 +300,6 @@ class Dash
             if options.length
                 if options[:noop] == true
                     do_queries = false
-                    queries.slice!(0..1)
                     puts "\nTotal of #{queries.length} queries."
                     if options[:filter].is_a?(Hash)
                         filters = options[:filter]
