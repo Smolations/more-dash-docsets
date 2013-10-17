@@ -446,8 +446,9 @@ class Dash
         # remove the .git directory since the binary copies it over
         git_path = File.join(@docset_documents_path, '.git')
         if File.directory?(git_path)
-            puts " \`- Removing .git directory from docset..."
+            puts "Removing .git directory from docset..."
             FileUtils.rm_r(git_path, :force => true)
+            puts " \`- done!"
         end
 
         puts "\nJavadocset generation complete!"

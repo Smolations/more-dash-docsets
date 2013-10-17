@@ -16,6 +16,7 @@ Here are some of the docsets I have already created:
 - JSDoc.docset
 - JSTL1.1.docset
 - Modernizr.docset
+- Photoshop CS5 JS Reference.docset
 - Puppet.docset
 - Vagrant.docset
 - yepnope.docset
