@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/javascript-debugging by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:56:32 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Debugging JavaScript - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+    
+    
+    
+  
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Debugging JavaScript</h1>
+  
+  <div itemprop="articleBody">
+  
+<link rel="stylesheet" type="text/css" href="../css/local_extensions.css">
+ <style>
+img {
+  max-width:800px;
+}
+body.docs .screenshot, body.docs .border {
+  border:0px;
+}
+</style>
+<p>As the <strong>complexity</strong> of JavaScript applications increase, developers need
+powerful debugging tools to help quickly discover the cause of an issue and fix
+it efficiently. The Chrome DevTools include a number of useful tools to help
+make <strong>debugging</strong> JavaScript less painful.</p>
+
+<p>In this section, we will walk through how to use these tools by debugging the
+<a href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/hovercard.html">Google Closure hovercard
+demo</a>
+and other dynamic examples in this page.</p>
+
+<p class="note"><strong>Note:</strong> If you are a Web Developer and want to get the latest version of
+DevTools, you should use <a href="tools.google.com/dlpage/chromesxs.html">Chrome Canary</a>.</p>
+
+
+<h4><strong>Contents</strong></h4>
+
+<strong>
+<ul>
+<li><a href="#sources-panel">The Sources Panel</a></li>
+<li>
+<a href="#breakpoints">Debugging With Breakpoints</a>
+
+<ul>
+<ul>
+<li><a href="#breakpoints-dynamic-javascript">Breakpoints in Dynamic JavaScript</a></li>
+<li><a href="#pause-on-next-statement">Pause on Next JavaScript Statement</a></li>
+<li><a href="#pause-on-exceptions">Pause on Exceptions</a></li>
+<li><a href="#pause-on-uncaught-exceptions">Pause on Uncaught Exceptions</a></li>
+</ul>
+</ul>
+</li>
+<li><a href="#breakpoints-mutation-events">Breakpoints on DOM Mutation Events</a></li>
+<li><a href="#breakpoints-on-xhr">Breakpoints on XHR</a></li>
+<li><a href="#breakpoints-on-javascript-event-listeners">Breakpoints on JavaScript Event Listeners</a></li>
+</ul>
+
+<li><a href="#liveedit">Live Editing</a></li>
+<li>
+<a href="#exceptions">Handling Exceptions</a>
+
+<ul>
+<li>
+<a href="#tracking-exceptions">Tracking exceptions</a>
+
+<ul>
+<li><a href="#viewing-exception-stack-trace">Viewing exception stack trace</a></li>
+<li><a href="#pause-on-exceptions">Pause on exceptions</a></li>
+</ul>
+</li>
+<li>
+<a href="#printing-stack-traces">Printing stack traces</a>
+
+<ul>
+<li><a href="#error-stack">Error.stack</a></li>
+<li><a href="#console-trace">console.trace()</a></li>
+<li><a href="#console-assert">console.assert()</a></li>
+</ul>
+</li>
+<li><a href="#handling-exceptions-runtime">Handling exceptions at runtime using window.onerror</a></li>
+</ul>
+</li>
+<li><a href="#pretty-print">Pretty Print</a></li>
+<li><a href="#source-maps">Working With Source Maps</a></li>
+
+</strong>
+
+<a name="//apple_ref/cpp/Section/1.%20%20The%20Sources%20Panel" class="dashAnchor" id=""></a><h2 id="sources-panel">The Sources Panel</h2>
+
+<p>The <strong>Sources</strong> panel lets you debug your JavaScript code. It provides a
+graphical interface to the <a href="https://code.google.com/p/v8/">V8</a> debugger. Follow the steps below to explore the
+<strong>Sources</strong> panel:</p>
+
+<ul>
+<li>Open <a href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/hovercard.html">Google Closure hovercard demo
+page</a>.</li>
+<li>Open the DevTools window as described in the How to Access the DevTools
+section of this tutorial.</li>
+<li>If it is not already selected, select <strong>Sources</strong>.</li>
+</ul>
+
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_0.png"></div>
+
+<p>The <strong>Sources</strong> panel lets you see all the scripts that are part of the
+inspected page. Standard controls to pause, resume, and step through code are
+provided below the panel selection icons. A button to force a pause at
+exceptions is located at the bottom of the window. Sources are visible in
+separate tabs and clicking <img src="javascript-debugging/image_1.png"> opens the file navigator
+which will display all open scripts.</p>
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_2.png"></div>
+
+<h3>Execution control</h3>
+
+<p>The <strong>execution control</strong> buttons are located at the top of the side panels and allow you to step through code. The buttons available are:</p>
+
+<p><strong><img src="javascript-debugging/button_continue.jpg"> Continue:</strong> continues code execution until we encounter another breakpoint.</p>
+<p><strong><img src="javascript-debugging/button_step_over.jpg"> Step over:</strong> step through code line-by-line to get insights into how each line affects the variables being updated. Should your code call another function, the debugger won't jump into its code, instead stepping over so that the focus remains on the current function.</p>
+<p><strong><img src="javascript-debugging/button_step_into.jpg"> Step into:</strong> like Step over, however clicking Step into at the function call will cause the debugger to move its execution to the first line in the functions definition.</p>
+<p><strong><img src="javascript-debugging/button_stepout.jpg">Step out:</strong> having stepped into a function, clicking this will cause the remainder of the function definition to be run and the debugger will move its execution to the parent function.</p>
+<p><strong><img src="javascript-debugging/button_disable.png">Toggle breakpoints:</strong> toggles breakpoints on/off while leaving their enabled states intact.</p>
+
+<p>There are also several related keyboard shortcuts available in the <strong>Sources</strong> panel:</p>
+
+<ul>
+<li>
+<strong>Continue</strong>: F8 or Command-/ (forward slash) on Mac or Control-/ (forward
+slash) on other platforms.</li>
+<li>
+<strong>Step over</strong>: F10 or Command-' (apostrophe) on Mac or Control-' (apostrophe)
+on other platforms.</li>
+<li>
+<strong>Step into</strong>: F11 or Command-; (semi-colon) on Mac or Control-; (semi-colon);
+on other platforms.</li>
+<li>
+<strong>Step out</strong>: Shift-F11 or Shift-Command-; (semi-colon) on Mac or
+Shift-Control-; (semi-colon) on other platforms.</li>
+<li>
+<strong>Next call frame</strong>: Control-. (period) on all platforms.</li>
+<li>
+<strong>Previous call frame</strong>: Control-, (comma) on all platforms.</li>
+</ul>
+
+
+<p>For a walkthrough of other keyboard shortcuts supported, see <em><a href="shortcuts.html">Shortcuts</a></em>.</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<a name="//apple_ref/cpp/Section/2.%20%20Debugging%20With%20Breakpoints" class="dashAnchor" id=""></a><h2 id="breakpoints">Debugging With Breakpoints</h2>
+
+<p>A breakpoint is an <strong>intentional</strong> stopping or pausing place in a script, put in
+place for debugging purposes. Let's look at <strong>debugging</strong>JavaScript using
+breakpoints set on JavaScript code and breakpoints targeted at UI and network
+aspects of an application.</p>
+
+
+<h3>Workflow</h3>
+
+<p>First, open the DevTools by hitting the <strong>Control-Shift-I</strong> shortcut. Click the
+<strong>line gutter</strong> to set a breakpoint for that line of code, select another script
+and set another breakpoint.</p>
+<div class="screenshot"><img src="javascript-debugging/image_3.png"></div> <p>
+All the breakpoints you have set appear under <strong>Breakpoints</strong> in the right-hand
+sidebar. Breakpoints can be enabled or disabled using the checkboxes in this
+sidebar.</p>
+<div class="screenshot"><img src="javascript-debugging/image_4.png"></div> <p>
+Clicking on the entry jumps to the <strong>highlighted line</strong> in the source file. You
+can <strong>set</strong> one or more breakpoints in one or more scripts.</p>
+<div class="screenshot"><img src="javascript-debugging/image_5.png"></div> <p>
+Delete a breakpoint by clicking the <strong>blue tag</strong> breakpoint indicator. The
+breakpoint indicator menu has several options including "Continue to here",
+"Edit Breakpoint", "Disable Breakpoint" and "Save As", which will save the file
+locally.</p>
+<div class="screenshot"><img src="javascript-debugging/image_6.png"></div> <p>
+Once you have set a breakpoint, you can right-click on the blue arrow tag
+indicator in the gutter line to set a <strong>conditional statement</strong> for that
+specific breakpoint. Type any expression and the breakpoint will pause only if
+the condition is true. The tag cycles through its three states of active,
+inactive, and removed.</p>
+ <div class="screenshot"><img src="javascript-debugging/image_7.png"></div>
+<p>
+Click the <strong>Pause</strong> button then move your mouse over the Google Closure
+hovercard demo page.  </p>
+<div class="screenshot"><img src="javascript-debugging/image_8.png"></div> <p>
+While a script is paused, you can see the current call stack and in-scope
+variables in the right-hand side bar. The call stack displays the <strong>complete execution path</strong> that led to the point where code was paused, giving us insights into the code flaws that caused the error.</p>
+
+<p>You may also open up the console to experiment while paused. Hit the <span class="kbd">Esc</span> key to bring the console into view.
+
+<aside class="special">
+  Remember: the console will be evaluating within the scope of where the debugger is currently paused.
+  <div class="screenshot">
+    <img src="javascript-debugging/breakpoint-scope.png">
+  </div>
+
+</aside>
+
+
+</p>
+<p>Remember, if your code happens to be using a loop which fires every 20ms, you likely won't want the debugger to <strong>halt</strong> on each iteration. Using conditional statements/breakpoints can assist with this. In the below example, code execution will only break if the <code>minLevel</code> variable is greater than 2004, helping us avoid a number of additional clicks in the debugger.</p>
+
+ <div class="screenshot"><img src="javascript-debugging/conditional.png"></div>
+
+ <p class="note"><strong>Note:</strong> It may not be desirable to set breakpoints from the DevTools interface. Should you wish to launch the debugger from your code, you may use <a href="console.html#setting_breakpoints_in_javascript">the <code>debugger</code> keyword</a> to achieve this.</p>
+
+
+<h3>Using Breakpoints</h3>
+
+<p>Make sure the <strong>Sources</strong> panel is open and select "script.js" from scripts
+drop-down</p>
+
+<ul>
+<li>Set a breakpoint on line 8 by clicking the line gutter (you can use the
+<strong>Control-G</strong> shortcut to reveal a line in a large file)</li>
+<li>Move your mouse over this page</li>
+<li>You should stop on the breakpoint</li>
+<li>Hover over the source code to inspect local and global variables, function
+arguments etc.</li>
+<li>Delete the breakpoint by clicking the blue tag breakpoint indicator</li>
+<li>Click the <strong>Continue</strong> <img class="ui" src="javascript-debugging/image_9.png"> button or hit <strong>F8</strong> in DevTools window to resume</li>
+</ul>
+
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_10.png"></div>
+
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h3 id="breakpoints-dynamic-javascript">Breakpoints in Dynamic JavaScript</h3>
+
+<a href="scripts-breakpoints-files/dynamicScript.js" style="display: none">
+  This is used to mark dynamicScript.js as used.</a>
+
+<iframe data-src="/chrome-developer-tools/docs/javascript-debugging_fcaab2d0829284c0cee7bc81854b776c.frame" class="framebox inherit-locale" style="width: 100%; height: 500px;">
+  <p>[This section requires a browser that supports JavaScript and iframes.]</p>
+</iframe>
+
+<p><strong>Note:</strong> Notice the <code>"//@ sourceURL=dynamicScript.js"</code> line at the end of
+dynamicScript.js file. This technique gives a name to a script created with eval, and will be discussed in more detail in the <a href="#source-maps">Source Maps</a> section. Breakpoints can be set in dynamic JavaScript only if it has a user supplied
+name.</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h3 id="pause-on-next-statement">Pause on Next JavaScript Statement</h3>
+
+<iframe data-src="/chrome-developer-tools/docs/javascript-debugging_55dcb7eca612b3d2ea8edfc989907e01.frame" class="framebox inherit-locale" style="width: 100%; height: 500px;">
+  <p>[This section requires a browser that supports JavaScript and iframes.]</p>
+</iframe>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h3>Pause on Exceptions</h3>
+
+<iframe data-src="/chrome-developer-tools/docs/javascript-debugging_6728606ab8b640d34bd81af557847cf4.frame" class="framebox inherit-locale" style="width: 100%; height: 500px;">
+  <p>[This section requires a browser that supports JavaScript and iframes.]</p>
+</iframe>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h3 id="pause-on-uncaught-exceptions">Pause on Uncaught Exceptions</h3>
+
+
+<iframe data-src="/chrome-developer-tools/docs/javascript-debugging_a3df751c83a5c0f1c2f6325d03635779.frame" class="framebox inherit-locale" style="width: 100%; height: 500px;">
+  <p>[This section requires a browser that supports JavaScript and iframes.]</p>
+</iframe>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<a name="//apple_ref/cpp/Section/3.%20%20Breakpoints%20on%20DOM%20Mutation%20Events" class="dashAnchor" id=""></a><h2 id="breakpoints-mutation-events">Breakpoints on DOM Mutation Events</h2>
+
+<iframe data-src="/chrome-developer-tools/docs/javascript-debugging_3b85d9ba5d733e7f4a1083e307ad2220.frame" class="framebox inherit-locale" style="width: 100%; height: 500px;">
+  <p>[This section requires a browser that supports JavaScript and iframes.]</p>
+</iframe>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<a name="//apple_ref/cpp/Section/4.%20%20Breakpoints%20on%20XHR" class="dashAnchor" id=""></a><h2 id="breakpoints-on-xhr">Breakpoints on XHR</h2>
+
+<a href="scripts-breakpoints-files/data.txt" style="display: none">
+  This is used to mark data.txt as used.</a>
+
+<iframe data-src="/chrome-developer-tools/docs/javascript-debugging_8e5a6d96769f32ca51a113a9213d88ed.frame" class="framebox inherit-locale" style="width: 100%; height: 500px;">
+  <p>[This section requires a browser that supports JavaScript and iframes.]</p>
+</iframe>
+
+<p><strong>Note:</strong> To edit URL filter, double click on the XHR breakpoint entry in <strong>XHR Breakpoints</strong> sidebar pane. XHR breakpoint with empty URL filter will match any
+XHR.</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<a name="//apple_ref/cpp/Section/5.%20%20Breakpoints%20on%20JavaScript%20Event%20Listeners" class="dashAnchor" id=""></a><h2 id="breakpoints-on-javascript-event-listeners">Breakpoints on JavaScript Event Listeners</h2>
+
+
+<iframe data-src="/chrome-developer-tools/docs/javascript-debugging_987b105c1084de9a85dd2bcdd6bbb047.frame" class="framebox inherit-locale" style="width: 100%; height: 500px;">
+  <p>[This section requires a browser that supports JavaScript and iframes.]</p>
+</iframe>
+
+
+<p class="note"><b>Note: Following events are supported</b>
+&#160;&#160;<b>Keyboard:</b> keydown, keypress, keyup, textInput<br>
+&#160;&#160;<b>Mouse:</b> click, dblclick, mousedown, mouseup, mouseover,
+mousemove, mouseout, mousewheel<br>
+&#160;&#160;<b>Control:</b> resize, scroll, zoom, focus, blur, select,
+change, submit, reset<br>
+&#160;&#160;<b>Clipboard:</b> copy, cut, paste, beforecopy, beforecut,
+beforepaste<br>
+&#160;&#160;<b>Load:</b> load, unload, abort, error<br>
+&#160;&#160;<b>DOM Mutation:</b> DOMActivate, DOMFocusIn, DOMFocusOut,
+DOMAttrModified, DOMCharacterDataModified, DOMNodeInserted,
+DOMNodeInsertedIntoDocument, DOMNodeRemoved, DOMNodeRemovedFromDocument,
+DOMSubtreeModified, DOMContentLoaded<br>
+&#160;&#160;<b>Device:</b> deviceorientation, devicemotion</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+
+<h2 id="liveedit">Live Editing</h2>
+
+<p>In <strong>Authoring And Workflow</strong>, we discussed how to make changes to scripts in
+the <strong>Sources</strong> panel. While at a breakpoint, it's also possible to live edit
+scripts by clicking into the main editor panel and making modifications.</p>
+
+<ul>
+<li>Navigate to the Google Closure hovercard demo</li>
+<li>In the Sources panel, open up "mouse.js" and use the Ctrl/Cmd + Shift + O to
+navigate to the onMouseOut() function</li>
+</ul>
+
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_30.png"></div>
+
+<ul>
+<li>Click the <strong>pause</strong> button to pause debugging</li>
+<li>Modify the function, adding a console.log('Moused out') to the end</li>
+<li>Using the Cmd +S or Ctrl + S shortcuts will save these modifications. Make
+sure to Save As.</li>
+<li>Click the <strong>pause/resume</strong> button to resume execution</li>
+<li>When you now hover out, the new message will be logged to the console</li>
+</ul>
+
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_31.png"></div>
+
+<p>This allows you to saved changes from within the DevTools without having to
+leave your browser.</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h2 id="exceptions">Exceptions</h2>
+
+<p>Let's now look at how to deal with exceptions and stack traces using Chrome
+DevTools.<br>
+<strong>Exception handling</strong> is the process of responding to the occurrence of
+exceptions - exceptional situations that require special processing - often
+changing the normal flow of your JavaScript code's execution.</p>
+
+<p class="note"><strong>Note:</strong> If you are a Web Developer and want to get the latest version of
+DevTools, you should use <a href="tools.google.com/dlpage/chromesxs.html">Chrome Canary</a>.</p>
+
+
+<h2 id="tracking-exceptions">Tracking exceptions</h2>
+
+<p>When something goes wrong, you can open the DevTools console (Ctrl+Shift+J /
+Cmd+Option+J) and find a number of JavaScript error messages there. Each message
+has a link to the file name with the line number you can navigate to.</p>
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_32.png"></div>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h3 id="viewing-exception-stack-trace">Viewing exception stack trace</h3>
+
+<p>There might be several execution paths that lead to the error and it's not
+always obvious which one of them has happened. <strong>Once DevTools window is
+opened</strong>, exceptions in the console are accompanied with the <strong>complete
+JavaScript call stacks</strong>. You can expand these console messages to see the stack
+frames and navigate to the corresponding locations in the code:</p>
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_33.png"></div>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h3 id="pause-on-exceptions">Pause on JavaScript exceptions</h3>
+
+<p>You may also want to pause JavaScript execution next time exception is thrown
+and inspect its call stack, scope variables and state of your app. A tri-state
+stop button ( <img src="javascript-debugging/image_34.png"> <!-- TODO: Fix alt text
+and URL --> ) at the bottom of the Scripts panel enables you to switch between
+different exception handling modes: you can choose to either pause on all
+exception or only on the uncaught ones or you can ignore exceptions altogether.</p>
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_35.png"></div>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h2 id="printing-stack-traces">Printing stack traces</h2>
+
+<p>Printing log messages to the DevTools console may be very helpful in
+understanding how your application behaves. You can make the log entries even
+more informative by including associated stack traces. There are several ways of
+doing that.</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h3 id="error-stack">Error.stack</h3>
+
+<p>Each Error object has a string property named stack that contains the stack
+trace:</p>
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_36.png"></div>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h3 id="console-trace">console.trace()</h3>
+
+<p>You can instrument your code with console.trace() calls that would print current
+JavaScript call stacks:</p>
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_37.png"></div>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h3 id="console-assert">console.assert()</h3>
+
+<p>There is also a way to place assertion in your JavaScript code. Just call
+console.assert() with the error condition as the first parameter. Whenever this
+expression evaluates to false you will see a corresponding console record:</p>
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_38.png"></div>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h2 id="handling-exceptions-runtime">Handling exceptions at runtime using window.onerror</h2>
+
+<p>Chrome supports setting a handler function to window.onerror. Whenever a
+JavaScript exception is thrown in the window context and is not caught by any
+try/catch block, the function will be invoked with the exception's message, the
+URL of the file where the exception was thrown and the line number in that file
+passed as three arguments in that order. You may find it convenient to set an
+error handler that would collect information about uncaught exceptions and
+report it back to your server.</p>
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_39.png"></div>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h2 id="pretty-print">Pretty Print</h2>
+
+<p>If you have trouble trying to read and debug minified JavaScript in the
+DevTools, a pretty printing option is available to make life easier. Here is how
+a minified script displayed in the tools might look prior to being displayed in
+the DevTools:</p>
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_40.png"></div>
+
+<p>And by clicking on the curly brace <img src="javascript-debugging/image_45.png"> ("Pretty Print") icon in the bottom left
+corner, the JavaScript is transformed into a more human readable form. This is
+also more easy for debugging and setting breakpoints.</p>
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_41.png"></div>
+
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<h2 id="source-maps">Source Maps</h2>
+
+<p>Have you ever found yourself wishing you could keep your client-side code
+readable and more importantly debuggable even after you've combined and minified
+it, without impacting performance? Well now you can through the magic of <a href="https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?hl=en_US&amp;pli=1&amp;pli=1">source
+maps</a>.</p>
+
+<p>Source Maps are a generic mapping format (that are JSON-based) which can be used by any processed file to create
+relations between files that are pre-processed and those that are post-processed. Of most relevance to us is that they can be used to map combined/minified scripts back to an unbuilt state for debugging.</p>
+
+<p>A source map itself can look as simple as the following:</p>
+
+<p>
+</p>
+<pre>
+  {
+    version : 3,
+    file: "out.js",
+    sourceRoot : "",
+    sources: ["foo.js", "bar.js"],
+    names: ["src", "maps", "are", "fun"],
+    mappings: "AAgBC,SAAQ,CAAEA"
+}
+</pre>
+
+<p>
+The idea is when you build for production, along with minifying and combining your
+JavaScript files, you generate a source map which holds information about your
+original files. When you query a certain line and column number in your
+generated JavaScript you can do a lookup in the source map which returns the
+original location. The DevTools can parse the source map automatically and make
+it appear as though you're running unminified and uncombined files.</p>
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_42.png"></div>
+
+<p>Before you view the following real world implementation of Source Maps make sure
+you've enabled the Source Maps feature by clicking the settings cog in the dev
+tools panel and checking the "Enable source maps" option.</p>
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_43.png"></div>
+
+<p>Take a look at the special build of the <a href="http://dev.fontdragr.com/">font dragr tool</a> in Chrome,
+with source mapping enabled, and you'll notice that the JavaScript isn't
+compiled and you can see all the individual JavaScript files it references. This
+is using source mapping, but behind the scenes actually running the compiled
+code. Any errors, logs and breakpoints will map to the dev code for awesome
+debugging! So in effect it gives you the illusion that you're running a dev site
+in production.</p>
+
+<h3>How do Source Maps work?</h3>
+
+<p>Once you've combined and minified your JavaScript with a tool that supports
+outputting Source Maps, alongside it will exist a sourcemap file. At present,
+Closure Compiler and UglifyJS 2.0 are two such tools for achieving this but
+there are also tools available that support outputting Source Maps for
+CoffeeScript and SASS. A special comment is placed at the end of the file, signifying to the DevTools
+that a source map is available.</p>
+
+<p><code>//@ sourceMappingURL=/path/to/file.js.map</code></p>
+
+<p>This enables DevTools to map calls back to their location in original source
+files. If you don't like the idea of the weird comment you can alternatively set
+a special header on your compiled JavaScript file:</p>
+
+<p><code>X-SourceMap: /path/to/file.js.map</code></p>
+
+<p>Like the comment this will tell your source map consumer where to look for the
+source map associated with a JavaScript file. This header also gets around the
+issue of referencing Source Maps in languages that don't support single-line
+comments.</p>
+
+<h3>@sourceURL and displayName in action</h3>
+
+<p>While not part of the source map spec the following convention allows you to
+make development much easier when working with evals.</p>
+
+<p>This helper looks very similar to the <code>//@ sourceMappingURL</code> property and is
+actually mentioned in the source map V3 specifications. By including the
+following special comment in your code, which will be evaled, you can name evals
+so they appear as more logical names in your dev tools.</p>
+
+<p><code>//@ sourceURL=source.coffee</code></p>
+
+<p><strong>Working with sourceURL</strong></p>
+
+<ul>
+<li>Navigate to the
+<strong><a href="http://www.thecssninja.com/demo/source_mapping/compile.html">demo</a></strong>
+</li>
+<li>Open the DevTools and go to the <strong>Sources</strong> panel.</li>
+<li>Enter in a filename into the <em>Name your code:</em> input field.</li>
+<li>Click on the <strong>compile</strong> button.</li>
+<li>An alert will appear with the evaluated sum from the CoffeeScript source</li>
+<li>If you expand the <em>Sources</em> sub-panel you will now see a new file with the
+custom filename you entered earlier. If you double-click to view this file it
+will contain the compiled JavaScript for our original source. On the last line
+however will be a <code>// @sourceURL</code> comment indicating what the original source
+file was. This can greatly help with debugging when working with language
+abstractions.</li>
+</ul>
+
+
+<p></p>
+<div class="screenshot"><img src="javascript-debugging/image_44.png"></div>
+
+<p></p>
+<h4>Read more</h4>
+
+<ul>
+<li>Conditional breakpoints
+
+<ul>
+<li><a href="http://www.randomthink.net/blog/2012/11/breakpoint-actions-in-javascript/">Breakpoint actions in
+JavaScript</a></li>
+</ul>
+</li>
+<li>Working With Source Maps
+
+<ul>
+<li><a href="https://www.youtube.com/watch?feature=player_embedded&amp;v=HijZNR6kc9A">The Breakpoint: Source maps
+spectacular</a></li>
+<li><a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">HTML5 Rocks: An Introduction To JavaScript Source
+maps</a></li>
+<li><a href="http://net.tutsplus.com/tutorials/tools-and-tips/source-maps-101/">NetTuts: Source Maps 101</a></li>
+<li><a href="https://github.com/ryanseddon/source-map/wiki/Source-maps%3A-languages%2C-tools-and-other-info">Source maps: languages, tools and other info</a></li>
+<li><a href="http://www.thecssninja.com/javascript/multi-level-sourcemaps">CSS Ninja: Multi-level Source
+maps</a></li>
+<li><a href="http://www.coffeescriptlove.com/2012/04/source-maps-for-coffeescript.html">Source maps for
+CoffeeScript</a></li>
+</ul>
+</li>
+</ul>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-09-16T12:58:09.371460" id="gc-content-last-updated">Last updated September 16, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/javascript-debugging by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:57:05 GMT -->
+</html>

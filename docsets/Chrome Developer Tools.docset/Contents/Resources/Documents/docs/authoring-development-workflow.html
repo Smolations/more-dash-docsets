@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/authoring-development-workflow by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:54:50 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Authoring &amp; development workflow - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+    
+    
+    
+  
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Authoring &amp; development workflow</h1>
+  
+  <div itemprop="articleBody">
+  
+  <link rel="stylesheet" type="text/css" href="../css/local_extensions.css">
+
+ <style>
+img {
+  max-width:800px;
+}
+
+div .screenshot img{
+  border:1px solid #ccc;
+}
+
+.kbd {
+padding: 0.1em 0.6em;
+border: 1px solid #ccc;
+font-size: 11px;
+font-family: Arial,Helvetica,sans-serif;
+background-color: #f7f7f7;
+color: #333;
+-moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+-webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+display: inline-block;
+margin: 0 0.1em;
+text-shadow: 0 1px 0 #fff;
+line-height: 1.4;
+white-space: nowrap;
+}
+ </style>
+
+<p>Developer workflow typically involves a number of steps used to achieve a <strong>goal</strong>.
+While authoring with the DevTools, it's possible to <strong>optimize</strong> this workflow to
+save time achieving common tasks, such as locating files or functions,
+persisting edits to scripts or stylesheets, saving commonly used snippets or
+simply rearranging the layout to better suit your needs.</p>
+
+<p>In this section, we'll explore a number of tips to make your workflow in the
+DevTools more efficient.</p>
+
+<h4><strong>Contents</strong></h4>
+
+<strong>
+<ul>
+<li><a href="#dock-to-right">Dock-To-Right For Vertical-Split Editing</a></li>
+<li><a href="#drag-to-right">Drag-To-Right For Quicker Dock-Positioning</a></li>
+<li>
+<a href="#search-navigate-filter">Search, Navigate And Filter</a>
+<ul>
+<li><a href="#filter-by-filename">Filter For A Script, Stylesheet Or Snippet By Filename</a></li>
+<li><a href="#textsearch-current-file">Text Search Within The Current File</a></li>
+<li><a href="#replacetext-current-file">Replace Text Within The Current File</a></li>
+<li><a href="#textsearch-across-files">Text Search Across All Files</a></li>
+<li><a href="#search-regular-expression">Search Using A Regular Expression</a></li>
+<li><a href="#filter-function-within-file">Filter For A Function Or Selector Within A File</a></li>
+<li><a href="#search-line-number">Jump To Line Number</a></li>
+</ul>
+</li>
+<li>
+<a href="#live-editing">Live Editing Scripts &amp; Styles</a>
+<ul>
+<li><a href="#scripts">Scripts</a></li>
+<li><a href="#styles">Styles</a></li>
+<li><a href="#save-as">Save As</a></li>
+<li><a href="#local-modifications">Local Modifications</a></li>
+</ul>
+</li>
+<li>
+<a href="#snippets">Custom JavaScript Snippets</a>
+</li>
+<li>
+<ul>
+  <li><a href="#snippets-getting-started">Getting Started</a></li>
+<li><a href="#snippets-create">Creating Snippets</a></li>
+<li><a href="#snippets-filenames">Snippet Filenames</a></li>
+<li><a href="#snippets-editing">Editing And Executing Snippets</a></li>
+<li><a href="#snippets-local-modifications">Local Modifications</a></li>
+<li><a href="#snippets-more">Breakpoints, Watch Expressions And More</a></li>
+<li><a href="#snippets-saving">Saving Snippets</a></li>
+<li><a href="#snippets-navigation">Navigating Snippets</a></li>
+</ul>
+</li>
+
+<li><a href="#persistence-extensions">Persistence Extensions</a></li>
+<li><a href="#resources">Resources</a></li>
+
+</ul>
+</strong>
+
+<a name="//apple_ref/cpp/Section/1.%20%20Dock-To-Right%20For%20Vertical-Split%20Editing" class="dashAnchor" id=""></a><h2 id="dock-to-right">Dock-To-Right For Vertical-Split Editing</h2>
+
+<p>You may find that docking the DevTools to the bottom of the window provides a
+lot of horizontal space, but less space vertically. Dock to right allows you to
+align the DevTools to the right-hand side of a window whilst keeping it
+attached. This enables you to inspect the current page on the left, whilst
+debugging on the right.</p>
+
+<p>This is useful as:</p>
+
+<ul>
+<li>You may be on a widescreen monitor, wishing to maximize the space available to
+inspect and debug your code</li>
+<li>You can change the split to be less than 400px (the current minimum width of
+Chrome) to test resizing layouts</li>
+<li>Longer scripts are easier to debug with vertical space</li>
+</ul>
+
+<p>Navigate to a URL you wish to debug then toggle between
+<em>dock-to-right</em> and <em>dock-to-window</em> by clicking and <strong>long-holding</strong> on the
+layout icon <img src="authoring-development-workflow/layout_button.png">  at the bottom left-hand corner of the DevTools.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/chrome_docktomain.jpg"></div>
+
+<p class="note"><strong>Note:</strong> The DevTools will remember your last choice, so you can go back and forth
+between the two most common options.</p>
+
+<p>This will expand to display the available layout options. Once you've selected a
+preference, the layout will change immediately to reflect the change.</p>
+
+
+<div class="screenshot"><img src="authoring-development-workflow/chrome_docktoright.jpg"></div>
+
+<p class="note"><strong>Note:</strong> Each tab can have it's own custom layout arrangement for the DevTools.
+This means it is possible to have one tab's Tools docked to right whilst
+another's is docked to the bottom of the window.</p>
+
+
+<a name="//apple_ref/cpp/Section/2.%20%20Drag-To-Right%20For%20Quicker%20Dock-Positioning" class="dashAnchor" id=""></a><h2 id="drag-to-right">Drag-To-Right For Quicker Dock-Positioning</h2>
+
+<p>It is also possible to hold down and drag the DevTools toolbar to move its docking position, as demonstrated in the animation below.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/devtools-drag-to-right.gif"></div>
+
+<p>This can be a useful alternative to holding down the layout button to select your desired docking position as it only takes one step to toggle between dock-to-right and dock-to-window.</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<a name="//apple_ref/cpp/Section/3.%20%20Search,%20Navigate%20And%20Filter" class="dashAnchor" id=""></a><h2 id="search-navigate-filter">Search, Navigate And Filter</h2>
+
+<a name="//apple_ref/cpp/Section/3.1.%20%20Filter%20For%20A%20Script,%20Stylesheet%20Or%20Snippet%20By%20Filename" class="dashAnchor" id=""></a><h3 id="filter-by-filename">Filter For A Script, Stylesheet Or Snippet By Filename</h3>
+
+<p>The ability to quickly locate a specific file can be essential to a developer's workflow. The DevTools allow you to search across all script, stylesheet and snippet files using the following shortcuts:</p>
+
+<ul>
+<li><strong><span class="kbd">Ctrl</span> + <span class="kbd">O</span> (Windows, Linux)</strong></li>
+<li><strong><span class="kbd">Cmd</span> + <span class="kbd">O</span> (Mac OSX)</strong></li>
+</ul>
+
+<p>which will work regardless of the panel you are currently in. For this
+<a href="http://todomvc.com/architecture-examples/angularjs/#/">Todo app</a>, using one of these
+shortcuts will take us to the <em>Sources</em> panel and present us with a search box
+listing all inspectable files.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/sources_filter.jpg"></div>
+
+<p>From there, we can filter down to specific files (e.g files with the word
+'script' in their name) or select a file to view or edit.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/sources_basefind.jpg"></div>
+
+<p class="note"><strong>Note:</strong> We support camel-case matching in all of our dialogs. e.g: to open
+FooBarScript.js, you could just type FBaSc, which could save time.</p>
+
+<a name="//apple_ref/cpp/Section/3.2.%20%20Text%20Search%20Within%20The%20Current%20File" class="dashAnchor" id=""></a><h3 id="textsearch-current-file">Text Search Within The Current File</h3>
+
+<p>Searching for a specific string within the current file can be done using the following shortcut:</p>
+
+<ul>
+<li><strong><span class="kbd">Ctrl</span> + <span class="kbd">F</span> (Windows, Linux)</strong></li>
+<li><strong><span class="kbd">Cmd</span> + <span class="kbd">F</span> (Mac OSX)</strong></li>
+</ul>
+
+
+<p>Once a keyword has been entered into the search field, hit return to move to the
+first matched result. Subsequent returns will take you to the next result and
+you can also move between results using the <strong><span class="kbd">up</span></strong> and <strong><span class="kbd">down</span></strong> arrow keys as
+displayed below.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/sources_findone.jpg"></div>
+
+<a name="//apple_ref/cpp/Section/3.3.%20%20Replace%20Text%20Within%20The%20Current%20File" class="dashAnchor" id=""></a><h3 id="replacetext-current-file">Replace Text Within The Current File</h3>
+
+<p>In addition to supporting locating text within the current file, the DevTools
+also support replacing both individual and all instances of text with a new
+value. Checking "Replace" will display a second input field allowing you to
+specify the replacement text.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/sources_find.jpg"></div>
+
+<a name="//apple_ref/cpp/Section/3.4.%20%20Text%20Search%20Across%20All%20Files" class="dashAnchor" id=""></a><h3 id="textsearch-across-files">Text Search Across All Files</h3>
+
+<p>If you wish to search across all of the files loaded for a page for a particular
+string, you can load up the search pane using the following shortcut:</p>
+
+<ul>
+<li><strong><span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">F</span> (Windows, Linux)</strong></li>
+<li><strong><span class="kbd">Cmd</span> + <span class="kbd">Opt</span> + <span class="kbd">F</span> (Max OSX)</strong></li>
+</ul>
+
+
+<p>This supports both regular expressions and case sensitive search.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/sources_findall.jpg"></div>
+
+<a name="//apple_ref/cpp/Section/3.5.%20%20Search%20Using%20A%20Regular%20Expression" class="dashAnchor" id=""></a><h3 id="search-regular-expression">Search Using A Regular Expression</h3>
+
+<p>To search using a regular expression, simply type in the expression in the
+Search sources field, check "Regular expression" and hit return.</p>
+<div class="screenshot"><img src="authoring-development-workflow/sources_regex.jpg"></div>
+
+<p>Above we can see an example of how this can be done to find all results matching
+content within <code>&lt;div&gt;&lt;/div&gt;</code> tags.</p>
+
+<a name="//apple_ref/cpp/Section/3.6.%20%20Filter%20For%20A%20Function%20Or%20Selector%20Within%20A%20File" class="dashAnchor" id=""></a><h3 id="filter-function-within-file">Filter For A Function Or Selector Within A File</h3>
+
+<p>Should you require further granularity it is also possible to navigate to (or
+search for) specific JavaScript functions or CSS rules within a file.</p>
+
+<p>Navigate to a page of your choosing then go to the <em>Sources </em>panel. You can now use the following shortcuts to bring up a function/selector-specific
+search box:</p>
+
+<ul>
+<li><strong><span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> (Windows, Linux)</strong></li>
+<li><strong><span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> (Mac OSX)</strong></li>
+</ul>
+
+
+<div class="screenshot"><img src="authoring-development-workflow/function_filter.png"></div>
+
+<p>Depending on the type of file selected you will either see all of the available
+JavaScript functions or CSS declarations. Start typing in the name of a function
+or declaration to filter down the list of results or simply select a result be
+taken directly to where it is defined in the current file.</p>
+
+<a name="//apple_ref/cpp/Section/3.7.%20%20Jump%20To%20Line%20Number" class="dashAnchor" id=""></a><h3 id="search-line-number">Jump To Line Number</h3>
+
+<p>The tools also support jumping to a specific line-number within the editor. To
+launch the line number dialog, simply select a file for editing then use one of
+the following keyboard shortcuts to display the line picker:</p>
+
+<ul>
+<li><strong><span class="kbd">Ctrl</span> + <span class="kbd">L</span> (Windows)</strong></li>
+<li><strong><span class="kbd">Cmd</span> + <span class="kbd">L</span> (Mac OSX)</strong></li>
+<li><strong><span class="kbd">Ctrl</span> + <span class="kbd">G</span> (Linux)</strong></li>
+</ul>
+
+
+<div class="screenshot"><img src="authoring-development-workflow/sources_line.jpg"></div>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<a name="//apple_ref/cpp/Section/4.%20%20Live%20Editing%20Scripts%20&amp;%20Styles" class="dashAnchor" id=""></a><h2 id="live-editing">Live Editing Scripts &amp; Styles</h2>
+
+<p>The DevTools support editing both styles and scripts live, without the need for
+a full page refresh. This helps when testing design changes, prototyping
+JavaScript functions or snippets.</p>
+
+
+<a name="//apple_ref/cpp/Section/4.1.%20%20Scripts" class="dashAnchor" id=""></a><h3 id="scripts">Scripts</h3>
+
+<p>JavaScript can be directly edited in the DevTools via the <em>Sources</em> panel. To
+open up a specific script for editing, either:</p>
+
+<p>1. Click the link to the script (e.g <code>&lt;script src="app.js"&gt;&lt;/script&gt;</code>) in the
+markup view of the <em>Elements </em>panel:</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/styles_select.jpg"></div>
+
+<p>2. Or select the filename of the script from <em>Sources</em> sub-panel under Sources:</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/styles_sources.jpg"></div>
+
+<p>This will display the syntax-highlighted source to the file in a new tab to the
+right-hand side of the panel.</p>
+
+
+<p>Changes to scripts are only executed at evaluation time, meaning that
+modifications to code that is not running after the page loads will not have an
+effect. Changes to code executed at a later stage, such as mouseover handlers or
+click-event callbacks can however be changed and tested on the fly.</p>
+
+<p>For more information about debugging JavaScript in the <em>Sources</em> panel, read our
+related documentation on <a href="javascript-debugging.html">JavaScript Debugging</a>.</p>
+
+<p class="note"><strong>Note:</strong> There is currently also a Workspaces experiment available in Chrome Canary that allows you to select custom directories in your file system which are always available for editing in the Sources panel. <a href="https://plus.google.com/+GoogleChromeDevelopers/posts/644qQuBKZeL">Read more</a>.</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+
+<a name="//apple_ref/cpp/Section/4.2.%20%20Styles" class="dashAnchor" id=""></a><h3 id="styles">Styles</h3>
+
+<p>There is a similar workflow for editing styles. Open the DevTools and switch to the <em>Elements</em> panel. On the right-hand side,
+a number of sub-panels will be visible including Styles. Inspecting an element
+in the page will display the list of properties in <em>Styles</em> that have been
+applied to the current node, grouped by selector.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/styles_inspect.jpg"></div>
+
+<p>The "element.style" section displays properties that were set through the style
+attribute in the page's markup.</p>
+
+<p>The next section is "Matched CSS Rules", which displays the selectors matching
+the selected node, their properties and values as well as the filename the rule
+originated from and the line number it was read from. The selector that matches
+the node will be colored black whilst the others will be gray. This is of great
+benefit as it makes the selectors more easily separable while reading.</p>
+
+<p>Changing any CSS property in one of the sub-panels, such as the border or
+dimensions for an element, will result in the change being instantly applied and
+visible in the main browser window.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/styles_edit.png"></div>
+
+<div class="screenshot"><img src="authoring-development-workflow/styles_hover.png"></div>
+
+<p>Going back to the "Matched CSS Rules" panel, clicking on the link to the
+stylesheet next to a rule will also take you to the <em>Sources</em> panel.  The will
+display the complete stylesheet and take you to the line number where the
+relevant CSS rule exists.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/matched_css.png"></div>
+
+<p>From here, you can make changes to the file in the same way you would a regular
+text editor, except changes you make are displayed in real time.</p>
+
+
+<a name="//apple_ref/cpp/Section/4.3.%20%20Save%20As" class="dashAnchor" id=""></a><h2 id="save-as">Save As</h2>
+
+<p>Once you are happy with the changes made to your files, you can save them.</p>
+
+<p>To do this, first make sure you are in the text editor view for the file you
+modified by either locating the file manually in the left-hand sidebar under the Sources tab:</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/saveas_select.jpg"></div>
+
+<p>or clicking on the filename (e.g styles.css) in the "Elements -&gt; Styles panel"
+(for SASS/CSS):</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/matched.png"></div>
+
+<p>Next, right-click on either the filename or inside the text editor and click
+"Save As".  This will bring up a context menu allowing you to overwrite your
+existing file.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/saveas_saveas.jpg"></div>
+
+<p>Subsequent saves (using Save from the same menu or the <strong><span class="kbd">Ctrl</span></strong>/<strong><span class="kbd">Cmd</span></strong> + <strong><span class="kbd">S</span></strong> shortcut)
+will save to the same location.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/saveas_save.jpg"></div>
+
+
+<a name="//apple_ref/cpp/Section/4.4.%20%20Local%20Modifications" class="dashAnchor" id=""></a><h2 id="local-modifications">Local Modifications</h2>
+
+<p>The DevTools also maintains a revision history of all changes made to local
+files. If you've edited a script or stylesheet and saved changes using the
+Tools, you can right-click on a filename in Sources (or within the source area)
+and select "Local modifications" to view this history.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/saveas_localmodifications.jpg"></div>
+
+<p>A <em>Local modifications</em> panel will appear displaying:</p>
+
+<ul>
+<li>A diff of the changes<br>
+</li>
+<li>The time the change was made at<br>
+</li>
+<li>The domain under which a file was changed</li>
+</ul>
+
+
+<div class="screenshot"><img src="authoring-development-workflow/saveas_history.jpg"></div>
+
+<p>in addition to a number of links. The <em>revert </em>link will revert all of the
+changes made to the file back to its original state, removing the revision
+history.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/saveas_changed.jpg"></div>
+
+<p><em>Apply original content</em> will effectively do the same action, but will
+maintain the revision history in view in case you wish to go back to a specific
+changeset.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/saveas_changed.jpg"></div>
+
+<p>Finally, <em>apply revision content </em>will apply the changes for a specific revision
+at a set time.</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<a name="//apple_ref/cpp/Section/5.%20%20Custom%20JavaScript%20Snippets" class="dashAnchor" id=""></a><h2 id="snippets">Custom JavaScript Snippets</h2>
+
+<!--
+<h3 id="enable-experimental-features">Enabling Experimental Features</h3>
+
+<p>Experimental DevTools features can be enabled in Chrome Canary via a special
+flag in <em>chrome:flags </em>called "Enable DevTools experiments". First, navigate to
+chrome:flags and click the 'Enable' link next to the option to indicate you'd
+like to opt-in to these features.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/image_36.png"/></div>
+
+<p>Next click the 'Relaunch Now' button that appears at the bottom of the window to
+complete this process. This will relaunch the browser.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/image_37.png"/></div>
+
+<p>When you now click the <em>Settings</em> cog <img src="authoring-development-workflow/image_38.png"/>
+, a new 'Experiments' tab will be available,
+where you can easily enable or disable experimental features.
+</p>
+
+<p class="note"><strong>Note:</strong> Some
+settings may require the DevTools to be restarted (i.e closed and reopened) order
+in to be accessible.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/settings.png" width="590px"/></div>
+!-->
+
+
+<p>Sometimes you want to be able to save smaller scripts, bookmarklets and utilities so that you&#8217;ve always got them available to you while debugging in the browser. <strong>Snippets</strong> is a new DevTools feature enabling this workflow, allowing you to create, store and run JavaScript within the  <i>Sources</i> tab. It is currently available in <a href="tools.google.com/dlpage/chromesxs.html">Chrome Canary</a>.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/sources_hero.jpg"></div>
+
+
+<p>Some of the use-cases Snippets can help with are:</p>
+
+<ul>
+  <li>
+<strong>Bookmarklets</strong> - all of your bookmarklets could be stored as snippets, especially those you may wish to edit.</li>
+  <li>
+<strong>Utilities</strong> - debugging helpers for interacting with the current page can be stored and debugged. A community-curated <a href="https://github.com/paulirish/devtools-addons/wiki/Snippets">list</a> of such utilities is available.</li>
+  <li>
+<strong>Debugging</strong> - Snippets offer a multi-line console with syntax-highlighting and persistance, making it convenience for debugging code that is more than a one-liner.</li>
+  <li>
+<strong>Monkey-patching code</strong> - code you wish to patch at runtime can be done through Snippets, although many times you can just live-edit code in the <i>Sources</i> tab.</li>
+</ul>
+
+<aside class="special">
+  Brian Grinstead maintains a repository of useful Snippets for developers at <a href="http://bgrins.github.io/devtools-snippets/">bgrins.github.io/devtools-snippets</a>.
+</aside>
+
+<h3 id="snippets-getting-started">Getting Started
+</h3>
+
+<p>To get started with Snippets, navigate to the <em>Sources</em> tab. If you haven't been doing any other work in this tab, you will be presented with the default layout shown below.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/sources_default.jpg"></div>
+
+<p>Click the layout toggle in the top left-hand corner to display extended panels.
+Here you should now see <em>Sources, Content scripts</em> and a new tab, <em>Snippets.
+</em>Click on it to go into <em>Snippets.</em></p>
+
+<div class="screenshot"><img src="authoring-development-workflow/sources_expand.jpg"></div>
+
+<h3 id="snippets-create">Creating Snippets
+</h3>
+
+<p><em>Snippets</em> work across two panels. The panel to the left (similar to <em>Sources</em>)
+is the file-list, whilst selecting a snippet file will open it in the editor to
+your right. This is a very similar experience to selecting a script or
+stylesheet for editing in the <em>Sources</em> tab.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/sources_creating.jpg"></div>
+
+<p>A new snippet file can be created by right-clicking inside the file-list and
+selecting "New".</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/snippets_new.png"></div>
+
+<h3 id="snippets-filenames">Snippet Filenames</h3>
+
+<p>Snippet filenames are automatically generated, but you also have the option of
+customizing these filenames as soon as your snippet has been created.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/snippets_filename.png"></div>
+
+<p>Should you wish to rename the file at any time after this, simply right-click it
+again in the file-list and select 'Rename'. You can also 'Remove' the snippet
+should you need to.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/snippets_remove.png"></div>
+
+<h3 id="snippets-editing">Editing And Executing Snippets</h3>
+
+<p>Selecting a snippet file from the file-list opens it up in the built-in editor
+to your right. Here you can write or paste any JavaScript code (i.e your
+snippet) including functions and expressions.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/snippets_editor.png"></div>
+
+<p>If a filename is preceded by a *, this means that the snippet is modified and
+not yet saved.</p>
+
+<p>To run a snippet, right-click on it's filename in the file-list and select "Run". Alternatively, you can hit the <strong>Run (&gt;)</strong> button.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/snippets_run.png"></div>
+
+<p>If the snippet is expected to have any console output, this will be displayed in
+the console below the editor.</p>
+
+<p class="note"><strong>Note:</strong> A keyboard shortcut is also available for easily executing a snippet - just select your snippet then use <span class="kbd">Ctrl</span>/<span class="kbd">Cmd</span> + <span class="kbd">Enter</span> to run it. This replicates the behavior of the Run (&gt;) button - currently in the Sources console, but which will be moving into the debugger control in the near future.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/snippets_console.png"></div>
+
+<p>If you instead wish to evaluate specific lines of your snippet in the console,
+you can simply select these within the editor, right-click over your selection
+and choose the "Evaluate in Console" option to execute. The keyboard shortcut
+for this is: Ctrl + Shift + E.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/snippets_evaluate.png"></div>
+
+<p>As with "Run", output of the expression can be viewed in the console below the
+editor.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/snippets_evaluated.png"></div>
+
+<h3 id="snippets-local-modifications">Local Modifications</h3>
+
+<p>As per <em>Sources</em>, <em>Snippets</em> also support viewing local modifications made to
+files with the ability to revert back to specific edit points in a revision
+history.</p>
+
+<p>Right-clicking within the editor window and selecting "Local modifications..."
+after saving any changes locally will provide access to this functionality.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/snippets_local.png"></div>
+
+<h3 id="snippets-more">Breakpoints, Watch Expressions And More</h3>
+
+<p>Other features you're used to in the <em>Sources </em>panel, such as adding watch
+expressions, breakpoints, scoping variables and saving files are also available
+for use with <em>Snippets</em>.</p>
+
+<p>Read the relevant documentation on the <em>Sources</em> panel for further information
+about how these features may be used.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/sources_breakpoints.jpg"></div>
+
+<h3 id="snippets-saving">Saving Snippets</h3>
+
+<p>Snippets can either be saved and later accessed via the <em>Snippets</em> tab in the DevTools or exported to a new file on your system. To display save options for a Snippet, right-click within the text editor to display the editor menu.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/snippets_contextmenu.png"></div>
+
+<p><em>Save</em> will persist changes to your existing snippet file, whilst <em>Save As</em> will
+allow you to save the snippet to a new file in a location of your choice.</p>
+
+<p class="note"><strong>Note:</strong> Snippets are stored in the DevTools localStorage. When performing a
+Save/Save As, you can bind the snippet to the file where it should be saved like
+any other script.</p>
+
+<h3 id="snippets-navigation">Navigating Snippets</h3>
+
+<p>Similar to scripts and stylesheets in <em>Sources</em>, <em>Snippets</em> also supports
+navigating to specific snippet files, functions or line-numbers using the same
+keyboard shortcuts we mentioned earlier.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/snippet_filter.png"></div>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+<a name="//apple_ref/cpp/Section/6.%20%20Persistence%20Extensions" class="dashAnchor" id=""></a><h2 id="persistence-extensions">Persistence Extensions</h2>
+
+<p>You may find yourself switching back and forth between the DevTools and a text
+editor while debugging. This can feel like a time-consuming way to save edits to
+scripts and stylesheets as the tools don't persist changes automatically. Similarly, unless you have a watch or live Reload process setup, updates to your
+source files require a browser reload in order to view them in Chrome.</p>
+
+
+<p>Thankfully, there exist DevTools extensions to solve these problems in the form
+of <a href="http://tin.cr/">Tin.cr</a> and <a href="https://github.com/NV/chrome-devtools-autosave">DevTools
+AutoSave</a>. The idea is that you
+can make changes inside the Tools (to scripts and styles) which are then
+automatically saved to your source files. Similarly, you can make changes to
+your source files (CSS/JavaScript) which result in a browser reload showing your
+changes.</p>
+
+<p>In short, you get bi-directional editing without the need to leave the DevTools
+and your debug session unless you really need to.</p>
+
+<div class="screenshot"><img src="authoring-development-workflow/sources_tincr.jpg"></div>
+
+<p>These solve the problem of changes you make inside the DevTools only persisting
+until you've reloaded the page. You no longer have to worry about changes not
+being saved to the file-system nor do you have to worry about copying and pasting changes from the tools to your editor or going to the Sources panel to save edits.</p>
+
+<a name="//apple_ref/cpp/Section/7.%20%20Resources" class="dashAnchor" id=""></a><h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="http://remysharp.com/2012/12/21/my-workflow-never-having-to-leave-devtools/">My workflow: Never having to leave the DevTools | remy sharp</a></li>
+<li><a href="http://www.youtube.com/watch?feature=player_detailpage&amp;v=ktwJ-EDiZoU#t=553s">The Breakpoint With Addy Osmani And Paul Lewis - Snippets | youtube</a></li>
+<li><a href="http://addyosmani.com/blog/lets-tincr-bi-directional-editing-and-saving-with-the-chrome-devtools/">Bi-directional editing and saving in the Chrome DevTools | addy osmani</a></li>
+<li><a href="http://addyosmani.com/blog/autosave-changes-chrome-dev-tools/">Auto-saving changes in the DevTools | addy osmani</a></li>
+<li><a href="http://net.tutsplus.com/tutorials/tools-and-tips/chrome-dev-tools-javascript-and-performance/">Chrome Dev Tools: JavaScript and Performance | nettuts</a></li>
+<li><a href="http://www.youtube.com/watch?v=Phw6edMppKg">Iterating with the Chrome DevTools | jeremey kahn</a></li>
+</ul>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-06-21T20:26:08.645650" id="gc-content-last-updated">Last updated June 21, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/authoring-development-workflow by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:55:28 GMT -->
+</html>

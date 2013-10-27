@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/settings by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 04:01:28 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Settings - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+    
+    
+    
+  
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Settings</h1>
+  
+  <div itemprop="articleBody">
+  
+  <link rel="stylesheet" type="text/css" href="../css/local_extensions.css">
+
+<style>
+        body.docs div h4 { font-size: 111%; font-weight: bold; margin-bottom: 0; }
+        img { max-width: 800px; }
+        div.screenshot img { border: 1px solid #ccc; margin-top: 0; }
+        .kbd {
+          background-color: #f7f7f7;
+          border: 1px solid #ccc;
+          color: #333;
+          font-size: 11px;
+          line-height: 1.4;
+          text-shadow: 0 1px 0 #fff;
+          font-family: Arial,Helvetica,sans-serif;
+          display: inline-block;
+          padding: 0.1em 0.6em;
+          margin: 0 0.1em;
+          white-space: nowrap;
+          -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
+             -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
+              box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
+          -webkit-border-radius: 3px;
+             -moz-border-radius: 3px;
+              border-radius: 3px;
+        }
+        .special {
+          background-color: #F9E5E5;
+          border-left-color: #C33;
+        }
+        body.docs pre {
+          background: #FAF7F7;
+          white-space: pre-line;
+          margin: 0 0 1.5em;
+          padding: 0;
+          vertical-align: top;
+          display: inline-block;
+        }
+        code {
+          background: #FAF7F7;
+          border: 1px solid #DDD;
+          display: inline-block;
+          line-height: 1em;
+          padding: 1.5px 2px;
+        }
+        pre code {
+          border: 0;
+          padding: 0 10px 12px;
+          margin: 0;
+        }
+        </style>
+
+
+        <strong>
+        <ul>
+          <li>
+<a href="#general">General</a>
+            <ul>
+              <li><a href="#appearance">Appearance</a></li>
+              <li><a href="#elements">Elements</a></li>
+              <li><a href="#rendering">Rendering</a></li>
+              <li><a href="#sources">Sources</a></li>
+              <li><a href="#profiler">Profiler</a></li>
+              <li><a href="#console">Console</a></li>
+              <li><a href="#extensions">Extensions</a></li>
+            </ul>
+          </li>
+          <li><a href="#workspace">Workspace</a></li>
+          <li><a href="#port-forwarding">Port Forwarding</a></li>
+          <li><a href="#experiments">Experiments</a></li>
+        </ul>
+        </strong>
+
+        <p>
+          <strong>To modify the Settings in DevTools:</strong>
+          </p>
+<ul>
+            <li>Click on the Settings cog <img src="mobile-emulation/image_38.png"> and open up the Settings pane.</li>
+          </ul>
+        
+
+        <div class="screenshot">
+          <img src="settings-files/settings.png">
+        </div>
+
+        <a name="//apple_ref/cpp/Section/1.%20%20General" class="dashAnchor" id=""></a><h2 id="general">General</h2>
+
+
+        <h4>Disable cache</h4>
+        <p>Will prevent the caching of resources <strong>ONLY</strong> for pages which have DevTools open. This will not disable caching if the DevTools are closed.</p>
+
+
+        <h4>Disable JavaScript</h4>
+        <p>Immediately suspends all JavaScript from running on the tab running the instance of DevTools which has this checked.</p>
+
+
+        <p class="note"><strong>Note:</strong> Both the Disable cache and Disable JavaScript settings will <strong>ONLY</strong> apply when DevTools is open. When it is open, for the page which has the DevTools open.</p>
+
+
+        <h4>Enable Ctrl + 1-9 shortcuts to switch panels</h4>
+        <p>You are able to use <span class="kbd">Ctrl</span> + <span class="kbd">1-9</span> shortcuts to jump to specific tabs in Chrome when multiple tabs are open, with tabs 1-8 and 9 being the last tab if more than 9 are open. This setting will enable DevTools to function in the same way, so you are able to switch between panels quickly.</p>
+
+        <p class="note"><strong>Note:</strong> Enabling this may cause conflicts with shortcut keys that are used by other applications.</p>
+
+
+        <a name="//apple_ref/cpp/Section/1.1.%20%20Appearance" class="dashAnchor" id=""></a><h3 id="appearance">Appearance</h3>
+
+
+        <h4>Show toolbar icons</h4>
+        <p>With this setting you can choose to show the icons for each panel in DevTools or not. You can save some space in the window by unchecking this option to hide the icons and show text for each panel instead. This is especially useful when DevTools is docked to the right side of the window.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/hide-icons.png">
+        </div>
+
+        <p>Hiding the icons will save <strong>30px</strong> of vertical space making that much more visible within the panels.</p>
+
+
+        <h4>Split panels vertically when docked to right</h4>
+        <p>Enabling this will change the layout of the panels so the main section is stacked on top of the sidebar sections. You may find this useful when there is not enough horizontal space when they are side-by-side which is the case for smaller screens.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/dock-to-right.png">
+        </div>
+
+
+        <a name="//apple_ref/cpp/Section/1.2.%20%20Elements" class="dashAnchor" id=""></a><h3 id="elements">Elements</h3>
+
+        <h4>Color format</h4>
+        <ul>
+          <li>As authored - <strong>(how the code was written in the stylesheet)</strong>
+</li>
+          <li>HEX: <code>#DAC0DE</code>
+</li>
+          <li>RGB: <code>rgb(128, 255, 255)</code>
+</li>
+          <li>HSL: <code>hsl(300, 80%, 90%)</code>
+</li>
+        </ul>
+
+        <div class="screenshot">
+          <img src="settings-files/color-format.png">
+        </div>
+
+        <p>The <strong>Color format</strong> setting lets you control how the color codes are displayed in the <strong>Styles Sidebar</strong> of the Elements panel. In addition to the Settings option for controlling the color format, you can click on the gear icon at the top of the Styles Sidebar to change the format of color codes.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/color-format2.png">
+        </div>
+
+        <p>Selecting <strong>As authored</strong> will use the color format for properties as defined in the stylesheet.</p>
+
+
+        <h4>Show user agent styles</h4>
+        <p>You may find it useful to show <strong>user agent styles</strong> in the Styles Sidebar of the Elements panel.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/user-agent-styles.png">
+        </div>
+
+        <p>The <strong>user agent</strong> refers to the browser. Each browser implements a default stylesheet consisting of basic style rules which are applied to DOM Elements in a page. If you've ever had a difficult time removing white-space between two elements, for example, it may have been because of the user agent stylesheet adding a default margin or padding to that particular type of element.</p>
+
+
+        <h4>Word wrap</h4>
+        <p>As with any text editor you can choose to wrap long lines of code in the Elements panel.</p>
+
+
+        <h4>Show Shadow DOM</h4>
+        <p>With <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/">Shadow DOM</a>, elements can get a new kind of node associated with them. This new kind of node is called a <strong>shadow root</strong>. An element that has a shadow root associated with it is called a shadow host. The child nodes of a shadow host isn't rendered; the content of the shadow root is rendered instead.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/shadow-dom.png">
+        </div>
+
+        <ul>
+          <li><a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/">Shadow DOM 201</a></li>
+          <li><a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-301/">Shadow DOM 301</a></li>
+          <li><a href="http://www.polymer-project.org/platform/shadow-dom.html">Shadow DOM Polyfill</a></li>
+          <li><a href="http://updates.html5rocks.com/2013/03/Visualizing-Shadow-DOM-Concepts">Visualizing Shadow DOM Concepts</a></li>
+          <li><a href="http://blogs.adobe.com/webplatform/2013/04/03/defining-presentational-boxes-with-shadow-dom/">Define presentational boxes using shadow DOM</a></li>
+        </ul>
+
+
+        <h4>Show rulers</h4>
+        <p>This will display a ruler overlay along the top, left and bottom sides of the viewport.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/show-ruler.png">
+        </div>
+
+
+        <a name="//apple_ref/cpp/Section/1.3.%20%20Rendering" class="dashAnchor" id=""></a><h3 id="rendering">Rendering</h3>
+
+
+        <h4>Show paint rectangles</h4>
+        <p>
+          When this is enabled you be able to see the regions where Chrome paints. This can help diagnose and ultimately <a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">avoid unnecessary paints</a> on a page. You can also use this to <a href="http://www.paulirish.com/2011/viewing-chromes-paint-cycle/">study painting behaviors</a> just by hovering over links, popups, or some content which dynamically updates.
+        </p>
+
+        <div class="screenshot">
+          <img src="settings-files/show-paint-rects.png">
+        </div>
+
+        <p>Furthermore, showing paint rectangles shows repainted areas for each frame making it easy to visualize what slows pages down. Ideally you want to keep the number of areas being repainted as low as possible.</p>
+
+
+        <h4>Show composited layer borders</h4>
+        <p>This highlights where layers are on-screen. Use this to <a href="http://www.html5rocks.com/en/tutorials/speed/layers/">accelerate render times</a> in Chrome. It can help to reduce the time it takes to render elements which may be animating or have CSS transforms/transitions applied to them that change the shape or positioning of the element.</p>
+
+        <p class="note"><strong>Note:</strong> The blue grid represents tiles, which you can think of as sub-units of a layer that Chrome uses to upload parts of a large layer at a time to the GPU. They aren't really too important in most cases.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/composited-layer-borders.png">
+        </div>
+
+        <p>Enabling <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&amp;t=23m42s">Show paint rectangles and Show layer borders</a> together can also be useful for finding any unnecessary paints which occur and cause a relayout on the Timeline panel.</p>
+
+
+        <p class="note"><strong>Note:</strong> Show paint rectangles and composited layer borders settings will only apply when DevTools is open.</p>
+
+
+        <h4>Show FPS meter</h4>
+        <p>Overlays an <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&amp;t=23m17s">FPS meter</a> at the top right of the browser window which updates in real-time.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/fps-meter.png">
+          <img src="settings-files/fps-memory-meter.png">
+        </div>
+
+        <p>When running Chrome on Android you may also <strong>show a GPU memory meter</strong> as part of the overlay. Enabling the FPS meter is <em></em>specially helpful when developing pages that have animations.</p>
+
+
+        <h4>Enable continuous page repainting</h4>
+        <p>This is a tool that helps you <a href="http://www.html5rocks.com/en/mobile/profiling/">identify elements</a> on the page which are costly. The page will <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&amp;t=22m51s">continuously repaint</a>, showing a counter of <a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">how much painting work is happening</a>. Then, you can hide elements and mutate styles, watching the counter, in order to figure out what is slow.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/continuous-page-repainting.png">
+        </div>
+
+
+        <a name="//apple_ref/cpp/Section/1.4.%20%20Sources" class="dashAnchor" id=""></a><h3 id="sources">Sources</h3>
+
+        <h4>Search in content scripts</h4>
+        <p><a href="http://developer.chrome.com/extensions/content_scripts.html">Content scripts</a> are JavaScript files contained within Chrome extensions that run in the context of web pages but from a protected scope that is completely separate from ordinary page JavaScript. As such, content scripts and page scripts cannot interact with each other in an ordinary way.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/content-scripts.png">
+        </div>
+
+        <p>When looking at the <strong>Content Scripts</strong> tab in the Sources panel you will see both the scripts added by extensions (<em>or by <a href="http://www.chromium.org/developers/design-documents/user-scripts">User Scripts</a> which are compiled into extensions in Chrome</em>), and also content scripts that are built-in parts of the browser, specifically the API that extensions can use.</p>
+
+        <p class="note"><strong>Note:</strong> When developing Chrome apps or extensions enabling this setting is so you can search within these native API scripts is useful, otherwise it is not useful having it enabled.</p>
+
+
+        <h4>Enable source maps</h4>
+        <p>If you have code which is concatenated and minified it is difficult to tell what file a piece of code may be in when you need to debug it. Enabling this setting is useful for <a href="javascript-debugging.html#source-maps">debugging JavaScript</a> and <a href="http://www.youtube.com/watch?v=HijZNR6kc9A#t=1m32s">working with Source maps</a> in general.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/source-maps.png">
+        </div>
+
+
+	<h4 id="css-source-maps">Enable CSS source maps</h4>
+	
+	<p>Enables source maps for CSS files generated using a preprocessor (for example, Sass).</p>
+
+	<p>For details see <a href="css-preprocessors.html">Working with CSS Preprocessors</a>.</p>
+
+	<aside class="note"><strong>Note:</strong> In Chrome 29 and earlier, this is experimental setting called 
+	<b>Support for Sass</b> or <b>Sass stylesheet debugging</b>. The experimental setting is not visible unless 
+	the <strong>Sass stylesheet debugging</strong> experiment is enabled.</aside>
+
+        <h4>Auto-reload generated CSS</h4>
+
+	<p>Only used if <b>Enable CSS source maps</b> is turned on. Determines whether generated CSS files should
+        be reloaded when the source file is saved.</p>
+
+	<p>For details see <a href="css-preprocessors.html">Working with CSS Preprocessors</a>.</p>
+
+	<aside class="note"><p><strong>Note:</strong> In Chrome 29 and earlier this appears as 
+	<b>Auto-reload CSS on Sass save</b>, and is 
+	not visible unless the <strong>Sass stylesheet debugging</strong> experiment is enabled.</p>
+	 <p>An additional setting, 
+	<strong>Timeout</strong> specifies the delay in milliseconds between the time you update a source file and the time 
+	the browser reloads the generated CSS file. The timeout is no longer required in Chrome 30.</p></aside>
+
+        <h4>Indentation</h4>
+
+        <p>Specifies how code is indented when editing in DevTools:</p>
+
+        <ul>
+          <li>2 spaces</li>
+          <li>4 spaces</li>
+          <li>8 spaces</li>
+          <li>Tab character</li>
+        </ul>
+
+
+
+        <h4>Show whitespace characters</h4>
+        <p>This will show dots for spaces and tab characters in the Sources panel.</p>
+
+
+        <a name="//apple_ref/cpp/Section/1.5.%20%20Profiler" class="dashAnchor" id=""></a><h3 id="profiler">Profiler</h3>
+
+        <h4>Show objects' hidden properties</h4>
+        <p></p>
+
+
+        <h4 id="uninstrumented-native-memory">Show uninstrumented native memory</h4>
+        <p>This setting will be visible on the main Settings pane when the <a href="#native-memory-profiling">Native memory profiling experiment</a> is enabled. When you capture native memory distribution you may choose to <strong>Show the uninstrumented native memory</strong> that is used which is not within the JavaScript heap.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/uninstrumented-native-memory.png">
+        </div>
+
+        <p>The gray bars in the chart show the uninstrumented native memory being used.</p>
+
+        <h3 id="timeline">Timeline</h3>
+
+        <h4>Show CPU activity on the ruler</h4>
+        <p>Enabling this setting will display the CPU activity in the ruler and appear as gray bars along the bottom of the timeline chart. When you hover over the gray bars you will see the details of the CPU activity for it, with just that bar highlighted.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/show-cpu-activity-hover.png">
+        </div>
+
+        <h4>Limit number of captured JS stack frames</h4>
+        <ul>
+          <li>
+<strong>-- Frames to capture:</strong> <code>30</code>
+</li>
+        </ul>
+
+        <p>Controls the depth of the stack retrieved from the <strong>Timeline Events</strong> that are produced within JavaScript. Most of the time, the overhead associated with collecting the stack is negligible. However, for certain pages with long script URLs and deep call stacks, collecting stacks may skew the performance of the page or result in a very large logs. So you can reduce the performance impact by tweaking the number of stack frames we capture and display with each event.</p>
+
+
+        <p class="note"><strong>Note:</strong> Setting the option to <strong>0</strong> will entirely turn off stack sampling.</p>
+
+
+        <a name="//apple_ref/cpp/Section/1.6.%20%20Console" class="dashAnchor" id=""></a><h3 id="console">Console</h3>
+
+
+        <h4>Log XMLHttpRequests</h4>
+        <p>Display XHR request objects in the console which expand to show details of the request.</p>
+
+
+        <h4>Preserve log upon navigation</h4>
+        <p>When navigating through multiple pages of a site you may choose to not clear the console logs with each page load so you can view the history of output across pages.</p>
+
+        <p class="note"><strong>Note:</strong> Both of these settings can be changed by right clicking on the console.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/right-click-console.png">
+        </div>
+
+
+        <a name="//apple_ref/cpp/Section/1.7.%20%20Extensions" class="dashAnchor" id=""></a><h3 id="extensions">Extensions</h3>
+
+        <strong>Open links in:</strong> <code>a panel chosen automatically</code>
+        <p></p>
+
+
+        <a name="//apple_ref/cpp/Section/2.%20%20Workspace" class="dashAnchor" id=""></a><h2 id="workspace">Workspace</h2>
+
+        <p><a href="http://www.youtube.com/watch?v=bqfoYaKCYUI#t=3m39s">Workspaces</a> allow you to select <strong>custom directories</strong> in your file system which are always available for you to edit within the <strong>Sources panel</strong>. This can be one specific project directory or a directory that contains multiple different projects within it.</p>
+
+        <p>To use this feature it open the <strong>Workspaces tab</strong> via the Settings pane. Here you will see an <strong>Add Folder</strong> link allowing you to add local directories for editing (eg: project root directories).</p>
+
+        <div class="screenshot">
+          <img src="settings-files/workspace.png">
+        </div>
+
+        <p>Once you've added a folder directory, you will be able to view, edit and save changes to files within it anytime you are working in the Sources panel. All changes to files will persist down to local file contained in directory.</p>
+
+        <p>In addition to adding a file system for your Workspace, you are also able to add file <strong>Mappings</strong> individual file urls to the path of the file on your local machine.</p>
+
+
+        <a name="//apple_ref/cpp/Section/3.%20%20Port%20Forwarding" class="dashAnchor" id=""></a><h2 id="port-forwarding">Port forwarding</h2>
+
+        <p><a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&amp;t=14m45s">Port Forwarding</a> allows you to create a TCP port listener on your device which you can map to a TCP port on your development machine.</p>
+
+        <p><strong>Device port:</strong> <code>8080</code></p>
+
+        <p><strong>Target:</strong> <code>127.0.0.1</code></p>
+
+        <p>Using this feature you are also able to make use of Workspaces and the DevTools editor in Sources while viewing the changes on your device, and all of the DevTools features as well.</p>
+
+        <p>To do this, you simply set the <strong>device port</strong> to the port number you want, and set the <strong>target</strong> to be the host machine's IP address (<em>localhost would be 127.0.0.1</em>). Then on your device, visit <strong>localhost:9000</strong> and you will have access to the DevTools for the device on your local machine.</p>
+
+        <p class="note"><strong>Note:</strong> You must enable this feature in the Settings pane &gt; <a href="#portfowarding">Experiments tab</a> to be able to use it. Once enabled, you will be able to access the Port Forwarding tab in the Settings pane.</p>
+
+	<p>See <a href="remote-debugging.html#reverse-port-forwarding">Reverse Port Forwarding</a> 
+	for more information.</p>
+
+        <a name="//apple_ref/cpp/Section/4.%20%20Experiments" class="dashAnchor" id=""></a><h2 id="experiments">Experiments</h2>
+
+
+        <p class="special"><strong>These are experimental features which are actively developed.</strong> It is entirely possible for them to break because of this. Due to how frequently these features change, any documentation explaining how an experimental feature functions or its usage may not be entirely up-to-date. </p>
+
+
+        <p>To enable the Experiments tab of the Settings pane you need to navigate to <code>about:flags</code> and scroll down to the <strong>Experimental Developer Tools experiments</strong> flag. Enable it then restart the browser.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/experiments-flag.png">
+        </div>
+
+        <p>Once Chrome re-opens, open up the Settings pane &gt; <strong>Experiments tab</strong> that is now available.</p>
+
+
+        <h4 id="native-memory-profiling">Native memory profiling</h4>
+        <p>With the <a href="http://www.youtube.com/watch?v=FdsummsTeLo#t=1247s">Native memory profiling</a> experiment enabled, two <a href="http://www.youtube.com/watch?v=FdsummsTeLo#t=1247s"> additional profiling tools</a> will be available on the Profiles panel which you can use to take <strong>native heap snapshots</strong> and also <strong>capture native memory distribution</strong>.</p>
+
+        <p>With these you can get a better understanding of how the render process is consuming memory which may not be within the V8 heap. It lets you know how much memory is used by the major components in your app; <em>CSS, DOM, the render tree, fonts, images, JavaScript heap</em> and so on.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/native-memory-profiling.png">
+        </div>
+
+        <p>The <strong>native heap snapshot</strong> option works much the same as the regular heap snapshot profiler does only it shows you the native memory heap. This includes anything consuming memory which may not be within the V8 heap (Chrome JavaScript engine).</p>
+
+        <p>Once you <strong>capture the native memory distribution</strong> you can determine what is using a lot of memory whether it is your Page structures or other resources that are being loaded and using memory.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/native-memory-profiles.png">
+        </div>
+
+        <p class="note"><strong>Note:</strong> An additional option to <a href="#uninstrumented-native-memory">Show uninstrumented native memory</a> is added to the main Settings pane when this Experiment is turned on.</p>
+
+        <p>The DevTools heap profiler tool is helpful for <a href="http://addyosmani.com/blog/taming-the-unicorn-easing-javascript-memory-profiling-in-devtools/">finding memory leaks</a> but it is limited to memory which is allocated in the V8 heap only. The DOM tree may be consuming a lot of memory while the heap remains small. In cases like this the heap profiler will not be very helpful.</p>
+
+
+        <h4>Native memory timeline</h4>
+        <p>This setting replaces the <strong>DOM counters</strong> view on the Timeline panel when viewing the <strong>Memory</strong> section with a <strong>dynamic memory distribution</strong> graph.
+
+
+        </p>
+<div class="screenshot">
+          <img src="settings-files/native-memory-timeline.png">
+        </div>
+
+        <p class="note"><strong>Note:</strong> Enabling this feature may have a significant performance impact at the time of writing this, so use with caution.</p>
+
+
+        <h4>Canvas inspection</h4>
+        <p>Allows you to <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&amp;t=21m36s">capture a single canvas frame</a> so you can inspect all the draw function calls that are made in during that frame.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/canvas-inspection.png">
+        </div>
+
+        <ul>
+          <li><a href="http://www.youtube.com/watch?v=FY5iiuQRyEE&amp;t=8m23s">Canvas Inspection</a></li>
+          <li><a href="http://learningthreejs.com/blog/2013/04/05/debugging-with-chromes-canvas-inspection/">Debugging with Canvas Inspector</a></li>
+        </ul>
+
+
+        <h4>Sass stylesheet debugging</h4>
+
+	<p>Enables source maps for CSS files generated using a preprocessor (for example, Sass).</p>
+
+	<p>For details see <a href="css-preprocessors.html">Working with CSS Preprocessors</a>.</p>
+
+	<aside class="note"><strong>Note:</strong> In Chrome 30 and later, this setting is no longer experimental.
+        See <a href="#css-source-maps"><b>Enable CSS source maps</b></a> in the <b>General</b> settings.</aside>
+
+        <h4>CSS Regions Support</h4>
+        <p><a href="http://dev.w3.org/csswg/css3-regions/">CSS Regions</a> allows a block of semantically marked-up text to automatically flow into elements. Turn this setting on to <a href="http://www.html5rocks.com/en/tutorials/regions/adobe/">start making use</a> of this feature.</p>
+
+
+        <h4>Show Overrides in drawer</h4>
+
+        <p>When this is checked the <strong>Overrides tab</strong> will then be accessible by simply clicking on the Settings cog and selecting Overrides from the drawer menu that pops up. When this option is not checked the Overrides tab can be accessed via the Settings pane.</p>
+
+        <div class="screenshot">
+          <img src="settings-files/overrides-drawer.png">
+        </div>
+
+
+        <h4>Enable toolbar customization</h4>
+        <p></p>
+
+
+        <h4 id="portforwarding">Enable port forwarding</h4>
+        <p>With this setting enabled you will be able to access the Settings pane &gt; <a href="#port-forwarding">Port Forwarding tab</a> which provides to you some extra features that can be especially helpful when developing on mobile devices.</p>
+
+
+        <h4>Open console as overlay</h4>
+        <p>When toggling the Console on other panels using the <span class="kbd">Esc</span> shortcut key, this setting will make it overlay on top of other parts of the panel rather than push everything up and decrease the vertical space in the panel. It is especially useful on the Elements panel when the DevTools are <strong>docked-to-right</strong>.</p>
+
+
+        <h4>Enable heap objects tracking profile type</h4>
+        <p>Will add to the Profiles panel and addition tool for <a href="http://www.youtube.com/watch?v=x9Jlu_h_Lyw&amp;t=23m35s">Object allocation tracking</a> within the V8 heap. With this feature you are able see to if any retained <a href="http://www.youtube.com/watch?v=x6qe_kVaBpg&amp;t=24m14s">references to objects</a> not picked up by garbage collection (GC) causing your site to leak memory and become unperformant.</p>
+
+
+        <h4>Enable text editor autocompletion</h4>
+        <p>When working in the Sources panel use <span class="kbd">Cmd</span> + <span class="kbd">Space</span> to show autocomplete options.</p>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-08-12T09:23:26.046610" id="gc-content-last-updated">Last updated August 12, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/settings by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 04:01:51 GMT -->
+</html>

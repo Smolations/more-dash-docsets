@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/heap-profiling by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 04:02:40 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Profiling memory performance - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+    
+    
+    
+  
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Profiling memory performance</h1>
+  
+  <div itemprop="articleBody">
+  
+
+
+<link rel="stylesheet" type="text/css" href="../css/local_extensions.css">
+
+
+
+<p>This tutorial explains how to use the Heap Profiler for uncovering
+memory leaks in your applications.</p>
+
+<div class="special"><p>Read
+the <a href="memory-analysis-101.html">Memory 101</a> page to become
+familiar with the terms used in this document.</p></div>
+
+<p class="note"><b>Note:</b> If you are a Web Developer and want to get the
+latest version of Developer Tools, you should use the Google Chrome release
+from the <a href="http://dev.chromium.org/getting-involved/dev-channel">Developer Channel</a>.
+</p>
+
+<h4>Contents</h4>
+
+<ol class="toc">
+  <li>
+    <a href="#basics">Basic functions</a>
+    <ol>
+      <li><a href="#basics_snapshot">Taking a snapshot</a></li>
+      <li><a href="#basics_clear">Clearing snapshots</a></li>
+      <li><a href="#basics_views">Switching between snapshot views</a></li>
+      <li><a href="#basics_colors">Looking up color coding</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#views">Views in detail</a>
+    <ol>
+      <li>
+<a href="#views_summary">Summary view</a> / <a href="heap-profiling-summary.html" target="_blank">Demo: Gathering Scattered Objects</a>
+</li>
+      <li>
+<a href="#views_comparison">Comparison view</a> / <a href="heap-profiling-comparison.html" target="_blank">Demo: Verifying Action Cleanness</a>
+</li>
+      <li>
+<a href="#views_containment">Containment view</a> / <a href="heap-profiling-containment.html" target="_blank">Demo: Exploring the Heap Contents</a>
+</li>
+      <li>
+<a href="#views_dom">Uncovering DOM leaks</a> / <a href="heap-profiling-dom-leaks.html" target="_blank">Demo page</a>
+</li>
+      <li>
+<a href="#views_dominators">Dominators view</a> / <a href="heap-profiling-dominators.html" target="_blank">Demo: Finding Accumulation Points</a>
+</li>
+      <li><a href="#views_paths">Retaining paths</a></li>
+    </ol>
+  </li>
+  <li><a href="#qna">Q&amp;A</a></li>
+</ol>
+
+<a name="//apple_ref/cpp/Section/1.%20%20Basic%20functions" class="dashAnchor" id=""></a><h2 id="basics">Basic functions</h2>
+
+<a name="//apple_ref/cpp/Section/1.1.%20%20Taking%20a%20snapshot" class="dashAnchor" id=""></a><h3 id="basics_snapshot">Taking a snapshot</h3>
+
+<p>On the <strong>Profiles</strong> tab, select the <strong>Take Heap
+Snapshot</strong> option and press <strong>Start</strong>:
+
+</p>
+<div class="screenshot"><img src="heap-profiling-files/take_snapshot_button.png"></div>
+
+<p>Snapshots are initially stored in the renderer process memory. They are
+transferred to the DevTools on demand, when you click on the snapshot icon to
+view it. After the snapshot has been loaded into DevTools and has been parsed,
+the number below the snapshot title appears and shows the total size of
+the <a href="memory-analysis-101.html#retaining_paths">reachable</a> JavaScript
+objects:</p>
+
+<div class="screenshot"><img src="heap-profiling-files/snapshot_memory.png"></div>
+
+<a name="//apple_ref/cpp/Section/1.2.%20%20Clearing%20snapshots" class="dashAnchor" id=""></a><h3 id="basics_clear">Clearing snapshots</h3>
+
+<p>Snapshots can be removed (both from DevTools and renderer's memory) by
+pressing the <strong>Clear all profiles</strong> button:</p>
+
+<div class="screenshot"><img src="heap-profiling-files/clear_profiles.png"></div>
+
+<p class="note"><b>Note:</b> Closing the DevTools window will not delete
+collected profiles from the renderer's memory. When reopening DevTools, all
+previously taken snapshots will reappear in the list of snapshots.</p>
+
+<a name="//apple_ref/cpp/Section/1.3.%20%20Switching%20between%20snapshot%20views" class="dashAnchor" id=""></a><h3 id="basics_views">Switching between snapshot views</h3>
+
+<p>A snapshot can be viewed from different perspectives for different tasks. To
+switch between views, use the selector at the bottom of the view:</p>
+
+<div class="screenshot"><img src="heap-profiling-files/view_selector_crop.png"></div>
+
+<p>There are four views:
+</p>
+<ul>
+  <li>
+<strong>Summary</strong> &#8212; shows objects grouped by
+  the constructor name;</li>
+  <li>
+<strong>Comparison</strong> &#8212; displays difference between
+  two snapshots;</li>
+  <li>
+<strong>Containment</strong> &#8212; allows exploration of heap
+  contents;</li>
+  <li>
+<strong>Dominators</strong> &#8212;
+  shows <a href="memory-analysis-101.html#dominators">dominators
+  tree.</a>
+</li>
+</ul>
+
+<a name="//apple_ref/cpp/Section/1.4.%20%20Looking%20up%20color%20coding" class="dashAnchor" id=""></a><h3 id="basics_colors">Looking up color coding</h3>
+
+<p>Properties and property values of objects have different types and
+are colored accordingly. To view the type color legend, press the
+question mark button on the status bar:</p>
+
+<div class="screenshot"><img src="heap-profiling-files/colors_legend.png"></div>
+
+<p>Each property has one of four types::
+  </p>
+<ul>
+    <li>
+<strong>property</strong> &#8212; a regular property with a name,
+      accessed via the <code>.</code> (dot) operator, or via
+      <code>[]</code> (brackets) notation, e.g. <code>["foo bar"]</code>;</li>
+    <li>
+<strong>element</strong> &#8212; a regular property with a numeric
+      index, accessed via <code>[]</code> (brackets) notation;</li>
+    <li>
+<strong>context variable</strong> &#8212; a variable in a function
+    context, accessible by its name from inside a function closure;</li>
+    <li>
+<strong>system property</strong> &#8212; property added by the
+    JavaScript VM, not accessible from JavaScript code.</li>
+  </ul>
+
+
+<p>Objects designated as <strong>System</strong> don't have
+corresponding JavaScript types. They are part of JavaScript VM's
+object system implementation.</p>
+
+<a name="//apple_ref/cpp/Section/2.%20%20Views%20in%20detail" class="dashAnchor" id=""></a><h2 id="views">Views in detail</h2>
+
+<a name="//apple_ref/cpp/Section/2.1.%20%20Summary%20view" class="dashAnchor" id=""></a><h3 id="views_summary">Summary view</h3>
+
+<p>Initially, a snapshot opens in the <strong>Summary</strong> view, displaying
+object totals, which can be expanded to show instances:</p>
+
+<div class="screenshot"><img src="heap-profiling-files/summary_view.png"></div>
+
+<p>Top-level entries are "total" lines. They display the
+constructor name, and group all objects created using this
+constructor. The number of object instances is displayed in
+the <strong>#</strong> column. The <strong>Shallow size</strong>
+column displays the sum
+of <a href="memory-analysis-101.html#object_sizes">shallow sizes</a>
+of all objects created by a certain constructor
+function. The <strong>Retained Size</strong> column displays the
+maximum retained size among the same set of objects.</p>
+
+<p>After expanding a total line in the upper view, all of its
+instances are displayed. For each instance, its shallow and retained
+sizes are displayed in the corresponding columns. The number after
+the <strong>@</strong> character is the object unique ID, allowing to
+compare heap snapshots on per-object basis.</p>
+
+<p>Try this <a href="heap-profiling-summary.html" target="_blank">demo
+page</a> (opens in a new tab) to understand how
+the <strong>Summary</strong> view can be used.</p>
+
+<a name="//apple_ref/cpp/Section/2.2.%20%20Comparison%20view" class="dashAnchor" id=""></a><h3 id="views_comparison">Comparison view</h3>
+
+<p>When more than one heap snapshot is taken, it is possible to
+compare them, and find leaked objects. To verify that a certain
+application operation doesn't create leaks (e.g. usually a pair of
+direct and reverse operations, like opening a document, and then
+closing it, should not leave any garbage), you may follow the scenario
+below:
+</p>
+<ol>
+  <li>take a heap snapshot before performing an operation;</li>
+  <li>perform an operation (e.g. open a document);</li>
+  <li>perform a reverse operation (close the document);</li>
+  <li>take a heap snapshot.</li>
+</ol>
+
+<p>In the <strong>Comparison</strong> view, the difference between two
+snapshots is displayed. When expanding a total entry, added and
+deleted object instances are shown:</p>
+
+<div class="screenshot"><img src="heap-profiling-files/comparison_view.png"></div>
+
+<p>Try this <a href="heap-profiling-comparison.html" target="_blank">demo
+page</a> (opens in a new tab) to get an idea how to use snapshot comparison for
+detecting leaks.</p>
+
+<a name="//apple_ref/cpp/Section/2.3.%20%20Containment%20view" class="dashAnchor" id=""></a><h3 id="views_containment">Containment view</h3>
+
+<p>The <strong>Containment</strong> view is essentially a "bird's eye
+view" of your application's objects structure. It allows you to peek inside
+function closures, to observe VM internal objects that together make up your
+JavaScript objects, and to understand how much memory your application uses at a
+very low level.</p>
+
+<p>The view provides several entry points:
+  </p>
+<ul>
+    <li>
+<code>DOMWindow</code> objects &#8212; these are objects
+    considered as "global" objects for JavaScript code;</li>
+    <li>GC roots &#8212; actual GC roots used by VM's garbage collector;</li>
+    <li>Native objects &#8212; browser objects that are "pushed"
+    inside the JavaScript virtual machine to allow automation, e.g. DOM nodes,
+    CSS rules (see the next section for more details.)</li>
+</ul>
+
+<p>Below is the example of what the <strong>Containment</strong> view
+looks like:</p>
+
+<div class="screenshot"><img src="heap-profiling-files/containment_view.png"></div>
+
+<p>Try this <a href="heap-profiling-containment.html" target="_blank">demo page</a> (opens in a new tab) for finding out how
+to explore closures and event handlers using the view.</p>
+
+<a name="//apple_ref/cpp/Section/2.4.%20%20Uncovering%20DOM%20leaks" class="dashAnchor" id=""></a><h3 id="views_dom">Uncovering DOM leaks</h3>
+
+<p>The unique ability of the new tool is to reflect bidirectional
+dependencies between browser native objects (DOM nodes, CSS rules) and
+JavaScript objects. This helps to discover otherwise invisible leaks
+happening due to forgotten detached DOM subtrees floating around.</p>
+
+<p>Native objects are most easily accessible
+from <strong>Summary</strong> and <strong>Containment</strong> views
+&#8212; there are dedicated entry nodes for them:</p>
+
+<div class="screenshot"><img src="heap-profiling-files/dom_leaks_summary.png"></div>
+
+<p>Try this <a href="heap-profiling-dom-leaks.html" target="_blank">demo page</a> (opens in a new tab) to play with
+detached DOM trees.</p>
+
+<a name="//apple_ref/cpp/Section/2.5.%20%20Dominators%20view" class="dashAnchor" id=""></a><h3 id="views_dominators">Dominators view</h3>
+
+<p>The <strong>Dominators</strong> view shows the dominators tree for
+the heap graph. The <strong>Dominators</strong> view looks similar to
+the <strong>Containment</strong> view, but lacks property names. This
+is because a dominator of an object may lack direct references to it,
+that is, the dominators tree is not a spanning tree of the graph. But
+this only serves for good, as helps us to identify memory accumulation
+points quickly.</p>
+
+<div class="screenshot"><img src="heap-profiling-files/dominators_view.png"></div>
+
+<p>Try this <a href="heap-profiling-dominators.html" target="_blank">demo page</a> (opens in a new tab) to train yourself
+in finding accumulation points.</p>
+
+<a name="//apple_ref/cpp/Section/2.6.%20%20Retaining%20paths" class="dashAnchor" id=""></a><h3 id="views_paths">Retaining paths</h3>
+
+<p>The retaining paths view is always displayed. To activate it, click on an
+object in the upper pane, regardless of what view is currently active. The
+profiler will start looking up for simple paths from roots to the object
+selected. It will start from shorter paths, gradually increasing walking
+distance. It is possible to restrict the roots set to <code>DOMWindow</code>
+objects, instead of all GC roots. This is helpful for finding references
+originating from the application itself &#8212; they are the most probable
+sources for leaks:
+
+</p>
+<div class="screenshot"><img src="heap-profiling-files/retaining_paths_crop.png"></div>
+
+<p>In the simplest case, the path will only include "true"
+JavaScript objects and use references that are accessible from
+JavaScript code, e.g.:
+  </p>
+<ul>
+    <li><code>DOMWindow@1234.foo.bar</code></li>
+    <li><code>DOMWindow@1235.listeners[34].handler["on click event"]</code></li>
+  </ul>
+
+
+<p>Such paths can be easily evaluated in the debugger console if the appropriate
+context has been entered. For example, if an application has several iframes,
+execution must be suspended during running a function code belonging to
+it). Evaluating a path makes it possible to examine the complete contents of
+each object, including properties whose values not stored in the heap, and thus
+not captured in a snapshot.</p>
+
+<p>Often it happens that an object is retained via closures. Closure references
+are displayed using the <code>-&gt;</code> notation:
+  </p>
+<ul>
+    <li><code>DOMWindow@1234.callbacks[12]-&gt;context</code></li>
+    <li><code>DOMWindow@1235.callback-&gt;nested-&gt;inside</code></li>
+  </ul>
+  Such paths can't be evaluated in the console.
+
+<p>Even more advanced are paths including "hidden"
+objects. Normally, the existence of such paths doesn't mean that an
+application has a leak. Some of the paths are "low level"
+paths, equivalent to their JavaScript shortcuts. E.g., every object
+has <code>elements</code> and <code>properties</code> internal arrays,
+thus a property value can be displayed as held directly by an object
+(this is how a JavaScript programmer sees it), or as an element of the
+<code>properties</code> array (this is how the JavaScript virtual machine
+actually accesses it.) Knowing these details might help in getting an
+understanding of how the virtual machine works. However, for most of web
+application developers it is safe to ignore them. Below are some examples of
+"internal" paths:
+  </p>
+<ul>
+    <li><code>GCRoots@1[254]</code></li>
+    <li>
+<code>DOMWindow@1234{prop}{1}</code> &#8212; this is equivalent to a JavaScript path: <code>DOMWindow@1234.prop</code>
+</li>
+    <li><code>DOMWindow@1235.object{properties}{2}</code></li>
+  </ul>
+
+
+<a name="//apple_ref/cpp/Section/3.%20%20Q&amp;A" class="dashAnchor" id=""></a><h2 id="qna">Q&amp;A</h2>
+
+<dl>
+  <dt>I don't see all the properties of objects, I don't see
+non-string values for them! Why?
+    </dt>
+<dd>Not all properties are actually stored on the JavaScript
+  heap. Some of them are implemented using getters that execute native
+  code. Such properties are not captured in heap snapshots in order to avoid
+  the cost of calling getters and to avoid possible program state
+  changes if getters are not "pure" functions. Also,
+  non-string values such as numbers are not captured in an attempt to
+  reduce snapshot size.</dd>
+  
+</dl>
+
+<dl>
+  <dt>What does the number after
+the <code>@</code> char mean &#8212; is this an address or an ID?
+Is the ID value really unique?
+    </dt>
+<dd>This is an object ID. Displaying an object's address makes no
+  sense, as objects are moved during garbage collections.  Those
+  object IDs are real IDs &#8212; that means, they persist among
+  multiple snapshots taken. This allows precise comparison between
+  heap states. Maintaining those IDs adds an overhead to GC cycles,
+  but it is only initiated after the first heap snapshot was taken
+  &#8212; no overhead if heap profiles aren't used.</dd>
+  
+</dl>
+
+<dl>
+  <dt>Are "dead" (unreachable) objects
+    included in snapshots?
+    </dt>
+<dd>No. Only reachable objects are included in snapshots. Also,
+  taking a snapshot always starts with doing a GC.</dd>
+  
+</dl>
+
+<dl>
+  <dt>What comprises GC roots?
+    </dt>
+<dd>Many things:
+  <ul>
+    <li>built-in object maps;</li>
+    <li>symbol table;</li>
+    <li>stacks of VM threads;</li>
+    <li>compilation cache;</li>
+    <li>handle scopes;</li>
+    <li>global handles.</li>
+  </ul>
+    </dd>
+  
+</dl>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+
+  
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-05-07T00:22:27.079320" id="gc-content-last-updated">Last updated May 7, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/heap-profiling by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 04:02:50 GMT -->
+</html>

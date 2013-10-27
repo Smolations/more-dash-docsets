@@ -177,6 +177,142 @@ class Dash
     end
 
 
+    # type (case-insensitive) is one of: 'files', 'folders', 'all'
+    # returns +array+
+    def dir_recurse_list(abs_path, type = 'all')
+        if !File.directory?(abs_path)
+            return nil
+        end
+
+        @files   = []
+        @folders = []
+        @all     = []
+
+        def get_file_paths(folder_path)
+            clean_dir_entries(folder_path).each do |entry|
+                entry_path = File.join(folder_path, entry)
+
+                @all.push(entry_path)
+                if File.directory?(entry_path)
+                    @folders.push(entry_path)
+                    get_file_paths(entry_path)
+                else
+                    @files.push(entry_path)
+                end
+            end
+        end
+
+        get_file_paths(abs_path)
+
+        case type
+            when 'files'
+                return @files
+
+            when 'folders'
+                return @folders
+
+            when 'all'
+                return @all
+
+            else
+                return nil
+        end
+    end
+
+
+    # +arr+ should mirror the TOC structure. Entries should be hashes returned from
+    # +get_toc_obj+.
+    # returns +array+
+    def get_toc_numbers(arr, prefix = '', type = 'Guide', insert = true, deco = '.')
+        @names = []
+
+        def numbering(a, p, t, i, d)
+            cnt     = 1
+            gremlin = (a.length > 9) ? ' ' : ''
+            new_arr = []
+
+            a.each do |toc_obj|
+                if (cnt > 9)
+                    new_prefix = p + cnt.to_s + d
+                else
+                    new_prefix = p + gremlin + cnt.to_s + d
+                end
+
+                name = toc_obj.keys.shift
+
+                # save prefix to the object
+                toc_obj[name][:prefix] = new_prefix
+
+                if toc_obj[name][:node].name == 'a'
+                    type = t
+                    path = toc_obj[name][:node]['href']
+                    if i
+                        sql_insert(new_prefix + '  ' + name, type, path)
+                    end
+                end
+                @names.push(new_prefix + '  ' + name)
+
+                # process the sublist TOC
+                if toc_obj[name][:subset].length > 0
+                    toc_obj[name][:subset] = numbering(toc_obj[name][:subset], new_prefix, t, i, d)
+                end
+
+                new_arr.push(toc_obj)
+                cnt = cnt + 1
+            end
+
+            return new_arr
+        end
+
+        new_toc = numbering(arr, prefix, type, insert, deco)
+
+        # return @names
+        return new_toc
+    end
+
+
+    # Pass a +search+ string to find a specific toc_object in the +arr+ array.
+    # returns +array+
+    def find_toc_obj(arr, search)
+        @objs = []
+        regex = Regexp.new(search, true)
+
+        def traverse(a, regx)
+            a.each do |toc_obj|
+                name = toc_obj.keys.shift
+                if regx.match(name)
+                    @objs.push(toc_obj)
+                end
+                if toc_obj[name][:subset].length
+                    traverse(toc_obj[name][:subset], regx)
+                end
+            end
+        end
+
+        traverse(arr, regex)
+
+        return @objs
+    end
+
+
+    # {
+    #     'name' => {
+    #         'node'   => node,
+    #         'subset' => []
+    #     }
+    # }
+    # return +hash+
+    def get_toc_obj(name, node, subset = [])
+        return {
+            "#{name}" => {
+                :node   => node,
+                :subset => subset
+            }
+        }
+    end
+
+
+
     ##
     ## :category: NOKOGIRI-SPECIFIC METHODS
     ##
@@ -201,14 +337,20 @@ class Dash
 
 
     # file_path is relative to SRC_DOCS_PATH or can be absolute
-    def save_noko_doc(doc, file_path)
+    def save_noko_doc(doc, file_path, xhtml = true)
         full_path = File.join(@docs_root, file_path)
         if File.exists?(file_path)
             full_path = file_path
         end
         if File.exists?(full_path)
             file = File.new(full_path, 'w')
-            file << doc.to_xhtml(:encoding => 'US-ASCII')
+
+            if xhtml
+                file << doc.to_xhtml(:encoding => 'US-ASCII')
+            else
+                file << doc.to_html(:encoding => 'US-ASCII')
+            end
+
             file.close
             return true
         else

@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/contributing by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 04:02:32 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Contributing to Chrome DevTools - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+  
+  
+  
+
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Contributing to Chrome DevTools</h1>
+  
+  <div itemprop="articleBody">
+  
+<p>There are many ways you can improve the productivity of your fellow developers. 
+That could be by sharing what you know or helping out with documenting features 
+or writing a patch to improve the tools we all use. </p>
+<nav class="inline-toc"><ol class="toc">
+<li><a href="#how_can_you_help">How can you help?</a></li>
+<li>
+<a href="#contributing_to_devtools_source_code">Contributing to DevTools source code</a><ol class="toc">
+<li><a href="#step_1_getting_set_up">Step 1: Getting set up</a></li>
+<li><a href="#step_2_running_an_edge-build_of_chromium">Step 2: Running an edge-build of Chromium</a></li>
+<li><a href="#step_3_inspector_inception">Step 3: Inspector inception</a></li>
+<li><a href="#step_4_pick_a_ticket">Step 4: Pick a ticket</a></li>
+<li><a href="#step_5_pull_develop_branch_commit">Step 5: Pull, Develop, Branch, Commit</a></li>
+<li><a href="#step_6_upload_your_patch">Step 6: Upload your Patch</a></li>
+</ol>
+</li>
+<li>
+<a href="#troubleshooting_workflows">Troubleshooting workflows</a><ol class="toc">
+<li><a href="#alternative_workflow_1">Alternative workflow #1</a></li>
+<li><a href="#alternative_workflow_2">Alternative workflow #2</a></li>
+<li><a href="#running_layout_tests">Running Layout tests</a></li>
+</ol>
+</li>
+</ol></nav>
+<a name="//apple_ref/cpp/Section/1.%20%20How%20can%20you%20help?" class="dashAnchor" id=""></a><h2 id="how_can_you_help">How can you help?</h2>
+<p>Aside from contributing to the source code for DevTools, all of the following 
+are different ways you could help contribute:</p>
+<ul>
+<li>
+<strong>Documentation authoring</strong><ul>
+<li>Both reference and tutorial guides benefit from your help</li>
+<li>Get in touch with <a href="http://twitter.com/addyosmani">@addyosmani</a> or <a href="http://twitter.com/paul_irish">@paul_irish</a>
+</li>
+</ul>
+</li>
+<li>
+<strong>Share what you've learned</strong><ul>
+<li>Share what you've learned via GIFs, Vines or construction paper</li>
+<li>Cover new experimental features</li>
+<li>Design improved UX for all parts of DevTools</li>
+<li>Triage and manage issues</li>
+<li>Work on features or bugs</li>
+</ul>
+</li>
+<li>
+<strong>Coverage of new experimental features</strong><ul>
+<li>Subscribe to <a href="https://groups.google.com/a/chromium.org/forum/#!forum/devtools-reviews">devtools-reviews@chromium.org mailing 
+  list</a> 
+  for all reviews of pending code</li>
+<li>Subscribe to the <a href="http://commits.peter.sh/feed/?tracker=devtools">RSS feed of devtools 
+  commits</a>.</li>
+<li>There's plenty of action and developers are eager to hear what's landing</li>
+</ul>
+</li>
+<li>
+<strong>Designing improved UX for all parts of DevTools</strong><ul>
+<li>Your ideas on the design and UX are quite welcome, for example the <a href="https://code.google.com/p/chromium/issues/detail?id=181703">new 
+  tooltip 
+  design</a>
+</li>
+</ul>
+</li>
+<li>
+<strong>Issue triage &amp; management</strong><ul>
+<li>View <a href="http://goo.gl/N6OH9">all open DevTools tickets</a>. Ask for reductions 
+  when appropriate or provide them yourself.</li>
+</ul>
+</li>
+<li>
+<strong>Working on features or bugs</strong><ul>
+<li>The codebase is just JavaScript and the contribution guide below can get 
+  you started quickly</li>
+</ul>
+</li>
+</ul>
+<p>Read on to learn how to contribute a patch to DevTools source.</p>
+<a name="//apple_ref/cpp/Section/2.%20%20Contributing%20to%20DevTools%20source%20code" class="dashAnchor" id=""></a><h2 id="contributing_to_devtools_source_code">Contributing to DevTools source code</h2>
+<p>The Chrome DevTools are actually a web app written in JavaScript and CSS. If 
+you're familiar with these technologies, you know enough to write a patch. A few 
+folks have already done this, giving us a colorpicker, a file picker 
+and other features, all contributed by developers just like you.</p>
+<p>IRC channel on <a href="http://webchat.freenode.net/?channels=blink">Freenode</a>: 
+<strong>#</strong><strong>chrome-devtools </strong>and <strong>#blink</strong></p>
+<p>In this guide, we'll cover how to get set up and running locally so you can 
+start developing and contributing to the DevTools. You may also find it helpful 
+to read the <a href="http://dev.chromium.org/developers/contributing-code">Chromium 
+g</a><a href="http://dev.chromium.org/developers/contributing-code">uide for contributing 
+code</a>.</p>
+<p class="note"><strong>Note:</strong> You will need to sign and submit a completed <a href="https://developers.google.com/open-source/cla/individual">CLA (Contributor License Agreement)</a> before we are able to consider any contributions you may wish to make.
+</p>
+
+<a name="//apple_ref/cpp/Section/2.1.%20%20Step%201:%20Getting%20set%20up" class="dashAnchor" id=""></a><h3 id="step_1_getting_set_up">Step 1: Getting set up</h3>
+<p>There are a few things you need in order to contribute to DevTools. </p>
+<p><strong>Get the code</strong><br>
+Download the <a href="http://www.chromium.org/blink">Blink</a> source code by <a href="https://chromium.googlesource.com/chromium/blink">cloning the 
+git repository</a>. This process 
+can take anywhere between 30-60 minutes (depending on your connection).<br>
+<br>
+<code>git clone https://chromium.googlesource.com/chromium/blink</code><br><br>
+<strong>Install Canary</strong><br>
+While Blink downloads, install Chrome Canary on <a href="https://tools.google.com/dlpage/chromesxs">Mac OS / 
+Windows</a> or download <a href="https://download-chromium.appspot.com/">the latest 
+Chromium build</a>.<br></p>
+<p class="note"><strong>Note:</strong> To save you time, we created a <a href="https://github.com/jankeromnes/cr">helpful bash 
+script</a> that can take care of some of the 
+grunt work for you.
+</p>
+
+<p><br>
+<strong>Serve devtools frontend</strong><br>
+Run a local web server. The local web server will serve files from the directory 
+<code>blink/Source/devtools</code> on some port (e.g. <code>8000</code>).</p>
+<p>After the Blink repository has finished downloading go to the devtools folder:</p>
+<p><code>cd blink/Source/devtools</code> </p>
+<p>From there you can run a SimpleHTTPServer using Python with the following 
+command:<br></p>
+<pre class="prettyprint"><code>python -m SimpleHTTPServer
+</code></pre>
+<p><strong>Why does the server need to run from the devtools directory?</strong><br>
+When remotely debugging and developing the front-end of Blink, the content of the 
+<code>InspectorBackendCommands.js</code> file is generated based on the content of 
+<code>protocol.json</code> instead as a fallback of the Chromium build system. The 
+<code>protocol.json</code> file is in the parent folder of the <code>front_end</code> folder which is 
+<code>/devtools</code>. This is why you need to run the web server from within the devtools 
+directory.</p>
+<p class="note"><strong>Note:</strong> If you have checked out the entire Chromium source you will need to 
+run the web server from <code>/src/third_party/WebKit/Source/devtools</code> instead.
+</p>
+
+<p>If your feature requires changes to the back-end code then you definitely need 
+to checkout and build Chromium. Otherwise, you only need to setup a web server 
+for the front-end files and run Chrome with remote-debugging options.</p>
+<p class="note"><strong>Note:</strong> protocol.json describes the API between front-end and back-end. It is 
+used for generating API stubs for the front-end and back-end at the build stage. 
+When remote debugging the front-end part of the API, <code>InspectorBackendCommands.js</code> 
+is generated on the fly by front-end code. For more information, read the <a href="http://www.chromium.org/developers/how-tos">Chromium How-tos</a>.
+</p>
+
+<p><strong>Install depot_tools</strong><br>
+You will need to <a href="http://dev.chromium.org/developers/how-tos/install-depot-tools">install the 
+depot_tools</a> in 
+order to upload your patch once your changes are completed. The 
+<strong><a href="http://dev.chromium.org/developers/how-tos/depottools">depot_tools</a></strong> are a 
+package of scripts used to manage checkouts and code reviews, and it includes 
+commands <code>gclient</code>, <code>gcl</code>, and <code>git-cl</code> and will be useful later on. You will 
+still want to sync your Chromium checkout with all its dependencies however.</p>
+<p>Download <code>depot_tools</code> by cloning the repository:</p>
+<pre class="prettyprint"><code>git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+</code></pre>
+<p>Then you will need to add it to your 
+<a href="http://www.google.com/url?q=http%3A%2F%2Fwww.lmgtfy.com%2F%3Fq%3DPATH%2Benvironment&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNEpeE0-9UdbY3wOOLl2YafKhXvyvA">PATH</a>. 
+Do this by adding the following to your <code>.bashrc</code> or <code>.bashprofile</code> file or your 
+shell's equivalent at the end of the file. This way you won't need to reset your 
+<code>$PATH</code> manually each time you open a new shell.</p>
+<pre class="prettyprint"><code>export PATH="$PATH":pwd/depot_tools
+</code></pre>
+<p><strong>Windows</strong>
+This guide is currently not tested on Windows due to not being able to 
+successfully add <code>depot_tools</code> to the PATH while using the default CMD line of 
+Windows. However, you can try Cygwin as an alternative solution. Here you can find <a href="http://dev.chromium.org/developers/how-tos/install-depot-tools#TOC-Windows-Cygwin-and-non-Cygwin-">steps for installing 
+depot_tools on Windows with 
+Cygwin</a>.</p>
+<p class="note"><strong>Note:</strong> This guide includes steps for Windows throughout it, but has not been 
+confirmed to work due to the inability to `add depot_tools` to the PATH, while 
+using the Windows CMD line.
+</p>
+
+<a name="//apple_ref/cpp/Section/2.2.%20%20Step%202:%20Running%20an%20edge-build%20of%20Chromium" class="dashAnchor" id=""></a><h3 id="step_2_running_an_edge-build_of_chromium">Step 2: Running an edge-build of Chromium</h3>
+<p>To begin, get an 
+<a href="http://www.chromium.org/getting-involved/download-chromium">edge-build</a> of 
+Chromium. These are available for all platforms.</p>
+<p>There are a couple of <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">command line 
+flags</a> (or 
+switches) that are needed when running Chromium for developing DevTools.<br>
+<strong><br>
+</strong><a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">Running Canary with 
+flags</a>:<br>
+<br>
+<strong>On Windows</strong></p>
+<ol>
+<li>
+<strong>Right-click</strong> on your "Google Chrome Canary" icon</li>
+<li>Select  <strong>Properties</strong>
+</li>
+<li>At the end of the <strong>Target field</strong> add the command line flags</li>
+</ol>
+<p>For example:</p>
+<pre class="prettyprint"><code>"C:\Users\%username%\AppData\Local\Google\Chrome SxS\Application\chrome.exe" --remote-debugging-port=9222 --no-first-run --remote-debugging-frontend="http://localhost:8000/front_end/inspector.html" --user-data-dir=blink/chromeServerProfile
+</code></pre>
+<p><img src="contributing-files/image02.png" alt="Command-line flags" width="700"> </p>
+<p class="note"><strong>Note:</strong>It's a good idea if you copy the path in Target to a text editor so 
+you can see the full value while adding the flags with a space between each one 
+to the end of the path. Then paste the entire line into the field.</p>
+
+<p><strong>On OS X<br>
+</strong>Run Canary in the terminal with the flags added at the end of the path to the 
+program.<br>
+<br>
+<code>/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary 
+--remote-debugging-port=9222 --n</code><a href="http://localhost:8090/front-end/inspector.html"><code>o-first-run 
+--remote-debugging-frontend="http:</code></a><code>//localhost:8000/front_end/inspector.html" 
+--user-data-dir=blink/chromeServerProfile</code><br>
+<br></p>
+<p class="note"><strong>Note:</strong> You will need to escape any spaces in the path with a slash "\ " as 
+shown in above.</p>
+
+<p><br>
+<strong>On Linux:<br>
+</strong>Run the chromium-browser command with the flags added after it:<br></p>
+<p><code>chromium-browser --remote-debugging-port=9222 --no-first-run 
+--remote-debugging-frontend="http://localhost:8000/front_end/inspector.html" 
+--user-data-dir=blink/chromeServerProfile</code><br></p>
+<p><strong>What do these switches do?</strong></p>
+<ul>
+<li>
+<p><code>--user-data-dir=blink/chromeServerProfile</code><br>
+  This specifies where the browser will look for all of its state. This can be a 
+  relative path to the directory that you're running the web server from which 
+  should be blink/Source.</p>
+</li>
+<li>
+<p><code>--remote-debugging-port=9222</code><br>
+  Enables remote debug over HTTP on the specified port. This is the port used 
+  when running localhost.</p>
+</li>
+<li>
+<code>--remote-debugging-frontend="http://localhost:8000/front_end/inspector.html"</code><br>
+  Uses a custom front-end URL for remote debugging. The port in the URL should 
+  match the port number used for the running the local web server and the path 
+  should point to the correct location of the inspector.html file assuming that 
+  your web server is running from the Source directory.</li>
+<li>
+<code>--no-first-run</code><br>
+  Skip First Run tasks, whether or not it's actually the First Run.</li>
+</ul>
+<p>These flags cause Chrome to allow websocket connections into localhost:9222 and to serve the front-end UI from your local git repo. Here's a <a href="http://peter.sh/experiments/chromium-command-line-switches/">full list of command line switches</a> and what they do. </p>
+<p>Adjust the path to <code>chromeServerProfile</code> to be some writable directory in your system. This refers to the <code>--user-data-dir</code> flag value mentioned above, which specifies a directory where the browser profile will be stored. You may wish to adjust the actual location of this profile directory to be something other than the <code>blink</code> folder.</p>
+<a name="//apple_ref/cpp/Section/2.3.%20%20Step%203:%20Inspector%20inception" class="dashAnchor" id=""></a><h3 id="step_3_inspector_inception">Step 3: Inspector inception</h3>
+<p>Once Canary is open go to any web page (the page doesn't matter because you're 
+not going to use it for anything). Open up the DevTools for the page, and undock <img src="contributing-files/image03.png" alt="undock DevTools"> from the window so it is in a separate window.<br></p>
+<p>Next, open a new tab or launch another instance of Chrome (either Chrome Stable 
+or Canary) and go to <a href="http://localhost:9222/">http://localhost:9222</a>.</p>
+<p>Here you will see a grid menu of every page that is currently open which you are 
+able to inspect and debug.</p>
+<p><img src="contributing-files/image01.png" alt="Inspectable pages" width="700"> </p>
+<p>This grid menu is served by a small web server running inside the first instance 
+of Canary which the <code>--remote-debugging-port=9222</code> parameter was passed into. 
+Since the web server is running from your local git repo in the 
+<code>/blink/Source/devtools</code> directory, so the files within the devtools folder will 
+be used for the inspector you see when clicking any of one these pages.</p>
+<p>Clicking on the Developer Tools thumbnail opens up a second instance of the 
+DevTools, which is inspecting the first undocked DevTools instance.</p>
+<p><img src="contributing-files/image00.png" alt="inspector inception" width="700"> </p>
+<p>Nice job, so far!</p>
+<p>Notice that the URL address of the second DevTools instance points to 
+<a href="http://localhost:8000/front_end/inspector.html">http://localhost:8000/front_end/inspector.html</a>. 
+This is because of the command line parameter 
+<code>--remote-debugging-frontend="http://localhost:8000/front_end/inspector.html</code>
+that was passed into the first instance, before running Canary. It connects to 
+your local repo through a websocket, which you may notice, is part of the URL 
+<code>?ws=localhost:9222/devtools/</code>.</p>
+<p>Now you can <a href="http://dev.chromium.org/developers/contributing-code">start 
+contributing</a> and 
+developing the DevTools front-end code located in the directory 
+<code>/blink/Source/devtools/front_end</code>.<br><br></p>
+<a name="//apple_ref/cpp/Section/2.4.%20%20Step%204:%20Pick%20a%20ticket" class="dashAnchor" id=""></a><h3 id="step_4_pick_a_ticket">Step 4: Pick a ticket</h3>
+<p>Now that you are ready to dig into the code and start developing the DevTools 
+source, head over to <a href="http://crbug.com/">http://crbug.com</a> and find the ticket 
+for your change and leave a comment saying you will be writing a patch for it. 
+If you haven't decided on what you to change look through the open issues and 
+choose one you would like to do and leave a comment on it asking for it to be 
+assigned to you. </p>
+<p class="note"><strong>Note:</strong> We occasionally label bugs that require a small patch but make for 
+good first-time contributions with GoodFirstBug. You can 
+[filter](https://code.google.com/p/chromium/issues/list?q=label:GoodFirstBug) 
+down the issues list to only display these.
+</p>
+
+<p>Alternatively, if there is no existing ticket for the change, then <a href="http://chromiumbugs.appspot.com/?token=3LKZrfbEU7e_Zxic4HVH3gTdvS4%3A1371938055157&amp;role=&amp;continue=https%3A//code.google.com/p/chromium/issues/entry.do">create a new 
+issue</a>. 
+Be sure to describe what the change is and justify why it was needed, adding 
+"patch to follow" to the end.</p>
+<p><strong>Communicate</strong><br>
+Before you start 
+<a href="http://dev.chromium.org/developers/contributing-code">contributing</a> on a 
+ticket, it's a good idea to open a new thread on the <a href="https://groups.google.com/forum/?fromgroups#!forum/google-chrome-developer-tools">DevTools Google 
+Group</a> 
+so you can discuss anything you are unsure of or may not know about regarding 
+the particular ticket you will be working on. You can never over communicate.</p>
+<a name="//apple_ref/cpp/Section/2.5.%20%20Step%205:%20Pull,%20Develop,%20Branch,%20Commit" class="dashAnchor" id=""></a><h3 id="step_5_pull_develop_branch_commit">Step 5: Pull, Develop, Branch, Commit</h3>
+<p>Pull the latest files from the repository and sync to be sure you are working 
+with the latest code.<br></p>
+<pre class="prettyprint"><code>git pull --rebase &amp;&amp; gclient sync
+</code></pre>
+<p>Then create a new branch which you can make your changes on.<br></p>
+<pre class="prettyprint"><code>git checkout -b yourBugOrFeatureName
+</code></pre>
+<p>Open the DevTools on your DevTools, open your favorite code editor and start 
+digging through the files in your local repository directory 
+<code>/blink/Source/devtools/front_end</code>.</p>
+<p class="note"><strong>Note:</strong> During development use the Refresh icon or <span class="kbd">Alt + <span class="kbd">R</span> instead 
+of <span class="kbd">F5</span>, <span class="kbd">Ctrl</span> + <span class="kbd">R</span> or <span class="kbd">Cmd</span> + <span class="kbd">R</span> as they are bound to refresh the host page which you 
+are using to develop the DevTools instance.</span></p>
+
+<p>Run your change against the Closure Compiler with:</p>
+<p><code>./devtools/scripts/compile_frontend.py</code></p>
+<p>You should see "0 error(s), 0 warning(s)".</p>
+<p><strong>Your code:</strong></p>
+<ol>
+<li>Should conform to the <a href="http://dev.chromium.org/blink/coding-style">Blink Coding Style 
+   Guidelines</a>
+</li>
+<li>Must be 
+   <a href="http://www.chromium.org/developers/testing/webkit-layout-tests">tested</a>
+</li>
+<li>Should pass the closure compiler tests</li>
+<li>Should be a reasonable size to review (larger patches take longer)</li>
+</ol>
+<p>Once you have made your change, commit it. In your commit message include the 
+ticket number and specify that it's a DevTools patch.</p>
+<pre class="prettyprint"><code>git commit -m "#175024 DevTools: This describes the Goat Teleporter"
+</code></pre>
+<p>It is a good idea to pull down any changes that have been added since you last 
+did one and merge them with your branch.</p>
+<p>Once everything for your patch is complete, you will want to write and run 
+relevant layout tests. To get started with layout tests for the DevTools see the 
+<a href="http://www.chromium.org/developers/testing/webkit-layout-tests">WebKit layout 
+tests</a> guide.</p>
+<p class="note"><strong>Note:</strong> If your patch includes changes that require writing new unit tests or 
+UI tests, they will need to be created and included as part of the patch.</p>
+
+<a name="//apple_ref/cpp/Section/2.6.%20%20Step%206:%20Upload%20your%20Patch" class="dashAnchor" id=""></a><h3 id="step_6_upload_your_patch">Step 6: Upload your Patch</h3>
+<p>If your patch is finished and all tests pass, upload your changes:<br></p>
+<pre class="prettyprint"><code>git cl upload --bypass-hooks
+</code></pre>
+<p>Your editor prompts you to write the patch description. Explain the 
+change in much detail as you like. Save and exit the editor to 
+finalize the patch submission.</p>
+<p>You must have an account for <a href="http://codereview.chromium.org/">codereview.chromium.org</a> and you'll enter in your 
+credentials in this process. Afterwards, you'll get the codereview URL e.g.<br></p>
+<p><code>Issue created. URL: https://codereview.chromium.org/18173008".
+ Take note of this URL, you can go to the page and view the status of it.</code></p>
+<p>Now you just have to wait for your friendly neighborhood reviewers to check 
+things out to make sure it's all good.</p>
+<p><strong>Cleanup</strong></p>
+<p>Go back to master branch.</p>
+<p><code>git checkout master</code><br><br>
+<strong>The</strong><strong> 'cr' bash script</strong></p>
+<p>As mentioned earlier, <a href="https://github.com/jankeromnes/cr"> <code>cr</code></a> is a bash script compiling steps from 
+several Chromium wiki pages into a simple, easy-to-use command line tool. It is 
+able to grab the source code of the browser, making sure along the way that you 
+have all the dependencies you need, and sets everything up so that you can go 
+ahead and build your very own browser!</p>
+<p>Its commands, like <code>cr clone</code> or <code>cr update</code>, do all the work for you, while 
+asking you the important questions. You can find more information and 
+installation instructions at 
+<a href="https://github.com/jankeromnes/cr">https://github.com/jankeromnes/cr</a>.</p>
+<a name="//apple_ref/cpp/Section/3.%20%20Troubleshooting%20workflows" class="dashAnchor" id=""></a><h2 id="troubleshooting_workflows">Troubleshooting workflows</h2>
+<p>Below are a couple alternative perspectives from some of the contributors who 
+described their workflows and some tips you might find helpful along the way. If you run into any issues following the steps outlined in this 
+document above, we've documented these to help you troubleshoot things should 
+you run into any issues.</p>
+<a name="//apple_ref/cpp/Section/3.1.%20%20Alternative%20workflow%20#1" class="dashAnchor" id=""></a><h3 id="alternative_workflow_1">Alternative workflow #1</h3>
+<p>You get to pick between two workflows: <strong>merge</strong> or <strong>rebase</strong>. Both are 
+"<em>mathematically equivalent</em>" but you use different commands. Unless you are a 
+git uber-guru, the workflows and thinking for each are different.<br>
+About half of the contributors to Chromium use this <strong>rebase workflow</strong>.</p>
+<ol>
+<li>git checkout -b myAwesomeBranch<ul>
+<li>make a bunch of changes in the branch</li>
+</ul>
+</li>
+<li>git commit -am "made some changes in branch"</li>
+<li>git checkout master</li>
+<li>gclient sync</li>
+<li>git checkout my_branch</li>
+<li>git rebase master </li>
+<li>Resolve any conflicts</li>
+<li>If you end up with lots of revisions in your branch, the rebase can be messy as it applies each change in order so you may need to resolve conflicts repeatedly. Git you <strong>squash</strong> a bunch of commits into one with <code>git rebase -i master</code>. It pops open an editor with a bunch of <code>pick XXXX</code> lines. Change all but the first <em>pick. _to _squash.</em> Use <code>s</code> to replace the word <code>pick</code>.</li>
+<li>git diff master<ul>
+<li>should be the exact patch you're expecting to upload</li>
+</ul>
+</li>
+<li>git cl upload</li>
+</ol>
+<p>The <em>merge workflow</em> is slightly less work but you end up with merge revisions 
+in your history. Also, it can be harder to think of it in such that the 
+code/patch which you are authoring will eventually be something you apply to 
+<code>master</code>.</p>
+<a name="//apple_ref/cpp/Section/3.2.%20%20Alternative%20workflow%20#2" class="dashAnchor" id=""></a><h3 id="alternative_workflow_2">Alternative workflow #2</h3>
+<ol>
+<li>Create a new issue at 
+   <a href="https://code.google.com/p/chromium/issues/list">https://code.google.com/p/chromium/issues/list</a>, 
+   or find issue you want to fix.</li>
+<li>Create a branch in your local git checkout for that issue. Something like 
+   <code>[verbose-name]-[issue-number]</code> (e.g. "drawer-status-bar-231904"). This makes 
+   easier to find in which branch your issue lives and vice-versa. It'd be great 
+   to assign issue to yourself and mark it as "started" so that nobody else 
+   starts doing same job.</li>
+<li>Code and test in that branch.</li>
+<li>Commit changes in that branch. You can merge all commits into one. This makes 
+   rebasing later easier if needed.</li>
+<li>
+<code>git cl upload</code>. The first time you have to fill in the commit description and mention issue number, for example "<code>BUG=231904</code>". You will be asked for patch description later on and they all will be attached to the same codereview issue. See "Patch Set #1", "PatchSet #2"... at <a href="https://chromiumcodereview.appspot.com/14329024/">https://chromiumcodereview.appspot.com/14329024/</a>
+</li>
+<li>Add reviewers to the changelist and ask them to review. You should pick reviewers from the OWNERS files. <code>git cl upload</code> suggests reviewers.</li>
+<li>Receive comments from reviewers, argue if needed.</li>
+<li>If received LGTM from owners - press commit button.</li>
+<li>Otherwise, fix comments in local checkout in that branch and proceed to step 3.</li>
+</ol>
+<p>Sometimes you may need to rebase if the "commit" button fails on codereview 
+page. Some reviewers don't like rebasing during a codereview since it makes 
+reviewing harder for them.</p>
+<p>While waiting for comments you can switch to another branch and work 
+on a fix for another issue while this one is "frozen", waiting for review.</p>
+<a name="//apple_ref/cpp/Section/3.3.%20%20Running%20Layout%20tests" class="dashAnchor" id=""></a><h3 id="running_layout_tests">Running Layout tests</h3>
+<p>To setup a build that can run the layout tests read about <a href="http://www.chromium.org/developers/testing/webkit-layout-tests">layout tests</a> over on Chromium.org. Depending on the type of patch you are submitting, there may be Chrome DevTools layout tests you will want to run before submission.</p>
+<p>First, run <code>gclient</code> to use <code>git</code>. You can follow the steps located in the Chromium <a href="https://code.google.com/p/chromium/wiki/UsingGit">Using Git guide</a> to walk you through this process. In summary make sure depot_tools is in your path. Run <code>fetch blink --nosvn=True</code> in a directory you wish to store the Chromium source (perhaps get a snack or one of those paddles with a ball on it, this will take some time).</p>
+<p>When this has finished you can speed up the build process by building the content shell.</p>
+<p>On a Mac or Linux machine you can simply run:</p>
+<p><code>ninja -C out/Debug content_shell</code></p>
+<p>If you have problems with this step you can look at <a href="https://code.google.com/p/chromium/wiki/Clang">Clang</a> for Mac help and the <a href="https://code.google.com/p/chromium/wiki/LinuxBuildInstructions">Linux build instructions</a> for Linux help.</p>
+<p>This will also take some time. Once it has finished providing you with warmth from your laptop then you are 
+good to run the layout tests which can be run with from your src directory 
+<code>webkit/tools/layout_tests/run_webkit_tests.sh</code>. Replace the .sh with .bat if you 
+are on Windows. Some failures are expected! (unfortunatly). A good process here 
+is to run them before you make any changes, then run them after you make your 
+changes. It can also take an argument to a directory so you can just point it to 
+the <code>LayoutTests/inspector</code> directory to run. </p>
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-08-13T13:48:37.820060" id="gc-content-last-updated">Last updated August 13, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/contributing by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 04:02:35 GMT -->
+</html>

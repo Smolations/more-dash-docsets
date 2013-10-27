@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/protocol/1.1/domdebugger by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 04:02:07 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>1.1: DOMDebugger - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+ 
+ 
+ 
+ 
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">1.1: DOMDebugger</h1>
+  
+  <div itemprop="articleBody">
+  
+<link rel="stylesheet" type="text/css" href="../css/protocol.css"> 
+<div>
+ <!-- TABLE OF CONTENTS -->
+ <div id="toc">
+ <h2>Contents</h2>
+ <ol>
+ 
+ <li>
+ <a href="#commands">Commands</a>
+ <ol>
+ 
+ <li>
+ <a href="#command-removeDOMBreakpoint">removeDOMBreakpoint</a>
+ </li>
+ 
+ <li>
+ <a href="#command-removeEventListenerBreakpoint">removeEventListenerBreakpoint</a>
+ </li>
+ 
+ <li>
+ <a href="#command-removeXHRBreakpoint">removeXHRBreakpoint</a>
+ </li>
+ 
+ <li>
+ <a href="#command-setDOMBreakpoint">setDOMBreakpoint</a>
+ </li>
+ 
+ <li>
+ <a href="#command-setEventListenerBreakpoint">setEventListenerBreakpoint</a>
+ </li>
+ 
+ <li>
+ <a href="#command-setXHRBreakpoint">setXHRBreakpoint</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ 
+ 
+ <li>
+ <a href="#types">Types</a>
+ <ol>
+ 
+ <li>
+ <a href="#type-DOMBreakpointType">DOMBreakpointType</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ </ol>
+ </div>
+<!-- /TABLE OF CONTENTS -->
+ <!-- API PAGE -->
+ <div>
+ 
+ <p>DOM debugging allows setting breakpoints on particular DOM operations and events. JavaScript execution will stop on these operations as if there was a regular breakpoint set.</p>
+ 
+ <!-- COMMANDS -->
+ 
+ <div class="protocol-group">
+ <a name="commands"></a>
+ <h3>Commands</h3>
+ 
+ <div class="protocol-item">
+ <a name="command-removeDOMBreakpoint"></a>
+ <h4>DOMDebugger.removeDOMBreakpoint</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOMDebugger.removeDOMBreakpoint",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;"<span class="specific">nodeId</span>": &lt;<a href="dom.html#type-NodeId">DOM.NodeId</a>&gt;,<br>
+ 
+ &#160;&#160;"<span class="specific">type</span>": &lt;<a href="#type-DOMBreakpointType">DOMBreakpointType</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Removes DOM breakpoint that was set using <code>setDOMBreakpoint</code>.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="dom.html#type-NodeId">DOM.NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Identifier of the node to remove breakpoint from.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ type
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-DOMBreakpointType">DOMBreakpointType</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Type of the breakpoint to remove.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-removeEventListenerBreakpoint"></a>
+ <h4>DOMDebugger.removeEventListenerBreakpoint</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOMDebugger.removeEventListenerBreakpoint",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;"<span class="specific">eventName</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Removes breakpoint on particular DOM event.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ eventName
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Event name.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-removeXHRBreakpoint"></a>
+ <h4>DOMDebugger.removeXHRBreakpoint</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOMDebugger.removeXHRBreakpoint",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;"<span class="specific">url</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Removes breakpoint from XMLHttpRequest.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ url
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Resource URL substring.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-setDOMBreakpoint"></a>
+ <h4>DOMDebugger.setDOMBreakpoint</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOMDebugger.setDOMBreakpoint",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;"<span class="specific">nodeId</span>": &lt;<a href="dom.html#type-NodeId">DOM.NodeId</a>&gt;,<br>
+ 
+ &#160;&#160;"<span class="specific">type</span>": &lt;<a href="#type-DOMBreakpointType">DOMBreakpointType</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Sets breakpoint on particular operation with DOM.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ nodeId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="dom.html#type-NodeId">DOM.NodeId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Identifier of the node to set breakpoint on.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ type
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-DOMBreakpointType">DOMBreakpointType</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Type of the operation to stop upon.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-setEventListenerBreakpoint"></a>
+ <h4>DOMDebugger.setEventListenerBreakpoint</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOMDebugger.setEventListenerBreakpoint",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;"<span class="specific">eventName</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Sets breakpoint on particular DOM event.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ eventName
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ DOM Event name to stop on (any DOM event will do).
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-setXHRBreakpoint"></a>
+ <h4>DOMDebugger.setXHRBreakpoint</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "DOMDebugger.setXHRBreakpoint",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;"<span class="specific">url</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Sets breakpoint on XMLHttpRequest.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ url
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Resource URL substring. All XHRs having this substring in the URL will get stopped upon.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+  <!-- for commands -->
+ </div>
+  <!-- if commands -->
+ <!-- EVENTS -->
+  <!-- if events -->
+ <!-- TYPES -->
+ 
+ <a name="types" id="types"></a>
+ <h3 id="types">Types</h3>
+ 
+ <div class="protocol-item">
+ <a name="type-DOMBreakpointType"></a>
+ <h4>DOMBreakpointType: <var>enumerated string</var>
+</h4>
+ 
+ 
+ <div class="property">
+ [
+ 
+ "<strong><var>attribute-modified</var></strong>"
+ , 
+ 
+ "<strong><var>node-removed</var></strong>"
+ , 
+ 
+ "<strong><var>subtree-modified</var></strong>"
+ 
+ 
+ ]
+ </div>
+ 
+ </div>
+  <!-- for types -->
+ </div>
+  <!-- if types -->
+ </div>
+<!-- API PAGE -->
+</div>
+ 
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-09-16T13:05:32.664140" id="gc-content-last-updated">Last updated September 16, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/protocol/1.1/domdebugger by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 04:02:08 GMT -->
+</html>

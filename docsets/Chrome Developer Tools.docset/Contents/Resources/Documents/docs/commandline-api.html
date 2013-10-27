@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/commandline-api by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:59:21 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Command Line API Reference - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+  
+  
+  
+
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Command Line API Reference</h1>
+  
+  <div itemprop="articleBody">
+  
+<p>The Command Line API is a collection of functions for performing common tasks with the Chrome Developer Tools. These include convenience functions for selecting and inspecting elements in the DOM, stopping and starting the profiler, and monitoring DOM events. This API complements the <a href="console-api.html">Console API</a>, the Command Line API is only available from within the console itself.</p>
+<nav class="inline-toc"><ol class="toc">
+<li><a href="#_">$_</a></li>
+<li><a href="#0_-_4">$0 - $4</a></li>
+<li><a href="#selector">$(selector)</a></li>
+<li><a href="#selector_1">$$(selector)</a></li>
+<li><a href="#xpath">$x(path)</a></li>
+<li><a href="#clear">clear()</a></li>
+<li><a href="#copyobject">copy(object)</a></li>
+<li><a href="#dirobject">dir(object)</a></li>
+<li><a href="#dirxmlobject">dirxml(object)</a></li>
+<li><a href="#inspectobject">inspect(object)</a></li>
+<li><a href="#geteventlistenersobject">getEventListeners(object)</a></li>
+<li><a href="#keysobject">keys(object)</a></li>
+<li><a href="#monitoreventsobject_events">monitorEvents(object[, events])</a></li>
+<li><a href="#profilename">profile([name])</a></li>
+<li><a href="#profileendname">profileEnd([name])</a></li>
+<li><a href="#unmonitoreventsobject_events">unmonitorEvents(object[, events])</a></li>
+<li><a href="#valuesobject">values(object)</a></li>
+</ol></nav>
+<a name="//apple_ref/cpp/Command/%24_" class="dashAnchor" id=""></a><h2 id="_">$_</h2>
+<p>Returns the value of the most recently evaluated expression. In the following example, a simple expression is evaluated. The <code>$_</code> property is then evaluated, which contains the same value:</p>
+<p><img src="commandline-api-files/last_expression.png" class="screenshot"></p>
+<p>In the next example, the evaluated expression is a call to the <a href="#selector_1"><code>$$()</code></a> method, which returns an array of elements that match the CSS selector. It then evaluates <code>$_.length</code> to get the length of the array (17), which becomes the most recently evaluated expression.</p>
+<p><img src="commandline-api-files/last_expression_2.png" class="screenshot"></p>
+<a name="//apple_ref/cpp/Command/%240%20-%20%244" class="dashAnchor" id=""></a><h2 id="0_-_4">$0 - $4</h2>
+<p>Dev Tools remembers the last five DOM elements (or JavaScript heap objects) that you've selected in the  tab (or Profiles panel). It makes those objects available as <strong><code>$0</code></strong>, <strong><code>$1</code></strong>, <strong><code>$2</code></strong>, <strong><code>$3</code></strong>, and <strong><code>$4</code></strong>. <strong><code>$0</code></strong> returns the most recently selected element or JavaScript object, <strong><code>$1</code></strong> returns the second most recently selected one, and so on.</p>
+<p>In the following example, an element with the ID <code>gc-sidebar</code> is selected in the Elements tab. In the Console window <code>$0</code> has been evaluated, which displays the same element.</p>
+<p><img alt="Example of $0" src="commandline-api-files/%240.png"></p>
+<p>The image below shows the <code>gc-content</code> element selected in the same page. The <strong><code>$0</code></strong> now refers to newly selected element, while <strong><code>$1</code></strong> now returns the previously selected one (<code>gc-sidecar</code>).</p>
+<p><img alt="image alt text" src="commandline-api-files/%241.png"></p>
+<a name="//apple_ref/cpp/Command/%24(selector)" class="dashAnchor" id=""></a><h2 id="selector">$(selector)</h2>
+<p>Returns reference to the first DOM element with the specified CSS selector.This function is an alias for <a href="http://docs.webplatform.org/wiki/css/selectors_api/querySelector"><code>document.querySelector()</code></a> function.</p>
+<p>The following example saves a reference to the first <code>&lt;img&gt;</code> element in the document and calls displays its <code>src</code> property:</p>
+<pre class="prettyprint"><code>$('img').src;
+</code></pre>
+<p><img alt="image alt text" src="commandline-api-files/%24img_src.png"></p>
+<a name="//apple_ref/cpp/Command/%24%24(selector)" class="dashAnchor" id=""></a><h2 id="selector_1">$$(selector)</h2>
+<p>Returns an array of elements that match the given CSS selector. This command is equivalent to calling <a href="http://docs.webplatform.org/wiki/css/selectors_api/querySelectorAll"><code>document.querySelectorAll()</code></a>.</p>
+<p>The following example uses <code>$$()</code> to create an array of all <code>&lt;img&gt;</code> elements in the current document and displays the value of each element's <code>src</code> property.</p>
+<pre class="prettyprint"><code>var images = $$('img');
+for (each in images) {
+    images[each].src;
+}
+</code></pre>
+<p><img alt="Example of using $$() to select all images in the document and display their sources." src="commandline-api-files/%24%24img_src.png"></p>
+<aside class="note"><strong>Note:</strong><span> Press Shift+Enter in the console to start a new line without executing the script.</span></aside>
+<a name="//apple_ref/cpp/Command/%24x(path)" class="dashAnchor" id=""></a><h2 id="xpath">$x(path)</h2>
+<p>Returns an array of DOM elements that match the given XPath expression. For example, the following returns all the <code>&lt;p&gt;</code> elements that contain <code>&lt;a&gt;</code> elements:</p>
+<pre class="prettyprint"><code>$x("//p[a]")
+</code></pre>
+<p><img alt="Example of using an Xpath selector" src="commandline-api-files/%24xpath.png"></p>
+<a name="//apple_ref/cpp/Command/clear()" class="dashAnchor" id=""></a><h2 id="clear">clear()</h2>
+<p>Clears the console of its history.</p>
+<pre class="prettyprint"><code>clear();
+</code></pre>
+<p>Also see <a href="console.html#clearing_the_console_history">Clearing the console</a>.</p>
+<a name="//apple_ref/cpp/Command/copy(object)" class="dashAnchor" id=""></a><h2 id="copyobject">copy(object)</h2>
+<p>Copies a string representation of the specified object to the clipboard.</p>
+<pre class="prettyprint"><code>copy($0);
+</code></pre>
+<a name="//apple_ref/cpp/Command/dir(object)" class="dashAnchor" id=""></a><h2 id="dirobject">dir(object)</h2>
+<p>Displays an object-style listing of all the properties of the specified object. This method is an alias for the Console API's <a href="console-api.html#consoledirobject"><code>console.dir()</code></a> method.</p>
+<p>The following example shows the difference between evaluating <code>document.body</code> directly in the command line, and using <code>dir()</code> to display the same element.</p>
+<pre class="prettyprint"><code>document.body;
+dir(document.body);
+</code></pre>
+<p><img alt="Logging document.body with and without dir() function" src="commandline-api-files/document.body.png"></p>
+<p>For more information, see the <a href="console-api.html#consoledirobject"><code>console.dir()</code></a> entry in the Console API.</p>
+<a name="//apple_ref/cpp/Command/dirxml(object)" class="dashAnchor" id=""></a><h2 id="dirxmlobject">dirxml(object)</h2>
+<p>Prints an XML representation of the specified object, as seen in the Elements tab. This method is equivalent to the <a href="console-api.html#consoledirxmlobject"><code>console.dirxml()</code></a> method.</p>
+<a name="//apple_ref/cpp/Command/inspect(object)" class="dashAnchor" id=""></a><h2 id="inspectobject">inspect(object)</h2>
+<p>Opens and selects the specified element or object in the appropriate panel: either the Elements panel for DOM elements and the Profiles panel for JavaScript heap objects.</p>
+<p>The following example opens the first child element of <code>document.body</code> in the Elements panel:</p>
+<pre class="prettyprint"><code>inspect(document.body.firstChild);
+</code></pre>
+<p><img alt="Inspecting an element with inspect()" src="commandline-api-files/inspect.png"></p>
+<a name="//apple_ref/cpp/Command/getEventListeners(object)" class="dashAnchor" id=""></a><h2 id="geteventlistenersobject">getEventListeners(object)</h2>
+<p>Returns the event listeners registered on the specified object. The return value is an object that contains an array for each registered event type ("click" or "keydown", for example). The members of each array are objects that describe the listener registered for each type. For example, the following lists all the event listeners registered on the <code>document</code> object.</p>
+<pre class="prettyprint"><code>getEventListeners(document);
+</code></pre>
+<p><img alt="Output of using getEventListeners()" src="commandline-api-files/geteventlisteners_short.png"></p>
+<p>If more than one listener is registered on the specified object, then the array contains a member for each listener. For instance, in the following example there are two event listeners registered on the <code>#scrollingList</code> element for the "mousedown" event:</p>
+<p><img alt="" src="commandline-api-files/geteventlisteners_multiple.png"></p>
+<p>You can further expand each of these objects to explore their properties:</p>
+<p><img alt="Expanded view of listener object" src="commandline-api-files/geteventlisteners_expanded.png"></p>
+<a name="//apple_ref/cpp/Command/keys(object)" class="dashAnchor" id=""></a><h2 id="keysobject">keys(object)</h2>
+<p>Returns an array containing the names of the properties belonging to the specified object. To get the associated values of the same properties, use <a href="#valuesobject">values()</a>.</p>
+<p>For example, suppose your application defined the following object:</p>
+<pre class="prettyprint"><code>var player1 = {
+    "name": "Ted",
+    "level": 42
+}
+</code></pre>
+<p>Assuming <code>player1</code> was defined in the global namespace (for simplicity), typing <code>keys(player1)</code> and <code>values(player1)</code> in the Console would result in the following:</p>
+<p><img src="commandline-api-files/keys-values2.png" style="max-width:100%" alt="Example of keys() and values() methods"></p>
+<a name="//apple_ref/cpp/Command/monitorEvents(object%5B,%20events%5D)" class="dashAnchor" id=""></a><h2 id="monitoreventsobject_events">monitorEvents(object[, events])</h2>
+<p>When one of the specified events occurs on the specified object, the Event object is logged to the console. You can specify a single event to monitor, an array of events, or one of the generic events "types" that are mapped to a predefined collection of events. See examples below.</p>
+<p>The following monitors all <code>resize</code> events on the <code>window</code> object.</p>
+<pre class="prettyprint"><code>monitorEvents(window, "resize");
+</code></pre>
+<p><img alt="Monitoring window resize events" src="commandline-api-files/monitor-resize.png"></p>
+<p>The following defines an array to monitor both "resize" and "scroll" events on the <code>window</code> object:</p>
+<pre class="prettyprint"><code>monitorEvents(window, ["resize", "scroll"])
+</code></pre>
+<p>You can also specify one of the available event "types", strings that map to predefined sets of events. The table below lists the available event types and their associated event mappings:</p>
+<table>
+<thead>
+<tr>
+<th>Event type</th>
+<th>Corresponding mapped events</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>mouse</strong></td>
+<td>"<code>mousedown</code>", "<code>mouseup</code>", "<code>click</code>", "<code>dblclick</code>", "<code>mousemove</code>", "<code>mouseover</code>", "<code>mouseout</code>", "<code>mousewheel</code>"</td>
+</tr>
+<tr>
+<td><strong>key</strong></td>
+<td>"<code>keydown</code>", "<code>keyup</code>", "<code>keypress</code>", "<code>textInput</code>"</td>
+</tr>
+<tr>
+<td><strong>touch</strong></td>
+<td>"<code>touchstart</code>", "<code>touchmove</code>", "<code>touchend</code>", "<code>touchcancel</code>"</td>
+</tr>
+<tr>
+<td><strong>control</strong></td>
+<td>"<code>resize</code>", "<code>scroll</code>", "<code>zoom</code>", "<code>focus</code>", "<code>blur</code>", "<code>select</code>", "<code>change</code>", "<code>submit</code>", "<code>reset</code>"</td>
+</tr>
+</tbody>
+</table>
+<p>For example, the following uses the "key" event type all corresponding key events on an input text field ("<code>#msg</code>").</p>
+<pre class="prettyprint"><code>monitorEvents($("#msg"), "key");
+</code></pre>
+<p>Below is sample output after typing two characters in the text field:</p>
+<p><img alt="Monitoring key events" src="commandline-api-files/monitor-key-events.png"></p>
+<p><img src="commandline-api-files/monitor-key-events.png" class="screenshot" alt=""></p>
+<a name="//apple_ref/cpp/Command/profile(%5Bname%5D)" class="dashAnchor" id=""></a><h2 id="profilename">profile([name])</h2>
+<p>Starts a JavaScript CPU profiling session with an optional name. To complete the profile call <a href="#profileendname"><code>profileEnd()</code></a>.</p>
+<p>To start profiling:</p>
+<pre class="prettyprint"><code>profile("My profile")
+</code></pre>
+<p>To stop profiling and display the results in the Profiles panel:</p>
+<pre class="prettyprint"><code>profileEnd("My profile")
+</code></pre>
+<p>For more examples, see <a href="console.html#controlling_the_cpu_profiler">Controlling the CPU profiler</a>.</p>
+<a name="//apple_ref/cpp/Command/profileEnd(%5Bname%5D)" class="dashAnchor" id=""></a><h2 id="profileendname">profileEnd([name])</h2>
+<p>Stops the current profiling session started with the <a href="#profilename">profile()</a> method and displays the results in the Profiles panel.</p>
+<a name="//apple_ref/cpp/Command/unmonitorEvents(object%5B,%20events%5D)" class="dashAnchor" id=""></a><h2 id="unmonitoreventsobject_events">unmonitorEvents(object[, events])</h2>
+<p>Stops monitoring events for the specified object and events. For example, the following stops all event monitoring on the <code>window</code> object:</p>
+<pre class="prettyprint"><code>unmonitorEvents(window);
+</code></pre>
+<p>You can also selectively stop monitoring specific events on an object. For example, following code starts monitoring all mouse events on the currently selected element, and then stops monitoring "mousemove" events (perhaps to reduce noise in the console output).</p>
+<pre class="prettyprint"><code>monitorEvents($0, "mouse");
+unmonitorEvents($0, "mousemove");
+</code></pre>
+<p>Also see <a href="console.html#monitoring_events">Monitoring events</a>.</p>
+<a name="//apple_ref/cpp/Command/values(object)" class="dashAnchor" id=""></a><h2 id="valuesobject">values(object)</h2>
+<p>Returns an array containing the values of all properties belonging to the specified object.</p>
+<pre class="prettyprint"><code>values(object);
+</code></pre>
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-09-30T18:59:37.451280" id="gc-content-last-updated">Last updated September 30, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/commandline-api by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:59:34 GMT -->
+</html>

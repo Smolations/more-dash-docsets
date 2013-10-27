@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/resource-panel by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:55:53 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Managing application storage - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+  
+  
+  
+
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Managing application storage</h1>
+  
+  <div itemprop="articleBody">
+  
+<p>The Resources panel lets you inspect your application's local data sources, including IndexedDB or Web SQL databases, local and session storage, cookies, and Application Cache resources. You can also quickly inspect your application's visual resources, including images, fonts and and style sheets.</p>
+<nav class="inline-toc"><ol class="toc">
+<li><a href="#indexeddb">IndexedDB</a></li>
+<li><a href="#web_sql">Web SQL</a></li>
+<li><a href="#cookies">Cookies</a></li>
+<li><a href="#application_cache">Application Cache</a></li>
+<li><a href="#local_and_session_storage">Local and session storage</a></li>
+</ol></nav>
+<p>The Resources panel reveals your application's local data stores, including IndexedDB and WebSQL databases, local and session storage, cookies and Application Cache resources. </p>
+<a name="//apple_ref/cpp/Section/1.%20%20IndexedDB" class="dashAnchor" id=""></a><h2 id="indexeddb">IndexedDB</h2>
+<p>You can inspect IndexedDB databases and object stores, page through an object store's records, and clear an object store of its records.</p>
+<ul>
+<li>
+<strong>To view a list of available database</strong>, expand the IndexedDB category.</li>
+<li>
+<strong>To view a database's object stores</strong>, select it from the list of available databases.</li>
+</ul>
+<p><img src="resources-files/indexeddb.png"> </p>
+<p><strong>To page through records in the object store</strong>, click the Previous and Next page buttons. You can also specify the record where paging starts by specifying the record's key.</p>
+<p><img src="resources-files/next-previous-page.png"></p>
+<p><strong>To clear the object store</strong>, do one of the following:</p>
+<ul>
+<li>Click the <strong>Clear object store</strong> button <img src="resources-files/clear.png"> at the bottom of the panel.</li>
+<li>Right-click or Control-click the object store and select <strong>Clear</strong> from the context menu.</li>
+</ul>
+<p><strong>To view properties of a database</strong>, select it from the list of databases.</p>
+<p><img src="resources-files/database-properties.png"> </p>
+<a name="//apple_ref/cpp/Section/2.%20%20Web%20SQL" class="dashAnchor" id=""></a><h2 id="web_sql">Web SQL</h2>
+<p>You can inspect the content of Web SQL databases, and run SQL commands against 
+their contents.</p>
+<ul>
+<li>
+<strong>To view the available Web SQL databases</strong>, expand the Web SQL item in the tree control.</li>
+<li>
+<strong>To view available tables in a database</strong>, expand the database tree item.</li>
+<li>
+<strong>To view a table's records</strong>, select the table. It's properties appear in the right-hand pane.</li>
+<li>
+<strong>To refresh the view of the database</strong>, click the Refresh button <img src="resources-files/refresh.png"> at the bottom of the panel. </li>
+</ul>
+<p>You can query a Web SQL database's tables with SQL commands and view 
+query results in a tabular format. As you type out a command or table name, code hints are provided for the names of supported SQL commands and clauses, and the names of tables that the database contains.</p>
+<p><strong>To run a SQL command against a database</strong>:</p>
+<ol>
+<li>Select the database containing the table you want to query.</li>
+<li>At the prompt that appears in the right-hand panel, enter the SQL statement you want to execute.</li>
+</ol>
+<p><img src="resources-files/sql.png"></p>
+<a name="//apple_ref/cpp/Section/3.%20%20Cookies" class="dashAnchor" id=""></a><h2 id="cookies">Cookies</h2>
+<p>You can view detailed information about cookies that have been created by an HTTP header or with JavaScript. You can also clear individual cookies, groups of cookies from the same origin, or clear all cookies from a specific domain.</p>
+<p><img src="resources-files/cookies.png"></p>
+<p>When you expand the Cookies category, it displays a list of domains of the main document and those of all loaded frames. Selecting one of these "frame groups" displays all cookies, for all resources, for all frames in that group. There are two consequences of this grouping to be aware of:</p>
+<ul>
+<li>Cookies from different domains may appear in the same frame group. </li>
+<li>The same cookie may appear in several frame groups.</li>
+</ul>
+<p>The following fields are displayed for each cookie in the selected frame group:</p>
+<ul>
+<li>
+<strong>Name</strong> &#8212; The cookie's name.</li>
+<li>
+<strong>Value</strong> &#8212; The cookie's value.</li>
+<li>
+<strong>Domain</strong> &#8212; The domain that the cookie applies to.</li>
+<li>
+<strong>Path</strong> &#8212; The path that the cookie applies to.<br>
+</li>
+<li>
+<strong>Expires / Maximum Age</strong>&#8212; The cookie's expiration time, or maximum age. For session cookies, this field is always "Session".</li>
+<li>
+<strong>Size</strong> &#8212; The size of the cookie's data in bytes.</li>
+<li>
+<strong>HTTP</strong> &#8212; If present, indicates that cookies should be used only over HTTP, and JavaScript modification is not allowed.</li>
+<li>
+<strong>Secure</strong> &#8212; If present, indicates that communication for this cookie must be over an encrypted transmission.</li>
+</ul>
+<p>You can clear (delete) a single cookies, all cookies in the selected frame group, or cookies from a specific domain. Recall the same cookie may appear in more than one frame group, as discussed previously. If the same cookie for a given domain is referenced in two frame groups, deleting all cookies for that domain will affect both groups.</p>
+<p><strong>To clear a single cookie</strong>, do one of the following:</p>
+<ul>
+<li>Select a cookie in the table and click the Delete button at the bottom of the panel.</li>
+<li>Right-click on a cookie and select Delete.</li>
+</ul>
+<p><strong>To clear all cookies from the selected frame group</strong>, do one of the following:</p>
+<ul>
+<li>Click the Clear button <img src="resources-files/clear.png"> at the bottom of the Resources panel.</li>
+<li>Right-click on the frame group and select <strong>Clear</strong> from the context menu.</li>
+<li>Right-click on a cookie row in the table and select <strong>Clear All</strong>.</li>
+</ul>
+<p><strong>To clear all cookies from a specific domain:</strong></p>
+<ol>
+<li>Right+click (or Ctrl+click) a cookie in the table from the target domain.</li>
+<li>From the context menu, seect <strong>Clear All from <em>domain</em></strong>, where 
+   <em>domain</em> is the target domain. </li>
+</ol>
+<p><img src="resources-files/clear-all-cookies.png"></p>
+<p>Note the following about this operation:</p>
+<ul>
+<li>Only cookies with exactly the same domain name are removed; sub- and top-level domains are unaffected. </li>
+<li>It only works on domains visible in the cookies table.</li>
+</ul>
+<p>You can also refresh the table to reflect any changes to the page's cookies.</p>
+<p><strong>To refresh the cookies table</strong>, click the refresh button <img src="resources-files/refresh.png"> at the bottom of the Resources panel. </p>
+<a name="//apple_ref/cpp/Section/4.%20%20Application%20Cache" class="dashAnchor" id=""></a><h2 id="application_cache">Application Cache</h2>
+<p>You can examine resources that Chrome has cached according to the Application Cache manifest file specified by the current document. You can view the current status of the Application Cache (idle or downloading, for 
+example), and the browser's connection status (online or offline).<br>
+<img src="resources-files/app-cache.png"> </p>
+<p>The table of cached resources includes the following properties for each resource:</p>
+<ul>
+<li>
+<strong>Resource</strong> &#8212; The URL of the resource.</li>
+<li>
+<strong>Type</strong> &#8212; The type of cached resource, which can have one of the following 
+  values:<ul>
+<li>
+<strong>Master</strong> &#8212; The resource was added to the cache because it's 
+  <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-html-manifest">manifest</a> 
+  attribute indicated that this was its cache.</li>
+<li>
+<strong>Explicit</strong> &#8212; The resource was explicitly listed in the application's 
+  cache manifest file.</li>
+<li>
+<strong>Network</strong> &#8212; The resources was listed in the application's cache manifest 
+  file as a network entry. </li>
+<li>
+<strong>Fallback</strong> &#8212; The resource was specified as a fallback if a resource is inaccessible.</li>
+</ul>
+</li>
+<li>
+<strong>Size</strong> &#8212; Size of the cached resource.</li>
+</ul>
+<p>The Resources panel displays the current <a href="http://www.whatwg.org/specs/web-apps/current-work/#dom-appcache-status">status</a> 
+of the application cache along with a colored status icon (green, yellow, or red). The following are the possible status values and their descriptions:</p>
+<!-- TODO: Fix formatting of cells -->
+
+<table>
+<tr>
+<td>Status</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>
+<img src="resources-files/green.png"> IDLE </td>
+<td>The application cache is idle.</td>
+</tr>
+<tr>
+<td>
+<img src="resources-files/yellow.png">CHECKING </td>
+<td>The manifest is being fetched and checked for updates.</td>
+</tr>
+<tr>
+<td>
+<img src="resources-files/yellow.png">DOWNLOADING </td>
+<td>Resources are being downloaded to be added to the cache, due to a changed resource manifest.</td>
+</tr>
+<tr>
+<td>
+<img src="resources-files/green.png">UPDATEREADY </td>
+<td>There is a new version of the application cache available. </td>
+</tr>
+<tr>
+<td>
+<img src="resources-files/red.png">OBSOLETE </td>
+<td>The application cache group is obsolete.</td>
+</tr>
+</table>
+
+<a name="//apple_ref/cpp/Section/5.%20%20Local%20and%20session%20storage" class="dashAnchor" id=""></a><h2 id="local_and_session_storage">Local and session storage</h2>
+<p>You can view and edit local and session storage key/value pairs you've created using the <a href="http://www.w3.org/TR/webstorage/">Web Storage APIs</a>. You can edit, delete, and create both local and session storage data.</p>
+<p><strong>To delete a key/value pair</strong>, do one of the following:</p>
+<ul>
+<li>Select the item in the data table and do one of the following:<ol>
+<li>Click the Delete button.</li>
+<li>Press the Delete key on your keyboard.</li>
+</ol>
+</li>
+<li>Right-click or Control-click on the data item and choose Delete from the context menu.</li>
+</ul>
+<p><strong>To add a new key/value pair:</strong></p>
+<ol>
+<li>Double-click inside an empty Key table cell and enter the key name.</li>
+<li>Double-click inside the corresponding Value table cell and enter the key's value.</li>
+</ol>
+<p><strong>To edit an existing key/value pair</strong>, do one of the following:</p>
+<ul>
+<li>Double-click in the cell you want to edit.</li>
+<li>Right-click or Control-click the cell you want to edit and choose Edit from the context menu.</li>
+</ul>
+<p><strong>To refresh the table with new storage data</strong>, click the Refresh button at the bottom of the panel.
+<img src="resources-files/refresh.png"></p>
+<h1 class="page-title" id="inspecting_page_resources">Inspecting page resources</h1>
+<p>You can view all of your main document's resources, including images, scripts, and fonts, and those of any loaded frames. The top level category of page resources are the document's frames, which includes the main document, and its embedded frames.</p>
+<p><img src="resources-files/frame-resources.png"></p>
+<p>You can expand a frame to view its resources organized by type, expand a type to view all resources of that type, and select a resource to preview it in the panel on the right. Below is a preview of a font resource.</p>
+<p><img src="resources-files/font-resource.png"></p>
+<p>Image previews include the dimensions, file size, MIME type, and URL of the image.</p>
+<p><img src="resources-files/image-inspect.png"></p>
+<p>Other tips:</p>
+<ul>
+<li>
+<strong>To open a resource in the Network panel</strong>, right-click or control-click the resource and select <strong>Reveal In Resources Panel</strong>. From the same menu you can copy the resource's URL to the system clipboard, or open it in a new browser tab.</li>
+</ul>
+<p><img src="resources-files/reveal-in-network.png"></p>
+<ul>
+<li>
+<strong>To view the bounding box of an embedded frame</strong>, hover your mouse over a frame in the Resources panel:</li>
+</ul>
+<p><img src="resources-files/frame-selected.png"></p>
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-08-12T09:23:25.960240" id="gc-content-last-updated">Last updated August 12, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/resource-panel by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:56:10 GMT -->
+</html>

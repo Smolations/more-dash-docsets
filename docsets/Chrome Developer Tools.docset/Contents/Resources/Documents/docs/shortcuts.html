@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/shortcuts by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:59:35 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Keyboard Shortcuts - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+    
+    
+    
+    <link rel="stylesheet" type="text/css" href="../css/local_extensions.css">
+  
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Keyboard Shortcuts</h1>
+  
+  <div itemprop="articleBody">
+  
+
+    <p>
+      The DevTools has several built-in shortcut keys that developers can use to save time in their day to day workflow. Outlined below is each shortcut and the corresponding key for each on Windows/Linux and Mac. While some shortcuts are globally available across all of the DevTools, others are specific to a single panel, and are broken up based on where it can be used.
+    </p>
+
+
+    <h4>Contents</h4>
+
+    <ol class="toc">
+       <li><a href="#opening-devtools">Opening DevTools</a></li>
+       <li><a href="#all-panels">All Panels</a></li>
+       <li><a href="#elements-panel">Elements Panel</a></li>
+       <li><a href="#styles-sidebar">Styles Sidebar</a></li>
+       <li><a href="#sources-panel">Sources Panel</a></li>
+       <li><a href="#timeline-panel">Timeline Panel</a></li>
+       <li><a href="#console">Console</a></li>
+       <li><a href="#other-shortcuts">Other Chrome Shortcuts</a></li>
+    </ol>
+
+
+
+      <a name="//apple_ref/cpp/Section/1.%20%20Opening%20DevTools" class="dashAnchor" id=""></a><h2 id="opening-devtools"> Opening DevTools </h2>
+
+      <p> To access the Developer Tools, on any web page or app in Google Chrome you can use one of these options: </p>
+
+      <ul>
+        <li> Open the <b>Chrome menu </b> <img src="../images/chrome-menu.png" alt="Chrome menu"> at the top-right of your browser window, then select <b>Tools</b> &gt; <b>Developer Tools</b>.</li>
+        <li> Right-click on any page element and select <b>Inspect Element</b>.</li>
+      </ul>
+
+      <table>
+        <tbody>
+          <tr>
+            <th></th>
+            <th> Windows / Linux </th>
+            <th> Mac </th>
+          </tr>
+          <tr>
+            <td> Open Developer Tools </td>
+            <td> <span class="kbd">F12</span>, <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">I</span> </td>
+            <td> <span class="kbd">Cmd</span> + <span class="kbd">Opt</span> + <span class="kbd">I</span> </td>
+          </tr>
+          <tr>
+            <td> Open / switch from inspect element mode and browser window </td>
+            <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> </td>
+            <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">C</span> </td>
+          </tr>
+          <tr>
+            <td> Open Developer Tools and bring focus to the console </td>
+            <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">J</span> </td>
+            <td> <span class="kbd">Cmd</span> + <span class="kbd">Opt</span> + <span class="kbd">J</span> </td>
+          </tr>
+          <tr>
+            <td> Inspect the Inspector (<em>undock first one and press</em>) </td>
+            <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">J</span> </td>
+            <td> <span class="kbd">Cmd</span> + <span class="kbd">Opt</span> + <span class="kbd">J</span> </td>
+          </tr>
+<tr>
+        </tr>
+</tbody>
+      </table>
+
+      <p> To open up the General Settings dialog type <span class="kbd">?</span> or <span class="kbd">F1</span> when the Developer Tools window is open. Press <span class="kbd">Esc</span> to close the settings dialog.</p>
+
+      <section>
+        <a name="//apple_ref/cpp/Section/2.%20%20All%20Panels" class="dashAnchor" id=""></a><h2 id="all-panels"> All Panels </h2>
+
+        <table>
+          <tbody>
+            <tr>
+            </tr>
+            <tr>
+              <th></th>
+              <th> Windows / Linux </th>
+              <th> Mac </th>
+            </tr>
+            <tr>
+              <td> Show General Settings dialog </td>
+              <td> <span class="kbd">?</span>, <span class="kbd">F1</span> </td>
+              <td> <span class="kbd">?</span> </td>
+            </tr>
+            <tr>
+              <td> Next panel                     </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">]</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">]</span> </td>
+            </tr>
+            <tr>
+              <td> Previous panel                 </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">[</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">[</span> </td>
+            </tr>
+            <tr>
+              <td> Backward in panel History     </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Alt</span> + <span class="kbd">[</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Alt</span> + <span class="kbd">[</span> </td>
+            </tr>
+            <tr>
+              <td> Forward in panel history      </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Alt</span> + <span class="kbd">]</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Alt</span> + <span class="kbd">]</span> </td>
+            </tr>
+            <tr>
+              <td> Jump to panel 1-9 (<em>when enabled in General Settings</em>) </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">1-9</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">1-9</span> </td>
+            </tr>
+            <tr>
+              <td> Toggle Console / close settings dialog when open </td>
+              <td> <span class="kbd">Esc</span> </td>
+              <td> <span class="kbd">Esc</span> </td>
+            </tr>
+            <tr>
+              <td> Refresh the page               </td>
+              <td> <span class="kbd">F5</span>, <span class="kbd">Ctrl</span> + <span class="kbd">R</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">R</span> </td>
+            </tr>
+            <tr>
+              <td> Refresh the page ignoring cached content          </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">F5</span>, <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">R</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">R</span> </td>
+            </tr>
+            <tr>
+              <td> Text search within current file or panel </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">F</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">F</span> </td>
+            </tr>
+            <tr>
+              <td> Text search across all sources </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">F</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Alt</span> + <span class="kbd">F</span> </td>
+            </tr>
+            <tr>
+              <td> Search by filename (<em>except on Timeline</em>) </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">O</span>, <span class="kbd">Ctrl</span> + <span class="kbd">O</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">O</span>, <span class="kbd">Cmd</span> + <span class="kbd">O</span> </td>
+            </tr>
+            <tr>
+              <td> Restore default text size      </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">0</span> </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">0</span> </td>
+            </tr>
+            <tr>
+              <td> Zoom in                        </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">+</span> </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">+</span> </td>
+            </tr>
+            <tr>
+              <td> Zoom out                       </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">-</span> </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">-</span> </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+
+      <section>
+        <a name="//apple_ref/cpp/Section/3.%20%20Elements%20Panel" class="dashAnchor" id=""></a><h2 id="elements-panel"> Elements Panel </h2>
+
+        <table>
+          <tbody>
+            <tr>
+              <th></th>
+              <th> Windows / Linux </th>
+              <th> Mac </th>
+            </tr>
+            <tr>
+              <td> Undo change                    </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Z</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Z</span> </td>
+            </tr>
+            <tr>
+              <td> Redo change                    </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Y</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Y</span>, <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">Z</span> </td>
+            </tr>
+            <tr>
+              <td> Navigate                       </td>
+              <td> <span class="kbd">Up</span>, <span class="kbd">Down</span> </td>
+              <td> <span class="kbd">Up</span>, <span class="kbd">Down</span> </td>
+            </tr>
+            <tr>
+              <td> Expand / collapse node         </td>
+              <td> <span class="kbd">Right</span>, <span class="kbd">Left</span> </td>
+              <td> <span class="kbd">Right</span>, <span class="kbd">Left</span> </td>
+            </tr>
+            <tr>
+              <td> Expand node </td>
+              <td> <span class="kbd">Single-click on tag</span> </td>
+              <td> <span class="kbd">Single-click on tag</span> </td>
+            </tr>
+            <tr>
+              <td> Edit attribute </td>
+              <td> <span class="kbd">Enter</span>, <span class="kbd">Double-click on attribute</span> </td>
+              <td> <span class="kbd">Enter</span>, <span class="kbd">Double-click on attribute</span> </td>
+            </tr>
+            <tr>
+              <td> Hide element                   </td>
+              <td> <span class="kbd">H</span> </td>
+              <td> <span class="kbd">H</span> </td>
+            </tr>
+            <tr>
+              <td> Toggle edit as HTML            </td>
+              <td> <span class="kbd">F2</span> </td>
+              <td>  </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p> Right-clicking an element you can: </p>
+
+        <ul>
+          <li> Force element psuedo states: (<code>:active</code>, <code>:hover</code>, <code>:focus</code>, <code>:visited</code>) </li>
+          <li> Set breakpoints on the elements: (Subtree modifications, Attribute modification, Node removal) </li>
+          <li>Clear console</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <a name="//apple_ref/cpp/Section/4.%20%20Styles%20Sidebar" class="dashAnchor" id=""></a><h2 id="styles-sidebar"> Styles Sidebar </h2>
+
+        <table>
+          <tbody>
+            <tr>
+              <th></th>
+              <th> Windows / Linux </th>
+              <th> Mac </th>
+            </tr>
+            <tr>
+              <td> Edit rule </td>
+              <td> <span class="kbd">Single-click</span> </td>
+              <td> <span class="kbd">Single-click</span> </td>
+            </tr>
+            <tr>
+              <td> Insert new property </td>
+              <td> <span class="kbd">Single-click on whitespace</span> </td>
+              <td> <span class="kbd">Single-click on whitespace</span> </td>
+            </tr>
+            <tr>
+              <td> View auto-complete suggestions         </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Space</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Space</span> </td>
+            </tr>
+            <tr>
+              <td> Edit next / previous property          </td>
+              <td> <span class="kbd">Tab</span>, <span class="kbd">Shift</span> + <span class="kbd">Tab</span> </td>
+              <td> <span class="kbd">Tab</span>, <span class="kbd">Shift</span> + <span class="kbd">Tab</span> </td>
+            </tr>
+            <tr>
+              <td> Increment / decrement value            </td>
+              <td> <span class="kbd">Up</span>, <span class="kbd">Down</span> </td>
+              <td> <span class="kbd">Up</span>, <span class="kbd">Down</span> </td>
+            </tr>
+            <tr>
+              <td> Increment / decrement value by 10      </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">Up</span>, <span class="kbd">Shift</span> + <span class="kbd">Down</span> </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">Up</span>, <span class="kbd">Shift</span> + <span class="kbd">Down</span> </td>
+            </tr>
+            <tr>
+              <td> Increment / decrement value by 10      </td>
+              <td> <span class="kbd">PgUp</span>, <span class="kbd">PgDown</span> </td>
+              <td> <span class="kbd">PgUp</span>, <span class="kbd">PgDown</span> </td>
+            </tr>
+            <tr>
+              <td> Increment / decrement value by 100     </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">PgUp</span>, <span class="kbd">Shift</span> + <span class="kbd">PgDown</span> </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">PgUp</span>, <span class="kbd">Shift</span> + <span class="kbd">PgDown</span> </td>
+            </tr>
+            <tr>
+              <td> Increment / decrement value by 0.1     </td>
+              <td> <span class="kbd">Alt</span> + <span class="kbd">Up</span>, <span class="kbd">Alt</span> + <span class="kbd">Down</span> </td>
+              <td> <span class="kbd">Opt</span> + <span class="kbd">Up</span>, <span class="kbd">Opt</span> + <span class="kbd">Down</span> </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          <img src="shortcuts-files/attributes.png" alt="Element Pseudostates">
+          Emulate an element's pseudo state (<code>:active</code>, <code>:hover</code>, <code>:focus</code>, <code>:visited</code>)
+        </p>
+        <p>
+          <img src="shortcuts-files/plus.png" alt="Adding style selectors">
+          Add new style selectors
+        </p>
+      </section>
+
+
+      <section>
+        <a name="//apple_ref/cpp/Section/5.%20%20Sources%20Panel" class="dashAnchor" id=""></a><h2 id="sources-panel"> Sources Panel </h2>
+
+        <table>
+          <tbody>
+            <tr>
+              <th></th>
+              <th> Windows / Linux </th>
+              <th> Mac </th>
+            </tr>
+            <tr>
+              <td> Pause / resume script execution      </td>
+              <td> <span class="kbd">F8</span>, <span class="kbd">Ctrl</span> + <span class="kbd">\</span> </td>
+              <td> <span class="kbd">F8</span>, <span class="kbd">Cmd</span> + <span class="kbd">\</span> </td>
+            </tr>
+            <tr>
+              <td> Step over next function call         </td>
+              <td> <span class="kbd">F10</span>, <span class="kbd">Ctrl</span> + <span class="kbd">'</span> </td>
+              <td> <span class="kbd">F10</span>, <span class="kbd">Cmd</span> + <span class="kbd">'</span> </td>
+            </tr>
+            <tr>
+              <td> Step into next function call         </td>
+              <td> <span class="kbd">F11</span>, <span class="kbd">Ctrl</span> + <span class="kbd">;</span> </td>
+              <td> <span class="kbd">F11</span>, <span class="kbd">Cmd</span> + <span class="kbd">;</span> </td>
+            </tr>
+            <tr>
+              <td> Step out of current function         </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">F11</span>, <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">;</span> </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">F11</span>, <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">;</span> </td>
+            </tr>
+            <tr>
+              <td> Select next call frame               </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">.</span> </td>
+              <td> <span class="kbd">Opt</span> + <span class="kbd">.</span> </td>
+            </tr>
+            <tr>
+              <td> Select previous call frame           </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">,</span> </td>
+              <td> <span class="kbd">Opt</span> + <span class="kbd">,</span> </td>
+            </tr>
+            <tr>
+              <td> Toggle breakpoint condition          </td>
+              <td> <span class="kbd">Click on line number</span>, <span class="kbd">Ctrl</span> + <span class="kbd">B</span> </td>
+              <td> <span class="kbd">Click on line number</span>, <span class="kbd">Cmd</span> + <span class="kbd">B</span> </td>
+            </tr>
+            <tr>
+              <td> Edit breakpoint condition            </td>
+              <td> <span class="kbd">Right-click on line number</span> </td>
+              <td> <span class="kbd">Right-click on line number</span> </td>
+            </tr>
+            <tr>
+              <td> Delete text on current line </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">D</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">D</span> </td>
+            </tr>
+            <tr>
+              <td> Save changes to local modifications </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">S</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">S</span> </td>
+            </tr>
+            <tr>
+              <td> Go to line                           </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">G</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">G</span> </td>
+            </tr>
+            <tr>
+              <td> Search by filename </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">O</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">O</span> </td>
+            </tr>
+            <tr>
+              <td> Go to member </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> </td>
+            </tr>
+            <tr>
+              <td> Toggle console and evaluate code selected in Sources panel </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">E</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">E</span> </td>
+            </tr>
+            <tr>
+              <td> Run snippet </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Enter</span> </td>
+            </tr>
+            <tr>
+              <td> Toggle comment </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">/</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">/</span> </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          <img src="shortcuts-files/pauseOnExceptionsButton.png" alt="Pause on Exception Button">
+          Don't pause on exceptions
+        </p>
+        <p>
+          <img src="shortcuts-files/pauseOnUncaughtExceptionsButton.png" alt="Pause on All Exceptions">
+          Pause on All exceptions (including those caught within try/catch blocks)
+        </p>
+        <p>
+          <img src="shortcuts-files/pauseOnUncaughtErrorsButton.png" alt="Pause on Uncaught Exceptions">
+          Pause on uncaught exceptions (<em>usually the one you want</em>)
+        </p>
+      </section>
+
+
+      <section>
+        <a name="//apple_ref/cpp/Section/6.%20%20Timeline%20Panel" class="dashAnchor" id=""></a><h2 id="timeline-panel"> Timeline Panel </h2>
+
+        <table>
+          <tbody>
+            <tr>
+              <th></th>
+              <th> Windows / Linux </th>
+              <th> Mac </th>
+            </tr>
+            <tr>
+              <td> Start / stop recording       </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">E</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">E</span> </td>
+            </tr>
+            <tr>
+              <td> Save timeline data           </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">S</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">S</span> </td>
+            </tr>
+            <tr>
+              <td> Load timeline data           </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">O</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">O</span> </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+
+      <section>
+        <h2 id="timeline-panel"> Profiles Panel </h2>
+
+        <table>
+          <tbody>
+            <tr>
+              <th></th>
+              <th> Windows / Linux </th>
+              <th> Mac </th>
+            </tr>
+            <tr>
+              <td> Start / stop recording       </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">E</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">E</span> </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <a name="//apple_ref/cpp/Section/7.%20%20Console" class="dashAnchor" id=""></a><h2 id="console"> Console </h2>
+
+        <table>
+          <tbody>
+            <tr>
+              <th></th>
+              <th> Windows / Linux </th>
+              <th> Mac </th>
+            </tr>
+            <tr>
+              <td> Next suggestion                      </td>
+              <td> <span class="kbd">Tab</span> </td>
+              <td> <span class="kbd">Tab</span> </td>
+            </tr>
+            <tr>
+              <td> Previous suggestion                  </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">Tab</span> </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">Tab</span> </td>
+            </tr>
+            <tr>
+              <td> Accept suggestion                    </td>
+              <td> <span class="kbd">Right</span> </td>
+              <td> <span class="kbd">Right</span> </td>
+            </tr>
+            <tr>
+              <td> Previous command / line              </td>
+              <td> <span class="kbd">Up</span> </td>
+              <td> <span class="kbd">Up</span> </td>
+            </tr>
+            <tr>
+              <td> Next command / line                  </td>
+              <td> <span class="kbd">Down</span> </td>
+              <td> <span class="kbd">Down</span> </td>
+            </tr>
+            <tr>
+              <td> Clear Console                        </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">L</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">K</span>, <span class="kbd">Opt</span> + <span class="kbd">L</span> </td>
+            </tr>
+            <tr>
+              <td> Multi-line entry                      </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">Enter</span> </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Return</span> </td>
+            </tr>
+            <tr>
+              <td> Execute                              </td>
+              <td> <span class="kbd">Enter</span> </td>
+              <td> <span class="kbd">Return</span> </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p> Right-clicking on console: </p>
+
+        <ul>
+          <li> XMLHTTPRequest logging: Turn on to view the XHR log </li>
+          <li> Preserve log upon navigation </li>
+          <li> Filter: Hide and unhide messages from script files </li>
+          <li> Clear console: Clear all console messages </li>
+        </ul>
+      </section>
+
+
+      <section>
+        <a name="//apple_ref/cpp/Section/8.%20%20Other%20Chrome%20Shortcuts" class="dashAnchor" id=""></a><h2 id="other-shortcuts"> Other Chrome Shortcuts </h2>
+
+        <p>Here are some additional Chrome shortcuts which are useful for general use within the browser not specific to the DevTools. <a href="http://goo.gl/PsTNm">View all Chrome shortcuts</a> for Windows, Mac, and Linux. </p>
+
+        <table>
+          <tbody>
+            <tr>
+              <th></th>
+              <th> Windows / Linux </th>
+              <th> Mac </th>
+            </tr>
+            <tr>
+              <td> Find next </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">G</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">G</span> </td>
+            </tr>
+            <tr>
+              <td> Find previous </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">G</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">G</span> </td>
+            </tr>
+            <tr>
+              <td> Open a new window in Incognito mode </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">N</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">N</span> </td>
+            </tr>
+            <tr>
+              <td> Toggle Bookmarks bar on and off </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">B</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">B</span> </td>
+            </tr>
+            <tr>
+              <td> View the History page </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">H</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Y</span> </td>
+            </tr>
+            <tr>
+              <td> View the Downloads page </td>
+              <td> <span class="kbd">Ctrl</span> + <span class="kbd">J</span> </td>
+              <td> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">J</span> </td>
+            </tr>
+            <tr>
+              <td> View the Task Manager </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">ESC</span> </td>
+              <td> <span class="kbd">Shift</span> + <span class="kbd">ESC</span> </td>
+            </tr>
+            <tr>
+              <td> Next page in a tabs browsing history </td>
+              <td> <span class="kbd">Alt</span> + <span class="kbd">Right</span> </td>
+              <td> <span class="kbd">Alt</span> + <span class="kbd">Right</span> </td>
+            </tr>
+            <tr>
+              <td> Previous page in a tabs browsing history </td>
+              <td> <span class="kbd">Backspace</span>, <span class="kbd">Alt</span> + <span class="kbd">Left</span> </td>
+              <td> <span class="kbd">Backspace</span>, <span class="kbd">Alt</span> + <span class="kbd">Left</span> </td>
+             </tr>
+             <tr>
+               <td> Highlight content in the web address area </td>
+               <td> <span class="kbd">F6</span>, <span class="kbd">Ctrl</span> + <span class="kbd">L</span>, <span class="kbd">Alt</span> + <span class="kbd">D</span> </td>
+               <td> <span class="kbd">Cmd</span> + <span class="kbd">L</span>, <span class="kbd">Alt</span> + <span class="kbd">D</span> </td>
+             </tr>
+             <tr>
+               <td> Places a ? in the address bar for performing a keyword <br>
+                  search using your default search engine </td>
+               <td> <span class="kbd">Ctrl</span> + <span class="kbd">K</span>, <span class="kbd">Ctrl</span> + <span class="kbd">E</span> </td>
+               <td> <span class="kbd">Cmd</span> + <span class="kbd">K</span>, <span class="kbd">Cmd</span> + <span class="kbd">E</span> </td>
+             </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+      <p class="backtotop"><a href="#top">Back to top</a></p>
+
+  
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-09-11T01:56:43.439500" id="gc-content-last-updated">Last updated September 11, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/shortcuts by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:59:39 GMT -->
+</html>

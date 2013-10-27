@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/mobile-emulation by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:58:26 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Mobile emulation - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+    
+    
+    
+  
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Mobile emulation</h1>
+  
+  <div itemprop="articleBody">
+  
+  <link rel="stylesheet" type="text/css" href="../css/local_extensions.css">
+  <style>
+img {
+    border:1px solid #ccc;
+}
+ </style>
+
+<h4><strong>Contents</strong></h4>
+
+<ul>
+<li><a href="#emulate-touch-events">Emulating Touch Events</a></li>
+<li><a href="#emulate-device-viewports">Emulating Device Viewports</a></li>
+<li><a href="#useragent-spoofing">Useragent Spoofing</a></li>
+<li><a href="#network-throttling">Network Bandwidth Throttling</a></li>
+<li><a href="#device-geolocation-overrides">Geolocation Overrides</a></li>
+<li><a href="#device-orientation-overrides">Device Orientation Overrides</a></li>
+<li><a href="#css-media-type-emulation">CSS Media Type Emulation</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+
+<p>The mobile web has evolved to enable increasingly sophisticated applications,
+which we often wish to debug during development on the desktop. The DevTools
+include support for a number of features that can help with this which we will
+walk through in this section.</p>
+
+
+<p class="note"><b>Note</b>: Some of our documentation may be ahead of the stable version of Chrome. If you are unable to locate a feature listed, we recommend trying <a href="https://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a> which contains the latest version of the DevTools.</p>
+
+
+<a name="//apple_ref/cpp/Section/1.%20%20Emulating%20Touch%20Events" class="dashAnchor" id=""></a><h2 id="emulate-touch-events">Emulating Touch Events</h2>
+
+<p>Touch is an input method that's difficult to test on the desktop, since most
+desktops don't have touch input. Having to test on mobile can lengthen your
+development cycle, since every change you make needs to be pushed out to a
+server and then loaded on the device.</p>
+
+<p>A solution to this problem is to simulate touch events on your development
+machine. For single-touches, the Chrome DevTools supports single<a href="http://www.w3.org/TR/touch-events/">
+</a><a href="http://www.w3.org/TR/touch-events/">touch
+event</a> emulation to make it easier to debug
+mobile applications on the desktop.</p>
+
+<p><strong>To enable support for touch event emulation:</strong></p>
+
+<ol>
+<li>Click on the Settings cog <img src="mobile-emulation/image_38.png"> and open up the Overrides panel</li>
+<li>Scroll down and check "Enable touch events"</li>
+<li>Reload your page</li>
+</ol>
+
+
+<div class="screenshot"><img width="720" src="mobile-emulation/image_0.png" alt="Emulating touch events in the Overrides panel"></div>
+
+<p>Your mouse actions will now also trigger the relevant touch events: <code>touchstart</code>, <code>touchmove</code> and <code>touchend</code>.</p>
+
+<h4>Notes</h4>
+
+<ul>
+<li>Feature detects such as <code><a href="http://modernizr.com/">Modernizr.touch</a></code> will now
+succeed on page refresh.</li>
+<li>This feature, like many other overrides, will only work while the DevTools are open.</li>
+<li>The cursor will change to a small circle, to emulate a fingertip size.</li>
+<li>Enabling "Emulate touch events" does not disable mouse events entirely, as they are fired on touch devices. Try this <a href="http://patrickhlauke.github.io/touch/tests/event-listener.html">touch event listener test page</a>.
+touch as another option we can debug with.</li>
+<li>On click, the order of events fired is currently: <code>touchstart &gt; mousedown &gt; touchmove &gt; touchend &gt; mouseup &gt; click</code>. On touch devices, this order is slightly different. The tools will shortly be <a href="https://code.google.com/p/chromium/issues/detail?id=181204">updated with the right order.</a>
+</li>
+<li>
+<code>elem.ontouch<i>*</i></code> handlers will currently <a href="https://code.google.com/p/chromium/issues/detail?id=133915">not fire</a> with this feature. Use the <code>--touch-events</code> <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">command line flag</a> to let Chrome trigger these handlers.
+</li>
+</ul>
+
+
+<p><strong>Debugging touch events</strong></p>
+
+<ol>
+<li>Open up the<a href="http://paulirish.com/demo/multi"> </a><a href="http://paulirish.com/demo/multi">Canvas Fingerpaint
+Demo</a>
+</li>
+<li>Navigate to the Sources panel</li>
+<li>Expand the "Event Listener Breakpoints" sub-panel</li>
+<li>Check the "touchstart" and "touchmove" events under "Touch"</li>
+<li>Move your cursor over the paint area</li>
+<li>The debugger should successfully pause on the <span class="source-code">draw()</span> method</li>
+</ol>
+
+
+<p></p>
+<div class="screenshot"><img width="700" src="mobile-emulation/image_2.png" alt="Debugging touch events"></div>
+
+You may also monitor touch events as they fire on an element in the console. Use <a href="commandline-api.html#monitoreventsobject_events"><code>monitorEvents</code> from the command line API</a>:
+
+<pre class="prettyprint"><code>monitorEvents(document.body, 'touch')</code></pre>
+
+
+<p><strong>Multi-touch</strong></p>
+
+<p>Multi-touch events can be simulated if you have a device with touch input, such
+as a modern Apple MacBook. For further assistance with multi-touch event
+simulation, see the "Developer tools" chapter of the <a href="http://www.html5rocks.com/en/mobile/touch/"><b>Multi-touch web
+development</b> guide on HTML5 Rocks</a>.</p>
+
+
+
+<a name="//apple_ref/cpp/Section/2.%20%20Emulating%20Device%20Viewports" class="dashAnchor" id=""></a><h2 id="emulate-device-viewports">Emulating Device Viewports</h2>
+
+<p>It's often easier to start prototyping on the desktop and then tackle the
+mobile-specific parts on the devices you intend to support. Device emulation can
+make this process more straightforward.</p>
+
+<p>The DevTools support for device emulation includes native <strong>User Agent and
+dimension overriding</strong>. This allows you to emulate and debug mobile viewport issues like CSS media query breakpoints for various devices and settings.</p>
+
+<p></p>
+<div class="screenshot"><img width="550" src="mobile-emulation/image_3.png" alt="Viewport Overrides"></div>
+
+<p><a href="#useragent-spoofing">Changing the user agent</a> will prefill the device metrics values with the device pixel sizes of those devices. For example, selecting the Nexus S will prefix a resolution of 480x800.</p>
+
+
+<h4>Notes</h4>
+
+<ul>
+<li>The button following the <em>Screen resolution</em> values (<img src="mobile-emulation/image_6.png">) will swap the width and height.
+</li>
+<li>At present, <b>Font scale factor</b> will only set the text zoom. There are however
+plans to change this in the future to better emulate mobile devices using text
+autosizing and real device pixel ratio emulation. Until then, the current
+state will never be 100% accurate and may exhibit some visual artifacts and
+unexpected behavior when scaling the page.</li>
+<li>
+<b>Fit in window</b> will rescale the area available to the page to exclude the area occupied by the DevTools. This may be useful if your page now descends below the bottom of the DevTools, though keep in mind this will scale the page metrics.
+</li>
+<li>Device media queries (e.g <code>@media only screen and (min-device-width:768px){}</code>) will  be enabled according to the values defined
+here. There is presently no other way those can be mimicked.</li>
+<li>You may want to undock DevTools or dock it to the right while working with emulated viewport settings.
+</li>
+<li>Currently, setting device metrics will not emulate the behavior specified in a <code>&lt;meta name="viewport"&gt;</code> tag or (<code>@viewport { &#8230; }</code> rule). You can run Chrome with additional <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">flags</a> to emulate mobile viewport behavior:</li>
+</ul>
+
+<pre class="prettyprint"><code>Chrome --force-compositing-mode --enable-threaded-compositing --enable-pinch --enable-viewport --enable-fixed-layout
+</code></pre>
+
+With these flags set, viewport settings will be honored. (<a href="http://source.tutsplus.com/webdesign/tutorials/037_new-viewport/viewport/no-metatag.html">page without viewport</a>, <a href="http://source.tutsplus.com/webdesign/tutorials/037_new-viewport/viewport/index.html">page with viewport</a>):
+
+<p></p>
+<div class="screenshot"><img width="550" src="mobile-emulation/viewporttag.png" alt="Viewport Overrides"></div>
+
+
+
+
+
+<a name="//apple_ref/cpp/Section/3.%20%20Useragent%20Spoofing" class="dashAnchor" id=""></a><h2 id="useragent-spoofing">Useragent Spoofing</h2>
+
+
+
+<p><strong>Emulating The User Agent</strong></p>
+
+<ol>
+<li>Navigate to the <a href="http://www.google.com/intl/en/chrome/browser/mobile/">
+</a><a href="http://www.google.com/intl/en/chrome/browser/mobile/">Chrome for
+mobile</a> homepage</li>
+<li>Open up the Overrides menu in the DevTools</li>
+<li>Check "User Agent"</li>
+<li>Select "Android 2.3 - Nexus S"</li>
+</ol>
+
+
+<p>The result is that first, the User Agent string for the current page changes
+to <em>Android 2.3</em>. Next, the <em>Device Metrics </em> option has been
+automatically enabled and the <em>Screen resolution</em> and <em>Font
+scale factor</em> fields set to those emulating the chosen device.</p>
+
+
+<table>
+<thead>
+<tr>
+<th>
+Before:
+</th>
+<th>
+After:
+</th>
+</tr>
+</thead>
+<tbody> <tr>
+<td><img style="max-width: 100%" src="mobile-emulation/image_4.png" alt="Before user agent and device metric emulation have been applied"></td>
+<td><img style="max-width: 100%" src="mobile-emulation/image_5.png" alt="After user agent and device metric emulation are applied"></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Notes</h4>
+<ul>
+<li>If you would like to contribute patches to support new device presets, please see our
+<a href="contributing.html">contribution
+docs</a>.</li>
+</ul>
+
+
+<a name="//apple_ref/cpp/Section/4.%20%20Network%20Bandwidth%20Throttling" class="dashAnchor" id=""></a><h2 id="network-throttling">Network Bandwidth Throttling</h2>
+
+
+<p>The DevTools don't currently support network throttling, however it's important to understand and test the impact of slower connections on your site.
+
+ </p>
+<p> On Mac, we recommend using the <a href="http://nshipster.com/network-link-conditioner/">Network Link Conditioner</a> that is available via X Code. It has presets for network conditions like EDGE, 3G, DSL, WiFi, High Latency DNS, Very Bad Network, and 100% Loss. Changes made within Network Link Conditioner will affect all system network traffic, including Chrome or any running emulators and simulators.</p>
+
+<img src="mobile-emulation/network-link-conditioner-system-preference.png" alt="Network Link Conditioner preference panel" style="max-height: 300px">
+
+ <p>On Windows, we recommend using <a href="http://roderick.dk/2012/05/11/simulate-slow-web-connections/">Charles Proxy</a>. Whereas Network Link Conditioner will affect all system traffic, you can set Charles as a proxy for specific application and only affect their traffic. Do note that a proxy may change network behavior and performance characteristics beyond just the bandwidth speed.</p>
+
+<img src="mobile-emulation/charles-throttling-options.png" alt="Charles Proxy Throttling Options" style="max-height: 300px">
+
+<p>On Linux, there are many options for traffic shaping; <a href="http://monkey.org/~marius/pages/?page=trickle">trickle</a> is a recommended option. </p>
+
+<a name="//apple_ref/cpp/Section/5.%20%20Geolocation%20Overrides" class="dashAnchor" id=""></a><h2 id="device-geolocation-overrides">Geolocation Overrides</h2>
+
+<p>When working with HTML5 geolocation support in an application, it can be useful
+to debug the output received when using different values for longitude and
+latitude. The DevTools support both overriding position values for <em>navigator.geolocation
+</em>and simulating geolocation not being available via the Overrides menu.</p>
+
+<p><strong>Overriding geolocation positions</strong></p>
+
+<ol>
+<li>Navigate to the <a href="http://html5demos.com/geo">Geolocation</a> demo</li>
+<li>Allow the page access to your position. This should hopefully be accurate.</li>
+<li>Open up the Overrides menu in the DevTools</li>
+<li>Check "Override Geolocation" then enter in Lat = 41.4949819 and Lat =
+-0.1461206</li>
+</ol>
+
+
+<p></p>
+<div class="screenshot"><img src="mobile-emulation/image_11.png"></div>
+
+<ol start="5">
+<li>Refresh the page. The demo will now use your overridden positions for
+geolocation</li>
+</ol>
+
+
+<p></p>
+<div class="screenshot"><img src="mobile-emulation/image_12.png"></div>
+
+<ol start="6">
+<li>Now check the "Emulate position unavailable" option</li>
+<li>Refresh the page. The demo will now inform you that finding your location
+failed</li>
+</ol>
+
+
+<p></p>
+<div class="screenshot"><img src="mobile-emulation/image_13.png"></div>
+
+
+
+<a name="//apple_ref/cpp/Section/6.%20%20Device%20Orientation%20Overrides" class="dashAnchor" id=""></a><h2 id="device-orientation-overrides">Device Orientation Overrides</h2>
+
+<p>Many new mobile devices are now shipping with accelerometers, gyroscopes,
+compasses and other hardware designed to determine capture motion and
+orientation data. Many web browsers access to that new hardware,
+such as via the <a href="http://dev.w3.org/geo/api/spec-source-orientation">HTML5
+DeviceOrientation</a> events.
+These events provide developers with information about the orientation, motion
+and acceleration of the device.</p>
+
+<p>If your application is taking advantage of device orientation events, it can
+also be useful to override the values received by these events during debugging
+to avoid the need to test them on a physical mobile device.</p>
+
+<p><strong>Overriding orientation values</strong></p>
+
+<ol>
+<li>Navigate to the<a href="http://www.html5rocks.com/en/tutorials/device/orientation/deviceorientationsample.html">
+</a><a href="http://www.html5rocks.com/en/tutorials/device/orientation/deviceorientationsample.html">Device
+Orientation</a>
+demo</li>
+<li>You should see a standard HTML5 logo along with the current orientation
+values listed above it</li>
+<li>Open up the Overrides menu in the DevTools</li>
+<li>Check "Override Device Orientation"</li>
+<li>You will see three fields:
+  <ul>
+    <li>
+<b>&#945;</b>: how much the device has been rotated around the
+z-axis
+  </li>
+<li>
+<b>&#946;</b>: how much the device is tilted left-to-right
+  </li>
+<li>
+<b>&#947;</b>: how much it's
+tilted front-to-back.</li>
+</ul>
+</li>
+<li>Change the values to the following:
+
+<ol>
+<li>&#945; - 0</li>
+<li>&#946; - 60</li>
+<li>&#947; - 60</li>
+</ol>
+</li>
+</ol>
+
+
+<p></p>
+<div class="screenshot"><img width="401" src="mobile-emulation/image_14.png" alt="Enabling device orientation overrides"></div>
+
+<p>We have altered the left/right tilt and front/back tilt, in this case resulting
+in our application being emulated as rotating in a clockwise direction.</p>
+
+<p></p>
+<div class="screenshot"><img width="369" src="mobile-emulation/image_15.png" alt="Device orientation allows us to emulate the directions a device may be turned"></div>
+
+
+
+<a name="//apple_ref/cpp/Section/7.%20%20CSS%20Media%20Type%20Emulation" class="dashAnchor" id=""></a><h2 id="css-media-type-emulation">CSS Media Type Emulation</h2>
+
+<p>CSS media types allow us to apply different styles to a page depending on the
+medium it is being used through (e.g print, screen, tv, braille and so on).</p>
+
+<p><strong>Emulating media types</strong></p>
+
+<ol>
+<li>Navigate to <a href="http://www.html5rocks.com/en/mobile/high-dpi/">HTML5 Rocks</a>
+</li>
+<li>Open up the Overrides menu in the DevTools</li>
+<li>Enable "Emulate CSS media" and select the "print" media type option from the drop-down
+box.</li>
+<li>The page will adjust to using a stylesheet for the chosen CSS media type if
+one is available</li>
+</ol>
+
+
+<table>
+<thead>
+<tr>
+<th>
+Before:
+</th>
+<th>
+After:
+</th>
+</tr>
+</thead>
+<tbody> <tr>
+<td><img style="max-width: 100%" src="mobile-emulation/emulatecss_before.jpg" alt="Before enabling CSS media type emulation"></td>
+<td><img style="max-width: 100%" src="mobile-emulation/emulatecss_after.jpg" alt="After enabling CSS media type emulation"></td>
+</tr>
+</tbody>
+</table>
+
+<a name="//apple_ref/cpp/Section/8.%20%20Frequently%20Asked%20Questions" class="dashAnchor" id=""></a><h2 id="faq">Frequently Asked Questions</h2>
+
+<p><strong>Q: Do the DevTools support remote debugging?</strong><br>
+A: Yes. Please see our <a href="https://developers.google.com/chrome/mobile/docs/debugging">remote debugging</a>
+documentation for more information.</p>
+
+<p><strong>Q: Can the DevTools emulate lower GPU memory limits or slower CPUs, as found on mobile devices?</strong><br>
+A: Currently there is no means within DevTools or Chrome to emulate these characteristics. </p>
+
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-09-30T18:59:37.106300" id="gc-content-last-updated">Last updated September 30, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/mobile-emulation by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:58:41 GMT -->
+</html>

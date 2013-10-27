@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/timeline by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:57:05 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Performance profiling with the Timeline - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+  
+  
+  
+
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Performance profiling with the Timeline</h1>
+  
+  <div itemprop="articleBody">
+  
+<p>The Timeline panel lets you record and analyze all the activity in your application as it runs. It's the best place to start investigating perceived performance issues in your application.</p>
+<nav class="inline-toc"><ol class="toc">
+<li>
+<a href="#timeline_panel_overview">Timeline panel overview</a><ol class="toc">
+<li><a href="#events_mode">Events mode</a></li>
+<li><a href="#frames_mode">Frames mode</a></li>
+<li><a href="#memory_mode">Memory mode</a></li>
+<li><a href="#making_a_recording">Making a recording</a></li>
+<li><a href="#recording_a_page_load">Recording a page load</a></li>
+<li><a href="#tips_for_making_recordings">Tips for making recordings</a></li>
+</ol>
+</li>
+<li>
+<a href="#analyzing_timeline_recordings">Analyzing Timeline recordings</a><ol class="toc">
+<li><a href="#viewing_details_about_a_record">Viewing details about a record</a></li>
+<li><a href="#domcontentloaded_and_load_event_markers">DOMContentLoaded and Load event markers</a></li>
+<li><a href="#locating_forced_synchronous_layouts">Locating forced synchronous layouts</a></li>
+<li><a href="#about_nested_events">About nested events</a></li>
+<li><a href="#filtering_and_searching_records">Filtering and searching records</a></li>
+<li><a href="#zooming_in_on_a_timeline_section">Zooming in on a Timeline section</a></li>
+<li><a href="#saving_and_loading_recordings">Saving and loading recordings</a></li>
+<li><a href="#user-produced_timeline_events">User-produced Timeline events</a></li>
+<li><a href="#view_cpu_time_in_recordings">View CPU time in recordings</a></li>
+</ol>
+</li>
+<li>
+<a href="#timeline_event_reference">Timeline event reference</a><ol class="toc">
+<li><a href="#common_event_properties">Common event properties</a></li>
+<li><a href="#loading_events">Loading events</a></li>
+<li><a href="#scripting_events">Scripting events</a></li>
+<li><a href="#rendering_events">Rendering events</a></li>
+<li><a href="#painting_events">Painting events</a></li>
+</ol>
+</li>
+</ol></nav>
+<a name="//apple_ref/cpp/Section/1.%20%20Timeline%20panel%20overview" class="dashAnchor" id=""></a><h2 id="timeline_panel_overview">Timeline panel overview</h2>
+<p>The Timeline has three primary sections: an overview section at the top, a records view, and a toolbar.</p>
+<p><img alt="" src="timeline-images/image05.png"></p>
+<ul>
+<li>To start or stop a recording, press the Record&#160;toggle&#160;button (see
+    <a href="#making_a_recording">Making a recording</a>).</li>
+<li>Press the Clear&#160;recording button to clear records from the Timeline.</li>
+<li>The Glue async events&#160;mode lets you more easily correlate asynchronous events to their causes (see <a href="#about_nested_events">About nested events</a>).</li>
+<li>You can filter the records shown in the Timeline according to their type or duration (see <a href="#filtering_and_searching_records">Filtering and searching records</a>).</li>
+</ul>
+<p>During a recording, a record for each event that occurs is added to the Records view in a "waterfall" presentation. Records are categorized into one of four basic groups: Loading, Scripting, Rendering, and Painting. These records are color-coded as follows:</p>
+<p><img alt="" src="timeline-images/image01.png"></p>
+<p>For example, the recording below is of an HTML page being loaded into Chrome. The first record (Send Request) is Chrome's HTTP request for the page, followed by a Receive Response&#160;record (for the corresponding HTTP response), some Receive Data&#160;records (for the actual page data), and then a Finish Loading&#160;record. For a complete list of events recorded by Timeline and their descriptions, see the <a href="#timeline_event_reference">Timeline event reference</a>.</p>
+<p><img alt="" src="timeline-images/image06.png"></p>
+<p>When you hover over a Timeline record, a pop-up appears with details
+about the associated event. For example, the screenshot below shows
+details for a Finish Loading record associated with an image resource. The <a href="#timeline_event_reference">Timeline event reference</a>&#160;explains the details available for each record type.</p>
+<p><img alt="" src="timeline-images/image12.png"></p>
+<p>In addition to the detailed Records view, you can inspect recordings in one of three modes:</p>
+<ul>
+<li>
+<strong>Events&#160;mode</strong> shows all recorded events by event category.</li>
+<li>
+<strong>Frames&#160;mode</strong> shows your page's rendering performance.</li>
+<li>
+<strong>Memory&#160;mode</strong> shows your page's memory usage over time.</li>
+</ul>
+<a name="//apple_ref/cpp/Section/1.1.%20%20Events%20mode" class="dashAnchor" id=""></a><h3 id="events_mode">Events mode</h3>
+<p>The Events mode provides an overview of all events that were captured during the recording, organized by their type. At a glance, you can see where your application is spending the most time, and on what types of tasks. The length of each horizontal bar in this view corresponds to time that event took to complete.</p>
+<p><img alt="" src="timeline-images/image27.png"></p>
+<p>When you select a range of time from the Events view (see <a href="#zooming_in_on_a_timeline_section">Zooming in on a Timeline section</a>), the Records view is restricted to only show those records.</p>
+<p><img alt="" src="timeline-images/image11.png"></p>
+<a name="//apple_ref/cpp/Section/1.2.%20%20Frames%20mode" class="dashAnchor" id=""></a><h3 id="frames_mode">Frames mode</h3>
+<p>Frames mode provides insight into the rendering performance of your application. A "frame" represents the work the browser must do to render a single frame of content to the display&#8212;run JavaScript, handle events, update the DOM and change styles, layout and paint the page.&#160;The goal is for your app to run at 60 frames per second (FPS), which corresponds to the 60Hz refresh rate of most (but not all) video displays. Consequently, your application has approximately 16.6 ms (1000 ms / 60) to prepare for each frame.</p>
+<p>Horizontal lines across the Frames view represent frame rate targets for 60 FPS and 30 FPS. The height of a frame corresponds to the time it took to render that frame. The colors filling each frame indicate the percentage of time taken on each type of kind of task.</p>
+<p>The time to render a frame is displayed atop of the Records view. If you hover over the displayed time, additional information appears about the frame, including the time spent on each type of task, CPU time, and the calculated FPS.</p>
+<p><img alt="" src="timeline-images/image02.png"></p>
+<p>See <a href="demos/too-much-layout/index.html">Timeline demo: Diagnosing and fixing forced synchronous
+layout</a> for a demonstration of using Frames mode.</p>
+<h4 id="about_clear_or_light-gray_frames">About clear or light-gray frames</h4>
+<p>You may notice regions of a frame that are light-gray or clear (hollow). These regions indicate, respectively:</p>
+<ul>
+<li>Activity that was not instrumented by DevTools</li>
+<li>Idle time between display refresh cycles.</li>
+</ul>
+<p>The frames in the recording below show both un-instrumented activity and idle time.</p>
+<p><img alt="" src="timeline-images/clear-frames.png"></p>
+<h4 id="viewing_frame_rate_statistics">Viewing frame rate statistics</h4>
+<p>The average frame rate and its standard deviation represented are displayed along the bottom of the Timeline panel for the selected frame range. If you hover over the average frame rate, a pop-up appears with additional information about the frame selection:</p>
+<ul>
+<li>
+<strong>Selected range</strong> -- The selected time range, and the number of frames in the selection.</li>
+<li>
+<strong>Minimum Time</strong> -- The lowest time of the selected frames, and the corresponding frame rate in parentheses.</li>
+<li>
+<strong>Average Time</strong> -- The average time of the selected frames,  and the corresponding frame rate in parentheses.</li>
+<li>
+<strong>Maximum Time</strong> -- The maximum time for the selected range, and the corresponding frame rate in parentheses.</li>
+<li>
+<strong>Standard Deviation</strong> -- The amount of variability of the calculated Average Time.</li>
+<li>
+<strong>Time by category</strong> -- The amount of time spent on each type of process, color-coded by type.</li>
+</ul>
+<p><img alt="" src="timeline-images/average.png"></p>
+<a name="//apple_ref/cpp/Section/1.3.%20%20Memory%20mode" class="dashAnchor" id=""></a><h3 id="memory_mode">Memory mode</h3>
+<p>The Memory view shows you a graph of memory used by your application
+over time and maintains a counter of the number of documents, DOM
+nodes, and event listeners that are held in memory (that is, that
+haven&#8217;t been garbage collected).</p>
+<p><img alt="" src="timeline-images/image20.png"></p>
+<p>Memory mode can't show you exactly what is causing a memory leak, but it can help you identify what events in your application may be leading to a memory leak. You can then use the <a href="heap-profiling.html">Heap
+Profiler</a>&#160;to identify the specific code that is causing the leak.</p>
+<a name="//apple_ref/cpp/Section/1.4.%20%20Making%20a%20recording" class="dashAnchor" id=""></a><h3 id="making_a_recording">Making a recording</h3>
+<p>To make a recording, you start a recording session, interact with your application, and then stop recording. It helps to know in advance the kind of activity you want to record &#8212; for example, page loading, scrolling performance of a list of images, and so forth, and then stick to that script.</p>
+<p><strong>To make a recording</strong>:</p>
+<style>
+    .inline-icon {
+        vertical-align: "middle";
+    }
+</style>
+
+<ol>
+    <li>Open the page you want to record.</li>
+    <li>Open the Timeline panel and start recording by doing one of the following:</li>
+    </ol>
+<ul>
+        <li>Click the round record button at the bottom of the Timeline panel. <img width="32px" style="vertical-align:middle" src="timeline-images/recordbutton-off.png">
+</li>
+        <li>Press the keyboard shortcut Ctrl+E, or Cmd+E on Mac.
+        </li>
+    </ul>
+    <p>The Record button turns red during a recording. <img src="timeline-images/recordbutton-on.png" style="vertical-align:middle" width="32px"> </p>
+    <li>Perform any necessary user actions to record the desired behavior.</li>
+    <li>Stop the recording by pressing the now red record button, or
+    repeating the keyboard shortcut.</li>
+
+
+<a name="//apple_ref/cpp/Section/1.5.%20%20Recording%20a%20page%20load" class="dashAnchor" id=""></a><h3 id="recording_a_page_load">Recording a page load</h3>
+<p>A common task is to record a page loading from the initial network request. Keyboard shortcuts are useful in this scenario, as they let you quickly start a recording, re-load the page, and stop the recording.</p>
+<p><strong>To record a page load</strong>:</p>
+<ol>
+<li>Open any <a href="http://www.jankfree.com/">web page</a>&#160;in a new tab or window.</li>
+<li>Open the Timeline and press Cmd+E (Mac) or Ctrl+E (Windows/Linux) to start recording.</li>
+<li>Quickly press Cmd+R or Ctrl+R to reload the browser page.</li>
+<li>Stop the recording when the page has finished loading (look for the red <a href="#domcontentloaded_and_load_event_markers">event marker</a>).</li>
+</ol>
+<p>Your recording should look something like the following. The first
+record (Send Request) is Chrome's HTTP request for the page, followed by a Receive Response&#160;record for the corresponding HTTP response, followed by one or more Receive Data&#160;records, a Finish Loading&#160;record, and a Parse HTML&#160;record.</p>
+<p><img alt="" src="timeline-images/image06.png"></p>
+<p>See the <a href="#timeline_event_reference">Timeline event reference</a>&#160;for details on each record type.</p>
+<a name="//apple_ref/cpp/Section/1.6.%20%20Tips%20for%20making%20recordings" class="dashAnchor" id=""></a><h3 id="tips_for_making_recordings">Tips for making recordings</h3>
+<p>Here are some tips for making recordings:</p>
+<ul>
+<li>
+<strong>Keep recordings as short as possible</strong>. Shorter recordings generally make analysis easier.</li>
+<li>
+<strong>Avoid unnecessary actions</strong>. Try to avoid actions (mouse clicks, network loads, and so forth) that are extraneous to the activity you want to record and analyze. For instance, if you want to record events that occur after you click a &#8220;Login&#8221; button, don&#8217;t also scroll the page, load an image and so forth.</li>
+<li>
+<strong>Disable the browser cache</strong>. When recording network operations, it&#8217;s a good idea to disable the browser&#8217;s cache in the DevTools Settings panel.</li>
+<li>
+<p><strong>Disable extensions</strong>. Chrome extensions can add unrelated noise to Timeline recordings of your application. You can do one of the following:</p>
+<ul>
+<li>Open a Chrome window in <a href="http://support.google.com/chrome/bin/answer.py?hl=en&amp;answer=95464">incognito
+mode</a>
+</li>
+<li>Create a new <a href="http://support.google.com/chrome/bin/answer.py?hl=en&amp;answer=142059">Chrome user
+profile</a>&#160;for
+testing.</li>
+</ul>
+</li>
+</ul>
+<a name="//apple_ref/cpp/Section/2.%20%20Analyzing%20Timeline%20recordings" class="dashAnchor" id=""></a><h2 id="analyzing_timeline_recordings">Analyzing Timeline recordings</h2>
+<p>This section provides tips for analyzing Timeline recordings.</p>
+<a name="//apple_ref/cpp/Section/2.1.%20%20Viewing%20details%20about%20a%20record" class="dashAnchor" id=""></a><h3 id="viewing_details_about_a_record">Viewing details about a record</h3>
+<p>When you hover your mouse over a record in the Timeline, a pop-up
+appears with additional information about the event.</p>
+<p><img alt="" src="timeline-images/image29.png"></p>
+<p>Certain details are present in events of all types, such as Duration and CPU Time, while some only apply to certain event types. For information on what details each kind of record contains, see the <a href="#timeline_event_reference">Timeline event reference</a>.</p>
+<p>When you hover over a Paint record, DevTools highlights the region of the screen that was updated with a blue semi-transparent rectangle, as shown below.</p>
+<p><img alt="" src="timeline-images/paint-hover.png"></p>
+<a name="//apple_ref/cpp/Section/2.2.%20%20DOMContentLoaded%20and%20Load%20event%20markers" class="dashAnchor" id=""></a><h3 id="domcontentloaded_and_load_event_markers">DOMContentLoaded and Load event markers</h3>
+<p>The Timeline annotates each recording with a blue and a red line that indicate, respectively, when the <a href="http://docs.webplatform.org/wiki/dom/events/DOMContentLoaded">DOMContentLoaded</a>&#160;and <a href="http://docs.webplatform.org/wiki/dom/events/load">load</a>&#160;events were dispatched by the browser. The DOMContentLoaded&#160;event is fired when all of the page&#8217;s DOM content has been loaded and parsed. The load&#160;event is fired once all of the document&#8217;s resources (images and CSS files, and so forth) have been fully loaded.</p>
+<p><img alt="" src="timeline-images/image28.png"></p>
+<a name="//apple_ref/cpp/Section/2.3.%20%20Locating%20forced%20synchronous%20layouts" class="dashAnchor" id=""></a><h3 id="locating_forced_synchronous_layouts">Locating forced synchronous layouts</h3>
+<p>Layout is the process by which Chrome calculates the positions and sizes of all the elements on the page. Normally, Chrome performs layouts "lazily" in response to CSS or DOM updates from your application. This allows Chrome to batch style and layout changes rather than reacting to each on demand. However, an application can force Chrome to perform a layout immediately and asynchronously by querying the value of certain layout-dependent element properties such as <code>element.offsetWidth</code>. These so called "forced synchronous layouts" can be a big performance bottleneck if repeated frequently or performed for large DOM tree.</p>
+<p>The Timeline identifies when your application causes a forced asynchronous layout and marks such records with yellow warning icon (<img alt="" src="timeline-images/image25.png">). When you hover over the record, a pop-up appears that contains a stack trace of the offending code.</p>
+<p><img alt="" src="timeline-images/image07.png"></p>
+<p>If a record contains a <a href="#about_nested_events">child record</a> that forced a layout, the parent record is marked with a slightly dimmed yellow icon. Expand the parent record to locate the child record that caused the forced layout.</p>
+<p><img alt="" src="timeline-images/forced-layout-expand.png"></p>
+<p>See the <a href="demos/too-much-layout/index.html">Forced Synchronous Layout
+demo</a>&#160;for a demonstration
+of detecting and fixing these kinds of performance issues.</p>
+<a name="//apple_ref/cpp/Section/2.4.%20%20About%20nested%20events" class="dashAnchor" id=""></a><h3 id="about_nested_events">About nested events</h3>
+<p>Events in Timeline recordings sometimes are nested visually beneath another event. You expand the "parent" event to view its nested "child" events. There are two reasons why the Timeline nests events:</p>
+<ul>
+<li>Synchronous events that occurred during the processing of an event that occurred previously. Each event internally generates two atomic events, one for the start and one for the end, that are converted to a single "continuous" event. Any other events that occur between these two atomic events become children of the outer event.</li>
+<li>Asynchronous events that occurred as a result of another event when <a href="#about_glue_mode">glue mode</a> is enabled.</li>
+</ul>
+<aside class="note"><strong>Note:</strong><span> Glue mode is automatically disabled in <a href="#frames_mode">Frames mode</a>.</span></aside>
+<p>The following screenshot shows an example of nested synchronous events. In this case, Chrome was parsing some HTML (the Parse HTML event) when it found several external resources that needed to be loaded. Those requests were made before Chrome has finished the parsing, so the Send Request events are displayed as children of the Parse HTML event.</p>
+<p><img alt="" src="timeline-images/image21.png"></p>
+<h4 id="about_glue_mode">About glue mode</h4>
+<p>Many events in an application are the result of asynchronous operations. A loading of an image resource  page results in a Send Request, followed by a Receive Response event, one or more Receive Data loading events, and a Finish Loading event. Sometimes, async events are separated from their causes by enough time to make correlating them difficult.</p>
+<p>The <strong>Glue asynchronous events to causes</strong>&#160;toggle at the bottom of the Timeline panel causes asynchronous events to be nested as children of the event that caused them.</p>
+<p><img alt="" src="timeline-images/image08.png"></p>
+<h4 id="coloring_of_timeline_records_with_nested_events">Coloring of Timeline records with nested events</h4>
+<p>Timeline bars are color coded as follows:</p>
+<ul>
+<li>The <strong>first, darkest part</strong> of the bar represents how long the parent event and all of its <em>synchronous</em>&#160;children took.</li>
+<li>The <strong>next, slightly paler color</strong> represents the CPU time that the event and all its <em>asynchronous</em>&#160;children took. This would be the same as above if <a href="#about_glue_mode">glue mode</a> is off, and for events that don't have asynchronous children.</li>
+<li>The <strong>palest bars</strong> represent the time from the start of first asynchronous event to the end of last of its asynchronous children (only visible for events with asynchronous children while in glue mode).</li>
+</ul>
+<p><img alt="" src="timeline-images/image16.png"></p>
+<p>When you hover over a parent record, the following information is displayed:</p>
+<ul>
+<li>
+<strong>Duration</strong>&#160;matches the bar length from the event start to the end of its last child.</li>
+<li>
+<strong>Self Time</strong>&#160;is the time the event took without any&#160;of its children.</li>
+<li>
+<strong>CPU&#160;time</strong> matches that of CPU bar.</li>
+</ul>
+<p><img alt="" src="timeline-images/image23.png"></p>
+<a name="//apple_ref/cpp/Section/2.5.%20%20Filtering%20and%20searching%20records" class="dashAnchor" id=""></a><h3 id="filtering_and_searching_records">Filtering and searching records</h3>
+<p>You can filter the records shown according to their type (only show loading events, for example), or only show records longer or equal to 1 millisecond or 15 milliseconds.</p>
+<p><img alt="" src="timeline-images/image19.png"></p>
+<p>You can also search records for a particular string by pressing Ctrl+F (Window/Linux) or Cmd+F (Mac), while the Timeline has focus. You can optionally filter records to only show those that contain the search term.</p>
+<p><img alt="" src="timeline-images/image09.png"></p>
+<a name="//apple_ref/cpp/Section/2.6.%20%20Zooming%20in%20on%20a%20Timeline%20section" class="dashAnchor" id=""></a><h3 id="zooming_in_on_a_timeline_section">Zooming in on a Timeline section</h3>
+<p>To make analyzing records easier, you can &#8220;zoom in&#8221; on a section of the timeline overview, which reduces accordingly the time scale in the Records view.</p>
+<p><img alt="" src="timeline-images/image03.png"></p>
+<p>To zoom in on a Timeline section, do one of the following:</p>
+<ul>
+<li>In the overview region, drag out a Timeline selection with your mouse.</li>
+<li>Adjust the gray sliders in the ruler area.</li>
+</ul>
+<p>Here are some more tips for working with Timeline selections:</p>
+<ul>
+<li>"Scrub" the recording with the current selection by dragging the area between the two slider bars. <img alt="" src="timeline-images/image26.png">
+</li>
+<li>
+<p>Trackpad users:</p>
+<ul>
+<li>Swiping left or right with two fingers moves the current Timeline selection.</li>
+<li>Swiping up or down with two fingers expands or contracts the current Timeline selection, respectively.</li>
+</ul>
+</li>
+<li>
+<p>Scrolling the mouse wheel up or down while hovering over a Timeline selection expands and contracts the selection, respectively.</p>
+</li>
+</ul>
+<a name="//apple_ref/cpp/Section/2.7.%20%20Saving%20and%20loading%20recordings" class="dashAnchor" id=""></a><h3 id="saving_and_loading_recordings">Saving and loading recordings</h3>
+<p>You can save a Timeline recording as a JSON file, and later open it in the Timeline.</p>
+<p><strong>To save a Timeline recording:</strong></p>
+<ol>
+<li>Right+click or Ctrl+click (Mac only) inside the Timeline and select <strong>Save Timeline Data&#8230;</strong>, or press the Ctrl+S keyboard shorcut.</li>
+<li>Pick a location to save the file and click Save.</li>
+</ol>
+<p><strong>To open an existing Timeline recording file, do one of the following</strong>:</p>
+<ol>
+<li>Right-click or Ctrl+click inside the Timeline and select <strong>Load Timeline Data...</strong>, or press the Ctrl+O keyboard shortcut.</li>
+<li>Locate the JSON file and click Open.</li>
+</ol>
+<p><img alt="" src="timeline-images/image14.png"></p>
+<a name="//apple_ref/cpp/Section/2.8.%20%20User-produced%20Timeline%20events" class="dashAnchor" id=""></a><h3 id="user-produced_timeline_events">User-produced Timeline events</h3>
+<p>Applications can add their own events to Timeline recordings.&#160;You can use the
+<a href="console-api.html#consoletimestamplabel">console.timeStamp()</a>&#160;method to add an atomic event to a recording, or the
+<a href="console-api.html#consoletimelabel">console.time()</a>&#160;and
+<a href="console-api.html#consoletimeendlabel">console.timeEnd()</a> methods
+to mark a range of time that code was executing. For example, in the following recording the <code>console.timeStamp()</code> was used to display an "Adding result" event. See <a href="console.html#marking_the_timeline">Marking the Timeline</a>&#160;in
+<a href="console.html">Using the Console</a> for more information.</p>
+<p><img alt="" src="timeline-images/adding-result.png"></p>
+<a name="//apple_ref/cpp/Section/2.9.%20%20View%20CPU%20time%20in%20recordings" class="dashAnchor" id=""></a><h3 id="view_cpu_time_in_recordings">View CPU time in recordings</h3>
+<p>You can overlay CPU activity in Timeline recordings by enabling the Show CPU activity on the ruler&#160;option in DevTools settings.</p>
+<p><img alt="" src="timeline-images/image13.png"></p>
+<p>When this option&#160;is enabled, light gray bars appear above the Timeline records, indicating when the CPU was busy. Hovering over a CPU bar highlights the Timeline region during which the CPU was active (as shown below). The length of a CPU bar is typically the sum of all the (highlighted) events below it in the Timeline. If these don't match, it may be due to one of the following:</p>
+<ul>
+<li>Other pages running on the same threads as the page being inspected (for example, two tabs open from the same site, with one site doing something in a <code>setTimeout()</code> call).</li>
+<li>Un-instrumented activity.</li>
+</ul>
+<p><img alt="" src="timeline-images/image24.png"></p>
+<a name="//apple_ref/cpp/Section/3.%20%20Timeline%20event%20reference" class="dashAnchor" id=""></a><h2 id="timeline_event_reference">Timeline event reference</h2>
+<style>
+    .property-table tr th:nth-child(1){
+        width: 20%;
+    }
+    .property-table tr th:nth-child(2){
+        width: 60%;
+    }
+</style>
+
+<p>This section lists and describes the individual types of records that are generated during a recording, organized by type, and their properties.</p>
+<a name="//apple_ref/cpp/Section/3.1.%20%20Common%20event%20properties" class="dashAnchor" id=""></a><h3 id="common_event_properties">Common event properties</h3>
+<p>Certain details are present in events of all types, while some only apply to certain event types. This section lists properties common to different event types. Properties specific to certain event types are listed in the references for those event types that follow.</p>
+<dl>
+<dt>Aggregated time</dt>
+<dd>For events with <a href="#about_nested_events">nested events</a>, the time taken by each category of events.</dd>
+<dt>Call Stack</dt>
+<dd>For events with <a href="#about_nested_events">child events</a>, the time taken by each category of events.</dd>
+<dt>CPU time</dt>
+<dd>How much CPU time the recorded event took.</dd>
+<dt>Details</dt>
+<dd>Other details about the event.</dd>
+<dt>Duration (at time-stamp)</dt>
+<dd>How long it took the event with all of its children to complete; <em>timestamp</em>&#160;is the time at which the event occurred, relative to when the recording started.</dd>
+<dt>Self time</dt>
+<dd>How long the event took without&#160;any of its children.</dd>
+<dt>Used Heap Size</dt>
+<dd>Amount of memory being used by the application when the event was recorded, and the delta (+/-) change in used heap size since the last sampling.</dd>
+</dl>
+<a name="//apple_ref/cpp/Section/3.2.%20%20Loading%20events" class="dashAnchor" id=""></a><h3 id="loading_events">Loading events</h3>
+<p>This section lists events that belong to Loading category and their properties.</p>
+<table class="property-table">
+    <tr>
+        <th>Event</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>Parse HTML</td>
+        <td>Chrome executed its HTML parsing algorithm.</td>
+    </tr>
+    <tr>
+        <td>Finish Loading</td>
+        <td>A network request completed.</td>
+    </tr>
+    <tr>
+        <td>Receive Data</td>
+        <td>Data for a request was received. There will be one or more Receive Data events.</td>
+    </tr>
+    <tr>
+        <td>Receive Response</td>
+        <td>The initial HTTP response from a request.</td>
+    </tr>
+    <tr>
+        <td>Send Request</td>
+        <td>A network request has been sent.</td>
+    </tr>
+</table>
+
+<h4 id="loading_event_properties">Loading event properties</h4>
+<dl>
+<dt>Resource</dt>
+<dd>The URL of the requested resource.</dd>
+<dt>Preview</dt>
+<dd>Preview of the requested resource (images&#160;only).</dd>
+<dt>Request Method</dt>
+<dd>HTTP method used for the request (GET or POST, for example).</dd>
+<dt>Status Code</dt>
+<dd>HTTP response code</dd>
+<dt>MIME Type</dt>
+<dd>MIME type of the requested resource.</dd>
+<dt>Encoded Data Length</dt>
+<dd>Length of requested resource in bytes.</dd>
+</dl>
+<a name="//apple_ref/cpp/Section/3.3.%20%20Scripting%20events" class="dashAnchor" id=""></a><h3 id="scripting_events">Scripting events</h3>
+<p>This section lists events that belong to the Scripting category and their properties.</p>
+<table class="property-table">
+    <tr>
+        <th>Event</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>Animation Frame Fired</td>
+        <td>A scheduled animation frame fired, and its callback handler invoked.</td>
+    </tr>
+    <tr>
+        <td>Cancel Animation Frame</td>
+        <td>A scheduled animation frame was canceled.</td>
+    </tr>
+    <tr>
+        <td>GC Event</td>
+        <td>Garbage collection occurred.</td>
+    </tr>
+    <tr>
+        <td>DOMContentLoaded</td>
+        <td>The <a href="http://docs.webplatform.org/wiki/dom/events/DOMContentLoaded">DOMContentLoaded</a> was fired by the browser. This event is fired when all of the page&#8217;s DOM content has been loaded and parsed.</td>
+    </tr>
+    <tr>
+        <td>Evaluate Script</td>
+        <td>A script&#160;was evaluated.</td>
+    </tr>
+    <tr>
+        <td>Event</td>
+        <td>A JavaScript event&#160;("mousedown", or "key", for example).</td>
+    </tr>
+    <tr>
+        <td>Function Call</td>
+        <td>A top-level JavaScirpt function call was made (only appears when browser enters JavaScript engine).</td>
+    </tr>
+    <tr>
+        <td>Install Timer</td>
+        <td>A timer was created with <a href="http://docs.webplatform.org/wiki/dom/methods/setInterval">setInterval()</a>&#160;or <a href="http://docs.webplatform.org/wiki/dom/methods/setTimeout">setTimeout()</a>.</td>
+    </tr>
+    <tr>
+        <td>Request Animation Frame</td>
+        <td>A requestAnimationFrame()&#160;call scheduled a new frame</td>
+    </tr>
+    <tr>
+        <td>Remove Timer</td>
+        <td>A previously created timer was cleared.</td>
+    </tr>
+    <tr>
+        <td>Time</td>
+        <td>A script called <a href="console-api.html#consoletimelabel">console.time()</a>)</td>
+    </tr>
+    <tr>
+        <td>Time End</td>
+        <td>A script called
+<a href="console-api.html#consoletimeendlabel">console.timeEnd()</a>
+</td>
+    </tr>
+    <tr>
+        <td>Timer Fired</td>
+        <td>A timer fired that was scheduled with setInterval()&#160;or setTimeout().</td>
+    </tr>
+    <tr>
+        <td>XHR Ready State Change</td>
+        <td>The ready state of an XMLHTTPRequest changed.</td>
+    </tr>
+    <tr>
+        <td>XHR Load</td>
+        <td>An XMLHTTPRequest finished loading.</td>
+    </tr>
+</table>
+
+<h4 id="scripting_event_properties">Scripting event properties</h4>
+<dl>
+<dt>Timer ID</dt>
+<dd>The timer ID.</dd>
+<dt>Timeout</dt>
+<dd>The timeout specified by the timer.</dd>
+<dt>Repeats</dt>
+<dd>Boolean that specifies if the timer repeats.</dd>
+<dt>Function Call</dt>
+<dd>A function that was invoked.</dd>
+</dl>
+<a name="//apple_ref/cpp/Section/3.4.%20%20Rendering%20events" class="dashAnchor" id=""></a><h3 id="rendering_events">Rendering events</h3>
+<p>This section lists events that belong to Rendering category and their properties.</p>
+<table class="property-table">
+    <tr>
+        <th>Event</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>Invalidate layout</td>
+        <td>The page layout was invalidated by a DOM change.</td>
+    </tr>
+    <tr>
+        <td>Layout</td>
+        <td>A page layout was executed.</td>
+    </tr>
+    <tr>
+        <td>Recalculate style</td>
+        <td>Chrome recalculated element styles.</td>
+    </tr>
+    <tr>
+        <td>Scroll</td>
+        <td>The content of nested view was scrolled.</td>
+    </tr>
+</table>
+
+<h4 id="rendering_event_properties">Rendering event properties</h4>
+<dl>
+<dt>Layout invalidated</dt>
+<dd>For Layout records, the stack trace of the code that caused the layout to be invalidated.</dd>
+<dt>Nodes that need layout</dt>
+<dd>For Layout records, the number of nodes that were marked as needing layout before the relayout started. These are normally those nodes that were invalidated by developer code, plus a path upward to relayout root.</dd>
+<dt>Layout tree size</dt>
+<dd>For Layout records, the total number of nodes under the relayout root (the node that Chrome starts the relayout).</dd>
+<dt>Layout scope</dt>
+<dd>Possible values are "Partial" (the re-layout boundary is a portion of the DOM) or "Whole document".</dd>
+<dt>Elements affected</dt>
+<dd>For Recalculate style records, the number of elements affected by a style recalculation.</dd>
+<dt>Styles invalidated</dt>
+<dd>For Recalculate style records, provides the stack trace of the code that caused the style invalidation.</dd>
+</dl>
+<a name="//apple_ref/cpp/Section/3.5.%20%20Painting%20events" class="dashAnchor" id=""></a><h3 id="painting_events">Painting events</h3>
+<p>This section lists events that belong to Painting category and their properties.</p>
+<table class="property-table">
+    <tr>
+        <th>Event</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>Composite Layers</td>
+        <td>Chrome's rendering&#160;engine composited image layers.</td>
+    </tr>
+    <tr>
+        <td>Image Decode</td>
+        <td>An image resource was decoded.</td>
+    </tr>
+    <tr>
+        <td>Image Resize</td>
+        <td>An image was resized from its native dimensions.</td>
+    </tr>
+    <tr>
+        <td>Paint</td>
+        <td>Composited layers were painted to a region&#160;of&#160;the display. Hovering over a Paint record highlights the region of the display that was updated.</td>
+    </tr>
+</table>
+
+<h4 id="painting_event_properties">Painting event properties</h4>
+<dl>
+<dt>Location</dt>
+<dd>For Paint events, the x and y coordinates of the paint rectangle.</dd>
+<dt>Dimensions</dt>
+<dd>For Paint events, the height and width of the painted region.</dd>
+</dl>
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-09-16T13:05:32.757530" id="gc-content-last-updated">Last updated September 16, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/timeline by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:57:31 GMT -->
+</html>

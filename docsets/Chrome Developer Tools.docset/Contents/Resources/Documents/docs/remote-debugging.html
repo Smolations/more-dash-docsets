@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/remote-debugging by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 04:01:51 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Remote Debugging on Android - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+    
+    
+    
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage">
+    <link rel="stylesheet" type="text/css" href="../css/local_extensions.css">
+  
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Remote Debugging on Android</h1>
+  
+  <div itemprop="articleBody">
+  
+ <style>
+ #install-button { font-size: 15px; width: 260px; height: 47px; margin-right: 15px; }
+ </style>
+
+<h4><strong>Contents</strong></h4>
+
+   <ul>
+    <li> <a href="#remote-debugging-overview"> Remote debugging overview </a> </li>
+    <li> <a href="#remote-debugging"> Remote debugging with the ADB Chrome extension</a>
+    <ul>
+     <li> <a href="#install-adbplugin"> 1. Install the ADB extension</a> </li>
+     <li> <a href="#enable-usb-debugging"> 2. Enable USB debugging on your device </a> </li>
+     <li> <a href="#connect-device-via-usb"> 3. Connect your device via USB </a> </li>
+     <li> <a href="#start-debugging-with-adbplugin"> 4. Start debugging with the ADB extension </a> </li>
+     <li> <a href="#debug-your-app"> 5. Debug your Application </a> </li>
+     <li> <a href="#notes"> Notes </a> </li>
+    </ul>
+    </li>
+    <li> <a href="#reverse-port-forwarding"> Reverse Port Forwarding (Experimental)</a>
+     <ul>
+      <li> <a href="#connect-your-mobile-device"> 1. Connect your mobile device </a> </li>
+      <li> <a href="#enable-reverse-port-forwarding"> 2. Enable reverse port forwarding </a> </li>
+      <li> <a href="#add-a-port-forwarding-rule"> 3. Add a port forwarding rule</a> </li>
+      <li> <a href="#profit"> 4. Profit </a> </li>
+     </ul>
+   </li>
+</ul>
+
+<p class="note"><b>Note</b>: For information on the interaction protocol we use
+for our remote debugging, please see the <a href="debugger-protocol.html">Debugger Protocol</a>
+documentation and <a href="http://developer.chrome.com/extensions/debugger.html">chrome.debugger</a>.</p>
+
+<a name="//apple_ref/cpp/Section/1.%20%20Remote%20debugging%20overview" class="dashAnchor" id=""></a><h2 id="remote-debugging-overview">Remote debugging overview</h2>
+
+<p>The experience of your web content on mobile operates very differently than what
+users experience on the desktop.  The Google Chrome DevTools allow you to inspect,
+debug, and analyze the on-device experience with the full suite of tools you're
+used to, meaning you can use the Chrome DevTools on your development machine to debug a page on
+your mobile device.</p>
+
+<p></p>
+<div class="screenshot"><img width="722" alt="Debugging Chrome for Android using the Chrome Developer Tools" src="remote-debugging/remote-debug-overview.png"></div>
+
+<p>Debugging occurs over USB and as long as your mobile device is connected to your development
+machine, you can view and change HTML, scripts and styles until you get a bug-free page that
+behaves perfectly on all devices.</p>
+
+
+<p>When debugging a web application served from your development machine, you can use
+<a href="#reverse-port-forwarding">reverse port forwarding</a> to allow the mobile device to access a site from the development machine
+over USB. Reverse port forwarding requires Chrome 29 or later on the development machine, Chrome 28 or later on the mobile device.</p>
+
+<a name="//apple_ref/cpp/Section/2.%20%20Remote%20debugging%20with%20the%20ADB%20Chrome%20extension" class="dashAnchor" id=""></a><h2 id="remote-debugging">Remote debugging with the ADB Chrome extension</h2>
+
+<p><strong>To start debugging, you need:</strong></p>
+
+<ul>
+<li>An Android phone or tablet with <a href="https://play.google.com/store/apps/details?id=com.android.chrome&amp;hl=en">Chrome for Android</a> 28 or later installed from Google Play.</li>
+<li>A USB cable to plug in your device. (Windows users will also need to install an <a href="http://developer.android.com/tools/extras/oem-usb.html" target="_blank">appropriate USB device driver</a>.)</li>
+<li>Chrome 28 or later installed on your development machine.</li>
+<li>The <a href="#install-adbplugin">ADB</a> Chrome extension installed on your development machine.</li>
+</ul>
+
+<aside class="note"><strong>Note: </strong> If you are already using the legacy remote debugging workflow, or are
+using an earlier version of Chrome, see
+<a href="remote-debugging-legacy.html">Remote Debugging on Android (Legacy Workflow)</a>.</aside>
+
+<a name="//apple_ref/cpp/Section/2.1.%20%201.%20Install%20the%20ADB%20extension" class="dashAnchor" id=""></a><h3 id="install-adbplugin">1. Install the ADB extension</h3>
+
+<p>The ADB Chrome extension simplifies the process of setting up remote debugging. The ADB extension includes the Android Debug Bridge (ADB), which lets you debug the device over USB from your development machine. The extension provides the following benefits:</p>
+<ul>
+<li>Includes ADB so you don't have to install the full Android SDK.</li>
+<li>Provides a UI for easily starting and stopping the ADB daemon, and viewing connected devices.</li>
+</ul>
+
+<div style="margin-bottom: 1.5em;">
+<!-- <button height="61" class="button button-blue" id="install-button" onclick='chrome.webstore.install("https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage", function(e) { document.getElementById("install-button").innerText = "Extension Installed"; }, function(e) { alert(e); });'>Install ADB Chrome extension</button> -->
+<a href="https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage">
+<img style="vertical-align: middle;" alt="Chrome Web Store logo" src="remote-debugging/cws.png"></a>
+<a href="https://chrome.google.com/webstore/detail/dpngiggdglpdnjdoaefidgiigpemgage">Install the ADB Chrome extension</a>
+</div>
+
+<aside class="note">The Chrome Web Store installation process does not work on Windows 8. If you have any trouble
+installing from the Chrome Web Store, see the
+<a href="https://github.com/GoogleChrome/ADBPlugin/#readme" target="_blank">ADB extension repo on github</a>
+for details on how to download and install the extension manually.</aside>
+
+<a name="//apple_ref/cpp/Section/2.2.%20%202.%20Enable%20USB%20debugging%20on%20your%20device" class="dashAnchor" id=""></a><h3 id="enable-usb-debugging">2. Enable USB debugging on your device</h3>
+
+<p>In order to debug over USB, you need to setup your Android device for
+development.
+Enable USB debugging on your device then system to detect your device as mentioned in the
+guide.</p>
+
+<p><strong>To enable USB debugging:</strong></p>
+
+<ul>
+<li>On most devices running Android 3.2 or older, you can find the option under
+<strong>Settings &gt; Applications &gt; Development.</strong>
+</li>
+<li>On Android 4.0 and newer, it's in <strong>Settings &gt; Developer </strong>options.</li>
+<li>On Android 4.2 and newer, Developer options is hidden by default. To make it
+available, go to <strong>Settings &gt; About phone</strong> and tap Build number seven times.
+Return to the previous screen to find Developer options.</li>
+</ul>
+
+<p></p>
+<div class="screenshot"><img width="500" alt="USB debugging settings in Developer options" src="remote-debugging/image_4.png"></div>
+
+<p>If you are developing on Windows, you need to install the appropriate USB driver for your device. See <a href="http://developer.android.com/tools/extras/oem-usb.html" target="_blank">OEM USB Drivers</a> on the Android Developers site.</p>
+
+<p>For more information see <a href="http://developer.android.com/tools/device.html#setting-up">Setting up a Device for Development</a> on the Android Developers site.</p>
+
+<a name="//apple_ref/cpp/Section/2.3.%20%203.%20Connect%20your%20device%20via%20USB" class="dashAnchor" id=""></a><h3 id="connect-device-via-usb">3. Connect your device via USB</h3>
+
+<ol>
+<li>Connect your mobile device to the development machine using a USB cable. </li>
+<li>On the mobile device, launch Chrome. Open <b>Settings &gt; Advanced &gt; Developer Tools</b>
+and check the <b>Enable USB Web debugging</b> option as shown here:</li>
+
+<p></p>
+<div class="screenshot"><img width="220" alt="Enable USB Web Debugging in Chrome for Android" src="remote-debugging/image_5.png"></div>
+</ol>
+
+<p>When connecting your device to your development machine, you may see
+an alert on the device requesting permission for USB debugging from this computer.</p>
+
+<div class="screenshot"><img alt="USB debugging permission alert" src="remote-debugging/usb-debugging-dialog.png"></div>
+
+<p>To avoid seeing this alert each time you debug, check <b>Always allow from this computer</b> and click <b>OK</b>.
+
+</p>
+<a name="//apple_ref/cpp/Section/2.4.%20%204.%20Start%20debugging%20with%20the%20ADB%20extension" class="dashAnchor" id=""></a><h3 id="start-debugging-with-adbplugin">4. Start debugging with the ADB extension </h3>
+
+<p>When the ADB extension is installed, a gray Android menu icon appears beside the Chrome menu.</p>
+
+<p><strong>To start debugging:</strong></p>
+
+<ol>
+<li>
+<p>Click the Android icon, then click <b>Start ADB</b>.</p>
+
+<p><img class="screenshot" width="149" alt="ADB extension menu" src="remote-debugging/adb-plugin-menu.png"></p>
+
+<p>Once ADB has started, the menu icon turns green and displays the number of currently connected devices, if any.</p>
+
+<p><img class="screenshot" width="149" alt="ADB extension menu" src="remote-debugging/adb-plugin-menu-active.png"></p>
+
+</li>
+<li>Click <b>View Inspection Targets</b> to open the <b>about:inspect</b> page that displays each connected device and its tabs.</li>
+<li>Find the mobile device tab you want to debug and Click the <b>inspect</b> link next to its URL.</li>
+</ol>
+
+<p>If you <em>don't</em> see any connected devices:</p>
+
+<ul>
+<li>Check that your device is connected to USB.</li>
+<li>Ensure your device is listed as available by issuing the <code>adb devices</code>
+command. If not, check that you have USB debugging enabled on your
+device.</li>
+<li>Ensure that USB debugging is enabled in the Chrome for Android settings.</li>
+</ul>
+
+<a name="//apple_ref/cpp/Section/2.5.%20%205.%20Debug%20your%20Application" class="dashAnchor" id=""></a><h3 id="debug-your-app">5. Debug Your Application</h3>
+
+<p></p>
+<div class="screenshot"><img width="700" alt="Inspecting a remote page using the Chrome Developer Tools" src="remote-debugging/elements-panel.png"></div>
+
+<p>For example, inspect an element in the page you have selected and
+the element highlights in Chrome mobile on your device in real time.</p>
+
+<p></p>
+<div class="screenshot"><img width="350" alt="Element inspection on a remote device" src="remote-debugging/image_9.png"></div>
+
+<p>Similarly, editing scripts or executing commands from the DevTools console
+affects the page being inspected on your device. You can also also use all of
+the other panels, such as
+<a href="timeline.html">Timeline</a> and
+<a href="profiles.html">Profiles</a>.</p>
+
+<a name="//apple_ref/cpp/Section/2.6.%20%20Notes" class="dashAnchor" id=""></a><h3 id="notes">Notes</h3>
+
+<ul>
+<li>You may notice that the version of the DevTools you have access to during
+remote debugging differs to the version you have running on your development machine. This is
+because the tools are synchronized with the Chrome version on the Android
+device being used.</li>
+<li>Because we're connected over USB, you can keep the device on a real cellular
+network, and view the network waterfall in the Network panel under actual
+network conditions</li>
+<li>The hardware on mobile devices often runs your content much slower, so use the
+<a href="timeline.html">Timeline</a> to analyze how to optimize
+rendering and CPU for the best effect.</li>
+<li>If you're running a web server on your development machine, and network restrictions prevent
+your mobile device from accessing the server, see
+<a href="#reverse-port-forwarding">reverse port forwarding</a>
+</li>.
+</ul>
+
+<a name="//apple_ref/cpp/Section/3.%20%20Reverse%20Port%20Forwarding%20(Experimental)" class="dashAnchor" id=""></a><h2 id="reverse-port-forwarding">Reverse Port Forwarding (Experimental)</h2>
+
+<p>Commonly you have a web server running on your local development machine, and you want to
+connect to that site from your device. If the mobile device and the development machine are
+on the same network, this is straightforward. But this may be difficult in some cases, like
+on a restricted corporate network.</p>
+
+<p>A new feature in Chrome for Android called "reverse port forwarding" makes this simple to do.
+It works by creating a listening TCP port on your mobile device that maps to a particular TCP
+port on your development machine. The traffic through the forwarded port travels over USB, so
+it doesn't depend on the mobile device's network configuration.</p>
+
+<p>To use this feature you need:</p>
+
+<ul>
+<li>Chrome 29 or later installed on your development system</li>
+<li>Android Debug Bridge (Chrome ADB extension or full Android SDK) installed on your development system</li>
+<li>Chrome for Android 28 or later installed on your device</li>
+</ul>
+
+<p>This procedure assumes that you already have remote debugging configured as described in
+<a href="#remote-debugging">Remote debugging with the ADB Chrome extension</a> or
+
+</p>
+<a name="//apple_ref/cpp/Section/3.1.%20%201.%20Connect%20your%20mobile%20device" class="dashAnchor" id=""></a><h3 id="connect-your-mobile-device">1. Connect your mobile device</h3>
+<ol>
+<li>Connect your device to your development machine over USB.</li>
+<li>Stop all instances of Chrome currently running on the mobile device.</li>
+<li>Open Chrome for Android.</li>
+<li>Go to  <b>Settings</b> &gt; Developer Tools, and turn on <b>Enable USB Web Debugging</b>.</li>
+<li>Start ADB on your development machine:
+<ul>
+<li>If you're using the ADB extension, click the ADB icon and click <b>Start ADB</b>. You should see the icon turn green and display a number indicating the number of devices connected.</li>
+<li>If you're not using the extension, open a terminal and run <kbd>adb devices</kbd>. You should see the IDs of your connected device(s) listed.</li>
+</ul>
+</li>
+</ol>
+
+<a name="//apple_ref/cpp/Section/3.2.%20%202.%20Enable%20reverse%20port%20forwarding" class="dashAnchor" id=""></a><h3 id="enable-reverse-port-forwarding">2. Enable reverse port forwarding</h3>
+Perform the following steps on Chrome on your development machine:
+<ol>
+<li>Open <b>about:flags</b>, turn on <b>Enable Developer Tools experiments</b> and
+     restart Chrome.
+<div class="screenshot"><img width="768" alt="about:flags page" src="remote-debugging/chrome-flags.png"></div>
+</li>
+<li>Open <b>about:inspect</b>. You should see your mobile device and a list of its open tabs.
+</li>
+<li>Click <b>Inspect</b> next to any of the sites listed.</li>
+<li>In the DevTools window that opens, open the <b>Settings</b> panel.</li>
+<li>Under <b>Experiments</b>, turn on <b>Enable reverse port forwarding</b>.
+<div class="screenshot"><img width="670" alt="Experiments panel in Developer Tools settings" src="remote-debugging/settings-experiments.png"></div>
+</li>
+<li>Close the DevTools window and return to <b>about:inspect</b>.</li>
+</ol>
+
+<a name="//apple_ref/cpp/Section/3.3.%20%203.%20Add%20a%20port%20forwarding%20rule" class="dashAnchor" id=""></a><h3 id="add-a-port-forwarding-rule">3. Add a port forwarding rule</h3>
+<ol>
+<li>Click the <b>Inspect</b> link again to open DevTools, and open <b>Settings</b> again. You should see a new <b>Port forwarding</b> tab.</li>
+<li>Click <b>Port Forwarding</b>.</li>
+<li>In the Device port field, enter the port number the Android should device listen on (defaults to 8080).
+<div class="screenshot"><img width="670" alt="Port Forwarding panel in Developer Tools settings" src="remote-debugging/settings-forwarding.png"></div>
+</li>
+<li>In the Target field, append the port number where your web application is running on localhost.</li>
+</ol>
+
+<a name="//apple_ref/cpp/Section/3.4.%20%204.%20Profit" class="dashAnchor" id=""></a><h3 id="profit">4. Profit</h3>
+
+<p>In Chrome for Android, open localhost:&lt;device-port-number&gt;, where
+&lt;device-port-number&gt; is the value you entered in the Device port field (default is 8080).
+You should see the content being served by your development machine.</p>
+
+<aside class="note">Prior to Chrome 29, reverse port forwarding was not fully functional.
+If you experience issues with reverse port forwarding, make sure you're using Chrome 29 or later.
+If the port forwarding rule doesn't appear to be taking effect, adding a second, duplicate port forwarding
+rule sometimes resolves the issue in earlier versions of Chrome.
+</aside>
+
+<p class="backtotop"><a href="#top">Back to top</a></p>
+
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-08-14T21:10:00.884630" id="gc-content-last-updated">Last updated August 14, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/remote-debugging by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 04:02:03 GMT -->
+</html>

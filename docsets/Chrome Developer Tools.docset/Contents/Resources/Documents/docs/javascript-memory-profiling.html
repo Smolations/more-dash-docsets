@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/javascript-memory-profiling by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:57:40 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+    
+    <title>Chrome DevTools &#8212; Google Developers</title>
+    
+  
+  
+  
+  
+  
+  
+
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <div itemprop="articleBody">
+  
+<p><link rel="stylesheet" type="text/css" href="../css/overrides.html"></p>
+<style>
+.slide {width:700px;}
+.extdoc:before{
+  left: 80px;
+  bottom: 5px;
+  width: 50%;
+  height: 35%;
+  max-width: 200px;
+  max-height: 50px;
+  -webkit-box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
+  box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
+  -webkit-transform: skew(50deg);
+  -moz-transform: skew(50deg);
+  -ms-transform: skew(50deg);
+  -o-transform: skew(50deg);
+  transform: skew(50deg);
+  -webkit-transform-origin: 0 100%;
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -o-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+}
+
+img{
+  max-width:900px;
+}
+
+.drop-shadow{
+  position: relative;
+  padding: 1em;
+  margin: 2em 10px 4em;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
+}
+
+.extdoc {
+  padding:10px;
+  background: hsl(218, 73%, 97%);
+}
+
+.extdoc img{
+  max-width:900px;
+}
+
+.drop-shadow:before, .drop-shadow:after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+}
+
+.perspective:after {
+  display: none;
+}
+
+.drop-shadow:before, .drop-shadow:after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+}
+
+/* custom keyboard shortcut styling */
+.kbd{
+  -moz-border-radius:3px;
+  -moz-box-shadow:0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
+  -webkit-border-radius:3px;
+  -webkit-box-shadow:0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
+  background-color:#f7f7f7;
+  border:1px solid #ccc;
+  border-radius:3px;
+  box-shadow:0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
+  color:#333;
+  display:inline-block;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  line-height:1.4;
+  margin:0 .1em;
+  padding:.1em .6em;
+  text-shadow:0 1px 0 #fff;
+  white-space:nowrap;
+}
+</style>
+
+<h1 class="page-title" id="javascript_memory_profiling">JavaScript Memory Profiling</h1>
+<p>A <strong>memory leak</strong> is a gradual loss of available computer memory. It occurs when a program repeatedly fails to return memory it has obtained for temporary use. JavaScript web apps can often suffer from similar memory related issues that native applications do, such as <strong>leaks</strong> and bloat but they also have to deal with <strong>garbage collection pauses.</strong><br>
+</p>
+<p>Although JavaScript uses garbage collection for automatic memory management, <a href="http://www.html5rocks.com/en/tutorials/memory/effectivemanagement/">effective</a> memory management is still important. In this guide we will walk through profiling memory issues in JavaScript web apps. Be sure to try the <a href="#supporting_demos">supporting demos</a> when learning about features to improve your awareness of how the tools work in practice.</p>
+<p class="note"><strong>Note:</strong> Some of these features we will be using are currently only available in <a href="http://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a>. We recommend using this version to get the best memory profiling tooling for your applications.</p>
+
+<a name="//apple_ref/cpp/Section/1.%20%20Questions%20to%20ask%20yourself" class="dashAnchor" id=""></a><h2 id="questions_to_ask_yourself">Questions to ask yourself</h2>
+<p>In general, there are three questions you will want to answer when you think you have a memory leak:</p>
+<ul>
+<li>
+<p><strong>Is my page using too much memory?</strong> - the <a href="#heading=h.3gfl4k8caz0k">Timeline memory view</a> and <a href="http://#heading=h.uhgze3ab3kb2%20">Chrome task manager</a> can help you identify if you&#8217;re using too much memory. Memory view can track the number of live DOM nodes, documents and JS event listeners in the inspected render process. As a rule of thumb: avoid holding references to DOM elements you no longer need to use, unbind unneeded event listeners and take care when storing large chunks of date you aren't going to use.</p>
+</li>
+<li>
+<p><strong>Is my page free of memory leaks?</strong> - the <a href="#heading=h.8yjlf68i8qix">Object allocation tracker</a> can help you narrow down leaks by looking at JS object allocation in real-time. You can also use the <a href="#heading=h.g0yxr1o33gky">heap profiler</a> to take JS heap snapshots, analyze memory graphs and compare snapshots to discover what objects are not being cleaned up by garbage collection.</p>
+</li>
+<li>
+<p><strong>How frequently is my page forcing garbage collection?</strong> - if you are GCing frequently, you may be allocating too frequently. The <a href="#heading=h.3gfl4k8caz0k">Timeline memory view</a> can help you identify pauses of interest.</p>
+</li>
+</ul>
+<p><img src="memory-profiling-files/image_0.png" style="max-width:900px;"></p>
+<p><strong>Table of contents</strong></p>
+<nav class="inline-toc"><ol class="toc">
+<li><a href="#questions_to_ask_yourself">Questions to ask yourself</a></li>
+<li>
+<a href="#terminology_and_fundamentals">Terminology and Fundamentals</a><ol class="toc">
+<li><a href="#object_sizes">Object sizes</a></li>
+<li><a href="#objects_retaining_tree">Object's Retaining Tree</a></li>
+<li><a href="#dominators">Dominators</a></li>
+<li><a href="#v8_specifics">V8 Specifics</a></li>
+</ol>
+</li>
+<li>
+<a href="#prerequisites_and_helpful_tips">Prerequisites and helpful tips</a><ol class="toc">
+<li><a href="#chrome_task_manager">Chrome Task Manager</a></li>
+<li><a href="#identifying_a_memory_problem_with_the_devtools_timeline">Identifying a Memory Problem with the DevTools Timeline</a></li>
+<li><a href="#garbage_collection">Garbage Collection</a></li>
+</ol>
+</li>
+<li>
+<a href="#heap_profiler">Heap Profiler</a><ol class="toc">
+<li><a href="#taking_a_snapshot">Taking a snapshot</a></li>
+<li><a href="#clearing_snapshots">Clearing snapshots</a></li>
+<li><a href="#switching_between_snapshot_views">Switching between snapshot views</a></li>
+<li><a href="#looking_up_color_coding">Looking up color coding</a></li>
+</ol>
+</li>
+<li>
+<a href="#views_in_detail">Views in detail</a><ol class="toc">
+<li><a href="#summary_view">Summary view</a></li>
+<li><a href="#comparison_view">Comparison view</a></li>
+<li><a href="#containment_view">Containment view</a></li>
+<li><a href="#uncovering_dom_leaks">Uncovering DOM leaks</a></li>
+<li><a href="#dominators_view">Dominators view</a></li>
+</ol>
+</li>
+<li><a href="#object_allocation_tracker">Object allocation tracker</a></li>
+<li><a href="#memory_profiling_faq">Memory Profiling FAQ</a></li>
+<li>
+<a href="#supporting_demos">Supporting Demos</a><ol class="toc"><li><a href="#debugging_memory_leaks">Debugging Memory Leaks</a></li></ol>
+</li>
+<li><a href="#community_resources">Community Resources</a></li>
+</ol></nav>
+<a name="//apple_ref/cpp/Section/2.%20%20Terminology%20and%20Fundamentals" class="dashAnchor" id=""></a><h2 id="terminology_and_fundamentals">Terminology and Fundamentals</h2>
+<p>This section describes common terms used in <strong>memory analysis</strong>, and is applicable to a variety of memory profiling tools for different languages. The terms and notions described here are used in the Heap Profiler UI and the corresponding documentation. </p>
+<p>It helps to become familiar with these to use the tool effectively. If you have ever worked with either the Java, .NET, or some other memory profiler then this may be a refresher. </p>
+<a name="//apple_ref/cpp/Section/2.1.%20%20Object%20sizes" class="dashAnchor" id=""></a><h3 id="object_sizes">Object sizes</h3>
+<p>Think of memory as a graph with primitive types (like numbers and strings) and objects (associative arrays). It might visually be represented as a graph with a number of interconnected points as follows:</p>
+<p><img src="memory-profiling-files/thinkgraph.png"></p>
+<p>An object can hold memory in two ways: </p>
+<ul>
+<li>
+<p>Directly by the object itself</p>
+</li>
+<li>
+<p>Implicitly by holding references to other objects, and therefore preventing those objects from being automatically disposed by a garbage collector (<strong>GC</strong> for short).</p>
+</li>
+</ul>
+<p>When working with the Heap Profiler in DevTools (a tool for investigating memory issues found under "Profiles"), you will likely find yourself looking at a few different columns of information. Two that stand out are <strong>Shallow Size</strong> and <strong>Retained Size</strong>, but what do these represent?</p>
+<p><img alt="" src="memory-profiling-files/image_1.png"></p>
+<h4 id="shallow_size">Shallow size</h4>
+<p>This is the size of memory that is held by the object itself.</p>
+<p>Typical JavaScript objects have some memory reserved for their description and for storing immediate values. Usually, only arrays and strings can have a significant shallow size. However, strings and external arrays often have their main storage in renderer memory, exposing only a small wrapper object on the JavaScript heap. </p>
+<p>Renderer memory is all memory of the process where an inspected page is rendered: native memory + JS heap memory of the page + JS heap memory of all dedicated workers started by the page. Nevertheless, even a small object can hold a large amount of memory indirectly, by preventing other objects from being disposed of by the automatic garbage collection process. </p>
+<h4 id="retained_size">Retained size</h4>
+<p>This is the size of memory that is freed once the object itself is deleted along with its dependent objects that were made unreachable from <strong>GC roots</strong>.</p>
+<p><strong>GC roots</strong> are made up of <em>handles</em> that are created (either local or global) when making a reference from native code to a JavaScript object outside of V8. All such handles can be found within a heap snapshot under <strong>GC roots</strong> &gt; <strong>Handle scope</strong> and <strong>GC roots</strong> &gt; <strong>Global handles</strong>. Describing the handles in this documentation without diving into details of the browser implementation may be confusing. Both GC roots and the handles are not something you need to worry about.</p>
+<p>There are lots of internal GC roots most of which are not interesting for the users. From the applications standpoint there are following kinds of roots:</p>
+<ul>
+<li>
+<p>Window global object (in each iframe). There is a distance field in the heap snapshots which is the number of property references on the shortest retaining path from the window.</p>
+</li>
+<li>
+<p>Document DOM tree consisting of all native DOM nodes reachable by traversing the document. Not all of them may have JS wrappers but if they have the wrappers will be alive while the document is alive.</p>
+</li>
+<li>
+<p>Sometimes objects may be retained by debugger context and DevTools console (e.g. after console evaluation). </p>
+</li>
+</ul>
+<p class="note"><strong>Note:</strong> We recommend users to do heap snapshots with clear console and no active breakpoints in the debugger.</p>
+
+<p>The memory graph starts with a root, which may be the <code>window</code> object of the browser or the <code>Global</code> object of a Node.js module. You don't control how this root object is GC'd.</p>
+<p><img src="memory-profiling-files/dontcontrol.png"></p>
+<p>Whatever is not reachable from the root gets GC.</p>
+<a name="//apple_ref/cpp/Section/2.2.%20%20Object's%20Retaining%20Tree" class="dashAnchor" id=""></a><h3 id="objects_retaining_tree">Object's Retaining Tree</h3>
+<p>As we introduced earlier, the heap is a network of interconnected objects. In the mathematical world, this structure is called a <em>graph</em> or memory graph. A graph is constructed from <em>nodes</em> connected by means of <em>edges</em>, both of which are given labels.</p>
+<ul>
+<li>
+<p><strong>Nodes</strong> (<em>or objects</em>) are labelled using the name of the <em>constructor </em>function that was used to build them</p>
+</li>
+<li>
+<p><strong>Edges</strong> are labelled using the names of <em>properties</em>.</p>
+</li>
+</ul>
+<p>Later in this guide you will learn how to record a profile using the Heap Profiler. Some of the eye-catching things we can see in the Heap Profiler recording below include distance: the distance from the GC root. If almost all the objects of the same type are at the same distance, and a few are at a bigger distance, that's something worth investigating.</p>
+<p><img alt="" src="memory-profiling-files/image_2.png"></p>
+<a name="//apple_ref/cpp/Section/2.3.%20%20Dominators" class="dashAnchor" id=""></a><h3 id="dominators">Dominators</h3>
+<p>Dominator objects are comprised of a tree structure because each object has exactly one dominator. A dominator of an object may lack direct references to an object it dominates, that is, the dominators tree is not a spanning tree of the graph. </p>
+<p><img src="memory-profiling-files/dominatorsspanning.png"></p>
+<p>In the diagram above:</p>
+<ul>
+<li>Node 1 dominates node 2</li>
+<li>Node 2 dominates nodes 3, 4 and 6</li>
+<li>Node 3 dominates node 5</li>
+<li>Node 5 dominates node 8</li>
+<li>Node 6 dominates node 7</li>
+</ul>
+<p>In the example below, node <code>#3</code> is the dominator of <code>#10</code>, but <code>#7</code> also exists in every simple path from GC to <code>#10</code>. Therefore, an object B is a dominator of an object A if B exists in every simple path from the root to the object A.</p>
+<p><img src="memory-profiling-files/dominators.gif" width="550px"></p>
+<a name="//apple_ref/cpp/Section/2.4.%20%20V8%20Specifics" class="dashAnchor" id=""></a><h3 id="v8_specifics">V8 Specifics</h3>
+<p>In this section we describe some memory-related topics that correspond specifically to the <strong>V8 JavaScript virtual machine </strong>(V8 VM or VM). When profiling memory, it is helpful to understand why heap snapshots look this way.</p>
+<h4 id="javascript_object_representation">JavaScript Object Representation</h4>
+<p>There are three primitive types:</p>
+<ul>
+<li>Numbers (e.g 3.14159..)</li>
+<li>Booleans (true or false)</li>
+<li>Strings (e.g 'Werner Heisenberg')</li>
+</ul>
+<p>They cannot reference other values and are always leafs or terminating nodes.</p>
+<p><strong>Numbers</strong> can be stored as either:</p>
+<ul>
+<li>
+<p>an immediate 31-bit integer values called <strong>small integers</strong> (<em>SMIs</em>), or</p>
+</li>
+<li>
+<p>heap objects, referred to as <strong>heap numbers</strong>. Heap numbers are used for storing values that do not fit into the SMI form, such as <em>doubles</em>, or when a value needs to be <em>boxed</em>, such as setting properties on it.</p>
+</li>
+</ul>
+<p><strong>Strings</strong> can be stored in either:</p>
+<ul>
+<li>
+<p>the <strong>VM heap</strong>, or </p>
+</li>
+<li>
+<p>externally in the <strong>renderer&#8217;s memory</strong>. A <em>wrapper object</em> is created and used for accessing external storage where, for example, script sources and other content that is received from the Web is stored, rather than copied onto the VM heap.</p>
+</li>
+</ul>
+<p>Memory for new JavaScript objects is allocated from a dedicated JavaScript heap (or <strong>VM heap</strong>).These objects are managed by V8's garbage collector and therefore, will stay alive as long as there is at least one strong reference to them. </p>
+<p><strong>Native objects </strong>are everything else which is not in the JavaScript heap. Native object, in contrast to heap object, is not managed by the V8 garbage collector throughout it&#8217;s lifetime, and can only be accessed from JavaScript using its JavaScript wrapper object.</p>
+<p><strong>Cons string </strong>is an object that consists of pairs of strings stored then joined, and is a result of concatenation. The joining of the <em>cons string</em> contents occurs only as needed. An example would be when a substring of a joined string needs to be constructed. </p>
+<p>For example, if you concatenate <strong>a</strong> and <strong>b</strong>, you get a string (a, b) which represents the result of concatenation. If you later concatenated <strong>d</strong> with that result, you get another cons string ((a, b), d).</p>
+<p><strong>Arrays</strong> - An Array is an Objectwith numeric keys. They are used extensively in the V8 VM for storing large amounts of data. Sets of key-value pairs used like dictionaries are backed up by arrays.</p>
+<p>A typical JavaScript object can be one of two array types used for storing: </p>
+<ul>
+<li>
+<p>named properties, and</p>
+</li>
+<li>
+<p>numeric elements</p>
+</li>
+</ul>
+<p>In cases where there is a very small number of properties, they can be stored internally in the JavaScript object itself.</p>
+<p><strong>Map</strong> - an object that describes the kind of object and its layout. For example, maps are used to describe implicit object hierarchies for <a href="https://developers.google.com/v8/design.html#prop_access">fast property access</a>.</p>
+<h4 id="object_groups">Object Groups</h4>
+<p>Each native objects group is made up from objects that hold mutual references to each other. Consider for example a DOM subtree, where every node has a link to its parent and links to the next child and next sibling, thus forming a connected graph. Note that native objects are not represented in the JavaScript heap &#8212; that's why they have zero size. Instead, wrapper objects are created. </p>
+<p>Each wrapper object holds a reference to the corresponding native object, for redirecting commands to it. In its own turn, an object group holds wrapper objects. However, this doesn't create an uncollectable cycle, as GC is smart enough to release object groups whose wrappers are no longer referenced. But forgetting to release a single wrapper will hold the whole group and associated wrappers.</p>
+<a name="//apple_ref/cpp/Section/3.%20%20Prerequisites%20and%20helpful%20tips" class="dashAnchor" id=""></a><h2 id="prerequisites_and_helpful_tips">Prerequisites and helpful tips</h2>
+<a name="//apple_ref/cpp/Section/3.1.%20%20Chrome%20Task%20Manager" class="dashAnchor" id=""></a><h3 id="chrome_task_manager">Chrome Task Manager</h3>
+<p class="note"><strong>Note:</strong> When profiling memory issues in Chrome, it is a good idea to setup a <a href="clean-testing-environment.html">clean-room testing environment</a>.</p>
+
+<p>Using the Chrome Task Manager you can quickly see if a page is consuming a lot of memory by monitoring the memory columns while performing actions that may be causing this to happen. The Task Manager is accessed from the Chrome menu &gt; Tools or by pressing <span class="kbd">Shift</span> + <span class="kbd">Esc</span>.</p>
+<p><img src="memory-profiling-files/image_5.png" style="max-width:900px"></p>
+<p>Once open, right-click on the heading area of the columns and enable the JavaScript memory column.</p>
+<a name="//apple_ref/cpp/Section/3.2.%20%20Identifying%20a%20Memory%20Problem%20with%20the%20DevTools%20Timeline" class="dashAnchor" id=""></a><h3 id="identifying_a_memory_problem_with_the_devtools_timeline">Identifying a Memory Problem with the DevTools Timeline</h3>
+<p>The first step in solving any performance problem is having the ability to show proof that the problem exists. This means being able to create a reproducible test that can be used to take a baseline measurement of the problem. Without a reproducible program, you cannot reliably measure the problem. Further, without a baseline measurement, there is no way of knowing that any changes made are improving performance.</p>
+<p>The <strong>Timeline panel</strong> is helpful for determining when a problem exists. It gives a complete overview of where time is spent when loading and interacting with your web app or page. All events, from loading resources to parsing JavaScript, calculating styles, garbage collection pauses, and repainting are plotted on a timeline. </p>
+<p>When investigating memory issues, the Timeline panel&#8217;s <strong>Memory view</strong> can be used for tracking: </p>
+<ul>
+<li>
+<p>total allocated memory - is memory usage growing?</p>
+</li>
+<li>
+<p>number of DOM nodes</p>
+</li>
+<li>
+<p>number of documents and </p>
+</li>
+<li>
+<p>the number of event listeners allocated.</p>
+</li>
+</ul>
+<p><img alt="" src="memory-profiling-files/image_6.png"></p>
+<div class="drop-shadow extdoc">
+
+<p>To read more about how to isolate problems that might be causing leaks during your memory profiling sessions, see <a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/">Memory profiling with the Chrome DevTools</a> by Zack Grossbart.</p>
+
+</div>
+
+<h4 id="proving_a_problem_exists"><strong>Proving a Problem Exists</strong></h4>
+<p>The first thing to do is identify a sequence of actions you suspect is leaking memory. This could be anything from navigating around a site, hovering, clicking, or otherwise somehow interacting with page in a way that seems to negatively impact performance more over time. </p>
+<p>On the Timeline panel start recording (<span class="kbd">Ctrl</span> + <span class="kbd">E</span> or <span class="kbd">Cmd</span> + <span class="kbd">E</span>) and perform the sequence of actions you want to test. To force a full garbage collection click the trash icon (<img alt="" src="memory-profiling-files/image_8.png">) at the bottom. </p>
+<p>Below we see a memory leak pattern, where some nodes are not being collected:</p>
+<p><img src="memory-profiling-files/nodescollected.png"></p>
+<p>If after a few iterations you see a <a href="http://en.wikipedia.org/wiki/Sawtooth_wave">sawtooth</a> shaped graph (in the memory pane at the top), you are allocating lots of shortly lived objects. But if the sequence of actions is not expected to result in any retained memory, and the DOM node count does not drop down back to the baseline where you began, you have good reason to suspect there is a leak.</p>
+<p><img src="memory-profiling-files/image_10.png" style="max-width:900px"></p>
+<p>Once you&#8217;ve confirmed that the problem exists, you can get help identifying the source of the problem using the <strong>heap profiler </strong>on the <strong>Profiles panel</strong>.</p>
+<p class="note">
+    <strong>Example:</strong>
+    Try out this example of <a href="demos/memory/example1.html">memory growth</a> where you can practice how to effectively use Timeline memory mode.
+</p>
+
+<a name="//apple_ref/cpp/Section/3.3.%20%20Garbage%20Collection" class="dashAnchor" id=""></a><h3 id="garbage_collection">Garbage Collection</h3>
+<p>A <em>garbage collector</em> (such as the one in V8) needs to be able to locate objects in your application which are <em>live</em>, as well as, those which are considered <em>dead</em> (garbage<em>)</em> and are <em>unreachable</em>. </p>
+<p>If <strong>garbage collection</strong> (GC) misses any dead objects due to logical errors in your JavaScript then the memory consumed by these objects cannot be reclaimed. Situations like this can end up slowing down your application over time.</p>
+<p>This often happens when you&#8217;ve written your code in such a way that variables and event listeners you don&#8217;t require are still referenced by some code. While these references are maintained, the objects cannot be correctly cleaned up by GC.</p>
+<p>Remember to check and nullify variables that contain references to DOM elements which may be getting updated/destroyed during the lifecycle of your app. Check object properties which may reference other objects (or other DOM elements). Be sure to keep an eye on variable caches which may accumulate over time. </p>
+<a name="//apple_ref/cpp/Section/4.%20%20Heap%20Profiler" class="dashAnchor" id=""></a><h2 id="heap_profiler">Heap Profiler</h2>
+<a name="//apple_ref/cpp/Section/4.1.%20%20Taking%20a%20snapshot" class="dashAnchor" id=""></a><h3 id="taking_a_snapshot">Taking a snapshot</h3>
+<p>On the Profiles panel, choose <strong> <em>Take Heap Snapshot</em> </strong>, then click <strong>Start</strong> or press <span class="kbd">Cmd</span> + <span class="kbd">E</span> or <span class="kbd">Ctrl</span> + <span class="kbd">E</span>:</p>
+<p><img alt="" src="memory-profiling-files/image_11.png"></p>
+<p><strong>
+</strong>Snapshots are initially stored in the renderer process memory. They are transferred to the DevTools on demand, when you click on the snapshot icon to view it. After the snapshot has been loaded into DevTools and has been parsed, the number below the snapshot title appears and shows the total size of the <a href="memory-analysis-101.html#retaining_paths">reachable</a> JavaScript objects:</p>
+<p><img alt="" src="memory-profiling-files/image_12.png"></p>
+<p class="note">
+    <strong>Example:</strong>
+    Try out this example of <a href="demos/memory/example2.html">garbage collection in action</a> and monitor memory usage in the Timeline.
+</p>
+
+<a name="//apple_ref/cpp/Section/4.2.%20%20Clearing%20snapshots" class="dashAnchor" id=""></a><h3 id="clearing_snapshots">Clearing snapshots</h3>
+<p>Snapshots can be removed (both from DevTools and renderers memory) by pressing the Clear all profiles icon (<img alt="" src="memory-profiling-files/image_14.png">):</p>
+<p><img alt="" src="memory-profiling-files/image_15.png"></p>
+<p class="note"><strong>Note:</strong> Closing the DevTools window will not delete collected profiles from the renderers memory. When reopening DevTools, all previously taken snapshots will reappear in the list of snapshots.</p>
+
+<p>Remember that we mentioned earlier you can force GC from the DevTools as part of your snapshot workflow. When taking a Heap Snapshot, it is automatically forced. In Timeline it can be very convenient to force a GC by clicking on the trash can (Collect Garbage) button (<img src="memory-profiling-files/image_8.png">).</p>
+<p><img src="memory-profiling-files/force.png"></p>
+<p class="note"><strong>Example:</strong> Try out this example of <a href="demos/memory/example3.html">scattered objects</a> and profile it using the Heap Profiler. You should see a number of (object) item allocations.</p>
+
+<a name="//apple_ref/cpp/Section/4.3.%20%20Switching%20between%20snapshot%20views" class="dashAnchor" id=""></a><h3 id="switching_between_snapshot_views">Switching between snapshot views</h3>
+<p>A snapshot can be viewed from different perspectives for different tasks. To switch between views, use the selector at the bottom of the view:</p>
+<p><img alt="" src="memory-profiling-files/image_17.png"><strong>
+</strong></p>
+<p>There are three default views:</p>
+<ul>
+<li>
+<p><strong>Summary &#8212; </strong>shows objects grouped by the constructor name;</p>
+</li>
+<li>
+<p><strong>Comparison &#8212; </strong>displays difference between two snapshots;</p>
+</li>
+<li>
+<p><strong>Containment &#8212; </strong>allows exploration of heap contents;</p>
+</li>
+</ul>
+<p>The <strong>Dominators </strong>view, which can be enabled via the Settings panel <strong>&#8212; </strong>shows the <a href="memory-analysis-101.html#dominators">dominators tree.</a> and can be useful to find accumulation points.</p>
+<a name="//apple_ref/cpp/Section/4.4.%20%20Looking%20up%20color%20coding" class="dashAnchor" id=""></a><h3 id="looking_up_color_coding">Looking up color coding</h3>
+<p>Properties and property values of objects have different types and are colored accordingly. <strong>
+</strong>Each property has one of four types:</p>
+<ul>
+<li>
+<p><strong>a: property &#8212; </strong>a regular property with a name, accessed via the . (dot) operator, or via [ ] (brackets) notation, e.g. ["foo bar"];</p>
+</li>
+<li>
+<p><strong>0: element &#8212; </strong>a regular property with a numeric index, accessed via [ ] (brackets) notation;</p>
+</li>
+<li>
+<p><strong>a:</strong><strong> context var &#8212; </strong>a variable in a function context, accessible by its name from inside a function closure;</p>
+</li>
+<li>
+<p><strong>a:</strong><strong> system prop &#8212; </strong>property added by the JavaScript VM, not accessible from JavaScript code.</p>
+</li>
+</ul>
+<p>Objects designated as <code>System</code>do not have a corresponding JavaScript type. They are part of JavaScript VM's object system implementation. V8 allocates most of its internal objects in the same heap as the user's JS objects. So these are just v8 internals.</p>
+<a name="//apple_ref/cpp/Section/5.%20%20Views%20in%20detail" class="dashAnchor" id=""></a><h2 id="views_in_detail">Views in detail</h2>
+<a name="//apple_ref/cpp/Section/5.1.%20%20Summary%20view" class="dashAnchor" id=""></a><h3 id="summary_view">Summary view</h3>
+<p>Initially, a snapshot opens in the Summary view, displaying object totals, which can be expanded to show instances:</p>
+<p><img alt="" src="memory-profiling-files/image_19.png"></p>
+<p>Top-level entries are "total" lines. They display:</p>
+<ul>
+<li>
+<p>the <strong>Constructor represents </strong>all objects created using this constructor</p>
+</li>
+<li>
+<p>the <strong>number of object instances</strong> is displayed in the # column</p>
+</li>
+<li>
+<p>the <strong>Shallow size</strong> column displays the sum of <a href="memory-analysis-101.html#object_sizes">shallow sizes</a> of all objects created by a certain constructor function</p>
+</li>
+<li>
+<p>the <strong>Retained size</strong> column displays the maximum retained size among the same set of objects</p>
+</li>
+<li>
+<p>the <strong>Distance </strong>displays the distance to the root using the shortest simple path of nodes.</p>
+</li>
+</ul>
+<p>After expanding a total line in the upper view, all of its instances are displayed. For each instance, its shallow and retained sizes are displayed in the corresponding columns. The number after the @ character is the objects&#8217; unique ID, allowing you to compare heap snapshots on per-object basis.</p>
+<p class="note"><strong>Example:</strong> Try this <a href="heap-profiling-summary.html">demo page</a> (opens in a new tab) to understand how the Summary view can be used.</p>
+
+<p>Remember that yellow objects have JavaScript references on them and red objects are detached nodes which are referenced from one with a yellow background.</p>
+<a name="//apple_ref/cpp/Section/5.2.%20%20Comparison%20view" class="dashAnchor" id=""></a><h3 id="comparison_view">Comparison view</h3>
+<p>This view is used to compare multiple snapshots to each other so that you can see what the difference between them are in order to find leaked objects. To verify that a certain application operation doesn't create leaks (e.g. usually a pair of direct and reverse operations, like opening a document, and then closing it, should not leave any garbage), you may follow the scenario below:</p>
+<ol>
+<li>
+<p>Take a heap snapshot before performing an operation;</p>
+</li>
+<li>
+<p>Perform an operation (interact with a page in some way that you believe to be causing a leak);</p>
+</li>
+<li>
+<p>Perform a reverse operation (do the opposite interaction and repeat it a few times);</p>
+</li>
+<li>
+<p>Take a second heap snapshot and change the view of this one to Comparison, comparing it to snapshot 1.</p>
+</li>
+</ol>
+<p>In the Comparison view, the difference between two snapshots is displayed. When expanding a total entry, added and deleted object instances are shown:</p>
+<p><img alt="" src="memory-profiling-files/image_21.png"></p>
+<p class="note"><strong>Example:</strong> Try this <a href="heap-profiling-comparison.html">demo page</a> (opens in a new tab) to get an idea how to use snapshot comparison for detecting leaks.</p>
+
+<a name="//apple_ref/cpp/Section/5.3.%20%20Containment%20view" class="dashAnchor" id=""></a><h3 id="containment_view">Containment view</h3>
+<p>The Containment view is essentially a "bird's eye view" of your application's objects structure. It allows you to peek inside function closures, to observe VM internal objects that together make up your JavaScript objects, and to understand how much memory your application uses at a very low level.</p>
+<p>The view provides several entry points:</p>
+<ul>
+<li>
+<p><strong>DOMWindow</strong><strong> objects</strong> &#8212; these are objects considered as "global" objects for JavaScript code;</p>
+</li>
+<li>
+<p><strong>GC roots</strong> &#8212; actual GC roots used by VM's garbage collector;</p>
+</li>
+<li>
+<p><strong>Native objects</strong> &#8212; browser objects that are "pushed" inside the JavaScript virtual machine to allow automation, e.g. DOM nodes, CSS rules (see the next section for more details.)</p>
+</li>
+</ul>
+<p>Below is the example of a populated Containment view:</p>
+<p><img alt="" src="memory-profiling-files/image_22.png"></p>
+<p class="note">
+  <strong>Example:</strong> Try this <a href="heap-profiling-containment.html">demo page</a> (opens in a new tab) for finding out how to explore closures and event handlers using the view.
+</p>
+
+<p><strong>A tip about closures</strong></p>
+<p>It helps a lot to name the functions so you can easily distinguish between closures in the snapshot. For example, this example does not use named functions:</p>
+<pre>
+function createLargeClosure() {
+  var largeStr = new Array(1000000).join('x');
+
+  var lC = function() { // this is NOT a named function
+    return largeStr;
+  };
+
+  return lC;
+}
+</pre>
+
+<p>Whilst this example does:</p>
+<pre>
+function createLargeClosure() {
+  var largeStr = new Array(1000000).join('x');
+
+  var lC = function lC() { // this IS a named function
+    return largeStr;
+  };
+
+  return lC;
+}
+</pre>
+
+<p><img src="memory-profiling-files/domleaks.png"></p>
+<p class="note">
+    <strong>Examples:</strong>
+    Try out this example of <a href="demos/memory/example7.html">why eval is evil</a> to analyze the impact of closures on memory. You may also be interested in following it up with this example that takes you through recording <a href="demos/memory/example8.html">heap allocations</a>. 
+</p>
+
+<a name="//apple_ref/cpp/Section/5.4.%20%20Uncovering%20DOM%20leaks" class="dashAnchor" id=""></a><h3 id="uncovering_dom_leaks">Uncovering DOM leaks</h3>
+<p>A unique ability of the tool is to reflect bidirectional dependencies between browser native objects (DOM nodes, CSS rules) and JavaScript objects. This helps to discover otherwise invisible leaks happening due to forgotten detached DOM subtrees floating around.</p>
+<p>DOM leaks can be bigger than you think. Consider the following sample - when is the #tree GC?</p>
+<pre>
+  var select = document.querySelector;
+  var treeRef = select("#tree");
+  var leafRef = select("#leaf");
+  var body = select("body");
+
+  body.removeChild(treeRef);
+
+  //#tree can't be GC yet due to treeRef
+  treeRef = null;
+
+  //#tree can't be GC yet due to indirect
+  //reference from leafRef
+
+  leafRef = null;
+  //#NOW can be #tree GC
+</pre>
+
+<p><code>#leaf</code> maintains a reference to it's parent (parentNode) and recursively up to <code>#tree</code>, so only when leafRef is nullified is the WHOLE tree under <code>#tree</code> a candidate for GC.</p>
+<p><img src="memory-profiling-files/treegc.png"></p>
+<p class="note">
+    <strong>Examples:</strong>
+    Try out this example of <a href="demos/memory/example6.html">leaking DOM nodes</a> to understand where DOM nodes can leak and how to detect them. You can follow it up by also looking at this example of <a href="demos/memory/example9.html">DOM leaks being bigger than expected</a>.
+</p>
+
+<div class="drop-shadow extdoc">
+
+<p>To read more about DOM leaks and memory analysis fundamentals checkout <a href="http://slid.es/gruizdevilla/memory">Finding and debugging memory leaks with the Chrome DevTools</a> by Gonzalo Ruiz de Villa.</p>
+
+</div>
+
+<p>Native objects are most easily accessible from Summary and Containment views &#8212; there are dedicated entry nodes for them:</p>
+<p><img alt="" src="memory-profiling-files/image_24.png"></p>
+<p class="note">
+    <strong>Example:</strong>
+    Try this <a href="heap-profiling-dom-leaks.html">demo</a> (opens in a new tab) to play with detached DOM trees.
+</p>
+
+<a name="//apple_ref/cpp/Section/5.5.%20%20Dominators%20view" class="dashAnchor" id=""></a><h3 id="dominators_view">Dominators view</h3>
+<p>The Dominators view shows the dominators tree for the heap graph. The Dominators view looks similar to the Containment view, but lacks property names. This is because a dominator of an object may lack direct references to it, that is, the dominators tree is not a spanning tree of the graph. But this only serves for good, as helps us to identify memory accumulation points quickly.</p>
+<p class="note"><strong>Note:</strong> In Chrome Canary, Dominators view can be enabled by going to Settings &gt; Show advanced heap snapshot properties and restarting the DevTools.</p>
+
+<p><img alt="" src="memory-profiling-files/image_25.png"></p>
+<p class="note">
+    <strong>Examples:</strong>
+    Try this <a href="heap-profiling-dominators.html">demo</a> (opens in a new tab) to train yourself in finding accumulation points. Follow it up with this example of running into <a href="demos/memory/example10.html">retaining paths and dominators</a>.
+</p>
+
+<a name="//apple_ref/cpp/Section/6.%20%20Object%20allocation%20tracker" class="dashAnchor" id=""></a><h2 id="object_allocation_tracker">Object allocation tracker</h2>
+<p>The <strong>object tracker</strong> combines the detailed snapshot information of the <a href="#heading=h.xfxcns9xlif4">heap profiler</a> with the incremental updating and tracking of the Timeline panel. Similar to these tools, tracking objects&#8217; heap allocation involves starting a recording, performing a sequence of actions, then stop the recording for analysis. </p>
+<p>The object tracker takes heap snapshots periodically throughout the recording (as frequently as every 50 ms!) and one final snapshot at the end of the recording. The heap allocation profile shows where objects are being created and identifies the retaining path.</p>
+<p><img alt="" src="memory-profiling-files/image_26.png"></p>
+<p><strong>Enabling and using the Object Tracker</strong></p>
+<p>To begin using the Object Tracker:</p>
+<ol>
+<li>
+<p>Make sure you have the latest <a href="https://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a>.</p>
+</li>
+<li>
+<p>Open the Developer Tools and click on the gear icon in the lower right.<br>
+</p>
+</li>
+<li>
+<p>Now, open the Profiler panel, you should see a profile called "Record Heap Allocations"</p>
+</li>
+</ol>
+<p><img alt="" src="memory-profiling-files/image_27.png"></p>
+<p>The bars at the top indicate when new objects are found in the heap.  The height of each bar corresponds to the size of the recently allocated objects, and the color of the bars indicate whether or not those objects are still live in the final heap snapshot: blue bars indicate objects that are still live at the end of the timeline, gray bars indicate objects that were allocated during the timeline, but have since been garbage collected.</p>
+<p><img src="memory-profiling-files/collected.png"></p>
+<p>In the example above, an action was performed 10 times.  The sample program caches five objects, so the last five blue bars are expected.  But the leftmost blue bar indicates a potential problem. You can then use the sliders in the timeline above to zoom in on that particular snapshot and see the objects that were recently allocated at that point.<br>
+</p>
+<p><img alt="" src="memory-profiling-files/image_29.png"></p>
+<p>Clicking on a specific object in the heap will show its retaining tree in the bottom portion of the heap snapshot. Examining the retaining path to the object should give you enough information to understand why the object was not collected, and you can make the necessary code changes to remove the unnecessary reference.</p>
+<a name="//apple_ref/cpp/Section/7.%20%20Memory%20Profiling%20FAQ" class="dashAnchor" id=""></a><h2 id="memory_profiling_faq">Memory Profiling FAQ</h2>
+<p><strong>Q: I don't see all the properties of objects, I don't see non-string values for them! Why?</strong></p>
+<p>Not all properties are actually stored on the JavaScript heap. Some of them are implemented using getters that execute native code. Such properties are not captured in heap snapshots in order to avoid the cost of calling getters and to avoid possible program state changes if getters are not "pure" functions. Also, non-string values such as numbers are not captured in an attempt to reduce snapshot size.</p>
+<p><strong>Q: What does the number after the <strong><em>*@</em></strong>* char mean &#8212; is this an address or an ID? Is the ID value really unique?</strong></p>
+<p>This is an object ID. Displaying an object's address makes no sense, as objects are moved during garbage collections. Those object IDs are real IDs &#8212; that means, they persist among multiple snapshots taken and are unique. This allows precise comparison between heap states. Maintaining those IDs adds an overhead to GC cycles, but it is only initiated after the first heap snapshot was taken &#8212; no overhead if heap profiles aren't used.</p>
+<p><strong>Q: Are "dead" (unreachable) objects included in snapshots?</strong></p>
+<p>No. Only reachable objects are included in snapshots. Also, taking a snapshot always starts with doing a GC.</p>
+<p class="note"><strong>Note:</strong>At the time of writing, we are planning on avoiding this GC to reduce the drop in used heap size when taking heap snapshots. This has yet to be implemented but garbage would still be out of the snapshot.</p>
+
+<p><strong>Q: What comprises GC roots?</strong></p>
+<p>Many things:</p>
+<ul>
+<li>
+<p>built-in object maps;</p>
+</li>
+<li>
+<p>symbol table;</p>
+</li>
+<li>
+<p>stacks of VM threads;</p>
+</li>
+<li>
+<p>compilation cache;</p>
+</li>
+<li>
+<p>handle scopes;</p>
+</li>
+<li>
+<p>global handles.</p>
+</li>
+</ul>
+<p><img alt="" src="memory-profiling-files/image_30.jpg"></p>
+<p><strong>Q: I&#8217;ve been told to use the Heap Profiler and Timeline Memory view for detecting memory leaks. What tool should be used first?</strong></p>
+<p>The Timeline. Use it to diagnose excessive memory usage when you first notice your page has slowed down after extended use. Slowdown was once a classic symptom of a memory leak but it could also be something else &#8211; maybe you have a paint or network bottleneck in your page, so make sure to fix the real issue in your page.</p>
+<p>To diagnose whether memory is the issue, go to the Timeline panel and Memory view. Hit the record button and interact with your application, repeating any steps you feel may be causing a leak. Stop the recording. The graph you see will display the memory allocated to your application. If it happens to be consuming an increasing amount of this over time (without ever dropping), it&#8217;s an indication you may have a memory leak.</p>
+<p>The profile for a healthy application should look more like a sawtooth curve as memory is allocated then freed when the garbage collector comes in. There&#8217;s nothing to worry about here &#8211; there&#8217;s always going to be a cost of doing business in JavaScript and even an empty <code>requestAnimationFrame</code> will cause this type of sawtooth, you can&#8217;t avoid it. Just ensure it&#8217;s not sharp as that&#8217;s an indication a lot of allocations are being made, which can equate to a lot of garbage on the other side.</p>
+<p><img alt="" src="memory-profiling-files/image_31.png"></p>
+<p>It's the rate of increase in the steepness of this curve that you need to keep an eye on.There is also a DOM node counter, Document counter and Event listener count in the Memory view which can be useful during diagnosis. DOM nodes use native memory and do not directly affect the JavaScript memory graph.</p>
+<p><img alt="" src="memory-profiling-files/image_32.jpg"></p>
+<p>Once you suspect you have a memory leak, the Heap profiler can be used to discover the source of the leak.</p>
+<p><strong>Q: I noticed a number of DOM nodes in the heap snapshot where some are highlighted in red and indicated as a "Detached DOM tree" whilst others are yellow. What does this mean?
+</strong></p>
+<p>You'll notice nodes of a few different colors. Red nodes (which have a darker background) do not have direct references from JavaScript to them, but are alive because they&#8217;re part of a detached DOM tree. There may be a node in the tree referenced from JavaScript (maybe as a closure or variable) but is coincidentally preventing the entire DOM tree from being garbage collected.</p>
+<p><img alt="" src="memory-profiling-files/image_33.jpg"></p>
+<p>Yellow nodes (with a yellow background) however do have direct references from JavaScript. Look for yellow nodes in the same detached DOM tree to locate references from your JavaScript. There should be a chain of properties leading from the DOM window to the element (e.g <code>window.foo.bar[2].baz</code>).</p>
+<p>An animation of where detached nodes fit into the overall picture can be seen below:</p>
+<p><img src="memory-profiling-files/detached-nodes.gif" style="max-width:900px"></p>
+<p class="note">
+    <strong>Example:</strong>
+    Try out this example of <a href="demos/memory/example4.html">detached nodes</a> where you can watch node evolution in the Timeline then take heap snapshots to find detached nodes.
+</p>
+
+<p><strong>Q: What do the Shallow and Retained Size columns represent and what are the differences between them?</strong></p>
+<p>So, objects can be kept in memory (be alive) in two different ways &#8211; either directly by another alive object (window and document are always alive objects) or implicitly by holding references from native part of the renderer (like DOM objects). The latter is what ends up preventing these objects from being disposed by GC automatically, causing leaks. The size of memory held by an object itself is known as the shallow size (generally, arrays and strings have larger shallow sizes).</p>
+<p><img alt="" src="memory-profiling-files/image_36.jpg"></p>
+<p>An object of any size can hold a ton of memory if it prevents other objects from being disposed. The size of memory that can be freed once an object is deleted (and this its dependents made no longer reachable) is called the retained size.</p>
+<p><strong>Q: There's a lot of data in the constructor and retained views. Where should I start digging into to discover if I have a leak?</strong></p>
+<p>It's generally a good idea to begin investigation from the first object retained in your tree as retainers are sorted by distance (well, distance to the window).</p>
+<p><img alt="" src="memory-profiling-files/image_37.jpg"></p>
+<p>The object retained with the shortest distance is usually your first candidate for causing a memory leak.</p>
+<p><strong>Q: What's the difference between the different Summary, Comparison, Dominators and Containment views?</strong></p>
+<p>You may get some mileage by switching between the different data views available at the bottom of the screen.</p>
+<p><img alt="" src="memory-profiling-files/image_38.jpg"></p>
+<ul>
+<li>
+<p>Summary view helps you hunt down objects (and their memory use) based on type grouped by constructor name. This view is particularly helpful for tracking down DOM leaks.</p>
+</li>
+<li>
+<p>Comparison view helps you track down memory leaks, by displaying which objects have been correctly cleaned up by the garbage collector. Generally used to record and compare two (or more) memory snapshots of before and after an operation. The idea is that inspecting the delta in freed memory and reference count lets you confirm the presence and cause of a memory leak.</p>
+</li>
+<li>
+<p>Containment view provides a better view of object structure, helping us analyse objects referenced in the global namespace (i.e. window) to find out what is keeping them around. It lets you analyse closures and dive into your objects at a low level.</p>
+</li>
+<li>
+<p>Dominators view helps confirm that no unexpected references to objects are still hanging around (i.e that they are well contained) and that deletion/garbage collection is actually working.</p>
+</li>
+</ul>
+<p><strong>Q: What do the various constructor (group) entries in the Heap profiler correspond to?</strong><strong>
+</strong></p>
+<p><img alt="" src="memory-profiling-files/image_39.jpg"></p>
+<ul>
+<li>
+<p><strong>(global property)</strong> &#8211; intermediate objects between a global object (like 'window') and an object referenced by it. If an object is created using a constructor Person and is held by a global object, the retaining path would look like [global] &gt; (global property) &gt; Person. This contrasts with the norm, where objects directly reference each other. We have intermediate objects for performance reasons. Globals are modified regularly and property access optimisations do a good job for non-global objects aren't applicable for globals.</p>
+</li>
+<li>
+<p><strong>(roots)</strong> &#8211; The root entries in the retaining tree view are the entities that have references to the selected object. These can also be references created by the engine for its own purposes. The engine has caches which reference objects, but all such references are weak and won't prevent an object from being collected given that there are no truly strong references.</p>
+</li>
+<li>
+<p><strong>(closure)</strong> &#8211; a count of references to a group of objects through function closures</p>
+</li>
+<li>
+<p><strong>(array, string, number, regexp)</strong> &#8211; a list of object types with properties which reference an Array, String, Number or regular expression</p>
+</li>
+<li>
+<p><strong>(compiled code)</strong> &#8211; simply, everything related to compiled code. Script is similar to a function but corresponds to a &lt;script&gt; body. SharedFunctionInfos (SFI) are objects standing between functions and compiled code. Functions are usually have a context, while SFIs do not.</p>
+</li>
+<li>
+<p><strong>HTMLDivElement</strong>, <strong>HTMLAnchorElement</strong>, <strong>DocumentFragment</strong> etc &#8211; references to elements or document objects of a particular type referenced by your code.</p>
+</li>
+</ul>
+<p>Many of the other objects you may see were likely generated during the lifecycle of your code and can include event listeners as well as custom objects, like the controllers below:</p>
+<p><img alt="" src="memory-profiling-files/image_40.jpg"></p>
+<p><strong>Q: Is there anything I should be turning off in Chrome that might be influencing my figures?</strong></p>
+<p>When performing any type of profiling using the Chrome DevTools, it is recommended that you either run in incognito mode with all extensions disabled or start Chrome with a <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">custom</a> user data directory (<code>--user-data-dir=""</code>).</p>
+<p><img alt="" src="memory-profiling-files/image_41.jpg"></p>
+<p>Apps, extensions and even console logging can have an implicit impact on your figures and you want to keep them as reliable as possible.</p>
+<p><strong>Closing remarks</strong></p>
+<p>The JavaScript engines of today are highly capable of automatically cleaning garbage generated by our code in a number of situations. That said, they can only go so far and our applications are still prone to memory leaks caused by logical errors. Use the tools available to find out your bottlenecks and remember, don't guess it - test it.</p>
+<a name="//apple_ref/cpp/Section/8.%20%20Supporting%20Demos" class="dashAnchor" id=""></a><h2 id="supporting_demos">Supporting Demos</h2>
+<a name="//apple_ref/cpp/Section/8.1.%20%20Debugging%20Memory%20Leaks" class="dashAnchor" id=""></a><h3 id="debugging_memory_leaks">Debugging Memory Leaks</h3>
+<p>Although we've mentioned them throughout this guide, a good set of end-to-end examples for testing various memory issues, ranging from growing memory leaking DOM nodes can be found summarized below. You may wish to experiment with them before attempting to use the tooling on your own more complex page or application.</p>
+<ul>
+<li><a target="_blank" href="demos/memory/example1.html">Example 1: Growing memory</a></li>
+
+<li><a target="_blank" href="demos/memory/example2.html">Example 2: Garbage collection in
+action</a></li>
+
+<li><a target="_blank" href="demos/memory/example3.html">Example 3: Scattered objects</a></li>
+
+<li><a target="_blank" href="demos/memory/example4.html">Example 4: Detached nodes</a></li>
+
+<li><a target="_blank" href="demos/memory/example5.html">Example 5: Memory and hidden
+classes</a></li>
+
+<li><a target="_blank" href="demos/memory/example6.html">Example 6: Leaking DOM nodes</a></li>
+
+<li><a target="_blank" href="demos/memory/example7.html">Example 7: Eval is evil (almost
+always)</a></li>
+
+<li><a target="_blank" href="demos/memory/example8.html">Example 8: Recording heap
+allocations</a></li>
+
+<li><a target="_blank" href="demos/memory/example9.html">Example 9: DOM leaks bigger than
+expected</a></li>
+
+<li><a target="_blank" href="demos/memory/example10.html">Example 10: Retaining path</a></li>
+
+<li><a target="_blank" href="demos/memory/example11.html">Example 11: Last exercise</a></li>
+</ul>
+
+<p>Additional demos are available for:</p>
+<ul>
+<li>
+<p><a href="heap-profiling-summary.html">Gathering scattered objects</a></p>
+</li>
+<li>
+<p><a href="heap-profiling-comparison.html">Verifying action cleanness</a></p>
+</li>
+<li>
+<p><a href="heap-profiling-containment.html">Exploring the heap contents</a></p>
+</li>
+<li>
+<p><a href="heap-profiling-dom-leaks.html">Uncovering DOM leaks</a></p>
+</li>
+<li>
+<p><a href="heap-profiling-dominators.html">Finding accumulation points</a></p>
+</li>
+</ul>
+<a name="//apple_ref/cpp/Section/9.%20%20Community%20Resources" class="dashAnchor" id=""></a><h2 id="community_resources">Community Resources</h2>
+<p>There are a number of excellent resources written by the community on finding and fixing memory issues in web apps using the Chrome DevTools. Below are a selection of some you may find useful:</p>
+<ul>
+<li>
+<p><a href="http://slid.es/gruizdevilla/memory">Finding and debugging memory leaks with the Chrome DevTools</a></p>
+</li>
+<li>
+<p><a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/">JavaScript profiling with the DevTools</a></p>
+</li>
+<li>
+<p><a href="http://www.html5rocks.com/en/tutorials/memory/effectivemanagement/">Effective memory management at GMail scale</a> </p>
+</li>
+<li>
+<p><a href="http://www.html5rocks.com/en/tutorials/developertools/revolutions2013/">Chrome DevTools Revolutions 2013</a></p>
+</li>
+<li>
+<p><a href="http://www.slideshare.net/matenadasdi1/google-chrome-devtools-rendering-memory-profiling-on-open-academy-2013">Rendering and memory profiling with the DevTools</a></p>
+</li>
+<li>
+<p><a href="http://addyosmani.com/blog/performance-optimisation-with-timeline-profiles/">Performance optimization with DevTools timeline and profile</a></p>
+</li>
+</ul>
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-09-30T18:59:37.068100" id="gc-content-last-updated">Last updated September 30, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/javascript-memory-profiling by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:58:26 GMT -->
+</html>

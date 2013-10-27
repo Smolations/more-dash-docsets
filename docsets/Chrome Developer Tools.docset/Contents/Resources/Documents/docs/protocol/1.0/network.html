@@ -1,0 +1,2868 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/protocol/1.0/network by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 04:02:12 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>1.0: Network - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+ 
+ 
+ 
+ 
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">1.0: Network</h1>
+  
+  <div itemprop="articleBody">
+  
+<link rel="stylesheet" type="text/css" href="../css/protocol.css"> 
+<div>
+ <!-- TABLE OF CONTENTS -->
+ <div id="toc">
+ <h2>Contents</h2>
+ <ol>
+ 
+ <li>
+ <a href="#commands">Commands</a>
+ <ol>
+ 
+ <li>
+ <a href="#command-canClearBrowserCache">canClearBrowserCache</a>
+ </li>
+ 
+ <li>
+ <a href="#command-canClearBrowserCookies">canClearBrowserCookies</a>
+ </li>
+ 
+ <li>
+ <a href="#command-clearBrowserCache">clearBrowserCache</a>
+ </li>
+ 
+ <li>
+ <a href="#command-clearBrowserCookies">clearBrowserCookies</a>
+ </li>
+ 
+ <li>
+ <a href="#command-disable">disable</a>
+ </li>
+ 
+ <li>
+ <a href="#command-enable">enable</a>
+ </li>
+ 
+ <li>
+ <a href="#command-getResponseBody">getResponseBody</a>
+ </li>
+ 
+ <li>
+ <a href="#command-setCacheDisabled">setCacheDisabled</a>
+ </li>
+ 
+ <li>
+ <a href="#command-setExtraHTTPHeaders">setExtraHTTPHeaders</a>
+ </li>
+ 
+ <li>
+ <a href="#command-setUserAgentOverride">setUserAgentOverride</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ 
+ <li>
+ <a href="#events">Notifications</a>
+ <ol>
+ 
+ <li>
+ <a href="#event-dataReceived">dataReceived</a>
+ </li>
+ 
+ <li>
+ <a href="#event-loadingFailed">loadingFailed</a>
+ </li>
+ 
+ <li>
+ <a href="#event-loadingFinished">loadingFinished</a>
+ </li>
+ 
+ <li>
+ <a href="#event-requestServedFromCache">requestServedFromCache</a>
+ </li>
+ 
+ <li>
+ <a href="#event-requestWillBeSent">requestWillBeSent</a>
+ </li>
+ 
+ <li>
+ <a href="#event-responseReceived">responseReceived</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ 
+ 
+ <li>
+ <a href="#types">Types</a>
+ <ol>
+ 
+ <li>
+ <a href="#type-CachedResource">CachedResource</a>
+ </li>
+ 
+ <li>
+ <a href="#type-Headers">Headers</a>
+ </li>
+ 
+ <li>
+ <a href="#type-Initiator">Initiator</a>
+ </li>
+ 
+ <li>
+ <a href="#type-LoaderId">LoaderId</a>
+ </li>
+ 
+ <li>
+ <a href="#type-Request">Request</a>
+ </li>
+ 
+ <li>
+ <a href="#type-RequestId">RequestId</a>
+ </li>
+ 
+ <li>
+ <a href="#type-ResourceTiming">ResourceTiming</a>
+ </li>
+ 
+ <li>
+ <a href="#type-Response">Response</a>
+ </li>
+ 
+ <li>
+ <a href="#type-Timestamp">Timestamp</a>
+ </li>
+ 
+ </ol>
+ </li>
+ 
+ </ol>
+ </div>
+<!-- /TABLE OF CONTENTS -->
+ <!-- API PAGE -->
+ <div>
+ 
+ <p>Network domain allows tracking network activities of the page. It exposes information about http, file, data and other requests and responses, their headers, bodies, timing, etc.</p>
+ 
+ <!-- COMMANDS -->
+ 
+ <div class="protocol-group">
+ <a name="commands"></a>
+ <h3>Commands</h3>
+ 
+ <div class="protocol-item">
+ <a name="command-canClearBrowserCache"></a>
+ <h4>Network.canClearBrowserCache</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Network.canClearBrowserCache"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;,<br>
+ 
+ "result": {<br>
+ 
+ &#160;&#160;"<span class="specific">result</span>": &lt;boolean&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Tells whether clearing browser cache is supported.</p>
+ 
+ 
+ 
+ <!-- RETURNS -->
+ <h4>Returns</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ result
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ boolean
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ True if browser cache can be cleared.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-canClearBrowserCookies"></a>
+ <h4>Network.canClearBrowserCookies</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Network.canClearBrowserCookies"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;,<br>
+ 
+ "result": {<br>
+ 
+ &#160;&#160;"<span class="specific">result</span>": &lt;boolean&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Tells whether clearing browser cookies is supported.</p>
+ 
+ 
+ 
+ <!-- RETURNS -->
+ <h4>Returns</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ result
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ boolean
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ True if browser cookies can be cleared.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-clearBrowserCache"></a>
+ <h4>Network.clearBrowserCache</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Network.clearBrowserCache"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Clears browser cache.</p>
+ 
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-clearBrowserCookies"></a>
+ <h4>Network.clearBrowserCookies</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Network.clearBrowserCookies"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Clears browser cookies.</p>
+ 
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-disable"></a>
+ <h4>Network.disable</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Network.disable"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Disables network tracking, prevents network events from being sent to the client.</p>
+ 
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-enable"></a>
+ <h4>Network.enable</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Network.enable"
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Enables network tracking, network events will now be delivered to the client.</p>
+ 
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-getResponseBody"></a>
+ <h4>Network.getResponseBody</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Network.getResponseBody",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;"<span class="specific">requestId</span>": &lt;<a href="#type-RequestId">RequestId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;,<br>
+ 
+ "result": {<br>
+ 
+ &#160;&#160;"<span class="specific">body</span>": &lt;string&gt;,<br>
+ 
+ &#160;&#160;"<span class="specific">base64Encoded</span>": &lt;boolean&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Returns content served for the given request.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ requestId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-RequestId">RequestId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Identifier of the network request to get content for.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ <!-- RETURNS -->
+ <h4>Returns</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ body
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Response body.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ base64Encoded
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ boolean
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ True, if content was sent as base64.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-setCacheDisabled"></a>
+ <h4>Network.setCacheDisabled</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Network.setCacheDisabled",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;"<span class="specific">cacheDisabled</span>": &lt;boolean&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Toggles ignoring cache for each request. If <code>true</code>, cache will not be used.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ cacheDisabled
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ boolean
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Cache disabled state.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-setExtraHTTPHeaders"></a>
+ <h4>Network.setExtraHTTPHeaders</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Network.setExtraHTTPHeaders",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;"<span class="specific">headers</span>": &lt;<a href="#type-Headers">Headers</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Specifies whether to always send extra HTTP headers with the requests from this page.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ headers
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Headers">Headers</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Map with extra HTTP headers.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="command-setUserAgentOverride"></a>
+ <h4>Network.setUserAgentOverride</h4>
+ <div class="summary">
+ <!-- REQUEST -->
+ request: {<br>
+ "id": &lt;number&gt;,<br>
+ "method": "Network.setUserAgentOverride",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;"<span class="specific">userAgent</span>": &lt;string&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ <!-- RESPONSE -->
+ response: {<br>
+ "id": &lt;number&gt;,<br>
+ "error": &lt;object&gt;
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ 
+ <p>Allows overriding user agent with the given string.</p>
+ 
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ userAgent
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ User agent to use.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ 
+ </div>
+ </div>
+  <!-- for commands -->
+ </div>
+  <!-- if commands -->
+ <!-- EVENTS -->
+ 
+ <div class="protocol-group">
+ <a name="events"></a>
+ <h3>Notifications</h3>
+ 
+ <div class="protocol-item">
+ <a name="event-dataReceived"></a>
+ <h4>Network.dataReceived</h4>
+ <div class="summary">
+ {<br>
+ "method": "Network.dataReceived",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;<span class="specific">"requestId"</span>: &lt;<a href="#type-RequestId">RequestId</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"timestamp"</span>: &lt;<a href="#type-Timestamp">Timestamp</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"dataLength"</span>: &lt;integer&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"encodedDataLength"</span>: &lt;integer&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired when data chunk was received over the network.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ requestId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-RequestId">RequestId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Request identifier.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ timestamp
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Timestamp">Timestamp</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Timestamp.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ dataLength
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Data chunk length.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ encodedDataLength
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ integer
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Actual bytes received (might be less than dataLength for compressed encodings).
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-loadingFailed"></a>
+ <h4>Network.loadingFailed</h4>
+ <div class="summary">
+ {<br>
+ "method": "Network.loadingFailed",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;<span class="specific">"requestId"</span>: &lt;<a href="#type-RequestId">RequestId</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"timestamp"</span>: &lt;<a href="#type-Timestamp">Timestamp</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"errorText"</span>: &lt;string&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"canceled"</span>: &lt;boolean&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired when HTTP request has failed to load.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ requestId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-RequestId">RequestId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Request identifier.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ timestamp
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Timestamp">Timestamp</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Timestamp.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ errorText
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ User friendly error message.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ canceled
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ boolean
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ True if loading was canceled.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-loadingFinished"></a>
+ <h4>Network.loadingFinished</h4>
+ <div class="summary">
+ {<br>
+ "method": "Network.loadingFinished",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;<span class="specific">"requestId"</span>: &lt;<a href="#type-RequestId">RequestId</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"timestamp"</span>: &lt;<a href="#type-Timestamp">Timestamp</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired when HTTP request has finished loading.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ requestId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-RequestId">RequestId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Request identifier.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ timestamp
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Timestamp">Timestamp</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Timestamp.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-requestServedFromCache"></a>
+ <h4>Network.requestServedFromCache</h4>
+ <div class="summary">
+ {<br>
+ "method": "Network.requestServedFromCache",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;<span class="specific">"requestId"</span>: &lt;<a href="#type-RequestId">RequestId</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired if request ended up loading from cache.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ requestId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-RequestId">RequestId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Request identifier.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-requestWillBeSent"></a>
+ <h4>Network.requestWillBeSent</h4>
+ <div class="summary">
+ {<br>
+ "method": "Network.requestWillBeSent",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;<span class="specific">"requestId"</span>: &lt;<a href="#type-RequestId">RequestId</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"loaderId"</span>: &lt;<a href="#type-LoaderId">LoaderId</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"documentURL"</span>: &lt;string&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"request"</span>: &lt;<a href="#type-Request">Request</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"timestamp"</span>: &lt;<a href="#type-Timestamp">Timestamp</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"initiator"</span>: &lt;<a href="#type-Initiator">Initiator</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"stackTrace"</span>: &lt;<a href="console.html#type-StackTrace">Console.StackTrace</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"redirectResponse"</span>: &lt;<a href="#type-Response">Response</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired when page is about to send HTTP request.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ requestId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-RequestId">RequestId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Request identifier.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ loaderId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-LoaderId">LoaderId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Loader identifier.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ documentURL
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ URL of the document this request is loaded for.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ request
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Request">Request</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Request data.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ timestamp
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Timestamp">Timestamp</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Timestamp.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ initiator
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Initiator">Initiator</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Request initiator.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ stackTrace
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="console.html#type-StackTrace">Console.StackTrace</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ JavaScript stack trace upon issuing this request.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ redirectResponse
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="#type-Response">Response</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Redirect response data.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="event-responseReceived"></a>
+ <h4>Network.responseReceived</h4>
+ <div class="summary">
+ {<br>
+ "method": "Network.responseReceived",<br>
+ 
+ "params": {<br>
+ 
+ &#160;&#160;<span class="specific">"requestId"</span>: &lt;<a href="#type-RequestId">RequestId</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"loaderId"</span>: &lt;<a href="#type-LoaderId">LoaderId</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"timestamp"</span>: &lt;<a href="#type-Timestamp">Timestamp</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"type"</span>: &lt;<a href="page.html#type-ResourceType">Page.ResourceType</a>&gt;,<br>
+ 
+ &#160;&#160;<span class="specific">"response"</span>: &lt;<a href="#type-Response">Response</a>&gt;<br>
+ 
+ }
+ 
+ <div>}</div>
+ </div>
+ <div class="description">
+ <p>Fired when HTTP response is available.</p>
+ 
+ <!-- PARAMETERS -->
+ <h4>Parameters</h4>
+ <div class="parameters">
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ requestId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-RequestId">RequestId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Request identifier.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ loaderId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-LoaderId">LoaderId</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Loader identifier.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ timestamp
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Timestamp">Timestamp</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Timestamp.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ type
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="page.html#type-ResourceType">Page.ResourceType</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Resource type.
+ 
+ </div>
+</span>
+</div>
+ 
+ <div>
+<span class="value">
+ <strong>
+ <var>
+
+ response
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Response">Response</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Response data.
+ 
+ </div>
+</span>
+</div>
+ 
+ </div>
+ 
+ </div>
+ </div>
+  <!-- for events -->
+ </div>
+  <!-- if events -->
+ <!-- TYPES -->
+ 
+ <a name="types" id="types"></a>
+ <h3 id="types">Types</h3>
+ 
+ <div class="protocol-item">
+ <a name="type-CachedResource"></a>
+ <h4>CachedResource: <var>object</var>
+</h4>
+ 
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ bodySize
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Cached response body size.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ response
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="#type-Response">Response</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Cached response data.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ type
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="page.html#type-ResourceType">Page.ResourceType</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Type of this resource.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ url
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Resource URL.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-Headers"></a>
+ <h4>Headers: <var>object</var>
+</h4>
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-Initiator"></a>
+ <h4>Initiator: <var>object</var>
+</h4>
+ 
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ lineNumber
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Initiator line number, set for Parser type only.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ stackTrace
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="console.html#type-StackTrace">Console.StackTrace</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Initiator JavaScript stack trace, set for Script only.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ type
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ <span>enumerated</span>
+ string
+ 
+ [
+ 
+ "other"
+ , 
+ 
+ "parser"
+ , 
+ 
+ "script"
+ 
+ 
+ ]
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Type of this initiator.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ url
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Initiator URL, set for Parser type only.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-LoaderId"></a>
+ <h4>LoaderId: <var>string</var>
+</h4>
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-Request"></a>
+ <h4>Request: <var>object</var>
+</h4>
+ 
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ headers
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Headers">Headers</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ HTTP request headers.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ method
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ HTTP request method.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ postData
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ HTTP POST request data.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ url
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Request URL.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-RequestId"></a>
+ <h4>RequestId: <var>string</var>
+</h4>
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-ResourceTiming"></a>
+ <h4>ResourceTiming: <var>object</var>
+</h4>
+ 
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ connectEnd
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Connected to the remote host.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ connectStart
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Started connecting to the remote host.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ dnsEnd
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Finished DNS address resolve.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ dnsStart
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Started DNS address resolve.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ proxyEnd
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Finished resolving proxy.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ proxyStart
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Started resolving proxy.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ receiveHeadersEnd
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Finished receiving response headers.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ requestTime
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Timing's requestTime is a baseline in seconds, while the other numbers are ticks in milliseconds relatively to this requestTime.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ sendEnd
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Finished sending request.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ sendStart
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Started sending request.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ sslEnd
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Finished SSL handshake.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ sslStart
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Started SSL handshake.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-Response"></a>
+ <h4>Response: <var>object</var>
+</h4>
+ 
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ connectionId
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Physical connection id that was actually used for this request.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ connectionReused
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ boolean
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Specifies whether physical connection was actually reused for this request.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ fromDiskCache
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ boolean
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Specifies that the request was served from the disk cache.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ headers
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ <a href="#type-Headers">Headers</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ HTTP response headers.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ headersText
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ HTTP response headers text.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ mimeType
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Resource mimeType as determined by the browser.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ requestHeaders
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="#type-Headers">Headers</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Refined HTTP request headers that were actually transmitted over the network.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ requestHeadersText
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ HTTP request headers text.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ status
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ number
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ HTTP response status code.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ statusText
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ HTTP response status text.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ timing
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ <span class="optional">optional</span>
+ 
+ <a href="#type-ResourceTiming">ResourceTiming</a>
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Timing information for the given request.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ <div class="property">
+ <span class="value">
+ <strong>
+ <var>
+
+ url
+
+ <!-- TYPE -->
+ <div style="display:inline">
+ (
+ 
+ 
+ string
+ 
+ )
+ </div>
+ </var>
+ </strong>
+ <div class="description">
+ Response URL.
+ 
+ </div>
+</span>
+
+ </div>
+ 
+ 
+ 
+ </div>
+ 
+ <div class="protocol-item">
+ <a name="type-Timestamp"></a>
+ <h4>Timestamp: <var>number</var>
+</h4>
+ 
+ 
+ </div>
+  <!-- for types -->
+ </div>
+  <!-- if types -->
+ </div>
+<!-- API PAGE -->
+</div>
+ 
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-09-16T13:05:30.892580" id="gc-content-last-updated">Last updated September 16, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/protocol/1.0/network by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 04:02:13 GMT -->
+</html>

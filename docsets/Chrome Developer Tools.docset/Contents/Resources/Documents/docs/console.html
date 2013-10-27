@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/console by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:58:41 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Using the Console - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+  
+  
+  
+
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Using the Console</h1>
+  
+  <div itemprop="articleBody">
+  
+<p>The JavaScript Console provides two primary functions for developers  testing web pages and applications:</p>
+<ul>
+<li>A place to log diagnostic information using methods provided by the <a href="console-api.html">Console API</a>, such as <a href="console-api.html#consolelogobject_object">console.log()</a>, or <a href="console-api.html#consoleprofilelabel">console.profile()</a>.</li>
+<li>A shell prompt where you can enter commands and interact with the document and the Chrome DevTools. You can evaluate expressions directly in the Console, and can also use the methods provided by the <a href="commandline-api.html">Command Line API</a>, such as <a href="commandline-api.html#selector">$()</a> command for selecting elements, or <a href="commandline-api.html#profile">profile()</a> to start the CPU profiler.</li>
+</ul>
+<p>This documentation provides an overview and common uses of these two APIs. You can also browse the <a href="console-api.html">Console API</a> and <a href="commandline-api.html">Command Line API</a> reference guides.</p>
+<nav class="inline-toc"><ol class="toc">
+<li>
+<a href="#basic_operation">Basic operation</a><ol class="toc">
+<li><a href="#opening_the_console">Opening the Console</a></li>
+<li><a href="#clearing_the_console_history">Clearing the console history</a></li>
+<li><a href="#console_settings">Console settings</a></li>
+</ol>
+</li>
+<li>
+<a href="#using_the_console_api">Using the Console API</a><ol class="toc">
+<li><a href="#writing_to_the_console">Writing to the console</a></li>
+<li><a href="#errors_and_warnings">Errors and warnings</a></li>
+<li><a href="#assertions">Assertions</a></li>
+<li><a href="#filtering_console_output">Filtering console output</a></li>
+<li><a href="#grouping_output">Grouping output</a></li>
+<li><a href="#string_substitution_and_formatting">String substitution and formatting</a></li>
+<li><a href="#formatting_dom_elements_as_javascript_objects">Formatting DOM elements as JavaScript objects</a></li>
+<li><a href="#styling_console_output_with_css">Styling console output with CSS</a></li>
+<li><a href="#measuring_how_long_something_takes">Measuring how long something takes</a></li>
+<li><a href="#marking_the_timeline">Marking the Timeline</a></li>
+<li><a href="#setting_breakpoints_in_javascript">Setting breakpoints in JavaScript</a></li>
+</ol>
+</li>
+<li>
+<a href="#using_the_command_line_api">Using the Command Line API</a><ol class="toc">
+<li><a href="#evaluating_expressions">Evaluating expressions</a></li>
+<li><a href="#selecting_elements">Selecting elements</a></li>
+<li><a href="#inspecting_dom_elements_and_javascript_heap_objects">Inspecting DOM elements and JavaScript heap objects</a></li>
+<li><a href="#accessing_recently_selected_elements_and_objects">Accessing recently selected elements and objects</a></li>
+<li><a href="#monitoring_events">Monitoring events</a></li>
+<li><a href="#controlling_the_cpu_profiler">Controlling the CPU profiler</a></li>
+</ol>
+</li>
+</ol></nav>
+<a name="//apple_ref/cpp/Section/1.%20%20Basic%20operation" class="dashAnchor" id=""></a><h2 id="basic_operation">Basic operation</h2>
+<a name="//apple_ref/cpp/Section/1.1.%20%20Opening%20the%20Console" class="dashAnchor" id=""></a><h3 id="opening_the_console">Opening the Console</h3>
+<p>The JavaScript Console is available in two modes within Chrome DevTools: the primary Console tab, or as a split-view you can display while on another tab (such as Elements or Sources).</p>
+<p>To open the Console tab, do one of the following:</p>
+<ul>
+<li>Use the keyboard shortcut <strong>Command - Option - J</strong> (Mac) or <strong>Control -Shift -J</strong> (Windows/Linux).</li>
+<li>Select <strong>View &gt; Developer &gt; JavaScript Console</strong>.</li>
+</ul>
+<p><img alt="Console panel view" src="console-files/console1.png"></p>
+<p>To toggle a split-view of the Console on another tab, press the <strong>Esc</strong> key on your keyboard, or click the <strong>Show/Hide Console</strong> button in the bottom left corner of the Chrome DevTools window. In the following screenshot the Console split-view is shown with the Elements panel.</p>
+<p><img alt="Console split-view" src="console-files/console-split-view.png"></p>
+<a name="//apple_ref/cpp/Section/1.2.%20%20Clearing%20the%20console%20history" class="dashAnchor" id=""></a><h3 id="clearing_the_console_history">Clearing the console history</h3>
+<p>To clear the console's history, do one of the following:</p>
+<ul>
+<li>Right-click or Ctrl-click anywhere in the Console and choose <strong>Clear Console</strong> from the context menu that appears.</li>
+<li>Enter the <a href="commandline-api.html#clear"><strong>clear()</strong></a> Command Line API at the shell prompt.</li>
+<li>Invoke <a href="console-api.html#consoleclear"><strong>console.clear()</strong></a> Console API from JavaScript.</li>
+<li>Use the keyboard shortcut <strong>&#8984;K</strong> or <strong>&#8963;L</strong> (Mac) <strong>Control - L</strong> (Windows and Linux).</li>
+</ul>
+<p>By default, the console history is cleared when you navigate to another page. You can change this behavior by enabling <strong>Preserve log upon navigation</strong> in the Console area of the Settings dialog (see <a href="#consolepreferences">Console preferences</a>).</p>
+<a name="//apple_ref/cpp/Section/1.3.%20%20Console%20settings" class="dashAnchor" id=""></a><h3 id="console_settings">Console settings</h3>
+<p>The Console has two global settings you can modify in the General tab of the DevTools Settings dialog:</p>
+<ul>
+<li>
+<strong>Log XMLHTTPRequests</strong>&#8212;determines if each XMLHTTPRequest is logged to the Console panel.</li>
+<li>
+<strong>Preserve log upon navigation</strong>&#8212;determines if console history for the current page is preserved when you navigate to another page. By default, both of these settings are disabled.</li>
+</ul>
+<p>You can also change these settings by right-clicking anywhere in the Console to bring up the context menu.</p>
+<p><img alt="Console panel view" src="console-files/console-context-menu.png"></p>
+<a name="//apple_ref/cpp/Section/2.%20%20Using%20the%20Console%20API" class="dashAnchor" id=""></a><h2 id="using_the_console_api">Using the Console API</h2>
+<p>The Console API is collection of methods provided by the global <code>console</code> object defined by DevTools. One of the API's main purposes is to <a href="#writing_to_the_console">log information</a> (such as a property value, or an entire objects or DOM element) to the console while your application is running. You can also group output visually in the console to reduce visual clutter.</p>
+<a name="//apple_ref/cpp/Section/2.%201.%20%20Writing%20to%20the%20console" class="dashAnchor" id=""></a><h3 id="writing_to_the_console">Writing to the console</h3>
+<p>The <a href="console-api.html#consolelogobject_object">console.log()</a> method takes one or more expressions as parameters and writes their current values to the console. For example:</p>
+<pre class="prettyprint"><code>var a = document.createElement('p');
+a.appendChild(document.createTextNode('foo'));
+a.appendChild(document.createTextNode('bar'));
+console.log("Node count: " + a.childNodes.length);
+</code></pre>
+<p><img alt="Console log output" src="console-files/log-basic.png"></p>
+<p>Instead of concatenating expressions together with the "+" operator (as shown above), you can put each in its own method parameter and they will be joined together in a space-delimited line.</p>
+<pre class="prettyprint"><code>console.log("Node count:", a.childNodes.length, "and the current time is:", Date.now());
+</code></pre>
+<p><img alt="Console log output" src="console-files/log-multiple.png"></p>
+<a name="//apple_ref/cpp/Section/2.%202.%20%20Errors%20and%20warnings" class="dashAnchor" id=""></a><h3 id="errors_and_warnings">Errors and warnings</h3>
+<p>The <a href="console-api.html#consoleerrorobject_object"><code>console.error()</code></a> method displays a red icon along with the message text, which is colored red.</p>
+<pre class="prettyprint"><code>function connectToServer() {
+    console.error("Error: %s (%i)", "Server is  not responding",500);
+}
+connectToServer();
+</code></pre>
+<p><img alt="" src="console-files/error-server-not-resp.png"></p>
+<p>The <a href="console-api.html#consolewarnobject_object"><code>console.warn()</code></a> method displays a yellow warning icon with the message text.</p>
+<pre class="prettyprint"><code>if(a.childNodes.length &lt; 3 ) {
+    console.warn('Warning! Too few nodes (%d)', a.childNodes.length);
+}
+</code></pre>
+<p><img alt="Example of console.warn()" src="console-files/warning-too-few-nodes.png"></p>
+<a name="//apple_ref/cpp/Section/2.%203.%20%20Assertions" class="dashAnchor" id=""></a><h3 id="assertions">Assertions</h3>
+<p>The <a href="console-api.html#consoleassertexpression_object"><code>console.assert()</code></a> method conditionally displays an error string (its second parameter) only if its first parameter evaluates to <code>false</code>. For instance, in the following example an error message is written to the console only if the number of child nodes belonging to the <code>list</code> element is greater than 500.</p>
+<pre class="prettyprint"><code>console.assert(list.childNodes.length &lt; 500, "Node count is &gt; 500");
+</code></pre>
+<p><img alt="Example of console.assert()" src="console-files/assert-failed.png"></p>
+<a name="//apple_ref/cpp/Section/2.%204.%20%20Filtering%20console%20output" class="dashAnchor" id=""></a><h3 id="filtering_console_output">Filtering console output</h3>
+<p>You can quickly filter console output by its severity level--errors, warning, or standard log statements--by selecting one of the filter options along the bottom of the Console, as shown below.</p>
+<p><img alt="Only show console.error() output" src="console-files/filter-errors.png"></p>
+<p>Filter options:</p>
+<ul>
+<li>
+<strong>All</strong>&#8212;Shows all console output.</li>
+<li>
+<strong>Errors</strong>&#8212;Only show output from <code>console.error()</code>
+</li>
+<li>
+<strong>Warnings</strong>&#8212;Only show output from <code>console.warn()</code>
+</li>
+<li>
+<strong>Logs</strong>&#8212;Only show output from <code>console.log()</code>, <code>console.info()</code> and <code>console.debug()</code>.</li>
+<li>
+<strong>Debug</strong>&#8212;Only show output from <code>console.timeEnd()</code> and other console output.</li>
+</ul>
+<a name="//apple_ref/cpp/Section/2.%205.%20%20Grouping%20output" class="dashAnchor" id=""></a><h3 id="grouping_output">Grouping output</h3>
+<p>You can visually group related console output statements together in the console with the <a href="console-api.html#consolegroupobject_object"><code>console.group()</code></a> and <a href="console-api.html#consolegroupend"><code>groupEnd()</code></a> commands.</p>
+<pre class="prettyprint"><code>var user = "jsmith", authenticated = false;
+console.group("Authentication phase");
+console.log("Authenticating user '%s'", user);
+// authentication code here...
+if (!authenticated) {
+    console.log("User '%s' not authenticated.", user)
+}
+console.groupEnd();
+</code></pre>
+<p><img alt="Logging group example" src="console-files/group.png"></p>
+<p>You can also nest logging groups. In the following example a logging group is created for the authentication phase of a login process. If the user is authenticated, a nested group is created for the authorization phase.</p>
+<pre class="prettyprint"><code>var user = "jsmith", authenticated = true, authorized = true;
+// Top-level group
+console.group("Authenticating user '%s'", user);
+if (authenticated) {
+    console.log("User '%s' was authenticated", user);
+    // Start nested group
+    console.group("Authorizing user '%s'", user);
+    if (authorized) {
+        console.log("User '%s' was authorized.", user);
+    }
+    // End nested group
+    console.groupEnd();
+}
+// End top-level group
+console.groupEnd();
+console.log("A group-less log trace.");
+</code></pre>
+<p><img alt="Nested logging group example" src="console-files/nestedgroup.png"></p>
+<p>To create a group that is initially collapsed, use <a href="console-api.html#consolegroupcollapsed"><code>console.groupCollapsed()</code></a> instead of <code>console.group()</code>, as shown below:</p>
+<pre class="prettyprint"><code>console.groupCollapsed("Authenticating user '%s'", user);
+if (authenticated) {
+  ...
+}
+</code></pre>
+<p><img alt="Initially collapsed group" src="console-files/groupcollapsed.png"></p>
+<a name="//apple_ref/cpp/Section/2.%206.%20%20String%20substitution%20and%20formatting" class="dashAnchor" id=""></a><h3 id="string_substitution_and_formatting">String substitution and formatting</h3>
+<p>The first parameter you pass to any of the console's logging methods (<code>log()</code> or <code>error()</code>, for example) may contain one or more <em>format specifiers</em>. A format specifier consists of a <strong><code>%</code></strong> symbol followed by a letter that indicates the formatting that should be applied to the inserted value (<code>%s</code> for strings, for example). The format specifier identifies where to substitute a value provided by a subsequent parameter value.</p>
+<p>The following example using the <code>%s</code> (string) and <code>%d</code> (integer) formatters to insert values into the output string.</p>
+<pre class="prettyprint"><code>console.log("%s has %d points", "Sam", "100");
+</code></pre>
+<p>This would result in "Sam has 100 points" being logged to the console.</p>
+<p>The following table lists the supported format specifiers and the formatting they apply:</p>
+<table>
+<thead>
+<tr>
+<th>Format specifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%s</code></td>
+<td>Formats the value as a string.</td>
+</tr>
+<tr>
+<td>
+<code>%d</code> or <code>%i</code>
+</td>
+<td>Formats the value as an integer.</td>
+</tr>
+<tr>
+<td><code>%f</code></td>
+<td>Formats the object as a floating point value.</td>
+</tr>
+<tr>
+<td><code>%o</code></td>
+<td>Formats the value as an expandable DOM element (as in the Elements panel).</td>
+</tr>
+<tr>
+<td><code>%O</code></td>
+<td>Formats the value as an expandable JavaScript object.</td>
+</tr>
+<tr>
+<td><code>%c</code></td>
+<td>Applies CSS style rules to output string specified by the second parameter.</td>
+</tr>
+</tbody>
+</table>
+<p>In the following example the <code>%d</code> format specifier is substituted with the value of <code>document.childNodes.length</code> and formatted as an integer; the <code>%f</code> format specifier is substituted with the value returned by <code>Date.now()</code>, which is formatted as a floating point number.</p>
+<pre class="prettyprint"><code>console.log("Node count: %d, and the time is %f.", document.childNodes.length, Date.now());
+</code></pre>
+<p><img alt="Using format specifiers" src="console-files/format-substitution.png"></p>
+<a name="//apple_ref/cpp/Section/2.%207.%20%20Formatting%20DOM%20elements%20as%20JavaScript%20objects" class="dashAnchor" id=""></a><h3 id="formatting_dom_elements_as_javascript_objects">Formatting DOM elements as JavaScript objects</h3>
+<p>By default, when you log a DOM element to the console it's displayed in an XML format, as in the Elements panel:</p>
+<pre class="prettyprint"><code>console.log(document.body.firstElementChild)
+</code></pre>
+<p><img alt="" src="console-files/log-element.png"></p>
+<p>You can also log an element's JavaScript representation with the <code>console.dir()</code> method:</p>
+<pre class="prettyprint"><code>console.dir(document.body.firstElementChild);
+</code></pre>
+<p><img alt="" src="console-files/dir-element.png"></p>
+<p>Equivalently, you can us the <code>%O</code> <a href="#string_substitution_and_formatting">format specifier</a> with <code>console.log()</code>:</p>
+<pre class="prettyprint"><code>console.log("%O", document.body.firstElementChild);
+</code></pre>
+<a name="//apple_ref/cpp/Section/2.%208.%20%20Styling%20console%20output%20with%20CSS" class="dashAnchor" id=""></a><h3 id="styling_console_output_with_css">Styling console output with CSS</h3>
+<p>You use the <code>%c</code> format specifier to apply custom CSS rules to any string you write to the Console with <a href="#writingtotheconsole"><code>console.log()</code></a> or related methods.</p>
+<pre class="prettyprint"><code>console.log("%cThis will be formatted with large, blue text", "color: blue; font-size: x-large");
+</code></pre>
+<p><img alt="Styling console output with CSS" src="console-files/format-string.png"></p>
+<a name="//apple_ref/cpp/Section/2.%209.%20%20Measuring%20how%20long%20something%20takes" class="dashAnchor" id=""></a><h3 id="measuring_how_long_something_takes">Measuring how long something takes</h3>
+<p>You can use the <a href="console-api.html#consoletimelabel"><code>console.time()</code></a> and <a href="console-api.html#consoletimeendlabel"><code>console.timeEnd()</code></a> methods to measure how long a function or operation in your code takes to complete. You call <code>console.time()</code> at the point in your code where you want to start the timer and <code>console.timeEnd()</code> to stop the timer. The elapsed time between these two calls is displayed in the console.</p>
+<pre class="prettyprint"><code>console.time("Array initialize");
+var array= new Array(1000000);
+for (var i = array.length - 1; i &gt;= 0; i--) {
+    array[i] = new Object();
+};
+console.timeEnd("Array initialize");
+</code></pre>
+<p><img alt="Example of using console.time() and timeEnd()" src="console-files/time-duration.png"></p>
+<aside class="note"><strong>Note:</strong><span> You must pass the same string to <code>console.time()</code> and <code>timeEnd()</code> for the timer to finish as expected.</span></aside>
+<a name="//apple_ref/cpp/Section/2.10.%20%20Marking%20the%20Timeline" class="dashAnchor" id=""></a><h3 id="marking_the_timeline">Marking the Timeline</h3>
+<p>The <a href="timeline.html">Timeline panel</a> gives you a complete overview of where time is spent when loading and using your web app or page. The <a href="console-api.html#consoletimestamplabel"><code>console.timeStamp()</code></a> method marks the Timeline at the moment it was executed. This provides an easy way to correlate events in your application with other browser-related events, such as layout or paints.</p>
+<aside class="note"><strong>Note:</strong><span> The <code>console.timeStamp()</code> method only functions while a Timeline recording is in progress.</span></aside>
+<p>In the following example the Timeline is marked when the application enters the <code>AddResult()</code> function's implementation.</p>
+<pre class="prettyprint"><code>function AddResult(name, result) {
+  console.timeStamp("Adding result");
+  var text = name + ': ' + result;
+  var results = document.getElementById("results");
+  results.innerHTML += (text + "&lt;br&gt;");
+}
+</code></pre>
+<p>As shown in the following screenshot, the <code>timeStamp()</code> command annotates the Timeline in the following places:</p>
+<ul>
+<li>A yellow vertical line in the Timeline's summary and detail views.</li>
+<li>A record is added to the list of recorded events.</li>
+</ul>
+<p><img alt="Timeline showing custom timestamp" src="console-files/timestamp2.png"></p>
+<a name="//apple_ref/cpp/Section/2.11.%20%20Setting%20breakpoints%20in%20JavaScript" class="dashAnchor" id=""></a><h3 id="setting_breakpoints_in_javascript">Setting breakpoints in JavaScript</h3>
+<p>You can start a debugging session from your JavaScript code by calling the <a href="console-api.html#debugger"><code>debugger</code></a> command. For instance, in the following example the JavaScript debugger is opened when an object's <code>brightness()</code> function is invoked:</p>
+<pre class="prettyprint"><code>brightness : function() {
+    debugger;
+    var r = Math.floor(this.red*255);
+    var g = Math.floor(this.green*255);
+    var b = Math.floor(this.blue*255);
+    return (r * 77 + g * 150 + b * 29) &gt;&gt; 8;
+}
+</code></pre>
+<p><img alt="Example of using debugger command" src="console-files/debugger.png"></p>
+<aside class="special">
+An interesting technique of using conditional breakpoints was explored by Brian Arnold in <a href="http://www.randomthink.net/blog/2012/11/breakpoint-actions-in-javascript/">Breakpoint Actions in JavaScript</a>.
+</aside>
+
+<a name="//apple_ref/cpp/Section/3.%20%20Using%20the%20Command%20Line%20API" class="dashAnchor" id=""></a><h2 id="using_the_command_line_api">Using the Command Line API</h2>
+<p>In addition to being a place where you can log information from your application, the Console is also a shell prompt where you can directly evaluate expressions or issue commands provided by the <a href="commandline-api.html">Command Line API</a>. This API provides the following features:</p>
+<ul>
+<li>Convenience functions for selecting DOM elements</li>
+<li>Methods for controlling the CPU profiler</li>
+<li>Aliases for a number of Console API methods</li>
+<li>Monitoring events</li>
+<li>View event listeners registered on objects</li>
+</ul>
+<a name="//apple_ref/cpp/Section/3.1.%20%20Evaluating%20expressions" class="dashAnchor" id=""></a><h3 id="evaluating_expressions">Evaluating expressions</h3>
+<p>The Console attempts to evaluate any JavaScript expression you enter at the shell prompt, upon pressing the Return or Enter key. The Console provides auto-completion and tab-completion. As you type expressions, property names are automatically suggested. If there are multiple properties with the same prefix, pressing the Tab key cycles through them. Pressing the right arrow key accepts the current suggestion. The current suggestion is also accepted by pressing the Tab key if there is only one matched property.</p>
+<p><img alt="" src="console-files/evaluate-expressions.png"></p>
+<p>To enter a multi-line expression at the shell prompt (such as a function definition) press Shift+Enter between lines.</p>
+<p><img alt="" src="console-files/multiline-expression.png"></p>
+<a name="//apple_ref/cpp/Section/3.2.%20%20Selecting%20elements" class="dashAnchor" id=""></a><h3 id="selecting_elements">Selecting elements</h3>
+<p>The Command Line API provides several methods to access DOM elements in your application. For example, the <a href="commandline-api.html#selector"><strong><code>$()</code></strong></a> method returns the first element that matches the specified CSS selector, just like <a href="http://docs.webplatform.org/wiki/css/selectors_api/querySelector"><code>document.querySelector()</code></a>. For instance, the following code returns the element with the ID "loginBtn".</p>
+<pre class="prettyprint"><code>$('#loginBtn');
+</code></pre>
+<p><img alt="" src="console-files/select-login-btn.png"></p>
+<p>The <a href="commandline-api.html#selector_1"><strong><code>$$()</code></strong></a> command returns an array of all the elements that match the specified CSS selector, just like <a href="http://docs.webplatform.org/wiki/css/selectors_api/querySelectorAll"><code>document.querySelectorAll()</code></a>. For instance, the following displays selects all <code>&lt;button&gt;</code> elements with the CSS class "loginBtn":</p>
+<pre class="prettyprint"><code>$$('button.loginBtn');
+</code></pre>
+<p><img alt="" src="console-files/select-multiple-login.png"></p>
+<p>Lastly, the <a href="commandline-api.html#xpath"><code>x()</code></a> method takes an XPath path as a parameter and returns an array of all elements that match the specified path. The following returns all the &lt;script&gt; elements that are children of the <code>&lt;body&gt;</code> tag:</p>
+<pre class="prettyprint"><code>$x('/html/body/script');
+</code></pre>
+<a name="//apple_ref/cpp/Section/3.3.%20%20Inspecting%20DOM%20elements%20and%20JavaScript%20heap%20objects" class="dashAnchor" id=""></a><h3 id="inspecting_dom_elements_and_javascript_heap_objects">Inspecting DOM elements and JavaScript heap objects</h3>
+<p>The <a href="commandline-api.html#inspectobject"><code>inspect()</code></a> method takes a DOM element reference (or JavaScript reference) as a parameter and displays the element or object in the appropriate panel&#8212;the Elements panel for DOM elements, or the Profile panel for a JavaScript object.</p>
+<p>For example, in the following screenshot the <code>$()</code> function is used to get a reference to an <code>&lt;li&gt;</code> element. Then the last evaluated expression property (<a href="commandline-api.html#_"><code>$_</code></a>) is passed to <code>inspect()</code> to open that element in the Elements panel.</p>
+<p><img alt="" src="console-files/inspect2.png"></p>
+<a name="//apple_ref/cpp/Section/3.4.%20%20Accessing%20recently%20selected%20elements%20and%20objects" class="dashAnchor" id=""></a><h3 id="accessing_recently_selected_elements_and_objects">Accessing recently selected elements and objects</h3>
+<p>Often when testing you'll select DOM elements&#8212;either directly in the Elements panel or using the Selection tool (magnifying glass)&#8212;so that you can further inspect the element. Or, when analyzing a memory snapshot in the Profiles panel, you might select a JavaScript object to further inspect it.</p>
+<p>The Console remembers the last five elements (or heap objects) you've selected and makes them available as properties named <a href="commandline-api.html#0_-_4"><strong><code>$0</code></strong>, <strong><code>$1</code></strong>, <strong><code>$2</code></strong>, <strong><code>$3</code></strong></a> and <a href="commandline-api.html#0_-_4"><strong><code>$4</code></strong></a>. The most recently selected element or object is available as <strong><code>$0</code></strong>, the second most as <strong><code>$1</code></strong>, and so forth.</p>
+<p>The following screenshot shows the values of these properties after selecting three different elements in turn from the Elements panel:</p>
+<p><img alt="Recently selected elements" src="console-files/recent-selection.png"></p>
+<aside class="note"><strong>Note:</strong><span> You can also Right-click or Control-click on any element in the Console and select <strong>Reveal in Elements Panel</strong>.</span></aside>
+<a name="//apple_ref/cpp/Section/3.5.%20%20Monitoring%20events" class="dashAnchor" id=""></a><h3 id="monitoring_events">Monitoring events</h3>
+<p>The <a href="commandline-api.html#monitoreventsobject_events"><code>monitorEvents()</code></a> command monitors an object for one or more specified events. When an event occurs on the monitored object, the corresponding Event object is logged to the Console. You specify the object and the events you want to monitor on that object. For example, the following code enables event monitoring for every "resize" event on the global window object.</p>
+<pre class="prettyprint"><code>monitorEvents(window, "resize");
+</code></pre>
+<p><img alt="Monitoring window resize events" src="console-files/monitor-resize.png"></p>
+<p>To monitor several events, you can pass an array of event names as the second parameter. The code below monitors both "mousedown" and "mouseup" events on the body of the document.</p>
+<pre class="prettyprint"><code>monitorEvents(document.body, ["mousedown", "mouseup"]);
+</code></pre>
+<p>You can also pass one of the supported "event types" that DevTools maps to a set of actual event names. For example, the "touch" event type cause DevTools to monitor "touchstart", "touchend", "touchmove", and "touchcancel" events on the target object.</p>
+<pre class="prettyprint"><code>monitorEvents($('#scrollBar'), "touch");
+</code></pre>
+<p>See <a href="commandline-api.html#monitoreventsobject_events"><code>monitorEvents()</code></a> in the Console API Reference for a list of supported event types.</p>
+<p>To stop monitoring events call <code>unmonitorEvents()</code>, passing the object to stop monitoring.</p>
+<pre class="prettyprint"><code>unmonitorEvents(window);
+</code></pre>
+<a name="//apple_ref/cpp/Section/3.6.%20%20Controlling%20the%20CPU%20profiler" class="dashAnchor" id=""></a><h3 id="controlling_the_cpu_profiler">Controlling the CPU profiler</h3>
+<p>You can create JavaScript CPU profiles from the command line with the <a href="commandline-api.html#profilename"><code>profile()</code></a> and <a href="commandline-api.html#profileendname"><code>profileEnd()</code></a> commands. You can optionally specify a name that's applied to the profile you create.</p>
+<p>For example, the following shows an example of creating a new profile with the default name:</p>
+<p><img alt="" src="commandline-api-files/profile-console.png"></p>
+<p>The new profile appears in the Profiles panel under the name "Profile 1":</p>
+<p><img alt="" src="commandline-api-files/profile-panel.png"></p>
+<p>If you specify a label for the new profile, it is used as the new profile's heading. If you create multiple profiles with the same name, they are grouped as individual runs under the same heading:</p>
+<p><img alt="" src="commandline-api-files/profile-console-2.png"></p>
+<p>The result in the Profiles panel:</p>
+<p><img alt="" src="commandline-api-files/profile-panel-2.png"></p>
+<p>CPU profiles can be nested, for example:</p>
+<pre class="prettyprint"><code>profile("A");
+profile("B");
+profileEnd("B")
+profileEnd("A")
+</code></pre>
+<p>The calls to stop and start profiling do not need be properly nested. For example, the following works the same as the previous example:</p>
+<pre class="prettyprint"><code>profile("A");
+profile("B");
+profileEnd("A");
+profileEnd("B");
+</code></pre>
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-08-12T09:23:25.849600" id="gc-content-last-updated">Last updated August 12, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/console by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:59:08 GMT -->
+</html>

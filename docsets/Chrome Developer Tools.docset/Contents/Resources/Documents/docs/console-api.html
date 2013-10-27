@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/console-api by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:59:08 GMT -->
+<!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <script>(function(){function d(a){this.t={};this.tick=function(a,c,b){b=void 0!=b?b:(new Date).getTime();this.t[a]=[b,c]};this.tick("start",null,a)}var a=new d;window.jstiming={Timer:d,load:a};if(window.performance&&window.performance.timing){var a=window.performance.timing,c=window.jstiming.load,b=a.navigationStart,a=a.responseStart;0<b&&a>=b&&(c.tick("_wtsrt",void 0,b),c.tick("wtsrt_","_wtsrt",a),c.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),
+c&&0<b&&(c.tick("_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("_tbnd",void 0,window.external.startE),c.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(e){}})();window.gettext=function(d){return d};window.interpolate=function(d,a){return d.replace(/%s/g,function(){return String(a.shift())})};
+</script>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-docs.css">
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/e7ff4f1ef3/css/screen-foot.css">
+    
+    <link rel="shortcut icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/e7ff4f1ef3/images/apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/_static/e7ff4f1ef3/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Console API Reference - Chrome DevTools &#8212; Google Developers</title>
+  
+  
+  
+  
+  
+  
+
+
+
+    
+
+    <style>
+    
+    </style>
+
+  
+  </head>
+<body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="https://developers.google.com/_static/e7ff4f1ef3/images/developers-logo.svg" alt="Google">
+  </a>
+<script>
+if ($.browser.msie && $.browser.version.indexOf('8') == 0) {
+  $('#gc-logo img').attr({src:'/_static/e7ff4f1ef3/images/developers-logo.png'});
+}
+</script>
+
+  
+
+  
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.setTimeout=function(b,c){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(b){window.clearTimeout.apply(window,arguments)};a.setInterval=function(b,c){return window.setInterval.apply(window,arguments)};a.clearInterval=function(b){window.clearInterval.apply(window,arguments)};a.addEventListener=function(b,c,d){(window.addEventListener||window.attachEvent)(b,c,d)};
+a.inProd=function(){return Boolean(a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/))};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(b){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});b.append(c);b=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};b.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};b.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};b.prototype.stop=function(){this.shouldStop=!0};var d=new b;return b={start:function(){$.fx.off||d.start()},clear:function(){c.remove()},error:function(){d.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(b){function c(){e+=1;100>e&&f.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var d=6,f=b.parent().find(".progress");f.remove();f=$("<div></div>").addClass("progress");f.css({position:"absolute","border-radius":d+"px",border:d+"px solid #3D9400",right:d+"px",top:b.parent().height()/2-d+"px",width:0,height:0});b.parent().append(f);var e=0;return b={start:function(){$.fx.off||c()},clear:function(){f.remove()},error:function(){f.stop();f.css({opacity:1,border:d+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var b=$(".gc-search");b.submit(function(){if(window.devsite.geo){var c=window.devsite.geo.lat+","+window.devsite.geo.lon,c=$('<input type="hidden" name="l"/>').val(c);b.append(c)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(c){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&c.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),d=$("#restrict input");(d.is(":checked")||0==d.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var b={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",b,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(b,c,d){b&&b.length?b.fadeOut(c,d):d()};a.search.removeAutocomplete=function(){var b=$(".search-autocomplete");b.remove();a.search.lastQ=null};
+a.search.grow=function(b){var c=$("#q"),d=$(".searchbox"),f=$(".gc-search").children("button"),e=d.children(".button");if(b){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);d.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:b});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+b=e.outerWidth(!0);var k=d.outerWidth(!0)+b;d.css("width",k+"px");c.css("width",g+"px");c=f.offset();c.left+=b+10;f.offset(c);f=function(){a.search.shrink();$("#q").focus()};e.click(f)};
+a.search.shrink=function(){var b=$("#q"),c=$(".searchbox"),d=c.children("input"),f=c.children(".button"),e=f.data("query-match");e&&d.val($.trim(e)+" "+d.val());d=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=f.outerWidth(!0);f.remove();f=d.offset();f.left-=e+10;c.css("width","");b.css("width","100%");d.offset(f)};
+a.search.updateResults=function(){var b=$(".searchbox"),c=$("#q"),d=$("#search_project"),f={q:$.trim(c.val()||"")};window.devsite.geo&&(f.l=window.devsite.geo.lat+","+window.devsite.geo.lon);d&&d.val()&&(f.p=escape(d.val()));if(!a.search.lastQ||a.search.lastQ.q!=f.q||a.search.lastQ.p!=f.p){a.search.lastQ=f;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");f.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(b);g.start();a.search.xhr=$.get("/search/results",f,function(d){g.clear();d&&
+($("#what-q").text(f.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(d).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=b.offset();e.css({position:"absolute",top:g.top+b.outerHeight()+3,left:g.left})}e.append(d);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(f.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init();
+      }
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+
+      
+      
+      
+
+      
+      
+      
+        
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      
+      
+
+      <div id="gc-content" class="" style="margin-left: auto;">
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title">Console API Reference</h1>
+  
+  <div itemprop="articleBody">
+  
+<p>The Console API provides web applications with methods for writing information to the console, creating JavaScript profiles, and initiating a debugging session. </p>
+<nav class="inline-toc"><ol class="toc">
+<li><a href="#consoleassertexpression_object">console.assert(expression, object)</a></li>
+<li><a href="#consoleclear">console.clear()</a></li>
+<li><a href="#consolecountlabel">console.count(label)</a></li>
+<li><a href="#consoledebugobject_object">console.debug(object [, object, ...])</a></li>
+<li><a href="#consoledirobject">console.dir(object)</a></li>
+<li><a href="#consoledirxmlobject">console.dirxml(object)</a></li>
+<li><a href="#consoleerrorobject_object">console.error(object [, object, ...])</a></li>
+<li><a href="#consolegroupobject_object">console.group(object[, object, ...])</a></li>
+<li><a href="#consolegroupcollapsedobject_object">console.groupCollapsed(object[, object, ...])</a></li>
+<li><a href="#consolegroupend">console.groupEnd()</a></li>
+<li><a href="#consoleinfoobject_object">console.info(object [, object, ...])</a></li>
+<li><a href="#consolelogobject_object">console.log(object [, object, ...])</a></li>
+<li><a href="#consoleprofilelabel">console.profile([label])</a></li>
+<li><a href="#consoleprofileend">console.profileEnd()</a></li>
+<li><a href="#consoletimelabel">console.time(label)</a></li>
+<li><a href="#consoletimeendlabel">console.timeEnd(label)</a></li>
+<li><a href="#consoletimestamplabel">console.timeStamp([label])</a></li>
+<li><a href="#consoletrace">console.trace()</a></li>
+<li><a href="#consolewarnobject_object">console.warn(object [, object, ...])</a></li>
+<li><a href="#debugger">debugger</a></li>
+</ol></nav>
+<a name="//apple_ref/cpp/Method/console.assert(expression,%20object)" class="dashAnchor" id=""></a><h2 id="consoleassertexpression_object">console.assert(expression, object)</h2>
+<p>If the specified expression is <code>false</code>, the message is written to the console along with a stack trace. In the following example, the assert message is written to the console only when the <code>document</code> contains fewer than five child nodes: </p>
+<pre class="prettyprint"><code>var list = document.querySelector('#myList');
+console.assert(list.childNodes.length &lt; 10, "List item count is &gt; 10");
+</code></pre>
+<p><img alt="Example of console.assert()" src="console-files/assert-failed-list.png"></p>
+<a name="//apple_ref/cpp/Method/console.clear()" class="dashAnchor" id=""></a><h2 id="consoleclear">console.clear()</h2>
+<p>Clears the console.</p>
+<pre class="prettyprint"><code>console.clear();
+</code></pre>
+<p>Also see <a href="console.html#clearing_console_history">Clearing the console</a>.</p>
+<a name="//apple_ref/cpp/Method/console.count(label)" class="dashAnchor" id=""></a><h2 id="consolecountlabel">console.count(label)</h2>
+<p>Writes the the number of times that <code>count()</code> has been invoked at the same line and with the same label. </p>
+<p>In the following example <code>count()</code> is invoked each time the <code>login()</code> function is invoked.</p>
+<pre class="prettyprint"><code>function login(user) {
+    console.count("Login called");
+    // login() code...
+}
+</code></pre>
+<p><img alt="Example of using console.count()" src="console-files/count.png"></p>
+<p>In this example, <code>count()</code> is invoked with different labels, each of which is incremented separately. </p>
+<pre class="prettyprint"><code>function login(user) {
+    console.count("Login called for user '" +  user + "'");
+    // login() code...
+}
+</code></pre>
+<p><img alt="Example of using console.count() with different string" src="console-files/count-unique.png"></p>
+<a name="//apple_ref/cpp/Method/console.debug(object%20%5B,%20object,%20...%5D)" class="dashAnchor" id=""></a><h2 id="consoledebugobject_object">console.debug(object [, object, ...])</h2>
+<p>This method is identical to <a href="#consolelogobject_object"><code>console.log()</code></a>.</p>
+<a name="//apple_ref/cpp/Method/console.dir(object)" class="dashAnchor" id=""></a><h2 id="consoledirobject">console.dir(object)</h2>
+<p>Prints a JavaScript representation of the specified object. If the object being logged is an HTML element, then the properties of its DOM representation are displayed, as shown below:</p>
+<pre class="prettyprint"><code>console.dir(document.body);
+</code></pre>
+<p><img alt="Example of using console.dir() with an HTML element()" src="console-files/consoledir-body.png"></p>
+<p>You can also use the object formatter (<code>%O</code>) in a <code>console.log()</code> statement to print out an element's JavaScript properties:</p>
+<pre class="prettyprint"><code>console.log("document body: %O", document.body);
+</code></pre>
+<p><img alt="Using the object formatter on a DOM element" src="console-files/consolelog-object-formatter.png"></p>
+<p>Calling <code>console.dir()</code> on a JavaScript object is equivalent to calling <code>console.log()</code> on the same object&#8212;they both print out the object's JavaScript properites in a tree format.</p>
+<p>Compare this with the behavior of <code>console.log()</code>, which displays the element in an XML format as it would appear in the Elements panel:</p>
+<pre class="prettyprint"><code>console.log(document.body);
+</code></pre>
+<p><img alt="Using console.log() on an element" src="console-files/consolelog-body.png"></p>
+<a name="//apple_ref/cpp/Method/console.dirxml(object)" class="dashAnchor" id=""></a><h2 id="consoledirxmlobject">console.dirxml(object)</h2>
+<p>Prints an XML representation of the specified object, as it would appear in the Elements panel. For HTML elements, calling this method is equivalent to calling <code>console.log()</code>.</p>
+<pre class="prettyprint"><code>var list = document.querySelector("#myList");
+console.dirxml();
+</code></pre>
+<p>%O is a shortcut for dir
+%o acts either as dir or dirxml depending on the object type (non-dom or dom)</p>
+<a name="//apple_ref/cpp/Method/console.error(object%20%5B,%20object,%20...%5D)" class="dashAnchor" id=""></a><h2 id="consoleerrorobject_object">console.error(object [, object, ...])</h2>
+<p>Similar to <a href="#consolelog"><code>console.log()</code></a>, <code>console.error()</code> and also includes a stack trace from where the method was called.</p>
+<pre class="prettyprint"><code>function connectToServer() {
+    var errorCode = 1;
+    if (errorCode) {
+        console.error("Error: %s (%i)", "Server is  not responding", 500);
+    }
+}
+connectToServer();
+</code></pre>
+<p><img alt="Example of console.error()" src="console-files/error-server-not-resp.png"></p>
+<a name="//apple_ref/cpp/Method/console.group(object%5B,%20object,%20...%5D)" class="dashAnchor" id=""></a><h2 id="consolegroupobject_object">console.group(object[, object, ...])</h2>
+<p>Starts a new logging group with an optional title. All console output that occurs after calling this method and calling <code>console.groupEnd()</code> appears in the same visual group.</p>
+<pre class="prettyprint"><code>console.group("Authenticating user '%s'", user);
+console.log("User authenticated");
+console.groupEnd();
+</code></pre>
+<p><img alt="Console group example" src="console-files/log-group-simple.png"></p>
+<p>You can also nest groups:</p>
+<pre class="prettyprint"><code>// New group for authentication:
+console.group("Authenticating user '%s'", user);
+// later...
+console.log("User authenticated", user);
+// A nested group for authorization:
+console.group("Authorizing user '%s'", user);
+console.log("User authorized");
+console.groupEnd();
+console.groupEnd();
+</code></pre>
+<p><img alt="Nested logging group examples" src="console-files/nestedgroup-api.png"></p>
+<a name="//apple_ref/cpp/Method/console.groupCollapsed(object%5B,%20object,%20...%5D)" class="dashAnchor" id=""></a><h2 id="consolegroupcollapsedobject_object">console.groupCollapsed(object[, object, ...])</h2>
+<p>Creates a new logging group that is initially collapsed instead of open, as with <code>console.group()</code>.</p>
+<pre class="prettyprint"><code>console.groupCollapsed("Authenticating user '%s'", user);
+console.log("User authenticated");
+console.groupEnd();
+console.log("A group-less log trace.");
+</code></pre>
+<p><img alt="Creating a collapsed group" src="console-files/groupcollapsed.png">  <br>
+</p>
+<a name="//apple_ref/cpp/Method/console.groupEnd()" class="dashAnchor" id=""></a><h2 id="consolegroupend">console.groupEnd()</h2>
+<p>Closes the most recently created logging group that previously created with <code>console.group()</code> or <code>console.groupCollapsed()</code>. See <a href="#consolegroup">console.group()</a> and <a href="#consolegroupcollapsed">console.groupCollapsed()</a> for examples.</p>
+<a name="//apple_ref/cpp/Method/console.info(object%20%5B,%20object,%20...%5D)" class="dashAnchor" id=""></a><h2 id="consoleinfoobject_object">console.info(object [, object, ...])</h2>
+<p>This method is identical to <a href="#consolelog"><code>console.log()</code></a>.</p>
+<a name="//apple_ref/cpp/Method/console.log(object%20%5B,%20object,%20...%5D)" class="dashAnchor" id=""></a><h2 id="consolelogobject_object">console.log(object [, object, ...])</h2>
+<p>Displays a message in the console. You pass one or more objects to this method, each of which are evaluated and concatenated into a space-delimited string. The first parameter you pass to <code>log()</code> may contain <em>format specifiers</em>, a string token composed of the percent sign (<code>%</code>) followed by a letter that indicates the formatting to be applied.</p>
+<p>Dev Tools supports the following format specifiers:</p>
+<table>
+<thead>
+<tr>
+<th>Format Specifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%s</code></td>
+<td>Formats the value as a string.</td>
+</tr>
+<tr>
+<td>
+<code>%d</code> or <code>%i</code>
+</td>
+<td>Formats the value as an integer.</td>
+</tr>
+<tr>
+<td><code>%f</code></td>
+<td>Formats the value as a floating point value.</td>
+</tr>
+<tr>
+<td><code>%o</code></td>
+<td>Formats the value as an expandable DOM element (as in the Elements panel).</td>
+</tr>
+<tr>
+<td><code>%O</code></td>
+<td>Formats the value as an expandable JavaScript object.</td>
+</tr>
+<tr>
+<td><code>%c</code></td>
+<td>Formats the output string according to CSS styles you provide.</td>
+</tr>
+</tbody>
+</table>
+<p>Basic example:</p>
+<pre class="prettyprint"><code>console.log("App started");
+</code></pre>
+<p>An example that uses string (<code>%s</code>) and integer (<code>%d</code>) format specifiers to insert the values contained by the variables <code>userName</code> and <code>userPoints</code>:</p>
+<pre class="prettyprint"><code>console.log("User %s has %d points", userName, userPoints);
+</code></pre>
+<p><img alt="Console output styled with %c" src="console-files/log-format-specifier.png"></p>
+<p>An example of using the element formatter (<code>%o</code>) and object formatter (<code>%O</code>) on the same DOM element:</p>
+<pre class="prettyprint"><code>console.log("%o, %O", document.body, document.body);
+</code></pre>
+<p><img alt="Console output styled with %c" src="console-files/log-object-element.png"></p>
+<p>The following example uses the <strong><code>%c</code></strong> format specifier to colorize the output string:</p>
+<pre class="prettyprint"><code>console.log("%cUser %s has %d points", "color:orange; background:blue; font-size: 16pt", userName, userPoints);
+</code></pre>
+<p><img alt="Console output styled with %c" src="console-files/log-format-styling.png"></p>
+<a name="//apple_ref/cpp/Method/console.profile(%5Blabel%5D)" class="dashAnchor" id=""></a><h2 id="consoleprofilelabel">console.profile([label])</h2>
+<p>When the Chrome DevTools is open, calling this function starts a JavaScript CPU profile with an optional label.To complete the profile, call <code>console.profileEnd()</code>. Each profile is added to the Profiles tab. </p>
+<p>Each profile you create with this method is added to the <code>console.profiles[]</code> array. Each member of the array is an object for the profile that can be stringified and sent back to the server. useful in continuous integration/remote debugging setups. </p>
+<p>In the following example a CPU profile is started at the entry to a function that is suspected to consume excessive CPU resources, and ended when the function exits.</p>
+<pre class="prettyprint"><code>function processPixels() {
+  console.profile("Processing pixels");
+  // later, after processing pixels
+  console.profileEnd();
+}
+</code></pre>
+<a name="//apple_ref/cpp/Method/console.profileEnd()" class="dashAnchor" id=""></a><h2 id="consoleprofileend">console.profileEnd()</h2>
+<p>Stops the current JavaScript CPU profiling session, if one is in progress, and prints the report to the Profiles panel.</p>
+<pre class="prettyprint"><code>console.profileEnd()
+</code></pre>
+<p>See <a href="#consoleprofilelabel">console.profile()</a> for example use.</p>
+<a name="//apple_ref/cpp/Method/console.time(label)" class="dashAnchor" id=""></a><h2 id="consoletimelabel">console.time(label)</h2>
+<p>Starts a new timer with an associated label. When <code>console.timeEnd()</code> is called with the same label, the timer is stopped the elapsed time displayed in the Console. Timer values are accurate to the sub-millisecond.</p>
+<pre class="prettyprint"><code>console.time("Array initialize");
+var array= new Array(1000000);
+for (var i = array.length - 1; i &gt;= 0; i--) {
+    array[i] = new Object();
+};
+console.timeEnd("Array initialize");
+</code></pre>
+<p><img alt="Example of using console.time() and timeEnd()" src="console-files/time-duration.png"></p>
+<aside class="note"><strong>Note:</strong><span> The string you pass to the <code>time()</code> and <code>timeEnd()</code> methods must match for the timer to finish as expected.</span></aside>
+<a name="//apple_ref/cpp/Method/console.timeEnd(label)" class="dashAnchor" id=""></a><h2 id="consoletimeendlabel">console.timeEnd(label)</h2>
+<p>Stops the timer with the specified label and prints the elapsed time.</p>
+<p>For example usage, see <a href="consoletime.html">console.time()</a>.</p>
+<a name="//apple_ref/cpp/Method/console.timeStamp(%5Blabel%5D)" class="dashAnchor" id=""></a><h2 id="consoletimestamplabel">console.timeStamp([label])</h2>
+<p>This method adds an event to the Timeline during a recording session. This lets you visually correlate your code generated time stamp to other events, such as screen layout and paints, that are automatically added to the Timeline.</p>
+<p>See <a href="console.html#marking_the_timeline">Marking the Timeline</a> for an example of using <code>console.timeStamp()</code>.</p>
+<a name="//apple_ref/cpp/Method/console.trace()" class="dashAnchor" id=""></a><h2 id="consoletrace">console.trace()</h2>
+<p>Prints a stack trace from the point where the method was called, including links to the specific lines in the JavaScript source. A counter indicates the number of times that <code>trace()</code> method was invoked at that point, as shown in the screen shot below.</p>
+<p><img alt="Example of a stack trace with counter" src="console-files/console-trace.png"></p>
+<a name="//apple_ref/cpp/Method/console.warn(object%20%5B,%20object,%20...%5D)" class="dashAnchor" id=""></a><h2 id="consolewarnobject_object">console.warn(object [, object, ...])</h2>
+<p>This method is like <a href="#consolelog"><code>console.log()</code></a> but also displays a yellow warning icon along with the logged message. </p>
+<pre class="prettyprint"><code>console.warn("User limit reached! (%d)", userPoints);
+</code></pre>
+<p><img alt="Example of console.warn()" src="console-files/log-warn.png"></p>
+<a name="//apple_ref/cpp/Method/debugger" class="dashAnchor" id=""></a><h2 id="debugger">debugger</h2>
+<p>The global <code>debugger</code> function causes Chrome to stop program execution and start a debugging session at the line where it was called. It is equivalent to setting a "manual" breakpoint in the Sources tab of Chrome DevTools.</p>
+<aside class="note"><strong>Note:</strong><span> The <code>debugger</code> command is not a method of the <code>console</code> object.</span></aside>
+<p>In the following example the JavaScript debugger is opened when an object's <code>brightness()</code> function is invoked:</p>
+<pre class="prettyprint"><code>brightness : function() {
+    debugger;
+    var r = Math.floor(this.red*255);
+    var g = Math.floor(this.green*255);
+    var b = Math.floor(this.blue*255);
+    return (r * 77 + g * 150 + b * 29) &gt;&gt; 8;
+}
+</code></pre>
+<p><img alt="Example of using debugger command" src="console-files/debugger.png"></p>
+
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-08-12T09:23:26.123170" id="gc-content-last-updated">Last updated August 12, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+  
+      
+      
+      
+      
+  
+
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script type="text/javascript" async="" defer src="http://www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="https://developers.google.com/_static/e7ff4f1ef3/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true,
+            'e7ff4f1ef3');
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer src="http://survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0">
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+
+<!-- Mirrored from developers.google.com/chrome-developer-tools/docs/console-api by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 26 Oct 2013 03:59:21 GMT -->
+</html>
