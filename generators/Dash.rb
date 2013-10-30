@@ -295,12 +295,12 @@ class Dash
     end
 
 
-    # {
-    #     'name' => {
-    #         'node'   => node,
-    #         'subset' => []
-    #     }
-    # }
+    #   {
+    #       'name' => {
+    #           'node'   => node,
+    #           'subset' => []
+    #       }
+    #   }
     # return +hash+
     def get_toc_obj(name, node, subset = [])
         return {

@@ -1,38 +1,78 @@
+require File.join(File.dirname(__FILE__), 'Dash.rb')
 
-classes_list = "index.jstl"
-
-File.open(classes_list, 'r') do |file|
-    count   = 0
-    queries = []
-
-    file.each_line do |line|
-
-        full_element_name = line.chomp
-        pieces = full_element_name.split(':')
-
-        pre_element_name = pieces[0]
-        pre_element_html_file_path = "#{pre_element_name}/tld-summary.html"
-        sub_element_name = pieces[1]
-        sub_element_html_file_path = "#{pre_element_name}/#{sub_element_name}.html"
-
-        # since there are multiple classes within the same package, take care not to add the
-        # record twice (even though the query would just be ignored)
-        queries << "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"#{pre_element_name}\", \"Library\", \"#{pre_element_html_file_path}\");"
-        queries << "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (\"#{pre_element_name}:#{sub_element_name}\", \"Tag\", \"#{sub_element_html_file_path}\");"
+dash = Dash.new({
+    :name           => 'JSTL 1.1',
+    :docs_root      => 'jstl-docs',
+    :index_page     => 'overview-summary.html',
+    :icon           => File.join('icon-images', 'icon_oracle.png')
+})
 
 
-        # html_file.close
-        count = count + 1
+dash.get_clean_docs_entries.each do |entry|
+    abs_path = File.join(dash::docs_root, entry)
 
-    # /file.each_line
+    if File.directory?(abs_path)
+
+        dash.clean_dir_entries(abs_path).each do |html|
+            name = nil
+            type = nil
+            path = File.join(entry, html)
+
+            # get the landing page for each tag type
+            if /tld\-/.match(html)
+                if html == 'tld-summary.html'
+                    name = entry
+                    type = 'Library'
+
+                else
+                    # skip tld-frame.html
+                    next
+                end
+
+            else
+                #functions
+                if entry == 'fn'
+                    if !/\.fn\./.match(html)
+                        # for some reason extra function html pages exist, but they are 404s
+                        next
+
+                    else
+                        docFn = dash.get_noko_doc(path)
+                        code = docFn.at_css('code:first-of-type')
+                        # puts code.text
+                        matches = /[a-z]+\([^\)]+\)/i.match(code.text)
+                        if matches
+                            name = entry + ':' + matches[0].gsub(/java\.lang\./, '')
+                            type = 'Function'
+                        end
+                    end
+
+                # regular entry
+                else
+                    name = entry + ':' + html.split('.').shift
+                    type = 'Tag'
+                end
+            end
+
+            if name && type
+                dash.sql_insert(name, type, path)
+            end
+        end
+
     end
-
-    puts "\nProcessed a total of #{count} lines."
-    puts "There are #{queries.length} queries to perform.\n"
-
-    queries.each {|query| `cd JSTL1.1.docset/Contents/Resources/; sqlite3 docSet.dsidx '#{query}'`}
-
-    # puts queries.join("\n")
-
-# close classes_list
 end
+
+
+# dash.sql_execute({
+#     :noop => true,
+    # :filter => {
+    #     :limit => 5,
+    #     :type => 'Guide',
+    #     :name => '\s5\.'
+    # }
+# })
+dash.sql_execute
+
+dash.copy_docs
+
+puts "\nAll Done!"
